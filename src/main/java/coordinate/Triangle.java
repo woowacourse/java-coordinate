@@ -2,7 +2,7 @@ package coordinate;
 
 import static util.NotNullValidator.validateNotNull;
 
-public class Triangle {
+public class Triangle extends Figure{
     private static final int LINES_SIZE = 3;
     private static final int COMPARE_SLOPE = 0;
 
@@ -30,22 +30,5 @@ public class Triangle {
     private boolean checkSameSlope() {
         return Double.compare(lines.getLine(0).calculateSlope()
                 , lines.getLine(1).calculateSlope()) == COMPARE_SLOPE;
-    }
-
-    public double area() {
-        double s = sumLineSegment() / 2;
-        double area = s;
-        for (int i = 0; i < LINES_SIZE; i++) {
-            area *= s - lines.getLine(i).calculateDistance();
-        }
-        return Math.sqrt(area);
-    }
-
-    private double sumLineSegment() {
-        double sum = 0;
-        for (int i = 0; i < LINES_SIZE; i++) {
-            sum += lines.getLine(i).calculateDistance();
-        }
-        return sum;
     }
 }

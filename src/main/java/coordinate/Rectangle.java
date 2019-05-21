@@ -1,9 +1,13 @@
 package coordinate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static util.NotNullValidator.validateNotNull;
 
-public class Rectangle {
+public class Rectangle extends Figure {
     private static final int LINES_SIZE = 4;
+    private static final int TRIANGLE_LINE_SIZE = 3;
     private static final int FIRST_LINE_NUMBER = 0;
     private static final int LAST_LINE_NUMBER = 3;
     private static final int SLOPE_MULTIPLE = -1;
@@ -71,8 +75,23 @@ public class Rectangle {
                 * nextLine.calculateSlope(), SLOPE_MULTIPLE) == COMPARE_SLOPE_MULTIPLE;
     }
 
-    public double area() {
-        return lines.getLine(FIRST_LINE_NUMBER).calculateDistance()
-                * lines.getLine(LAST_LINE_NUMBER).calculateDistance();
+    @Override
+    public double area(List<Double> lineDistance) {
+        lineDistance = createTriangle();
+        return super.area(lineDistance) * 2;
+    }
+
+    public List<Double> createTriangle() {
+        List<Double> lineDistance = new ArrayList<>();
+        for (int i = 0; i < TRIANGLE_LINE_SIZE - 1; i++) {
+            lineDistance.add(lines.getLine(i).calculateDistance());
+        }
+        lineDistance.add((diagonalDistance()));
+        return lineDistance;
+    }
+
+    private double diagonalDistance() {
+        return Math.sqrt(Math.pow(lines.getLine(FIRST_LINE_NUMBER).calculateDistance(), 2)
+                + Math.pow(lines.getLine(LAST_LINE_NUMBER).calculateDistance(), 2));
     }
 }

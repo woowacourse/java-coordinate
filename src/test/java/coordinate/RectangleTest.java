@@ -3,9 +3,12 @@ package coordinate;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.linesOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {
@@ -33,26 +36,26 @@ public class RectangleTest {
 
     @Test
     void calculateParallelRectangleAreaTest() {
-        Rectangle rectangle = new Rectangle(
-                new Lines(Arrays.asList(
-                    new Line(new Point(0, 0), new Point(5, 0)),
-                    new Line(new Point(5, 0), new Point(5, 2)),
-                    new Line(new Point(5, 2), new Point(0, 2)),
-                    new Line(new Point(0, 2), new Point(0, 0))))
-        );
-        assertThat(rectangle.area()).isEqualTo(10);
+        Lines lines = new Lines(Arrays.asList(
+                new Line(new Point(0, 0), new Point(5, 0)),
+                new Line(new Point(5, 0), new Point(5, 2)),
+                new Line(new Point(5, 2), new Point(0, 2)),
+                new Line(new Point(0, 2), new Point(0, 0))));
+        Rectangle rectangle = new Rectangle(lines);
+        List<Double> lineDistance = rectangle.createTriangle();
+        assertThat(rectangle.area(lineDistance)).isEqualTo(10, Offset.offset(0.001));
     }
 
     @Test
     void calculateTiledRectangleAreaTest() {
-        Rectangle rectangle = new Rectangle(
-                new Lines(Arrays.asList(
-                        new Line(new Point(1, 0), new Point(2, 1)),
-                        new Line(new Point(2, 1), new Point(1, 2)),
-                        new Line(new Point(1, 2), new Point(0, 1)),
-                        new Line(new Point(0, 1), new Point(1, 0))))
-        );
-        assertThat(rectangle.area()).isEqualTo(2, Offset.offset(0.001));
+        Lines lines = new Lines(Arrays.asList(
+                new Line(new Point(1, 0), new Point(2, 1)),
+                new Line(new Point(2, 1), new Point(1, 2)),
+                new Line(new Point(1, 2), new Point(0, 1)),
+                new Line(new Point(0, 1), new Point(1, 0))));
+        Rectangle rectangle = new Rectangle(lines);
+        List<Double> lineDistance = rectangle.createTriangle();
+        assertThat(rectangle.area(lineDistance)).isEqualTo(2, Offset.offset(0.001));
     }
 }
 

@@ -3,7 +3,9 @@ package coordinate;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -38,11 +40,15 @@ public class TriangleTest {
 
     @Test
     void triangleAreaTest() {
-        Triangle triangle = new Triangle(
-                new Lines(Arrays.asList(
-                        new Line(new Point(0, 0), new Point(2, 0)),
-                        new Line(new Point(2, 0), new Point(0, 2)),
-                        new Line(new Point(0, 2), new Point(0, 0)))));
-        assertThat(triangle.area()).isEqualTo(2.0, Offset.offset(0.001));
+        Lines lines = new Lines(Arrays.asList(
+                new Line(new Point(0, 0), new Point(2, 0)),
+                new Line(new Point(2, 0), new Point(0, 2)),
+                new Line(new Point(0, 2), new Point(0, 0))));
+        Triangle triangle = new Triangle(lines);
+        List<Double> lineDistance = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            lineDistance.add(lines.getLine(i).calculateDistance());
+        }
+        assertThat(triangle.area(lineDistance)).isEqualTo(2.0, Offset.offset(0.001));
     }
 }
