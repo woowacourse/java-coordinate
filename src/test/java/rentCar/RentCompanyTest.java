@@ -14,7 +14,7 @@ public class RentCompanyTest {
         company.addCar(new K5(260));
         company.addCar(new Sonata(120));
         company.addCar(new Avante(300));
-        company.addCar   (new K5(390));
+        company.addCar(new K5(390));
 
         String report = company.generateReport();
         assertThat(report).isEqualTo(
