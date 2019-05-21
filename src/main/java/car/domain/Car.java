@@ -1,8 +1,9 @@
 package car.domain;
 
 public abstract class Car {
-     double distance;
-     double fuelEffiency;
+    double distance;
+    double fuelEffiency;
+
     /**
      * 차종의 이름
      */

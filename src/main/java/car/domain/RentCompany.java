@@ -7,7 +7,8 @@ public class RentCompany {
     private static final String NEWLINE = System.getProperty("line.separator");
     private List<Car> cars = new ArrayList<>();
 
-    private RentCompany() {}
+    private RentCompany() {
+    }
 
     public static RentCompany create() {
         return new RentCompany();
@@ -20,7 +21,7 @@ public class RentCompany {
     public String generateReport() {
         StringBuilder sb = new StringBuilder();
         for (Car car : cars) {
-            sb.append(car.getName()).append(" : ").append((int)car.getChargeQuantity()).append("리터" + NEWLINE);
+            sb.append(car.getName()).append(" : ").append((int) car.getChargeQuantity()).append("리터" + NEWLINE);
         }
         return sb.toString();
     }
