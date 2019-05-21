@@ -9,55 +9,41 @@ public class Rectangle {
     private static final int RIGHT_TOP_POINT = 3;
     private static final int POINTS_SIZE = 4;
 
-    private final Points points;
+    private final Lines lines;
 
-    public Rectangle(Points points) {
-        validateNotNull(points);
-        validateNumOf(points);
-        this.points = points;
+    public Rectangle(Lines lines) {
+        validateNotNull(lines);
+        validateNumOf(lines);
+        this.lines = lines;
         validateRectangle();
     }
 
-    private void validateNumOf(Points points) {
-        if (points.getSize() != POINTS_SIZE) {
+    private void validateNumOf(Lines lines) {
+        if (lines.getSize() != POINTS_SIZE) {
             throw new IllegalArgumentException("직사각형은 4개의 점을 가져야 합니다.");
         }
     }
 
     private void validateRectangle() {
-        if (!(checkLeftVertical() && checkRightVertical() && checkTopHorizontal() && checkBottomHorizontal())) {
+        boolean isValidate = true;
+        for (int i=0; i<3; i++) {
+            isValidate &= checkVerticalLines(lines.getLine(i), lines.getLine(i+1));
+        }
+        isValidate &= checkVerticalLines(lines.getLine(3), lines.getLine(0));
+
+        if (!isValidate) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
     }
 
-    // 0 : LeftBottom, 1: LeftTop, 2: RightBottom, 3:RightTop
-    private boolean checkLeftVertical() {
-        return points.getX(LEFT_BOTTOM_POINT) == points.getX(LEFT_TOP_POINT);
+    private boolean checkVerticalLines(Line line1, Line line2) {
+        if (line1.isHorizontal() || line1.isVertical()) {
+            return (line1.isHorizontal() && line2.isVertical()) || (line1.isVertical() && line2.isHorizontal());
+        }
+        return Double.compare(line1.calculateSlope() * line2.calculateSlope(), -1) == 0;
     }
 
-    private boolean checkRightVertical() {
-        return points.getX(RIGHT_BOTTOM_POINT) == points.getX(RIGHT_TOP_POINT);
+    public double area() {
+        return lines.getLine(0).calculateDistance() * lines.getLine(1).calculateDistance();
     }
-
-    private boolean checkTopHorizontal() {
-        return points.getY(LEFT_TOP_POINT) == points.getY(RIGHT_TOP_POINT);
-    }
-
-    private boolean checkBottomHorizontal() {
-        return points.getY(LEFT_BOTTOM_POINT) == points.getY(RIGHT_BOTTOM_POINT);
-    }
-
-    public int area() {
-        return calculateWidth() * calculateHeight();
-    }
-
-    private int calculateHeight() {
-        return points.getY(LEFT_TOP_POINT) - points.getY(LEFT_BOTTOM_POINT);
-    }
-
-    private int calculateWidth() {
-        return points.getX(RIGHT_BOTTOM_POINT) - points.getX(LEFT_BOTTOM_POINT);
-    }
-
-
 }

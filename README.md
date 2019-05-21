@@ -47,11 +47,12 @@
     - [x] 넓이를 계산한다.
    
 ### 4 단계
-- [ ] Rectangle 과 Triangle 이 Points 가 아닌 Lines 를 갖도록 리팩토링
+- [x] Rectangle 과 Triangle 이 Points 가 아닌 Lines 를 갖도록 리팩토링
     - [x] StraightLine 을 Line 으로 리네이밍
-    - [ ] Lines 클래스 작성
-    - [ ] Rectangle 과 Triangle 테스트 코드 lines 사용하도록 수정
-    - [ ] Rectangle 과 Triangle 의 메서드들을 points 중심에서 lines 중심으로 수정
+    - [x] Lines 클래스 작성
+    - [x] Points 클래스 삭제
+    - [x] Rectangle 과 Triangle 테스트 코드 lines 사용하도록 수정
+    - [x] Rectangle 과 Triangle 의 메서드들을 points 중심에서 lines 중심으로 수정
     
 - [ ] 상속을 이용한 리팩토링
     - [ ] Figure 추상 클래스 작성
