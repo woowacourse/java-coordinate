@@ -32,4 +32,8 @@ public class Points {
     public void sort() {
         Collections.sort(points);
     }
+
+    public int getSize() {
+        return points.size();
+    }
 }
