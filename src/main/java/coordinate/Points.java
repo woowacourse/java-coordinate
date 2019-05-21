@@ -1,5 +1,6 @@
 package coordinate;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Points {
@@ -26,5 +27,9 @@ public class Points {
         if (index >= points.size() || index < 0) {
             throw new IllegalArgumentException("리스트 인덱스가 적절하지 않습니다.");
         }
+    }
+
+    public void sort() {
+        Collections.sort(points);
     }
 }

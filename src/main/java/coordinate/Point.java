@@ -2,7 +2,7 @@ package coordinate;
 
 import java.util.Objects;
 
-public class Point {
+public class Point implements Comparable<Point> {
     private static final int MIN_X_VALUE = 0;
     private static final int MAX_X_VALUE = 24;
     private static final int MIN_Y_VALUE = 0;
@@ -52,5 +52,26 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public int compareTo(Point another) {
+        if (x > another.getX()) {
+            return 1;
+        }
+
+        if (x < another.getX()) {
+            return -1;
+        }
+
+        if (y > another.getY()) {
+            return 1;
+        }
+
+        if (y < another.getY()) {
+            return -1;
+        }
+
+        return 0;
     }
 }

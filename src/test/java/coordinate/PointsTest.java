@@ -14,13 +14,15 @@ public class PointsTest {
     }
 
     @Test
-    void sortByXTest() {
-
-    }
-
-    @Test
-    void sortByYTest() {
-
+    void sortTest() {
+        Points points = new Points(Arrays.asList(new Point(2, 0),
+                new Point(1, 0), new Point(0, 0)));
+        Points sortedPoints = new Points(Arrays.asList(new Point(0, 0),
+                new Point(1, 0), new Point(2, 0)));
+        points.sort();
+        assertThat(points.get(0)).isEqualTo(sortedPoints.get(0));
+        assertThat(points.get(1)).isEqualTo(sortedPoints.get(1));
+        assertThat(points.get(2)).isEqualTo(sortedPoints.get(2));
     }
 
     @Test
