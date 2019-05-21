@@ -1,4 +1,6 @@
-package coord;
+package coord.view;
+
+import coord.model.Point;
 
 import java.util.Arrays;
 import java.util.List;

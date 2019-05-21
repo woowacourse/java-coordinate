@@ -1,5 +1,7 @@
 package coord;
 
+import coord.model.Point;
+import coord.view.InputView;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
