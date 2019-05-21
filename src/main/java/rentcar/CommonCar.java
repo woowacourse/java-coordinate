@@ -1,11 +1,11 @@
 package rentcar;
 
-public class CarAbstract implements Car {
+public class CommonCar implements Car {
     private final String carName;
     private final int distance;
     private final int distancePerLiter;
 
-    CarAbstract(String carName, int distance, int distancePerLiter) {
+    CommonCar(String carName, int distance, int distancePerLiter) {
         this.carName = carName;
         this.distance = distance;
         this.distancePerLiter = distancePerLiter;

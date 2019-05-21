@@ -1,6 +1,6 @@
 package rentcar;
 
-public class K5 extends CarAbstract {
+public class K5 extends CommonCar {
     private final static int DISTANCE_PER_LITER = 13;
     private final static String CAR_NAME = "K5";
 
