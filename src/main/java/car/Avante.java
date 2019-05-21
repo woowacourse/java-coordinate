@@ -1,3 +1,5 @@
+package car;
+
 public class Avante extends Car {
     private static final int FUEL_EFFICIENCY = 15;
 

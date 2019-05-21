@@ -1,3 +1,5 @@
+package car;
+
 public class K5 extends Car {
     private final static int FUEL_EFFICIENCY = 13;
 

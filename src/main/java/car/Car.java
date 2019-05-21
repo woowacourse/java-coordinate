@@ -1,4 +1,6 @@
-public abstract class Car implements Chargeable{
+package car;
+
+public abstract class Car implements Chargeable {
     protected int distance;
 
     public Car(int distance) {

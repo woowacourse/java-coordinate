@@ -1,3 +1,5 @@
+package car;
+
 public class Sonata extends Car {
     private static final int FUEL_EFFICIENCY = 10;
 
