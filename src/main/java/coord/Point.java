@@ -3,10 +3,16 @@ package coord;
 import java.util.Objects;
 
 public class Point {
+    private static final int MIN = 0;
+    private static final int MAX = 24;
+
     final public int x;
     final public int y;
 
     public Point(int x, int y) {
+        if (x < MIN || x > MAX || y < MIN || y > MAX) {
+            throw new IllegalArgumentException();
+        }
         this.x = x;
         this.y = y;
     }
