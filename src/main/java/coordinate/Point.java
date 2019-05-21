@@ -1,5 +1,7 @@
 package coordinate;
 
+import java.util.Objects;
+
 public class Point {
     private static final int MIN_X_VALUE = 0;
     private static final int MAX_X_VALUE = 24;
@@ -28,5 +30,19 @@ public class Point {
             throw new IllegalArgumentException("x 의 범위는 " + MIN_X_VALUE + "이상 "
                     + MAX_X_VALUE + "이하여야 합니다.");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return x == point.x &&
+                y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }
