@@ -1,9 +1,15 @@
 package coordinate;
 
+import java.util.Arrays;
+
 import static util.NotNullValidator.validateNotNull;
 
 public class StraightLine {
     private final Points points;
+
+    public static StraightLine createLine(Point p1, Point p2) {
+        return new StraightLine(new Points(Arrays.asList(p1, p2)));
+    }
 
     public StraightLine(Points points) {
         validateNotNull(points);
@@ -27,5 +33,10 @@ public class StraightLine {
 
     private int calculateYDifference() {
         return points.getY(0) - points.getY(1);
+    }
+
+    public double calculateSlope() {
+        return (double) (points.getY(1) - points.getY(0))
+                / (points.getX(1) - points.getX(0));
     }
 }
