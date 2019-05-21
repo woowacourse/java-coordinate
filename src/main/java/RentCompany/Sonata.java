@@ -25,7 +25,6 @@ public class Sonata implements Car {
         return Objects.hash(distance);
     }
 
-
     @Override
     public int calculateFuel() {
         return distance / EFFICIENCY;

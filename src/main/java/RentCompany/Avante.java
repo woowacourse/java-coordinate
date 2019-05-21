@@ -8,10 +8,9 @@ public class Avante implements Car {
 
     private final int distance;
 
-    public Avante(int distance) {
+    Avante(int distance) {
         this.distance = distance;
     }
-
 
     @Override
     public int calculateFuel() {

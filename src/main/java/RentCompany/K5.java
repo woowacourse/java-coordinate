@@ -8,7 +8,7 @@ public class K5 implements Car {
 
     private final int distance;
 
-    public K5(int distance) {
+    K5(int distance) {
         this.distance = distance;
     }
 
