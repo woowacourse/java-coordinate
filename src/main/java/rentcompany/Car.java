@@ -1,4 +1,4 @@
-package RentCompany;
+package rentcompany;
 
 public interface Car {
     int calculateFuel();

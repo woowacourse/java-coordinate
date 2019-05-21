@@ -1,14 +1,14 @@
-package RentCompany;
+package rentcompany;
 
 import java.util.Objects;
 
-public class K5 implements Car {
-    private static final String NAME = "K5";
-    private static final int EFFICIENCY = 13;
+public class Avante implements Car {
+    private static final int EFFICIENCY = 15;
+    private static final String NAME = "Avante";
 
     private final int distance;
 
-    K5(int distance) {
+    Avante(int distance) {
         this.distance = distance;
     }
 
@@ -26,8 +26,8 @@ public class K5 implements Car {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        K5 k5 = (K5) o;
-        return distance == k5.distance;
+        Avante avante = (Avante) o;
+        return distance == avante.distance;
     }
 
     @Override

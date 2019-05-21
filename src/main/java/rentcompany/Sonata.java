@@ -1,4 +1,4 @@
-package RentCompany;
+package rentcompany;
 
 import java.util.Objects;
 
