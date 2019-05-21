@@ -1,15 +1,27 @@
 package coordinate.domain;
 
+import java.util.List;
+
 public class StraightLine {
-    public static final int SQUARE = 2;
+    private static final int START_INDEX = 0;
+    private static final int END_INDEX = 1;
+    private static final int NUM_OF_POINT = 2;
+    private static final int SQUARE = 2;
 
     final Point startPoint;
     final Point endPoint;
 
-    StraightLine(Point startPoint, Point endPoint) {
-        validateEqualityOf(startPoint, endPoint);
-        this.startPoint = startPoint;
-        this.endPoint = endPoint;
+    StraightLine(List<Point> points) {
+        validateSizeOf(points);
+        validateEqualityOf(points.get(START_INDEX), points.get(END_INDEX));
+        this.startPoint = points.get(START_INDEX);
+        this.endPoint = points.get(END_INDEX);
+    }
+
+    private void validateSizeOf(List<Point> points) {
+        if (points.size() != NUM_OF_POINT) {
+            throw new IllegalArgumentException("점의 갯수가 두개여야 합니다.");
+        }
     }
 
     private void validateEqualityOf(Point startPoint, Point endPoint) {

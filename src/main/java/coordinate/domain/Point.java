@@ -1,18 +1,29 @@
 package coordinate.domain;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Point {
+    private static final int NUM_OF_COORDINATES = 2;
+    private static final int X_INDEX = 0;
+    private static final int Y_INDEX = 1;
     private static final int MIN_VALUE = 1;
     private static final int MAX_VALUE = 24;
 
     final int x;
     final int y;
 
-    public Point(int x, int y) {
-        validateNumberRange(x, y);
-        this.x = x;
-        this.y = y;
+    public Point(List<Integer> coordinates) {
+        validateSizeOf(coordinates);
+        validateNumberRange(coordinates.get(X_INDEX), coordinates.get(Y_INDEX));
+        this.x = coordinates.get(X_INDEX);
+        this.y = coordinates.get(Y_INDEX);
+    }
+
+    private void validateSizeOf(List<Integer> coordinates) {
+        if (coordinates.size() != NUM_OF_COORDINATES) {
+            throw new IllegalArgumentException("좌표점을 두개 입력해야 합니다");
+        }
     }
 
     private void validateNumberRange(int x, int y) {
