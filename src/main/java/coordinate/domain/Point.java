@@ -21,4 +21,12 @@ public class Point {
             throw new IllegalArgumentException(String.format("y의 값이 법위를 벗어났습니다. y : %d", y));
         }
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
