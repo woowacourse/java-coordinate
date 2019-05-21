@@ -5,7 +5,7 @@
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
 
 
-## car.K5 To-do-list
+## car To-do-list
 
 - [x] Car 추상 클래스 정의
     - [x] 이동거리를 인자로 받는 생성자
@@ -17,3 +17,12 @@
     - [x] 연비를 반환하는 메서드 구현
 - [x] 인터페이스를 적용하여 구현
     - [x] Chargeable 인터페이스 적용
+    
+## coordinate To-do-list
+
+### 1 단계
+- [x] Point 클래스 작성
+    - [x] 0~24 사이의 값만 가질 수 있다.
+- [ ] StraightLine 클래스 작성
+    - [ ] 두 점은 같을 수 없다.
+    - [ ] 두 점 사이의 거리를 계산해서 출력한다.
