@@ -4,7 +4,14 @@
 
 
 # java-coordinate
-좌표계산기 미션을 진행하기 위한 저장소
+## TODO
+* Figure 인터페이스 생성
+* Line, Triangle, Rectangle 클래스 구현
+* Axis 인터페이스 생성
+* X, Y 클래스 구현
+* Point, Points 클래스 구현
+* Figure 상속 클래스 만드는 generator 클래스 구현
+
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
