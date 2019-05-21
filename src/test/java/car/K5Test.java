@@ -15,6 +15,6 @@ public class K5Test {
     @Test
     void getNameTest() {
         K5 testK5 = new K5(350);
-        assertThat(testK5.getName()).isEqualTo("car.K5");
+        assertThat(testK5.getName()).isEqualTo("K5");
     }
 }

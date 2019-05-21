@@ -13,6 +13,6 @@ public abstract class Car implements Chargeable {
     }
 
     public String getName() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 }
