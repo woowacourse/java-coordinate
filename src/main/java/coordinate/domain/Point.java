@@ -11,20 +11,12 @@ public class Point {
         this.yCoordinate = yCoordinate;
     }
 
-    public int getDistanceX(Point pointB) {
-        return pointB.getSubtractionX(this.xCoordinate);
+    public int getDistanceX(Point endPoint) {
+        return xCoordinate.getDistance(endPoint.xCoordinate);
     }
 
-    private int getSubtractionX(Coordinate xCoordinate) {
-        return this.xCoordinate.getDistance(xCoordinate);
-    }
-
-    public int getDistanceY(Point pointB) {
-        return pointB.getSubtractionY(this.yCoordinate);
-    }
-
-    private int getSubtractionY(Coordinate yCoordinate) {
-        return this.yCoordinate.getDistance(yCoordinate);
+    public int getDistanceY(Point endPoint) {
+        return yCoordinate.getDistance(endPoint.yCoordinate);
     }
 
     @Override

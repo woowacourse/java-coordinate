@@ -20,12 +20,8 @@ public class Coordinate {
         }
     }
 
-    public int getDistance(Coordinate coordinate) {
-        return coordinate.getSubtraction(this.coordinate);
-    }
-
-    private int getSubtraction(int coordinate) {
-        return Math.abs(coordinate - this.coordinate);
+    public int getDistance(Coordinate endPointCoordinate) {
+        return Math.abs(endPointCoordinate.coordinate - this.coordinate);
     }
 
     @Override
