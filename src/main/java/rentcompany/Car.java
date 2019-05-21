@@ -1,23 +1,18 @@
 package rentcompany;
 
-public abstract class Car {
+public abstract class Car implements ICar {
 
     private static final String COLON = " : ";
     private static final String LITER = "리터";
     private static final String NEW_LINE = "\n";
+    private static final int MIN_DISTANCE = 0;
 
-    abstract double getDistancePerLiter();
-
-    abstract double getTripDistance();
-
-    abstract String getName();
-
-    double getChargeQuantity() {
+    private double getChargeQuantity() {
         return getTripDistance() / getDistancePerLiter();
     }
 
     int validDistance(int distance) {
-        if(getTripDistance() < 0){
+        if (getTripDistance() < MIN_DISTANCE) {
             throw new IllegalArgumentException("거리는 양수이어야 합니다.");
         }
         return distance;
@@ -25,6 +20,13 @@ public abstract class Car {
 
     @Override
     public String toString() {
-        return getName() + COLON + (int)getChargeQuantity() + LITER + NEW_LINE;
+        StringBuilder stringBuilder = new StringBuilder();
+        return stringBuilder
+                .append(getName())
+                .append(COLON)
+                .append((int) getChargeQuantity())
+                .append(LITER)
+                .append(NEW_LINE)
+                .toString();
     }
 }

@@ -7,8 +7,8 @@ public class RentCompany {
 
     private List<Car> cars;
 
-    private RentCompany(){
-        this.cars=new ArrayList<>();
+    private RentCompany() {
+        this.cars = new ArrayList<>();
     }
 
     public static RentCompany create() {
