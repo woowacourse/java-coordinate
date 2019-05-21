@@ -17,14 +17,14 @@ public class StraightLine {
     }
 
     public double calculateDistance() {
-        return Math.sqrt(calculateXDistance() + calculateYDistance());
+        return Math.sqrt(Math.pow(calculateXDifference(), 2) + Math.pow(calculateYDifference(), 2));
     }
 
-    private double calculateXDistance() {
-        return Math.pow(p1.getX() - p2.getX(), 2);
+    private int calculateXDifference() {
+        return p1.getX() - p2.getX();
     }
 
-    private double calculateYDistance() {
-        return Math.pow(p1.getY() - p2.getY(), 2);
+    private int calculateYDifference() {
+        return p1.getY() - p2.getY();
     }
 }
