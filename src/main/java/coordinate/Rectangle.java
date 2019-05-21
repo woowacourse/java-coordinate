@@ -14,7 +14,6 @@ public class Rectangle {
     public Rectangle(Points points) {
         validateNotNull(points);
         validateNumOf(points);
-        points.sort();
         this.points = points;
         validateRectangle();
     }

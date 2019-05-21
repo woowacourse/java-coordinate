@@ -12,6 +12,7 @@ public class Points {
         validateNotNull(points);
         validateNoDuplication(points);
         this.points = points;
+        sort();
     }
 
     private void validateNoDuplication(List<Point> points) {
