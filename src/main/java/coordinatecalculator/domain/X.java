@@ -11,6 +11,10 @@ public class X extends AxisValidator {
         this.x = Integer.parseInt(x);
     }
 
+    public int getX() {
+        return x;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

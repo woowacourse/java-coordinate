@@ -12,6 +12,10 @@ public class Y extends AxisValidator {
         this.y = Integer.parseInt(y);
     }
 
+    public int getY() {
+        return y;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

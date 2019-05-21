@@ -10,6 +10,10 @@ public class Points {
         this.points = points;
     }
 
+    public List<Point> getPoints() {
+        return points;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
