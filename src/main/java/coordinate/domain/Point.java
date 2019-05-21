@@ -11,7 +11,7 @@ public class Point {
         }
 
         int point_x = Integer.parseInt(input_x);
-        int point_y = Integer.parseInt(input_x);
+        int point_y = Integer.parseInt(input_y);
 
         if(isAllowedNumber(point_x,point_y)){
             throw new IllegalArgumentException("24이하의 수를 입력해 주세요.");
@@ -38,5 +38,13 @@ public class Point {
             return false;
         }
         return true;
+    }
+
+    public int getPoint_x() {
+        return point_x;
+    }
+
+    public int getPoint_y() {
+        return point_y;
     }
 }
