@@ -1,10 +1,14 @@
 package coordinate;
 
+import static util.NotNullValidator.validateNotNull;
+
 public class StraightLine {
     private final Point p1;
     private final Point p2;
 
     public StraightLine(Point p1, Point p2) {
+        validateNotNull(p1);
+        validateNotNull(p2);
         validateDifferentPoint(p1, p2);
         this.p1 = p1;
         this.p2 = p2;
