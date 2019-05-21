@@ -1,5 +1,6 @@
 package coordinate;
 
+import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,6 +20,6 @@ public class StraightLineTest {
         Point p1 = new Point(0, 1);
         Point p2 = new Point(1, 2);
         StraightLine straightLine = new StraightLine(p1, p2);
-        assertThat(straightLine.calculateDistance()).isEqualTo(Math.sqrt(2));
+        assertThat(straightLine.calculateDistance()).isEqualTo(Math.sqrt(2), Offset.offset(0.001));
     }
 }
