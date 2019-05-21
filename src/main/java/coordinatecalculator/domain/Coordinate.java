@@ -9,15 +9,11 @@ public class Coordinate {
         this.y = y;
     }
 
-    public double calculate(int x, int y) {
+    public double calculate(Coordinate coordinate) {
+        return coordinate.calculate(x, y);
+    }
+
+    private double calculate(int x, int y) {
         return Math.sqrt(Math.pow(Math.abs(x - this.x), 2) + Math.pow(Math.abs(y - this.y), 2));
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 }
