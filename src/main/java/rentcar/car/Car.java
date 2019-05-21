@@ -1,17 +1,9 @@
 package rentcar.car;
 
-public abstract class Car {
-    public abstract double getDistancePerLitter();
+public interface Car {
+    double getTripDistance();
 
-    public abstract double getTripDistance();
+    String getName();
 
-    public abstract String getName();
-
-    double getChargeQuantity() {
-        return getTripDistance() / getDistancePerLitter();
-    }
-
-    public String toString() {
-        return getName() + " : " + (int) getChargeQuantity() + "리터";
-    }
+    double getChargeQuantity();
 }
