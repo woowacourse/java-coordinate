@@ -1,10 +1,10 @@
 package rentcompany;
 
-public class Sonata extends Car {
-    private static final String NAME = "Sonata";
-    private static final double DISTANCE_PER_LITER = 10;
+public class K5 extends Car {
+    private static final String NAME = "K5";
+    private static final double DISTANCE_PER_LITER = 13;
 
-    Sonata(double tripDistance) {
+    K5(double tripDistance) {
         super(tripDistance);
     }
 
