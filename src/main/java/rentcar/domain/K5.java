@@ -9,22 +9,22 @@ public class K5 extends Car {
     }
 
     @Override
-    double getDistancePerLiter() {
+    public double getDistancePerLiter() {
         return distancePerLiter;
     }
 
     @Override
-    double getTripDistance() {
+    public double getTripDistance() {
         return tripDistance;
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return name;
     }
 
     @Override
     public String toString() {
-        return "K5 : " + (int)getChargeQuantity() + "리터";
+        return name + " : " + (int)getChargeQuantity() + "리터";
     }
 }
