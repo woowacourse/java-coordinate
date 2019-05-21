@@ -1,10 +1,35 @@
 package coordinate.domain;
 
-public class Line {
-    public static double length(Point pointA, Point pointB) {
-        int xDistance = pointA.getDistanceX(pointB);
-        int yDistance = pointA.getDistanceY(pointB);
+import java.util.Objects;
 
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+public class Line {
+    private static final int SQUARE = 2;
+    private Point startPoint;
+    private Point endPoint;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(startPoint, line.startPoint) &&
+                Objects.equals(endPoint, line.endPoint);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(startPoint, endPoint);
+    }
+
+    public Line(Point startPoint, Point endPoint) {
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+    }
+
+    public double length() {
+        int xDistance = startPoint.getDistanceX(endPoint);
+        int yDistance = startPoint.getDistanceY(endPoint);
+
+        return Math.sqrt(Math.pow(xDistance, SQUARE) + Math.pow(yDistance, SQUARE));
     }
 }

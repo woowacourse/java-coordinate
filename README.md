@@ -10,16 +10,15 @@
 좌표계산기 미션을 진행하기 위한 저장소
 
 ##To-do
+ - UI를 그려야 한다.
+ 
+##Done
  - 좌표를 입력받는다.
     - 좌표는 소괄호() 안에 둘러쌓여있으며, 쉼표로 xCoordinate,y값을 구분한다.
     - xCoordinate,y의 값은 0~24 사이이다.
     - "-"를 기준으로 좌표를 구분한다.
  - 두 점 사이의 거리를 구한다.
  - 이를 출력한다.
- 
-##Done
-- xCoordinate,y의 값은 0~24 사이이다.
-- 두 점 사이의 거리를 구한다.
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
