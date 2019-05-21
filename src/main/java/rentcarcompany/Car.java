@@ -1,6 +1,6 @@
 package rentcarcompany;
 
-public abstract class Car {
+public abstract class Car implements CarInterface {
     protected String name;
     protected int distance;
     protected int mileage;
@@ -9,7 +9,12 @@ public abstract class Car {
         return distance / mileage;
     }
 
-    String makeInfo() {
+    public String makeInfo() {
+        return name + " : " + makeOilAmount() + "리터";
+    }
+
+    @Override
+    public String getInfo() {
         return name + " : " + makeOilAmount() + "리터";
     }
 }
