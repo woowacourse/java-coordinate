@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 import static util.NotNullValidator.validateNotNull;
 
-public class StraightLine {
+public class Line {
     private final Points points;
 
-    public static StraightLine createLine(Point p1, Point p2) {
-        return new StraightLine(new Points(Arrays.asList(p1, p2)));
+    public static Line createLine(Point p1, Point p2) {
+        return new Line(new Points(Arrays.asList(p1, p2)));
     }
 
-    public StraightLine(Points points) {
+    public Line(Points points) {
         validateNotNull(points);
         validateNumOf(points);
         this.points = points;

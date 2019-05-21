@@ -2,7 +2,7 @@ package coordinate;
 
 import java.util.Arrays;
 
-import static coordinate.StraightLine.createLine;
+import static coordinate.Line.createLine;
 import static util.NotNullValidator.validateNotNull;
 
 public class Triangle {
@@ -30,9 +30,9 @@ public class Triangle {
     public double area() {
 
         //double l1 = createLine(points.get(0), points.get(1)).calculateDistance();
-        double l1 = new StraightLine(new Points(Arrays.asList(points.get(0), points.get(1)))).calculateDistance();
-        double l2 = new StraightLine(new Points(Arrays.asList(points.get(1), points.get(2)))).calculateDistance();
-        double l3 = new StraightLine(new Points(Arrays.asList(points.get(2), points.get(0)))).calculateDistance();
+        double l1 = new Line(new Points(Arrays.asList(points.get(0), points.get(1)))).calculateDistance();
+        double l2 = new Line(new Points(Arrays.asList(points.get(1), points.get(2)))).calculateDistance();
+        double l3 = new Line(new Points(Arrays.asList(points.get(2), points.get(0)))).calculateDistance();
 
         double s = (l1 + l2 + l3) / 2;
         return Math.sqrt((s * (s - l1) * (s - l2) * (s - l3)));
