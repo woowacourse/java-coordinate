@@ -1,6 +1,7 @@
 package coordinate;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 public class Points {
@@ -9,7 +10,14 @@ public class Points {
 
     public Points(List<Point> points) {
         validateNotNull(points);
+        validateNoDuplication(points);
         this.points = points;
+    }
+
+    private void validateNoDuplication(List<Point> points) {
+        if (points.size() != (new HashSet<>(points)).size()) {
+            throw new IllegalArgumentException("중복되는 점이 존재할 수 없습니다.");
+        }
     }
 
     private void validateNotNull(List<Point> points) {
