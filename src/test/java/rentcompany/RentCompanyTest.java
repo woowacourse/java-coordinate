@@ -2,6 +2,8 @@ package rentcompany;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class RentCompanyTest {
 
     private static final String NEWLINE = System.getProperty("line.separator");
@@ -24,5 +26,5 @@ public class RentCompanyTest {
                         "K5 : 30리터" + NEWLINE
         );
     }
-
+    
 }
