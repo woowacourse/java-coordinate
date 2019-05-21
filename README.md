@@ -1,3 +1,12 @@
+#rentCar
+
+##기능리스트
+
+
+##to do
+-[ ] RentCompany 테스트 통과하기
+  -[ ] RentCompany 객체에 추가한 Car 객체의 연비 정보 확인하기
+
 # java-coordinate
 좌표계산기 미션을 진행하기 위한 저장소
 
