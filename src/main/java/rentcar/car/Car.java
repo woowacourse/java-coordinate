@@ -1,6 +1,6 @@
-package rentCar;
+package rentcar.car;
 
-abstract class Car {
+public abstract class Car {
     private static final double MIN_TRIP_DISTANCE = 0;
 
     private final double tripDistance;
@@ -28,11 +28,11 @@ abstract class Car {
         return tripDistance;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    double getChargeQuantity() {
+    public double getChargeQuantity() {
         return getTripDistance() / getDistancePerLiter();
     }
 }

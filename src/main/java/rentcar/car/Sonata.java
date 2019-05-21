@@ -1,4 +1,4 @@
-package rentCar;
+package rentcar.car;
 
 public class Sonata extends Car {
     private static final int DISTANCE_PER_LITER = 10;

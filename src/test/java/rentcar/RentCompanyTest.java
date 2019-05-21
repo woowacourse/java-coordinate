@@ -1,6 +1,9 @@
-package rentCar;
+package rentcar;
 
 import org.junit.jupiter.api.Test;
+import rentcar.car.Avante;
+import rentcar.car.K5;
+import rentcar.car.Sonata;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
