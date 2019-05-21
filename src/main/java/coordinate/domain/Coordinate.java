@@ -8,4 +8,8 @@ public class Coordinate {
     public Coordinate(List<Point> points) {
         this.points = points;
     }
+
+    public Point getPoint(int index) {
+        return points.get(index);
+    }
 }
