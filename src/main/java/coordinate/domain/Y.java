@@ -12,6 +12,10 @@ public class Y {
         this.coordinate = coordinate;
     }
 
+    public int getY() {
+        return coordinate;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
