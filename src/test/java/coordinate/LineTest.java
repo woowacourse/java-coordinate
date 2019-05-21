@@ -11,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LineTest {
     @Test
-    void 두_점은_같을_수_없다() {
+    void checkSamePointTest() {
         Point p1 = new Point(1, 2);
         Point p2 = new Point(1, 2);
         assertThrows(IllegalArgumentException.class, () -> new Line(p1, p2));
     }
 
     @Test
-    void 두_점_사이_거리계산() {
+    void calculateDistanceTest() {
         Point p1 = new Point(0, 1);
         Point p2 = new Point(1, 2);
         Line line = new Line(p1, p2);

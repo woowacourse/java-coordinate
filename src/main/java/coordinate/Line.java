@@ -8,6 +8,9 @@ import java.util.Objects;
 import static util.NotNullValidator.validateNotNull;
 
 public class Line {
+    private static final int DIFFERENCE_ZERO = 0;
+    private static final int POWER_TWO = 2;
+
     private Point p1;
     private Point p2;
 
@@ -30,33 +33,42 @@ public class Line {
     }
 
     private void validateNoDuplication(List<Point> points) {
-        if ((new HashSet<>(points)).size() != 2) {
+        if ((new HashSet<>(points)).size() != points.size()) {
             throw new IllegalArgumentException("중복되는 점이 존재할 수 없습니다.");
         }
     }
 
     public double calculateDistance() {
-        return Math.sqrt(Math.pow(calculateXDifference(), 2) + Math.pow(calculateYDifference(), 2));
+        return calculateSquared(calculatePow(calculateXDifference(), POWER_TWO)
+                                + calculatePow(calculateYDifference(), POWER_TWO));
     }
 
-    private int calculateXDifference() {
-        return p2.getX() - p1.getX();
+    private double calculateSquared(double value) {
+        return Math.sqrt(value);
     }
 
-    private int calculateYDifference() {
-        return p2.getY() - p1.getY();
+    private double calculatePow(int value, int pow) {
+        return Math.pow(value, pow);
     }
 
     public double calculateSlope() {
         return (double) calculateYDifference() / calculateXDifference();
     }
 
-    public boolean isHorizontal() {
-        return calculateYDifference() == 0;
+    private int calculateXDifference() {
+        return p2.getXValue() - p1.getXValue();
     }
 
-    public boolean isVertical() {
-        return calculateXDifference() == 0;
+    private int calculateYDifference() {
+        return p2.getYValue() - p1.getYValue();
+    }
+
+    public boolean hasHorizontalAxisParallel() {
+        return calculateYDifference() == DIFFERENCE_ZERO;
+    }
+
+    public boolean hasVerticalAxisParallel() {
+        return calculateXDifference() == DIFFERENCE_ZERO;
     }
 
     @Override

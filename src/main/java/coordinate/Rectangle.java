@@ -3,11 +3,11 @@ package coordinate;
 import static util.NotNullValidator.validateNotNull;
 
 public class Rectangle {
-    private static final int LEFT_BOTTOM_POINT = 0;
-    private static final int LEFT_TOP_POINT = 1;
-    private static final int RIGHT_BOTTOM_POINT = 2;
-    private static final int RIGHT_TOP_POINT = 3;
-    private static final int POINTS_SIZE = 4;
+    private static final int LINES_SIZE = 4;
+    private static final int FIRST_LINE_NUMBER = 0;
+    private static final int LAST_LINE_NUMBER = 3;
+    private static final int SLOPE_MULTIPLE = -1;
+    private static final int COMPARE_SLOPE_MULTIPLE = 0;
 
     private final Lines lines;
 
@@ -15,35 +15,56 @@ public class Rectangle {
         validateNotNull(lines);
         validateNumOf(lines);
         this.lines = lines;
-        validateRectangle();
+        validateFigure();
     }
 
     private void validateNumOf(Lines lines) {
-        if (lines.getSize() != POINTS_SIZE) {
-            throw new IllegalArgumentException("직사각형은 4개의 점을 가져야 합니다.");
+        if (lines.getSize() != LINES_SIZE) {
+            throw new IllegalArgumentException("직사각형은 4개의 라인을 가져야 합니다.");
         }
     }
 
-    private void validateRectangle() {
+    private void validateFigure() {
+        if (!hasVerticalLines()) {
+            throw new IllegalArgumentException("직사각형은 4개의 직각을 가져야 합니다.");
+        }
+    }
+
+    private boolean hasVerticalLines() {
         boolean isValidate = true;
-        for (int i=0; i<3; i++) {
-            isValidate &= checkVerticalLines(lines.getLine(i), lines.getLine(i+1));
-        }
-        isValidate &= checkVerticalLines(lines.getLine(3), lines.getLine(0));
 
-        if (!isValidate) {
-            throw new IllegalArgumentException("직사각형이 아닙니다.");
+        for (int i = FIRST_LINE_NUMBER; i < LAST_LINE_NUMBER; i++) {
+            isValidate &= checkVerticalLines(lines.getLine(i), lines.getLine(i + 1));
         }
+        isValidate &= checkVerticalLines(lines.getLine(LAST_LINE_NUMBER), lines.getLine(FIRST_LINE_NUMBER));
+
+        return isValidate;
     }
 
-    private boolean checkVerticalLines(Line line1, Line line2) {
-        if (line1.isHorizontal() || line1.isVertical()) {
-            return (line1.isHorizontal() && line2.isVertical()) || (line1.isVertical() && line2.isHorizontal());
+    private boolean checkVerticalLines(Line currentLine, Line nextLine) {
+        if (hasParallelAxis(currentLine)) {
+            return checkParallelAxisVertical(currentLine, nextLine);
         }
-        return Double.compare(line1.calculateSlope() * line2.calculateSlope(), -1) == 0;
+        return checkTiledVertical(currentLine, nextLine);
+    }
+
+    private boolean hasParallelAxis(Line currentLine) {
+        return currentLine.hasHorizontalAxisParallel()
+                || currentLine.hasVerticalAxisParallel();
+    }
+
+    private boolean checkParallelAxisVertical(Line currentLine, Line nextLine) {
+        return (currentLine.hasHorizontalAxisParallel() && nextLine.hasVerticalAxisParallel())
+                || (currentLine.hasVerticalAxisParallel() && nextLine.hasHorizontalAxisParallel());
+    }
+
+    private boolean checkTiledVertical(Line currentLine, Line nextLine) {
+        return Double.compare(currentLine.calculateSlope()
+                * nextLine.calculateSlope(), SLOPE_MULTIPLE) == COMPARE_SLOPE_MULTIPLE;
     }
 
     public double area() {
-        return lines.getLine(0).calculateDistance() * lines.getLine(1).calculateDistance();
+        return lines.getLine(FIRST_LINE_NUMBER).calculateDistance()
+                * lines.getLine(LAST_LINE_NUMBER).calculateDistance();
     }
 }
