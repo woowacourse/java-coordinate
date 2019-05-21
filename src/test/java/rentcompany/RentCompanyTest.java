@@ -15,6 +15,11 @@ public class RentCompanyTest {
     void setUp() {
         // TODO: Factory Method로 구현
         rentCompany = new RentCompany();
+        rentCompany.addCar(new Sonata(150));
+        rentCompany.addCar(new K5(260));
+        rentCompany.addCar(new Sonata(120));
+        rentCompany.addCar(new Avante(300));
+        rentCompany.addCar(new K5(390));
     }
 
     @Test

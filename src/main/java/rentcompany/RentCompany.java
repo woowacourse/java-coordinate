@@ -7,14 +7,6 @@ import java.util.Objects;
 public class RentCompany {
     private final List<Car> cars = new ArrayList<Car>();
 
-    RentCompany() {
-        addCar(new Sonata(150));
-        addCar(new K5(260));
-        addCar(new Sonata(120));
-        addCar(new Avante(300));
-        addCar(new K5(390));
-    }
-
     List<Car> getCars() {
         return cars;
     }
