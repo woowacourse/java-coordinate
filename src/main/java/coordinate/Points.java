@@ -23,6 +23,16 @@ public class Points {
         return points.get(index);
     }
 
+    public int getX(int index) {
+        validateIndex(index);
+        return points.get(index).getX();
+    }
+
+    public int getY(int index) {
+        validateIndex(index);
+        return points.get(index).getY();
+    }
+
     private void validateIndex(int index) {
         if (index >= points.size() || index < 0) {
             throw new IllegalArgumentException("리스트 인덱스가 적절하지 않습니다.");

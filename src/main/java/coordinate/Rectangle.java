@@ -27,18 +27,18 @@ public class Rectangle {
 
     // 0 : LeftBottom, 1: LeftTop, 2: RightBottom, 3:RightTop
     private boolean checkLeft() {
-        return points.get(0).getX() == points.get(1).getX();
+        return points.getX(0) == points.getX(1);
     }
 
     private boolean checkRight() {
-        return points.get(2).getX() == points.get(3).getX();
+        return points.getX(2) == points.getX(3);
     }
 
     private boolean checkTop() {
-        return points.get(1).getY() == points.get(3).getY();
+        return points.getY(1) == points.getY(3);
     }
 
     private boolean checkBottom() {
-        return points.get(0).getY() == points.get(2).getY();
+        return points.getY(0) == points.getY(2);
     }
 }
