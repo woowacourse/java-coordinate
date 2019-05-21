@@ -11,6 +11,16 @@ public class Point {
         this.y = new Y(y);
     }
 
+    public double length(final Point other) {
+        double squareOfX = square(this.x.getX(), other.x.getX());
+        double squareOfY = square(this.y.getY(), other.y.getY());
+        return Math.sqrt(squareOfX + squareOfY);
+    }
+
+    private double square(final int first, final int second) {
+        return Math.pow(first - second, 2);
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
