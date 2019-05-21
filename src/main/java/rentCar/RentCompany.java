@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentCompany implements Reportable{
-    private static final String NEWLINE = System.getProperty("line.separator");
     private static final String LITER = "리터";
 
     private List<Car> cars;
