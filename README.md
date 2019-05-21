@@ -53,6 +53,7 @@
     - [x] Points 클래스 삭제
     - [x] Rectangle 과 Triangle 테스트 코드 lines 사용하도록 수정
     - [x] Rectangle 과 Triangle 의 메서드들을 points 중심에서 lines 중심으로 수정
+    - [x] 하드코딩 값 상수로 선언
     
 - [ ] 상속을 이용한 리팩토링
     - [ ] Figure 추상 클래스 작성

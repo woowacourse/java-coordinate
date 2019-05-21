@@ -54,8 +54,16 @@ public class Rectangle {
     }
 
     private boolean checkParallelAxisVertical(Line currentLine, Line nextLine) {
-        return (currentLine.hasHorizontalAxisParallel() && nextLine.hasVerticalAxisParallel())
-                || (currentLine.hasVerticalAxisParallel() && nextLine.hasHorizontalAxisParallel());
+        return checkCurrentLineHorizontalAxis(currentLine, nextLine)
+                || checkCurrentLineVerticalAxis(currentLine, nextLine);
+    }
+
+    private boolean checkCurrentLineHorizontalAxis(Line currentLine, Line nextLine) {
+        return currentLine.hasHorizontalAxisParallel() && nextLine.hasVerticalAxisParallel();
+    }
+
+    private boolean checkCurrentLineVerticalAxis(Line currentLine, Line nextLine) {
+        return currentLine.hasVerticalAxisParallel() && nextLine.hasHorizontalAxisParallel();
     }
 
     private boolean checkTiledVertical(Line currentLine, Line nextLine) {

@@ -39,16 +39,8 @@ public class Line {
     }
 
     public double calculateDistance() {
-        return calculateSquared(calculatePow(calculateXDifference(), POWER_TWO)
-                                + calculatePow(calculateYDifference(), POWER_TWO));
-    }
-
-    private double calculateSquared(double value) {
-        return Math.sqrt(value);
-    }
-
-    private double calculatePow(int value, int pow) {
-        return Math.pow(value, pow);
+        return Math.sqrt(Math.pow(calculateXDifference(), POWER_TWO)
+                        + Math.pow(calculateYDifference(), POWER_TWO));
     }
 
     public double calculateSlope() {

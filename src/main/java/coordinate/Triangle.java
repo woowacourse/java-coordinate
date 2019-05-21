@@ -33,16 +33,19 @@ public class Triangle {
     }
 
     public double area() {
+        double s = sumLineSegment() / 2;
+        double area = s;
+        for (int i = 0; i < LINES_SIZE; i++) {
+            area *= s - lines.getLine(i).calculateDistance();
+        }
+        return Math.sqrt(area);
+    }
+
+    private double sumLineSegment() {
         double sum = 0;
         for (int i = 0; i < LINES_SIZE; i++) {
             sum += lines.getLine(i).calculateDistance();
         }
-        double s = sum / 2;
-        double area = s;
-        for (int i = 0; i < LINES_SIZE; i++) {
-            area *= s - lines.getLine(i).calculateDistance();
-            s = sum / 2;
-        }
-        return Math.sqrt(area);
+        return sum;
     }
 }
