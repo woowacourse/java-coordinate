@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PointsTest {
@@ -23,9 +24,14 @@ public class PointsTest {
     }
 
     @Test
+    void invalidIndexTest() {
+        Points points = new Points(Arrays.asList(new Point(0, 0)));
+        assertThrows(IllegalArgumentException.class, () -> points.get(1));
+    }
+
+    @Test
     void getElementByIndexTest() {
-        Points points = new Points(Arrays.asList(new Point(0, 0),
-                new Point(5,0), new Point(5, 3),
-                new Point(0, 3)));
+        Points points = new Points(Arrays.asList(new Point(0, 0)));
+        assertThat(points.get(0)).isEqualTo(new Point(0, 0));
     }
 }
