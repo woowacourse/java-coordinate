@@ -3,19 +3,23 @@ package coordinate;
 import static util.NotNullValidator.validateNotNull;
 
 public class StraightLine {
-    private final Point p1;
-    private final Point p2;
+    private final Points points;
 
-    public StraightLine(Point p1, Point p2) {
-        validateNotNull(p1);
-        validateNotNull(p2);
-        validateDifferentPoint(p1, p2);
-        this.p1 = p1;
-        this.p2 = p2;
+    public StraightLine(Points points) {
+        validateNotNull(points);
+        validateNumOf(points);
+        validateDifferentPoint(points);
+        this.points = points;
     }
 
-    private void validateDifferentPoint(Point p1, Point p2) {
-        if (p1.equals(p2)) {
+    private void validateNumOf(Points points) {
+        if (points.getSize() != 2) {
+            throw new IllegalArgumentException("직선은 두 개의 점을 가져야합니다.");
+        }
+    }
+
+    private void validateDifferentPoint(Points points) {
+        if (points.get(0).equals(points.get(1))) {
             throw new IllegalArgumentException("직선의 두 점은 같을 수가 없습니다.");
         }
     }
@@ -25,10 +29,10 @@ public class StraightLine {
     }
 
     private int calculateXDifference() {
-        return p1.getX() - p2.getX();
+        return points.getX(0) - points.getX(1);
     }
 
     private int calculateYDifference() {
-        return p1.getY() - p2.getY();
+        return points.getY(0) - points.getY(1);
     }
 }
