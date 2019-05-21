@@ -20,25 +20,25 @@ public class Rectangle {
     }
 
     private void validateRectangle() {
-        if (!(checkLeft() && checkRight() && checkTop() && checkBottom())) {
+        if (!(checkLeftVertical() && checkRightVertical() && checkTopHorizontal() && checkBottomHorizontal())) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
     }
 
     // 0 : LeftBottom, 1: LeftTop, 2: RightBottom, 3:RightTop
-    private boolean checkLeft() {
+    private boolean checkLeftVertical() {
         return points.getX(0) == points.getX(1);
     }
 
-    private boolean checkRight() {
+    private boolean checkRightVertical() {
         return points.getX(2) == points.getX(3);
     }
 
-    private boolean checkTop() {
+    private boolean checkTopHorizontal() {
         return points.getY(1) == points.getY(3);
     }
 
-    private boolean checkBottom() {
+    private boolean checkBottomHorizontal() {
         return points.getY(0) == points.getY(2);
     }
 }
