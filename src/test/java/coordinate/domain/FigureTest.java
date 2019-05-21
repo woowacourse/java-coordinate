@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class FigureTest {
     List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3)));
-    Figure figure = new Figure(points);
+    Figure figure = new Figure(points, 3);
 
     @Test
     public void 좌표평면을_잘_그리는지_확인() {

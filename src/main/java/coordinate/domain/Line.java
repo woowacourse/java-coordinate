@@ -2,20 +2,11 @@ package coordinate.domain;
 
 import java.util.List;
 
-public class Line {
+public class Line extends Figure {
     private static final int VALID_LENGTH_OF_POINTS = 2;
 
-    private final List<Point> points;
-
     public Line(List<Point> points) {
-        validateLengthOfPoints(points);
-        this.points = points;
-    }
-
-    private void validateLengthOfPoints(List<Point> points) {
-        if (points.size() != VALID_LENGTH_OF_POINTS) {
-            throw new IllegalArgumentException("Line을 만들기 위해서는 점이 두개여야 합니다.");
-        }
+        super(points, VALID_LENGTH_OF_POINTS);
     }
 
     public double length() {
