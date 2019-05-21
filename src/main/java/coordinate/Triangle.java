@@ -1,5 +1,7 @@
 package coordinate;
 
+import java.util.Arrays;
+
 import static util.NotNullValidator.validateNotNull;
 
 public class Triangle {
@@ -19,7 +21,6 @@ public class Triangle {
         }
     }
 
-
     public boolean checkSameSlope() {
         return Double.compare(calculateSlope(points.get(0), points.get(1))
                 , calculateSlope(points.get(1), points.get(2))) == 0;
@@ -27,5 +28,14 @@ public class Triangle {
 
     private double calculateSlope(Point p1, Point p2) {
         return (double) (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
+    }
+
+    public double area() {
+        double l1 = new StraightLine(new Points(Arrays.asList(points.get(0), points.get(1)))).calculateDistance();
+        double l2 = new StraightLine(new Points(Arrays.asList(points.get(1), points.get(2)))).calculateDistance();
+        double l3 = new StraightLine(new Points(Arrays.asList(points.get(2), points.get(0)))).calculateDistance();
+
+        double s = (l1 + l2 + l3) / 2;
+        return Math.sqrt((s * (s - l1) * (s - l2) * (s - l3)));
     }
 }

@@ -1,5 +1,6 @@
 package coordinate;
 
+import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -30,5 +31,15 @@ public class TriangleTest {
                         new Point(2, 3),
                         new Point(3, 4))));
         assertThat(triangle.checkSameSlope()).isTrue();
+    }
+
+    @Test
+    void triangle_area_test() {
+        Triangle triangle = new Triangle(
+                new Points(Arrays.asList(
+                        new Point(0, 0),
+                        new Point(2, 0),
+                        new Point(0, 2))));
+        assertThat(triangle.area()).isEqualTo(2.0, Offset.offset(0.001));
     }
 }
