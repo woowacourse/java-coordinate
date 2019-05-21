@@ -12,13 +12,21 @@ public class Point {
     }
 
     public double length(final Point other) {
-        double squareOfX = square(this.x.getX(), other.x.getX());
-        double squareOfY = square(this.y.getY(), other.y.getY());
+        double squareOfX = square(this.x.value(), other.x.value());
+        double squareOfY = square(this.y.value(), other.y.value());
         return Math.sqrt(squareOfX + squareOfY);
     }
 
     private double square(final int first, final int second) {
         return Math.pow(first - second, 2);
+    }
+
+    public boolean isMatchX(final Point point) {
+        return this.x.value() == point.x.value();
+    }
+
+    public boolean isMatchY(final Point point) {
+        return this.y.value() == point.y.value();
     }
 
     @Override

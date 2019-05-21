@@ -12,7 +12,7 @@ public class X {
         this.coordinate = coordinate;
     }
 
-    public int getX() {
+    public int value() {
         return coordinate;
     }
 
