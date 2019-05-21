@@ -20,6 +20,14 @@ public class Coordinate {
         }
     }
 
+    public int getDistance(Coordinate coordinate) {
+        return coordinate.getSubtraction(this.coordinate);
+    }
+
+    private int getSubtraction(int coordinate) {
+        return Math.abs(coordinate - this.coordinate);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -11,6 +11,22 @@ public class Point {
         this.yCoordinate = yCoordinate;
     }
 
+    public int getDistanceX(Point pointB) {
+        return pointB.getSubtractionX(this.xCoordinate);
+    }
+
+    private int getSubtractionX(Coordinate xCoordinate) {
+        return this.xCoordinate.getDistance(xCoordinate);
+    }
+
+    public int getDistanceY(Point pointB) {
+        return pointB.getSubtractionY(this.yCoordinate);
+    }
+
+    private int getSubtractionY(Coordinate yCoordinate) {
+        return this.yCoordinate.getDistance(yCoordinate);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

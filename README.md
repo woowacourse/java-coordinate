@@ -14,9 +14,12 @@
     - 좌표는 소괄호() 안에 둘러쌓여있으며, 쉼표로 xCoordinate,y값을 구분한다.
     - xCoordinate,y의 값은 0~24 사이이다.
     - "-"를 기준으로 좌표를 구분한다.
- - 두 점 사이의 거리를 구하여 출력한다.
+ - 두 점 사이의 거리를 구한다.
+ - 이를 출력한다.
  
 ##Done
- 
+- xCoordinate,y의 값은 0~24 사이이다.
+- 두 점 사이의 거리를 구한다.
+
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
