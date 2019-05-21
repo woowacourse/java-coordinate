@@ -14,18 +14,8 @@ class CarTest {
     }
 
     @Test
-    void 연비가_제대로_가져오는지_테스트() {
-        assertThat(avante.getDistancePerLiter()).isEqualTo(15);
-    }
-
-    @Test
-    void 여행하려는_거리를_제대로_가져오는지_테스트() {
-        assertThat(avante.getTripDistance()).isEqualTo(30);
-    }
-
-    @Test
     void 차_이름을_제대로_가져오는지_테스트() {
-        assertThat(avante.getName()).isEqualTo("avante");
+        assertThat(avante.getName()).isEqualTo("Avante");
     }
 
     @Test
