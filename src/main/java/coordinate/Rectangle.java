@@ -41,4 +41,9 @@ public class Rectangle {
     private boolean checkBottomHorizontal() {
         return points.getY(0) == points.getY(2);
     }
+
+    public int area() {
+        return (points.getX(2) - points.getX(0)) *
+                (points.getY(1) - points.getY(0));
+    }
 }
