@@ -8,7 +8,6 @@ public abstract class Car {
         this.distancePerLiter = distancePerLiter;
         this.tripDistance = tripDistance;
     }
-
     /**
      * 차종의 이름
      */
