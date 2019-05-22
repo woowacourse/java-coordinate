@@ -2,7 +2,7 @@ package coordinate.model;
 
 import java.util.Objects;
 
-public class Point implements Comparable<Point>{
+public class Point implements Comparable<Point> {
     private PointNumber x;
     private PointNumber y;
 
@@ -13,7 +13,14 @@ public class Point implements Comparable<Point>{
 
     public double getDistance(Point point2) {
         return Math.sqrt(Math.pow(this.x.getNumber() - point2.x.getNumber(), 2)
-        + Math.pow(this.y.getNumber() - point2.y.getNumber(), 2));
+                + Math.pow(this.y.getNumber() - point2.y.getNumber(), 2));
+    }
+
+    public double getIncline(Point point) {
+        if (point.x.getNumber() == this.x.getNumber()) {
+            return Integer.MAX_VALUE;
+        }
+        return (double) (point.y.getNumber() - this.y.getNumber()) / (point.x.getNumber() - this.x.getNumber());
     }
 
     public boolean isEqualX(Point anotherPoint) {
@@ -26,7 +33,7 @@ public class Point implements Comparable<Point>{
 
     @Override
     public int compareTo(Point o) {
-        if(x.getNumber() == o.x.getNumber()){
+        if (x.getNumber() == o.x.getNumber()) {
             return y.getNumber() - o.y.getNumber();
         }
         return x.getNumber() - o.x.getNumber();
@@ -44,12 +51,5 @@ public class Point implements Comparable<Point>{
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
-    }
-` `
-    public double getIncline(Point point) {
-        if(point.x.getNumber() == this.x.getNumber()){
-            return -1;
-        }
-        return (double)(point.y.getNumber() - this.y.getNumber()) / (point.x.getNumber() - this.x.getNumber());
     }
 }
