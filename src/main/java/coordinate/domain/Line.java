@@ -1,11 +1,11 @@
-package coordinate;
+package coordinate.domain;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-import static util.NotNullValidator.validateNotNull;
+import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Line {
     private static final int DIFFERENCE_ZERO = 0;
@@ -48,11 +48,11 @@ public class Line {
     }
 
     private int calculateXDifference() {
-        return p2.getXValue() - p1.getXValue();
+        return p2.getX() - p1.getX();
     }
 
     private int calculateYDifference() {
-        return p2.getYValue() - p1.getYValue();
+        return p2.getY() - p1.getY();
     }
 
     public boolean hasHorizontalAxisParallel() {

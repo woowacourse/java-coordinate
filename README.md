@@ -47,9 +47,6 @@
     - [x] 세 점이 한 직선 위에 존재하면 안 된다.
     - [x] 넓이를 계산한다.
    
-### 리팩토링
-- [ ] Triangle, Rectangle 이 Points 를 갖는 것이 아니라 Lines 를 갖도록 코드를 변경한다.
-   - [ ] 
 ### 4 단계
 - [x] Rectangle 과 Triangle 이 Points 가 아닌 Lines 를 갖도록 리팩토링
     - [x] StraightLine 을 Line 으로 리네이밍
@@ -66,3 +63,11 @@
         
 ### 5 단계
 - [x] 삼각형, 사각형 면적을 구하는 메소드 (area)를 가진 인터페이스 추가 
+
+### 리팩토링
+- [x] 패키지 분리
+    - [x] domain, view, controller, util
+- [ ] 메서드 리팩토링
+    - [x] Point 클래스
+        - [x] 변수, 상수, 메서드 리네이밍
+        - [ ] 테스트 추가

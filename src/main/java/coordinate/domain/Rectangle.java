@@ -1,9 +1,9 @@
-package coordinate;
+package coordinate.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static util.NotNullValidator.validateNotNull;
+import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Rectangle extends Figure {
     private static final int LINES_SIZE = 4;
