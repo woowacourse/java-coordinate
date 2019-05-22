@@ -1,5 +1,5 @@
 package coordinatecalculator.domain;
 
-public interface Shape {
+public interface Figure {
     double area();
 }

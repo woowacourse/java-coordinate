@@ -2,8 +2,9 @@ package coordinatecalculator.domain;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
-public class Rectangle implements Shape {
+public class Rectangle implements Figure {
     private final List<Coordinate> coordinates;
 
     public Rectangle(List<Coordinate> coordinates) {
@@ -33,5 +34,18 @@ public class Rectangle implements Shape {
     @Override
     public double area() {
         return coordinates.get(0).calculate(coordinates.get(1)) * coordinates.get(0).calculate(coordinates.get(2));
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Rectangle rectangle = (Rectangle) o;
+        return Objects.equals(coordinates, rectangle.coordinates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coordinates);
     }
 }
