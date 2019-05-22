@@ -34,4 +34,11 @@ public class StraightLine implements Figure {
         return Math.sqrt(Math.pow(startPoint.getDeltaXTo(endPoint), SQUARE)
                 + Math.pow(startPoint.getDeltaYTo(endPoint), SQUARE));
     }
+
+    public double calculateSlope() {
+        if (startPoint.getDeltaXTo(endPoint) == 0) {
+            return Double.POSITIVE_INFINITY;
+        }
+        return startPoint.getDeltaYTo(endPoint) / startPoint.getDeltaXTo(endPoint);
+    }
 }
