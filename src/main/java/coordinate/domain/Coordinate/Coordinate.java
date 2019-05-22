@@ -12,7 +12,7 @@ public abstract class Coordinate {
 
     private void validateValue(int value) {
         if (value > MAX_VALUE || value < MIN_VALUE) {
-            throw new IllegalArgumentException("0 이상 24 이하의 정수를 입력해야 합니다.");
+            throw new IllegalArgumentException("좌표값은 0 이상 24 이하의 정수만 가능합니다.");
         }
     }
 
