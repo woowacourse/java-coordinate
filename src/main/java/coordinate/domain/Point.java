@@ -33,7 +33,6 @@ public class Point {
         try {
             Integer.parseInt(point_x);
             Integer.parseInt(point_y);
-
         } catch (IllegalArgumentException e){
             return false;
         }

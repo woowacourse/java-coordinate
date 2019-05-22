@@ -22,7 +22,7 @@ public class LineTest {
     }
 
     @Test
-    void name() {
+    void 두점사이의_거리계산() {
         assertEquals(6.403,line.findArea(),0.001);
     }
 }

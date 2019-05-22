@@ -10,7 +10,6 @@ public class RentCompany {
         this.cars = cars;
     }
 
-
     public static RentCompany create() {
         return new RentCompany(new ArrayList<>());
     }

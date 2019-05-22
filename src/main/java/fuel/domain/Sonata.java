@@ -4,7 +4,6 @@ public class Sonata extends Car {
     private static final int FUEL_EFFICIENCY_VALUE = 10;
     private final int distance;
 
-
     public Sonata(final int distance) {
         this.distance = distance;
     }
@@ -23,8 +22,5 @@ public class Sonata extends Car {
     String getName() {
         return "Sonata";
     }
-
-    ;
-
 
 }
