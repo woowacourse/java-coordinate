@@ -1,9 +1,7 @@
 package coordinatecalculator.model;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Points {
 
@@ -21,6 +19,9 @@ public class Points {
     }
 
     public void addPoint(Point point) {
+        if(this.points.contains(point)){
+            throw new IllegalArgumentException("두점이 중복되었습니다.");
+        }
         this.points.add(point);
     }
 

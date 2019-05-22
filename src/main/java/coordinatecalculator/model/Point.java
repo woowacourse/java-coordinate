@@ -2,14 +2,20 @@ package coordinatecalculator.model;
 
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Point {
     private final XPoint xPoint;
     private final YPoint yPoint;
 
-    public Point(String xPoint, String yPoint) {
-        this.xPoint = new XPoint(xPoint);
-        this.yPoint = new YPoint(yPoint);
+    public Point(String inputPoint) {
+        Matcher matcher = Pattern.compile("\\(([0-9]*),([0-9]*)\\)").matcher(inputPoint);
+        if(!matcher.find()){
+            throw new IllegalArgumentException("잘못된 입력 형식입니다.");
+        }
+        this.xPoint = new XPoint(matcher.group(1));
+        this.yPoint = new YPoint(matcher.group(2));
     }
 
     public int square(Point anotherPoint) {

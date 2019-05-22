@@ -14,14 +14,14 @@ public class PointsTest {
     @BeforeEach
     void setUp() {
         points = Points.create();
-        points.addPoint(new Point("1", "1"));
-        points.addPoint(new Point("2","2"));
+        points.addPoint(new Point("(1,1)"));
+        points.addPoint(new Point("(2,2)"));
     }
 
     @Test
     void 점_생성_테스트() {
-        assertThat(points.getPoint(0)).isEqualTo(new Point("1", "1"));
-        assertThat(points.getPoint(1)).isEqualTo(new Point("2", "2"));
+        assertThat(points.getPoint(0)).isEqualTo(new Point("(1,1)"));
+        assertThat(points.getPoint(1)).isEqualTo(new Point("(2,2)"));
     }
 
     @Test
