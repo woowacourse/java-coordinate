@@ -25,4 +25,8 @@ public class Rectangle {
             throw new IllegalArgumentException("직사각형만 가능합니다.");
         }
     }
+
+    public double area() {
+        return (points.getMaxX() - points.getMinX()) * (points.getMaxY() - points.getMinY());
+    }
 }
