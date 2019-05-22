@@ -13,4 +13,6 @@ public class PointGeneratorTest {
            new PointGenerator("(0,0)=(1,1)");
         });
     }
+
+    
 }

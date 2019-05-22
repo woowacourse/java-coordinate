@@ -1,4 +1,4 @@
-package coordinate;
+package coordinate.model;
 
 import coordinate.model.Line;
 import coordinate.model.Point;
