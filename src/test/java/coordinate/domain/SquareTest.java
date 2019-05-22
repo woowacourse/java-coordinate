@@ -21,7 +21,7 @@ public class SquareTest {
     @Test
     void 직사각형_여부_테스트() {
         assertThrows(IllegalArgumentException.class, () ->
-                new Square(new PointsGenerator("(10,10)-(22,10)-(22,18)-(10,23)").generate()));
+                new Square(new PointsGenerator("(10,10)-(22,10)-(22,18)-(10,3)").generate()));
     }
 
     @Test
