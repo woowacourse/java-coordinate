@@ -25,6 +25,10 @@ public class Line {
         return line.size();
     }
 
+    public void drawX(int xCoordinate) {
+        line.set(xCoordinate, true);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
