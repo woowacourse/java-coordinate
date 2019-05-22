@@ -14,6 +14,10 @@ public class Line implements Comparable<Line>{
         return this.length * length.length;
     }
 
+    public boolean isTriangle(Line length,Line longestLine) {
+        return (this.length + length.length)  > longestLine.length;
+    }
+
     @Override
     public int compareTo(Line o) {
         return Double.compare(o.length,length);

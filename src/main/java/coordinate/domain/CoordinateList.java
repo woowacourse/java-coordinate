@@ -32,4 +32,6 @@ public class CoordinateList{
         return set.size() != coordinate.size();
     }
 
+
+
 }
