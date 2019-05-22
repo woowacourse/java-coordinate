@@ -1,8 +1,11 @@
 package coordinate.domain;
 
-public class Square {
+import java.util.Arrays;
 
+public class Square {
     private final Points points;
+    private Line height;
+    private Line width;
 
     public Square(final Points points) {
         this.points = points;
@@ -20,11 +23,13 @@ public class Square {
         for (int i = 0; i < points.size(); i++) {
             for (int j = 0; j < points.size(); j++) {
                 if (i == j) continue;
-                if (points.get(i).isMatchX(points.get(j))){
+                if (points.get(i).isMatchX(points.get(j))) {
                     cnt++;
+                    height = new Line(Points.of(Arrays.asList(points.get(i), points.get(j))));
                 }
                 if (points.get(i).isMatchY(points.get(j))) {
                     cnt++;
+                    width = new Line(Points.of(Arrays.asList(points.get(i), points.get(j))));
                 }
             }
         }
@@ -39,4 +44,7 @@ public class Square {
         }
     }
 
+    public double area() {
+        return height.length() * width.length();
+    }
 }

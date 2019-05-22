@@ -3,8 +3,7 @@ package coordinate.domain;
 import coordinate.domain.generator.PointsGenerator;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SquareTest {
@@ -22,6 +21,12 @@ public class SquareTest {
     @Test
     void 직사각형_여부_테스트() {
         assertThrows(IllegalArgumentException.class, () ->
-                new Square(new PointsGenerator("(10,10)-(22,10)-(22,18)-(10,1000)").generate()));
+                new Square(new PointsGenerator("(10,10)-(22,10)-(22,18)-(10,23)").generate()));
+    }
+
+    @Test
+    void 면적_테스트(){
+        Square square = new Square(new PointsGenerator("(10,10)-(22,10)-(22,18)-(10,18)").generate());
+        assertThat(square.area()).isEqualTo(96);
     }
 }
