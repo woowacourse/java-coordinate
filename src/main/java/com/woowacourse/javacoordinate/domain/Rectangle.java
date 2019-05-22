@@ -1,8 +1,6 @@
 package com.woowacourse.javacoordinate.domain;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Rectangle extends Figure {
     public Rectangle(Points points) {
@@ -11,7 +9,24 @@ public class Rectangle extends Figure {
         if (points.getSize() != 4) {
             throw new IllegalArgumentException("사각형은 4개의 Point가 필요합니다");
         }
+
+        checkValidRectangle(points);
     }
+
+    private void checkValidRectangle(Points points) {
+        Point point1 = points.getPoints().get(0);
+        Point point2 = points.getPoints().get(1);
+        Point point3 = points.getPoints().get(2);
+        Point point4 = points.getPoints().get(3);
+
+        Set<Integer> xAxises = new HashSet<>(Arrays.asList(point1.getX(), point2.getX(), point3.getX(), point4.getX()));
+        Set<Integer> yAxises = new HashSet<>(Arrays.asList(point1.getY(), point2.getY(), point3.getY(), point4.getY()));
+
+        if (xAxises.size() != 2 || yAxises.size() != 2) {
+            throw new IllegalArgumentException("유효한 사각형이 아닙니다");
+        }
+    }
+
 
     @Override
     public double calculateArea() {
