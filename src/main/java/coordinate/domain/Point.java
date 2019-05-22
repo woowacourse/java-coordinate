@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,5 +64,13 @@ public class Point {
 
     public int getDeltaYTo(Point point) {
         return Math.abs(this.y - point.y);
+    }
+
+    public boolean matchX(Point point) {
+        return x == point.x;
+    }
+
+    public boolean matchY(Point point) {
+        return y == point.y;
     }
 }
