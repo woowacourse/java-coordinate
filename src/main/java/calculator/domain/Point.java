@@ -61,6 +61,14 @@ public class Point {
         return NOT_MATCH;
     }
 
+    public int getX() {
+        return xCoordinate;
+    }
+
+    public int getY() {
+        return yCoordinate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
