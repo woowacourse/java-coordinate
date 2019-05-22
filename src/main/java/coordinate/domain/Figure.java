@@ -16,7 +16,7 @@ public class Figure {
         }
     }
 
-    public String drawPlane() {
-        return null;
+    public PlaneCoordinates getPlaneCoodinates() {
+        return new PlaneCoordinates(points);
     }
 }
