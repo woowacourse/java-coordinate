@@ -6,7 +6,6 @@ public class Triangle extends Figure implements AvailableArea {
     private static final int VALID_LENGTH_OF_POINTS = 3;
 
     public Triangle(List<Point> points) {
-
         super(points, VALID_LENGTH_OF_POINTS);
     }
 
@@ -20,7 +19,8 @@ public class Triangle extends Figure implements AvailableArea {
 
             area += (double) ((p1.getX() + p2.getX()) * (p1.getY() - p2.getY())) / 2;
         }
-        return area;
+
+        return Math.abs(area);
     }
 
     @Override
