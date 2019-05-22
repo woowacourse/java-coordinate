@@ -21,7 +21,7 @@ public class Coordinate {
     }
 
     public int getDistance(Coordinate endPointCoordinate) {
-        return Math.abs(endPointCoordinate.coordinate - this.coordinate);
+        return endPointCoordinate.coordinate - this.coordinate;
     }
 
     @Override

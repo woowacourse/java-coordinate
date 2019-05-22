@@ -21,6 +21,8 @@
  - 이를 출력한다.
  - 올바른 직사각형이 입력됐는지 확인한다.
  - 사각형의 넓이를 구한다.
+ - 올바른 삼각형이 입력됐는지 확인한다.
+ - 삼각형의 넓이를 구한다.
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)

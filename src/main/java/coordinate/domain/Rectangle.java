@@ -22,8 +22,8 @@ public class Rectangle {
     }
 
     private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
-        for (int endPointIndex = 0; endPointIndex < endPoints.size(); endPointIndex++) {
-            double lineLength = new Line(startPoint, endPoints.get(endPointIndex)).getLength();
+        for (Point endPoint : endPoints) {
+            double lineLength = new Line(startPoint, endPoint).getLength();
             addLine(lineLength);
         }
     }
