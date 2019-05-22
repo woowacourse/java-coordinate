@@ -2,11 +2,11 @@ package coordinatecalculator.model;
 
 import java.util.Objects;
 
-public class XPoint extends Point{
+public class XPoint extends PointProperties {
 
     private final int xPoint;
 
-    public XPoint(final String xPoint){
+    public XPoint(final String xPoint) {
         this.xPoint = validNumber(xPoint);
     }
 

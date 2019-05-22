@@ -2,15 +2,15 @@ package coordinatecalculator.model;
 
 import java.util.Objects;
 
-public class YPoint extends Point {
+public class YPoint extends PointProperties {
     private final int yPoint;
 
-    public YPoint(final String yPoint){
+    public YPoint(final String yPoint) {
         this.yPoint = validNumber(yPoint);
     }
 
     @Override
-    public int getValue(){
+    public int getValue() {
         return yPoint;
     }
 

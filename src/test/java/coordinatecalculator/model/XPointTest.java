@@ -14,6 +14,6 @@ public class XPointTest {
 
     @Test
     void 옳바르지_않은_X좌표가_들어올때_테스트() {
-        assertThrows(IllegalArgumentException.class, ()->new XPoint("25"));
+        assertThrows(IllegalArgumentException.class, () -> new XPoint("25"));
     }
 }
