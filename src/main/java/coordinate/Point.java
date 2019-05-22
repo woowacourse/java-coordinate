@@ -24,4 +24,10 @@ public class Point {
     public int hashCode() {
         return Objects.hash(xValue, yValue);
     }
+
+    public double calculate(Point point) {
+        double xSquared = this.xValue.message(point.xValue);
+        double ySquared = this.yValue.message(point.yValue);
+        return Math.sqrt(xSquared + ySquared);
+    }
 }

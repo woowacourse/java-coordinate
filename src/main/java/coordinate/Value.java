@@ -1,9 +1,10 @@
 package coordinate;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Value {
-    private final int value;
+    private final double value;
     
     public Value(String input) {
         int value = Integer.parseInt(input);
@@ -24,5 +25,9 @@ public class Value {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public double message(Value value) {
+        return Math.pow(this.value - value.value, 2);
     }
 }

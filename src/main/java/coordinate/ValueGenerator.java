@@ -7,14 +7,23 @@ import java.util.List;
 
 public class ValueGenerator {
     public static List<String> splitCoordinates(String coordinates) {
-        return Arrays.asList(coordinates.split("-"));
+        return Arrays.asList(removeBrackets(coordinates).split("-"));
     }
 
-    public static String removeBrackets(String coordinate) {
+    private static String removeBrackets(String coordinate) {
         return coordinate.replaceAll("\\(|\\)","");
     }
 
-    public static List<String> splitValue(String values) {
-        return Arrays.asList(values.split(","));
+    public static List<String> splitValue(List<String> temp) {
+        List<String> returnList = new ArrayList<>();
+
+        for (int i = 0; i < temp.size(); i++) {
+            List<String> temptemp = Arrays.asList(temp.get(i).split(","));
+            for (int j = 0; j <temptemp.size(); j++) {
+                returnList.add(temptemp.get(j));
+            }
+        }
+
+        return returnList;
     }
 }
