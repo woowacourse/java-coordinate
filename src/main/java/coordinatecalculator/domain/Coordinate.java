@@ -1,6 +1,6 @@
 package coordinatecalculator.domain;
 
-public class Coordinate {
+public class Coordinate implements Comparable<Coordinate> {
     private int x;
     private int y;
 
@@ -15,5 +15,13 @@ public class Coordinate {
 
     private double calculate(int x, int y) {
         return Math.sqrt(Math.pow(Math.abs(x - this.x), 2) + Math.pow(Math.abs(y - this.y), 2));
+    }
+
+    @Override
+    public int compareTo(final Coordinate o) {
+        if (this.x == o.x) {
+            return Integer.compare(this.y, o.y);
+        }
+        return Integer.compare(this.x, o.x);
     }
 }
