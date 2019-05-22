@@ -36,15 +36,8 @@ public class Lines {
     }
 
     public boolean isVertical(int i, int j) {
-        Line l1 = getLine(i);
-        Line l2 = getLine(j);
-
-        if (l1.isVertical()) {
-            return l2.isHorizontal();
-        }
-        if (l1.isHorizontal()) {
-            return l2.isVertical();
-        }
-        return Double.compare(l1.calculateSlope() * l2.calculateSlope(), -1.0) == 0;
+        Vector v1 = new Vector(lines.get(i));
+        Vector v2 = new Vector(lines.get(j));
+        return v1.innerProduct(v2) == 0;
     }
 }
