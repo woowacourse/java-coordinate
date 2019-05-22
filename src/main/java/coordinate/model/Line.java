@@ -1,17 +1,15 @@
 package coordinate.model;
 
-import coordinate.model.Point;
+import java.util.List;
 
 public class Line {
-    private Point point1;
-    private Point point2;
+    private List<Point> points;
 
-    public Line(Point point1, Point point2) {
-        this.point1 = point1;
-        this.point2 = point2;
+    public Line(List<Point> points) {
+        this.points = points;
     }
 
     public double getLength(){
-        return point1.getDistance(point2);
+        return points.get(0).getDistance(points.get(1));
     }
 }

@@ -1,6 +1,5 @@
 package coordinate.model;
 
-import coordinate.model.PointNumber;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
