@@ -23,9 +23,8 @@ public class LinesSquareGenerator implements LinesGenerator {
                 lines.add(new Line(Points.of(Arrays.asList(points.get(i), points.get(j)))));
             }
         }
+        //TODO 로직 다시 생각
         lines.sort((line1, line2) -> (int) (line1.length() - line2.length()));
-        lines.remove(lines.size() - 1);
-        lines.remove(lines.size() - 1);
         return new Lines(lines);
     }
 }
