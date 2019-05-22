@@ -33,7 +33,7 @@
 ###to do list
 
 - [X] Point 생성
-- [ ] Line 생성
+- [X] Line 생성
 - [ ] Triangle 추가
 - [ ] Rectangle 추가
 - [ ] 상속 (도형) 추가
