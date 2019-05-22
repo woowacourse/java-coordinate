@@ -98,3 +98,7 @@
     - [x] Figure 추상클래스 작성
         - [x] Line 이 Figure 를 상속받는다.
         - [x] Polygon 이 Figure 를 상속받는다.
+    - [x] FigureCreator 인터페이스 작성
+    - [ ] FigureFactory 클래스 작성
+        - [ ] FigureFactory 는 FigureCreator 인터페이스를 구현한다.
+    
