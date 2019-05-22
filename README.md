@@ -51,7 +51,18 @@
 - [ ] Triangle, Rectangle 이 Points 를 갖는 것이 아니라 Lines 를 갖도록 코드를 변경한다.
    - [ ] 
 ### 4 단계
-- [ ] 상속을 이용한 리팩토링
-    - [ ] Figure 추상 클래스 작성
-        - [ ] 넓이를 계산하는 추상메서드
+- [x] Rectangle 과 Triangle 이 Points 가 아닌 Lines 를 갖도록 리팩토링
+    - [x] StraightLine 을 Line 으로 리네이밍
+    - [x] Lines 클래스 작성
+    - [x] Points 클래스 삭제
+    - [x] Rectangle 과 Triangle 테스트 코드 lines 사용하도록 수정
+    - [x] Rectangle 과 Triangle 의 메서드들을 points 중심에서 lines 중심으로 수정
+    - [x] 하드코딩 값 상수로 선언
+    
+- [x] 상속을 이용한 리팩토링
+    - [x] Figure 추상 클래스 작성
+        - [x] 넓이를 계산하는 추상 메서드 정의
+        - [x] 동일한 메서드일 경우 부모 클래스에서 메서드 구현
         
+### 5 단계
+- [x] 삼각형, 사각형 면적을 구하는 메소드 (area)를 가진 인터페이스 추가 
