@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import coordinate.domain.generator.LinesGenerator;
 
-public abstract class Figure {
+public abstract class Figure implements AreaCalculator {
     private Points points;
     private Lines lines;
 
@@ -14,13 +14,16 @@ public abstract class Figure {
 
     protected abstract void validate();
 
-    protected void validateSize(int size){
-        if(size!=points.size()) {
+    protected void validateSize(int size) {
+        if (size != points.size()) {
             throw new IllegalArgumentException();
         }
     }
 
-    public abstract double area();
+    @Override
+    public double area() {
+        throw new UnsupportedOperationException();
+    }
 
     public Points getPoints() {
         return points;
