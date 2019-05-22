@@ -1,5 +1,7 @@
 package coordinate.domain.Coordinate;
 
+import java.util.Objects;
+
 public abstract class Coordinate {
     private static final int MAX_VALUE = 24;
     private static final int MIN_VALUE = 0;
@@ -18,5 +20,18 @@ public abstract class Coordinate {
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinate point = (Coordinate) o;
+        return point.value == value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
