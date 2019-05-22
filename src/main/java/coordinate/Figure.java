@@ -2,9 +2,10 @@ package coordinate;
 
 import java.util.List;
 
-public class Figure {
+public class Figure implements Shapeable {
     private static final int TRIANGLE_LINE_SIZE = 3;
 
+    @Override
     public double area(List<Double> lineDistance) {
         double s = sumLineSegment(lineDistance) / 2;
         double area = s;
