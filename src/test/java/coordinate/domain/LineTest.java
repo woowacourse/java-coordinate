@@ -11,6 +11,6 @@ public class LineTest {
         Point pointA = new Point(new Coordinate(10), new Coordinate(10));
         Point pointB = new Point(new Coordinate(14), new Coordinate(15));
         Line line = new Line(pointA, pointB);
-        assertThat(line.length()).isEqualTo(6.403124, offset(0.00099));
+        assertThat(line.getLength()).isEqualTo(6.403124, offset(0.00099));
     }
 }

@@ -6,9 +6,10 @@ import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
 public class CoordinateCalculator {
+
     public static void main(String[] args) {
         Line line = generateLine();
-        OutputView.printDistance(line.length());
+        OutputView.printDistance(line.getLength());
     }
 
     private static Line generateLine() {

@@ -7,6 +7,6 @@ public class InputView {
 
     public static String inputCoordinate() {
         System.out.println("좌표를 입력하세요.");
-        return SCANNER.nextLine();
+        return SCANNER.nextLine().replaceAll(" ", "");
     }
 }
