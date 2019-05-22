@@ -36,6 +36,6 @@ public class Rectangle {
 
     public double area() {
         return lines.getLine(0).calculateDistance()
-                * lines.getLine(1).calculateDistance();
+                * lines.getLine(1). calculateDistance();
     }
 }

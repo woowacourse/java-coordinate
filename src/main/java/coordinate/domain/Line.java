@@ -50,6 +50,14 @@ public class Line {
         return p2.getY() - p1.getY();
     }
 
+    public Point getStartPoint() {
+        return p1;
+    }
+
+    public Point getEndPoint() {
+        return p2;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
