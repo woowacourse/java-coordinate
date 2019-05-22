@@ -24,7 +24,7 @@ public class Point {
         int thatX = point.getX();
         int thatY = point.getY();
 
-        return Math.sqrt(Math.pow(thatX - this.x,2) + Math.pow(thatY - this.y , 2));
+        return Math.sqrt(Math.pow(thatX - this.x, 2) + Math.pow(thatY - this.y, 2));
     }
 
     public int getX() {

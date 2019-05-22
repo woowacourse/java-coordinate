@@ -3,10 +3,13 @@ package com.woowacourse.javacoordinate.domain;
 import java.util.*;
 
 public class Rectangle extends Figure {
+    private static final int RECTANGLE_POINT_NUMBER = 4;
+    private static final int POSITION_NUMBER = 2;
+
     public Rectangle(Points points) {
         super(points);
 
-        if (points.getSize() != 4) {
+        if (points.getSize() != RECTANGLE_POINT_NUMBER) {
             throw new IllegalArgumentException("사각형은 4개의 Point가 필요합니다");
         }
 
@@ -14,15 +17,13 @@ public class Rectangle extends Figure {
     }
 
     private void checkValidRectangle(Points points) {
-        Point point1 = points.getPoints().get(0);
-        Point point2 = points.getPoints().get(1);
-        Point point3 = points.getPoints().get(2);
-        Point point4 = points.getPoints().get(3);
+        Set<Integer> xAxises = new HashSet<>();
+        Set<Integer> yAxises = new HashSet<>();
 
-        Set<Integer> xAxises = new HashSet<>(Arrays.asList(point1.getX(), point2.getX(), point3.getX(), point4.getX()));
-        Set<Integer> yAxises = new HashSet<>(Arrays.asList(point1.getY(), point2.getY(), point3.getY(), point4.getY()));
+        points.getPoints().stream().map(Point::getX).forEach(xAxises::add);
+        points.getPoints().stream().map(Point::getY).forEach(yAxises::add);
 
-        if (xAxises.size() != 2 || yAxises.size() != 2) {
+        if (xAxises.size() != POSITION_NUMBER || yAxises.size() != POSITION_NUMBER) {
             throw new IllegalArgumentException("유효한 사각형이 아닙니다");
         }
     }
