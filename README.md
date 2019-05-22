@@ -20,8 +20,21 @@
 
 
 # java-coordinate
-좌표계산기 미션을 진행하기 위한 저장소
+- 좌표 입력
+- split (,)(-)
+- x,y (~24 까지)
+- 입력 범위 초과시 다시 입력
+- 정상적인 입력시 해당 좌표에 특수문자 입력
+- 좌표값에 따른 선,삼각형,사각형 나누기
+- 직선인 경우는 거리
+- 도형인 경우는 면적
 
-## 우아한테크코스 코드리뷰
-* [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
+-----
+###to do list
 
+- [ ] Point 생성
+- [ ] Line 생성
+- [ ] Triangle 추가
+- [ ] Rectangle 추가
+- [ ] 상속 (도형) 추가
+- [ ] 인터페이스 (계산) 추가
