@@ -1,7 +1,5 @@
 package coordinate.domain;
 
-import coordinate.domain.Line;
-import coordinate.domain.Point;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 

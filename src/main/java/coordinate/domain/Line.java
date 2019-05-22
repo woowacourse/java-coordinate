@@ -8,9 +8,6 @@ import java.util.Objects;
 import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Line {
-    private static final int DIFFERENCE_ZERO = 0;
-    private static final int POWER_TWO = 2;
-
     private Point p1;
     private Point p2;
 
@@ -18,33 +15,31 @@ public class Line {
         validateNotNull(p1);
         validateNotNull(p2);
         validateNoDuplication(Arrays.asList(p1, p2));
-        initializePoints(p1, p2);
-    }
-
-    private void initializePoints(Point p1, Point p2) {
-        if (p1.compareTo(p2) > 0) {
-            this.p1 = p2;
-            this.p2 = p1;
-        }
-        if (p1.compareTo(p2) < 0) {
-            this.p1 = p1;
-            this.p2 = p2;
-        }
+        this.p1 = p1;
+        this.p2 = p2;
     }
 
     private void validateNoDuplication(List<Point> points) {
         if ((new HashSet<>(points)).size() != points.size()) {
-            throw new IllegalArgumentException("중복되는 점이 존재할 수 없습니다.");
+            throw new IllegalArgumentException("선분을 만들 때 중복되는 점이 존재하면 안 됩니다.");
         }
     }
 
     public double calculateDistance() {
-        return Math.sqrt(Math.pow(calculateXDifference(), POWER_TWO)
-                        + Math.pow(calculateYDifference(), POWER_TWO));
+        return Math.sqrt(Math.pow(calculateXDifference(), 2)
+                        + Math.pow(calculateYDifference(), 2));
     }
 
     public double calculateSlope() {
         return (double) calculateYDifference() / calculateXDifference();
+    }
+
+    public boolean isHorizontal() {
+        return calculateYDifference() == 0;
+    }
+
+    public boolean isVertical() {
+        return calculateXDifference() == 0;
     }
 
     private int calculateXDifference() {
@@ -53,14 +48,6 @@ public class Line {
 
     private int calculateYDifference() {
         return p2.getY() - p1.getY();
-    }
-
-    public boolean hasHorizontalAxisParallel() {
-        return calculateYDifference() == DIFFERENCE_ZERO;
-    }
-
-    public boolean hasVerticalAxisParallel() {
-        return calculateXDifference() == DIFFERENCE_ZERO;
     }
 
     @Override
@@ -75,5 +62,13 @@ public class Line {
     @Override
     public int hashCode() {
         return Objects.hash(p1, p2);
+    }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "p1=" + p1 +
+                ", p2=" + p2 +
+                '}';
     }
 }

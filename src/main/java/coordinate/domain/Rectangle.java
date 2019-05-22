@@ -53,8 +53,8 @@ public class Rectangle extends Figure {
     }
 
     private boolean hasParallelAxis(Line currentLine) {
-        return currentLine.hasHorizontalAxisParallel()
-                || currentLine.hasVerticalAxisParallel();
+        return currentLine.isHorizontal()
+                || currentLine.isVertical();
     }
 
     private boolean checkParallelAxisVertical(Line currentLine, Line nextLine) {
@@ -63,11 +63,11 @@ public class Rectangle extends Figure {
     }
 
     private boolean checkCurrentLineHorizontalAxis(Line currentLine, Line nextLine) {
-        return currentLine.hasHorizontalAxisParallel() && nextLine.hasVerticalAxisParallel();
+        return currentLine.isHorizontal() && nextLine.isVertical();
     }
 
     private boolean checkCurrentLineVerticalAxis(Line currentLine, Line nextLine) {
-        return currentLine.hasVerticalAxisParallel() && nextLine.hasHorizontalAxisParallel();
+        return currentLine.isVertical() && nextLine.isHorizontal();
     }
 
     private boolean checkTiledVertical(Line currentLine, Line nextLine) {
