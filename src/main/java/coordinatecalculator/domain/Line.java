@@ -28,7 +28,7 @@ public class Line implements Shape {
     public void isValidShape(List<Coordinate> coordinates) {
         Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
         if (overlapCoordinate.size() != VERTEX_OF_LINE) {
-            throw new IllegalArgumentException("선이 될 수 없어요");
+            throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 두 점의 위치는 달라야 합니다.");
         }
     }
 
