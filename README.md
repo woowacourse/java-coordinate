@@ -5,6 +5,7 @@
 
 ## Done
 * RentCompany 테스트 만들기
+* Car interface 생성
 
 ---
 
