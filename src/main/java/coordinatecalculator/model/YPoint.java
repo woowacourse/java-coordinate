@@ -15,6 +15,11 @@ public class YPoint extends PointProperties {
     }
 
     @Override
+    public int subtract(int anotherPointValue) {
+        return this.yPoint - anotherPointValue;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

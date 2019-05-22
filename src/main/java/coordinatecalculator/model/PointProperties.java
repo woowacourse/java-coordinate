@@ -11,6 +11,8 @@ public abstract class PointProperties {
 
     public abstract int getValue();
 
+    public abstract int subtract(int anotherPointValue);
+
     public int validNumber(String point) {
         Matcher matcher = Pattern.compile(NUMBER_REGEX).matcher(point);
         if (!matcher.find()) {
