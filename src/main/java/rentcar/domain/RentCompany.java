@@ -7,6 +7,7 @@ public class RentCompany {
     private static final String NEWLINE = System.getProperty("line.separator");
 
     private static List<Car> cars;
+
     private RentCompany() {
         cars = new ArrayList<>();
     }
@@ -19,11 +20,11 @@ public class RentCompany {
         cars.add(car);
     }
 
-    public static List<Car> getCars(){
+    public static List<Car> getCars() {
         return cars;
     }
 
-    public String generateReport(){
+    public String generateReport() {
         StringBuilder sb = new StringBuilder();
         for (Car car : cars) {
             sb.append(car.toString());

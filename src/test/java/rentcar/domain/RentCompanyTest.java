@@ -1,13 +1,8 @@
 package rentcar.domain;
 
-import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RentCompanyTest {
 
@@ -16,11 +11,11 @@ class RentCompanyTest {
     @Test
     public void report() throws Exception {
         RentCompany company = RentCompany.create(); // factory method를 사용해 생성
-        company.addCar(new Sonata(150));
-        company.addCar(new K5(260));
-        company.addCar(new Sonata(120));
-        company.addCar(new Avante(300));
-        company.addCar(new K5(390));
+        RentCompany.addCar(new Sonata(150));
+        RentCompany.addCar(new K5(260));
+        RentCompany.addCar(new Sonata(120));
+        RentCompany.addCar(new Avante(300));
+        RentCompany.addCar(new K5(390));
 
         String report = company.generateReport();
         assertThat(report).isEqualTo(

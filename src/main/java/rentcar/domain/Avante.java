@@ -1,16 +1,16 @@
 package rentcar.domain;
 
 public class Avante extends Car {
-    private int tripDistance;
-    private String name = "Avante";
-    private int distancePerLiter = 15;
-    public Avante(int tripDistance){
-        this.tripDistance = tripDistance;
-    }
+    private static final String NAME = "Avante";
+    private static final String LITTER = "리터";
 
-    @Override
-    double getDistancePerLiter() {
-        return distancePerLiter;
+    private static int distancePerLiter;
+
+    private int tripDistance;
+
+    public Avante(int tripDistance) {
+        this.tripDistance = tripDistance;
+        this.distancePerLiter = 15;
     }
 
     @Override
@@ -20,11 +20,11 @@ public class Avante extends Car {
 
     @Override
     String getName() {
-        return name;
+        return NAME;
     }
 
     @Override
     public String toString() {
-        return "Avante : " + (int)getChargeQuantity() + "리터";
+        return NAME +" : " + (int) getChargeQuantity() + LITTER;
     }
 }

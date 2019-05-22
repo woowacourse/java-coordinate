@@ -4,7 +4,8 @@ public class Sonata extends Car {
     private int tripDistance;
     private String name = "Sonata";
     private int distancePerLiter = 10;
-    public Sonata(int tripDistance){
+
+    public Sonata(int tripDistance) {
         this.tripDistance = tripDistance;
     }
 
@@ -25,6 +26,6 @@ public class Sonata extends Car {
 
     @Override
     public String toString() {
-        return "Sonata : " + (int)getChargeQuantity() + "리터";
+        return "Sonata : " + (int) getChargeQuantity() + "리터";
     }
 }
