@@ -14,4 +14,8 @@ public class PointNumber {
             throw new IllegalArgumentException("좌표 숫자 입력 범위 오류");
         }
     }
+
+    public int getNumber() {
+        return this.number;
+    }
 }
