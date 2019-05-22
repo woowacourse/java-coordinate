@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,6 +11,7 @@ public class Points {
 
     public Points(List<Point> points) {
         checkDuplicateCoordinate(points);
+        Collections.sort(points);
         this.points = points;
     }
 
@@ -30,5 +32,21 @@ public class Points {
         return points.stream()
                 .map(Point::getY)
                 .collect(Collectors.toList());
+    }
+
+    public double getMinX(){
+        return points.get(0).getX();
+    }
+
+    public double getMinY(){
+        return points.get(0).getY();
+    }
+
+    public double getMaxX(){
+        return points.get(points.size() - 1).getX();
+    }
+
+    public double getMaxY(){
+        return points.get(points.size() - 1).getY();
     }
 }
