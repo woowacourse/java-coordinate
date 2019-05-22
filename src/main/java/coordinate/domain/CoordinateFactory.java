@@ -1,28 +1,25 @@
 package coordinate.domain;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoordinateFactory {
 
-    public static Coordinate generateCoordinate(List<String> coordinates, List<Point> points) {
-        for (String coordinate : coordinates) {
-            String[] point = coordinate.split(",");
-            generatePoints(points, point[0], point[1]);
+    public static List<Coordinate> generateCoordinateList(List<String> input) {
+        List<Coordinate> coordinates = new ArrayList<>();
+        for (String inputCoordinate : input) {
+            checkDuplicateCoordinate(coordinates, inputCoordinate);
         }
-        return new Coordinate(points);
+        return coordinates;
     }
 
-    private static List<Point> generatePoints(List<Point> points, String x, String y) {
-
-        if (isDuplicate(points, x, y)) {
-            points.add(new Point(x, y));
-        }
-        return points;
+    private static void checkDuplicateCoordinate(List<Coordinate> coordinates, String inputCoordinate) {
+        String[] splitPoints = inputCoordinate.split(",");
+        Coordinate coordinate = generateCoordinate(splitPoints[0],splitPoints[1]);
+        coordinates.add(coordinate);
     }
 
-    private static boolean isDuplicate(List<Point> points, String x, String y) {
-        return Collections.indexOfSubList(points, Arrays.asList(new Point(x, y))) == -1;
+    private static Coordinate generateCoordinate(String x, String y) {
+        return new Coordinate(new X(x), new Y(y));
     }
 }

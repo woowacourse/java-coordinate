@@ -1,6 +1,7 @@
 package coordinate.domain.view;
 
 import coordinate.domain.Coordinate;
+import coordinate.domain.CoordinateList;
 import coordinate.domain.Point;
 import coordinate.domain.CoordinateFactory;
 
@@ -10,12 +11,12 @@ import java.util.stream.Collectors;
 public class InputView {
     private static final String DEFAULT_DELIMITERS = "\\([0-9]{1,2},[0-9]{1,2}\\)";
 
-    public static Coordinate InputCoordinate() {
+    public static CoordinateList InputCoordinate() {
         try {
-            List<Point> points = new ArrayList<>();
             System.out.println("좌표를 입력하세요");
             Scanner scanner = new Scanner(System.in);
-            return CoordinateFactory.generateCoordinate(convertCoordinate(scanner), points);
+            List<Coordinate> coordinates = CoordinateFactory.generateCoordinateList(convertCoordinate(scanner));
+            return new CoordinateList(coordinates);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return InputCoordinate();

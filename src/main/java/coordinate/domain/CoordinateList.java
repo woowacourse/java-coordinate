@@ -9,7 +9,7 @@ public class CoordinateList {
         this.coordinates = checkDuplicate(coordinates);
     }
 
-    public List<Line> findLine() {
+    List<Line> findLine() {
         List<Line> lines = new ArrayList<>();
         for (int i = 0; i < coordinates.size(); i++) {
             for (int j = i + 1; j < coordinates.size(); j++) {
@@ -27,7 +27,8 @@ public class CoordinateList {
     }
 
     private boolean isDuplicate(List<Coordinate> coordinate) {
-        return Collections.indexOfSubList(coordinate, Arrays.asList(coordinate.get(0))) != -1;
+        HashSet<Coordinate> set = new HashSet<>(coordinate);
+        return set.size() != coordinate.size();
     }
 
 }

@@ -1,49 +1,57 @@
 package coordinate.domain;
 
+import java.util.Objects;
+
 public class Point {
-    private double point_x;
-    private double point_y;
+    private double point;
 
-    Point(String input_x, String input_y) {
+    Point(String input) {
+        point = checkPoint(input);
+    }
 
-        if (!isInteger(input_x, input_y) || isContains(input_x, input_y)) {
-            throw new IllegalArgumentException("공백없는 숫자를 입력해 주세요");
+    double sub_Point(Point point) {
+        return (this.point - point.point);
+    }
+
+    protected double checkPoint(String input) {
+        if (!isDouble(input)) {
+            throw new IllegalArgumentException("숫자를 입력해 주세요.");
         }
 
-        double point_x = Double.parseDouble(input_x);
-        double point_y = Double.parseDouble(input_y);
+        double point = Double.parseDouble(input);
 
-        if (isAllowedNumber(point_x, point_y)) {
-            throw new IllegalArgumentException("24이하의 수를 입력해 주세요.");
+        if (isNotAllowedNumber(point)) {
+            throw new IllegalArgumentException("0 이상 24 이하의 수를 입력하세요.");
         }
 
-        this.point_x = point_x;
-        this.point_y = point_y;
+        return point;
     }
 
-    private boolean isAllowedNumber(double point_x, double point_y) {
-        return (point_x > 24 || point_y < 0) && (point_x > 24 || point_y < 0);
+    private boolean isNotAllowedNumber(double point_x) {
+
+        return (point_x > 24 || point_x < 0);
     }
 
-    private boolean isContains(String input_x, String input_y) {
-        return input_x.contains(" ") || input_y.contains(" ");
-    }
-
-    private boolean isInteger(String point_x, String point_y) {
+    private boolean isDouble(String input) {
         try {
-            Double.parseDouble(point_x);
-            Double.parseDouble(point_y);
+            Double.parseDouble(input);
+            return true;
         } catch (IllegalArgumentException e) {
             return false;
         }
-        return true;
     }
 
-    double sub_x(Point point) {
-        return (this.point_x - point.point_x);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point1 = (Point) o;
+        return Double.compare(point1.point, point) == 0;
     }
 
-    double sub_y(Point point) {
-        return (this.point_y - point.point_y);
+    @Override
+    public int hashCode() {
+        return Objects.hash(point);
     }
 }
