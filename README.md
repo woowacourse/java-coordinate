@@ -15,6 +15,8 @@
 
 ## Done
 * Point 테스트 생성
+* 두 점 사이의 거리 계산하기
+* Line 테스트 생성
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
