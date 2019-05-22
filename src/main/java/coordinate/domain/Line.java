@@ -22,4 +22,8 @@ public class Line {
         Point b = points.get(1);
         return a.length(b);
     }
+
+    public Points getPoints() {
+        return points;
+    }
 }

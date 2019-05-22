@@ -31,4 +31,9 @@ public final class Square extends Figure {
     public double area() {
         return super.getLines().lengths().get(0) * super.getLines().lengths().get(2);
     }
+
+    @Override
+    public String toString() {
+        return "사각형";
+    }
 }

@@ -33,6 +33,10 @@ public final class Triangle extends Figure {
                 .stream()
                 .mapToDouble(length -> s - length)
                 .reduce(1, (a, b) -> a * b);
+    }
 
+    @Override
+    public String toString() {
+        return "삼각형";
     }
 }
