@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TriangleTest {
     @Test
@@ -20,5 +21,17 @@ public class TriangleTest {
         List<Point> points = Arrays.asList(new Point("0", "0"), new Point("1", "0"), new Point("0", "1"));
         Triangle triangle = new Triangle(new Points(points));
         assertEquals(0.5, triangle.calculateResult(), 0.001);
+    }
+
+    @Test
+    void 세점이_일직선상에_있을경우_예외처리() {
+        List<Point> points = Arrays.asList(new Point("0", "0"), new Point("1", "1"), new Point("2", "2"));
+        assertThrows(IllegalArgumentException.class, () -> new Triangle(new Points(points)));
+    }
+
+    @Test
+    void 세점의_x좌표가_동일할_경우_예외처리() {
+        List<Point> points = Arrays.asList(new Point("0", "0"), new Point("0", "1"), new Point("0", "2"));
+        assertThrows(IllegalArgumentException.class, () -> new Triangle(new Points(points)));
     }
 }
