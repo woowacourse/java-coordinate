@@ -1,5 +1,6 @@
 package coordinate;
 
+import coordinate.model.Line;
 import coordinate.model.Point;
 import coordinate.model.PointNumber;
 import coordinate.view.InputView;
@@ -13,10 +14,17 @@ public class Main {
     private static final String POINT_REGEX = "\\(([0-9]+)(,)([0-9]+)\\)";
 
     public static void main(String[] args) {
-        InputView.inputPoint();
     }
 
-    List<Point> makePoints(List<String> inputs) {
+    static Line createLine() {
+        try {
+            return new Line(makePoints(InputView.inputPoint()));
+        } catch(IllegalArgumentException e) {
+            return createLine();
+        }
+    }
+
+    static List<Point> makePoints(List<String> inputs) {
         List<Point> points = new ArrayList<>();
         for (String input : inputs) {
             Matcher matcher = Pattern.compile(POINT_REGEX).matcher(input);
