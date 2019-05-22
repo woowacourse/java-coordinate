@@ -1,21 +1,16 @@
 package coordinate.domain;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 public class Square {
 
-    private final List<Point> points;
+    private final Points points;
 
-    public Square(final List<Point> points) {
-        this.points = new ArrayList<>(points);
+    public Square(final Points points) {
+        this.points = points;
         validate();
     }
 
     private void validate() {
         validateSize();
-        validateDuplication();
         validateRectangle();
     }
 
@@ -44,9 +39,4 @@ public class Square {
         }
     }
 
-    private void validateDuplication() {
-        if (new HashSet<>(this.points).size() != 4) {
-            throw new IllegalArgumentException("중복된 점이 있습니다.");
-        }
-    }
 }

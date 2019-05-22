@@ -1,12 +1,20 @@
 package coordinate.domain;
 
-import java.util.List;
 
 public class Line {
-    private final List<Point> points;
+    private static final int NUMBER_OF_POINTS = 2;
 
-    public Line(List<Point> points) {
+    private final Points points;
+
+    public Line(Points points) {
         this.points = points;
+        validateSize(points);
+    }
+
+    private void validateSize(final Points points) {
+        if (points.size() != NUMBER_OF_POINTS) {
+            throw new IllegalArgumentException("선은 점이 두개 필요합니다.");
+        }
     }
 
     public double length() {

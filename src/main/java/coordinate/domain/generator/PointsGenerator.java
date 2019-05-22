@@ -1,12 +1,14 @@
 package coordinate.domain.generator;
 
 import coordinate.domain.Point;
+import coordinate.domain.Points;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class PointsGenerator {
+    //TODO 정규식 수정
     private static final String REGEX = "\\([0-9]{1,2},[0-9]{1,2}\\)-\\([0-9]{1,2},[0-9]{1,2}\\)";
     private static final String DELIMITER = "-";
 
@@ -21,7 +23,7 @@ public class PointsGenerator {
                 .toArray(String[]::new);
     }
 
-    public List<Point> generate() {
+    public Points generate() {
         List<Point> points = new ArrayList<>();
         for (String coordinate : coordinates) {
             int index = coordinate.indexOf(",");
@@ -29,6 +31,6 @@ public class PointsGenerator {
             int y = Integer.parseInt(coordinate.substring(index+1));
             points.add(new Point(x, y));
         }
-        return points;
+        return Points.of(points);
     }
 }
