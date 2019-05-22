@@ -17,6 +17,14 @@ public class Coordinate implements Comparable<Coordinate> {
         return Math.sqrt(Math.pow(Math.abs(x - this.x), 2) + Math.pow(Math.abs(y - this.y), 2));
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     @Override
     public int compareTo(final Coordinate o) {
         if (this.x == o.x) {
@@ -24,4 +32,6 @@ public class Coordinate implements Comparable<Coordinate> {
         }
         return Integer.compare(this.x, o.x);
     }
+
+
 }
