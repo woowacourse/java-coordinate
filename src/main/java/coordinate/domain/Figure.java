@@ -16,7 +16,7 @@ public class Figure {
         }
     }
 
-    public PlaneCoordinates getPlaneCoodinates() {
+    public PlaneCoordinates getPlaneCoordinates() {
         return new PlaneCoordinates(points);
     }
 }

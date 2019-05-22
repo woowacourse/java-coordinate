@@ -20,6 +20,6 @@ public class FigureGenerator {
             return new Rectangle(points);
         }
 
-        throw new IllegalArgumentException("Point의 개수는 2~4개만 가능합니다.");
+        throw new IllegalArgumentException("좌표의 개수는 2~4개만 가능합니다.");
     }
 }
