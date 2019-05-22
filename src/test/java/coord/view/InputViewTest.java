@@ -1,12 +1,11 @@
-package coord;
+package coord.view;
 
 import coord.model.Point;
-import coord.view.InputView;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InputViewTest {
     @Test

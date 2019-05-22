@@ -1,13 +1,10 @@
 package coord.model;
 
-public class Line extends Figure {
-    protected Line(Points points) {
-        super(points);
-    }
+public class Line {
+    private final Points points;
 
-    @Override
-    public double area() {
-        return .0;
+    protected Line(Points points) {
+        this.points = points;
     }
 
     public double length() {

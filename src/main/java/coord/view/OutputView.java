@@ -1,11 +1,19 @@
-/*
-package coord;
+package coord.view;
 
-import java.util.stream.IntStream;
+import coord.model.Figure;
+import coord.model.Line;
 
 public class OutputView {
+    public void printLengthOfLine(Line line) {
+        System.out.println("두 점 사이 거리는 " + line.length() + "입니다.");
+    }
+    public void printAreaOfFigure(Figure figure) {
+        System.out.println(figure.getName() + "의 넓이는 " + figure.area() + "입니다.");
+    }
+}
+
+/*
     public static void printCoordinates(Points points) {
-        points.sortByDescYAscX();
         StringBuilder result = new StringBuilder();
         IntStream.range(points.number(), 0).boxed().forEach(i -> {
             result.append(printYAxis(i));
@@ -21,8 +29,4 @@ public class OutputView {
         return String.format("%2s|", y % 2 == 0 ? y : "");
     }
 
-    private static String printPoint(Point point, int beginIndex) {
-
-    }
-}
 */

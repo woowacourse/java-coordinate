@@ -1,5 +1,6 @@
 package coord.model;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -8,32 +9,23 @@ public class Points {
 
     public Points(List<Point> points) {
         if (points.size() != new HashSet<>(points).size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("동일한 점은 입력할 수 없습니다.");
         }
-        this.points = points;
+        this.points = Collections.unmodifiableList(sortByDescYAscX(points));
     }
 
-    public Points sortByDescYAscX() {
+    private List<Point> sortByDescYAscX(List<Point> points) {
         points.sort((a, b) -> {
             if (a.y == b.y) {
                 return a.x - b.x;
             }
             return b.y - a.y;
         });
-        return this;
+        return points;
     }
 
-    public Figure toFigure() {
-        switch (points.size()) {
-            case 2:
-                return new Line(this);
-            case 3:
-                return new Triangle(this);
-            case 4:
-                return new Rectangle(this);
-            default:
-                throw new IllegalArgumentException();
-        }
+    public int number() {
+        return points.size();
     }
 
     public Point get(int index) {

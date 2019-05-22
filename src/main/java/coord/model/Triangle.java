@@ -3,6 +3,8 @@ package coord.model;
 import java.util.Arrays;
 
 public class Triangle extends Figure {
+    private static final String NAME = "삼각형";
+
     protected Triangle(Points points) {
         super(points);
     }
@@ -18,4 +20,9 @@ public class Triangle extends Figure {
         double s = (A.length() + B.length() + C.length()) / 2.0;
         return Math.sqrt(s * (s - A.length()) * (s - B.length()) * (s - C.length()));
      }
+
+    @Override
+    public String getName() {
+        return NAME;
+    }
 }

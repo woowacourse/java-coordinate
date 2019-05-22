@@ -2,7 +2,7 @@ package coord.model;
 
 import java.util.Objects;
 
-public class Point {
+public final class Point {
     private static final int MIN = 0;
     private static final int MAX = 24;
 
@@ -11,7 +11,7 @@ public class Point {
 
     public Point(int x, int y) {
         if (x < MIN || x > MAX || y < MIN || y > MAX) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("x, y의 범위는 "+ MIN + " ~ " + MAX + "입니다.");
         }
         this.x = x;
         this.y = y;
