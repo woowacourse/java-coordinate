@@ -19,12 +19,12 @@ public class Point {
         return Math.pow(first - second, 2);
     }
 
-    public boolean isMatchX(final Point point) {
-        return this.x.value() == point.x.value();
+    public int getX() {
+        return x.value();
     }
 
-    public boolean isMatchY(final Point point) {
-        return this.y.value() == point.y.value();
+    public int getY() {
+        return y.value();
     }
 
     @Override

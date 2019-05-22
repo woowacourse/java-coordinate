@@ -1,50 +1,36 @@
 package coordinate.domain;
 
-import java.util.Arrays;
+import coordinate.domain.generator.LinesSquareGenerator;
 
-public class Square {
-    private final Points points;
-    private Line height;
-    private Line width;
+
+public final class Square extends Figure {
+    private static final int NUMBER_OF_POINTS = 4;
 
     public Square(final Points points) {
-        this.points = points;
+        super(points, new LinesSquareGenerator(points));
         validate();
     }
 
-    private void validate() {
+    protected void validate() {
         validateSize();
         validateRectangle();
     }
 
-    private void validateRectangle() {
-        // todo: 개선점 생각하기
-        int cnt = 0;
-        for (int i = 0; i < points.size(); i++) {
-            for (int j = 0; j < points.size(); j++) {
-                if (i == j) continue;
-                if (points.get(i).isMatchX(points.get(j))) {
-                    cnt++;
-                    height = new Line(Points.of(Arrays.asList(points.get(i), points.get(j))));
-                }
-                if (points.get(i).isMatchY(points.get(j))) {
-                    cnt++;
-                    width = new Line(Points.of(Arrays.asList(points.get(i), points.get(j))));
-                }
-            }
-        }
-        if (cnt != 8) {
-            throw new IllegalArgumentException("직사각형이 아닙니다.");
-        }
-    }
-
     private void validateSize() {
-        if (this.points.size() != 4) {
-            throw new IllegalArgumentException("점이 4개가 아닙니다.");
+        super.validateSize(NUMBER_OF_POINTS);
+    }
+
+    private void validateRectangle() {
+        Points points = super.getPoints();
+        double distance1 = Math.hypot(points.get(0).getX() - points.get(2).getX(), points.get(0).getY() - points.get(2).getY());
+        double distance2 = Math.hypot(points.get(1).getX() - points.get(3).getX(), points.get(1).getY() - points.get(3).getY());
+        if (distance1 != distance2) {
+            throw new IllegalArgumentException("직사각형이 아닙니다");
         }
     }
 
+    @Override
     public double area() {
-        return height.length() * width.length();
+        return super.getLines().lengths().get(0) * super.getLines().lengths().get(2);
     }
 }
