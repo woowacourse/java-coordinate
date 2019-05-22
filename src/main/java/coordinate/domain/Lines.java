@@ -27,7 +27,7 @@ public class Lines {
 
     private void validateIndex(int index) {
         if (index < 0 || index >= lines.size()) {
-            throw new NullPointerException("적합하지 않은 인덱스입니다.");
+            throw new IllegalArgumentException("적합하지 않은 인덱스입니다.");
         }
     }
 
