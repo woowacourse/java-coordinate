@@ -32,7 +32,7 @@
 -----
 ###to do list
 
-- [ ] Point 생성
+- [X] Point 생성
 - [ ] Line 생성
 - [ ] Triangle 추가
 - [ ] Rectangle 추가
