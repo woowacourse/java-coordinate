@@ -8,7 +8,6 @@ public final class Square extends Figure {
 
     public Square(final Points points) {
         super(points, new LinesSquareGenerator(points));
-        validate();
     }
 
     protected void validate() {
@@ -21,10 +20,9 @@ public final class Square extends Figure {
     }
 
     private void validateRectangle() {
-        Points points = super.getPoints();
-        double distance1 = Math.hypot(points.get(0).getX() - points.get(2).getX(), points.get(0).getY() - points.get(2).getY());
-        double distance2 = Math.hypot(points.get(1).getX() - points.get(3).getX(), points.get(1).getY() - points.get(3).getY());
-        if (distance1 != distance2) {
+        double diagonal1 = super.getLines().lengths().get(4);
+        double diagonal2 = super.getLines().lengths().get(5);
+        if (diagonal1 != diagonal2) {
             throw new IllegalArgumentException("직사각형이 아닙니다");
         }
     }
