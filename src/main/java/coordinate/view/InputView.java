@@ -49,7 +49,7 @@ public class InputView {
 
     private static Point makePoint(String coordinate) {
         Matcher matcher = Pattern.compile(COORDINATE_PATTERN).matcher(coordinate);
-        if (!matcher.find()) throw new IllegalArgumentException();
+        if (!matcher.find()) throw new IllegalArgumentException("올바른 형식으로 입력해 주세요.");
 
         return new Point(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2)));
     }
