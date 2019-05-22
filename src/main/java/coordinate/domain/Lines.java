@@ -35,7 +35,7 @@ public class Lines {
         return lines.size();
     }
 
-    public boolean isVertical(int i, int j) {
+    public boolean isOrthogonal(int i, int j) {
         Vector v1 = new Vector(lines.get(i));
         Vector v2 = new Vector(lines.get(j));
         return v1.innerProduct(v2) == 0;

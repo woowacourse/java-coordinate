@@ -44,6 +44,6 @@ public class LinesTest {
                 new Line(new Point(0, 0), new Point(1, 1)),
                 new Line(new Point(0, 1), new Point(1, 0))
         ));
-        assertThat(lines.isVertical(0, 1)).isTrue();
+        assertThat(lines.isOrthogonal(0, 1)).isTrue();
     }
 }
