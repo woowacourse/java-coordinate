@@ -24,8 +24,14 @@ public class Point {
         }
     }
 
-    public double getDistance(Point pointTwo) {
-        return Math.sqrt(Math.pow((x - pointTwo.x), 2) + Math.pow((y - pointTwo.y), 2));
+    public double getDistance(Point point) {
+        return Math.sqrt(Math.pow((x - point.x), 2) + Math.pow((y - point.y), 2));
+    }
+
+    public int distanceSqure(Point point){
+        int absX = x - point.x;
+        int absY = y - point.y;
+        return absX*absX + absY*absY;
     }
 
     public int getX() {

@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Figure {
@@ -14,6 +15,6 @@ public class Figure {
     }
 
     public List<Point> getPoints() {
-        return points;
+        return new ArrayList<>(points);
     }
 }
