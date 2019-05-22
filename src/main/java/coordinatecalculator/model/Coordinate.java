@@ -20,4 +20,13 @@ public class Coordinate {
             throw new IllegalArgumentException(MIN_COORDINATE_VALUE + "에서 " + MAX_COORDINATE_VALUE + "사이 값을 입력해주세요.");
         }
     }
+
+
+    public int getXValue(){
+        return xValue.getXValue();
+    }
+
+    public int getYValue(){
+        return yValue.getYValue();
+    }
 }
