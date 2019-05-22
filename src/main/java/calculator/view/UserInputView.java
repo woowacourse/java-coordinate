@@ -1,7 +1,8 @@
 package calculator.view;
 
-import java.util.ArrayList;
-import java.util.List;
+import calculator.domain.Point;
+import calculator.domain.Points;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,22 +14,20 @@ import java.util.regex.Pattern;
 public class UserInputView {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final String FORMAT_PATTERN = "^[(][-]?\\d+,[-]?\\d+[)]([-][(][-]?\\d+,[-]?\\d+[)])*$";
-    private static final String POINT_PATTERN = "[-]?\\d+";
+    private static final String POINT_PATTERN = "[-]?\\d+,[-]?\\d+";
     private static final String EX_FORMAT_PATTERN_MESSAGE = "포맷에 맞게 입력해주세요";
-    private static final String EX_COORDINATE_RANGE_MESSAGE = "좌표 범위는 0~24 사이입니다.";
-    private static final int MAX_COORDINATE = 24;
-    private static final int MIN_COORDINATE = 0;
     private static final String SINGLE_BLANK = " ";
     private static final String EMPTY = "";
+    public static final String COMMA = ",";
 
-    public List<Integer> generateCoordinates() {
+    public Points generaValidatedPoints() {
         try {
             String inputText = UserInputView.inputByUser();
             UserInputView.checkFormat(inputText);
-            return generateValidatedCoordinates(inputText);
+            return generatePoints(inputText);
         } catch(Exception e) {
             System.out.println(e.getMessage());
-            return generateCoordinates();
+            return generaValidatedPoints();
         }
     }
 
@@ -55,24 +54,17 @@ public class UserInputView {
         }
     }
 
-    private static List<Integer> generateValidatedCoordinates(String inputText) {
-        List<Integer> coordinates = new ArrayList<>();
+    private static Points generatePoints(String inputText) {
+        Points points = new Points();
         Pattern pointPattern = Pattern.compile(POINT_PATTERN);
         Matcher pointMatcher = pointPattern.matcher(inputText);
 
         while(pointMatcher.find()) {
-            coordinates.add(checkRange(Integer.parseInt(pointMatcher.group(0)), EX_COORDINATE_RANGE_MESSAGE));
+            int xCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[0]);
+            int yCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[1]);
+            points.add(Point.create(xCoordinate, yCoordinate));
         }
-
-        return coordinates;
-    }
-
-    private static int checkRange(int coordinate, String message) {
-        if (coordinate < MIN_COORDINATE || coordinate > MAX_COORDINATE) {
-            throw new IllegalArgumentException(message);
-        }
-
-        return coordinate;
+        return points;
     }
 
 }
