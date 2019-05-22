@@ -1,8 +1,8 @@
 package coordinatecalculator;
 
 public class Point {
+    private static final int UNDER_LIMIT = 1;
     private static final int UPPER_LIMIT = 24;
-    private static final int UNDER_LIMIT = 0;
     private static final String MSG_LIMIT_OVER = "좌표 범위를 초과하였습니다.";
 
     private int x;

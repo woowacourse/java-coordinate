@@ -12,9 +12,9 @@ class PointTest {
 
     @Test
     void generatePoint() {
-        p1 = new Point(0, 0);
-        assertThat(p1.getX()).isEqualTo(0);
-        assertThat(p1.getY()).isEqualTo(0);
+        p1 = new Point(1, 1);
+        assertThat(p1.getX()).isEqualTo(1);
+        assertThat(p1.getY()).isEqualTo(1);
 
         p1 = new Point(12, 12);
         assertThat(p1.getX()).isEqualTo(12);
@@ -54,13 +54,13 @@ class PointTest {
 
     @Test
     void distanceCalc() {
-        p1 = new Point(0, 0);
-        p2 = new Point(1, 1);
+        p1 = new Point(1, 1);
+        p2 = new Point(2, 2);
         distance = p1.getDistance(p2);
         assertThat(distance).isEqualTo(1.414, offset(0.001));
 
-        p1 = new Point(0, 0);
-        p2 = new Point(10, 10);
+        p1 = new Point(1, 1);
+        p2 = new Point(11, 11);
         distance = p1.getDistance(p2);
         assertThat(distance).isEqualTo(14.142136, offset(0.001));
 
@@ -69,14 +69,14 @@ class PointTest {
         distance = p1.getDistance(p2);
         assertThat(distance).isEqualTo(9.848858, offset(0.001));
 
-        p1 = new Point(0, 0);
-        p2 = new Point(24, 24);
+        p1 = new Point(1, 1);
+        p2 = new Point(24, 12);
         distance = p1.getDistance(p2);
-        assertThat(distance).isEqualTo(33.941125, offset(0.001));
+        assertThat(distance).isEqualTo(25.4951, offset(0.001));
 
-        p1 = new Point(24, 24);
-        p2 = new Point(1, 1);
+        p1 = new Point(24, 12);
+        p2 = new Point(16, 18);
         distance = p1.getDistance(p2);
-        assertThat(distance).isEqualTo(32.526912, offset(0.001));
+        assertThat(distance).isEqualTo(10, offset(0.001));
     }
 }
