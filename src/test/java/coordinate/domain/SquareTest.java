@@ -26,6 +26,14 @@ public class SquareTest {
     }
 
     @Test
+    void 점들이_같은_선일때() {
+        CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("1,0","2,0","3,0","4,0")));
+        assertThatIllegalArgumentException().isThrownBy(() ->{
+            new Square(cl);
+        });
+    }
+
+    @Test
     void 넓이구하는_테스트() {
         CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("0,0","10,0","0,10","10,10")));
         Square square = new Square(cl);

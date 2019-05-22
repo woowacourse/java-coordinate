@@ -1,7 +1,6 @@
 package coordinate.domain;
 
 
-import java.util.LinkedHashMap;
 import java.util.Objects;
 
 public class Line implements Comparable<Line> {
@@ -17,6 +16,10 @@ public class Line implements Comparable<Line> {
 
     public boolean isTriangle(Line length, Line longestLine) {
         return (this.length + length.length) > longestLine.length;
+    }
+
+    public boolean isInOneLine(Line min) {
+        return this.length == min.length * 3;
     }
 
     @Override
