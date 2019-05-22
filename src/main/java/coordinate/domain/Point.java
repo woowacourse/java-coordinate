@@ -20,8 +20,8 @@ public class Point {
     }
 
     public double getDistanceWith(Point coor2) {
-        return Math.sqrt(Math.pow(this.xCoordinate.getValue() - coor2.xCoordinate.getValue(), 2)
-                + Math.pow(this.yCoordinate.getValue() - coor2.yCoordinate.getValue(), 2));
+        return Math.sqrt(Math.pow(this.xCoordinate.getDiffWith(coor2.xCoordinate), 2)
+                + Math.pow(this.yCoordinate.getDiffWith(coor2.yCoordinate), 2));
     }
 
     public boolean func(int yValue) {

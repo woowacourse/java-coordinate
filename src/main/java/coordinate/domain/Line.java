@@ -1,6 +1,5 @@
 package coordinate.domain;
 
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -26,9 +25,36 @@ public class Line {
 
     public double length() {
         Iterator iterator = points.iterator();
-        Point point1 = (Point)iterator.next();
-        Point point2 = (Point)iterator.next();
-        return Math.sqrt(Math.pow(point1.getXValue() - point2.getXValue(), 2)
-                + Math.pow( point1.getYValue() - point2.getYValue(),2));
+        Point point1 = (Point) iterator.next();
+        Point point2 = (Point) iterator.next();
+        return point1.getDistanceWith(point2);
     }
+
+    public boolean orthogonalTo(Line line) {
+        if (slope() == 0) {
+            if (line.slope() == 1) {
+                return true;
+            }
+        }
+        if (line.slope() == 0) {
+            if (slope() == 1) {
+                return true;
+            }
+        }
+        if (Double.compare(line.slope() * slope(), -1) == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    private double slope() {
+        Iterator iterator = points.iterator();
+        Point point1 = (Point) iterator.next();
+        Point point2 = (Point) iterator.next();
+        int x = (point1.getYValue() - point2.getYValue());
+        int y = point1.getXValue() - point2.getXValue();
+        if (y == 0) return 1;
+        return x / y;
+    }
+
 }

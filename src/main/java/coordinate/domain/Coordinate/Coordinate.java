@@ -22,6 +22,10 @@ public abstract class Coordinate {
         return value;
     }
 
+    public int getDiffWith(Coordinate coordinate) {
+        return coordinate.value - value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
