@@ -22,7 +22,7 @@ public class LineTest {
     }
 
     @Test
-    void name() {
+    void 길이구하기() {
         assertEquals(6.403,line.findArea(),0.001);
     }
 }

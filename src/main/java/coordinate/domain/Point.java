@@ -1,19 +1,19 @@
 package coordinate.domain;
 
 public class Point {
-    private int point_x;
-    private int point_y;
+    private double point_x;
+    private double point_y;
 
-    public Point(String input_x,String input_y) {
+    Point(String input_x, String input_y) {
 
-        if(!isInteger(input_x,input_y) || isContains(input_x,input_y)){
+        if (!isInteger(input_x, input_y) || isContains(input_x, input_y)) {
             throw new IllegalArgumentException("공백없는 숫자를 입력해 주세요");
         }
 
-        int point_x = Integer.parseInt(input_x);
-        int point_y = Integer.parseInt(input_y);
+        double point_x = Double.parseDouble(input_x);
+        double point_y = Double.parseDouble(input_y);
 
-        if(isAllowedNumber(point_x,point_y)){
+        if (isAllowedNumber(point_x, point_y)) {
             throw new IllegalArgumentException("24이하의 수를 입력해 주세요.");
         }
 
@@ -21,30 +21,29 @@ public class Point {
         this.point_y = point_y;
     }
 
-    private boolean isAllowedNumber(int point_x,int point_y) {
+    private boolean isAllowedNumber(double point_x, double point_y) {
         return (point_x > 24 || point_y < 0) && (point_x > 24 || point_y < 0);
     }
 
-    private boolean isContains(String input_x,String input_y) {
+    private boolean isContains(String input_x, String input_y) {
         return input_x.contains(" ") || input_y.contains(" ");
     }
 
-    private boolean isInteger(String point_x,String point_y) {
+    private boolean isInteger(String point_x, String point_y) {
         try {
-            Integer.parseInt(point_x);
-            Integer.parseInt(point_y);
-
-        } catch (IllegalArgumentException e){
+            Double.parseDouble(point_x);
+            Double.parseDouble(point_y);
+        } catch (IllegalArgumentException e) {
             return false;
         }
         return true;
     }
 
-    public int getPoint_x() {
-        return point_x;
+    double sub_x(Point point) {
+        return (this.point_x - point.point_x);
     }
 
-    public int getPoint_y() {
-        return point_y;
+    double sub_y(Point point) {
+        return (this.point_y - point.point_y);
     }
 }
