@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 public class SquareTest {
@@ -22,5 +23,12 @@ public class SquareTest {
         assertThatIllegalArgumentException().isThrownBy(() ->{
             new Square(cl);
         });
+    }
+
+    @Test
+    void 넓이구하는_테스트() {
+        CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("0,0","10,0","0,10","10,10")));
+        Square square = new Square(cl);
+        assertThat(square.findArea()).isEqualTo(100);
     }
 }

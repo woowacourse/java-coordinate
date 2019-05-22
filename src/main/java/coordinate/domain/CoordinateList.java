@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class CoordinateList {
+public class CoordinateList{
     private final List<Coordinate> coordinates;
 
     public CoordinateList(List<Coordinate> coordinates) {
@@ -16,6 +16,7 @@ public class CoordinateList {
                 lines.add(new Line(coordinates.get(i).findLength(coordinates.get(j))));
             }
         }
+        lines.sort(null);
         return lines;
     }
 
