@@ -64,35 +64,20 @@ class Shape implements Figure {
         points.sort(Point::compareTo);
         final int FIRST = 0;
         final int LAST = points.size() - 1;
-        final Point leftMost = points.get(FIRST);
-        final Point rightMost = points.get(LAST);
+        final Line bisectLine = new Line(points.get(FIRST), points.get(LAST));
         final List<Point> increaseX = points.stream()
-                .filter(p -> bisectLine.aboveOrBelow(p, leftMost, rightMost) == bisectLine.ABOVE)
+                .filter(p -> bisectLine.aboveOrBelowPoint(p) == Line.bisect.ABOVE)
                 .collect(Collectors.toList());
         final List<Point> decreaseX = points.stream()
-                .filter(p -> bisectLine.aboveOrBelow(p, leftMost, rightMost) == bisectLine.BELOW)
+                .filter(p -> bisectLine.aboveOrBelowPoint(p) == Line.bisect.BELOW)
                 .collect(Collectors.toList());
         increaseX.sort(Point::compareTo);
         decreaseX.sort(Point::compareToReverse);
         final List<Point> temp = new ArrayList<>();
-        temp.add(leftMost);
+        temp.add(bisectLine.getStartPoint());
         temp.addAll(increaseX);
-        temp.add(rightMost);
+        temp.add(bisectLine.getEndPoint());
         temp.addAll(decreaseX);
         return temp;
-    }
-
-    /* 2개의 점으로 이루어진 선과 비교하여, 주어진 점이 선의 위에 있는지
-     * 아래에 있는지를 판별한다. 이는 폐곡선 작성에 필요하다.
-     * 참고: https://stackoverflow.com/questions/3838319 */
-    private enum bisectLine {
-        ABOVE, BELOW, SAME;
-
-        static bisectLine aboveOrBelow(Point point, Point leftMost, Point rightMost) {
-            Point vector1 = new Point(rightMost.getX() - leftMost.getX(), rightMost.getY() - leftMost.getY());
-            Point vector2 = new Point(rightMost.getX() - point.getX(), rightMost.getY() - point.getY());
-            int crossProduct = (vector1.getX() * vector2.getY()) - (vector1.getY() * vector2.getX());
-            return crossProduct > 0 ? ABOVE : crossProduct < 0 ? BELOW : SAME;
-        }
     }
 }

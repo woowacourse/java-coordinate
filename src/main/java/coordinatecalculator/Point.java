@@ -3,7 +3,7 @@ package coordinatecalculator;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Point implements Comparable<Point> {
+class Point implements Comparable<Point> {
     private static final int UNDER_LIMIT = 1;
     private static final int UPPER_LIMIT = 24;
     private static final String ERROR_LIMIT_OVER = "좌표 범위를 초과하였습니다.";
@@ -11,7 +11,7 @@ public class Point implements Comparable<Point> {
     private int x;
     private int y;
 
-    public Point(int x, int y) {
+    Point(int x, int y) {
         //        if (isLimitOver(x) || isLimitOver(y)) {
         //            throw new IllegalArgumentException(ERROR_LIMIT_OVER);
         //        } // 처리 과정 중에 이 값을 넘어서는 경우가 있다. 일단 주석처리.
@@ -60,14 +60,14 @@ public class Point implements Comparable<Point> {
 
     @Override
     public String toString() {
-        return "{x: " + this.x + ", y: " + this.y + "}";
+        return "Point {x: " + this.x + ", y: " + this.y + "}";
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        final Point point = (Point) o;
+    public boolean equals(Object another) {
+        if (this == another) return true;
+        if (another == null || getClass() != another.getClass()) return false;
+        final Point point = (Point) another;
         return x == point.x &&
                 y == point.y;
     }
