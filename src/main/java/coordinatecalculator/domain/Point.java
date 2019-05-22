@@ -2,7 +2,7 @@ package coordinatecalculator.domain;
 
 import java.util.Objects;
 
-public class Point {
+public class Point implements Comparable<Point> {
     private final X x;
     private final Y y;
 
@@ -31,5 +31,10 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public int compareTo(Point point) {
+        return (this.getX() < point.getX()) ? -1 : ((this.getX() == point.getX()) ? Integer.compare(this.getY(), point.getY()) : 1);
     }
 }

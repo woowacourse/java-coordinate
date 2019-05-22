@@ -12,7 +12,7 @@ public class Triangle implements Figure {
         this.points = points;
 
         // TODO: Refactoring
-        List<Point> points1 = this.points.getPoints();
+        List<Point> points1 = this.points.getSortedPoints();
         Point point1 = points1.get(0);
         Point point2 = points1.get(1);
         Point point3 = points1.get(2);
@@ -35,7 +35,7 @@ public class Triangle implements Figure {
     @Override
     public double calculateResult() {
         // TODO: Refactoring - combination
-        List<Point> points = this.points.getPoints();
+        List<Point> points = this.points.getSortedPoints();
         double side1 = calculateLength(points.get(0), points.get(1));
         double side2 = calculateLength(points.get(1), points.get(2));
         double side3 = calculateLength(points.get(2), points.get(0));
@@ -43,7 +43,7 @@ public class Triangle implements Figure {
         return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
     }
 
-    public double calculateLength(Point p1, Point p2) {
+    private double calculateLength(Point p1, Point p2) {
         int x = Math.abs(p2.getX() - p1.getX());
         int y = Math.abs(p2.getY() - p1.getY());
 

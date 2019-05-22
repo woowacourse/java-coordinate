@@ -1,5 +1,7 @@
 package coordinatecalculator.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,8 +12,11 @@ public class Points {
         this.points = points;
     }
 
-    public List<Point> getPoints() {
-        return points;
+    public List<Point> getSortedPoints() {
+        List<Point> clonedPoints = new ArrayList<>(points);
+        Collections.sort(clonedPoints);
+
+        return clonedPoints;
     }
 
     @Override
