@@ -34,7 +34,7 @@
 
 - [X] Point 생성
 - [X] Line 생성
-- [] Triangle 추가
+- [X] Triangle 추가
 - [X] Rectangle 추가
 - [ ] 상속 (도형) 추가
 - [ ] 인터페이스 (계산) 추가
