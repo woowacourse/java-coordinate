@@ -52,4 +52,12 @@ public class Point implements Comparable<Point> {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    public PointNumber getX() {
+        return x;
+    }
+
+    public PointNumber getY() {
+        return y;
+    }
 }

@@ -2,8 +2,10 @@ package coordinate;
 
 import coordinate.model.*;
 import coordinate.view.InputView;
+import coordinate.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,6 +14,10 @@ public class Main {
     private static final String POINT_REGEX = "\\(([0-9]+)(,)([0-9]+)\\)";
 
     public static void main(String[] args) {
+        Point p1 = new Point(new PointNumber(0),new PointNumber(0));
+        Point p2 = new Point(new PointNumber(5),new PointNumber(6));
+        Point p3 = new Point(new PointNumber(13),new PointNumber(17));
+        OutputView.printCoordinate(Arrays.asList(p1,p2,p3));
     }
 
     static Line createLine() {
