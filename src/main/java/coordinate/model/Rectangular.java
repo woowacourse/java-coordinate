@@ -20,4 +20,9 @@ public class Rectangular {
             throw new IllegalArgumentException();
         }
     }
+
+    public int getArea() {
+        return (int)(points.get(0).getDistance(points.get(1))
+                * points.get(0).getDistance(points.get(2)));
+    }
 }
