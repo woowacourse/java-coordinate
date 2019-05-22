@@ -13,7 +13,7 @@ public class Rectangle {
         this.points = points;
     }
 
-    public void checkValidCoordinate(List<Double> coordinates) {
+    public void checkValidCoordinate(List<Integer> coordinates) {
         long count = coordinates.stream()
                 .collect(Collectors.groupingBy(Function.identity()))
                 .values()

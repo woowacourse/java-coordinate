@@ -22,31 +22,31 @@ public class Points {
         }
     }
 
-    public List<Double> getXCoordinates() {
+    public List<Integer> getXCoordinates() {
         return points.stream()
                 .map(Point::getX)
                 .collect(Collectors.toList());
     }
 
-    public List<Double> getYCoordinates() {
+    public List<Integer> getYCoordinates() {
         return points.stream()
                 .map(Point::getY)
                 .collect(Collectors.toList());
     }
 
-    public double getMinX(){
+    public int getMinX(){
         return points.get(0).getX();
     }
 
-    public double getMinY(){
+    public int getMinY(){
         return points.get(0).getY();
     }
 
-    public double getMaxX(){
+    public int getMaxX(){
         return points.get(points.size() - 1).getX();
     }
 
-    public double getMaxY(){
+    public int getMaxY(){
         return points.get(points.size() - 1).getY();
     }
 }

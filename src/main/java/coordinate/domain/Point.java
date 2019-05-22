@@ -6,10 +6,10 @@ public class Point implements Comparable<Point> {
     private static final int MAX_COORDINATE_VALUE = 24;
     private static final int MIN_COORDINATE_VALUE = 0;
 
-    private final double x;
-    private final double y;
+    private final int x;
+    private final int y;
 
-    public Point(double x, double y) {
+    public Point(int x, int y) {
         checkCoordinateValue(x);
         checkCoordinateValue(y);
         this.x = x;
@@ -17,7 +17,7 @@ public class Point implements Comparable<Point> {
     }
 
     private void checkCoordinateValue(double coordinateValue) {
-        if (coordinateValue < MIN_COORDINATE_VALUE || coordinateValue > MAX_COORDINATE_VALUE) {
+        if (coordinateValue <= MIN_COORDINATE_VALUE || coordinateValue > MAX_COORDINATE_VALUE) {
             throw new IllegalArgumentException("좌표가 범위를 벗어났습니다.");
         }
     }
@@ -26,11 +26,11 @@ public class Point implements Comparable<Point> {
         return Math.sqrt(Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2));
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
