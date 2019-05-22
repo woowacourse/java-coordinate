@@ -21,13 +21,18 @@ public final class Triangle extends Figure {
     @Override
     public double area() {
         Lines lines = super.getLines();
-        double a = lines.lengths().get(0);
-        double b = lines.lengths().get(1);
-        double c = lines.lengths().get(2);
+        return Math.sqrt(calculateX(lines, calculateS(lines)));
+    }
 
-        double s = (a+b+c) / 2.0d;
-        double x = (s * (s - a) * (s - b) * (s - c));
-        double area = Math.sqrt(x);
-        return area;
+    private double calculateS(final Lines lines) {
+        return lines.lengths().stream().mapToDouble(Double::doubleValue).sum() / 2.0;
+    }
+
+    private double calculateX(final Lines lines, final double s) {
+        return s * lines.lengths()
+                .stream()
+                .mapToDouble(length -> s - length)
+                .reduce(1, (a, b) -> a * b);
+
     }
 }

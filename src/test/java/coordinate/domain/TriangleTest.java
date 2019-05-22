@@ -9,14 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TriangleTest {
     @Test
-    void name() {
-        double s = (4 + 5 + 3) / 2.0d;
-        double x = (s * (s - 4) * (s - 5) * (s - 3));
-        double Area = Math.sqrt(x);
-        System.out.println(Area);
-    }
-
-    @Test
     void 사이즈_테스트() {
         assertThrows(IllegalArgumentException.class, () -> new Triangle(new PointsGenerator("(10,10)-(14,15)").generate()));
     }
