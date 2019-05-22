@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RectangleTest {
@@ -20,5 +22,17 @@ class RectangleTest {
             new Rectangle(coordinates);
             new Rectangle(coordinates2);
         });
+    }
+
+    @Test
+    void 넓이를_제대로_구하는지_테스트() {
+        List<Coordinate> coordinates = Arrays.asList(new Coordinate(1, 0), new Coordinate(0, 1),
+                new Coordinate(1, 2), new Coordinate(2, 1));
+        List<Coordinate> coordinates2 = Arrays.asList(new Coordinate(1, 0), new Coordinate(0, 1),
+                new Coordinate(2, 3), new Coordinate(3, 2));
+
+        assertThat(new Rectangle(coordinates).area()).isEqualTo(2, offset(0.00099));
+        assertThat(new Rectangle(coordinates2).area()).isEqualTo(4, offset(0.00099));
+
     }
 }

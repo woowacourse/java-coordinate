@@ -29,4 +29,8 @@ public class Rectangle {
             throw new IllegalArgumentException("직사각형이 아닙니다!!");
         }
     }
+
+    public double area() {
+        return coordinates.get(0).calculate(coordinates.get(1)) * coordinates.get(0).calculate(coordinates.get(2));
+    }
 }
