@@ -7,6 +7,7 @@
 * RentCompany 테스트 만들기
 * Car interface 생성
 * RentCar 추상클래스 생성
+* RentCompany 자동차 등록 기능 만들기
 
 ---
 
