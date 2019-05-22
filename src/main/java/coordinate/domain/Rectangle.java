@@ -2,10 +2,8 @@ package coordinate.domain;
 
 import static coordinate.util.NotNullValidator.validateNotNull;
 
-public class Rectangle {
+public class Rectangle extends Polygon {
     private static final int NUM_OF_LINES = 4;
-
-    private final Lines lines;
 
     public Rectangle(Lines lines) {
         validateNotNull(lines);
@@ -34,6 +32,7 @@ public class Rectangle {
         return isValidate;
     }
 
+    @Override
     public double area() {
         return lines.getLength(0)
                 * lines.getLength(1);

@@ -93,7 +93,7 @@
         - [x] Vector 를 이용하여 두 라인이 서로 평행한지 판단 (두 벡터의 내적이 1 이면 두 라인은 평행하다.)
     - [x] Polygon 추상클래스 작성
         - [x] Lines 를 인스턴스변수로 갖는다.
-    - [ ] Square 클래스 작성
+    - [ ] quadrangle 클래스 작성
         - [ ] 추상메서드 area()를 Vector의 내적을 이용하여 구현한다.
     - [ ] AreaCalculable 인터페이스 작성
         - [ ] Figure 가 AreaCalculable 을 구현한다.
