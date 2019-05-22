@@ -12,6 +12,6 @@ public class LineTest {
     void 거리계산() {
         Points points = new Points(Arrays.asList(new Point(10, 10), new Point(10, 20)));
         Line line = new Line(points);
-        assertThat(line.calculateLine()).isEqualTo(10);
+        assertThat(line.calculate()).isEqualTo(10);
     }
 }

@@ -2,6 +2,7 @@ package location.domain;
 
 public class Rectangle extends Shape {
     private static final String NOT_RECTANGLE_MSG = "직사각형이 아닙니다.";
+    private static final int SQUARE = 2;
     private final Point point1;
     private final Point point2;
     private final Point point3;
@@ -41,11 +42,7 @@ public class Rectangle extends Shape {
     }
 
     public double calculateLine(final Point point1, final Point point2) {
-        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2) + Math.pow((point1.getY() - point2.getY()), 2));
-    }
-
-    public double calculateArea() {
-        return calculateLine(point1, point2) * calculateLine(point1, point3);
+        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), SQUARE) + Math.pow((point1.getY() - point2.getY()), SQUARE));
     }
 
     @Override

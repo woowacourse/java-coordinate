@@ -1,6 +1,7 @@
 package location.domain;
 
 public class Line extends Shape {
+    private static final int SQUARE = 2;
     private final Point point1;
     private final Point point2;
 
@@ -9,12 +10,8 @@ public class Line extends Shape {
         this.point2 = points.get(1);
     }
 
-    public double calculateLine() {
-        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2) + Math.pow((point1.getY() - point2.getY()), 2));
-    }
-
     @Override
     public Double calculate() {
-        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2) + Math.pow((point1.getY() - point2.getY()), 2));
+        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), SQUARE) + Math.pow((point1.getY() - point2.getY()), SQUARE));
     }
 }

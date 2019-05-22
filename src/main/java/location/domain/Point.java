@@ -5,7 +5,8 @@ import java.util.Objects;
 public class Point {
     private static final String NOT_POSITIVE_MSG = "음수는 가능하지 않습니다.";
     private static final String OVER_24_MSG = "24를 넘습니다.";
-
+    private static final int MAX_NUMBER = 24;
+    private static final int MIN_NUMBER = 0;
     private final int x;
     private final int y;
 
@@ -21,13 +22,13 @@ public class Point {
     }
 
     private void isPositive(final int x, final int y) {
-        if (x < 0 || y < 0) {
+        if (x < MIN_NUMBER || y < MIN_NUMBER) {
             throw new IllegalArgumentException(NOT_POSITIVE_MSG);
         }
     }
 
     private void isOver24(final int x, final int y) {
-        if (x > 24 || y > 24) {
+        if (x > MAX_NUMBER || y > MAX_NUMBER) {
             throw new IllegalArgumentException(OVER_24_MSG);
         }
     }

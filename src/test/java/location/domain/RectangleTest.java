@@ -32,6 +32,6 @@ public class RectangleTest {
     void 넓이() {
         Points points = new Points(Arrays.asList(new Point(0, 1), new Point(1, 0), new Point(2, 3), new Point(3, 2)));
         Rectangle rectangle = new Rectangle(points);
-        assertThat(rectangle.calculateArea()).isEqualTo(4, Assertions.offset(0.009));
+        assertThat(rectangle.calculate()).isEqualTo(4, Assertions.offset(0.009));
     }
 }

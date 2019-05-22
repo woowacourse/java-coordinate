@@ -12,7 +12,7 @@ public class TriangleTest {
     void 넓이() {
         Points points = new Points(Arrays.asList(new Point(3, 5), new Point(4, 15), new Point(5, 5)));
         Triangle triangle = new Triangle(points);
-        assertThat(triangle.calculateArea()).isEqualTo(10);
+        assertThat(triangle.calculate()).isEqualTo(10);
     }
 
     @Test
