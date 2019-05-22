@@ -55,8 +55,10 @@ public class Line {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return Objects.equals(p1, line.p1) &&
-                Objects.equals(p2, line.p2);
+        return (Objects.equals(p1, line.p1) &&
+                Objects.equals(p2, line.p2)) ||
+                (Objects.equals(p1, line.p2) &&
+                Objects.equals(p2, line.p1));
     }
 
     @Override
