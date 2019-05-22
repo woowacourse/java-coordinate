@@ -1,13 +1,12 @@
 # 렌트카 연료주입
 ## Todo
-* RentCompany 자동차 등록
-* Sonata, Avante, K5 생성
 
 ## Done
 * RentCompany 테스트 만들기
 * Car interface 생성
 * RentCar 추상클래스 생성
 * RentCompany 자동차 등록 기능 만들기
+* Sonata, Avante, K5 생성
 
 ---
 
