@@ -1,9 +1,6 @@
 package coordinate;
 
-import coordinate.model.Line;
-import coordinate.model.Point;
-import coordinate.model.PointNumber;
-import coordinate.model.Rectangular;
+import coordinate.model.*;
 import coordinate.view.InputView;
 
 import java.util.ArrayList;
@@ -32,6 +29,15 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
             return createRectangular();
+        }
+    }
+
+    static Triangle createTriangle() {
+        try {
+            return new Triangle(makePoints(InputView.inputPoint()));
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return createTriangle();
         }
     }
 
