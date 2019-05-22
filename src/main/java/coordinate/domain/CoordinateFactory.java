@@ -16,9 +16,13 @@ public class CoordinateFactory {
 
     private static List<Point> generatePoints(List<Point> points, String x, String y) {
 
-        if (Collections.indexOfSubList(points, Arrays.asList(new Point(x, y))) == -1) {
+        if (isDuplicate(points, x, y)) {
             points.add(new Point(x, y));
         }
         return points;
+    }
+
+    private static boolean isDuplicate(List<Point> points, String x, String y) {
+        return Collections.indexOfSubList(points, Arrays.asList(new Point(x, y))) == -1;
     }
 }

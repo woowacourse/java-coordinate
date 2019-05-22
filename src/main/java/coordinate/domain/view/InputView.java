@@ -15,15 +15,22 @@ public class InputView {
             List<Point> points = new ArrayList<>();
             System.out.println("좌표를 입력하세요");
             Scanner scanner = new Scanner(System.in);
-
-            List<String> coordinates = Arrays.asList(scanner.nextLine().split("-"));
-            coordinates.stream().forEach(c -> isValidFormat(c));
-            coordinates = coordinates.stream().map(s -> s.substring(1, 5)).collect(Collectors.toList());
-            return CoordinateFactory.generateCoordinate(coordinates, points);
+            return CoordinateFactory.generateCoordinate(convertCoordinate(scanner), points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return InputCoordinate();
         }
+    }
+
+    private static List<String> convertCoordinate(Scanner scanner) {
+        List<String> coordinates = getSplit(scanner);
+        coordinates.stream().forEach(c -> isValidFormat(c));
+        coordinates = coordinates.stream().map(s -> s.substring(1, 5)).collect(Collectors.toList());
+        return coordinates;
+    }
+
+    private static List<String> getSplit(Scanner scanner) {
+        return Arrays.asList(scanner.nextLine().split("-"));
     }
 
     private static void isValidFormat(String coordinate) {
