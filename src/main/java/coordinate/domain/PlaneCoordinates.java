@@ -6,13 +6,13 @@ import java.util.List;
 public class PlaneCoordinates {
     private static final int MAX_X_VALUE = 24;
     private static final int MAX_Y_VALUE = 24;
-    public static final String NEXT_LINE = "\n";
+    private static final int SPACE_PER_X = 2;
+    private static final int SPACE_FOR_Y_AXIS = 4;
+    private static final String NEXT_LINE = "\n";
 
-    private final StringBuilder xScale;
     private List<StringBuilder> plane;
 
-    public PlaneCoordinates() {
-        xScale = makeXScale();
+    private PlaneCoordinates() {
         plane = new ArrayList<>();
         plane.add(makeXAxis());
 
@@ -20,12 +20,13 @@ public class PlaneCoordinates {
             plane.add(makeOddLine());
             plane.add(makeEvenLine(i));
         }
+
     }
 
     public PlaneCoordinates(List<Point> points) {
         this();
         for (Point point : points) {
-            plane.get(point.getY()).replace(4 + (2 * point.getX()) - 1, 4 + (2 * point.getX()), "*");
+            plane.get(point.getY()).replace(SPACE_FOR_Y_AXIS + (SPACE_PER_X * point.getX()) - 1, SPACE_FOR_Y_AXIS + (SPACE_PER_X * point.getX()), "*");
         }
     }
 
@@ -49,14 +50,14 @@ public class PlaneCoordinates {
 
     private StringBuilder makeOddLine() {
         StringBuilder oddLine = new StringBuilder("   |");
-        oddLine.setLength(4 + 2 * MAX_X_VALUE);
+        oddLine.setLength(SPACE_FOR_Y_AXIS + SPACE_PER_X * MAX_X_VALUE);
 
         return oddLine;
     }
 
     private StringBuilder makeEvenLine(int i) {
         StringBuilder evenLine = new StringBuilder(String.format("%3d|", i + 1));
-        evenLine.setLength(4 + 2 * MAX_X_VALUE);
+        evenLine.setLength(SPACE_FOR_Y_AXIS + SPACE_PER_X * MAX_X_VALUE);
 
         return evenLine;
     }
@@ -65,10 +66,10 @@ public class PlaneCoordinates {
     public String toString() {
         StringBuilder temp = new StringBuilder();
 
-        for (int i = 24 ; i >= 0; i--) {
+        for (int i = MAX_Y_VALUE; i >= 0; i--) {
             temp.append(plane.get(i)).append(NEXT_LINE);
         }
-        temp.append(xScale);
+        temp.append(makeXScale());
 
         return temp.toString();
     }
