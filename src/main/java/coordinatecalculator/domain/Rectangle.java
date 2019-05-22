@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class Rectangle implements Figure {
+public class Rectangle implements Figure, Shape {
     private final List<Coordinate> coordinates;
 
     public Rectangle(List<Coordinate> coordinates) {
@@ -34,6 +34,11 @@ public class Rectangle implements Figure {
     @Override
     public double area() {
         return coordinates.get(0).calculate(coordinates.get(1)) * coordinates.get(0).calculate(coordinates.get(2));
+    }
+
+    @Override
+    public double getScore() {
+        return area();
     }
 
     @Override

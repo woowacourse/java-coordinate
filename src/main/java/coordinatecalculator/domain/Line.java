@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class Line {
+public class Line implements Shape {
     private static final int SAME_COORDINATES = 1;
 
     private final List<Coordinate> coordinates;
@@ -24,6 +24,11 @@ public class Line {
 
     public double getLineLength() {
         return coordinates.get(0).calculate(coordinates.get(1));
+    }
+
+    @Override
+    public double getScore() {
+        return getLineLength();
     }
 
     @Override

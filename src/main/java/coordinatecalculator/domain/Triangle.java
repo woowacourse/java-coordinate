@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class Triangle implements Figure {
+public class Triangle implements Figure, Shape {
     private List<Coordinate> coordinates;
 
     public Triangle(final List<Coordinate> coordinates) {
@@ -33,7 +33,12 @@ public class Triangle implements Figure {
         double line2 = coordinates.get(1).calculate(coordinates.get(2));
         double line3 = coordinates.get(2).calculate(coordinates.get(0));
 
-        return Math.sqrt((line1 + line2 + line3) * (line2 - line1 + line3) * (line1 - line2 + line3) * (line1 + line2 - line3))/ 4;
+        return Math.sqrt((line1 + line2 + line3) * (line2 - line1 + line3) * (line1 - line2 + line3) * (line1 + line2 - line3)) / 4;
+    }
+
+    @Override
+    public double getScore() {
+        return area();
     }
 
     @Override

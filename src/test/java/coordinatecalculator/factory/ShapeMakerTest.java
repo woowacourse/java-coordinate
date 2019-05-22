@@ -1,6 +1,7 @@
 package coordinatecalculator.factory;
 
 import coordinatecalculator.domain.Coordinate;
+import coordinatecalculator.domain.Line;
 import coordinatecalculator.domain.Rectangle;
 import coordinatecalculator.domain.Triangle;
 import org.junit.jupiter.api.Test;
@@ -20,10 +21,12 @@ class ShapeMakerTest {
                 new Coordinate(1, 2), new Coordinate(2, 1));
         List<Coordinate> coordinates2 = Arrays.asList(new Coordinate(1, 0), new Coordinate(0, 1),
                 new Coordinate(22, 2));
+        List<Coordinate> coordinates3 = Arrays.asList(new Coordinate(1, 0), new Coordinate(0, 23));
 
         /* Then */
-        assertThat(ShapeMaker.createFigure(coordinates1)).isEqualTo(new Rectangle(coordinates1));
-        assertThat(ShapeMaker.createFigure(coordinates2)).isEqualTo(new Triangle(coordinates2));
+        assertThat(ShapeMaker.createShape(coordinates1)).isEqualTo(new Rectangle(coordinates1));
+        assertThat(ShapeMaker.createShape(coordinates2)).isEqualTo(new Triangle(coordinates2));
+        assertThat(ShapeMaker.createShape(coordinates3)).isEqualTo(new Line(coordinates3));
     }
 
     @Test
@@ -35,10 +38,10 @@ class ShapeMakerTest {
 
         /* Then */
         assertThrows(IllegalArgumentException.class, () -> {
-            ShapeMaker.createFigure(coordinates1);
+            ShapeMaker.createShape(coordinates1);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            ShapeMaker.createFigure(coordinates2);
+            ShapeMaker.createShape(coordinates2);
         });
     }
 }
