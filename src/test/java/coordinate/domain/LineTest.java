@@ -34,7 +34,7 @@ public class LineTest {
         Point p1 = new Point(0, 1);
         Point p2 = new Point(1, 2);
         Line line = new Line(p1, p2);
-        assertThat(line.calculateDistance()).isEqualTo(Math.sqrt(2), Offset.offset(0.001));
+        assertThat(line.calculateLength()).isEqualTo(Math.sqrt(2), Offset.offset(0.001));
     }
 
     @Test

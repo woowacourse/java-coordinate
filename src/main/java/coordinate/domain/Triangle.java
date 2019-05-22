@@ -27,9 +27,9 @@ public class Triangle {
     }
 
     public double area() {
-        Vector v1 = new Vector(lines.getLine(0));
-        Vector v2 = new Vector(lines.getLine(1));
+        Vector v1 = lines.getVector(0);
+        Vector v2 = lines.getVector(1);
 
-        return Math.sqrt(v1.length() + v2.length() - Math.pow(v1.innerProduct(v2), 2));
+        return Math.sqrt(Math.pow(v1.length(), 2) * Math.pow(v2.length(), 2) - Math.pow(v1.innerProduct(v2), 2)) / 2;
     }
 }

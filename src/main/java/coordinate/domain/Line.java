@@ -25,7 +25,7 @@ public class Line {
         }
     }
 
-    public double calculateDistance() {
+    public double calculateLength() {
         return Math.sqrt(Math.pow(calculateXDifference(), 2)
                         + Math.pow(calculateYDifference(), 2));
     }

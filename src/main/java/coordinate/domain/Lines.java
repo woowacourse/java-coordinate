@@ -20,7 +20,29 @@ public class Lines {
         }
     }
 
-    public Line getLine(int index) {
+    public boolean isOrthogonal(int i, int j) {
+        Vector v1 = getVector(i);
+        Vector v2 = getVector(j);
+
+        return v1.innerProduct(v2) == 0;
+    }
+
+    public boolean isParallel(int i, int j) {
+        Vector v1 = getVector(i);
+        Vector v2 = getVector(j);
+
+        return v1.innerProduct(v2) == 1;
+    }
+
+    public double getLength(int index) {
+        return getLine(index).calculateLength();
+    }
+
+    public Vector getVector(int i) {
+        return new Vector(getLine(i));
+    }
+
+    private Line getLine(int index) {
         validateIndex(index);
         return lines.get(index);
     }
@@ -33,18 +55,5 @@ public class Lines {
 
     public int getSize() {
         return lines.size();
-    }
-
-    public boolean isOrthogonal(int i, int j) {
-        Vector v1 = new Vector(getLine(i));
-        Vector v2 = new Vector(getLine(j));
-        return v1.innerProduct(v2) == 0;
-    }
-
-    public boolean isParallel(int i, int j) {
-        Vector v1 = new Vector(getLine(0));
-        Vector v2 = new Vector(getLine(1));
-
-        return v1.innerProduct(v2) == 1;
     }
 }

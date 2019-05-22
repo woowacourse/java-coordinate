@@ -29,13 +29,13 @@ public class LinesTest {
     @Test
     void getLineIndexUnderflowTest() {
         Lines lines = new Lines(Arrays.asList(new Line(new Point(0, 0), new Point(0, 1))));
-        assertThrows(IllegalArgumentException.class, () -> lines.getLine(-1));
+        assertThrows(IllegalArgumentException.class, () -> lines.getVector(-1));
     }
 
     @Test
     void getLineIndexOverflowTest() {
         Lines lines = new Lines(Arrays.asList(new Line(new Point(0, 0), new Point(0, 1))));
-        assertThrows(IllegalArgumentException.class, () -> lines.getLine(2));
+        assertThrows(IllegalArgumentException.class, () -> lines.getVector(2));
     }
 
     @Test

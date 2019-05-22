@@ -35,7 +35,7 @@ public class Rectangle {
     }
 
     public double area() {
-        return lines.getLine(0).calculateDistance()
-                * lines.getLine(1). calculateDistance();
+        return lines.getLength(0)
+                * lines.getLength(1);
     }
 }
