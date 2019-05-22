@@ -7,6 +7,7 @@ import coordinate.domain.Points;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LinesSquareGenerator implements LinesGenerator {
     private final Points points;
@@ -23,8 +24,15 @@ public class LinesSquareGenerator implements LinesGenerator {
                 lines.add(new Line(Points.of(Arrays.asList(points.get(i), points.get(j)))));
             }
         }
-        //TODO 로직 다시 생각
-        lines.sort((line1, line2) -> (int) (line1.length() - line2.length()));
+        lines = filterDiagonal(lines);
         return new Lines(lines);
+    }
+
+    private List<Line> filterDiagonal(List<Line> lines) {
+        lines = lines.stream()
+                .sorted((line1, line2) -> (int) (line1.length() - line2.length()))
+                .limit(lines.size() - 2)
+                .collect(Collectors.toList());
+        return lines;
     }
 }

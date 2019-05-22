@@ -20,11 +20,16 @@ public final class Square extends Figure {
     }
 
     private void validateRectangle() {
-        double diagonal1 = super.getLines().lengths().get(4);
-        double diagonal2 = super.getLines().lengths().get(5);
+        Points points = super.getPoints();
+        double diagonal1 = getDiagonal(points, 0, 2);
+        double diagonal2 = getDiagonal(points, 1, 3);
         if (diagonal1 != diagonal2) {
             throw new IllegalArgumentException("직사각형이 아닙니다");
         }
+    }
+
+    private double getDiagonal(final Points points, final int i, final int i2) {
+        return Math.hypot(points.get(i).length(points.get(i2)), points.get(i).length(points.get(i2)));
     }
 
     @Override

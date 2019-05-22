@@ -25,7 +25,7 @@ public class SquareTest {
     }
 
     @Test
-    void 면적_테스트(){
+    void 면적_테스트() {
         Square square = new Square(new PointsGenerator("(10,10)-(22,10)-(22,18)-(10,18)").generate());
         assertThat(square.area()).isEqualTo(96);
     }
