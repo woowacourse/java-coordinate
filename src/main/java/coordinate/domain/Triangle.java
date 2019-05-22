@@ -12,7 +12,7 @@ public class Triangle {
         validateNotNull(lines);
         validateNumOf(lines);
         this.lines = lines;
-        validateFigure();
+        validateTriangle(lines);
     }
 
     private void validateNumOf(Lines lines) {
@@ -21,14 +21,9 @@ public class Triangle {
         }
     }
 
-    private void validateFigure() {
-        if (checkSameSlope()) {
-            throw new IllegalArgumentException("같은 선 상의 있는 3개의 점은 삼각형을 만들 수 없습니다.");
+    private void validateTriangle(Lines lines) {
+        if (lines.isParallel(0,1)) {
+            throw new IllegalArgumentException("삼각형에 평행한 라인이 존재해서는 안 됩니다.");
         }
-    }
-
-    private boolean checkSameSlope() {
-        return Double.compare(lines.getLine(0).calculateSlope()
-                , lines.getLine(1).calculateSlope()) == COMPARE_SLOPE;
     }
 }

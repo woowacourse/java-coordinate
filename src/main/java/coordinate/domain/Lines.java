@@ -36,8 +36,15 @@ public class Lines {
     }
 
     public boolean isOrthogonal(int i, int j) {
-        Vector v1 = new Vector(lines.get(i));
-        Vector v2 = new Vector(lines.get(j));
+        Vector v1 = new Vector(getLine(i));
+        Vector v2 = new Vector(getLine(j));
         return v1.innerProduct(v2) == 0;
+    }
+
+    public boolean isParallel(int i, int j) {
+        Vector v1 = new Vector(getLine(0));
+        Vector v2 = new Vector(getLine(1));
+
+        return v1.innerProduct(v2) == 1;
     }
 }
