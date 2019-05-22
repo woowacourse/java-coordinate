@@ -16,7 +16,6 @@ public class TriangleTest {
         System.out.println(Area);
     }
 
-
     @Test
     void 사이즈_테스트() {
         assertThrows(IllegalArgumentException.class, () -> new Triangle(new PointsGenerator("(10,10)-(14,15)").generate()));
