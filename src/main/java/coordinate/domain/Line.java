@@ -9,7 +9,7 @@ public class Line {
         this.points = points;
     }
 
-    public double calculateLineLength() {
+    public double length() {
         Point a = points.get(0);
         Point b = points.get(1);
         return a.length(b);

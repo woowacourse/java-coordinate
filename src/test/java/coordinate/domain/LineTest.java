@@ -12,7 +12,7 @@ public class LineTest {
     @Test
     void 거리_계산() {
         double expect = Math.sqrt(8);
-        assertThat(new Line(Arrays.asList(new Point(0, 0), new Point(2, 2))).calculateLineLength())
+        assertThat(new Line(Arrays.asList(new Point(0, 0), new Point(2, 2))).length())
                 .isEqualTo(expect, offset(0.00099));
     }
 }
