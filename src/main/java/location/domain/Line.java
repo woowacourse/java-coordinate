@@ -1,6 +1,6 @@
 package location.domain;
 
-public class Line {
+public class Line extends Shape {
     public static final String DUPLICATE_POINT_MSG = "중복된 점입니다.";
 
     private final Point point1;
@@ -18,7 +18,7 @@ public class Line {
         }
     }
 
-    public double calculate() {
+    public double calculateLine() {
         return Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2) + Math.pow((point1.getY() - point2.getY()), 2));
     }
 }
