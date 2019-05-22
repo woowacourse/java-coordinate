@@ -1,6 +1,8 @@
 package coordinatecalculator.factory;
 
 import coordinatecalculator.domain.*;
+import coordinatecalculator.util.InputManager;
+import coordinatecalculator.util.OutputView;
 
 import java.util.List;
 
@@ -24,4 +26,14 @@ public class ShapeMaker {
 
         throw new IllegalArgumentException("도형을 생성할 수 없어요");
     }
+
+    public static Shape createShape() {
+        try {
+            return createShape(InputManager.getCoordinates());
+        } catch (IllegalArgumentException e) {
+            OutputView.PrintErrorMessage(e.getMessage());
+            return createShape();
+        }
+    }
+
 }

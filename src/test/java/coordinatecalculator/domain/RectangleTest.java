@@ -17,10 +17,20 @@ class RectangleTest {
                 new Coordinate(22, 2), new Coordinate(2, 1));
         List<Coordinate> coordinates2 = Arrays.asList(new Coordinate(1, 0), new Coordinate(0, 1),
                 new Coordinate(2, 3), new Coordinate(25, 2));
+        List<Coordinate> coordinates3 = Arrays.asList(new Coordinate(1, 0), new Coordinate(1, 0),
+                new Coordinate(1, 0), new Coordinate(1, 0));
+
         /* Then */
         assertThrows(IllegalArgumentException.class, () -> {
             new Rectangle(coordinates);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
             new Rectangle(coordinates2);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Rectangle(coordinates3);
         });
     }
 

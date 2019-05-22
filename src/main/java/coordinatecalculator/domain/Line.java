@@ -6,20 +6,13 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Line implements Shape {
-    private static final int SAME_COORDINATES = 1;
+    private static final int VERTEX_OF_LINE = 2;
 
     private final List<Coordinate> coordinates;
 
     public Line(final List<Coordinate> coordinates) {
-        isValidLine(coordinates);
+        isValidShape(coordinates);
         this.coordinates = coordinates;
-    }
-
-    private void isValidLine(final List<Coordinate> coordinates) {
-        Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
-        if (overlapCoordinate.size() == SAME_COORDINATES) {
-            throw new IllegalArgumentException("선이 될 수 없어요");
-        }
     }
 
     public double getLineLength() {
@@ -29,6 +22,14 @@ public class Line implements Shape {
     @Override
     public double getScore() {
         return getLineLength();
+    }
+
+    @Override
+    public void isValidShape(List<Coordinate> coordinates) {
+        Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
+        if (overlapCoordinate.size() != VERTEX_OF_LINE) {
+            throw new IllegalArgumentException("선이 될 수 없어요");
+        }
     }
 
     @Override

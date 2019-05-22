@@ -1,16 +1,15 @@
 package coordinatecalculator.domain;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Rectangle implements Figure, Shape {
     private final List<Coordinate> coordinates;
+    public static final int VERTEX_OF_RECTANGLE = 4;
 
     public Rectangle(List<Coordinate> coordinates) {
         Collections.sort(coordinates);
         isValidRectangle(coordinates);
-
+        isValidShape(coordinates);
         this.coordinates = coordinates;
     }
 
@@ -39,6 +38,14 @@ public class Rectangle implements Figure, Shape {
     @Override
     public double getScore() {
         return area();
+    }
+
+    @Override
+    public void isValidShape(List<Coordinate> coordinates) {
+        Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
+        if (overlapCoordinate.size() != VERTEX_OF_RECTANGLE) {
+            throw new IllegalArgumentException("사각형이 될 수 없어요");
+        }
     }
 
     @Override

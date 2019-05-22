@@ -6,4 +6,7 @@ public class OutputView {
         System.out.println(message + score);
     }
 
+    public static void PrintErrorMessage(String errorMessage) {
+        System.err.println(errorMessage);
+    }
 }
