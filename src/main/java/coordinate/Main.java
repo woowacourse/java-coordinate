@@ -3,6 +3,7 @@ package coordinate;
 import coordinate.model.Line;
 import coordinate.model.Point;
 import coordinate.model.PointNumber;
+import coordinate.model.Rectangular;
 import coordinate.view.InputView;
 
 import java.util.ArrayList;
@@ -19,8 +20,18 @@ public class Main {
     static Line createLine() {
         try {
             return new Line(makePoints(InputView.inputPoint()));
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
             return createLine();
+        }
+    }
+
+    static Rectangular createRectangular() {
+        try {
+            return new Rectangular(makePoints(InputView.inputPoint()));
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return createRectangular();
         }
     }
 
@@ -30,7 +41,7 @@ public class Main {
             Matcher matcher = Pattern.compile(POINT_REGEX).matcher(input);
             PointNumber x = new PointNumber(Integer.parseInt(matcher.group(1)));
             PointNumber y = new PointNumber(Integer.parseInt(matcher.group(1)));
-            points.add(new Point(x,y));
+            points.add(new Point(x, y));
         }
         return points;
     }
