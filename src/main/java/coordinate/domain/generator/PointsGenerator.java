@@ -8,8 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PointsGenerator {
-    //TODO 정규식 수정
-    private static final String REGEX = "\\([0-9]{1,2},[0-9]{1,2}\\)-\\([0-9]{1,2},[0-9]{1,2}\\)";
+    private static final String REGEX = "(\\([0-9]{1,2},[0-9]{1,2}\\)-)+\\([0-9]{1,2},[0-9]{1,2}\\)";
     private static final String DELIMITER = "-";
 
     private final String[] coordinates;
