@@ -29,4 +29,11 @@ public class TriangleTest {
                 new Point(Arrays.asList(3, 6)))));
     }
 
+    @Test
+    void 넓이를_구하는지_테스트() {
+        Triangle triangle = new Triangle(Arrays.asList(
+                new Point(Arrays.asList(3, 3)), new Point(Arrays.asList(7, 3)),
+                new Point(Arrays.asList(3, 6))));
+        assertThat(triangle.calculateArea()).isEqualTo(6, offset(0.00099));
+    }
 }

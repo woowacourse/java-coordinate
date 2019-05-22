@@ -1,9 +1,6 @@
 package coordinate.domain;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Triangle {
     private static final int NUM_OF_POINT = 3;
@@ -42,5 +39,27 @@ public class Triangle {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 세개여야 합니다.");
         }
+    }
+
+    public double calculateArea() {
+        List<Double> lengths = getSideLength();
+        Iterator<Double> lengthIterator = lengths.iterator();
+        return applyHeronFormula(lengthIterator.next(), lengthIterator.next(), lengthIterator.next());
+    }
+
+    private List<Double> getSideLength() {
+        List<Double> lineLength = new ArrayList<>();
+
+        for (Point point : points) {
+            List<Point> points = new ArrayList<>(this.points);
+            points.remove(point);
+            lineLength.add(new StraightLine(points).calculateLength());
+        }
+        return lineLength;
+    }
+
+    private double applyHeronFormula(double a, double b, double c) {
+        double s = (a + b + c) / 2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 }
