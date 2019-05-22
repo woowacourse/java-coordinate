@@ -2,7 +2,8 @@ package coordinatecalculator;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 class PointTest {
     private final String MSG_LIMIT_OVER = "좌표 범위를 초과하였습니다.";
@@ -25,32 +26,32 @@ class PointTest {
         assertThat(p1.getY()).isEqualTo(24);
     }
 
-    @Test
-    void pointLimitOver() {
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            new Point(25, 0);
-        }).withMessage(MSG_LIMIT_OVER);
-
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            new Point(0, 25);
-        }).withMessage(MSG_LIMIT_OVER);
-
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            new Point(-1, 0);
-        }).withMessage(MSG_LIMIT_OVER);
-
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            new Point(0, -1);
-        }).withMessage(MSG_LIMIT_OVER);
-
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            new Point(25, 25);
-        }).withMessage(MSG_LIMIT_OVER);
-
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            new Point(-1, -1);
-        }).withMessage(MSG_LIMIT_OVER);
-    }
+    //    @Test
+    //    void pointLimitOver() {
+    //        assertThatIllegalArgumentException().isThrownBy(() -> {
+    //            new Point(25, 0);
+    //        }).withMessage(MSG_LIMIT_OVER);
+    //
+    //        assertThatIllegalArgumentException().isThrownBy(() -> {
+    //            new Point(0, 25);
+    //        }).withMessage(MSG_LIMIT_OVER);
+    //
+    //        assertThatIllegalArgumentException().isThrownBy(() -> {
+    //            new Point(-1, 0);
+    //        }).withMessage(MSG_LIMIT_OVER);
+    //
+    //        assertThatIllegalArgumentException().isThrownBy(() -> {
+    //            new Point(0, -1);
+    //        }).withMessage(MSG_LIMIT_OVER);
+    //
+    //        assertThatIllegalArgumentException().isThrownBy(() -> {
+    //            new Point(25, 25);
+    //        }).withMessage(MSG_LIMIT_OVER);
+    //
+    //        assertThatIllegalArgumentException().isThrownBy(() -> {
+    //            new Point(-1, -1);
+    //        }).withMessage(MSG_LIMIT_OVER);
+    //    }
 
     @Test
     void distanceCalc() {
