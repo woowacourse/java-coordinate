@@ -34,19 +34,7 @@ public class Points {
                 .collect(Collectors.toList());
     }
 
-    public int getMinX(){
-        return points.get(0).getX();
-    }
-
-    public int getMinY(){
-        return points.get(0).getY();
-    }
-
-    public int getMaxX(){
-        return points.get(points.size() - 1).getX();
-    }
-
-    public int getMaxY(){
-        return points.get(points.size() - 1).getY();
+    public Point getPoints(int index) {
+        return points.get(index);
     }
 }

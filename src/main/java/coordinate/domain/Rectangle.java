@@ -26,7 +26,9 @@ public class Rectangle {
         }
     }
 
-    public double area() {
-        return (points.getMaxX() - points.getMinX()) * (points.getMaxY() - points.getMinY());
+    public double getArea() {
+        double height = points.getPoints(0).calculateDistance(points.getPoints(1));
+        double width = points.getPoints(0).calculateDistance(points.getPoints(2));
+        return height * width;
     }
 }
