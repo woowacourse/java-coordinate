@@ -1,20 +1,17 @@
 package calculator.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class Line {
+public class Line implements Iterable<Boolean> {
 
     private List<Boolean> line;
 
     public Line() {
-        this.line = new ArrayList<>(Collections.nCopies(24, false));
+        this.line = new ArrayList<>(Collections.nCopies(25, false));
     }
 
     public boolean get(int index) {
@@ -42,4 +39,8 @@ public class Line {
         return Objects.hash(line);
     }
 
+    @Override
+    public Iterator<Boolean> iterator() {
+        return line.iterator();
+    }
 }

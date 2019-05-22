@@ -1,24 +1,26 @@
 package calculator.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class Map {
+public class Map implements Iterable<Line> {
 
     List<Line> map;
 
     public Map() {
-        this.map = new ArrayList<>(Collections.nCopies(24,new Line()));
+        this.map = new ArrayList<>();
+        for (int i = 0; i < 25; i++) {
+            map.add(new Line());
+        }
     }
 
-    public void drawPoint(Point point) {
-        map.get(point.getY()).drawX(point.getX());
+    public void drawPoint(Points points) {
+        for (Point point : points) {
+            map.get(point.getY()).drawX(point.getX());
+        }
     }
 
     public boolean isPointDrawn(Point point) {
@@ -43,4 +45,12 @@ public class Map {
     }
 
 
+    @Override
+    public Iterator<Line> iterator() {
+        return map.iterator();
+    }
+
+    public Line getLine(int index) {
+        return map.get(index);
+    }
 }

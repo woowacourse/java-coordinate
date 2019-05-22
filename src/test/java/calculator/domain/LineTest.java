@@ -31,11 +31,11 @@ public class LineTest {
 
     @Test
     void crete_초기값_경계값_확인() {
-        assertFalse(line.get(23));
+        assertFalse(line.get(24));
     }
 
     @Test
     void create_초기값_라인_크기_확인() {
-        assertThat(line.size()).isEqualTo(24);
+        assertThat(line.size()).isEqualTo(25);
     }
 }

@@ -14,11 +14,13 @@ public class MapTest {
 
     Map map;
     Point point;
+    Points points;
 
     @BeforeEach
     void setUp() {
         map = new Map();
         point = Point.create(10,2);
+        points = new Points();
     }
 
     @Test
@@ -28,12 +30,13 @@ public class MapTest {
 
     @Test
     void create_사이즈_확인() {
-        assertThat(map.size()).isEqualTo(24);
+        assertThat(map.size()).isEqualTo(25);
     }
 
     @Test
     void drawPoint_확인() {
-        map.drawPoint(point);
+        points.add((point));
+        map.drawPoint(points);
         assertTrue(map.isPointDrawn(point));
     }
 }
