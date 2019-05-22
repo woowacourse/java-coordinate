@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import static coordinate.util.NotNullValidator.validateNotNull;
 
-public class Triangle extends Figure{
+public class Triangle {
     private static final int LINES_SIZE = 3;
     private static final int COMPARE_SLOPE = 0;
 

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LinesTest {
@@ -35,5 +36,14 @@ public class LinesTest {
     void getLineIndexOverflowTest() {
         Lines lines = new Lines(Arrays.asList(new Line(new Point(0, 0), new Point(0, 1))));
         assertThrows(IllegalArgumentException.class, () -> lines.getLine(2));
+    }
+
+    @Test
+    void isVerticalTest() {
+        Lines lines = new Lines(Arrays.asList(
+                new Line(new Point(0, 0), new Point(1, 1)),
+                new Line(new Point(0, 1), new Point(1, 0))
+        ));
+        assertThat(lines.isVertical(0, 1)).isTrue();
     }
 }

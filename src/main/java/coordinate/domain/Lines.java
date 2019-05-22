@@ -34,4 +34,17 @@ public class Lines {
     public int getSize() {
         return lines.size();
     }
+
+    public boolean isVertical(int i, int j) {
+        Line l1 = getLine(i);
+        Line l2 = getLine(j);
+
+        if (l1.isVertical()) {
+            return l2.isHorizontal();
+        }
+        if (l1.isHorizontal()) {
+            return l2.isVertical();
+        }
+        return Double.compare(l1.calculateSlope() * l2.calculateSlope(), -1.0) == 0;
+    }
 }
