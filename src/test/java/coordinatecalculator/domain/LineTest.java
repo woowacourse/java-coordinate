@@ -13,6 +13,6 @@ public class LineTest {
         Points points = new Points(Arrays.asList(new Point("0", "0"), new Point("2", "2")));
         Line line = new Line(points);
 
-        assertThat(line.calculate()).isEqualTo(Math.sqrt(8));
+        assertThat(line.calculateResult()).isEqualTo(Math.sqrt(8));
     }
 }

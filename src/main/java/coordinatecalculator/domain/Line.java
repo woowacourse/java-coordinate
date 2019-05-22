@@ -1,16 +1,18 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.domain.parent.Figure;
+
 import java.util.List;
 
-public class Line {
+public class Line implements Figure {
     private final Points points;
 
     public Line(final Points points) {
         this.points = points;
-        //throw new IllegalArgumentException();
     }
 
-    public double calculate() {
+    @Override
+    public double calculateResult() {
         List<Point> points = this.points.getPoints();
         Point p1 = points.get(0);
         Point p2 = points.get(1);

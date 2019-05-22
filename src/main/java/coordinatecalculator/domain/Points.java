@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class Points {
-    //TODO: 포인트 중복 예외 처리
     private final List<Point> points;
 
     public Points(final List<Point> points) {
