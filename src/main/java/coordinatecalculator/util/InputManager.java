@@ -37,6 +37,7 @@ public class InputManager {
     }
 
     private static void checkValidPattern(Matcher matcher) {
+        //TODO 나중에 예외처리 더 추가
         if (!matcher.find()) {
             throw new IllegalArgumentException("올바르지 않는 입력입니다!!");
         }
