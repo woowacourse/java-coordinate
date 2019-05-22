@@ -1,7 +1,7 @@
 package coordinate.controller;
 
-import coordinate.domain.Line;
-import coordinate.domain.LineGenerator;
+import coordinate.domain.Figure;
+import coordinate.domain.FigureGenerator;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
@@ -9,8 +9,8 @@ public class CoordinateController {
     public static void main(String[] args) {
         String input = InputView.inputCoordinate();
 
-        Line line = LineGenerator.generate(input);
+        Figure figure = FigureGenerator.generate(input);
 
-        OutputView.ouputLength(line.length());
+        OutputView.printResult(figure);
     }
 }

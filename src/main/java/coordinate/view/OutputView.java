@@ -1,7 +1,9 @@
 package coordinate.view;
 
+import coordinate.domain.Figure;
+
 public class OutputView {
-    public static void ouputLength(double length) {
-        System.out.println("두 점 사이 거리는" + length);
+    public static void printResult(Figure figure) {
+        System.out.println(figure.getResultMessage() + figure.calculateResult());
     }
 }

@@ -1,9 +1,6 @@
 package coordinate.domain;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Points {
@@ -36,5 +33,22 @@ public class Points {
 
     public Point getPoints(int index) {
         return points.get(index);
+    }
+
+    public int size() {
+        return points.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Points points1 = (Points) o;
+        return Objects.equals(points, points1.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }

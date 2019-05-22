@@ -2,17 +2,17 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Line {
-    private final Point startPoint;
-    private final Point endPoint;
+public class Line extends Figure{
+    private final Points points;
 
-    public Line(Point startPoint, Point endPoint) {
-        this.startPoint = startPoint;
-        this.endPoint = endPoint;
+    public Line(Points points) {
+        super("두 점 사이의 거리는 : ");
+        this.points = points;
     }
 
-    public double length() {
-        return startPoint.calculateDistance(endPoint);
+    @Override
+    public double calculateResult() {
+        return points.getPoints(0).calculateDistance(points.getPoints(1));
     }
 
     @Override
@@ -20,12 +20,11 @@ public class Line {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return Objects.equals(startPoint, line.startPoint) &&
-                Objects.equals(endPoint, line.endPoint);
+        return Objects.equals(points, line.points);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(startPoint, endPoint);
+        return Objects.hash(points);
     }
 }

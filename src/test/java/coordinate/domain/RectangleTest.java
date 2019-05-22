@@ -12,6 +12,6 @@ public class RectangleTest {
     void 사각형_넓이_구하기() {
         Points points = new Points(Arrays.asList(new Point(1, 5), new Point(1, 1), new Point(5, 1), new Point(5, 5)));
         Rectangle rectangle = new Rectangle(points);
-        assertThat(rectangle.getArea()).isEqualTo(16);
+        assertThat(rectangle.calculateResult()).isEqualTo(16);
     }
 }
