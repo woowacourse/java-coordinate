@@ -9,4 +9,11 @@ public class Figure {
         this.points = points;
     }
 
+    public int size() {
+        return points.size();
+    }
+
+    public List<Point> getPoints() {
+        return points;
+    }
 }
