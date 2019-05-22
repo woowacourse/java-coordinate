@@ -7,6 +7,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangularTest {
+    @Test
+    void 사각형_생성_검사() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Point p2 = new Point(new PointNumber(0), new PointNumber(0));
+            Point p3 = new Point(new PointNumber(0), new PointNumber(2));
+            Point p4 = new Point(new PointNumber(3), new PointNumber(3));
+            Point p1 = new Point(new PointNumber(0), new PointNumber(0));
+            new Rectangular(Arrays.asList(p1, p2, p3, p4));
+        });
+    }
 
     @Test
     void 사각형_뒤틀림_검사() {
