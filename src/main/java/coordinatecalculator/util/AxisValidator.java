@@ -1,8 +1,8 @@
-package coordinatecalculator.domain;
+package coordinatecalculator.util;
 
 public class AxisValidator {
-    protected final static int AXIS_LOWER_BOUND = 0;
-    protected final static int AXIS_UPPER_BOUND = 24;
+    private final static int AXIS_LOWER_BOUND = 0;
+    private final static int AXIS_UPPER_BOUND = 24;
 
     protected void checkNumeric(String input) {
         if (!input.matches("(\\d+)?")) {

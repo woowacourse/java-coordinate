@@ -1,4 +1,8 @@
 package coordinatecalculator.domain.parent;
 
-public class Figure {
+import coordinatecalculator.domain.Points;
+
+public interface Figure {
+    int calculateLength(Points points);
+    int calculateArea(Points points);
 }

@@ -1,8 +1,8 @@
 package coordinatecalculator.view;
 
-import java.util.*;
-
 import coordinatecalculator.domain.parent.Figure;
+
+import java.util.*;
 
 public class InputView {
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -10,6 +10,6 @@ public class InputView {
     public static Figure inputLocation() {
         // TODO: enum으로 Line, Tri, Rec 구분
 
-        return new Figure();
+        return null;
     }
 }
