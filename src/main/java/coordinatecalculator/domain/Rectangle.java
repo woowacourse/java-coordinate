@@ -3,7 +3,7 @@ package coordinatecalculator.domain;
 import java.util.Collections;
 import java.util.List;
 
-public class Rectangle {
+public class Rectangle implements Shape {
     private final List<Coordinate> coordinates;
 
     public Rectangle(List<Coordinate> coordinates) {
@@ -30,6 +30,7 @@ public class Rectangle {
         }
     }
 
+    @Override
     public double area() {
         return coordinates.get(0).calculate(coordinates.get(1)) * coordinates.get(0).calculate(coordinates.get(2));
     }

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Triangle {
+public class Triangle implements Shape {
     private List<Coordinate> coordinates;
 
     public Triangle(final List<Coordinate> coordinates) {
@@ -26,6 +26,7 @@ public class Triangle {
         }
     }
 
+    @Override
     public double area() {
         double line1 = coordinates.get(0).calculate(coordinates.get(1));
         double line2 = coordinates.get(1).calculate(coordinates.get(2));
