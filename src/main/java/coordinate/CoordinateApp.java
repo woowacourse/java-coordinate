@@ -11,7 +11,7 @@ import coordinate.view.OutputView;
 public class CoordinateApp {
 
     public static void main(String[] args) {
-        Points points = new PointsGenerator(InputView.inputCooridinate()).generate();
+        Points points = new PointsGenerator(InputView.inputCoordinate()).generate();
         if (points.size() == 2) {
             Line line = new Line(points);
             OutputView.printResult(line);
