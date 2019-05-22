@@ -1,14 +1,14 @@
 package coordinate.domain;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Rectangle {
     private final static int START_POINT = 0;
     private final static int ONE_LINE = 1;
+    private final static int PAIR_LINE_COUNT = 2;
+    private final static int DEFAULT_AREA = 1;
 
-    private Map<Double, Integer> rectangleLines = new HashMap<>();
+    private TreeMap<Double, Integer> rectangleLines = new TreeMap<>();
 
     public Rectangle(List<Point> points) {
         setRectangleLines(points);
@@ -50,5 +50,19 @@ public class Rectangle {
 
     private boolean isPaired(Double line) {
         return rectangleLines.get(line) % 2 == 0;
+    }
+
+    public double getArea() {
+        double area = DEFAULT_AREA;
+
+        removeDiagonal();
+        for (Double line : rectangleLines.keySet()) {
+            area *= Math.pow(line, (rectangleLines.get(line) / PAIR_LINE_COUNT));
+        }
+        return area;
+    }
+
+    private void removeDiagonal() {
+        rectangleLines.pollLastEntry();
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {
@@ -16,12 +17,11 @@ public class RectangleTest {
         points.add(new Point(new Coordinate(10), new Coordinate(10)));
         points.add(new Point(new Coordinate(10), new Coordinate(0)));
 
-
         assertThrows(IllegalArgumentException.class,()->new Rectangle(points));
     }
 
     @Test
-    void 올바른_사격형을_생성했는지_테스트() {
+    void 올바른_사각형을_생성했는지_테스트() {
         List<Point> points = new ArrayList<>();
         points.add(new Point(new Coordinate(10), new Coordinate(10)));
         points.add(new Point(new Coordinate(22), new Coordinate(10)));
@@ -39,7 +39,28 @@ public class RectangleTest {
         points.add(new Point(new Coordinate(15), new Coordinate(5)));
         points.add(new Point(new Coordinate(20), new Coordinate(10)));
 
-
         new Rectangle(points);
+    }
+
+    @Test
+    void 직사각형의_올바른_넓이를_구하는지_테스트() {
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(new Coordinate(10), new Coordinate(10)));
+        points.add(new Point(new Coordinate(22), new Coordinate(10)));
+        points.add(new Point(new Coordinate(22), new Coordinate(18)));
+        points.add(new Point(new Coordinate(10), new Coordinate(18)));
+
+        assertThat(new Rectangle(points).getArea()).isEqualTo(96);
+    }
+
+    @Test
+    void 정사각형의_올바른_넓이를_구하는지_테스트() {
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(new Coordinate(10), new Coordinate(10)));
+        points.add(new Point(new Coordinate(20), new Coordinate(10)));
+        points.add(new Point(new Coordinate(10), new Coordinate(20)));
+        points.add(new Point(new Coordinate(20), new Coordinate(20)));
+
+        assertThat(new Rectangle(points).getArea()).isEqualTo(100);
     }
 }
