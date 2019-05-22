@@ -3,7 +3,7 @@ package coord.model;
 public class Line {
     private final Points points;
 
-    protected Line(Points points) {
+    public Line(Points points) {
         this.points = points;
     }
 

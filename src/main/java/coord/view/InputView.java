@@ -20,7 +20,7 @@ public class InputView {
         try {
             return parseCoordinates(input.nextLine());
         } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage() + "\n");
+            System.out.println(e.getMessage());
             return inputCoordinates();
         }
     }

@@ -10,6 +10,6 @@ class RectangleTest {
 
     @Test
     void areaTest() {
-        assertEquals(36.0, Figure.make(new Points(Arrays.asList(new Point(1, 10), new Point(1, 1), new Point (5, 1), new Point (5, 10)))).area(), 0.001);
+        assertEquals(36.0, Figure.fromPoints(new Points(Arrays.asList(new Point(1, 10), new Point(1, 1), new Point (5, 1), new Point (5, 10)))).area(), 0.001);
     }
 }
