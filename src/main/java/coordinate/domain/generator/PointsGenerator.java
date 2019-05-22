@@ -15,7 +15,7 @@ public class PointsGenerator {
 
     public PointsGenerator(String coordinates) {
         if (!coordinates.matches(REGEX)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("정규 표현식 에러");
         }
         this.coordinates = Arrays.stream(coordinates.split(DELIMITER))
                 .map(s -> s.substring(1, s.length() - 1))
