@@ -45,4 +45,11 @@ public class Point implements Comparable<Point>{
     public int hashCode() {
         return Objects.hash(x, y);
     }
+` `
+    public double getIncline(Point point) {
+        if(point.x.getNumber() == this.x.getNumber()){
+            return -1;
+        }
+        return (double)(point.y.getNumber() - this.y.getNumber()) / (point.x.getNumber() - this.x.getNumber());
+    }
 }
