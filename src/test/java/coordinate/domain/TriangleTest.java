@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TriangleTest {
 
@@ -14,5 +15,13 @@ public class TriangleTest {
         assertThatIllegalArgumentException().isThrownBy(() ->{
             new Triangle(cl);
         });
+    }
+
+    @Test
+    void 삼각형넓이() {
+        CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("0,0","2,0","0,2")));
+        Triangle triangle = new Triangle(cl);
+        assertEquals(triangle.findArea(),2,0.001);
+
     }
 }

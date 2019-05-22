@@ -1,9 +1,10 @@
 package coordinate.domain;
 
 
+import java.util.LinkedHashMap;
 import java.util.Objects;
 
-public class Line implements Comparable<Line>{
+public class Line implements Comparable<Line> {
     private Double length;
 
     public Line(Double length) {
@@ -14,13 +15,13 @@ public class Line implements Comparable<Line>{
         return this.length * length.length;
     }
 
-    public boolean isTriangle(Line length,Line longestLine) {
-        return (this.length + length.length)  > longestLine.length;
+    public boolean isTriangle(Line length, Line longestLine) {
+        return (this.length + length.length) > longestLine.length;
     }
 
     @Override
     public int compareTo(Line o) {
-        return Double.compare(o.length,length);
+        return Double.compare(o.length, length);
     }
 
     @Override
@@ -34,5 +35,10 @@ public class Line implements Comparable<Line>{
     @Override
     public int hashCode() {
         return Objects.hash(length);
+    }
+
+    double findTriangleArea(Line line, Line line2) {
+        double s = (this.length + line.length + line2.length) / 2;
+        return Math.sqrt(s * (s - this.length) * (s - line.length) * (s - line2.length));
     }
 }
