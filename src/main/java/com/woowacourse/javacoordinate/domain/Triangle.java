@@ -10,6 +10,20 @@ public class Triangle extends Figure {
         if (points.getSize() != 3) {
             throw new IllegalArgumentException("삼각형은 3개의 Point가 필요합니다");
         }
+
+        checkVerticesInLine();
+    }
+
+    private void checkVerticesInLine() {
+        List<Point> vertices = points.getPoints();
+        int dx1 = vertices.get(0).getX() - vertices.get(1).getX();
+        int dy1 = vertices.get(0).getY() - vertices.get(1).getY();
+        int dx2 = vertices.get(1).getX() - vertices.get(2).getX();
+        int dy2 = vertices.get(1).getY() - vertices.get(2).getY();
+
+        if (Math.atan2(dx1,dy1) == Math.atan2(dx2,dy2)) {
+            throw new IllegalArgumentException("모든 Point가 한 직선에 있습니다.");
+        }
     }
 
     @Override
