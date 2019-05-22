@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import static coordinate.util.NotNullValidator.validateNotNull;
 
-public class Line {
+public class Line extends Figure {
     private Point p1;
     private Point p2;
 
