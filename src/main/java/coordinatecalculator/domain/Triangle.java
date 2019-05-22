@@ -26,5 +26,11 @@ public class Triangle {
         }
     }
 
+    public double area() {
+        double line1 = coordinates.get(0).calculate(coordinates.get(1));
+        double line2 = coordinates.get(1).calculate(coordinates.get(2));
+        double line3 = coordinates.get(2).calculate(coordinates.get(0));
 
+        return Math.sqrt((line1 + line2 + line3) * (line2 - line1 + line3) * (line1 - line2 + line3) * (line1 + line2 - line3))/ 4;
+    }
 }
