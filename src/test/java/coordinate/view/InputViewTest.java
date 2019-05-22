@@ -12,7 +12,7 @@ public class InputViewTest {
 
     @Test
     void 좌표_입력_형식_예외() {
-        assertThrows(NoSuchElementException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             ByteArrayInputStream input = new ByteArrayInputStream("(0,0)=".getBytes());
             System.setIn(input);
             InputView.inputPoint();
