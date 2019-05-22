@@ -8,8 +8,8 @@ public class PointNumberTest {
 
     @Test
     void 좌표숫자_범위검사() {
-        assertThrows(IllegalArgumentException.class,()->{
-           new PointNumber(25);
+        assertThrows(IllegalArgumentException.class, () -> {
+            new PointNumber(25);
         });
     }
 }

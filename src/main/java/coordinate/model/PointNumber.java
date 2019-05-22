@@ -9,11 +9,11 @@ public class PointNumber {
 
     public PointNumber(int number) {
         checkValidRange(number);
-        this.number=number;
+        this.number = number;
     }
 
     private void checkValidRange(int number) {
-        if(number<MIN_RANGE || number >MAX_RANGE){
+        if (number < MIN_RANGE || number > MAX_RANGE) {
             throw new IllegalArgumentException("좌표 숫자 입력 범위 오류");
         }
     }
