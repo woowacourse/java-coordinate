@@ -1,9 +1,12 @@
 package coordinate.model;
 
+import java.util.Objects;
+
 public class PointNumber {
     private static final int MIN_RANGE = 0;
     private static final int MAX_RANGE = 24;
     private int number;
+
     public PointNumber(int number) {
         checkValidRange(number);
         this.number=number;
@@ -17,5 +20,18 @@ public class PointNumber {
 
     public int getNumber() {
         return this.number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PointNumber)) return false;
+        PointNumber that = (PointNumber) o;
+        return getNumber() == that.getNumber();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNumber());
     }
 }
