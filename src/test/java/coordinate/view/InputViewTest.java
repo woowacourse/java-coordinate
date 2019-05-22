@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class InputViewTest {
     @Test
-    void 올바른_입력이_발생한_경우() {
+    public void 올바른_입력이_발생한_경우() {
         List<String> coordinates = new ArrayList<>(Arrays.asList("(1,2)", "(1,3)"));
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 2), new Point(1, 3)));
 
@@ -20,7 +20,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 잘못된_입력이_발생한_경우() {
+    public void 잘못된_입력이_발생한_경우() {
         List<String> coordinates = new ArrayList<>(Arrays.asList("a(1,2)", "(1,3)"));
 
         assertThatThrownBy(() -> {
@@ -29,7 +29,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 중복_좌표를_입력한_경우() {
+    public void 중복_좌표를_입력한_경우() {
         List<String> coordinates = new ArrayList<>(Arrays.asList("(1,2)", "(1,3)", "(1,2)"));
 
         assertThatThrownBy(() -> {

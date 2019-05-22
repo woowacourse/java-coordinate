@@ -21,7 +21,7 @@ public class PointTest {
     }
 
     @Test
-    void y값이_범위를_벗어난_경우() {
+    public void y값이_범위를_벗어난_경우() {
         assertThatThrownBy(() -> {
             new Point(1, 100);
         }).isInstanceOf(IllegalArgumentException.class);

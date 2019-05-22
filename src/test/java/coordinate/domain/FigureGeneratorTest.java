@@ -7,26 +7,36 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class FigureGeneratorTest {
     @Test
-    void Point_2개_입력됐을_때_Line을_만드는지_확인() {
+    public void Point_2개_입력됐을_때_Line을_만드는지_확인() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2)));
 
         assertThat(new FigureGenerator().generate(points) instanceof Line).isTrue();
     }
 
     @Test
-    void Point_3개_입력됐을_때_Triangle을_만드는지_확인() {
+    public void Point_3개_입력됐을_때_Triangle을_만드는지_확인() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3)));
 
         assertThat(new FigureGenerator().generate(points) instanceof Triangle).isTrue();
     }
 
     @Test
-    void Point_4개_입력됐을_때_Rectangle을_만드는지_확인() {
+    public void Point_4개_입력됐을_때_Rectangle을_만드는지_확인() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(1, 2), new Point(2, 1), new Point(2, 2)));
 
         assertThat(new FigureGenerator().generate(points) instanceof Rectangle).isTrue();
+    }
+
+    @Test
+    public void Point_5개_입력됐을_때_예외를_던지는지_확인() {
+        List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(1, 2), new Point(2, 1), new Point(2, 2), new Point(5, 5)));
+
+        assertThatThrownBy(() -> {
+            new FigureGenerator().generate(points);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 }
