@@ -3,7 +3,7 @@ package com.woowacourse.javacoordinate.domain;
 import java.util.*;
 
 public class Rectangle extends Figure {
-    private static final int RECTANGLE_POINT_NUMBER = 4;
+    public static final int RECTANGLE_POINT_NUMBER = 4;
     private static final int POSITION_NUMBER = 2;
 
     public Rectangle(Points points) {

@@ -2,8 +2,8 @@ package com.woowacourse.javacoordinate.domain;
 
 
 public class Point {
-    private static final int MIN_BOUNDARY = 0;
-    private static final int MAX_BOUNDARY = 24;
+    public static final int MIN_BOUNDARY = 0;
+    public static final int MAX_BOUNDARY = 24;
 
     private final int x;
     private final int y;

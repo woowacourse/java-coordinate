@@ -3,7 +3,7 @@ package com.woowacourse.javacoordinate.domain;
 import java.util.List;
 
 public class Line extends Figure {
-    private static final int LINE_POINT_NUMBER = 2;
+    public static final int LINE_POINT_NUMBER = 2;
 
     public Line(Points points) {
         super(points);

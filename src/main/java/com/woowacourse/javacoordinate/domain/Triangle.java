@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Triangle extends Figure {
-    private static final int TRIANGLE_POINT_NUMBER = 3;
+    public static final int TRIANGLE_POINT_NUMBER = 3;
 
     public Triangle(Points points) {
         super(points);

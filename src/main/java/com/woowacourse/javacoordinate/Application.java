@@ -9,9 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Application {
-    private static final int LINE_VERTEX = 2;
-    private static final int TRIANGLE_VERTEX = 3;
-    private static final int RECTANGLE_VERTEX = 4;
+    private static final String TYPE_OF_LINE = "Line";
+    private static final String TYPE_OF_TRIANGLE = "Triangle";
+    private static final String TYPE_OF_RECTANGLE = "Rectangle";
 
     public static void main(String[] args) {
         while (true) {
@@ -27,13 +27,13 @@ public class Application {
     private static Figure makeShape(Points points) {
         int size = points.getSize();
 
-        if (size == LINE_VERTEX) {
+        if (size == Line.LINE_POINT_NUMBER) {
             return new Line(points);
         }
-        if (size == TRIANGLE_VERTEX) {
+        if (size == Triangle.TRIANGLE_POINT_NUMBER) {
             return new Triangle(points);
         }
-        if (size == RECTANGLE_VERTEX) {
+        if (size == Rectangle.RECTANGLE_POINT_NUMBER) {
             return new Rectangle(points);
         }
         throw new IllegalArgumentException("Points 형식이 잘못 되었습니다");
@@ -42,7 +42,7 @@ public class Application {
     private static CoordinateSystem drawCoordinate(Points points) {
         List<CoordinateLine> coordinateLines = new ArrayList<>();
 
-        for (int yAxis = 0; yAxis < 25; yAxis++) {
+        for (int yAxis = Point.MIN_BOUNDARY; yAxis <= Point.MAX_BOUNDARY; yAxis++) {
             coordinateLines.add(createLine(points, yAxis));
         }
 
@@ -92,18 +92,18 @@ public class Application {
     private static Result calculateLine(Figure figure) {
         double result = figure.calculateLength();
 
-        return new Result(result, "Line");
+        return new Result(result, TYPE_OF_LINE);
     }
 
     private static Result calculateTriangle(Figure figure) {
         double result = figure.calculateArea();
 
-        return new Result(result, "Triangle");
+        return new Result(result, TYPE_OF_TRIANGLE);
     }
 
     private static Result calculateRectangle(Figure figure) {
         double result = figure.calculateArea();
 
-        return new Result(result, "Rectangle");
+        return new Result(result, TYPE_OF_RECTANGLE);
     }
 }
