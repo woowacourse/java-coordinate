@@ -4,7 +4,6 @@ import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Triangle {
     private static final int LINES_SIZE = 3;
-    private static final int COMPARE_SLOPE = 0;
 
     private final Lines lines;
 
@@ -25,5 +24,12 @@ public class Triangle {
         if (lines.isParallel(0,1)) {
             throw new IllegalArgumentException("삼각형에 평행한 라인이 존재해서는 안 됩니다.");
         }
+    }
+
+    public double area() {
+        Vector v1 = new Vector(lines.getLine(0));
+        Vector v2 = new Vector(lines.getLine(1));
+
+        return Math.sqrt(v1.length() + v2.length() - Math.pow(v1.innerProduct(v2), 2));
     }
 }
