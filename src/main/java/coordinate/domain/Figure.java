@@ -8,7 +8,7 @@ public abstract class Figure implements AreaCalculator {
 
     protected Figure(final Points points, final LinesGenerator linesGenerator) {
         this.points = points;
-        this.lines = lines = linesGenerator.generate();
+        this.lines = linesGenerator.generate();
         validate();
     }
 
