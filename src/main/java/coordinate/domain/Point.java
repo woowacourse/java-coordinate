@@ -10,8 +10,8 @@ public class Point {
     private static final int MIN_VALUE = 1;
     private static final int MAX_VALUE = 24;
 
-    final int x;
-    final int y;
+    private final int x;
+    private final int y;
 
     public Point(List<Integer> coordinates) {
         validateSizeOf(coordinates);

@@ -8,10 +8,10 @@ public class StraightLine {
     private static final int NUM_OF_POINT = 2;
     private static final int SQUARE = 2;
 
-    final Point startPoint;
-    final Point endPoint;
+    private final Point startPoint;
+    private final Point endPoint;
 
-    StraightLine(List<Point> points) {
+    public StraightLine(List<Point> points) {
         validateSizeOf(points);
         validateEqualityOf(points.get(START_INDEX), points.get(END_INDEX));
         this.startPoint = points.get(START_INDEX);
