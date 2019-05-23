@@ -1,19 +1,9 @@
 package rent;
 
-public class Sonata implements Car {
-    private static final double DISTANCE_PER_LITER = 10;
-    private int tripDistance;
-
-    public Sonata(int tripDistance){
+public class Sonata extends Car {
+    public Sonata(int tripDistance) {
+        name = "Sonata";
+        distancePerLiter = 10;
         this.tripDistance = tripDistance;
-    }
-    @Override
-    public String getName() {
-        return "Sonata";
-    }
-
-    @Override
-    public double getChargeQuantity() {
-        return tripDistance / DISTANCE_PER_LITER;
     }
 }

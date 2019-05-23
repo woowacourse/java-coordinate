@@ -1,26 +1,30 @@
 package coordinate.model;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
 
-public interface Shape {
-    public static final int LINE_NUMBER_OF_POINTS = 2;
-    public static final int TRIANGLE_NUMBER_OF_POINTS = 3;
-    public static final int SQUARE_NUMBER_OF_POINTS = 4;
+public abstract class Shape implements IShape {
+        protected List<Point> points;
 
-
-    public static final Map<Integer, Function<List<Point>, Shape>> creator
-            = new HashMap<Integer, Function<List<Point>, Shape>>() {
-        {
-            put(LINE_NUMBER_OF_POINTS, Line::new);
-            put(TRIANGLE_NUMBER_OF_POINTS, Triangle::new);
-            put(SQUARE_NUMBER_OF_POINTS, Square::new);
+        protected Shape(List<Point> points) {
+                Collections.sort(points);
+                checkDuplication(points);
+                this.points = points;
         }
-    };
 
-    public double getScore();
+        private void checkDuplication(List<Point> points) {
+                for (int index = 0; index < points.size() - 1; index++) {
+                        checkDuplicationOnePoint(points, index);
+                }
+        }
 
-    public List<Point> getPoints();
+        private void checkDuplicationOnePoint(List<Point> points, int index) {
+                if (points.get(index).equals(points.get(index + 1))) {
+                        throw new IllegalArgumentException("좌표는 서로 중복이 되어서는 안됩니다.");
+                }
+        }
+
+        public List<Point> getPoints() {
+                return points;
+        }
 }

@@ -1,7 +1,6 @@
 package rent;
 
-public interface Car {
+public interface ICar {
     String getName();
-
     double getChargeQuantity();
 }

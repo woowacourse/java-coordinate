@@ -6,10 +6,10 @@ import java.util.List;
 public class RentCompany {
     private static final String NEWLINE = System.getProperty("line.separator");
 
-    private List<Car> cars;
+    private List<ICar> ICars;
 
-    private RentCompany() {
-        cars = new ArrayList<>();
+    public RentCompany() {
+        ICars = new ArrayList<>();
     }
 
     public static RentCompany create() {
@@ -18,17 +18,17 @@ public class RentCompany {
 
     public String generateReport() {
         StringBuilder sb = new StringBuilder();
-        for (Car car : cars) {
+        for (ICar car : ICars) {
             sb.append(car.getName());
             sb.append(" : ");
-            sb.append((int)car.getChargeQuantity());
+            sb.append((int) car.getChargeQuantity());
             sb.append("리터");
             sb.append(NEWLINE);
         }
         return sb.toString();
     }
 
-    public void addCar(Car car) {
-        cars.add(car);
+    public void addCar(ICar ICar) {
+        ICars.add(ICar);
     }
 }
