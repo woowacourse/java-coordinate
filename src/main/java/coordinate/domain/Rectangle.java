@@ -4,30 +4,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Rectangle {
-    private static final int BASE = 0;
+public class Rectangle extends Figure {
     private static final int PAIR = 2;
     private static final int NUM_OF_POINT = 4;
+
     private List<Point> points;
 
     public Rectangle(List<Point> points) {
         validateDuplicate(points);
-        validateSizeOf(points);
+        validateSizeOf(points, NUM_OF_POINT);
         validateRectangle(points);
         this.points = points;
-    }
-
-    private void validateDuplicate(List<Point> points) {
-        if (points.size() != (new HashSet<>(points)).size()) {
-            throw new IllegalArgumentException("같은 점은 입력할 수 없습니다.");
-        }
-    }
-
-
-    private void validateSizeOf(List<Point> points) {
-        if (points.size() != NUM_OF_POINT) {
-            throw new IllegalArgumentException("점의 갯수가 네개여야 합니다.");
-        }
     }
 
     private void validateRectangle(List<Point> points) {
