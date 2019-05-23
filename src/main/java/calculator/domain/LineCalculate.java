@@ -4,10 +4,11 @@ package calculator.domain;
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class LineCalculate implements ShapeCalculate {
+public class LineCalculate extends Shape implements ShapeCalculate {
     private final Points points;
 
     public LineCalculate(Points points) {
+        super("직선", "거리");
         this.points = points;
     }
 
