@@ -16,27 +16,12 @@ public class Application {
     public static void main(String[] args) {
         while (true) {
             Points points = InputView.inputCoordinatePoints();
-            Figure figure = makeShape(points);
+            Figure figure = FigureFactory.createFigure(points);
             CoordinateSystem coordinateSystem = drawCoordinate(points);
 
             OutputView.printCoordinateSystem(coordinateSystem);
             OutputView.printResult(calculate(figure));
         }
-    }
-
-    private static Figure makeShape(Points points) {
-        int size = points.getSize();
-
-        if (size == Line.LINE_POINT_NUMBER) {
-            return new Line(points);
-        }
-        if (size == Triangle.TRIANGLE_POINT_NUMBER) {
-            return new Triangle(points);
-        }
-        if (size == Rectangle.RECTANGLE_POINT_NUMBER) {
-            return new Rectangle(points);
-        }
-        throw new IllegalArgumentException("Points 형식이 잘못 되었습니다");
     }
 
     private static CoordinateSystem drawCoordinate(Points points) {
