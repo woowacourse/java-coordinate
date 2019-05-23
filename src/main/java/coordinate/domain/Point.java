@@ -7,7 +7,7 @@ public class Point {
     private double pointY;
 
     public Point(String x, String y) {
-        checkPoint(x,y);
+        checkPoint(x, y);
         pointX = Double.parseDouble(x);
         pointY = Double.parseDouble(y);
     }
@@ -20,22 +20,25 @@ public class Point {
         return (this.pointY - y);
     }
 
-    private void checkPoint(String x,String y) {
-        if (!isDouble(x,y)) {
+    private void checkPoint(String x, String y) {
+        if (isBlank(x, y)) {
+            throw new IllegalArgumentException("공백 넣지 마세요.");
+        }
+        if (!isDouble(x, y)) {
             throw new IllegalArgumentException("숫자를 입력해 주세요.");
         }
         double tempX = Double.parseDouble(x);
         double tempY = Double.parseDouble(y);
-        if (isNotAllowedNumber(tempX,tempY)) {
+        if (isNotAllowedNumber(tempX, tempY)) {
             throw new IllegalArgumentException("0 이상 24 이하의 수를 입력하세요.");
         }
     }
 
     private boolean isNotAllowedNumber(double point_x, double point_y) {
-        return (point_x > 24 || point_x < 0) && (point_y > 24 || point_y < 0);
+        return (point_x > 24 || point_x < 0) || (point_y > 24 || point_y < 0);
     }
 
-    private boolean isDouble(String x,String y) {
+    private boolean isDouble(String x, String y) {
         try {
             Double.parseDouble(x);
             Double.parseDouble(y);
@@ -43,6 +46,10 @@ public class Point {
         } catch (IllegalArgumentException e) {
             return false;
         }
+    }
+
+    private boolean isBlank(String x, String y) {
+        return x.contains(" ") || y.contains(" ");
     }
 
     public double findLength(Point point) {
