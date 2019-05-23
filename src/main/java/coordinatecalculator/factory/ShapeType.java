@@ -22,19 +22,19 @@ enum ShapeType {
         }
     };
 
-    private final int size;
+    private final int countOfCoordinate;
 
-    ShapeType(final int size) {
-        this.size = size;
+    ShapeType(final int countOfCoordinate) {
+        this.countOfCoordinate = countOfCoordinate;
     }
 
     public Shape create(List<Coordinate> coordinates) {
         return null;
     }
 
-    public static ShapeType valueOf(int size) {
+    public static ShapeType valueOf(int countOfCoordinate) {
         return Arrays.stream(values())
-                .filter(shapeType -> shapeType.size == size)
+                .filter(shapeType -> shapeType.countOfCoordinate == countOfCoordinate)
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
     }

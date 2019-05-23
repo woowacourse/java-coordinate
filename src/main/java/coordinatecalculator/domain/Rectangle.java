@@ -5,8 +5,9 @@ import coordinatecalculator.visitor.Visitor;
 import java.util.*;
 
 public class Rectangle implements Figure, Shape {
+    private static final int VERTEX_OF_RECTANGLE = 4;
+
     private final List<Coordinate> coordinates;
-    public static final int VERTEX_OF_RECTANGLE = 4;
 
     public Rectangle(List<Coordinate> coordinates) {
         Collections.sort(coordinates);

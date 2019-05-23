@@ -31,7 +31,8 @@ public class Triangle implements Figure, Shape {
         double line1 = coordinates.get(0).calculateDistance(coordinates.get(1));
         double line2 = coordinates.get(1).calculateDistance(coordinates.get(2));
         double line3 = coordinates.get(2).calculateDistance(coordinates.get(0));
-
+        
+        //해론의 법칙
         return Math.sqrt((line1 + line2 + line3) * (line2 - line1 + line3) * (line1 - line2 + line3) * (line1 + line2 - line3)) / 4;
     }
 
