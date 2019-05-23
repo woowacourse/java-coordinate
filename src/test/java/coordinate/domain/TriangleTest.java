@@ -19,7 +19,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void Point가_3개_이상_들어올_경우() {
+    public void Point가_3개_초과_들어올_경우() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(4, 4)));
 
         assertThatThrownBy(() -> {

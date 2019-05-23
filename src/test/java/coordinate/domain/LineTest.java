@@ -28,7 +28,7 @@ public class LineTest {
     }
 
     @Test
-    public void Point가_2개_이상_들어올_경우() {
+    public void Point가_2개_초과_들어올_경우() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3)));
 
         assertThatThrownBy(() -> {
