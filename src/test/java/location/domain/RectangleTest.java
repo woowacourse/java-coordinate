@@ -34,4 +34,16 @@ public class RectangleTest {
         Rectangle rectangle = new Rectangle(points);
         assertThat(rectangle.calculate()).isEqualTo(4, Assertions.offset(0.009));
     }
+
+    @Test
+    void 한_직선에_모두_있을때() {
+        Points points = new Points(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(4, 4)));
+        assertThrows(IllegalArgumentException.class, () -> new Rectangle(points));
+    }
+
+//    @Test
+//    void 한_직선에_모두_있을때_0() {
+//        Points points = new Points(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(4, 4)));
+//        assertThrows(IllegalArgumentException.class, () -> new Rectangle(points));
+//    }
 }

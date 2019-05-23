@@ -33,4 +33,5 @@ public enum ShapeEnum {
                 .filter(shape -> shape.pointLength == pointLength).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(NOT_CREATE_SHAPE_MSG));
     }
+
 }

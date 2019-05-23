@@ -40,12 +40,9 @@ public class Rectangle extends Shape {
         return calculateLine(points.get(1), points.get(2)) == calculateLine(points.get(0), points.get(3));
     }
 
-    private void checkBruteForceSameLine(Points points){
-        checkSameLine(new Points(Arrays.asList(points.get(0),points.get(1),points.get(2))));
-//        checkSameLine(new Points(Arrays.asList(points.get(0),points.get(2),points.get(3))));
-//        checkSameLine(new Points(Arrays.asList(points.get(1),points.get(2),points.get(3))));
+    private void checkBruteForceSameLine(Points points) {
+        checkSameLine(points);
     }
-
 
     private void checkSameLine(Points points) {
         if (isSameLine(points)) {
@@ -54,15 +51,14 @@ public class Rectangle extends Shape {
     }
 
     private boolean isSameLine(Points points) {
-        return calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(1), points.get(2));
+        return calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(1), points.get(2)) &&
+                calculateTilt(points.get(1), points.get(2)) == calculateTilt(points.get(2), points.get(3)) &&
+                calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(2), points.get(3));
     }
 
     private double calculateTilt(final Point point, final Point point1) {
-        return (point.getY()-point1.getY())/(point.getX()-point1.getX());
+        return (point.getY() - point1.getY()) / (point.getX() - point1.getX());
     }
-
-
-
 
 
     public double calculateLine(final Point point1, final Point point2) {
