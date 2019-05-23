@@ -10,7 +10,7 @@ public class PointList {
         this.points = checkDuplicate(points);
     }
 
-    public List<Line> findLine() {
+    List<Line> findLine() {
         List<Line> lines = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
             for (int j = i + 1; j < points.size(); j++) {
@@ -43,11 +43,11 @@ public class PointList {
         return points.contains(point);
     }
 
-    public int getSize() {
+    int getSize() {
         return this.points.size();
     }
 
-    public Point getPoint(int index) {
+    Point getPoint(int index) {
         return points.get(index);
     }
 }

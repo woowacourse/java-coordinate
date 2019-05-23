@@ -4,11 +4,9 @@ import coordinate.domain.Figure;
 import coordinate.domain.Point;
 import coordinate.domain.PointList;
 
-import java.util.List;
 
 public class OutputView {
     public static void printPoints(PointList pointList) {
-        StringBuilder sb = new StringBuilder();
         for (int y = 24; y >= 1; y--) {
             System.out.printf("%2s", isEvenNumber(y));
             for (int x = 0; x <= 24; x++) {
