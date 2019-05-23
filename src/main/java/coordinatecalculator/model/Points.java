@@ -5,9 +5,6 @@ import java.util.*;
 
 public class Points {
 
-    private static final int FIRST_POINT_INDEX = 0;
-    private static final int SECOND_POINT_INDEX = 1;
-
     private List<Point> points;
 
     private Points() {
@@ -19,22 +16,31 @@ public class Points {
     }
 
     public void addPoint(Point point) {
-        if(this.points.contains(point)){
+        if (this.points.contains(point)) {
             throw new IllegalArgumentException("두점이 중복되었습니다.");
         }
         this.points.add(point);
     }
 
-    public List<Point> getPoints(){
-        return points;
-    }
-
-    public Point getPoint(int index){
+    public Point getPoint(int index) {
         return this.points.get(index);
     }
 
-    public double distanceResult(){
-        return Math.sqrt(this.getPoint(FIRST_POINT_INDEX).square(this.getPoint(SECOND_POINT_INDEX)));
+    public List<Point> getPoints() {
+        return points;
     }
+
+    public List<Distance> generateDistances() {
+        List<Distance> distances = new ArrayList<>();
+        for (int i = 0; i < points.size(); i++) {
+            distances.add(this.getDistance(i, (i + 1) % points.size()));
+        }
+        return distances;
+    }
+
+    private Distance getDistance(int previousPointIndex, int currentPointIndex) {
+        return new Distance(this.getPoint(previousPointIndex), this.getPoint(currentPointIndex));
+    }
+
 
 }

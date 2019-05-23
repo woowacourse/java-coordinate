@@ -51,6 +51,6 @@ public class OutputView {
     }
 
     private static void printDistanceResult(Points points) {
-        System.out.print(String.format("두 점 사이의 거리는 %f", points.distanceResult()));
+//        System.out.print(String.format("두 점 사이의 거리는 %f", points.getDistances(0,1).getDistance()));
     }
 }
