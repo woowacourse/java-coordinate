@@ -16,11 +16,19 @@ public class Point {
     }
 
     private void validate() {
-        if (x > MAX_X || y > MAX_Y) {
-            throw new IllegalArgumentException("좌표의 최대값은" + MAX_X + "이하 입니다.");
+        validateX();
+        validateY();
+    }
+
+    private void validateX() {
+        if (x > MAX_X || x < MIN_X) {
+            throw new IllegalArgumentException("x의 좌표값은 " + MIN_X + "이상 " + MAX_X + "이하 입니다.");
         }
-        if (x < MIN_X || y < MIN_Y) {
-            throw new IllegalArgumentException("좌표의 최소값은" + MIN_X + "이하 입니다.");
+    }
+
+    private void validateY() {
+        if (y > MAX_Y || x < MIN_Y) {
+            throw new IllegalArgumentException("y의 좌표값은 " + MIN_Y + "이상 " + MAX_Y + "이하 입니다.");
         }
     }
 
