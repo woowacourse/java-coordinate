@@ -64,13 +64,13 @@ public class PlaneCoordinates {
 
     @Override
     public String toString() {
-        StringBuilder temp = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = MAX_Y_VALUE; i >= 0; i--) {
-            temp.append(plane.get(i)).append(NEXT_LINE);
+            stringBuilder.append(plane.get(i)).append(NEXT_LINE);
         }
-        temp.append(makeXScale());
+        stringBuilder.append(makeXScale());
 
-        return temp.toString();
+        return stringBuilder.toString();
     }
 }
