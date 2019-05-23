@@ -11,7 +11,7 @@
 ---
 # 좌표 계산기
 ## Todo
-* Triangle 넓이 구하는 메소드 추가하기
+
 
 ## Done
 * Point 테스트 생성
@@ -29,6 +29,7 @@
 * Triangle 유효성 테스트 추가하기
 * Triangle 유효성 메소드 추가하기
 * Triangle 넓이 테스트 추가하기
+* Triangle 넓이 구하는 메소드 추가하기
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
