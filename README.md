@@ -11,13 +11,17 @@
 ---
 # 좌표 계산기
 ## Todo
-
+* Points 중복된 값 확인하기
+* Point 벡터 계산하기
+* Rectangle 확인하기
 
 ## Done
 * Point 테스트 생성
 * 두 점 사이의 거리 계산하기
 * Line 테스트 생성
 * 선의 길이 구하기
+* Points 테스트 생성
+
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
