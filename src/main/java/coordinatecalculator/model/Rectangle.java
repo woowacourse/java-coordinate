@@ -4,18 +4,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Rectangle {
+public class Rectangle extends Figure {
 
     private double area;
 
     public Rectangle(List<Distance> distances) {
-        this.area = calculateRectangleArea(distances);
-//        if(diagonalPoint.getPoints().size() != 2){
-//            throw new IllegalArgumentException("잘못된 직사각형 형식 입니다.");
-//        }
+        this.area = calculateArea(distances);
     }
 
-    private double calculateRectangleArea(List<Distance> distances) {
+    @Override
+    double calculateArea(List<Distance> distances) {
         Set<Distance> distanceSet = new HashSet<>(distances);
         double result = 1;
         for (Distance distance : distanceSet) {
@@ -24,7 +22,8 @@ public class Rectangle {
         return result;
     }
 
-    public double getArea() {
+    @Override
+    double getArea() {
         return area;
     }
 
