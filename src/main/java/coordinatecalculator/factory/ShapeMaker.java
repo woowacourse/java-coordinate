@@ -2,7 +2,7 @@ package coordinatecalculator.factory;
 
 import coordinatecalculator.domain.*;
 import coordinatecalculator.util.InputManager;
-import coordinatecalculator.view.OutputView;
+import coordinatecalculator.util.OutputView;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package coordinatecalculator.view;
+package coordinatecalculator.util;
 
 import coordinatecalculator.domain.Coordinate;
 
