@@ -15,4 +15,10 @@ public abstract class Figure {
             throw new IllegalArgumentException("같은 점은 입력할 수 없습니다.");
         }
     }
+
+    public int getNumOfPoints() {
+        return points.size();
+    }
+
+    public abstract double calculateAttribute();
 }

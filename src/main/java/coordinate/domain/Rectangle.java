@@ -8,13 +8,16 @@ public class Rectangle extends Figure implements Polygon {
     private static final int PAIR = 2;
     private static final int NUM_OF_POINT = 4;
 
-    private List<Point> points;
-
     public Rectangle(List<Point> points) {
         super(points);
         validateSizeOf(points);
         validateRectangle(points);
         this.points = points;
+    }
+
+    @Override
+    public double calculateAttribute() {
+        return calculateArea();
     }
 
     void validateSizeOf(List<Point> points) {
