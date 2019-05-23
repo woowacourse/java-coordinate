@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Triangle extends Figure implements AvailableArea {
     private static final int VALID_LENGTH_OF_POINTS = 3;
-    public static final String THREE_POINT_IN_LINE_MESSAGE = "세점이 직선 위에 있습니다.";
+    private static final String THREE_POINT_IN_LINE_MESSAGE = "세점이 직선 위에 있습니다.";
 
     public Triangle(List<Point> points) {
         super(points, VALID_LENGTH_OF_POINTS);
