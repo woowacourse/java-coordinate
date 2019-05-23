@@ -11,6 +11,7 @@ public class CoordinateController {
 
         Figure figure = FigureGenerator.generate(input);
 
+        OutputView.printCoordinateSystem(figure);
         OutputView.printResult(figure);
     }
 }
