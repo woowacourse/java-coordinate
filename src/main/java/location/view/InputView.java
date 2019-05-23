@@ -12,6 +12,7 @@ public class InputView {
     private static final String COMMA = ",";
     private static final String INPUT_COORDINATE_MSG = "좌표를 입력하세요.";
     private static final String INPUT_NULL_OR_BLANK_MSG = "값을 입력해주세요.";
+    private static final String INPUT_WRONG_FORM = "(x1,y1)-(x2,y2)와 같은 형식으로 입력해 주세요.";
     private static final int X = 0;
     private static final int Y = 1;
     private static final String LEFT_PARENTHESIS = "(";
@@ -27,14 +28,20 @@ public class InputView {
 
     public static List<Point> makeCoordinate(String input) {
         points = new ArrayList<>();
-        isValid(input);
+        checkNullEmpty(input);
+        checkExpression(input);
         split(input);
         return points;
     }
 
-    private static void isValid(String input) {
+    private static void checkNullEmpty(String input) {
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException(INPUT_NULL_OR_BLANK_MSG);
+        }
+    }
+
+    private static void checkExpression(String input) {
+        if (input == null || input.isEmpty()) {
         }
     }
 
