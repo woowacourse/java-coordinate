@@ -18,7 +18,7 @@ public class Line implements Shape {
     }
 
     public double getLineLength() {
-        return coordinates.get(0).calculate(coordinates.get(1));
+        return coordinates.get(0).calculateDistance(coordinates.get(1));
     }
 
     @Override

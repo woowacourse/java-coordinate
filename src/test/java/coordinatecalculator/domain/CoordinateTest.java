@@ -11,6 +11,6 @@ class CoordinateTest {
         Coordinate coordinate = new Coordinate(5, 10);
         Coordinate coordinate1 = new Coordinate(10, 10);
 
-        assertThat(coordinate.calculate(coordinate1)).isEqualTo(5.0);
+        assertThat(coordinate.calculateDistance(coordinate1)).isEqualTo(5.0);
     }
 }

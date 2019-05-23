@@ -11,8 +11,18 @@ public class Coordinate implements Comparable<Coordinate> {
         this.y = y;
     }
 
-    public double calculate(Coordinate coordinate) {
+    public double calculateDistance(Coordinate coordinate) {
         return Math.sqrt(Math.pow(Math.abs(coordinate.x - this.x), 2) + Math.pow(Math.abs(coordinate.y - this.y), 2));
+    }
+
+    public double calculateSlope(Coordinate coordinate) {
+        int dx = Math.abs(coordinate.x - this.x);
+        int dy = Math.abs(coordinate.y - this.y);
+
+        if (dx == 0) {
+            return 0;
+        }
+        return dy / dx;
     }
 
     public int getX() {

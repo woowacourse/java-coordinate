@@ -18,6 +18,8 @@ class TriangleTest {
                 new Coordinate(24, 10), new Coordinate(24, 23));
         List<Coordinate> coordinate3 = Arrays.asList(new Coordinate(1, 0), new Coordinate(1, 0),
                 new Coordinate(1, 0));
+        List<Coordinate> coordinate4 = Arrays.asList(new Coordinate(1, 1), new Coordinate(2, 2),
+                new Coordinate(23, 23));
 
         assertThrows(IllegalArgumentException.class, () -> {
             new Triangle(coordinate);
@@ -29,6 +31,10 @@ class TriangleTest {
 
         assertThrows(IllegalArgumentException.class, () -> {
             new Triangle(coordinate3);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Triangle(coordinate4);
         });
     }
 

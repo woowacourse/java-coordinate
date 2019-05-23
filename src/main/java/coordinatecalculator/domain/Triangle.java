@@ -18,25 +18,19 @@ public class Triangle implements Figure, Shape {
     }
 
     private void isValidTriangle(final List<Coordinate> coordinates) {
-        //TODO 서로 다른 3점이 대각선일 경우 , 예외를 발생하지 못함 -> 해결하자
-        Set<Integer> overlapX = new HashSet<>();
-        Set<Integer> overlapY = new HashSet<>();
+        double slopeFirst = coordinates.get(0).calculateSlope(coordinates.get(1));
+        double slopeSecond = coordinates.get(1).calculateSlope(coordinates.get(2));
 
-        for (Coordinate coordinate : coordinates) {
-            overlapX.add(coordinate.getX());
-            overlapY.add(coordinate.getY());
-        }
-
-        if (overlapX.size() == 1 || overlapY.size() == 1) {
+        if (slopeFirst == slopeSecond) {
             throw new IllegalArgumentException("삼각형이 아니에요");
         }
     }
 
     @Override
     public double area() {
-        double line1 = coordinates.get(0).calculate(coordinates.get(1));
-        double line2 = coordinates.get(1).calculate(coordinates.get(2));
-        double line3 = coordinates.get(2).calculate(coordinates.get(0));
+        double line1 = coordinates.get(0).calculateDistance(coordinates.get(1));
+        double line2 = coordinates.get(1).calculateDistance(coordinates.get(2));
+        double line3 = coordinates.get(2).calculateDistance(coordinates.get(0));
 
         return Math.sqrt((line1 + line2 + line3) * (line2 - line1 + line3) * (line1 - line2 + line3) * (line1 + line2 - line3)) / 4;
     }
