@@ -9,10 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Application {
-    private static final String TYPE_OF_LINE = "Line";
-    private static final String TYPE_OF_TRIANGLE = "Triangle";
-    private static final String TYPE_OF_RECTANGLE = "Rectangle";
-
     public static void main(String[] args) {
         while (true) {
             Points points = InputView.inputCoordinatePoints();
@@ -77,18 +73,18 @@ public class Application {
     private static Result calculateLine(Figure figure) {
         double result = figure.calculateLength();
 
-        return new Result(result, TYPE_OF_LINE);
+        return new Result(result, OutputView.TYPE_OF_LINE);
     }
 
     private static Result calculateTriangle(Figure figure) {
         double result = figure.calculateArea();
 
-        return new Result(result, TYPE_OF_TRIANGLE);
+        return new Result(result, OutputView.TYPE_OF_TRIANGLE);
     }
 
     private static Result calculateRectangle(Figure figure) {
         double result = figure.calculateArea();
 
-        return new Result(result, TYPE_OF_RECTANGLE);
+        return new Result(result, OutputView.TYPE_OF_RECTANGLE);
     }
 }

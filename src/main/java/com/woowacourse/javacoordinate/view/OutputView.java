@@ -7,6 +7,9 @@ import com.woowacourse.javacoordinate.domain.Result;
 import java.util.List;
 
 public class OutputView {
+    public static final String TYPE_OF_LINE = "Line";
+    public static final String TYPE_OF_TRIANGLE = "Triangle";
+    public static final String TYPE_OF_RECTANGLE = "Rectangle";
     private static final int MIN_COORDINATE = 0;
     private static final int MAX_COORDINATE = 24;
 
@@ -72,19 +75,19 @@ public class OutputView {
     }
 
     private static void checkResultIfLine(Result result) {
-        if (result.getResultType().equals("Line")) {
+        if (result.getResultType().equals(TYPE_OF_LINE)) {
             System.out.println("두 점 사이의 거리는 " + result.getResult());
         }
     }
 
     private static void checkResultIfTriangle(Result result) {
-        if (result.getResultType().equals("Triangle")) {
+        if (result.getResultType().equals(TYPE_OF_TRIANGLE)) {
             System.out.println("삼각형 넓이는 " + String.format("%.1f", result.getResult()));
         }
     }
 
     private static void checkResultIfRectangle(Result result) {
-        if (result.getResultType().equals("Rectangle")) {
+        if (result.getResultType().equals(TYPE_OF_RECTANGLE)) {
             System.out.println("사각형 넓이는 " + String.format("%.0f", result.getResult()));
         }
     }
