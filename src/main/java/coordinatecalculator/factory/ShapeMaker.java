@@ -2,7 +2,7 @@ package coordinatecalculator.factory;
 
 import coordinatecalculator.domain.*;
 import coordinatecalculator.util.InputManager;
-import coordinatecalculator.util.OutputView;
+import coordinatecalculator.view.OutputView;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class ShapeMaker {
         try {
             return createShape(InputManager.getCoordinates());
         } catch (IllegalArgumentException e) {
-            OutputView.PrintErrorMessage(e.getMessage());
+            OutputView.printErrorMessage(e.getMessage());
             return createShape();
         }
     }

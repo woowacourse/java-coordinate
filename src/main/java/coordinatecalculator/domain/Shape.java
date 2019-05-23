@@ -8,4 +8,6 @@ public interface Shape {
     void isValidShape(List<Coordinate> coordinates);
 
     String separateByVisitor(Visitor visitor);
+
+    List<Coordinate> getCoordinate() ;
 }

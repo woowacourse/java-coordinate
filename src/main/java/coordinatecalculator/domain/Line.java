@@ -27,6 +27,11 @@ public class Line implements Shape {
     }
 
     @Override
+    public List<Coordinate> getCoordinate() {
+        return coordinates;
+    }
+
+    @Override
     public void isValidShape(List<Coordinate> coordinates) {
         Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
         if (overlapCoordinate.size() != VERTEX_OF_LINE) {
