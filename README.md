@@ -11,8 +11,6 @@
 ---
 # 좌표 계산기
 ## Todo
-
-* Point 벡터 계산하기
 * Rectangle 확인하기
 
 ## Done
@@ -23,6 +21,7 @@
 * Points 테스트 생성
 * Points 중복된 값 확인하기
 * Points 정렬하기
+* Point 벡터 계산하기
 
 
 ## 우아한테크코스 코드리뷰
