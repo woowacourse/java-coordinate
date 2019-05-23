@@ -17,10 +17,8 @@ public class Map implements Iterable<Line> {
         }
     }
 
-    public void drawPoint(Points points) {
-        for (Point point : points) {
-            map.get(point.getY()).drawX(point.getX());
-        }
+    public void drawPoint(Point point) {
+        map.get(point.getY()).drawX(point.getX());
     }
 
     public boolean isPointDrawn(Point point) {

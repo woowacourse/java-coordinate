@@ -5,6 +5,9 @@ import calculator.domain.Map;
 import calculator.domain.Point;
 import calculator.domain.Points;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author heebg
  * @version 1.0 2019-05-22
@@ -17,13 +20,15 @@ public class UserOutputView {
     private static final String DOUBLE_BLANK = "  ";
     private static final String STAR = " * ";
     private static final String TRIPLE_BLANK = "   ";
+    public static final String X_AXIS_MARK = " - ";
+    public static final String Y_AXIS_MARK = "|";
 
     public static void outputMap(Map map) {
         StringBuilder resultMap = new StringBuilder();
 
-        for (int x = map.size() - 1; x >= 0; x--) {
-            resultMap.append(String.format(FORMAT_ALIGN_RIGHT, x));
-            resultMap.append(drawLine(map.getLine(x))).append(NEW_LINE);
+        for (int yCoordinate = map.size() - 1; yCoordinate >= 0; yCoordinate--) {
+            resultMap.append(String.format(FORMAT_ALIGN_RIGHT, yCoordinate));
+            resultMap.append(drawLine(map.getLine(yCoordinate), yCoordinate)).append(NEW_LINE);
         }
 
         resultMap.append(drawBottomLine());
@@ -32,21 +37,26 @@ public class UserOutputView {
     }
 
 
-    private static String drawLine(Line line) {
+    private static String drawLine(Line line, int yCoordinate) {
         StringBuilder resultLine = new StringBuilder();
 
-        for (Boolean point : line) {
-            resultLine.append(drawPoint(point));
+        for (int xCoordinate = 0; xCoordinate < line.size(); xCoordinate++) {
+            resultLine.append(drawPoint(line.get(xCoordinate),xCoordinate, yCoordinate));
         }
 
         return resultLine.toString();
     }
 
-    private static String drawPoint(Boolean point) {
+    private static String drawPoint(Boolean point, int xCoordinate, int yCoordinate) {
         if (point) {
             return STAR;
         }
-
+        if (yCoordinate == 0) {
+            return X_AXIS_MARK;
+        }
+        if (xCoordinate == 0) {
+            return Y_AXIS_MARK;
+        }
         return TRIPLE_BLANK;
     }
 
