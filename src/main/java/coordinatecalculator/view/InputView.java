@@ -1,8 +1,9 @@
 package coordinatecalculator.view;
 
 import coordinatecalculator.model.Coordinate;
+import coordinatecalculator.model.FigureFactory;
+import coordinatecalculator.model.PlaneFigure;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -11,7 +12,16 @@ import java.util.stream.Collectors;
 public class InputView {
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static List<Coordinate> inputCoordinates() {
+    public static PlaneFigure createFigure(){
+        try{
+            return FigureFactory.createFigure(inputCoordinates());
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return createFigure();
+        }
+    }
+
+    private static List<Coordinate> inputCoordinates() {
         System.out.println("좌표를 입력해주세요.");
         try {
             return Arrays.stream(SCANNER.nextLine().split("(?<=\\))(-)(?=\\()"))

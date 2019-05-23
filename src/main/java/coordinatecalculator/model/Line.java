@@ -33,4 +33,9 @@ public class Line extends PlaneFigure implements Comparable<Line> {
         int dy = Math.abs(coordinateA.getY() - coordinateB.getY());
         return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
     }
+
+    @Override
+    public String resultMessage() {
+        return "두 점 사이의 거리는 : ";
+    }
 }

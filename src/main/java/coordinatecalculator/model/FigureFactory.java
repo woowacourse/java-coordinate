@@ -7,7 +7,7 @@ public class FigureFactory {
     private static final int TRIANGLE_COORDINATES = 3;
     private static final int RECTANGLE_COORDINATES = 4;
 
-    public static Figure createFigure(List<Coordinate> coordinates) {
+    public static PlaneFigure createFigure(List<Coordinate> coordinates) {
         if (isLine(coordinates)) {
             return new Line(coordinates);
         }

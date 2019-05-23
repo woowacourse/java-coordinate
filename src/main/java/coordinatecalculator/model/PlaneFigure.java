@@ -8,4 +8,6 @@ public abstract class PlaneFigure implements Figure {
     protected PlaneFigure(List<Coordinate> coordinates) {
         this.coordinates = new Coordinates(coordinates);
     }
+
+    public abstract String resultMessage();
 }

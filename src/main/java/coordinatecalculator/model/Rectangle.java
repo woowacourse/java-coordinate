@@ -24,4 +24,9 @@ public class Rectangle extends PlaneFigure {
         double side2 = lines.get(2).calculateArea();
         return side1 * side2;
     }
+
+    @Override
+    public String resultMessage() {
+        return "사각형의 넓이는 : ";
+    }
 }

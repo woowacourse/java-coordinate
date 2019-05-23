@@ -19,4 +19,9 @@ public class Triangle extends PlaneFigure {
         return (double) 1 / 4 * Math.sqrt(4 * squaredA * squaredB
                 - Math.pow(squaredA + squaredB - squaredC, 2));
     }
+
+    @Override
+    public String resultMessage() {
+        return "삼각형의 넓이는 : ";
+    }
 }
