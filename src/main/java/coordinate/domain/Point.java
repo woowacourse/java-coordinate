@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Point implements Comparable<Point> {
     private static final int MAX_COORDINATE_VALUE = 24;
-    private static final int MIN_COORDINATE_VALUE = 0;
+    private static final int MIN_COORDINATE_VALUE = 1;
     private static final int SQUARE = 2;
 
     private final int x;

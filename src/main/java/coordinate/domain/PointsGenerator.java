@@ -6,7 +6,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PointsGenerator {
-
     private static final String POINTS_REGEX = "\\([0-9]{1,2},[0-9]{1,2}\\)(?:-\\([0-9]{1,2},[0-9]{1,2}\\)){1,3}";
     private static final String POINT_REGEX = "\\(([0-9]{1,2}),([0-9]{1,2})\\)";
     private static final String SEPARATOR = "-";
