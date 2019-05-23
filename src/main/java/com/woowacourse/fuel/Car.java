@@ -1,7 +1,7 @@
 package com.woowacourse.fuel;
 
 public interface Car {
-	String getName();
+    String getName();
 
-	double getChargeQuantity();
+    double getChargeQuantity();
 }

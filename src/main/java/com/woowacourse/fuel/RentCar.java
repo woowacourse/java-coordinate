@@ -2,26 +2,26 @@ package com.woowacourse.fuel;
 
 import java.util.Objects;
 
-public abstract class RentCar implements Car{
-	private final String name;
-	private final double distancePerLiter;
-	private final int distance;
+public abstract class RentCar implements Car {
+    private final String name;
+    private final double distancePerLiter;
+    private final int distance;
 
-	public RentCar(final String name, final double distancePerLiter, final int distance) {
-		this.name = name;
-		this.distancePerLiter = distancePerLiter;
-		this.distance = distance;
-	}
+    public RentCar(final String name, final double distancePerLiter, final int distance) {
+        this.name = name;
+        this.distancePerLiter = distancePerLiter;
+        this.distance = distance;
+    }
 
-	@Override
-	public String getName() {
-		return name;
-	}
+    @Override
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public double getChargeQuantity() {
-		return distance / distancePerLiter;
-	}
+    @Override
+    public double getChargeQuantity() {
+        return distance / distancePerLiter;
+    }
 
     @Override
     public boolean equals(Object o) {
