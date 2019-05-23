@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.util.DoubleComparator;
+
 import java.util.HashSet;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class Lines {
         Vector v1 = getVector(i);
         Vector v2 = getVector(j);
 
-        return v1.innerProduct(v2) == v1.length() * v2.length();
+        return DoubleComparator.isEqual(v1.innerProduct(v2), v1.length() * v2.length());
     }
 
     public double sumLength() {

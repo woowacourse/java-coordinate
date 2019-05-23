@@ -9,11 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LineTest {
     @Test
-    void nullPointTest() {
-        assertThrows(IllegalArgumentException.class, () -> new Line(null, null));
-    }
-
-    @Test
     void checkSamePointTest() {
         Point p1 = new Point(1, 2);
         Point p2 = new Point(1, 2);
@@ -30,7 +25,7 @@ public class LineTest {
     }
 
     @Test
-    void calculateDistanceTest() {
+    void lengthTest() {
         Point p1 = new Point(0, 1);
         Point p2 = new Point(1, 2);
         Line line = new Line(p1, p2);
