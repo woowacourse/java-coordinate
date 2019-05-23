@@ -21,6 +21,7 @@ public class Point {
         this.y = coordinates.get(Y_INDEX);
     }
 
+
     private void validateSizeOf(List<Integer> coordinates) {
         if (coordinates.size() != NUM_OF_COORDINATES) {
             throw new IllegalArgumentException("좌표점을 두개 입력해야 합니다");
@@ -42,6 +43,14 @@ public class Point {
         if (x < MIN_VALUE || y < MIN_VALUE) {
             throw new IllegalArgumentException("좌표 값은 " + MIN_VALUE + "보다 크거나 같아야 합니다.");
         }
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     @Override

@@ -38,6 +38,6 @@ public class StraightLine extends Figure {
         if (startPoint.getDeltaXTo(endPoint) == 0) {
             return Double.POSITIVE_INFINITY;
         }
-        return startPoint.getDeltaYTo(endPoint) / startPoint.getDeltaXTo(endPoint);
+        return (double) startPoint.getDeltaYTo(endPoint) / startPoint.getDeltaXTo(endPoint);
     }
 }

@@ -4,6 +4,7 @@ import coordinate.domain.Figure;
 import coordinate.domain.Point;
 import coordinate.domain.PointParser;
 import coordinate.domain.StraightLine;
+import coordinate.ui.CartesianPlane;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
@@ -13,6 +14,10 @@ import java.util.List;
 public class CoordinateCalculator {
     public static void main(String[] args) {
         Figure figure = getFigure();
+
+        CartesianPlane plane = new CartesianPlane();
+        plane.drawPoints(figure);
+        OutputView.printGraph(plane);
         OutputView.printAttributeOf(figure);
     }
 

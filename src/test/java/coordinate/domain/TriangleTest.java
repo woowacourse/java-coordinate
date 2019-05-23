@@ -25,8 +25,8 @@ public class TriangleTest {
     @Test
     void 한_직선에의_세개의_좌표가_있을때_예외를_던지는지_테스트() {
         assertThrows(IllegalArgumentException.class, () -> new Triangle(Arrays.asList(
-                new Point(Arrays.asList(3, 4)), new Point(Arrays.asList(3, 5)),
-                new Point(Arrays.asList(3, 6)))));
+                new Point(Arrays.asList(1, 1)), new Point(Arrays.asList(8, 2)),
+                new Point(Arrays.asList(22, 4)))));
     }
 
     @Test
