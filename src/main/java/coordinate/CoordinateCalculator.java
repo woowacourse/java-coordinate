@@ -3,12 +3,13 @@ package coordinate;
 import coordinate.domain.Shape;
 import coordinate.domain.ShapeGenerator;
 import coordinate.view.InputView;
+import coordinate.view.OutputView;
 
 public class CoordinateCalculator {
 
     public static void main(String[] args) {
         Shape shape = generateShape();
-        System.out.println(shape.area());
+        OutputView.printArea(shape);
     }
 
     private static Shape generateShape() {

@@ -66,4 +66,9 @@ public class Triangle implements Shape {
     public int hashCode() {
         return Objects.hash(triangleLines);
     }
+
+    @Override
+    public String toString() {
+        return "삼각형 넓이는 " + area();
+    }
 }

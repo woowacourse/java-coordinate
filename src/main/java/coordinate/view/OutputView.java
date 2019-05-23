@@ -1,7 +1,9 @@
 package coordinate.view;
 
+import coordinate.domain.Shape;
+
 public class OutputView {
-    public static void printDistance(double length) {
-        System.out.println("두 점 사이 거리는 "  + String.format("%.6f",length));
+    public static void printArea(Shape shape) {
+        System.out.println(shape);
     }
 }
