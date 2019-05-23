@@ -1,5 +1,7 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.visitor.Visitor;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -20,8 +22,8 @@ public class Line implements Shape {
     }
 
     @Override
-    public double getScore() {
-        return getLineLength();
+    public String separateByVisitor(Visitor visitor) {
+        return visitor.visit(this);
     }
 
     @Override

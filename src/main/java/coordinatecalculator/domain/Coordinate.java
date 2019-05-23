@@ -11,6 +11,7 @@ public class Coordinate implements Comparable<Coordinate> {
         this.y = y;
     }
 
+    //TODO 같은 객체 내에서는 getter없이 접근 가능 -> 리팩토링
     public double calculate(Coordinate coordinate) {
         return coordinate.calculate(x, y);
     }

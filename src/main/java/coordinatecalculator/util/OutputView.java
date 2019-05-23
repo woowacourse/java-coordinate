@@ -2,8 +2,8 @@ package coordinatecalculator.util;
 
 public class OutputView {
 
-    public static void printScore(String message, double score) {
-        System.out.println(message + score);
+    public static void printScore(String message) {
+        System.out.println(message);
     }
 
     public static void PrintErrorMessage(String errorMessage) {

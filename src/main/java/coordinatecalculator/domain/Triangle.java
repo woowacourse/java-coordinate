@@ -1,5 +1,7 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.visitor.Visitor;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +18,7 @@ public class Triangle implements Figure, Shape {
     }
 
     private void isValidTriangle(final List<Coordinate> coordinates) {
+        //TODO 서로 다른 3점이 대각선일 경우 , 예외를 발생하지 못함 -> 해결하자
         Set<Integer> overlapX = new HashSet<>();
         Set<Integer> overlapY = new HashSet<>();
 
@@ -39,16 +42,16 @@ public class Triangle implements Figure, Shape {
     }
 
     @Override
-    public double getScore() {
-        return area();
-    }
-
-    @Override
     public void isValidShape(List<Coordinate> coordinates) {
         Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
         if (overlapCoordinate.size() != VERTEX_OF_TRIANGLE) {
             throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 세 점의 위치는 달라야 합니다.");
         }
+    }
+
+    @Override
+    public String separateByVisitor(Visitor visitor) {
+        return visitor.visit(this);
     }
 
     @Override

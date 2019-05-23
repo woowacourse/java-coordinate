@@ -1,5 +1,7 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.visitor.Visitor;
+
 import java.util.*;
 
 public class Rectangle implements Figure, Shape {
@@ -36,16 +38,16 @@ public class Rectangle implements Figure, Shape {
     }
 
     @Override
-    public double getScore() {
-        return area();
-    }
-
-    @Override
     public void isValidShape(List<Coordinate> coordinates) {
         Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
         if (overlapCoordinate.size() != VERTEX_OF_RECTANGLE) {
             throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 네 점의 위치는 달라야 합니다.");
         }
+    }
+
+    @Override
+    public String separateByVisitor(Visitor visitor) {
+        return visitor.visit(this);
     }
 
     @Override
