@@ -3,6 +3,7 @@ package coordinate.domain;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class Points {
     private final List<Point> points;
@@ -39,5 +40,18 @@ public class Points {
 
     public int size() {
         return points.size();
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Points points1 = (Points) o;
+        return Objects.equals(points, points1.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }
