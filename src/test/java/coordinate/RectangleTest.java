@@ -24,4 +24,10 @@ public class RectangleTest {
         assertThrows(IllegalArgumentException.class,
                 ()-> new Rectangle(PointsGenerator.makePoints("(1,1)-(2,2)-(3,3)-(4,4)")));
     }
+
+    @Test
+    void 넓이_계산_테스트() {
+        Rectangle rect = new Rectangle(PointsGenerator.makePoints("(0,0)-(0,1)-(1,0)-(1,1)"));
+        assertThat(rect.findArea()).isEqualTo(1);
+    }
 }

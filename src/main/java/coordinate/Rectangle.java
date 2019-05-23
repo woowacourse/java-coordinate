@@ -36,6 +36,15 @@ public class Rectangle {
         return yValues;
     }
 
+    public double findArea(){
+        List<Double> distances = new ArrayList<>();
+        for (int i = 1; i < points.size(); i++) {
+            distances.add(points.get(0).calculate(points.get(i)));
+        }
+        Collections.sort(distances);
+        return distances.get(0) * distances.get(1);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
