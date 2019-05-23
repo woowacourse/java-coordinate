@@ -19,16 +19,18 @@ public class Points {
         }
     }
 
-    public List<Integer> getXCoordinates() {
+    public int nonDuplicateXSize() {
         return points.stream()
                 .map(Point::getX)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet())
+                .size();
     }
 
-    public List<Integer> getYCoordinates() {
+    public int nonDuplicateYSize() {
         return points.stream()
                 .map(Point::getY)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet())
+                .size();
     }
 
     public Point getPoints(int index) {

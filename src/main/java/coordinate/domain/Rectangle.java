@@ -1,35 +1,29 @@
 package coordinate.domain;
 
-import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
-public class Rectangle extends Figure{
+public class Rectangle extends Figure {
+    private static final int NON_DUPLICATE_COORDINATE_SIZE = 2;
+    private static final int FIRST_POINT = 0;
+    private static final int SECOND_POINT = 1;
+    private static final int THIRD_POINT = 2;
+
     public Rectangle(Points points) {
         super("사각형의 넓이는 : ", points);
-        checkValidCoordinate(points.getXCoordinates());
-        checkValidCoordinate(points.getYCoordinates());
-        this.points = points;
+        checkValidCoordinate(points.nonDuplicateXSize());
+        checkValidCoordinate(points.nonDuplicateYSize());
     }
 
-    private void checkValidCoordinate(List<Integer> coordinates) {
-        long count = coordinates.stream()
-                .collect(Collectors.groupingBy(Function.identity()))
-                .values()
-                .stream()
-                .filter(groupedCoordinate -> groupedCoordinate.size() == 2)
-                .count();
-
-        if (count != 2) {
+    private void checkValidCoordinate(int size) {
+        if (size != NON_DUPLICATE_COORDINATE_SIZE) {
             throw new IllegalArgumentException("직사각형만 가능합니다.");
         }
     }
 
     @Override
     public double calculateResult() {
-        double height = points.getPoints(0).calculateDistance(points.getPoints(1));
-        double width = points.getPoints(0).calculateDistance(points.getPoints(2));
+        double height = points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(SECOND_POINT));
+        double width = points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(THIRD_POINT));
         return height * width;
     }
 
