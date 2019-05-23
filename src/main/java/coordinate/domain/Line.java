@@ -30,18 +30,6 @@ public class Line extends Figure {
                         + Math.pow(calculateYDifference(), 2));
     }
 
-    public double calculateSlope() {
-        return (double) calculateYDifference() / calculateXDifference();
-    }
-
-    public boolean isHorizontal() {
-        return calculateYDifference() == 0;
-    }
-
-    public boolean isVertical() {
-        return calculateXDifference() == 0;
-    }
-
     private int calculateXDifference() {
         return p2.getX() - p1.getX();
     }
@@ -50,6 +38,9 @@ public class Line extends Figure {
         return p2.getY() - p1.getY();
     }
 
+    /**
+     * 라인을 이용해 벡터를 생성하기 위해 양 끝점을 반환하는 메서드
+     */
     public Point getStartPoint() {
         return p1;
     }
