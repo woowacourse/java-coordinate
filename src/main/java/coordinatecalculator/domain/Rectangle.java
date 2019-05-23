@@ -9,13 +9,13 @@ public class Rectangle implements Figure, Shape {
 
     private final List<Coordinate> coordinates;
 
-    public Rectangle(List<Coordinate> coordinates) {
+    public Rectangle(final List<Coordinate> coordinates) {
         isValidRectangle(coordinates);
         isValidShape(coordinates);
         this.coordinates = coordinates;
     }
 
-    private void isValidRectangle(List<Coordinate> coordinates) {
+    private void isValidRectangle(final List<Coordinate> coordinates) {
         double vertical = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(1)), 2));
         double horizontal = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(2)), 2));
         double diagonal = Math.round(Math.pow(coordinates.get(1).calculateDistance(coordinates.get(2)), 2));
@@ -38,7 +38,7 @@ public class Rectangle implements Figure, Shape {
     }
 
     @Override
-    public void isValidShape(List<Coordinate> coordinates) {
+    public void isValidShape(final List<Coordinate> coordinates) {
         Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
         if (overlapCoordinate.size() != VERTEX_OF_RECTANGLE) {
             throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 네 점의 위치는 달라야 합니다.");
@@ -46,7 +46,7 @@ public class Rectangle implements Figure, Shape {
     }
 
     @Override
-    public String separateByVisitor(Visitor visitor) {
+    public String separateByVisitor(final Visitor visitor) {
         return visitor.visit(this);
     }
 

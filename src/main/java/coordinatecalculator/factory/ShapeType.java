@@ -28,11 +28,11 @@ enum ShapeType {
         this.countOfCoordinate = countOfCoordinate;
     }
 
-    public Shape create(List<Coordinate> coordinates) {
+    public Shape create(final List<Coordinate> coordinates) {
         return null;
     }
 
-    public static ShapeType valueOf(int countOfCoordinate) {
+    public static ShapeType valueOf(final int countOfCoordinate) {
         return Arrays.stream(values())
                 .filter(shapeType -> shapeType.countOfCoordinate == countOfCoordinate)
                 .findFirst()

@@ -5,10 +5,11 @@ import java.util.Objects;
 public class Coordinate implements Comparable<Coordinate> {
     private static final int MAX_BOUND = 24;
     private static final int MIN_BOUND = 1;
-    private int x;
-    private int y;
 
-    public Coordinate(int x, int y) {
+    private final int x;
+    private final int y;
+
+    public Coordinate(final int x, final int y) {
         if (x > MAX_BOUND || x < MIN_BOUND || y > MAX_BOUND || y < MIN_BOUND) {
             throw new IllegalArgumentException(" 범위 넘었어요 ");
         }
@@ -16,11 +17,11 @@ public class Coordinate implements Comparable<Coordinate> {
         this.y = y;
     }
 
-    public double calculateDistance(Coordinate coordinate) {
+    public double calculateDistance(final Coordinate coordinate) {
         return Math.sqrt(Math.pow(Math.abs(coordinate.x - this.x), 2) + Math.pow(Math.abs(coordinate.y - this.y), 2));
     }
 
-    public double calculateSlope(Coordinate coordinate) {
+    public double calculateSlope(final Coordinate coordinate) {
         int dx = Math.abs(coordinate.x - this.x);
         int dy = Math.abs(coordinate.y - this.y);
 

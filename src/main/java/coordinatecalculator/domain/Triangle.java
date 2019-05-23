@@ -8,8 +8,9 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Triangle implements Figure, Shape {
-    private List<Coordinate> coordinates;
     private static final int VERTEX_OF_TRIANGLE = 3;
+
+    private List<Coordinate> coordinates;
 
     public Triangle(final List<Coordinate> coordinates) {
         isValidShape(coordinates);
@@ -45,7 +46,7 @@ public class Triangle implements Figure, Shape {
     }
 
     @Override
-    public String separateByVisitor(Visitor visitor) {
+    public String separateByVisitor(final Visitor visitor) {
         return visitor.visit(this);
     }
 

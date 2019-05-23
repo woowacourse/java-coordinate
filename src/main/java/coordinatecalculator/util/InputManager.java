@@ -35,7 +35,7 @@ public class InputManager {
         return coordinates;
     }
 
-    private static void checkValidPattern(Matcher matcher, String coordinate) {
+    private static void checkValidPattern(final Matcher matcher, final String coordinate) {
         if (!matcher.find()) {
             throw new IllegalArgumentException("올바르지 않는 입력입니다!!");
         }
@@ -45,7 +45,5 @@ public class InputManager {
         if (!(coordinate.startsWith(OPEN_PARENTHESIS) && coordinate.endsWith(CLOSE_PARENTHESIS))) {
             throw new IllegalArgumentException("괄호를 올바르게 쳐주세요!");
         }
-
     }
-
 }

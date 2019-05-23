@@ -11,27 +11,27 @@ public class OutputView {
     private static final char STRAIGHT = '─';
     private static final char PILLAR = '|';
 
-    public static void printScore(String message) {
+    public static void printScore(final String message) {
         System.out.println(message);
     }
 
-    public static void printErrorMessage(String errorMessage) {
+    public static void printErrorMessage(final String errorMessage) {
         System.err.println(errorMessage);
     }
 
-    public static void printBoardLine(List<Coordinate> coordinates) {
+    public static void printBoardLine(final List<Coordinate> coordinates) {
         printYAxis(coordinates);
         System.out.println(makeViewLine());
         System.out.println(makeXAxis());
     }
 
-    private static void printYAxis(List<Coordinate> coordinates) {
+    private static void printYAxis(final List<Coordinate> coordinates) {
         for (int i = 24; i > 0; i--) {
             StringBuilder axis = new StringBuilder();
             axis.append(makeNumber(i))
                     .append(PILLAR)
                     .append(makeBlank());
-            printCoordinate(coordinates, i, axis);
+            printCoordinate(coordinates, axis, i);
 
             System.out.println(axis.toString());
         }
@@ -56,11 +56,12 @@ public class OutputView {
         return XAxis.toString();
     }
 
-    private static String makeNumber(int axis) {
+    private static String makeNumber(final int axis) {
         return (axis % 2 == 0) ? String.format("%2d", axis) : BLANK;
     }
 
-    private static void printCoordinate(List<Coordinate> coordinates, int axisY, StringBuilder stringBuilder) {
+    private static void printCoordinate(final List<Coordinate> coordinates,
+                                        final StringBuilder stringBuilder, final int axisY) {
         coordinates.stream()
                 .filter(coordinate -> coordinate.getY() == axisY)
                 .collect(Collectors.toList())
