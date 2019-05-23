@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class Figure implements Shape {
+    
     List<Point> points;
 
     Figure(List<Point> points) {

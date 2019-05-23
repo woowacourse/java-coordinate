@@ -3,6 +3,7 @@ package coordinate.model;
 import java.util.Objects;
 
 public class Point implements Comparable<Point> {
+
     private PointNumber x;
     private PointNumber y;
 

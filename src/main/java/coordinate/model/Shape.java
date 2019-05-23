@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 public interface Shape {
+
     public static final int LINE_NUMBER_OF_POINTS = 2;
     public static final int TRIANGLE_NUMBER_OF_POINTS = 3;
     public static final int SQUARE_NUMBER_OF_POINTS = 4;

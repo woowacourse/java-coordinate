@@ -3,6 +3,7 @@ package rent;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class RentCompany {
     private static final String NEWLINE = System.getProperty("line.separator");
 

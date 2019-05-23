@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class OutputView {
+
     private static final String TWO_SPACE = "  ";
     private static final String VERTICAL_BAR = "|";
     private static final String DOT = "★";
