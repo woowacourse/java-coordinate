@@ -39,6 +39,10 @@ public class Points {
         return points.size();
     }
 
+    public List<Point> getPoints() {
+        return Collections.unmodifiableList(points);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -3,11 +3,9 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Line extends Figure{
-    private final Points points;
 
     public Line(Points points) {
-        super("두 점 사이의 거리는 : ");
-        this.points = points;
+        super("두 점 사이의 거리는 : ", points);
     }
 
     @Override

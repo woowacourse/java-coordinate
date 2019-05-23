@@ -6,10 +6,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Rectangle extends Figure{
-    private final Points points;
-
     public Rectangle(Points points) {
-        super("사각형의 넓이는 : ");
+        super("사각형의 넓이는 : ", points);
         checkValidCoordinate(points.getXCoordinates());
         checkValidCoordinate(points.getYCoordinates());
         this.points = points;

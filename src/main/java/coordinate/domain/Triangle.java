@@ -3,10 +3,8 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Triangle extends Figure {
-    private final Points points;
-
     public Triangle(Points points) {
-        super("삼각형의 넓이는 : ");
+        super("삼각형의 넓이는 : ", points);
         this.points = points;
         checkValidCoordinate();
     }
