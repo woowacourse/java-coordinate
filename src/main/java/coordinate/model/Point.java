@@ -11,24 +11,33 @@ public class Point implements Comparable<Point> {
         this.y = y;
     }
 
-    public double getDistance(Point point2) {
-        return Math.sqrt(Math.pow(this.x.getNumber() - point2.x.getNumber(), 2)
-                + Math.pow(this.y.getNumber() - point2.y.getNumber(), 2));
+    public double getDistance(Point anotherPoint) {
+        return Math.sqrt(Math.pow(this.x.getNumber() - anotherPoint.x.getNumber(), 2)
+                + Math.pow(this.y.getNumber() - anotherPoint.y.getNumber(), 2));
     }
 
-    public double getIncline(Point point) {
-        if (point.x.getNumber() == this.x.getNumber()) {
-            return Integer.MAX_VALUE;
+    public double getIncline(Point anotherPoint) {
+        if (this.x.equals(anotherPoint.x)) {
+            return Double.MAX_VALUE;
         }
-        return (double) (point.y.getNumber() - this.y.getNumber()) / (point.x.getNumber() - this.x.getNumber());
+        return (double) (anotherPoint.y.getNumber() - this.y.getNumber())
+                / (anotherPoint.x.getNumber() - this.x.getNumber());
     }
 
     public boolean isEqualX(Point anotherPoint) {
-        return this.x.getNumber() == anotherPoint.x.getNumber();
+        return this.x.equals(anotherPoint.x);
     }
 
     public boolean isEqualY(Point anotherPoint) {
-        return this.y.getNumber() == anotherPoint.y.getNumber();
+        return this.y.equals(anotherPoint.y);
+    }
+
+    public PointNumber getX() {
+        return x;
+    }
+
+    public PointNumber getY() {
+        return y;
     }
 
     @Override
@@ -51,13 +60,5 @@ public class Point implements Comparable<Point> {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
-    }
-
-    public PointNumber getX() {
-        return x;
-    }
-
-    public PointNumber getY() {
-        return y;
     }
 }

@@ -38,6 +38,6 @@ class ShapeTest {
         List<Point> points = Arrays.asList(p1, p2, p3, p4);
         Shape shape = Shape.creator.get(points.size()).apply(points);
 
-        assertThat(shape.getClass()).isEqualTo(Rectangular.class);
+        assertThat(shape.getClass()).isEqualTo(Square.class);
     }
 }

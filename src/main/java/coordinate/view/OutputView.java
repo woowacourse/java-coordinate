@@ -2,7 +2,7 @@ package coordinate.view;
 
 import coordinate.model.Line;
 import coordinate.model.Point;
-import coordinate.model.Rectangular;
+import coordinate.model.Square;
 import coordinate.model.Triangle;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class OutputView {
         System.out.println(line.getScore());
     }
 
-    public static void printResult(Rectangular rectangular) {
+    public static void printResult(Square rectangular) {
         System.out.print("사각형 넓이는 ");
         System.out.println(rectangular.getScore());
     }

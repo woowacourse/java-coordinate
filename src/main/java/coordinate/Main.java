@@ -29,9 +29,9 @@ public class Main {
         }
     }
 
-    static Rectangular createRectangular() {
+    static Square createRectangular() {
         try {
-            return new Rectangular(makePoints(InputView.inputPoint()));
+            return new Square(makePoints(InputView.inputPoint()));
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
             return createRectangular();

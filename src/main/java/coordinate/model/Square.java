@@ -3,10 +3,10 @@ package coordinate.model;
 import java.util.Collections;
 import java.util.List;
 
-public class Rectangular implements Shape {
+public class Square implements Shape {
     private List<Point> points;
 
-    public Rectangular(List<Point> points) {
+    public Square(List<Point> points) {
         checkDuplication(points);
         checkTwist(points);
         this.points = points;

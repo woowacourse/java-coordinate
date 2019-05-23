@@ -2,15 +2,13 @@ package coordinate.model;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class RectangularTest {
+public class SquareTest {
     @Test
     void 사각형_생성_검사() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -18,7 +16,7 @@ public class RectangularTest {
             Point p2 = new Point(new PointNumber(0), new PointNumber(0));
             Point p3 = new Point(new PointNumber(0), new PointNumber(2));
             Point p4 = new Point(new PointNumber(3), new PointNumber(3));
-            new Rectangular(Arrays.asList(p1, p2, p3, p4));
+            new Square(Arrays.asList(p1, p2, p3, p4));
         });
     }
 
@@ -29,7 +27,7 @@ public class RectangularTest {
             Point p2 = new Point(new PointNumber(2), new PointNumber(0));
             Point p3 = new Point(new PointNumber(0), new PointNumber(2));
             Point p4 = new Point(new PointNumber(3), new PointNumber(3));
-            new Rectangular(Arrays.asList(p1, p2, p3, p4));
+            new Square(Arrays.asList(p1, p2, p3, p4));
         });
     }
 
@@ -39,6 +37,6 @@ public class RectangularTest {
         Point p2 = new Point(new PointNumber(2), new PointNumber(0));
         Point p3 = new Point(new PointNumber(0), new PointNumber(2));
         Point p4 = new Point(new PointNumber(2), new PointNumber(2));
-        assertThat((new Rectangular(Arrays.asList(p1, p2, p3, p4)).getScore())).isEqualTo(4, offset(0.00099));
+        assertThat((new Square(Arrays.asList(p1, p2, p3, p4)).getScore())).isEqualTo(4, offset(0.00099));
     }
 }
