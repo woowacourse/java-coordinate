@@ -1,6 +1,7 @@
 package coordinate.domain;
 
 import org.assertj.core.data.Offset;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -9,9 +10,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {
-    @Test
-    void nullTest() {
-        assertThrows(IllegalArgumentException.class, () -> new Rectangle(null));
+    private FigureFactory factory;
+
+    @BeforeEach
+    void setup() {
+        factory = new FigureFactory();
     }
 
     @Test
@@ -39,15 +42,10 @@ public class RectangleTest {
     }
 
     @Test
-    void invalidRectangleTest() {
-        assertThrows(IllegalArgumentException.class, () -> new Rectangle(
-                new Lines(Arrays.asList(
-                        new Line(new Point(0, 0), new Point(5, 0)),
-                        new Line(new Point(5, 0), new Point(5, 1)),
-                        new Line(new Point(5, 1), new Point(0, 2)),
-                        new Line(new Point(0, 2), new Point(0, 0))
-                ))
-        ));
+    void distortedParallelogramTest() {
+        assertThrows(IllegalArgumentException.class, () -> factory.create(Arrays.asList(
+                new Point(0,0), new Point(5,0), new Point(3,5), new Point(1,4)
+        )));
     }
 
     @Test

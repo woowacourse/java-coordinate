@@ -65,19 +65,15 @@ public class Point implements Comparable<Point> {
         if (x > another.getX()) {
             return BIGGER;
         }
-
         if (x < another.getX()) {
             return SMALLER;
         }
-
         if (y > another.getY()) {
             return BIGGER;
         }
-
         if (y < another.getY()) {
             return SMALLER;
         }
-
         return SAME;
     }
 

@@ -1,9 +1,6 @@
 package coordinate.domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 public class FigureFactory implements FigureCreator {
@@ -24,8 +21,22 @@ public class FigureFactory implements FigureCreator {
     }
 
     private static Figure getRectangle(List<Point> points) {
+        points = sort(points);
         Lines lines = getLinesFromPoints(points);
         return new Rectangle(lines);
+    }
+
+    /**
+     * 유저가 지그재그 순서로 선을 입력했을 경우를 대비해 올바르게 정렬하는 메서드
+     */
+    private static List<Point> sort(List<Point> points) {
+        List<Point> sortedPoints = new ArrayList<>();
+        Collections.sort(points);
+        sortedPoints.add(points.get(0));
+        sortedPoints.add(points.get(1));
+        sortedPoints.add(points.get(3));
+        sortedPoints.add(points.get(2));
+        return sortedPoints;
     }
 
     private static Figure getTriangle(List<Point> points) {

@@ -2,7 +2,6 @@ package coordinate.controller;
 
 import coordinate.domain.Figure;
 import coordinate.domain.FigureFactory;
-import coordinate.domain.Lines;
 import coordinate.domain.Point;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
