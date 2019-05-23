@@ -18,7 +18,7 @@ public class Point implements Comparable<Point> {
     }
 
     private void checkCoordinateValue(double coordinateValue) {
-        if (coordinateValue <= MIN_COORDINATE_VALUE || coordinateValue > MAX_COORDINATE_VALUE) {
+        if (coordinateValue < MIN_COORDINATE_VALUE || coordinateValue > MAX_COORDINATE_VALUE) {
             throw new IllegalArgumentException("좌표가 범위를 벗어났습니다.");
         }
     }
