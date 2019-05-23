@@ -35,8 +35,9 @@ public class Rectangular implements Shape {
         }
     }
 
-    public int getArea() {
-        return (int) (points.get(0).getDistance(points.get(1))
+    @Override
+    public double getScore() {
+        return (points.get(0).getDistance(points.get(1))
                 * points.get(0).getDistance(points.get(2)));
     }
 }

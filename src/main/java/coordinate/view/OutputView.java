@@ -18,17 +18,17 @@ public class OutputView {
 
     public static void printResult(Line line) {
         System.out.print("두 점 사이의 거리는 ");
-        System.out.println(line.getLength());
+        System.out.println(line.getScore());
     }
 
     public static void printResult(Rectangular rectangular) {
         System.out.print("사각형 넓이는 ");
-        System.out.println(rectangular.getArea());
+        System.out.println(rectangular.getScore());
     }
 
     public static void printResult(Triangle triangle) {
         System.out.print("삼각형 넓이는 ");
-        System.out.println(triangle.getArea());
+        System.out.println(triangle.getScore());
     }
 
     public static void printCoordinate(List<Point> points) {

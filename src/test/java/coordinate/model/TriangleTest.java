@@ -64,6 +64,6 @@ public class TriangleTest {
         Point p1 = new Point(new PointNumber(10), new PointNumber(10));
         Point p2 = new Point(new PointNumber(14), new PointNumber(15));
         Point p3 = new Point(new PointNumber(20), new PointNumber(8));
-        assertThat((new Triangle(Arrays.asList(p1, p2, p3))).getArea()).isEqualTo(29.0, offset(0.00099));
+        assertThat((new Triangle(Arrays.asList(p1, p2, p3))).getScore()).isEqualTo(29.0, offset(0.00099));
     }
 }

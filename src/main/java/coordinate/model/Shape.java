@@ -13,4 +13,6 @@ public interface Shape {
             put(4, Rectangular::new);
         }
     };
+
+    public double getScore();
 }

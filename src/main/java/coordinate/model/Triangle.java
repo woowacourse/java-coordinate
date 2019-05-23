@@ -35,7 +35,8 @@ public class Triangle implements Shape {
         }
     }
 
-    public double getArea() {
+    @Override
+    public double getScore() {
         double a = points.get(0).getDistance(points.get(1));
         double b = points.get(0).getDistance(points.get(2));
         double c = points.get(1).getDistance(points.get(2));
