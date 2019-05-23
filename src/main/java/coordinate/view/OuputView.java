@@ -2,9 +2,15 @@ package coordinate.view;
 
 import coordinate.controller.CoordinateController;
 
+import java.util.List;
+
 public class OuputView {
     public void run() {
         CoordinateController coordinateController = new CoordinateController();
-        String input = coordinateController.getCoordinates();
+        List<Integer> input = coordinateController.getCoordinates();
+
+        for (int i : input) {
+            System.out.println(i);
+        }
     }
 }
