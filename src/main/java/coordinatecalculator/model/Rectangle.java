@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Rectangle extends Figure {
+public class Rectangle extends PlaneFigure {
 
     public Rectangle(List<Coordinate> coordinates) {
         super(coordinates);

@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public abstract class Figure {
+public abstract class PlaneFigure {
     protected List<Line> lines;
 
-    protected Figure(List<Coordinate> coordinates) {
+    protected PlaneFigure(List<Coordinate> coordinates) {
         checkSameCoordinate(coordinates);
         List<Line> lines = getLines(coordinates);
         checkThreeCoordinatesInLine(lines);

@@ -2,7 +2,7 @@ package coordinatecalculator.model;
 
 import java.util.List;
 
-public class Triangle extends Figure {
+public class Triangle extends PlaneFigure {
 
     public Triangle(List<Coordinate> coordinates) {
         super(coordinates);
