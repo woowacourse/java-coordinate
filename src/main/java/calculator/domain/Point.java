@@ -5,11 +5,11 @@ package calculator.domain;
  * @version 1.0 2019-05-22
  */
 public class Point extends Figure{
-    private final Coordinates points;
+    private final Coordinates coordinates;
 
-    public Point(Coordinates points) {
+    public Point(Coordinates coordinates) {
         super("한 점", "길이");
-        this.points = points;
+        this.coordinates = coordinates;
     }
 
     @Override

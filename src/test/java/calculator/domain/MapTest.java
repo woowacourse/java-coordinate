@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MapTest {
 
     Map map;
-    Coordinate point;
-    Coordinates points;
+    Coordinate coordinate;
+    Coordinates coordinates;
 
     @BeforeEach
     void setUp() {
         map = new Map();
-        point = Coordinate.create(10,2);
-        points = new Coordinates();
+        coordinate = Coordinate.create(10,2);
+        coordinates = new Coordinates();
     }
 
     @Test
@@ -35,8 +35,8 @@ public class MapTest {
 
     @Test
     void drawPoint_확인() {
-        points.add((point));
-        map.drawPoint(point);
-        assertTrue(map.isPointDrawn(point));
+        coordinates.add((coordinate));
+        map.drawCoordinate(coordinate);
+        assertTrue(map.isCoordinateDrawn(coordinate));
     }
 }

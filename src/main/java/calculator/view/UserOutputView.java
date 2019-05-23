@@ -2,9 +2,6 @@ package calculator.view;
 
 import calculator.domain.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author heebg
  * @version 1.0 2019-05-22
@@ -25,7 +22,7 @@ public class UserOutputView {
 
         for (int yCoordinate = map.size() - 1; yCoordinate >= 0; yCoordinate--) {
             resultMap.append(String.format(FORMAT_ALIGN_RIGHT, yCoordinate));
-            resultMap.append(drawLine(map.getLine(yCoordinate), yCoordinate)).append(NEW_LINE);
+            resultMap.append(drawLine(map.getMapLine(yCoordinate), yCoordinate)).append(NEW_LINE);
         }
 
         resultMap.append(drawBottomLine());
@@ -33,18 +30,18 @@ public class UserOutputView {
         System.out.println(resultMap);
     }
 
-    private static String drawLine(MapLine line, int yCoordinate) {
+    private static String drawLine(MapLine mapLine, int yCoordinate) {
         StringBuilder resultLine = new StringBuilder();
 
-        for (int xCoordinate = 0; xCoordinate < line.size(); xCoordinate++) {
-            resultLine.append(drawPoint(line.get(xCoordinate),xCoordinate, yCoordinate));
+        for (int xCoordinate = 0; xCoordinate < mapLine.size(); xCoordinate++) {
+            resultLine.append(drawCoordinate(mapLine.get(xCoordinate),xCoordinate, yCoordinate));
         }
 
         return resultLine.toString();
     }
 
-    private static String drawPoint(Boolean point, int xCoordinate, int yCoordinate) {
-        if (point) {
+    private static String drawCoordinate(Boolean coordinate, int xCoordinate, int yCoordinate) {
+        if (coordinate) {
             return STAR;
         }
         if (yCoordinate == 0) {

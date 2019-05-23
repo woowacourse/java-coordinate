@@ -1,41 +1,35 @@
 package calculator.domain;
 
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.assertj.core.api.Assertions.offset;
 
 /**
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class LineTest {
-    MapLine line;
+class LineTest {
+
+    Figure figure;
+    Coordinates coordinates;
 
     @BeforeEach
     void setUp() {
-        line = new MapLine();
+        coordinates = new Coordinates();
+        coordinates.add(Coordinate.create(8,21));
+        coordinates.add(Coordinate.create(16,3));
+        figure = FigureFactory.getInstance().create(coordinates);
     }
 
     @Test
-    void create_확인 () {
-        assertThat(line).isEqualTo(new MapLine());
+    void create_계산_정답() {
+        assertThat(figure.calculate()).isEqualTo(19.697,offset(0.00099));
     }
 
     @Test
-    void create_초기값_확인() {
-        assertFalse(line.get(0));
-    }
-
-    @Test
-    void crete_초기값_경계값_확인() {
-        assertFalse(line.get(24));
-    }
-
-    @Test
-    void create_초기값_라인_크기_확인() {
-        assertThat(line.size()).isEqualTo(25);
+    void line_계산_반올림_확인() {
+        assertThat(figure.calculate()).isEqualTo(19.698,offset(0.00099));
     }
 }

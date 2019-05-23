@@ -10,29 +10,29 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * @author heebg
  * @version 1.0 2019-05-21
  */
-public class PointTest {
+public class CoordinateTest {
 
-    Coordinate point;
+    Coordinate coordinate;
 
     @BeforeEach
     void setUp() {
-        point = Coordinate.create(10,15);
+        coordinate = Coordinate.create(10,15);
     }
 
     @Test
     void create_생성() {
-        assertThat(point).isEqualTo(Coordinate.create(10,15));
+        assertThat(coordinate).isEqualTo(Coordinate.create(10,15));
     }
 
     @Test
     void matchYAxis_y값_일치_확인() {
-        int xCoordinate = point.matchYAxis(15);
+        int xCoordinate = coordinate.matchYAxis(15);
         assertThat(xCoordinate).isEqualTo(10);
     }
 
     @Test
     void matchYAxis_y값_불일치_확인() {
-        int xCoordinate = point.matchYAxis(14);
+        int xCoordinate = coordinate.matchYAxis(14);
         assertThat(xCoordinate).isEqualTo(-1);
     }
 

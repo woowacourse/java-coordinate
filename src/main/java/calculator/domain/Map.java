@@ -17,16 +17,20 @@ public class Map implements Iterable<MapLine> {
         }
     }
 
-    public void drawPoint(Coordinate point) {
-        map.get(point.getY()).drawX(point.getX());
+    public void drawCoordinate(Coordinate coordinate) {
+        map.get(coordinate.getY()).drawX(coordinate.getX());
     }
 
-    public boolean isPointDrawn(Coordinate point) {
-        return map.get(point.getY()).get(point.getX());
+    public boolean isCoordinateDrawn(Coordinate coordinate) {
+        return map.get(coordinate.getY()).get(coordinate.getX());
     }
 
     public int size() {
         return map.size();
+    }
+
+    public MapLine getMapLine(int index) {
+        return map.get(index);
     }
 
     @Override
@@ -42,13 +46,9 @@ public class Map implements Iterable<MapLine> {
         return Objects.hash(map);
     }
 
-
     @Override
     public Iterator<MapLine> iterator() {
         return map.iterator();
     }
 
-    public MapLine getLine(int index) {
-        return map.get(index);
-    }
 }

@@ -13,12 +13,12 @@ public class FigureFactory {
 
     private FigureFactory() {}
 
-    public Figure create(Coordinates points) {
-        if (points.size() == 1) {
-            return new Point(points);
+    public Figure create(Coordinates coordinates) {
+        if (coordinates.size() == 1) {
+            return new Point(coordinates);
         }
-        if (points.size() == 2) {
-            return new Line(points);
+        if (coordinates.size() == 2) {
+            return new Line(coordinates);
         }
 
         throw new IllegalArgumentException("잘못된 값입니다.");

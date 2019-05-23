@@ -14,20 +14,20 @@ import java.util.regex.Pattern;
 public class UserInputView {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final String FORMAT_PATTERN = "^[(][-]?\\d+,[-]?\\d+[)]([-][(][-]?\\d+,[-]?\\d+[)])*$";
-    private static final String POINT_PATTERN = "[-]?\\d+,[-]?\\d+";
+    private static final String COORDINATE_PATTERN = "[-]?\\d+,[-]?\\d+";
     private static final String EX_FORMAT_PATTERN_MESSAGE = "포맷에 맞게 입력해주세요";
     private static final String SINGLE_BLANK = " ";
     private static final String EMPTY = "";
     public static final String COMMA = ",";
 
-    public Coordinates generaValidatedPoints() {
+    public Coordinates generaValidatedCoordinates() {
         try {
             String inputText = UserInputView.inputByUser();
             UserInputView.checkFormat(inputText);
-            return generatePoints(inputText);
+            return generateCoordinates(inputText);
         } catch(Exception e) {
             System.out.println(e.getMessage());
-            return generaValidatedPoints();
+            return generaValidatedCoordinates();
         }
     }
 
@@ -54,17 +54,17 @@ public class UserInputView {
         }
     }
 
-    private static Coordinates generatePoints(String inputText) {
-        Coordinates points = new Coordinates();
-        Pattern pointPattern = Pattern.compile(POINT_PATTERN);
-        Matcher pointMatcher = pointPattern.matcher(inputText);
+    private static Coordinates generateCoordinates(String inputText) {
+        Coordinates coordinates = new Coordinates();
+        Pattern coordinatePattern = Pattern.compile(COORDINATE_PATTERN);
+        Matcher coordinateMatcher = coordinatePattern.matcher(inputText);
 
-        while(pointMatcher.find()) {
-            int xCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[0]);
-            int yCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[1]);
-            points.add(Coordinate.create(xCoordinate, yCoordinate));
+        while(coordinateMatcher.find()) {
+            int xCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[0]);
+            int yCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[1]);
+            coordinates.add(Coordinate.create(xCoordinate, yCoordinate));
         }
-        return points;
+        return coordinates;
     }
 
 }

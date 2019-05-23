@@ -5,17 +5,17 @@ package calculator.domain;
  * @version 1.0 2019-05-22
  */
 public class Line extends Figure {
-    private final Coordinates points;
+    private final Coordinates coordinates;
 
-    public Line(Coordinates points) {
+    public Line(Coordinates coordinates) {
         super("직선", "거리");
-        this.points = points;
+        this.coordinates = coordinates;
     }
 
     @Override
     public double calculate() {
-        Coordinate a = points.get(0);
-        Coordinate b = points.get(1);
+        Coordinate a = coordinates.get(0);
+        Coordinate b = coordinates.get(1);
         return Math.sqrt(Math.pow(a.getX()-b.getX(),2) + Math.pow(a.getY() - b.getY(),2));
     }
 

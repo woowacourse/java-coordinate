@@ -8,22 +8,22 @@ import java.util.*;
  */
 public class MapLine implements Iterable<Boolean> {
 
-    private List<Boolean> line;
+    private List<Boolean> mapLine;
 
     public MapLine() {
-        this.line = new ArrayList<>(Collections.nCopies(25, false));
+        this.mapLine = new ArrayList<>(Collections.nCopies(25, false));
     }
 
     public boolean get(int index) {
-        return line.get(index);
+        return mapLine.get(index);
     }
 
     public int size() {
-        return line.size();
+        return mapLine.size();
     }
 
     public void drawX(int xCoordinate) {
-        line.set(xCoordinate, true);
+        mapLine.set(xCoordinate, true);
     }
 
     @Override
@@ -31,16 +31,16 @@ public class MapLine implements Iterable<Boolean> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MapLine line1 = (MapLine) o;
-        return Objects.equals(line, line1.line);
+        return Objects.equals(mapLine, line1.mapLine);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(line);
+        return Objects.hash(mapLine);
     }
 
     @Override
     public Iterator<Boolean> iterator() {
-        return line.iterator();
+        return mapLine.iterator();
     }
 }
