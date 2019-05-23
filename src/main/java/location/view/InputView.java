@@ -5,6 +5,8 @@ import location.domain.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InputView {
     public static final Scanner SCANNER = new Scanner(System.in);
@@ -17,7 +19,7 @@ public class InputView {
     private static final int Y = 1;
     private static final String LEFT_PARENTHESIS = "(";
     private static final String RIGHT_PARENTHESIS = ")";
-
+    private static final String INPUT_EXPRESSION = "(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}";
     private static List<Point> points;
 
     public static List<Point> inputCoordinate() {
@@ -41,7 +43,10 @@ public class InputView {
     }
 
     private static void checkExpression(String input) {
-        if (input == null || input.isEmpty()) {
+        Pattern pattern = Pattern.compile(INPUT_EXPRESSION);
+        Matcher matcher = pattern.matcher(input);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException(INPUT_WRONG_FORM);
         }
     }
 
