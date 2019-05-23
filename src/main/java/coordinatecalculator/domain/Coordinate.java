@@ -25,7 +25,7 @@ public class Coordinate implements Comparable<Coordinate> {
         int dy = Math.abs(coordinate.y - this.y);
 
         if (dx == 0) {
-            return 0;
+            return Double.MAX_VALUE;
         }
         return dy / dx;
     }
