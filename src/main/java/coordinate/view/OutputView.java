@@ -14,8 +14,8 @@ public class OutputView {
     private static final char Y_AXIS = '|';
 
     public static void printResult(Figure figure) {
-        Calculable calculator = (Calculable) figure;
-        System.out.println(figure.getResultMessage() + calculator.calculateResult());
+        Calculable calculableFigure = figure;
+        System.out.println(figure.getResultMessage() + calculableFigure.calculateResult());
     }
 
     public static void printCoordinateSystem(Figure figure) {
