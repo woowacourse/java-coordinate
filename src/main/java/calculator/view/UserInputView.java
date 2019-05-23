@@ -15,12 +15,14 @@ public class UserInputView {
     private static final String FORMAT_PATTERN = "^[(][-]?\\d+,[-]?\\d+[)]([-][(][-]?\\d+,[-]?\\d+[)])*$";
     private static final String COORDINATE_PATTERN = "[-]?\\d+,[-]?\\d+";
     private static final String EX_FORMAT_PATTERN_MESSAGE = "포맷에 맞게 입력해주세요";
+    private static final String INPUT_MESSAGE = "좌표를 입력하세요.";
     private static final String SINGLE_BLANK = " ";
     private static final String EMPTY = "";
     private static final String COMMA = ",";
 
     public static Coordinates generaValidatedCoordinates() {
         try {
+            System.out.println(INPUT_MESSAGE);
             String inputText = UserInputView.inputByUser();
             UserInputView.checkFormat(inputText);
             return generateCoordinates(inputText);
