@@ -11,7 +11,7 @@ public class Point {
 
     public Point(String inputPoint) {
         Matcher matcher = Pattern.compile("\\(([0-9]*),([0-9]*)\\)").matcher(inputPoint);
-        if(!matcher.find()){
+        if (!matcher.find()) {
             throw new IllegalArgumentException("잘못된 입력 형식입니다.");
         }
         this.xPoint = new XPoint(matcher.group(1));

@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class CoordinateController {
 
-    public void run(){
+    public void run() {
         Points points = Points.create();
         generatePoint(points);
         OutputView.showCoordinate(points);
@@ -18,13 +18,11 @@ public class CoordinateController {
     private void generatePoint(Points points) {
         Arrays.stream(InputView.inputCoordinatePoint())
                 .forEach(coordinate -> {
-                    try{
+                    try {
                         points.addPoint(new Point(coordinate));
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
                 });
     }
-
-
 }
