@@ -11,15 +11,15 @@ public class Line extends Figure {
         super(points, POINT_COUNT);
     }
 
+    public double length() {
+        Iterator iterator = getPoints().getSquaredDistances().iterator();
+        return Math.sqrt((double) iterator.next());
+    }
+
     @Override
     void validatePoints(PointGroup points) {
         if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("라인은 두 점으로 구성하세요");
         }
-    }
-
-    public double length() {
-        Iterator iterator = getPoints().getSquareDistances().iterator();
-        return (double)iterator.next();
     }
 }

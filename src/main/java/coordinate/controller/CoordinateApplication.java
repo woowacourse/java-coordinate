@@ -1,43 +1,55 @@
 package coordinate.controller;
 
-import coordinate.domain.Figure.AreaCalculable;
 import coordinate.domain.Figure.*;
 import coordinate.domain.point.PointGroup;
 import coordinate.util.CoordinateRepresentation;
-import coordinate.view.InputView;
-import coordinate.view.OutputView;
+import coordinate.view.*;
 
 public class CoordinateApplication {
     public static void main(String[] args) {
+        Figure figure = handlePoints();
+
+        if (figure == null) {
+            return;
+        }
+
+        OutputView.printFigureResult(figure);
+    }
+
+    private static Figure handlePoints() {
         PointGroup points = createCoordinatesGroup();
-
-        if (points.size() == 1) {
-            OutputView.printCoordinatePlane(points);
-            return;
+        Figure figure;
+        try {
+            figure = createFigure(points);
+        } catch (IllegalArgumentException e) {
+            return handlePoints();
         }
-        Figure figure = FigureFactory.getInstance(points);
-
-        if (figure instanceof Line) {
-            double lineLength = ((Line) figure).length();
-            OutputView.printCoordinatePlane(points);
-            OutputView.printLineLength(lineLength);
-            return;
-        }
-
         OutputView.printCoordinatePlane(points);
-        OutputView.printArea(figure.toString(), ((AreaCalculable)figure).area());
-        return;
+        points.getSquaredLengths();
+
+        return figure;
     }
 
     private static PointGroup createCoordinatesGroup() {
         try {
             return CoordinateRepresentation.convertCoordinatePair(InputView.inputCoordinates());
         } catch (NumberFormatException e) {
-            System.out.println("좌표값은 정수만 가능합니다\n");
+            OutputView.printErrorMessage("좌표값은 정수만 가능합니다");
             return createCoordinatesGroup();
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage() + "\n");
+            OutputView.printErrorMessage(e.getMessage());
             return createCoordinatesGroup();
+        }
+    }
+
+    private static Figure createFigure(PointGroup points) {
+        try {
+            return new FigureFactory().create(points);
+        } catch (IllegalArgumentException e) {
+            OutputView.printErrorMessage(e.getMessage());
+            throw new IllegalArgumentException();
+        } catch (IllegalStateException e) {
+            return null;
         }
     }
 }

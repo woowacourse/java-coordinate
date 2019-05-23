@@ -6,12 +6,12 @@ public abstract class Figure {
     private final PointGroup points;
 
     Figure(PointGroup points, int pointCount) {
-        validation(points, pointCount);
+        validateCommon(points, pointCount);
         validatePoints(points);
         this.points = points;
     }
 
-    private void validation(PointGroup points, int pointCount) {
+    private void validateCommon(PointGroup points, int pointCount) {
         if (points == null) {
             throw new IllegalArgumentException("도형을 생성할 수 없습니다.");
         }

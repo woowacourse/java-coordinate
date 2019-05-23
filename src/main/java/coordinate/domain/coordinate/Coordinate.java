@@ -5,9 +5,10 @@ import java.util.Objects;
 public abstract class Coordinate {
     private static final int MAX_VALUE = 24;
     private static final int MIN_VALUE = 0;
+
     private final int value;
 
-    public Coordinate(int value) {
+    Coordinate(int value) {
         validateValue(value);
         this.value = value;
     }
@@ -18,11 +19,7 @@ public abstract class Coordinate {
         }
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public int getDiffWith(Coordinate coordinate) {
+    public int differenceFrom(Coordinate coordinate) {
         return coordinate.value - value;
     }
 

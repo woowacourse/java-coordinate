@@ -3,9 +3,7 @@ package coordinate.util;
 import coordinate.domain.point.Point;
 import coordinate.domain.point.PointGroup;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,13 +12,13 @@ public class CoordinateRepresentation {
     private static final Pattern orderedPairPattern = Pattern.compile("\\((.*),(.*)\\)");
 
     public static PointGroup convertCoordinatePair(String orderedPairs) {
-        List<Point> points = new ArrayList<>();
+        Set<Point> points = new HashSet<>();
         Arrays.asList(orderedPairs.split(ORDERED_PAIRS_SEPERATOR))
                 .forEach(x -> addNonOverlapPoint(points, convertCoordinate(x)));
         return new PointGroup(points);
     }
 
-    private static void addNonOverlapPoint(List<Point> points, Point point) {
+    private static void addNonOverlapPoint(Set<Point> points, Point point) {
         if (points.contains(point)) {
             throw new IllegalArgumentException("중복된 점은 불가능합니다");
         }

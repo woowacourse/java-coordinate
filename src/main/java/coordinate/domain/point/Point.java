@@ -6,7 +6,7 @@ import coordinate.domain.coordinate.YCoordinate;
 
 import java.util.Objects;
 
-public class Point {
+public class Point implements Comparable<Point> {
     private final Coordinate xCoordinate;
     private final Coordinate yCoordinate;
 
@@ -19,9 +19,13 @@ public class Point {
         return new Point(new XCoordinate(xCoordinate), new YCoordinate(yCoordinate));
     }
 
-    public double getSquareDistanceWith(Point point) {
-        return Math.pow(this.xCoordinate.getDiffWith(point.xCoordinate), 2)
-                + Math.pow(this.yCoordinate.getDiffWith(point.yCoordinate), 2);
+    /*
+     두 점 간의 길이의 제곱 값을 반환.
+     제곱근을 구해 반환할 경우 다시 제곱을 하였을 때, 값의 오차가 발생하여 Figure 객체들에서 계산이 어려운 점을 고려.
+     */
+    public double squaredDistanceFrom(Point point) {
+        return Math.pow(this.xCoordinate.differenceFrom(point.xCoordinate), 2)
+                + Math.pow(this.yCoordinate.differenceFrom(point.yCoordinate), 2);
     }
 
     @Override
@@ -36,5 +40,14 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(xCoordinate.hashCode() + yCoordinate.hashCode());
+    }
+
+    @Override
+    public int compareTo(Point point) {
+        int priority = point.xCoordinate.differenceFrom(xCoordinate);
+        if (priority == 0) {
+            return point.yCoordinate.differenceFrom(yCoordinate);
+        }
+        return priority;
     }
 }
