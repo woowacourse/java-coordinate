@@ -3,10 +3,15 @@ package coordinatecalculator.domain;
 import java.util.Objects;
 
 public class Coordinate implements Comparable<Coordinate> {
+    public static final int MAX_BOUND = 24;
+    public static final int MIN_BOUND = 1;
     private int x;
     private int y;
 
     public Coordinate(int x, int y) {
+        if (x > MAX_BOUND || x < MIN_BOUND || y > MAX_BOUND || y < MIN_BOUND) {
+            throw new IllegalArgumentException(" 범위 넘었어요 ");
+        }
         this.x = x;
         this.y = y;
     }
