@@ -1,9 +1,8 @@
 package coordinate.domain.view;
 
-import coordinate.domain.Coordinate;
-import coordinate.domain.CoordinateList;
 import coordinate.domain.Point;
-import coordinate.domain.CoordinateFactory;
+import coordinate.domain.PointList;
+import coordinate.domain.PointFactory;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,22 +10,22 @@ import java.util.stream.Collectors;
 public class InputView {
     private static final String DEFAULT_DELIMITERS = "\\([0-9]{1,2},[0-9]{1,2}\\)";
 
-    public static CoordinateList InputCoordinate() {
+    public static PointList InputPoints() {
         try {
             System.out.println("좌표를 입력하세요");
             Scanner scanner = new Scanner(System.in);
-            List<Coordinate> coordinates = CoordinateFactory.generateCoordinateList(convertCoordinate(scanner));
-            return new CoordinateList(coordinates);
+            List<Point> points = PointFactory.generateCoordinateList(convertPoint(scanner));
+            return new PointList(points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return InputCoordinate();
+            return InputPoints();
         }
     }
 
-    private static List<String> convertCoordinate(Scanner scanner) {
+    private static List<String> convertPoint(Scanner scanner) {
         List<String> coordinates = getSplit(scanner);
         coordinates.stream().forEach(c -> isValidFormat(c));
-        coordinates = coordinates.stream().map(s -> s.substring(1, 5)).collect(Collectors.toList());
+        coordinates = coordinates.stream().map(s -> s.substring(1, s.length()-1)).collect(Collectors.toList());
         return coordinates;
     }
 

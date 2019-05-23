@@ -3,23 +3,26 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Line implements Comparable<Line> {
+public class Line implements Comparable<Line>, Figure {
+    private PointList points;
     private Double length;
 
-    public Line(Double length) {
-        this.length = length;
+    Line(PointList points) {
+        this.points = points;
+        length = findArea();
     }
 
-    public double findSquareArea(Line length) {
+    double findSquareArea(Line length) {
         return this.length * length.length;
     }
 
-    public boolean isTriangle(Line length, Line longestLine) {
+    boolean isTriangle(Line length, Line longestLine) {
         return (this.length + length.length) > longestLine.length;
     }
 
-    public boolean isInOneLine(Line min) {
-        return this.length == min.length * 3;
+    double findTriangleArea(Line line, Line line2) {
+        double s = (this.length + line.length + line2.length) / 2;
+        return Math.sqrt(s * (s - this.length) * (s - line.length) * (s - line2.length));
     }
 
     @Override
@@ -32,16 +35,22 @@ public class Line implements Comparable<Line> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return length.equals(line.length);
+        return Objects.equals(length, line.length);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(length);
+        return Objects.hash(points, length);
     }
 
-    double findTriangleArea(Line line, Line line2) {
-        double s = (this.length + line.length + line2.length) / 2;
-        return Math.sqrt(s * (s - this.length) * (s - line.length) * (s - line2.length));
+    @Override
+    public double findArea() {
+        return  this.points.getPoint(0).findLength(points.getPoint(1));
     }
+
+    @Override
+    public String findResult() {
+        return "두 점 사이의 거리는 "+length+" 입니다.";
+    }
+
 }
