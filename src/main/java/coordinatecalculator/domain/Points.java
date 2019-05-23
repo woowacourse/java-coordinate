@@ -19,6 +19,10 @@ public class Points {
         return clonedPoints;
     }
 
+    public int size() {
+        return points.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
