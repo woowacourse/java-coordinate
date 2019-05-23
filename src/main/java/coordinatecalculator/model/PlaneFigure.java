@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public abstract class PlaneFigure {
+public abstract class PlaneFigure implements Figure {
     protected List<Line> lines;
 
     protected PlaneFigure(List<Coordinate> coordinates) {
@@ -31,8 +31,6 @@ public abstract class PlaneFigure {
             throw new IllegalArgumentException("세 좌표가 한 직선 위에 있습니다.");
         }
     }
-
-    abstract double calculateArea();
 
     private List<Line> getLines(List<Coordinate> coordinates) {
         List<Line> lines = new ArrayList<>();

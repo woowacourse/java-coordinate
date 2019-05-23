@@ -18,7 +18,7 @@ public class PlaneFigureTest {
 
         assertThrows(IllegalArgumentException.class, () -> new PlaneFigure(coordinates) {
             @Override
-            double calculateArea() {
+            public double calculateArea() {
                 return 0;
             }
         });
@@ -33,7 +33,7 @@ public class PlaneFigureTest {
 
         assertDoesNotThrow(() -> new PlaneFigure(coordinates) {
             @Override
-            double calculateArea() {
+            public double calculateArea() {
                 return 0;
             }
         });
@@ -48,7 +48,7 @@ public class PlaneFigureTest {
 
         assertThrows(IllegalArgumentException.class, () -> new PlaneFigure(coordinates) {
             @Override
-            double calculateArea() {
+            public double calculateArea() {
                 return 0;
             }
         });
@@ -63,7 +63,7 @@ public class PlaneFigureTest {
 
         assertDoesNotThrow(() -> new PlaneFigure(coordinates) {
             @Override
-            double calculateArea() {
+            public double calculateArea() {
                 return 0;
             }
         });
