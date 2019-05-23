@@ -72,4 +72,9 @@ public class Line extends Figure {
                 ", p2=" + p2 +
                 '}';
     }
+
+    @Override
+    public String getClassName() {
+        return "직선";
+    }
 }

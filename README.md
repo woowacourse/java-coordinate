@@ -118,6 +118,6 @@
 
 ### 컨트롤러
 - FigureController 클래스를 작성한다.
-    - [ ] InputView 와 OutputView 를 호출한다.
-    - [ ] Input 이 잘못 들어온 경우에 다시 InputView 를 호출한다.
-    - [ ] 요구에 따라 도메인 객체를 생성하고 필요로하는 정보를 OutputView로 넘긴다.
+    - [x] InputView 와 OutputView 를 호출한다.
+    - [x] Input 이 잘못 들어온 경우에 다시 InputView 를 호출한다.
+    - [x] 요구에 따라 도메인 객체를 생성하고 필요로하는 정보를 OutputView로 넘긴다.

@@ -28,4 +28,9 @@ public class Triangle  extends Polygon {
     public double area() {
         return areaOfParallelogram() / 2;
     }
+
+    @Override
+    public String getClassName() {
+        return "삼각형";
+    }
 }

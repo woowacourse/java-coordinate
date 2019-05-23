@@ -36,4 +36,9 @@ public class Rectangle extends Polygon {
     public double area() {
         return areaOfParallelogram();
     }
+
+    @Override
+    public String getClassName() {
+        return "사각형";
+    }
 }
