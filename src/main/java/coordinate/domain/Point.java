@@ -3,8 +3,10 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    private static final int MIN_COORDINATE = 0;
-    private static final int MAX_COORDINATE = 24;
+    private static final int MIN_X = 0;
+    private static final int MAX_X= Figure.MAX_X;
+    private static final int MIN_Y = 0;
+    private static final int MAX_Y= Figure.MAX_Y;
     private static final String OUT_OF_RANGE_EXCEPTION_MESSAGE = "값이 범위를 벗어났습니다. 좌표 : (%d, %d)";
 
     private final int x;
@@ -17,10 +19,10 @@ public class Point {
     }
 
     private void validateRange(int x, int y) {
-        if (x < MIN_COORDINATE || x > MAX_COORDINATE) {
+        if (x < MIN_X || x > MAX_X) {
             throw new IllegalArgumentException(String.format(OUT_OF_RANGE_EXCEPTION_MESSAGE, x, y));
         }
-        if (y < MIN_COORDINATE || y > MAX_COORDINATE) {
+        if (y < MIN_Y || y > MAX_Y) {
             throw new IllegalArgumentException(String.format(OUT_OF_RANGE_EXCEPTION_MESSAGE, x, y));
         }
     }

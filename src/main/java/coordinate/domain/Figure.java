@@ -3,8 +3,8 @@ package coordinate.domain;
 import java.util.List;
 
 public class Figure {
-    private static final int MAX_Y = 24;
-    private static final int MAX_X = 24;
+    static final int MAX_Y = 24;
+    static final int MAX_X = 24;
 
     protected final List<Point> points;
 
