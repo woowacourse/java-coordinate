@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PointsTest {
 
@@ -24,10 +23,10 @@ public class PointsTest {
         assertThat(points.getPoint(1)).isEqualTo(new Point("(2,2)"));
     }
 
-    @Test
-    void 거리계산_테스트() {
-        assertEquals(1.414, points.distanceResult(), 0.001);
-    }
+//    @Test
+//    void 거리계산_테스트() {
+//        assertEquals(1.414, points.distanceResult(), 0.001);
+//    }
 
     @AfterEach
     void tearDown() {

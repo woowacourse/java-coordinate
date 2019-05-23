@@ -14,11 +14,11 @@ public class CoordinateResult {
         return this.distances.get(distances.size() - 1).getDistance();
     }
 
-    public double resultOfRectangleArea(){
+    public double resultOfRectangleArea() {
         return new Rectangle(distances).getArea();
     }
 
-    public double resultOfTriangleArea(){
+    public double resultOfTriangleArea() {
         return new Triangle(distances).getArea();
     }
 

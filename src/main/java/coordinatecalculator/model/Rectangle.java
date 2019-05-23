@@ -15,10 +15,10 @@ public class Rectangle {
 //        }
     }
 
-    private double calculateRectangleArea(List<Distance> distances){
+    private double calculateRectangleArea(List<Distance> distances) {
         Set<Distance> distanceSet = new HashSet<>(distances);
         double result = 1;
-        for(Distance distance : distanceSet){
+        for (Distance distance : distanceSet) {
             result *= distance.getDistance();
         }
         return result;

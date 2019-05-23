@@ -20,26 +20,26 @@ public class RectangleTest {
         points.addPoint(new Point("(2,3)"));
     }
 
-    @Test
-    void 직사각형_맞는지_검증_테스트() {
-        assertDoesNotThrow(()->new Rectangle(points));
-    }
-
-    @Test
-    void 직사각형이_아닐때_검증_테스트() {
-        points.getPoints().clear();
-        points.addPoint(new Point("(1,2)"));
-        points.addPoint(new Point("(1,3)"));
-        points.addPoint(new Point("(2,1)"));
-        points.addPoint(new Point("(2,3)"));
-
-        assertThrows(IllegalArgumentException.class, () ->
-            new Rectangle(points)
-        );
-    }
-
-    @Test
-    void 직사각형_넓이_구하는_테스트() {
-        assertThat(new Rectangle(points).calculateRectangleArea()).isEqualTo(2);
-    }
+//    @Test
+//    void 직사각형_맞는지_검증_테스트() {
+//        assertDoesNotThrow(() -> new Rectangle(points));
+//    }
+//
+//    @Test
+//    void 직사각형이_아닐때_검증_테스트() {
+//        points.getPoints().clear();
+//        points.addPoint(new Point("(1,2)"));
+//        points.addPoint(new Point("(1,3)"));
+//        points.addPoint(new Point("(2,1)"));
+//        points.addPoint(new Point("(2,3)"));
+//
+//        assertThrows(IllegalArgumentException.class, () ->
+//                new Rectangle(points)
+//        );
+//    }
+//
+//    @Test
+//    void 직사각형_넓이_구하는_테스트() {
+//        assertThat(new Rectangle(points).calculateRectangleArea()).isEqualTo(2);
+//    }
 }

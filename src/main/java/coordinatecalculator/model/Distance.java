@@ -6,11 +6,11 @@ public class Distance {
 
     private double distance;
 
-    public Distance(Point previousPoint, Point currentPoint){
+    public Distance(Point previousPoint, Point currentPoint) {
         this.distance = calculateDistance(previousPoint, currentPoint);
     }
 
-    private double calculateDistance(Point previousPoint, Point currentPoint){
+    private double calculateDistance(Point previousPoint, Point currentPoint) {
         return Math.sqrt(previousPoint.square(currentPoint));
     }
 
