@@ -10,7 +10,6 @@ public class Rectangle implements Figure, Shape {
     private final List<Coordinate> coordinates;
 
     public Rectangle(List<Coordinate> coordinates) {
-        Collections.sort(coordinates);
         isValidRectangle(coordinates);
         isValidShape(coordinates);
         this.coordinates = coordinates;

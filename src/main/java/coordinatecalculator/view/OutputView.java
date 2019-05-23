@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
+    private static final String POINT = "*";
+    private static final String BLANK = "  ";
+    private static final char STRAIGHT = '─';
+    private static final char PILLAR = '|';
 
     public static void printScore(String message) {
         System.out.println(message);
@@ -16,58 +20,57 @@ public class OutputView {
     }
 
     public static void printBoardLine(List<Coordinate> coordinates) {
-        yAxis(coordinates);
-        printLine();
-        xAxis();
-
+        printYAxis(coordinates);
+        System.out.println(makeViewLine());
+        System.out.println(makeXAxis());
     }
 
-    private static void printLine() {
-        StringBuilder stringBuilder;
-        stringBuilder = new StringBuilder("  +");
-        for (int i = 1; i < 24; i++) {
-            stringBuilder.append("──");
-        }
-        stringBuilder.append("─");
-        System.out.println(stringBuilder.toString());
-    }
-
-    private static void xAxis() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i <= 24; i++) {
-            stringBuilder.append(printNumber(i));
-        }
-        System.out.println(stringBuilder.toString());
-    }
-
-    private static String printNumber(int i) {
-        return (i % 2 == 0) ? String.format("%2d", i) : "  ";
-    }
-
-    private static void yAxis(List<Coordinate> coordinates) {
+    private static void printYAxis(List<Coordinate> coordinates) {
         for (int i = 24; i > 0; i--) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(printNumber(i))
-                    .append("|");
+            StringBuilder axis = new StringBuilder();
+            axis.append(printNumber(i))
+                    .append(PILLAR);
 
-            makeBlank(stringBuilder);
+            makeBlank(axis);
 
-            printCoordinate(coordinates, i, stringBuilder);
-            System.out.println(stringBuilder.toString());
-
+            printCoordinate(coordinates, i, axis);
+            System.out.println(axis.toString());
         }
     }
 
-    private static void printCoordinate(List<Coordinate> coordinates, int i, StringBuilder stringBuilder) {
+    private static String makeViewLine() {
+        StringBuilder viewLine = new StringBuilder("  +");
+        for (int i = 1; i < 24; i++) {
+            viewLine.append(STRAIGHT)
+                    .append(STRAIGHT);
+        }
+        viewLine.append(STRAIGHT);
+        return viewLine.toString();
+    }
+
+    private static String makeXAxis() {
+        StringBuilder XAxis = new StringBuilder();
+        for (int i = 0; i <= 24; i++) {
+            XAxis.append(printNumber(i));
+        }
+        return XAxis.toString();
+    }
+
+    private static String printNumber(int axis) {
+        return (axis % 2 == 0) ? String.format("%2d", axis) : BLANK;
+    }
+
+    private static void printCoordinate(List<Coordinate> coordinates, int axisY, StringBuilder stringBuilder) {
         coordinates.stream()
-                .filter(coordinate -> coordinate.getY() == i)
+                .filter(coordinate -> coordinate.getY() == axisY)
                 .collect(Collectors.toList())
-                .forEach(coordinate -> stringBuilder.replace(coordinate.getX() * 2 + 1, coordinate.getX() * 2 + 1, "*"));
+                .forEach(coordinate ->
+                        stringBuilder.replace(coordinate.getX() * 2 + 1, coordinate.getX() * 2 + 1, POINT));
     }
 
     private static void makeBlank(StringBuilder stringBuilder) {
         for (int a = 0; a < 24; a++) {
-            stringBuilder.append("  ");
+            stringBuilder.append(BLANK);
         }
     }
 
