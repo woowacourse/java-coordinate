@@ -21,4 +21,10 @@ public class TriangleTest {
         assertThrows(IllegalArgumentException.class, () -> new Triangle(points));
     }
 
+    @Test
+    void 한_대각선에_모두_있을때() {
+        Points points = new Points(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(4, 4)));
+        assertThrows(IllegalArgumentException.class, () -> new Triangle(points));
+    }
+
 }
