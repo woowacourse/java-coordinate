@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PointsGeneratorTest {
 
@@ -15,4 +16,10 @@ public class PointsGeneratorTest {
                 new Point(new Value("3"), new Value("4")));
         assertThat(PointsGenerator.makePoints("(1,2)-(3,4)")).isEqualTo(testPoints);
     }
+    @Test
+    void 포인트_중복_테스트() {
+        assertThrows(IllegalArgumentException.class,
+                ()-> PointsGenerator.makePoints("(1,1)-(1,1)"));
+    }
+
 }

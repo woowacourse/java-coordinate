@@ -20,7 +20,10 @@ public class Point {
     }
 
     public double getSlope(Point point){
-        return this.yValue.getRateOfChange(point.yValue) / this.xValue.getRateOfChange(point.xValue);
+        double xRate = this.xValue.getRateOfChange(point.xValue);
+        double yRate = this.yValue.getRateOfChange(point.yValue);
+        double result = yRate/xRate;
+        return result;
     }
 
     public double calculate(Point point) {

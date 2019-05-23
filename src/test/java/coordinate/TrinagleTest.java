@@ -15,8 +15,15 @@ public class TrinagleTest {
 
     @Test
     void 삼각형_유효성_테스트() {
-        assertThrows(IllegalArgumentException.class,
-                ()-> new Triangle(PointsGenerator.makePoints("(1,1)-(2,2)-(3,3)")));
+        assertThrows(ArithmeticException.class,
+                ()-> new Triangle(PointsGenerator.makePoints("(1,1)-(1,1)-(1,1)")));
     }
+
+    @Test
+    void 삼각형_넓이_테스트() {
+        Triangle tri = new Triangle(PointsGenerator.makePoints("(0,0)-(4,0)-(0,4)"));
+        assertThat(tri.findArea()).isEqualTo(8);
+    }
+
 
 }
