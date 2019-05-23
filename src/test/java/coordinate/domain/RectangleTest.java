@@ -32,6 +32,6 @@ public class RectangleTest {
                 new Point(10,18)
         );
         Rectangle rectangle = new Rectangle(points);
-        assertThat(rectangle.getArea()).isEqualTo(96, Offset.offset(0.0099));
+        assertThat(rectangle.area()).isEqualTo(96, Offset.offset(0.0099));
     }
 }

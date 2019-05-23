@@ -1,6 +1,5 @@
 package coordinate;
 
-import coordinate.domain.Figure;
 import coordinate.domain.Point;
 import coordinate.domain.Shape;
 import coordinate.domain.ShapeFactory;

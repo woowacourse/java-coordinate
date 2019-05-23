@@ -36,12 +36,12 @@ public class Triangle extends Shape implements Figure {
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return calculateArea();
     }
 
     @Override
     public String toString() {
-        return "삼각형의 넓이는 " + getArea();
+        return "삼각형의 넓이는 " + area();
     }
 }

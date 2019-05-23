@@ -16,19 +16,19 @@ public abstract class Shape {
 
     public List<Double> getSides() {
         List<Double> sides = new ArrayList<>();
-        for (Integer sideSquare : getAllSideSquares()) {
+        for (Integer sideSquare : getSideSquares()) {
             sides.add(Math.sqrt(sideSquare));
         }
         return sides;
     }
 
-    public List<Integer> getAllSideSquares() {
+    public List<Integer> getSideSquares() {
         List<Integer> sides = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
             Point firstPoint = points.get(i);
             for (int j = i + 1; j < points.size(); j++) {
                 Point secondPoint = points.get(j);
-                sides.add(firstPoint.distanceSqure(secondPoint));
+                sides.add(firstPoint.distanceSquare(secondPoint));
             }
         }
         return sides;

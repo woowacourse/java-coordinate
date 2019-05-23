@@ -2,8 +2,6 @@ package coordinate.domain;
 
 import org.junit.jupiter.api.Test;
 
-import javax.annotation.PostConstruct;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertThrows;
