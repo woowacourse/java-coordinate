@@ -1,6 +1,5 @@
 package coordinate.model;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Square extends Figure {
@@ -11,7 +10,6 @@ public class Square extends Figure {
     }
 
     private void checkTwist(List<Point> points) {
-        Collections.sort(points);
         if (!points.get(0).isEqualX(points.get(1)) ||
                 !points.get(0).isEqualY(points.get(2)) ||
                 !points.get(3).isEqualX(points.get(2)) ||

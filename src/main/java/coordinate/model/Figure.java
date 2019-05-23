@@ -7,12 +7,12 @@ public abstract class Figure implements Shape {
     List<Point> points;
 
     Figure(List<Point> points) {
+        Collections.sort(points);
         checkDuplication(points);
         this.points = points;
     }
 
     private void checkDuplication(List<Point> points) {
-        Collections.sort(points);
         for (int i = 0; i < points.size() - 1; i++) {
             checkDuplicationOnePoint(points, i);
         }

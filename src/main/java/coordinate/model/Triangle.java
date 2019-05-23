@@ -2,7 +2,6 @@ package coordinate.model;
 
 import coordinate.util.HeronFormula;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Triangle extends Figure {
@@ -13,7 +12,6 @@ public class Triangle extends Figure {
     }
 
     private void checkIsLine(List<Point> points) {
-        Collections.sort(points);
         if (points.get(0).getIncline(points.get(1))
                 == points.get(1).getIncline(points.get(2))) {
             throw new IllegalArgumentException("세 점이 한 직선에 있으면 안됩니다.");
