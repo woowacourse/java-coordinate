@@ -1,8 +1,8 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
-import coordinate.domain.Coordinate.Coordinate;
-import coordinate.domain.Coordinate.XCoordinate;
-import coordinate.domain.Coordinate.YCoordinate;
+import coordinate.domain.coordinate.Coordinate;
+import coordinate.domain.coordinate.XCoordinate;
+import coordinate.domain.coordinate.YCoordinate;
 
 import java.util.Objects;
 
@@ -22,14 +22,6 @@ public class Point {
     public double getSquareDistanceWith(Point point) {
         return Math.pow(this.xCoordinate.getDiffWith(point.xCoordinate), 2)
                 + Math.pow(this.yCoordinate.getDiffWith(point.yCoordinate), 2);
-    }
-
-    public int getXValue() {
-        return xCoordinate.getValue();
-    }
-
-    public int getYValue() {
-        return yCoordinate.getValue();
     }
 
     @Override

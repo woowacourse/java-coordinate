@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.domain.Figure.Line;
+import coordinate.domain.point.Point;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;

@@ -1,4 +1,4 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
 import java.util.*;
 
@@ -26,5 +26,9 @@ public class PointGroup {
             distances.add(points.get(i).getSquareDistanceWith(points.get((i + 1) % points.size())));
         }
         return distances;
+    }
+
+    public boolean have(int x, int y) {
+        return points.contains(Point.create(x,y));
     }
 }

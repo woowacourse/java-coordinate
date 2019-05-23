@@ -1,18 +1,18 @@
-package coordinate.domain;
+package coordinate.domain.Figure;
+
+import coordinate.domain.point.PointGroup;
 
 import java.util.*;
 
-public class Rectangle {
+public class Rectangle extends Figure implements AreaCalculable {
     private static final int POINT_COUNT = 4;
 
-    private final PointGroup points;
-
     public Rectangle(PointGroup points) {
-        validatePoints(points);
-        this.points = points;
+        super(points, POINT_COUNT);
     }
 
-    private void validatePoints(PointGroup points) {
+    @Override
+    void validatePoints(PointGroup points) {
         if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("직사각형은 4개의 점으로 이루어져야합니다.");
         }
@@ -42,11 +42,16 @@ public class Rectangle {
     }
 
     public double area() {
-        List<Double> lengths = new ArrayList<>(points.getSquareDistances());
+        List<Double> lengths = new ArrayList<>(getPoints().getSquareDistances());
         Collections.sort(lengths);
         if (lengths.size() == 2) {
             return lengths.get(0);
         }
         return Math.sqrt(lengths.get(0) * lengths.get(1));
+    }
+
+    @Override
+    public String toString() {
+        return "사각형";
     }
 }

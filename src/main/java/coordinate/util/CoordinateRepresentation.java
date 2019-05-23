@@ -1,7 +1,7 @@
 package coordinate.util;
 
-import coordinate.domain.Point;
-import coordinate.domain.PointGroup;
+import coordinate.domain.point.Point;
+import coordinate.domain.point.PointGroup;
 
 import java.util.ArrayList;
 import java.util.Arrays;

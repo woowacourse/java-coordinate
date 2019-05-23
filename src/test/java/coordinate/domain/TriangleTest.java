@@ -1,5 +1,8 @@
 package coordinate.domain;
 
+import coordinate.domain.Figure.Triangle;
+import coordinate.domain.point.Point;
+import coordinate.domain.point.PointGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

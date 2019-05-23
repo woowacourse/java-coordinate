@@ -1,4 +1,4 @@
-package coordinate.domain.Coordinate;
+package coordinate.domain.coordinate;
 
 import java.util.Objects;
 

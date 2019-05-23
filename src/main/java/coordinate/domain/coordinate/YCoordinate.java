@@ -1,4 +1,4 @@
-package coordinate.domain.Coordinate;
+package coordinate.domain.coordinate;
 
 public class YCoordinate extends Coordinate{
     public YCoordinate(int value) {
