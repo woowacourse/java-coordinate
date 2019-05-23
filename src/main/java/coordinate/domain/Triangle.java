@@ -16,9 +16,9 @@ public class Triangle extends Figure implements AvailableArea {
         for (int i = 0; i < points.size() - 1; i++) {
             Point p1 = points.get(i);
             Point p2 = points.get(i + 1);
-
             area += (double) ((p1.getX() + p2.getX()) * (p1.getY() - p2.getY())) / 2;
         }
+        points.remove(points.size() - 1);
 
         return Math.abs(area);
     }
