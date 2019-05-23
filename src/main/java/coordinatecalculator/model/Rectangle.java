@@ -2,27 +2,34 @@ package coordinatecalculator.model;
 
 public class Rectangle {
 
-    Points points;
+    private Points diagonalPoint;
 
     public Rectangle(Points points) {
-        this.points = points;
+        this.diagonalPoint = generateDiagonalPoint(points);
+        if(diagonalPoint.getPoints().size() != 2){
+            throw new IllegalArgumentException("잘못된 직사각형 형식 입니다.");
+        }
     }
 
-    public boolean isValid() {
-        Points temp = Points.create();
-        temp.addPoint(points.getPoint(0));
+    public Points generateDiagonalPoint(Points points) {
+        diagonalPoint = Points.create();
+        diagonalPoint.addPoint(points.getPoint(0));
         for (int i = 1; i < points.getPoints().size(); i++) {
-            checkRectangle(temp, i);
+            checkRectangle(points, i);
         }
-        return temp.getPoints().size() == 2;
+
+        return diagonalPoint;
     }
 
-    private void checkRectangle(Points temp, int i) {
-        if(temp.getPoint(0).getyPoint().getValue() != points.getPoint(i).getyPoint().getValue()
-            && temp.getPoint(0).getxPoint().getValue() != points.getPoint(i).getxPoint().getValue()){
-            temp.addPoint(points.getPoint(i));
+    private void checkRectangle(Points points, int index) {
+        if(diagonalPoint.getPoint(0).getyPoint().getValue() != points.getPoint(index).getyPoint().getValue()
+            && diagonalPoint.getPoint(0).getxPoint().getValue() != points.getPoint(index).getxPoint().getValue()){
+            diagonalPoint.addPoint(points.getPoint(index));
         }
     }
 
-
+    public double calculateRectangleArea(){
+        return (double) Math.abs((diagonalPoint.getPoint(0).getyPoint().getValue() - diagonalPoint.getPoint(1).getyPoint().getValue())
+                * (diagonalPoint.getPoint(0).getxPoint().getValue() - diagonalPoint.getPoint(1).getxPoint().getValue()));
+    }
 }
