@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.List;
 
-public class Rectangle implements Figure {
+public class Rectangle implements Figure{
     private final double area;
 
     public Rectangle(final Points points) {

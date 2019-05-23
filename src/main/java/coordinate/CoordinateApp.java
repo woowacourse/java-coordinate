@@ -14,4 +14,3 @@ public class CoordinateApp {
         OutputView.printArea(figure);
     }
 }
-
