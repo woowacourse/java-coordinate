@@ -11,6 +11,14 @@ public class Point {
         this.yValue = yValue;
     }
 
+    public Value getXValue() {
+        return xValue;
+    }
+
+    public Value getYValue() {
+        return yValue;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
