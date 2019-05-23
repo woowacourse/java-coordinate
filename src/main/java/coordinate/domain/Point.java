@@ -3,9 +3,9 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    private static final int MIN_COORDINATE = 1;
+    private static final int MIN_COORDINATE = 0;
     private static final int MAX_COORDINATE = 24;
-    public static final String OUT_OF_RANGE_EXCEPTION_MESSAGE = "값이 범위를 벗어났습니다. 좌표 : (%d, %d)";
+    private static final String OUT_OF_RANGE_EXCEPTION_MESSAGE = "값이 범위를 벗어났습니다. 좌표 : (%d, %d)";
 
     private final int x;
     private final int y;
@@ -25,11 +25,11 @@ public class Point {
         }
     }
 
-    public int getX() {
+    int getX() {
         return x;
     }
 
-    public int getY() {
+    int getY() {
         return y;
     }
 
