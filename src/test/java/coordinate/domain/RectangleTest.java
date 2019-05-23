@@ -17,7 +17,7 @@ public class RectangleTest {
         points.add(new Point(new Coordinate(10), new Coordinate(10)));
         points.add(new Point(new Coordinate(10), new Coordinate(0)));
 
-        assertThrows(IllegalArgumentException.class,()->new Rectangle().setShape(points));
+        assertThrows(IllegalArgumentException.class,()->new Rectangle(points));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class RectangleTest {
         points.add(new Point(new Coordinate(22), new Coordinate(18)));
         points.add(new Point(new Coordinate(10), new Coordinate(18)));
 
-        new Rectangle().setShape(points);
+        new Rectangle(points);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class RectangleTest {
         points.add(new Point(new Coordinate(15), new Coordinate(5)));
         points.add(new Point(new Coordinate(20), new Coordinate(10)));
 
-        new Rectangle().setShape(points);
+        new Rectangle(points);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class RectangleTest {
         points.add(new Point(new Coordinate(22), new Coordinate(18)));
         points.add(new Point(new Coordinate(10), new Coordinate(18)));
 
-        assertThat(new Rectangle().setShape(points).area()).isEqualTo(96);
+        assertThat(new Rectangle(points).area()).isEqualTo(96);
     }
 
     @Test
@@ -61,6 +61,6 @@ public class RectangleTest {
         points.add(new Point(new Coordinate(10), new Coordinate(20)));
         points.add(new Point(new Coordinate(20), new Coordinate(20)));
 
-        assertThat(new Rectangle().setShape(points).area()).isEqualTo(100);
+        assertThat(new Rectangle(points).area()).isEqualTo(100);
     }
 }

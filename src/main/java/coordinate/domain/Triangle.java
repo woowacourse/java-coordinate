@@ -9,11 +9,9 @@ public class Triangle implements Shape {
 
     private List<Double> triangleLines = new ArrayList<>();
 
-    @Override
-    public Shape setShape(List<Point> points) {
+    public Triangle(List<Point> points) {
         setTriangleLines(points);
         validateTriangle();
-        return this;
     }
 
     private void setTriangleLines(List<Point> points) {
@@ -24,7 +22,7 @@ public class Triangle implements Shape {
 
     private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
         for (Point endPoint : endPoints) {
-            double lineLength = new Line().setShape(Arrays.asList(startPoint, endPoint)).area();
+            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
             triangleLines.add(lineLength);
         }
     }

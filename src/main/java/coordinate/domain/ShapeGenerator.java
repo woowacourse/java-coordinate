@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,14 +17,12 @@ public class ShapeGenerator {
     private static final int TRIANGLE_POINTS_NUMBER = 3;
     private static final int RECTANGLE_POINTS_NUMBER = 4;
 
-    public static Shape generateShape(String input) {
-        List<Point> points = generatePoints(input);
-        Map<Integer, Shape> shapeMapper = new HashMap<>();
-        shapeMapper.put(LINE_POINTS_NUMBER, new Line());
-        shapeMapper.put(TRIANGLE_POINTS_NUMBER, new Triangle());
-        shapeMapper.put(RECTANGLE_POINTS_NUMBER, new Rectangle());
-
-        return shapeMapper.get(validatePointsNumber(points.size())).setShape(points);
+    public static Shape create(List<Point> points) {
+        Map<Integer, Function<List<Point>, Shape>> shapeMapper = new HashMap<>();
+        shapeMapper.put(LINE_POINTS_NUMBER, Line::new);
+        shapeMapper.put(TRIANGLE_POINTS_NUMBER, Triangle::new);
+        shapeMapper.put(RECTANGLE_POINTS_NUMBER, Rectangle::new);
+        return shapeMapper.get(validatePointsNumber(points.size())).apply(points);
     }
 
     private static int validatePointsNumber(int size) {
@@ -33,7 +32,7 @@ public class ShapeGenerator {
         throw new IllegalArgumentException("좌표의 개수는 2개 이상, 4개 이하여야 합니다.");
     }
 
-    private static List<Point> generatePoints(String input) {
+    public static List<Point> generatePoints(String input) {
         validatePattern(input);
         return initializePoints(input);
     }
@@ -56,5 +55,4 @@ public class ShapeGenerator {
         }
         return points;
     }
-
 }

@@ -10,11 +10,9 @@ public class Rectangle implements Shape {
 
     private TreeMap<Double, Integer> rectangleLines = new TreeMap<>();
 
-    @Override
-    public Shape setShape(List<Point> points) {
+    public Rectangle(List<Point> points) {
         setRectangleLines(points);
         validateRectangle();
-        return this;
     }
 
     private void setRectangleLines(List<Point> points) {
@@ -25,7 +23,7 @@ public class Rectangle implements Shape {
 
     private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
         for (Point endPoint : endPoints) {
-            double lineLength = new Line().setShape(Arrays.asList(startPoint, endPoint)).area();
+            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
             addLine(lineLength);
         }
     }

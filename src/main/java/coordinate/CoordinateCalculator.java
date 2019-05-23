@@ -1,23 +1,28 @@
 package coordinate;
 
+import coordinate.domain.Point;
 import coordinate.domain.Shape;
 import coordinate.domain.ShapeGenerator;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
+import java.util.List;
+
 public class CoordinateCalculator {
 
     public static void main(String[] args) {
-        Shape shape = generateShape();
+        Shape shape = createShape();
+
         OutputView.printArea(shape);
     }
 
-    private static Shape generateShape() {
+    private static Shape createShape() {
         try {
-            return ShapeGenerator.generateShape(InputView.inputCoordinate());
+            List<Point> points = ShapeGenerator.generatePoints(InputView.inputCoordinate());
+            return ShapeGenerator.create(points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return generateShape();
+            return createShape();
         }
     }
 }

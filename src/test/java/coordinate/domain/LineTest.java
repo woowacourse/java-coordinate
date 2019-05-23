@@ -16,7 +16,7 @@ public class LineTest {
         points.add(new Point(new Coordinate(10), new Coordinate(10)));
         points.add(new Point(new Coordinate(14), new Coordinate(15)));
 
-        Shape line = new Line().setShape(points);
+        Shape line = new Line(points);
         assertThat(line.area()).isEqualTo(6.403124, offset(0.00099));
     }
 
@@ -27,7 +27,7 @@ public class LineTest {
         points.add(new Point(new Coordinate(10), new Coordinate(10)));
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Line().setShape(points);
+            new Line(points);
         });
     }
 }

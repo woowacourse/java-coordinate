@@ -10,11 +10,9 @@ public class Line implements Shape {
 
     private List<Point> points;
 
-    @Override
-    public Shape setShape(List<Point> points) {
+    public Line(List<Point> points) {
         this.points = points;
         validateLine();
-        return this;
     }
 
     private void validateLine() {
