@@ -18,6 +18,11 @@ public final class Point {
     }
 
     @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -25,8 +30,8 @@ public final class Point {
         if (!(o instanceof Point)) {
             return false;
         }
-        Point point = (Point) o;
-        return x == point.x && y == point.y;
+        Point rhs = (Point) o;
+        return x == rhs.x && y == rhs.y;
     }
 
     @Override

@@ -7,9 +7,9 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class InputViewTest {
+class ParserTest {
     @Test
     void parseTest() {
-        assertEquals(Arrays.asList(new Point(1, 2), new Point(3, 4), new Point(5, 6)), InputView.parseCoordinates("(1,2)-(3,4)-(5,6)"));
+        assertEquals(Arrays.asList(new Point(1, 2), new Point(3, 4), new Point(5, 6)), Parser.parseCoordinates("(1,2)-(3,4)-(5,6)"));
     }
 }

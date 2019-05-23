@@ -1,27 +1,19 @@
 package coord.model;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
-public class Points {
+public final class Points {
     private final List<Point> points;
 
     public Points(List<Point> points) {
         if (points.size() != new HashSet<>(points).size()) {
             throw new IllegalArgumentException("동일한 점은 입력할 수 없습니다.");
         }
-        this.points = Collections.unmodifiableList(sortByDescYAscX(points));
+        this.points = Collections.unmodifiableList(points);
     }
 
-    private List<Point> sortByDescYAscX(List<Point> points) {
-        points.sort((a, b) -> {
-            if (a.y == b.y) {
-                return a.x - b.x;
-            }
-            return b.y - a.y;
-        });
-        return points;
+    public Points(Point ... points) {
+        this(Arrays.asList(points));
     }
 
     public int number() {
@@ -34,5 +26,11 @@ public class Points {
 
     public List<Point> getPoints() {
         return points;
+    }
+
+    @Override
+    public String toString() {
+        String result = points.toString();
+        return result.substring(1, result.length() - 1);
     }
 }

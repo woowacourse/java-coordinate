@@ -1,15 +1,13 @@
 package coord.model;
 
+import coord.model.figure.Figure;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TriangleTest {
-
     @Test
-    void area() {
-        assertEquals(18.0, Figure.fromPoints(new Points(Arrays.asList(new Point(1, 10), new Point(1, 1), new Point (5, 1)))).area(), 0.001);
+    void areaTest() {
+        assertEquals(18.0, Figure.getConvexPolygon(new Point(1, 10), new Point(5, 1), new Point (1, 1)).area(), 0.001);
     }
 }

@@ -1,13 +1,14 @@
 package car;
 
 public class Avante extends Car {
-    private static final double DPL = 15.0;
+    private static final int DPL = 15;
 
     public Avante(int tripDistance) {
         super(tripDistance);
     }
 
-    double getDistancePerLiter() {
+    @Override
+    public int getDistancePerLiter() {
         return DPL;
     }
 }

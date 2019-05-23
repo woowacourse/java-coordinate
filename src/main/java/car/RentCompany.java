@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentCompany {
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public static RentCompany create() {
         return new RentCompany();

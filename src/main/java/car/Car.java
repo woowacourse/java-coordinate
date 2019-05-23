@@ -1,23 +1,23 @@
 package car;
 
 public abstract class Car {
-    protected int tripDistance;
+    protected final int tripDistance;
 
     public Car(int tripDistance){
         this.tripDistance = tripDistance;
     }
 
-    abstract double getDistancePerLiter();
+    public abstract int getDistancePerLiter();
 
-    double getTripDistance() {
-        return (double) tripDistance;
+    public int getTripDistance() {
+        return tripDistance;
     };
 
-    String getName() {
-        return this.getClass().toString().substring(6);
+    public String getName() {
+        return this.getClass().toString().substring(10);
     }
 
-    double getChargeQuantity() {
+    public int getChargeQuantity() {
         return getTripDistance() / getDistancePerLiter();
     }
 }
