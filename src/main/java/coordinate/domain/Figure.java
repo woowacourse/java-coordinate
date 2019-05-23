@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Figure {
+public class Figure {
     private String resultMessage;
     protected Points points;
 
@@ -11,8 +11,6 @@ public abstract class Figure {
         this.resultMessage = resultMessage;
         this.points = points;
     }
-
-    public abstract double calculateResult();
 
     public String getResultMessage() {
         return resultMessage;

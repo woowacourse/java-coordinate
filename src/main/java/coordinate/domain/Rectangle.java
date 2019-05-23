@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Rectangle extends Figure {
+public class Rectangle extends Figure implements Calculable {
     private static final int NON_DUPLICATE_COORDINATE_SIZE = 2;
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;

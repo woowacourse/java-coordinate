@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Line extends Figure{
+public class Line extends Figure implements Calculable {
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
 
