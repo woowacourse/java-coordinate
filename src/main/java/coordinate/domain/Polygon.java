@@ -8,7 +8,8 @@ public abstract class Polygon extends Figure implements AreaCalculable {
      */
     public double areaOfParallelogram() {
         Vector v1 = lines.getVector(0);
-        Vector v2 = lines.getVector(1);
+        Vector v2 = lines.getVector(lines.getSize() - 1);
+        v2 = v2.invert();
 
         return Math.sqrt(Math.pow(v1.length(), 2) * Math.pow(v2.length(), 2) - Math.pow(v1.innerProduct(v2), 2));
     }

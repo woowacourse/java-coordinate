@@ -36,4 +36,9 @@ public class Rectangle extends Polygon {
     public double area() {
         return areaOfParallelogram();
     }
+
+    @Override
+    public double length() {
+        return lines.sumLength();
+    }
 }

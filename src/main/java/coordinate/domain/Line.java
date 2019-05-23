@@ -25,7 +25,7 @@ public class Line extends Figure {
         }
     }
 
-    public double calculateLength() {
+    public double length() {
         return Math.sqrt(Math.pow(calculateXDifference(), 2)
                         + Math.pow(calculateYDifference(), 2));
     }

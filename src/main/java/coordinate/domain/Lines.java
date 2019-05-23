@@ -34,8 +34,8 @@ public class Lines {
         return v1.innerProduct(v2) == 1;
     }
 
-    public double getLength(int index) {
-        return getLine(index).calculateLength();
+    public double sumLength() {
+        return lines.stream().mapToDouble(line -> line.length()).sum();
     }
 
     public Vector getVector(int i) {
