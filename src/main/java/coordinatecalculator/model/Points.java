@@ -25,6 +25,10 @@ public class Points {
         this.points.add(point);
     }
 
+    public List<Point> getPoints(){
+        return points;
+    }
+
     public Point getPoint(int index){
         return this.points.get(index);
     }

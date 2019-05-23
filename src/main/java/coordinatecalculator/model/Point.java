@@ -18,6 +18,14 @@ public class Point {
         this.yPoint = new YPoint(matcher.group(2));
     }
 
+    public XPoint getxPoint() {
+        return xPoint;
+    }
+
+    public YPoint getyPoint() {
+        return yPoint;
+    }
+
     public int square(Point anotherPoint) {
         return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), 2)
                 + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), 2));
