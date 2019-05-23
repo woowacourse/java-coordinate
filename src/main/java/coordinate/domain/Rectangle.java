@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Rectangle extends Shape{
+public class Rectangle implements Shape{
     private final static int START_POINT = 0;
     private final static int ONE_LINE = 1;
     private final static int PAIR_LINE_COUNT = 2;

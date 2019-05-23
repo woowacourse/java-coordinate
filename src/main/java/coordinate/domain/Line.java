@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.List;
 import java.util.Objects;
 
-public class Line extends Shape{
+public class Line implements Shape{
     private static final int SQUARE = 2;
     private final static int START_POINT = 0;
     private final static int END_POINT = 1;
