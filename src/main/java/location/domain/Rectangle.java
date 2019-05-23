@@ -1,6 +1,9 @@
 package location.domain;
 
+import java.util.Arrays;
+
 public class Rectangle extends Shape {
+    private static final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private static final String NOT_RECTANGLE_MSG = "직사각형이 아닙니다.";
     private static final int SQUARE = 2;
     private final Points points;
@@ -12,10 +15,11 @@ public class Rectangle extends Shape {
     }
 
     private void checkValid(final Points points) {
-        isRectangle(points);
+        checkBruteForceSameLine(points);
+        checkRectangle(points);
     }
 
-    private void isRectangle(final Points points) {
+    private void checkRectangle(final Points points) {
         if (isSameDiagonal(points)
                 && isSameCenterX(points)
                 && isSameCenterY(points)) {
@@ -35,6 +39,31 @@ public class Rectangle extends Shape {
     private boolean isSameDiagonal(final Points points) {
         return calculateLine(points.get(1), points.get(2)) == calculateLine(points.get(0), points.get(3));
     }
+
+    private void checkBruteForceSameLine(Points points){
+        checkSameLine(new Points(Arrays.asList(points.get(0),points.get(1),points.get(2))));
+//        checkSameLine(new Points(Arrays.asList(points.get(0),points.get(2),points.get(3))));
+//        checkSameLine(new Points(Arrays.asList(points.get(1),points.get(2),points.get(3))));
+    }
+
+
+    private void checkSameLine(Points points) {
+        if (isSameLine(points)) {
+            throw new IllegalArgumentException(SAME_LINE_MSG);
+        }
+    }
+
+    private boolean isSameLine(Points points) {
+        return calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(1), points.get(2));
+    }
+
+    private double calculateTilt(final Point point, final Point point1) {
+        return (point.getY()-point1.getY())/(point.getX()-point1.getX());
+    }
+
+
+
+
 
     public double calculateLine(final Point point1, final Point point2) {
         return Math.sqrt(Math.pow((point1.getX() - point2.getX()), SQUARE) + Math.pow((point1.getY() - point2.getY()), SQUARE));

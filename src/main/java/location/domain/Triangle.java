@@ -1,7 +1,7 @@
 package location.domain;
 
 public class Triangle extends Shape {
-    private static final String SAME_LINE_MSG = "모든 선이 같은 선상에 있습니다.";
+    private static final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private static final int SQUARE = 2;
     private final Points points;
 
@@ -17,7 +17,7 @@ public class Triangle extends Shape {
 
     private void checkSameLine(Points points) {
         if (isSameLine(points)) {
-            throw new IllegalArgumentException("세점 이상이 한 선상에 있습니다.");
+            throw new IllegalArgumentException(SAME_LINE_MSG);
         }
     }
 
