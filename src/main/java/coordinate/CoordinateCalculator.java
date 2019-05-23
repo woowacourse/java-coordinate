@@ -1,9 +1,6 @@
 package coordinate;
 
-import coordinate.domain.Point;
-import coordinate.domain.PointsGenerator;
-import coordinate.domain.Shape;
-import coordinate.domain.ShapeGenerator;
+import coordinate.domain.*;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
@@ -14,7 +11,9 @@ public class CoordinateCalculator {
     public static void main(String[] args) {
         List<Point> points = createPoints();
         Shape shape = createShape(points);
-
+        Graph graph = new Graph();
+        graph.drawPoints(points);
+        OutputView.printGraph(graph);
         OutputView.printArea(shape);
     }
 
@@ -29,7 +28,6 @@ public class CoordinateCalculator {
 
     private static Shape createShape(List<Point> points) {
         try {
-
             return ShapeGenerator.create(points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

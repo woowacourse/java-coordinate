@@ -10,7 +10,8 @@ public class Triangle implements Shape {
     private List<Double> triangleLines = new ArrayList<>();
 
     public Triangle(List<Point> points) {
-        setTriangleLines(points);
+        List<Point> copyedPoints = new ArrayList<>(points);
+        setTriangleLines(copyedPoints);
         validateTriangle();
     }
 

@@ -11,7 +11,8 @@ public class Rectangle implements Shape {
     private TreeMap<Double, Integer> rectangleLines = new TreeMap<>();
 
     public Rectangle(List<Point> points) {
-        setRectangleLines(points);
+        List<Point> copyedPoints = new ArrayList<>(points);
+        setRectangleLines(copyedPoints);
         validateRectangle();
     }
 
