@@ -28,6 +28,10 @@ public class Value {
     }
 
     public double message(Value value) {
-        return Math.pow(this.value - value.value, 2);
+        return Math.pow(getRateOfChange(value), 2);
+    }
+
+    public double getRateOfChange(Value value) {
+        return this.value - value.value;
     }
 }

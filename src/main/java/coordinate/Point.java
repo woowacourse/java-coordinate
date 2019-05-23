@@ -19,6 +19,16 @@ public class Point {
         return yValue;
     }
 
+    public double getSlope(Point point){
+        return this.yValue.getRateOfChange(point.yValue) / this.xValue.getRateOfChange(point.xValue);
+    }
+
+    public double calculate(Point point) {
+        double xSquared = this.xValue.message(point.xValue);
+        double ySquared = this.yValue.message(point.yValue);
+        return Math.sqrt(xSquared + ySquared);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,9 +43,4 @@ public class Point {
         return Objects.hash(xValue, yValue);
     }
 
-    public double calculate(Point point) {
-        double xSquared = this.xValue.message(point.xValue);
-        double ySquared = this.yValue.message(point.yValue);
-        return Math.sqrt(xSquared + ySquared);
-    }
 }
