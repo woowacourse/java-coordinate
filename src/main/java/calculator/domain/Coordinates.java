@@ -10,11 +10,13 @@ public class Coordinates implements Iterable<Coordinate>{
     private static final String EX_DUPLICATED_COORDINATES_MESSAGE = "위치가 같은 점(point)이 존재합니다.";
     private static final String EX_MAX_COORDINATES_COUNT_MESSAGE = "4개 이하의 좌표를 입력해주세요.";
     private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
+    private static final String EX_NOT_RECTANGLE_MESSAGE = "x축, y축과 평행한 직사각형이 아닙니다.";
     private static final int MAX_COORDINATE = 4;
     private static final int TRIANGLE = 3;
     private static final int TRI_LONGEST_SIDE = 2;
     private static final int TRI_OTHER_SIDE = 1;
     private static final int TRI_ANOTHER_SIDE = 0;
+    private static final int RECTANGLE = 4;
     private final List<Coordinate> coordinates;
 
     /**
@@ -34,21 +36,42 @@ public class Coordinates implements Iterable<Coordinate>{
     public void add(Coordinate coordinate) {
         checkDuplication(coordinate);
         coordinates.add(coordinate);
-
         checkMaxCoordinates();
-        checkTriangle();
+
+        if (coordinates.size() == TRIANGLE) {
+            checkTriangle();
+        }
+        if (coordinates.size() == RECTANGLE) {
+            checkRectangle();
+        }
+    }
+
+    private void checkRectangle() {
+        Set<Integer> xCoordinates = new HashSet<>();
+        Set<Integer> yCoordinates = new HashSet<>();
+
+        for (int i = 0; i < coordinates.size(); i++) {
+            xCoordinates.add(coordinates.get(i).getX());
+            yCoordinates.add(coordinates.get(i).getY());
+        }
+
+        checkNotRectangle(xCoordinates, yCoordinates);
+    }
+
+    private void checkNotRectangle(Set<Integer> xCoordinates, Set<Integer> yCoordinates) {
+        if (!(xCoordinates.size() == 2 && yCoordinates.size() == 2)) {
+            throw new IllegalArgumentException(EX_NOT_RECTANGLE_MESSAGE);
+        }
     }
 
     private void checkTriangle() {
-        if (coordinates.size() == TRIANGLE) {
-            double lengthA = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(1));
-            double lengthB = FigureFactory.getInstance().create(this).straight(coordinates.get(1), coordinates.get(2));
-            double lengthC = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(2));
+        double lengthA = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(1));
+        double lengthB = FigureFactory.getInstance().create(this).straight(coordinates.get(1), coordinates.get(2));
+        double lengthC = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(2));
 
-            List<Double> lengths = Arrays.asList(lengthA, lengthB, lengthC);
-            Collections.sort(lengths);
-            checkNotTriangle(lengths);
-        }
+        List<Double> lengths = Arrays.asList(lengthA, lengthB, lengthC);
+        Collections.sort(lengths);
+        checkNotTriangle(lengths);
     }
 
     private void checkNotTriangle(List<Double> lengths) {

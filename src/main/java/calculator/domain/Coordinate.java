@@ -6,7 +6,7 @@ import java.util.Objects;
  * @author heebg
  * @version 1.0 2019-05-21
  */
-public class Coordinate {
+public class Coordinate  {
     private static final String EX_COORDINATE_RANGE_MESSAGE = "좌표 범위는 0~24 사이입니다.";
     private static final int NOT_MATCH = -1;
     private static final int MIN_COORDINATE = 0;

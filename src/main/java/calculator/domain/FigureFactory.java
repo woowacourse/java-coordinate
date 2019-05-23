@@ -23,7 +23,6 @@ public class FigureFactory {
         if (coordinates.size() == 3) {
             return new Triangle(coordinates);
         }
-
-        throw new IllegalArgumentException("잘못된 값입니다.");
+        return new Rectangle(coordinates);
     }
 }
