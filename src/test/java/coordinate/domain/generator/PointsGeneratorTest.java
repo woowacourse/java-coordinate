@@ -1,6 +1,7 @@
 package coordinate.domain.generator;
 
 import coordinate.domain.Point;
+import coordinate.domain.Points;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ class PointsGeneratorTest {
     @Test
     void generate_테스트() {
         assertThat(new PointsGenerator("(1,2)-(3,4)").generate())
-                .isEqualTo(Arrays.asList(new Point(1, 2), new Point(3, 4)));
+                .isEqualTo(Points.of(Arrays.asList(new Point(1, 2), new Point(3, 4))));
     }
 
     @Test

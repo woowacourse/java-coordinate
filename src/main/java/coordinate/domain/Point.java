@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import java.util.Objects;
+
 public class Point {
     private final Coordinate x;
     private final Coordinate y;
@@ -28,12 +30,16 @@ public class Point {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Point point = (Point) o;
+        return Objects.equals(x, point.x) &&
+                Objects.equals(y, point.y);
     }
 
     @Override
-    public boolean equals(final Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }
