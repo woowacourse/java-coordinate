@@ -4,9 +4,6 @@ import coordinate.domain.Figure;
 import coordinate.domain.Point;
 import coordinate.domain.Points;
 
-import java.util.ArrayList;
-import java.util.List;
-
 //(10,10)-(22,10)-(22,18)-(10,18)
 public class OutputView {
     public static void printCoordinate(Points points) {
