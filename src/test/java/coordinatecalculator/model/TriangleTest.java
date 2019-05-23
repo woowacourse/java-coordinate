@@ -16,4 +16,6 @@ public class TriangleTest {
         List<Coordinate> coordinates = Arrays.asList(c1, c2, c3);
         assertThat(new Triangle(coordinates).calculateArea()).isEqualTo(50);
     }
+
+
 }

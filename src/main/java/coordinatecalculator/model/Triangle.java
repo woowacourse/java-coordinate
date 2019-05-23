@@ -1,19 +1,11 @@
 package coordinatecalculator.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Triangle extends Figure {
-    private List<Line> lines;
 
     public Triangle(List<Coordinate> coordinates) {
-        lines = new ArrayList<>();
-
-        for (int i = 0; i < coordinates.size() - 1; i++) {
-            for (int j = i + 1; j < coordinates.size(); j++) {
-                lines.add(new Line(coordinates.get(i), coordinates.get(j)));
-            }
-        }
+        super(coordinates);
     }
 
     @Override
