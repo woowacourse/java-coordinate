@@ -25,11 +25,11 @@ class LineTest {
 
     @Test
     void create_계산_정답() {
-        assertThat(figure.calculate()).isEqualTo(19.697,offset(0.00099));
+        assertThat(figure.area()).isEqualTo(19.697,offset(0.00099));
     }
 
     @Test
     void line_계산_반올림_확인() {
-        assertThat(figure.calculate()).isEqualTo(19.698,offset(0.00099));
+        assertThat(figure.area()).isEqualTo(19.698,offset(0.00099));
     }
 }

@@ -1,7 +1,6 @@
 package calculator.view;
 
-import calculator.domain.Coordinate;
-import calculator.domain.Coordinates;
+import calculator.domain.*;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -18,9 +17,9 @@ public class UserInputView {
     private static final String EX_FORMAT_PATTERN_MESSAGE = "포맷에 맞게 입력해주세요";
     private static final String SINGLE_BLANK = " ";
     private static final String EMPTY = "";
-    public static final String COMMA = ",";
+    private static final String COMMA = ",";
 
-    public Coordinates generaValidatedCoordinates() {
+    public static Coordinates generaValidatedCoordinates() {
         try {
             String inputText = UserInputView.inputByUser();
             UserInputView.checkFormat(inputText);

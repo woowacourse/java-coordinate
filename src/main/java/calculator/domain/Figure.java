@@ -23,5 +23,7 @@ public abstract class Figure implements Calculate{
     }
 
     @Override
-    public abstract double calculate();
+    public double straight(Coordinate a, Coordinate b) {
+        return Math.sqrt(Math.pow(a.getX()-b.getX(),2) + Math.pow(a.getY() - b.getY(),2));
+    }
 }

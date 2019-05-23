@@ -8,11 +8,12 @@ import java.util.*;
  */
 public class Map implements Iterable<MapLine> {
 
-    List<MapLine> map;
+    private static final int MAX_SIZE = 25;
+    private List<MapLine> map;
 
     public Map() {
         this.map = new ArrayList<>();
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < MAX_SIZE; i++) {
             map.add(new MapLine());
         }
     }

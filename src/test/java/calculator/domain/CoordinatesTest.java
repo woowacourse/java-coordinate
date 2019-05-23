@@ -41,4 +41,11 @@ public class CoordinatesTest {
             coordinates.add(Coordinate.create(1,1));
         });
     }
+
+    @Test
+    void checkTriangle_일직선_확인() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            coordinates.add(Coordinate.create(10,5));
+        });
+    }
 }

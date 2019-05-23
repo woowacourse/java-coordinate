@@ -7,10 +7,10 @@ import java.util.Objects;
  * @version 1.0 2019-05-21
  */
 public class Coordinate {
+    private static final String EX_COORDINATE_RANGE_MESSAGE = "좌표 범위는 0~24 사이입니다.";
     private static final int NOT_MATCH = -1;
-    public static final int MIN_COORDINATE = 0;
-    public static final int MAX_COORDINATE = 24;
-    public static final String EX_COORDINATE_RANGE_MESSAGE = "좌표 범위는 0~24 사이입니다.";
+    private static final int MIN_COORDINATE = 0;
+    private static final int MAX_COORDINATE = 24;
     private final int xCoordinate;
     private final int yCoordinate;
 

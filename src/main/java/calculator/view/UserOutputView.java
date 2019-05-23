@@ -14,8 +14,9 @@ public class UserOutputView {
     private static final String DOUBLE_BLANK = "  ";
     private static final String STAR = " * ";
     private static final String TRIPLE_BLANK = "   ";
-    public static final String X_AXIS_MARK = " - ";
-    public static final String Y_AXIS_MARK = "|";
+    private static final String X_AXIS_MARK = " - ";
+    private static final String Y_AXIS_MARK = "|";
+    public static final String IS_MESSAGE = "은(는) ";
 
     public static void outputMap(Map map) {
         StringBuilder resultMap = new StringBuilder();
@@ -67,12 +68,14 @@ public class UserOutputView {
     public static void outputCalculatedResult(Figure figure) {
         StringBuilder calculatedResult = new StringBuilder();
         calculatedResult.append(figure.getName());
-        calculatedResult.append(" ");
+        calculatedResult.append(SINGLE_BLANK);
         calculatedResult.append(figure.getCalculateTarget());
-        calculatedResult.append("은(는) ");
-        calculatedResult.append(figure.calculate());
+        calculatedResult.append(IS_MESSAGE);
+        calculatedResult.append(figure.area());
 
         System.out.println(calculatedResult.toString());
     }
+
+
 
 }

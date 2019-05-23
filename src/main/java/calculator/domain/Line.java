@@ -13,10 +13,7 @@ public class Line extends Figure {
     }
 
     @Override
-    public double calculate() {
-        Coordinate a = coordinates.get(0);
-        Coordinate b = coordinates.get(1);
-        return Math.sqrt(Math.pow(a.getX()-b.getX(),2) + Math.pow(a.getY() - b.getY(),2));
+    public double area() {
+        return straight(coordinates.get(0), coordinates.get(1));
     }
-
 }

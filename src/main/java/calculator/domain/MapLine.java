@@ -8,10 +8,11 @@ import java.util.*;
  */
 public class MapLine implements Iterable<Boolean> {
 
+    private static final int MAX_SIZE = 25;
     private List<Boolean> mapLine;
 
     public MapLine() {
-        this.mapLine = new ArrayList<>(Collections.nCopies(25, false));
+        this.mapLine = new ArrayList<>(Collections.nCopies(MAX_SIZE, false));
     }
 
     public boolean get(int index) {

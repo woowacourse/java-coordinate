@@ -13,7 +13,7 @@ public class Point extends Figure{
     }
 
     @Override
-    public double calculate() {
+    public double area() {
         return 0;
     }
 }

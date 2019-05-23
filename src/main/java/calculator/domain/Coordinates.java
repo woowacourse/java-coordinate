@@ -1,9 +1,6 @@
 package calculator.domain;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author heebg
@@ -11,8 +8,13 @@ import java.util.Objects;
  */
 public class Coordinates implements Iterable<Coordinate>{
     private static final String EX_DUPLICATED_COORDINATES_MESSAGE = "위치가 같은 점(point)이 존재합니다.";
-    public static final String EX_MAX_COORDINATES_COUNT_MESSAGE = "4개 이하의 좌표를 입력해주세요.";
-    public static final int MAX_COORDINATE = 4;
+    private static final String EX_MAX_COORDINATES_COUNT_MESSAGE = "4개 이하의 좌표를 입력해주세요.";
+    private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
+    private static final int MAX_COORDINATE = 4;
+    private static final int TRIANGLE = 3;
+    private static final int TRI_LONGEST_SIDE = 2;
+    private static final int TRI_OTHER_SIDE = 1;
+    private static final int TRI_ANOTHER_SIDE = 0;
     private final List<Coordinate> coordinates;
 
     /**
@@ -26,14 +28,33 @@ public class Coordinates implements Iterable<Coordinate>{
      * Coordinate 추가
      * <br> 중복된 Coordinate 추가 시 예외 발생
      *
-     * @param coo 추가할 Coordinate
+     * @param coordinate 추가할 Coordinate
      * @throws IllegalArgumentException
      */
-    public void add(Coordinate coo) {
-        checkDuplication(coo);
-        checkMaxCoordinates();
+    public void add(Coordinate coordinate) {
+        checkDuplication(coordinate);
+        coordinates.add(coordinate);
 
-        coordinates.add(coo);
+        checkMaxCoordinates();
+        checkTriangle();
+    }
+
+    private void checkTriangle() {
+        if (coordinates.size() == TRIANGLE) {
+            double lengthA = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(1));
+            double lengthB = FigureFactory.getInstance().create(this).straight(coordinates.get(1), coordinates.get(2));
+            double lengthC = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(2));
+
+            List<Double> lengths = Arrays.asList(lengthA, lengthB, lengthC);
+            Collections.sort(lengths);
+            checkNotTriangle(lengths);
+        }
+    }
+
+    private void checkNotTriangle(List<Double> lengths) {
+        if (lengths.get(TRI_LONGEST_SIDE) >= lengths.get(TRI_OTHER_SIDE) + lengths.get(TRI_ANOTHER_SIDE)) {
+            throw new IllegalArgumentException(EX_NOT_TRIANGLE_MESSAGE);
+        }
     }
 
     private void checkDuplication(Coordinate coordinate) {
@@ -43,7 +64,7 @@ public class Coordinates implements Iterable<Coordinate>{
     }
 
     private void checkMaxCoordinates() {
-        if (coordinates.size() >= MAX_COORDINATE) {
+        if (coordinates.size() > MAX_COORDINATE) {
             throw new IllegalArgumentException(EX_MAX_COORDINATES_COUNT_MESSAGE);
         }
     }

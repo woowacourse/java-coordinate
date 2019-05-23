@@ -20,6 +20,9 @@ public class FigureFactory {
         if (coordinates.size() == 2) {
             return new Line(coordinates);
         }
+        if (coordinates.size() == 3) {
+            return new Triangle(coordinates);
+        }
 
         throw new IllegalArgumentException("잘못된 값입니다.");
     }
