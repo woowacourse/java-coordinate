@@ -11,13 +11,8 @@ public class Coordinate implements Comparable<Coordinate> {
         this.y = y;
     }
 
-    //TODO 같은 객체 내에서는 getter없이 접근 가능 -> 리팩토링
     public double calculate(Coordinate coordinate) {
-        return coordinate.calculate(x, y);
-    }
-
-    private double calculate(int x, int y) {
-        return Math.sqrt(Math.pow(Math.abs(x - this.x), 2) + Math.pow(Math.abs(y - this.y), 2));
+        return Math.sqrt(Math.pow(Math.abs(coordinate.x - this.x), 2) + Math.pow(Math.abs(coordinate.y - this.y), 2));
     }
 
     public int getX() {
