@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Graph {
 
-    List<ViewLine> viewLines;
+    private List<ViewLine> viewLines;
 
-    Graph(){
+    public Graph(){
         viewLines = new ArrayList<>();
 
         for (int i = 0; i < 25; i++) {
@@ -16,7 +16,7 @@ public class Graph {
         }
     }
 
-    void setPosition(List<Point> points){
+    public void setPosition(List<Point> points){
         points.forEach(point -> viewLines.get(point.getYValue().getValue()).setPosition(point.getXValue().getValue()));
     }
 
