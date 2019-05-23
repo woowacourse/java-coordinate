@@ -1,7 +1,5 @@
 package coordinate.model;
 
-import coordinate.view.InputView;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,15 +24,6 @@ public interface IShape {
                         put(SQUARE_NUMBER_OF_POINTS, Square::new);
                 }
         };
-
-        static IShape createShape(List<Point> points) {
-                try {
-                        return IShape.MAPPING_SHAPE.get(points.size()).apply(points);
-                } catch (IllegalArgumentException e) {
-                        System.err.println(e.getMessage());
-                        return createShape(points);
-                }
-        }
 
         double getScore();
 
