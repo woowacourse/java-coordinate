@@ -3,18 +3,15 @@ package location.domain;
 public class Triangle extends Shape {
     private static final String SAME_LINE_MSG = "모든 선이 같은 선상에 있습니다.";
     private static final int SQUARE = 2;
-    private final Point point1;
-    private final Point point2;
-    private final Point point3;
+    private final Points points;
 
     public Triangle(Points points) {
-        isValid(points);
-        this.point1 = points.get(0);
-        this.point2 = points.get(1);
-        this.point3 = points.get(2);
+        super(points);
+        checkValid(points);
+        this.points = points;
     }
 
-    private void isValid(Points points) {
+    private void checkValid(Points points) {
         isSameLine(points);
     }
 
@@ -45,8 +42,8 @@ public class Triangle extends Shape {
 
     @Override
     public Double calculate() {
-        double frontTerm = 4 * Math.pow(calculateLine(point1, point2), SQUARE) * Math.pow(calculateLine(point2, point3), SQUARE);
-        double rearTerm = (Math.pow(calculateLine(point1, point2), SQUARE) + Math.pow(calculateLine(point2, point3), SQUARE) - Math.pow(calculateLine(point3, point1), 2));
+        double frontTerm = 4 * Math.pow(calculateLine(points.get(0), points.get(1)), SQUARE) * Math.pow(calculateLine(points.get(1), points.get(2)), SQUARE);
+        double rearTerm = (Math.pow(calculateLine(points.get(0), points.get(1)), SQUARE) + Math.pow(calculateLine(points.get(1), points.get(2)), SQUARE) - Math.pow(calculateLine(points.get(2), points.get(0)), 2));
         return Math.sqrt(frontTerm - Math.pow(rearTerm, SQUARE)) / 4;
     }
 }

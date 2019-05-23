@@ -20,4 +20,5 @@ public class TriangleTest {
         Points points = new Points(Arrays.asList(new Point(3, 5), new Point(4, 5), new Point(5, 5)));
         assertThrows(IllegalArgumentException.class, () -> new Triangle(points));
     }
+
 }
