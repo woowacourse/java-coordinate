@@ -1,9 +1,6 @@
 package calculator.view;
 
-import calculator.domain.Line;
-import calculator.domain.Map;
-import calculator.domain.Point;
-import calculator.domain.Points;
+import calculator.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +33,7 @@ public class UserOutputView {
         System.out.println(resultMap);
     }
 
-
-    private static String drawLine(Line line, int yCoordinate) {
+    private static String drawLine(MapLine line, int yCoordinate) {
         StringBuilder resultLine = new StringBuilder();
 
         for (int xCoordinate = 0; xCoordinate < line.size(); xCoordinate++) {
@@ -70,4 +66,16 @@ public class UserOutputView {
 
         return bottomLine.toString();
     }
+
+    public static void outputCalculatedResult(Figure figure) {
+        StringBuilder calculatedResult = new StringBuilder();
+        calculatedResult.append(figure.getName());
+        calculatedResult.append(" ");
+        calculatedResult.append(figure.getCalculateTarget());
+        calculatedResult.append("은(는) ");
+        calculatedResult.append(figure.calculate());
+
+        System.out.println(calculatedResult.toString());
+    }
+
 }

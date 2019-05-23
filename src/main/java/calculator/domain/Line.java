@@ -1,46 +1,22 @@
 package calculator.domain;
 
-import java.util.*;
-
 /**
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class Line implements Iterable<Boolean> {
+public class Line extends Figure {
+    private final Coordinates points;
 
-    private List<Boolean> line;
-
-    public Line() {
-        this.line = new ArrayList<>(Collections.nCopies(25, false));
-    }
-
-    public boolean get(int index) {
-        return line.get(index);
-    }
-
-    public int size() {
-        return line.size();
-    }
-
-    public void drawX(int xCoordinate) {
-        line.set(xCoordinate, true);
+    public Line(Coordinates points) {
+        super("직선", "거리");
+        this.points = points;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Line line1 = (Line) o;
-        return Objects.equals(line, line1.line);
+    public double calculate() {
+        Coordinate a = points.get(0);
+        Coordinate b = points.get(1);
+        return Math.sqrt(Math.pow(a.getX()-b.getX(),2) + Math.pow(a.getY() - b.getY(),2));
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(line);
-    }
-
-    @Override
-    public Iterator<Boolean> iterator() {
-        return line.iterator();
-    }
 }

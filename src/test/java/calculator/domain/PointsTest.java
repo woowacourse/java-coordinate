@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * @version 1.0 2019-05-22
  */
 public class PointsTest {
-    Points points;
+    Coordinates points;
 
     @BeforeEach
     void setUp() {
-        points = new Points();
-        points.add(Point.create(10,20));
-        points.add(Point.create(10,10));
+        points = new Coordinates();
+        points.add(Coordinate.create(10,20));
+        points.add(Coordinate.create(10,10));
     }
 
     @Test
@@ -28,17 +28,17 @@ public class PointsTest {
     @Test
     void add_중복_체크() {
         assertThrows(IllegalArgumentException.class, () -> {
-            points.add(Point.create(10,10));
+            points.add(Coordinate.create(10,10));
         });
     }
 
     @Test
     void add_추가_갯수_확인() {
-        points.add(Point.create(3,17));
-        points.add(Point.create(9,21));
+        points.add(Coordinate.create(3,17));
+        points.add(Coordinate.create(9,21));
 
         assertThrows(IllegalArgumentException.class, () -> {
-            points.add(Point.create(1,1));
+            points.add(Coordinate.create(1,1));
         });
     }
 }

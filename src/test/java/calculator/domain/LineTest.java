@@ -12,16 +12,16 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  * @version 1.0 2019-05-22
  */
 public class LineTest {
-    Line line;
+    MapLine line;
 
     @BeforeEach
     void setUp() {
-        line = new Line();
+        line = new MapLine();
     }
 
     @Test
     void create_확인 () {
-        assertThat(line).isEqualTo(new Line());
+        assertThat(line).isEqualTo(new MapLine());
     }
 
     @Test

@@ -12,16 +12,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class PointTest {
 
-    Point point;
+    Coordinate point;
 
     @BeforeEach
     void setUp() {
-        point = Point.create(10,15);
+        point = Coordinate.create(10,15);
     }
 
     @Test
     void create_생성() {
-        assertThat(point).isEqualTo(Point.create(10,15));
+        assertThat(point).isEqualTo(Coordinate.create(10,15));
     }
 
     @Test
@@ -39,14 +39,14 @@ public class PointTest {
     @Test
     void create_x값_범위_초과_예외처리() {
         assertThrows(IllegalArgumentException.class, () ->{
-            Point.create(-1, 10);
+            Coordinate.create(-1, 10);
         });
     }
 
     @Test
     void create_y값_범위_초과_예외처리() {
         assertThrows(IllegalArgumentException.class, () ->{
-            Point.create(10, 25);
+            Coordinate.create(10, 25);
         });
     }
 }

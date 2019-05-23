@@ -1,7 +1,7 @@
 package calculator.view;
 
-import calculator.domain.Point;
-import calculator.domain.Points;
+import calculator.domain.Coordinate;
+import calculator.domain.Coordinates;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -20,7 +20,7 @@ public class UserInputView {
     private static final String EMPTY = "";
     public static final String COMMA = ",";
 
-    public Points generaValidatedPoints() {
+    public Coordinates generaValidatedPoints() {
         try {
             String inputText = UserInputView.inputByUser();
             UserInputView.checkFormat(inputText);
@@ -54,15 +54,15 @@ public class UserInputView {
         }
     }
 
-    private static Points generatePoints(String inputText) {
-        Points points = new Points();
+    private static Coordinates generatePoints(String inputText) {
+        Coordinates points = new Coordinates();
         Pattern pointPattern = Pattern.compile(POINT_PATTERN);
         Matcher pointMatcher = pointPattern.matcher(inputText);
 
         while(pointMatcher.find()) {
             int xCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[0]);
             int yCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[1]);
-            points.add(Point.create(xCoordinate, yCoordinate));
+            points.add(Coordinate.create(xCoordinate, yCoordinate));
         }
         return points;
     }

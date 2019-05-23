@@ -6,22 +6,22 @@ import java.util.*;
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class Map implements Iterable<Line> {
+public class Map implements Iterable<MapLine> {
 
-    List<Line> map;
+    List<MapLine> map;
 
     public Map() {
         this.map = new ArrayList<>();
         for (int i = 0; i < 25; i++) {
-            map.add(new Line());
+            map.add(new MapLine());
         }
     }
 
-    public void drawPoint(Point point) {
+    public void drawPoint(Coordinate point) {
         map.get(point.getY()).drawX(point.getX());
     }
 
-    public boolean isPointDrawn(Point point) {
+    public boolean isPointDrawn(Coordinate point) {
         return map.get(point.getY()).get(point.getX());
     }
 
@@ -44,11 +44,11 @@ public class Map implements Iterable<Line> {
 
 
     @Override
-    public Iterator<Line> iterator() {
+    public Iterator<MapLine> iterator() {
         return map.iterator();
     }
 
-    public Line getLine(int index) {
+    public MapLine getLine(int index) {
         return map.get(index);
     }
 }

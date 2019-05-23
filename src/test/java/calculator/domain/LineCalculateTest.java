@@ -5,23 +5,22 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author heebg
  * @version 1.0 2019-05-22
  */
-class LineTestCalculateTest {
+class LineCalculateTest {
 
-    ShapeCalculate shape;
-    Points points;
+    Calculate shape;
+    Coordinates points;
 
     @BeforeEach
     void setUp() {
-        points = new Points();
-        points.add(Point.create(8,21));
-        points.add(Point.create(16,3));
-        shape = ShapeCalculateFactory.getInstance().create(points);
+        points = new Coordinates();
+        points.add(Coordinate.create(8,21));
+        points.add(Coordinate.create(16,3));
+        shape = FigureFactory.getInstance().create(points);
     }
 
     @Test
