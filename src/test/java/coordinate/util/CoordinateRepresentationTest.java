@@ -14,6 +14,13 @@ class CoordinateRepresentationTest {
     }
 
     @Test
+    void 중복좌표_입력() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            CoordinateRepresentation.convertCoordinatePair("(1,2)-(1,2)");
+        });
+    }
+
+    @Test
     void 좌표_두개_사이_별_입력() {
         assertThrows(IllegalArgumentException.class, () -> {
             CoordinateRepresentation.convertCoordinatePair("(1,2)*(2,2)");

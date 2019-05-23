@@ -14,10 +14,17 @@ public class CoordinateRepresentation {
     private static final Pattern orderedPairPattern = Pattern.compile("\\((.*),(.*)\\)");
 
     public static PointGroup convertCoordinatePair(String orderedPairs) {
-        List<Point> coordinates = new ArrayList<>();
+        List<Point> points = new ArrayList<>();
         Arrays.asList(orderedPairs.split(ORDERED_PAIRS_SEPERATOR))
-                .forEach(x -> coordinates.add(convertCoordinate(x)));
-        return new PointGroup(coordinates);
+                .forEach(x -> addNonOverlapPoint(points, convertCoordinate(x)));
+        return new PointGroup(points);
+    }
+
+    private static void addNonOverlapPoint(List<Point> points, Point point) {
+        if (points.contains(point)) {
+            throw new IllegalArgumentException("중복된 점은 불가능합니다");
+        }
+        points.add(point);
     }
 
     private static Point convertCoordinate(String orderedPair) {

@@ -1,48 +1,49 @@
 package coordinate.domain;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Rectangle {
-    private static final int LINE_COUNT = 4;
-    List<Line> lines;
+    private static final int POINT_COUNT = 4;
 
-    public Rectangle(List<Line> lines) {
-        validateLines(lines);
-        this.lines = Collections.unmodifiableList(lines);
+    private final PointGroup points;
+
+    public Rectangle(PointGroup points) {
+        validatePoints(points);
+        this.points = points;
     }
 
-    private void validateLines(List<Line> lines) {
-        validateLineCount(lines);
-        validateLinesLength(lines);
-        validateLinesConnection(lines);
-        validateOrthogonal(lines);
-    }
-
-    private void validateLineCount(List<Line> lines) {
-        if (lines.size() != LINE_COUNT) {
-            throw new IllegalArgumentException("사각형은 4개의 선으로 이루어집니다.");
+    private void validatePoints(PointGroup points) {
+        if (points.size() != POINT_COUNT) {
+            throw new IllegalArgumentException("직사각형은 4개의 점으로 이루어져야합니다.");
+        }
+        if (!checkRectangle(points.getDistances())) {
+            throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
     }
 
-    private void validateLinesConnection(List<Line> lines) {
-
+    private boolean checkRectangle(List<Double> distances) {
+        System.out.println(distances);
+        if (distances.size() == 2
+                && checkPythagorean(distances.get(1), distances.get(0), distances.get(0))) {
+            return true;
+        }
+        if (distances.size() == 3
+                && checkPythagorean(distances.get(2), distances.get(1), distances.get(0))) {
+            return true;
+        }
+        return false;
     }
 
-    private void validateOrthogonal(List<Line> lines) {
-        if(!lines.get(0).orthogonalTo(lines.get(1))){
-            throw new IllegalStateException("직사각형이 아닙니다");
-        }
-    }
-
-    private void validateLinesLength(List<Line> lines) {
-        if (lines.get(0).length() != lines.get(2).length()
-            || lines.get(1).length() != lines.get(3).length()){
-            throw new IllegalStateException("직사각형이 아닙니다");
-        }
+    private boolean checkPythagorean(double hypotenuseSquare, double side1, double side2) {
+        return Double.compare(hypotenuseSquare, side1 + side2) == 0;
     }
 
     public double area() {
-        return lines.get(0).length() * lines.get(1).length();
+        List<Double> lengths = points.getDistances();
+        if (lengths.size() == 2) {
+            return lengths.get(0);
+        }
+        return Math.sqrt(lengths.get(0) * lengths.get(1));
     }
+
 }

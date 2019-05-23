@@ -27,7 +27,7 @@ public class Line {
         Iterator iterator = points.iterator();
         Point point1 = (Point) iterator.next();
         Point point2 = (Point) iterator.next();
-        return point1.getDistanceWith(point2);
+        return point1.getSquareDistanceWith(point2);
     }
 
     public boolean orthogonalTo(Line line) {

@@ -19,14 +19,9 @@ public class Point {
         return new Point(new XCoordinate(xCoordinate), new YCoordinate(yCoordinate));
     }
 
-    public double getDistanceWith(Point coor2) {
-        return Math.sqrt(Math.pow(this.xCoordinate.getDiffWith(coor2.xCoordinate), 2)
-                + Math.pow(this.yCoordinate.getDiffWith(coor2.yCoordinate), 2));
-    }
-
-    public boolean func(int yValue) {
-        if (getYValue() == yValue) return true;
-        return false;
+    public double getSquareDistanceWith(Point point) {
+        return Math.sqrt(Math.pow(this.xCoordinate.getDiffWith(point.xCoordinate), 2)
+                + Math.pow(this.yCoordinate.getDiffWith(point.yCoordinate), 2));
     }
 
     public int getXValue() {
@@ -35,11 +30,6 @@ public class Point {
 
     public int getYValue() {
         return yCoordinate.getValue();
-    }
-
-    public boolean func2(int j, int i) {
-        if (getYValue() == j && getXValue() == i) return true;
-        return false;
     }
 
     @Override
