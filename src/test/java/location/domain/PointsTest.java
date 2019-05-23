@@ -9,7 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class PointsTest {
 
     @Test
-    void 동일한_점_일때() {
-        assertThrows(IllegalArgumentException.class, () -> new Points(Arrays.asList(new Point(10, 10), new Point(10, 10))));
+    void 빈_포인트() {
+        assertThrows(IllegalArgumentException.class, () -> new Points(Arrays.asList()));
     }
+
+    @Test
+    void NULL_포인트() {
+        assertThrows(IllegalArgumentException.class, () -> new Points(null));
+    }
+
 }

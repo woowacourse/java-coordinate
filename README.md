@@ -1,4 +1,4 @@
-# java-renter-car
+﻿# java-renter-car
 ###기능구현
 - 차량은 소나타 2대, 아반떼 1대, k5 2대
 ```
@@ -44,7 +44,12 @@
 - [X] Line 생성
 - [X] Triangle 추가
 - [X] Rectangle 추가
-- [ ] 상속 (도형) 추가
+- [X] 상속 (Shape) 추가
+- [ ] 상속 (Figure) 추가 
 - [ ] 인터페이스 (계산) 추가
+- [X] 인스턴스 변수들을 Points로 바꾸기 
+- [ ] Input 정규표현식으로 바꾸기
+- [ ] 삼각형, 사각형 기울기로 체크
+- [ ] OutPutView 만들기
 =======
 
