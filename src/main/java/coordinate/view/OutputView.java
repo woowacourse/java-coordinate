@@ -43,18 +43,18 @@ public class OutputView {
         System.out.println(sb.toString());
     }
 
-    private static void drawYAxis(StringBuilder sb, int i) {
-        if (i % 2 == 0) {
-            sb.append(String.format("%2d", i)).append(VERTICAL_BAR);
+    private static void drawYAxis(StringBuilder sb, int index) {
+        if (index % 2 == 0) {
+            sb.append(String.format("%2d", index)).append(VERTICAL_BAR);
             return;
         }
         sb.append(TWO_SPACE).append(VERTICAL_BAR);
     }
 
-    private static void drawHorizonLine(List<Point> points, StringBuilder sb, int i) {
-        int x = 0;
+    private static void drawHorizonLine(List<Point> points, StringBuilder sb, int index) {
+        int previousX = 0;
         for (Point point : points) {
-            x = drawDot(sb, i, x, point);
+            previousX = drawDot(sb, index, previousX, point);
         }
     }
 
@@ -68,17 +68,17 @@ public class OutputView {
         }
     }
 
-    private static int drawDot(StringBuilder sb, int i, int x, Point point) {
+    private static int drawDot(StringBuilder sb, int i, int previousX, Point point) {
         if (point.getY().getNumber() == i) {
-            drawHorizonLineSpace(sb, x, point);
+            drawHorizonLineSpace(sb, previousX, point);
             sb.append(DOT);
-            x = point.getX().getNumber() + 1;
+            previousX = point.getX().getNumber() + 1;
         }
-        return x;
+        return previousX;
     }
 
-    private static void drawHorizonLineSpace(StringBuilder sb, int x, Point point) {
-        for (int j = x; j < point.getX().getNumber(); j++) {
+    private static void drawHorizonLineSpace(StringBuilder sb, int previousX, Point point) {
+        for (int j = previousX; j < point.getX().getNumber(); j++) {
             sb.append(TWO_SPACE);
         }
     }
