@@ -1,17 +1,20 @@
 package coordinate;
 
 import coordinate.domain.Figure;
-import coordinate.domain.FigureFactory;
-import coordinate.domain.Points;
+import coordinate.domain.Point;
+import coordinate.domain.Shape;
+import coordinate.domain.ShapeFactory;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
+import java.util.List;
+
 public class CoordinateApp {
     public static void main(String[] args) {
-        Points points = new Points(InputView.intputCoordinate());
-        FigureFactory figureFactory= new FigureFactory();
-        Figure figure = figureFactory.create(points);
+        List<Point> points = InputView.intputCoordinate();
+        ShapeFactory shapeFactory = new ShapeFactory();
+        Shape shape = shapeFactory.create(points);
         OutputView.printCoordinate(points);
-        OutputView.printArea(figure);
+        OutputView.printArea(shape);
     }
 }

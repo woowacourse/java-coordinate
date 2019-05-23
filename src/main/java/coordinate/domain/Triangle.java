@@ -1,39 +1,24 @@
 package coordinate.domain;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Triangle implements Figure {
-    private final double area;
-
-    public Triangle(final Points points) {
-        List<Double> sides = getSides(points);
-        validate(sides);
-        this.area = calculateArea(sides);
+public class Triangle extends Shape implements Figure {
+    public Triangle(final List<Point> points) {
+        super(points);
+        validate();
     }
 
-    private List<Double> getSides(final Points figure) {
-        List<Point> points = figure.getPoints();
-        List<Double> sides = new ArrayList<>();
-        for (int i = 0; i < points.size(); i++) {
-            double side = points.get(i).getDistance(points.get((i + 1) % 3));
-            sides.add(side);
-        }
-        return sides;
-    }
-
-    private void validate(final List<Double> sides) {
-        if (sides.size() != 3) {
-            throw new IllegalArgumentException("삼각형이 아닙니다.");
-        }
+    private void validate() {
+        List<Double> sides = getSides();
         Collections.sort(sides);
         if (sides.get(1) + sides.get(0) <= sides.get(2)) {
             throw new IllegalArgumentException("삼각형이 아닙니다.");
         }
     }
 
-    private double calculateArea(final List<Double> sides) {
+    private double calculateArea() {
+        List<Double> sides = getSides();
         double halfSum = getHalfSum(sides);
         double result = halfSum;
         for (Double aDouble : sides) {
@@ -52,11 +37,11 @@ public class Triangle implements Figure {
 
     @Override
     public double getArea() {
-        return area;
+        return calculateArea();
     }
 
     @Override
     public String toString() {
-        return "삼각형의 넓이는 " + area;
+        return "삼각형의 넓이는 " + getArea();
     }
 }

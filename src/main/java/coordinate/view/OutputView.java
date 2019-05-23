@@ -2,7 +2,9 @@ package coordinate.view;
 
 import coordinate.domain.Figure;
 import coordinate.domain.Point;
-import coordinate.domain.Points;
+import coordinate.domain.Shape;
+
+import java.util.List;
 
 //(10,10)-(22,10)-(22,18)-(10,18)
 public class OutputView {
@@ -17,7 +19,7 @@ public class OutputView {
     private static final String X_AXIS_LINE = "---";
 
 
-    public static void printCoordinate(Points points) {
+    public static void printCoordinate(List<Point> points) {
         boolean[][] coordinates = new boolean[MAX_Y][MAX_X];
         initCoordinates(coordinates);
         drawPoints(points, coordinates);
@@ -33,8 +35,8 @@ public class OutputView {
         }
     }
 
-    private static void drawPoints(Points points, boolean[][] coordinates) {
-        for (Point point : points.getPoints()) {
+    private static void drawPoints(List<Point> points, boolean[][] coordinates) {
+        for (Point point : points) {
             coordinates[point.getY()][point.getX()] = true;
         }
     }
@@ -74,7 +76,7 @@ public class OutputView {
         System.out.println(sb.toString());
     }
 
-    public static void printArea(Figure figure) {
-        System.out.println(figure);
+    public static void printArea(Shape shape) {
+        System.out.println(shape);
     }
 }
