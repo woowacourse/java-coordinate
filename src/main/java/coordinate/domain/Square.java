@@ -8,15 +8,7 @@ public final class Square extends Figure {
 
     public Square(final Points points) {
         super(points, new LinesSquareGenerator(points));
-    }
-
-    protected void validate() {
-        validateSize();
         validateRectangle();
-    }
-
-    private void validateSize() {
-        super.validateSize(NUMBER_OF_POINTS);
     }
 
     private void validateRectangle() {
@@ -30,6 +22,11 @@ public final class Square extends Figure {
 
     private double getDiagonal(final Points points, final int i, final int i2) {
         return Math.hypot(points.get(i).length(points.get(i2)), points.get(i).length(points.get(i2)));
+    }
+
+    @Override
+    protected int size() {
+        return NUMBER_OF_POINTS;
     }
 
     @Override

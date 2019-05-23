@@ -9,16 +9,16 @@ public abstract class Figure implements AreaCalculator {
     protected Figure(final Points points, final LinesGenerator linesGenerator) {
         this.points = points;
         this.lines = linesGenerator.generate();
-        validate();
+        validateSize();
     }
 
-    protected abstract void validate();
-
-    protected void validateSize(int size) {
-        if (size != points.size()) {
+    protected void validateSize() {
+        if (size() != points.size()) {
             throw new IllegalArgumentException();
         }
     }
+
+    protected abstract int size();
 
     @Override
     public double area() {

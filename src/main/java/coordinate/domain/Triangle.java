@@ -10,15 +10,6 @@ public final class Triangle extends Figure {
     }
 
     @Override
-    protected void validate() {
-        validateSize();
-    }
-
-    private void validateSize() {
-        super.validateSize(NUMBER_OF_POINTS);
-    }
-
-    @Override
     public double area() {
         Lines lines = super.getLines();
         return Math.sqrt(calculateX(lines, calculateS(lines)));
@@ -33,6 +24,11 @@ public final class Triangle extends Figure {
                 .stream()
                 .mapToDouble(length -> s - length)
                 .reduce(1, (a, b) -> a * b);
+    }
+
+    @Override
+    protected int size() {
+        return NUMBER_OF_POINTS;
     }
 
     @Override
