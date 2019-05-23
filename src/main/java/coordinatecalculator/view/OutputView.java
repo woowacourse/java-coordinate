@@ -28,12 +28,11 @@ public class OutputView {
     private static void printYAxis(List<Coordinate> coordinates) {
         for (int i = 24; i > 0; i--) {
             StringBuilder axis = new StringBuilder();
-            axis.append(printNumber(i))
-                    .append(PILLAR);
-
-            makeBlank(axis);
-
+            axis.append(makeNumber(i))
+                    .append(PILLAR)
+                    .append(makeBlank());
             printCoordinate(coordinates, i, axis);
+
             System.out.println(axis.toString());
         }
     }
@@ -50,13 +49,14 @@ public class OutputView {
 
     private static String makeXAxis() {
         StringBuilder XAxis = new StringBuilder();
+
         for (int i = 0; i <= 24; i++) {
-            XAxis.append(printNumber(i));
+            XAxis.append(makeNumber(i));
         }
         return XAxis.toString();
     }
 
-    private static String printNumber(int axis) {
+    private static String makeNumber(int axis) {
         return (axis % 2 == 0) ? String.format("%2d", axis) : BLANK;
     }
 
@@ -68,10 +68,13 @@ public class OutputView {
                         stringBuilder.replace(coordinate.getX() * 2 + 1, coordinate.getX() * 2 + 1, POINT));
     }
 
-    private static void makeBlank(StringBuilder stringBuilder) {
+    private static String makeBlank() {
+        StringBuilder stringBuilder = new StringBuilder();
+
         for (int a = 0; a < 24; a++) {
             stringBuilder.append(BLANK);
         }
+        return stringBuilder.toString();
     }
 
 }
