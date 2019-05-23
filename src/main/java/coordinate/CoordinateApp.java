@@ -9,7 +9,8 @@ import coordinate.view.OutputView;
 public class CoordinateApp {
     public static void main(String[] args) {
         Points points = new Points(InputView.intputCoordinate());
-        Figure figure = FigureFactory.create(points);
+        FigureFactory figureFactory= new FigureFactory();
+        Figure figure = figureFactory.create(points);
         OutputView.printCoordinate(points);
         OutputView.printArea(figure);
     }
