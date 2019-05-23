@@ -1,4 +1,4 @@
-package coordinate;
+package coordinate.model;
 
 import java.util.*;
 
@@ -7,6 +7,7 @@ public class Rectangle {
     public Rectangle(List<Point> points) {
         validateRectangle(points);
         this.points = points;
+
     }
 
     private void validateRectangle(List<Point> points) {
@@ -38,11 +39,9 @@ public class Rectangle {
 
     public double findArea(){
         List<Double> distances = new ArrayList<>();
-        for (int i = 1; i < points.size(); i++) {
-            distances.add(points.get(0).calculate(points.get(i)));
-        }
-        Collections.sort(distances);
-        return distances.get(0) * distances.get(1);
+        double firstLine = points.get(0).calculate(points.get(1));
+        double secondLine = points.get(0).calculate(points.get(2));
+        return firstLine * secondLine;
     }
 
     @Override

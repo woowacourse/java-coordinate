@@ -1,5 +1,9 @@
-package coordinate;
+package coordinate.model;
 
+import coordinate.model.Line;
+import coordinate.model.Point;
+import coordinate.model.PointsGenerator;
+import coordinate.model.Value;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

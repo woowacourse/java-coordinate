@@ -1,6 +1,5 @@
-package coordinate;
+package coordinate.model;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Value {
@@ -12,6 +11,10 @@ public class Value {
             throw new IllegalArgumentException();
         }
         this.value = value;
+    }
+
+    public int getValue() {
+        return (int) value;
     }
 
     @Override

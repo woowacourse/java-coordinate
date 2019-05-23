@@ -1,5 +1,6 @@
-package coordinate;
+package coordinate.model;
 
+import coordinate.model.ValueGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
