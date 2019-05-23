@@ -28,10 +28,10 @@ public class Point {
         return Math.sqrt(Math.pow((x - point.x), 2) + Math.pow((y - point.y), 2));
     }
 
-    public int distanceSqure(Point point){
+    public int distanceSqure(Point point) {
         int absX = x - point.x;
         int absY = y - point.y;
-        return absX*absX + absY*absY;
+        return absX * absX + absY * absY;
     }
 
     public int getX() {
