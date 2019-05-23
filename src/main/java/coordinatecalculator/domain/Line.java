@@ -29,4 +29,9 @@ public class Line implements Figure {
         StringBuilder sb = new StringBuilder(LINE_RESULT_MESSAGE);
         return sb.append(calculateResult()).toString();
     }
+
+    @Override
+    public Points getPoints() {
+        return this.points;
+    }
 }

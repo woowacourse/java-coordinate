@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Rectangle implements Figure {
     private static final String INVALID_CHECK_MESSAGE = "직사각형이 아닙니다. 다시 입력해 주세요";
-    public static final String TRIANGLE_RESULT_MESSAGE = "삼각형 넓이는 ";
+    public static final String TRIANGLE_RESULT_MESSAGE = "사각형 넓이는 ";
 
     private final Points points;
 
@@ -34,6 +34,11 @@ public class Rectangle implements Figure {
     public String makeResult() {
         StringBuilder sb = new StringBuilder(TRIANGLE_RESULT_MESSAGE);
         return sb.append(calculateResult()).toString();
+    }
+
+    @Override
+    public Points getPoints() {
+        return this.points;
     }
 
     @Override

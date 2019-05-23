@@ -52,6 +52,11 @@ public class Triangle implements Figure {
         return sb.append(calculateResult()).toString();
     }
 
+    @Override
+    public Points getPoints() {
+        return this.points;
+    }
+
     private double calculateLength(Point p1, Point p2) {
         int x = Math.abs(p2.getX() - p1.getX());
         int y = Math.abs(p2.getY() - p1.getY());
