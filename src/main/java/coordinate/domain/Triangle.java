@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Triangle extends Figure implements Calculable {
+public class Triangle extends Figure {
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
     private static final int THIRD_POINT = 2;
