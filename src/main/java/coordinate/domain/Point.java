@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Point implements Comparable<Point> {
     private static final int MAX_COORDINATE_VALUE = 24;
     private static final int MIN_COORDINATE_VALUE = 0;
+    private static final int SQUARE = 2;
 
     private final int x;
     private final int y;
@@ -23,7 +24,7 @@ public class Point implements Comparable<Point> {
     }
 
     public double calculateDistance(Point point) {
-        return Math.sqrt(Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2));
+        return Math.sqrt(Math.pow(this.x - point.x, SQUARE) + Math.pow(this.y - point.y, SQUARE));
     }
 
     public int getX() {

@@ -3,6 +3,8 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Line extends Figure{
+    private static final int FIRST_POINT = 0;
+    private static final int SECOND_POINT = 1;
 
     public Line(Points points) {
         super("두 점 사이의 거리는 : ", points);
@@ -10,7 +12,7 @@ public class Line extends Figure{
 
     @Override
     public double calculateResult() {
-        return points.getPoints(0).calculateDistance(points.getPoints(1));
+        return points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(SECOND_POINT));
     }
 
     @Override
