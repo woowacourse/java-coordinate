@@ -12,6 +12,11 @@ public class Line extends Figure {
     }
 
     @Override
+    public double calculateArea() {
+        return points.get(0).calculateDistance(points.get(1));
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -26,10 +31,5 @@ public class Line extends Figure {
     @Override
     public int hashCode() {
         return Objects.hash(points);
-    }
-
-    @Override
-    public double calculateArea() {
-        return points.get(0).calculateDistance(points.get(1));
     }
 }

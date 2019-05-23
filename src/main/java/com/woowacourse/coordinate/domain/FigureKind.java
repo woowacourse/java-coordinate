@@ -2,8 +2,8 @@ package com.woowacourse.coordinate.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public enum FigureKind {
     LINE(Line.NUM_OF_POINTS, Line::new),
@@ -24,13 +24,11 @@ public enum FigureKind {
 
 
     public static FigureKind valueOf(int numOfPoints) {
-        List<FigureKind> filtered = Arrays.stream(values())
+        Optional<FigureKind> found = Arrays.stream(values())
             .filter(k -> k.numOfPoints == numOfPoints)
-            .collect(Collectors.toList());
+            .findFirst();
 
-        if (filtered.isEmpty()) {
-            throw new IllegalArgumentException("일치하는 Figure 종류가 없습니다.");
-        }
-        return filtered.get(0);
+        found.orElseThrow(() -> new IllegalArgumentException("일치하는 Figure 종류가 없습니다."));
+        return found.get();
     }
 }

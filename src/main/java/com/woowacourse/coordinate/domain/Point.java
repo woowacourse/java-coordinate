@@ -7,55 +7,57 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Point {
+    private static final String PATTERN = "[,()]";
+
     private static final int MIN = 0;
     private static final int MAX = 24;
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
-    public Point(int x, int y) {
+    public Point(final int x, final int y) {
         checkRange(x, y);
         this.x = x;
         this.y = y;
     }
 
-    public Point(String str) {
-        str = str.trim();
-        if (!isSurroundedWithParenthesis(str)) {
+    public Point(final String str) {
+        String trimmed = str.trim();
+        if (!isSurroundedWithParenthesis(trimmed)) {
             throw new IllegalArgumentException("유효하지 않은 좌표 입력입니다.");
         }
 
-        String[] segments = str.split("[,()]");
+        String[] segments = trimmed.split(PATTERN);
         x = Integer.valueOf(segments[1].trim());
         y = Integer.valueOf(segments[2].trim());
         checkRange(x, y);
     }
 
-    private void checkRange(int x, int y) {
+    private void checkRange(final int x, final int y) {
         if (x <= MIN || x > MAX || y <= MIN || y > MAX) {
             throw new IllegalArgumentException(String.format("범위를 벗어난 좌표입니다 { x: %d, y: %d }", x, y));
         }
     }
 
-    public static List<Point> createWithPair(String s) {
+    public static List<Point> createWithPair(final String s) {
         return Arrays.stream(s.split("-"))
             .map(Point::new)
             .collect(Collectors.toList());
     }
 
-    private boolean isSurroundedWithParenthesis(String s) {
+    private boolean isSurroundedWithParenthesis(final String s) {
         return s.startsWith("(") && s.endsWith(")");
     }
 
-    public boolean matchX(int x) {
+    public boolean matchX(final int x) {
         return this.x == x;
     }
 
-    public boolean matchY(int y) {
+    public boolean matchY(final int y) {
         return this.y == y;
     }
 
-    public double calculateDistance(Point point) {
+    public double calculateDistance(final Point point) {
         double dx = Math.abs(point.x - x);
         double dy = Math.abs(point.y - y);
         return Math.sqrt(dx * dx + dy * dy);
@@ -65,9 +67,9 @@ public class Point {
      * 두 점 사이의 기울기를 구하여 반환한다.
      *
      * @param p
-     * @return
+     * @return 기울기가 무한대인 경우(y축에 평행한 경우) null을 갖는 Optional 객체.
      */
-    public Optional<Double> calculateSlope(Point p) {
+    public Optional<Double> calculateSlope(final Point p) {
         if (p.x == this.x) {
             return Optional.ofNullable(null);
         }
@@ -75,7 +77,7 @@ public class Point {
     }
 
     /**
-     * this를 중심으로 하는 p1-this-p2 사이의 각도를 반환한다.
+     * this를 중심으로 하는 각 ∠p1-this-p2 의 각도를 반환한다.
      *
      * @param p1
      * @param p2
