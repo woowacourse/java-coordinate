@@ -13,7 +13,7 @@ public class FigureGenerator {
             return new Line(points);
         }
 
-        if  (points.size() == NUMBER_OF_POINTS_FOR_TRIANGLE) {
+        if (points.size() == NUMBER_OF_POINTS_FOR_TRIANGLE) {
             return new Triangle(points);
         }
 
