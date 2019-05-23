@@ -2,20 +2,16 @@ package coordinate.domain;
 
 import java.util.List;
 
-public class StraightLine implements Figure {
+public class StraightLine extends Figure {
     private static final int START_INDEX = 0;
     private static final int END_INDEX = 1;
     private static final int NUM_OF_POINT = 2;
     private static final int SQUARE = 2;
 
-    private final Point startPoint;
-    private final Point endPoint;
-
     public StraightLine(List<Point> points) {
+        super(points);
         validateSizeOf(points);
-        validateEqualityOf(points.get(START_INDEX), points.get(END_INDEX));
-        this.startPoint = points.get(START_INDEX);
-        this.endPoint = points.get(END_INDEX);
+        this.points = points;
     }
 
     private void validateSizeOf(List<Point> points) {
@@ -24,18 +20,16 @@ public class StraightLine implements Figure {
         }
     }
 
-    private void validateEqualityOf(Point startPoint, Point endPoint) {
-        if (startPoint.equals(endPoint)) {
-            throw new IllegalArgumentException("서로 다른 두 점을 입력해야 합니다.");
-        }
-    }
-
     public double calculateLength() {
+        Point startPoint = points.get(START_INDEX);
+        Point endPoint = points.get(END_INDEX);
         return Math.sqrt(Math.pow(startPoint.getDeltaXTo(endPoint), SQUARE)
                 + Math.pow(startPoint.getDeltaYTo(endPoint), SQUARE));
     }
 
     public double calculateSlope() {
+        Point startPoint = points.get(START_INDEX);
+        Point endPoint = points.get(END_INDEX);
         if (startPoint.getDeltaXTo(endPoint) == 0) {
             return Double.POSITIVE_INFINITY;
         }

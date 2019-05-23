@@ -1,20 +1,26 @@
 package coordinate.domain;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Rectangle extends Figure {
+public class Rectangle extends Figure implements Polygon {
+    private static final int BASE = 0;
     private static final int PAIR = 2;
     private static final int NUM_OF_POINT = 4;
 
     private List<Point> points;
 
     public Rectangle(List<Point> points) {
-        validateDuplicate(points);
-        validateSizeOf(points, NUM_OF_POINT);
+        super(points);
+        validateSizeOf(points);
         validateRectangle(points);
         this.points = points;
+    }
+
+    void validateSizeOf(List<Point> points) {
+        if (points.size() != NUM_OF_POINT) {
+            throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
+        }
     }
 
     private void validateRectangle(List<Point> points) {

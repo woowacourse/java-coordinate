@@ -2,17 +2,22 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Triangle extends Figure {
+public class Triangle extends Figure implements Polygon{
+    private static final int BASE = 0;
     private static final int NUM_OF_POINT = 3;
     private static final int UNIQUE_SIZE = 1;
 
-    private List<Point> points;
-
     public Triangle(List<Point> points) {
-        validateDuplicate(points);
-        validateSizeOf(points, NUM_OF_POINT);
+        super(points);
+        validateSizeOf(points);
         validateTriangle(points);
         this.points = points;
+    }
+
+    void validateSizeOf(List<Point> points) {
+        if (points.size() != NUM_OF_POINT) {
+            throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
+        }
     }
 
     private void validateTriangle(List<Point> points) {
