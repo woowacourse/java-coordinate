@@ -1,5 +1,5 @@
 package coordinate.domain;
 
-public abstract class Figure {
-    abstract public double getArea();
+public interface Figure {
+    double getArea();
 }

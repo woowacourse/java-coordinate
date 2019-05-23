@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Triangle extends Figure {
+public class Triangle implements Figure {
     private final double area;
 
     public Triangle(final Points points) {
