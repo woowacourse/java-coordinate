@@ -1,23 +1,22 @@
 package coordinate;
 
-import coordinate.domain.Line;
+import coordinate.domain.Shape;
 import coordinate.domain.ShapeGenerator;
 import coordinate.view.InputView;
-import coordinate.view.OutputView;
 
 public class CoordinateCalculator {
 
     public static void main(String[] args) {
-        Line line = generateLine();
-        OutputView.printDistance(line.getLength());
+        Shape shape = generateShape();
+        System.out.println(shape.area());
     }
 
-    private static Line generateLine() {
+    private static Shape generateShape() {
         try {
-            return new ShapeGenerator(InputView.inputCoordinate()).generateLine();
+            return ShapeGenerator.generateShape(InputView.inputCoordinate());
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return generateLine();
+            return generateShape();
         }
     }
 }
