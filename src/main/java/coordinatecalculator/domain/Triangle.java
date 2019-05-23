@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public class Triangle implements Figure {
     private static final String INAVALID_TRIANGLE_MESSAGE = "세 점이 일직선 상에 위치할 수는 없습니다. 다시 입력해주세요.";
+    public static final String RECTANGLE_RESULT_MESSAGE = "사각형 넓이는 ";
 
     private final Points points;
 
@@ -43,6 +44,12 @@ public class Triangle implements Figure {
         double side3 = calculateLength(points.get(2), points.get(0));
         double s = (side1 + side2 + side3) / 2;
         return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    public String makeResult() {
+        StringBuilder sb = new StringBuilder(RECTANGLE_RESULT_MESSAGE);
+        return sb.append(calculateResult()).toString();
     }
 
     private double calculateLength(Point p1, Point p2) {

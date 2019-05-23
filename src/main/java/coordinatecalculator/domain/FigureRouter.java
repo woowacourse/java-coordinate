@@ -8,7 +8,7 @@ public class FigureRouter {
     private static final int TRIANGLE_COUNT = 3;
     private static final int RECTANGLE_COUNT = 4;
 
-    static Figure routing(Points points) {
+    public static Figure routing(Points points) {
         int countOfSize = points.size();
 
         if (countOfSize == LINE_COUNT) {
