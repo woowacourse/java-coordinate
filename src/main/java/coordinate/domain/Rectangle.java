@@ -7,7 +7,7 @@ public class Rectangle {
         if (points.size() != 4) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
-        if (isRectangle(points)) {
+        if (!isRectangle(points)) {
             throw new IllegalArgumentException("직사각형이 아닙니다");
         }
         this.points = points;
@@ -31,6 +31,8 @@ public class Rectangle {
     }
 
     public double calArea() {
-        return 0.0;
+        double width = new Line(points.get(0), points.get(1)).calLength();
+        double height = new Line(points.get(0), points.get(2)).calLength();
+        return width * height;
     }
 }

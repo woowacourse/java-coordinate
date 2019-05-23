@@ -23,8 +23,8 @@
 * Point 벡터 계산하기
 * Rectangle 유효성 테스트 추가하기
 * Rectangle 유효성 메소드 추가하기
-* Rectangle 넓이 구하는 테스트
-
+* Rectangle 넓이 구하는 테스트 추가하기
+* Rectangle 넓이 구하는 메소드 추가하기
 
 
 ## 우아한테크코스 코드리뷰
