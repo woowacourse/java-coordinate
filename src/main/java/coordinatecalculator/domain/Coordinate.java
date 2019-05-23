@@ -3,8 +3,8 @@ package coordinatecalculator.domain;
 import java.util.Objects;
 
 public class Coordinate implements Comparable<Coordinate> {
-    public static final int MAX_BOUND = 24;
-    public static final int MIN_BOUND = 1;
+    private static final int MAX_BOUND = 24;
+    private static final int MIN_BOUND = 1;
     private int x;
     private int y;
 

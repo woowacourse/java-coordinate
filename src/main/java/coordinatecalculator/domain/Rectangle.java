@@ -17,17 +17,17 @@ public class Rectangle implements Figure, Shape {
     }
 
     private void isValidRectangle(List<Coordinate> coordinates) {
-        int vertical = (int) Math.pow(coordinates.get(0).calculateDistance(coordinates.get(1)), 2);
-        int horizontal = (int) Math.pow(coordinates.get(0).calculateDistance(coordinates.get(2)), 2);
-        int diagonal = (int) Math.pow(coordinates.get(1).calculateDistance(coordinates.get(2)), 2);
+        double vertical = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(1)), 2));
+        double horizontal = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(2)), 2));
+        double diagonal = Math.round(Math.pow(coordinates.get(1).calculateDistance(coordinates.get(2)), 2));
         checkPythagoras(vertical, horizontal, diagonal);
 
-        vertical = (int) Math.pow(coordinates.get(2).calculateDistance(coordinates.get(3)), 2);
-        horizontal = (int) Math.pow(coordinates.get(1).calculateDistance(coordinates.get(3)), 2);
+        vertical = Math.round(Math.pow(coordinates.get(2).calculateDistance(coordinates.get(3)), 2));
+        horizontal = Math.round(Math.pow(coordinates.get(1).calculateDistance(coordinates.get(3)), 2));
         checkPythagoras(vertical, horizontal, diagonal);
     }
 
-    private void checkPythagoras(final int vertical, final int horizontal, final int diagonal) {
+    private void checkPythagoras(final double vertical, final double horizontal, final double diagonal) {
         if ((vertical + horizontal) != diagonal) {
             throw new IllegalArgumentException("직사각형이 아닙니다!!");
         }

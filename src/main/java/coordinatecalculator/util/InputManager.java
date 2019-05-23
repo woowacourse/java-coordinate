@@ -22,17 +22,24 @@ public class InputManager {
 
         for (String coordinate : inputCoordinates) {
             Matcher matcher = Pattern.compile("[(]([0-9]+),([0-9]+)[)]").matcher(coordinate);
-            checkValidPattern(matcher);
+            checkValidPattern(matcher, coordinate);
             coordinates.add(new Coordinate(Integer.valueOf(matcher.group(1)), Integer.valueOf(matcher.group(2))));
         }
         return coordinates;
     }
 
-    private static void checkValidPattern(Matcher matcher) {
+    private static void checkValidPattern(Matcher matcher, String coordinate) {
         //TODO 나중에 예외처리 더 추가
         if (!matcher.find()) {
             throw new IllegalArgumentException("올바르지 않는 입력입니다!!");
         }
+        if (coordinate.length() > 7) {
+            throw new IllegalArgumentException("(-)올바르게 넣어주세요!!");
+        }
+        if (!(coordinate.startsWith("(") && coordinate.endsWith(")"))) {
+            throw new IllegalArgumentException("괄호를 올바르게 쳐주세요!");
+        }
+
     }
 
 }

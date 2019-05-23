@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class TriangleTest {
     @Test
     void 삼각형이_아니라고_판단() {
-        List<Coordinate> coordinate = Arrays.asList(new Coordinate(0, 2),
-                new Coordinate(0, 6), new Coordinate(0, 24));
-        List<Coordinate> coordinate2 = Arrays.asList(new Coordinate(24, 0),
+        List<Coordinate> coordinate = Arrays.asList(new Coordinate(1, 2),
+                new Coordinate(1, 6), new Coordinate(1, 24));
+        List<Coordinate> coordinate2 = Arrays.asList(new Coordinate(24, 5),
                 new Coordinate(24, 10), new Coordinate(24, 23));
-        List<Coordinate> coordinate3 = Arrays.asList(new Coordinate(1, 0), new Coordinate(1, 0),
-                new Coordinate(1, 0));
+        List<Coordinate> coordinate3 = Arrays.asList(new Coordinate(1, 23), new Coordinate(1, 23),
+                new Coordinate(1, 23));
         List<Coordinate> coordinate4 = Arrays.asList(new Coordinate(1, 1), new Coordinate(2, 2),
                 new Coordinate(23, 23));
 

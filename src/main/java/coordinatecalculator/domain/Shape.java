@@ -9,5 +9,5 @@ public interface Shape {
 
     String separateByVisitor(Visitor visitor);
 
-    List<Coordinate> getCoordinate() ;
+    List<Coordinate> getCoordinate();
 }
