@@ -7,6 +7,13 @@ public class Triangle extends Figure implements AvailableArea {
 
     public Triangle(List<Point> points) {
         super(points, VALID_LENGTH_OF_POINTS);
+        validateTrianglePoints();
+    }
+
+    private void validateTrianglePoints() {
+        if (area() == 0) {
+            throw new IllegalThreadStateException("세 점이 한 직선상에 있습니다.");
+        }
     }
 
     @Override
