@@ -11,16 +11,16 @@ public class TriangleTest {
 
     @Test
     void 삼각형예외() {
-        CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("1,0","2,0","3,0")));
+        PointList points = new PointList(PointFactory.generateCoordinateList(Arrays.asList("1,0","2,0","3,0")));
         assertThatIllegalArgumentException().isThrownBy(() ->{
-            new Triangle(cl);
+            new Triangle(points.findLine());
         });
     }
 
     @Test
     void 삼각형넓이() {
-        CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("0,0","2,0","0,2")));
-        Triangle triangle = new Triangle(cl);
+        PointList points = new PointList(PointFactory.generateCoordinateList(Arrays.asList("0,0","2,0","0,2")));
+        Triangle triangle = new Triangle(points.findLine());
         assertEquals(triangle.findArea(),2,0.001);
 
     }
