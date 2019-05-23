@@ -1,5 +1,7 @@
-# java-coordinate
-좌표계산기 미션을 진행하기 위한 저장소
+## 차량에 따른 연료 주입 프로그램
 
-## 우아한테크코스 코드리뷰
-* [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
+### 기능 구현 목록
+
+1. 자동차가 이동거리에 대하여 필요한 연료량을 반환할 수 있어야 한다.
+2. 회사에 자동차를 추가할 수 있어야 한다. 
+3. 차량 별로 주입하는 여료량을 확인할 수 있는 보고서를 생성해야한다.
