@@ -3,19 +3,16 @@ package coordinatecalculator;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class Shape implements Figure {
-    private static final String ERROR_POINTS_INSUFFICIENT
-            = "점의 개수가 도형을 만들기에 모자랍니다.";
-    private static final String ERROR_POINTS_DUPLICATE
-            = "입력된 점의 좌표가 중복됩니다.";
+/* 예전 코드. 새로운 추상 클래스를 만들기 위하여 이름을 바꿨다. 현재 사용 중지. */
+class OldPolygon implements Figure {
     private List<Point> points;
 
-    Shape(Point... points) throws IllegalArgumentException {
+    OldPolygon(Point... points) throws IllegalArgumentException {
         if (points.length < Figure.MINIMUM_POINTS_COUNT) {
             throw new IllegalArgumentException(ERROR_POINTS_INSUFFICIENT);
         }
         this.points = Arrays.asList(points);
-        checkDuplicate();
+        checkDuplicate(this.points);
         this.points = sortClosedPath(this.points);
     }
 
@@ -48,7 +45,7 @@ class Shape implements Figure {
         return (number + 1) % max;
     }
 
-    private void checkDuplicate() throws IllegalArgumentException {
+    private void checkDuplicate(List<Point> points) throws IllegalArgumentException {
         Set<Point> set = new HashSet<>();
         for (Point p : points) {
             if (!set.add(p)) { // Set은 중복된 객체를 넣으면 false를 반환한다.
@@ -64,12 +61,12 @@ class Shape implements Figure {
         points.sort(Point::compareTo);
         final int FIRST = 0;
         final int LAST = points.size() - 1;
-        final Line bisectLine = new Line(points.get(FIRST), points.get(LAST));
+        final Segment bisectLine = new Segment(points.get(FIRST), points.get(LAST));
         final List<Point> increaseX = points.stream()
-                .filter(p -> bisectLine.aboveOrBelowPoint(p) == Line.bisect.ABOVE)
+                .filter(p -> bisectLine.aboveOrBelowPoint(p) == Segment.bisect.ABOVE)
                 .collect(Collectors.toList());
         final List<Point> decreaseX = points.stream()
-                .filter(p -> bisectLine.aboveOrBelowPoint(p) == Line.bisect.BELOW)
+                .filter(p -> bisectLine.aboveOrBelowPoint(p) == Segment.bisect.BELOW)
                 .collect(Collectors.toList());
         increaseX.sort(Point::compareTo);
         decreaseX.sort(Point::compareToReverse);
@@ -79,5 +76,18 @@ class Shape implements Figure {
         temp.add(bisectLine.getEndPoint());
         temp.addAll(decreaseX);
         return temp;
+    }
+
+    @Override
+    public boolean equals(Object another) {
+        if (this == another) return true;
+        if (another == null || getClass() != another.getClass()) return false;
+        final OldPolygon polygon = (OldPolygon) another;
+        return points.equals(polygon.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }

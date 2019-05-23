@@ -3,34 +3,40 @@ package coordinatecalculator;
 import java.util.Comparator;
 import java.util.Objects;
 
-class Line implements Comparable<Line> {
+class Segment implements Comparable<Segment> {
     private Point start;
     private Point end;
 
-    Line(Point start, Point end) {
+    Segment(Point start, Point end) {
         this.start = start;
         this.end = end;
     }
 
-    public Point getStartPoint() {
+    Point getStartPoint() {
         return this.start;
     }
 
-    public Point getEndPoint() {
+    Point getEndPoint() {
         return this.end;
     }
 
-    public double getLength() {
+    double getLength() {
         return this.start.getDistance(this.end);
+    }
+
+    /* 선의 기울기를 알아내는 메소드.
+     * 참고: https://www.geeksforgeeks.org/orientation-3-ordered-points/ */
+    double getSlope() {
+        return (end.getY() - start.getY()) / (end.getX() - start.getX());
     }
 
     @Override
     public boolean equals(Object another) {
         if (this == another) return true;
         if (another == null || getClass() != another.getClass()) return false;
-        final Line line = (Line) another;
-        return start.equals(line.start) &&
-                end.equals(line.end);
+        final Segment segment = (Segment) another;
+        return start.equals(segment.start) &&
+                end.equals(segment.end);
     }
 
     @Override
@@ -39,16 +45,22 @@ class Line implements Comparable<Line> {
     }
 
     @Override
-    public int compareTo(Line another) {
+    public int compareTo(Segment another) {
         return Comparator
-                .comparing(Line::getStartPoint)
-                .thenComparing(Line::getEndPoint)
+                .comparing(Segment::getStartPoint)
+                .thenComparing(Segment::getEndPoint)
+                .compare(this, another);
+    }
+
+    int compareToSlope(Segment another) {
+        return Comparator
+                .comparingDouble(Segment::getSlope)
                 .compare(this, another);
     }
 
     @Override
     public String toString() {
-        return "Line {start: "
+        return "Segment: {start: "
                 + this.start.toString()
                 + ", end: "
                 + this.end.toString()

@@ -60,7 +60,7 @@ class Point implements Comparable<Point> {
 
     @Override
     public String toString() {
-        return "Point {x: " + this.x + ", y: " + this.y + "}";
+        return "Point: {x: " + this.x + ", y: " + this.y + "}";
     }
 
     @Override
