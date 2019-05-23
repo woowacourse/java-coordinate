@@ -2,7 +2,7 @@ package coordinate.model;
 
 import java.util.List;
 
-public class Line {
+public class Line implements Shape {
     private List<Point> points;
 
     public Line(List<Point> points) {

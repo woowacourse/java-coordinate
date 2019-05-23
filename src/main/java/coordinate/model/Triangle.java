@@ -5,7 +5,7 @@ import coordinate.util.HeronFormula;
 import java.util.Collections;
 import java.util.List;
 
-public class Triangle {
+public class Triangle implements Shape {
     List<Point> points;
 
     public Triangle(List<Point> points) {

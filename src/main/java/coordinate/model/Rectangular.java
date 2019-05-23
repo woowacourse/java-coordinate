@@ -3,16 +3,16 @@ package coordinate.model;
 import java.util.Collections;
 import java.util.List;
 
-public class Rectangular {
+public class Rectangular implements Shape {
     private List<Point> points;
 
     public Rectangular(List<Point> points) {
-        checkDupliation(points);
+        checkDuplication(points);
         checkTwist(points);
         this.points = points;
     }
 
-    private void checkDupliation(List<Point> points) {
+    private void checkDuplication(List<Point> points) {
         Collections.sort(points);
         for (int i = 0; i < points.size() - 1; i++) {
             checkDuplicationOnePoint(points, i);
