@@ -41,9 +41,9 @@ public class TriangleTest {
 
     @Test
     void 삼각형_1라인_검사_기울기_0() {
-        Point p1 = new Point(new PointNumber(0), new PointNumber(0));
-        Point p2 = new Point(new PointNumber(2), new PointNumber(0));
-        Point p3 = new Point(new PointNumber(4), new PointNumber(0));
+        Point p1 = new Point(new PointNumber(1), new PointNumber(1));
+        Point p2 = new Point(new PointNumber(3), new PointNumber(1));
+        Point p3 = new Point(new PointNumber(5), new PointNumber(1));
         assertThrows(IllegalArgumentException.class, () -> {
             new Triangle(Arrays.asList(p1, p2, p3));
         });

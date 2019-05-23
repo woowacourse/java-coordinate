@@ -3,7 +3,7 @@ package coordinate.model;
 import java.util.Objects;
 
 public class PointNumber {
-    private static final int MIN_RANGE = 0;
+    private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 24;
     private int number;
 

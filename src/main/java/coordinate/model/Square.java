@@ -3,26 +3,11 @@ package coordinate.model;
 import java.util.Collections;
 import java.util.List;
 
-public class Square implements Shape {
-    private List<Point> points;
+public class Square extends Figure {
 
     public Square(List<Point> points) {
-        checkDuplication(points);
+        super(points);
         checkTwist(points);
-        this.points = points;
-    }
-
-    private void checkDuplication(List<Point> points) {
-        Collections.sort(points);
-        for (int i = 0; i < points.size() - 1; i++) {
-            checkDuplicationOnePoint(points, i);
-        }
-    }
-
-    private void checkDuplicationOnePoint(List<Point> points, int i) {
-        if (points.get(i).equals(points.get(i + 1))) {
-            throw new IllegalArgumentException("중복 좌표 오류");
-        }
     }
 
     private void checkTwist(List<Point> points) {
@@ -31,7 +16,7 @@ public class Square implements Shape {
                 !points.get(0).isEqualY(points.get(2)) ||
                 !points.get(3).isEqualX(points.get(2)) ||
                 !points.get(3).isEqualY(points.get(1))) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("올바른 사각형이 아닙니다");
         }
     }
 

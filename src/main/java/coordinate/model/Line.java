@@ -1,12 +1,12 @@
 package coordinate.model;
 
+import java.util.Collections;
 import java.util.List;
 
-public class Line implements Shape {
-    private List<Point> points;
+public class Line extends Figure {
 
     public Line(List<Point> points) {
-        this.points = points;
+        super(points);
     }
 
     @Override

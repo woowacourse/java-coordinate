@@ -1,11 +1,10 @@
 package coordinate.view;
 
-import coordinate.model.Line;
-import coordinate.model.Point;
-import coordinate.model.Square;
-import coordinate.model.Triangle;
+import coordinate.model.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     private static final String TWO_SPACE = "  ";
@@ -14,28 +13,29 @@ public class OutputView {
     private static final String NEW_LINE = "\n";
     private static final String CROSS = "+";
     private static final String HORIZON_BAR = "━";
+    private static final String LINE_SCORE_MESSAGE = "두 점 사이의 거리는 ";
+    private static final String TRIANGLE_SCORE_MESSAGE = "삼각형 넓이는 ";
+    private static final String SQUARE_SCORE_MESSAGE = "사각형 넓이는 ";
     private static final int MAX_RANGE = 24;
 
-    public static void printResult(Line line) {
-        System.out.print("두 점 사이의 거리는 ");
-        System.out.println(line.getScore());
+    private static final Map<Class, String> scoreMessage = new HashMap<Class, String>(){
+        {
+            put(Line.class, LINE_SCORE_MESSAGE);
+            put(Triangle.class, TRIANGLE_SCORE_MESSAGE);
+            put(Square.class, SQUARE_SCORE_MESSAGE);
+        }
+    };
+
+    public static void printResult(Shape shape) {
+        System.out.print(scoreMessage.get(shape.getClass()));
+        System.out.println(shape.getScore());
     }
 
-    public static void printResult(Square rectangular) {
-        System.out.print("사각형 넓이는 ");
-        System.out.println(rectangular.getScore());
-    }
-
-    public static void printResult(Triangle triangle) {
-        System.out.print("삼각형 넓이는 ");
-        System.out.println(triangle.getScore());
-    }
-
-    public static void printCoordinate(List<Point> points) {
+    public static void printCoordinate(Shape shape) {
         StringBuilder sb = new StringBuilder();
         for (int i = MAX_RANGE; i > 0; i--) {
             drawYAxis(sb, i);
-            drawHorizonLine(points, sb, i);
+            drawHorizonLine(shape.getPoints(), sb, i);
             sb.append(NEW_LINE);
         }
         sb.append(TWO_SPACE).append(CROSS);

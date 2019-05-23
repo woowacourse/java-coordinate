@@ -21,4 +21,6 @@ public interface Shape {
     };
 
     public double getScore();
+
+    public List<Point> getPoints();
 }

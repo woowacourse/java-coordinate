@@ -10,8 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ShapeTest {
     @Test
     void 라인_생성_테스트() {
-        Point p1 = new Point(new PointNumber(0), new PointNumber(0));
-        Point p2 = new Point(new PointNumber(3), new PointNumber(0));
+        Point p1 = new Point(new PointNumber(1), new PointNumber(1));
+        Point p2 = new Point(new PointNumber(3), new PointNumber(1));
         List<Point> points = Arrays.asList(p1, p2);
         Shape shape = Shape.creator.get(points.size()).apply(points);
 
@@ -31,10 +31,10 @@ class ShapeTest {
 
     @Test
     void 사각형_생성_테스트() {
-        Point p1 = new Point(new PointNumber(0), new PointNumber(0));
-        Point p2 = new Point(new PointNumber(2), new PointNumber(0));
-        Point p3 = new Point(new PointNumber(0), new PointNumber(2));
-        Point p4 = new Point(new PointNumber(2), new PointNumber(2));
+        Point p1 = new Point(new PointNumber(1), new PointNumber(1));
+        Point p2 = new Point(new PointNumber(3), new PointNumber(1));
+        Point p3 = new Point(new PointNumber(1), new PointNumber(3));
+        Point p4 = new Point(new PointNumber(3), new PointNumber(3));
         List<Point> points = Arrays.asList(p1, p2, p3, p4);
         Shape shape = Shape.creator.get(points.size()).apply(points);
 
