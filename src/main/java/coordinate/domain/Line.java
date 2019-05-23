@@ -1,9 +1,6 @@
 package coordinate.domain;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static coordinate.util.NotNullValidator.validateNotNull;
 
@@ -76,5 +73,13 @@ public class Line extends Figure {
     @Override
     public String getClassName() {
         return "직선";
+    }
+
+    @Override
+    public Set<Point> getPoints() {
+        Set<Point> points = new HashSet<>();
+        points.add(p1);
+        points.add(p2);
+        return points;
     }
 }

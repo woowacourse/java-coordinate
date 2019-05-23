@@ -4,6 +4,7 @@ import coordinate.util.DoubleComparator;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static coordinate.util.NotNullValidator.validateNotNull;
 
@@ -63,5 +64,14 @@ public class Lines {
 
     public int getSize() {
         return lines.size();
+    }
+
+    public Set<Point> getPoints() {
+        Set<Point> points = new HashSet<>();
+        for (Line line : lines) {
+            points.add(line.getStartPoint());
+            points.add(line.getEndPoint());
+        }
+        return points;
     }
 }

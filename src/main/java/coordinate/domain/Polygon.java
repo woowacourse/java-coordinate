@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import java.util.Set;
+
 public abstract class Polygon extends Figure implements AreaCalculable {
     Lines lines;
 
@@ -17,5 +19,10 @@ public abstract class Polygon extends Figure implements AreaCalculable {
     @Override
     public double length() {
         return lines.sumLength();
+    }
+
+    @Override
+    public Set<Point> getPoints() {
+        return lines.getPoints();
     }
 }
