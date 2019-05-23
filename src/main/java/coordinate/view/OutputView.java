@@ -8,7 +8,7 @@ import coordinate.domain.Points;
 public class OutputView {
     private static final int MAX_X = 25;
     private static final int MAX_Y = 25;
-    private static final String EXIST_POINT = " . ";
+    private static final String EXIST_POINT = " · ";
     private static final String EMPTY_POINT = "   ";
     private static final String EMPTY_LINE = "\n";
     private static final String X_AXIS_NUMBER = "0     2      4     6      8     10    12    14    16    18    20    22    24";
@@ -40,7 +40,7 @@ public class OutputView {
     }
 
     private static void printPoints(boolean[][] coordinates) {
-        for (int i = MAX_Y - 1; i >= 0; i--) {
+        for (int i = MAX_Y - 1; i >= 1; i--) {
             StringBuilder sb = initStringBuilder(i);
             for (int j = 0; j < MAX_X; j++) {
                 if (coordinates[i][j]) {
