@@ -20,7 +20,7 @@ public abstract class Figure implements Shape {
 
     private void checkDuplicationOnePoint(List<Point> points, int index) {
         if (points.get(index).equals(points.get(index + 1))) {
-            throw new IllegalArgumentException("중복 좌표 오류");
+            throw new IllegalArgumentException("좌표는 서로 중복이 되어서는 안됩니다.");
         }
     }
 

@@ -18,7 +18,7 @@ public class OutputView {
     private static final String SQUARE_SCORE_MESSAGE = "사각형 넓이는 ";
     private static final int MAX_RANGE = 24;
 
-    private static final Map<Class, String> scoreMessage = new HashMap<Class, String>(){
+    private static final Map<Class, String> scoreMessage = new HashMap<Class, String>() {
         {
             put(Line.class, LINE_SCORE_MESSAGE);
             put(Triangle.class, TRIANGLE_SCORE_MESSAGE);
@@ -43,6 +43,21 @@ public class OutputView {
         System.out.println(sb.toString());
     }
 
+    private static void drawYAxis(StringBuilder sb, int i) {
+        if (i % 2 == 0) {
+            sb.append(String.format("%2d", i)).append(VERTICAL_BAR);
+            return;
+        }
+        sb.append(TWO_SPACE).append(VERTICAL_BAR);
+    }
+
+    private static void drawHorizonLine(List<Point> points, StringBuilder sb, int i) {
+        int x = 0;
+        for (Point point : points) {
+            x = drawDot(sb, i, x, point);
+        }
+    }
+
     private static void drawXAxis(StringBuilder sb) {
         for (int i = 0; i < MAX_RANGE; i++) {
             sb.append(HORIZON_BAR);
@@ -50,13 +65,6 @@ public class OutputView {
         sb.append(NEW_LINE).append(TWO_SPACE);
         for (int i = 0; i <= MAX_RANGE; i += 2) {
             sb.append(String.format("%2d", i)).append(TWO_SPACE);
-        }
-    }
-
-    private static void drawHorizonLine(List<Point> points, StringBuilder sb, int i) {
-        int x = 0;
-        for (Point point : points) {
-            x = drawDot(sb, i, x, point);
         }
     }
 
@@ -73,13 +81,5 @@ public class OutputView {
         for (int j = x; j < point.getX().getNumber(); j++) {
             sb.append(TWO_SPACE);
         }
-    }
-
-    private static void drawYAxis(StringBuilder sb, int i) {
-        if (i % 2 == 0) {
-            sb.append(String.format("%2d", i)).append(VERTICAL_BAR);
-            return;
-        }
-            sb.append(TWO_SPACE).append(VERTICAL_BAR);
     }
 }
