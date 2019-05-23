@@ -19,7 +19,7 @@ public class SquareTest {
 
     @Test
     void 입력이_마름모() {
-        CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("1,0","0,1","2,1","1,2")));
+        CoordinateList cl = new CoordinateList(CoordinateFactory.generateCoordinateList(Arrays.asList("0,1","2,0","4,1","2,2")));
         assertThatIllegalArgumentException().isThrownBy(() ->{
             new Square(cl);
         });
