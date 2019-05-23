@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-21
  */
 public class CoordinateTest {

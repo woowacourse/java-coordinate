@@ -3,7 +3,7 @@ package calculator.domain;
 import java.util.Objects;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-23
  */
 public class Triangle extends Figure {

@@ -3,7 +3,7 @@ package calculator.domain;
 import java.util.Objects;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-21
  */
 public class Coordinate  {
@@ -19,13 +19,6 @@ public class Coordinate  {
         this.yCoordinate = checkYCoordinateRange(yCoordinate);
     }
 
-    /**
-     * 생성자
-     *
-     * @param xCoordinate x좌표
-     * @param yCoordinate y좌표
-     * @return Coordinate
-     */
     public static Coordinate create(int xCoordinate, int yCoordinate) {
         return new Coordinate(xCoordinate, yCoordinate);
     }
@@ -46,13 +39,6 @@ public class Coordinate  {
         return yCoordinate;
     }
 
-    /**
-     * y좌표가 맞으면 x좌표 반환
-     * <br> 맞지 않으면 -1 반환
-     *
-     * @param yCoordinate y좌표
-     * @return xCoordinate
-     */
     public int matchYAxis(int yCoordinate) {
         if (yCoordinate == this.yCoordinate) {
             return xCoordinate;
@@ -61,11 +47,11 @@ public class Coordinate  {
         return NOT_MATCH;
     }
 
-    public int getX() {
+    public int getXCoordinate() {
         return xCoordinate;
     }
 
-    public int getY() {
+    public int getYCoordinate() {
         return yCoordinate;
     }
 

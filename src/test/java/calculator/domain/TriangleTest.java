@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-23
  */
 public class TriangleTest {

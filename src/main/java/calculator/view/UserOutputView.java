@@ -3,7 +3,7 @@ package calculator.view;
 import calculator.domain.*;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-22
  */
 public class UserOutputView {
@@ -16,7 +16,7 @@ public class UserOutputView {
     private static final String TRIPLE_BLANK = "   ";
     private static final String X_AXIS_MARK = " - ";
     private static final String Y_AXIS_MARK = "|  ";
-    public static final String IS_MESSAGE = "은(는) ";
+    private static final String IS_MESSAGE = "은(는) ";
 
     public static void outputMap(Map map) {
         StringBuilder resultMap = new StringBuilder();
@@ -75,9 +75,4 @@ public class UserOutputView {
 
         System.out.println(calculatedResult.toString());
     }
-
-
-        outputMap(map);
-    }
-
 }

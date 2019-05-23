@@ -3,7 +3,7 @@ package calculator.domain;
 import java.util.*;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-22
  */
 public class Coordinates implements Iterable<Coordinate>{
@@ -19,20 +19,10 @@ public class Coordinates implements Iterable<Coordinate>{
     private static final int RECTANGLE = 4;
     private final List<Coordinate> coordinates;
 
-    /**
-     * 생성자
-     */
     public Coordinates()  {
         this.coordinates = new ArrayList<>();
     }
 
-    /**
-     * Coordinate 추가
-     * <br> 중복된 Coordinate 추가 시 예외 발생
-     *
-     * @param coordinate 추가할 Coordinate
-     * @throws IllegalArgumentException
-     */
     public void add(Coordinate coordinate) {
         checkDuplication(coordinate);
         coordinates.add(coordinate);
@@ -46,21 +36,15 @@ public class Coordinates implements Iterable<Coordinate>{
         }
     }
 
-    private void checkRectangle() {
-        Set<Integer> xCoordinates = new HashSet<>();
-        Set<Integer> yCoordinates = new HashSet<>();
-
-        for (int i = 0; i < coordinates.size(); i++) {
-            xCoordinates.add(coordinates.get(i).getX());
-            yCoordinates.add(coordinates.get(i).getY());
+    private void checkDuplication(Coordinate coordinate) {
+        if (coordinates.contains(coordinate)) {
+            throw new IllegalArgumentException(EX_DUPLICATED_COORDINATES_MESSAGE);
         }
-
-        checkNotRectangle(xCoordinates, yCoordinates);
     }
 
-    private void checkNotRectangle(Set<Integer> xCoordinates, Set<Integer> yCoordinates) {
-        if (!(xCoordinates.size() == 2 && yCoordinates.size() == 2)) {
-            throw new IllegalArgumentException(EX_NOT_RECTANGLE_MESSAGE);
+    private void checkMaxCoordinates() {
+        if (coordinates.size() > MAX_COORDINATE) {
+            throw new IllegalArgumentException(EX_MAX_COORDINATES_COUNT_MESSAGE);
         }
     }
 
@@ -80,23 +64,24 @@ public class Coordinates implements Iterable<Coordinate>{
         }
     }
 
-    private void checkDuplication(Coordinate coordinate) {
-        if (coordinates.contains(coordinate)) {
-            throw new IllegalArgumentException(EX_DUPLICATED_COORDINATES_MESSAGE);
+    private void checkRectangle() {
+        Set<Integer> xCoordinates = new HashSet<>();
+        Set<Integer> yCoordinates = new HashSet<>();
+
+        for (int i = 0; i < coordinates.size(); i++) {
+            xCoordinates.add(coordinates.get(i).getXCoordinate());
+            yCoordinates.add(coordinates.get(i).getYCoordinate());
+        }
+
+        checkNotRectangle(xCoordinates, yCoordinates);
+    }
+
+    private void checkNotRectangle(Set<Integer> xCoordinates, Set<Integer> yCoordinates) {
+        if (!(xCoordinates.size() == 2 && yCoordinates.size() == 2)) {
+            throw new IllegalArgumentException(EX_NOT_RECTANGLE_MESSAGE);
         }
     }
 
-    private void checkMaxCoordinates() {
-        if (coordinates.size() > MAX_COORDINATE) {
-            throw new IllegalArgumentException(EX_MAX_COORDINATES_COUNT_MESSAGE);
-        }
-    }
-
-    /**
-     * 크기 반환
-     *
-     * @return coordinates.size
-     */
     public int size() {
         return coordinates.size();
     }

@@ -5,7 +5,7 @@ import calculator.view.UserInputView;
 import calculator.view.UserOutputView;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-23
  */
 public class Main {

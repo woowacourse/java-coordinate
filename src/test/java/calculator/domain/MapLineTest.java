@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-22
  */
 public class MapLineTest {

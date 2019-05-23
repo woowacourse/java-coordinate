@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-21
  */
 public class UserInputView {

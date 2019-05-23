@@ -3,7 +3,7 @@ package calculator.domain;
 import java.util.*;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-22
  */
 public class MapLine implements Iterable<Boolean> {
@@ -23,7 +23,7 @@ public class MapLine implements Iterable<Boolean> {
         return mapLine.size();
     }
 
-    public void drawX(int xCoordinate) {
+    public void drawXCoordinate(int xCoordinate) {
         mapLine.set(xCoordinate, true);
     }
 

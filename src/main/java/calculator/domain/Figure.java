@@ -1,7 +1,7 @@
 package calculator.domain;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-23
  */
 public abstract class Figure implements Calculate{
@@ -24,6 +24,6 @@ public abstract class Figure implements Calculate{
 
     @Override
     public double straight(Coordinate a, Coordinate b) {
-        return Math.sqrt(Math.pow(a.getX()-b.getX(),2) + Math.pow(a.getY() - b.getY(),2));
+        return Math.sqrt(Math.pow(a.getXCoordinate()-b.getXCoordinate(),2) + Math.pow(a.getYCoordinate() - b.getYCoordinate(),2));
     }
 }

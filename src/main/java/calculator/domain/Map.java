@@ -3,7 +3,7 @@ package calculator.domain;
 import java.util.*;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-22
  */
 public class Map implements Iterable<MapLine> {
@@ -19,11 +19,11 @@ public class Map implements Iterable<MapLine> {
     }
 
     public void drawCoordinate(Coordinate coordinate) {
-        map.get(coordinate.getY()).drawX(coordinate.getX());
+        map.get(coordinate.getYCoordinate()).drawXCoordinate(coordinate.getXCoordinate());
     }
 
     public boolean isCoordinateDrawn(Coordinate coordinate) {
-        return map.get(coordinate.getY()).get(coordinate.getX());
+        return map.get(coordinate.getYCoordinate()).get(coordinate.getXCoordinate());
     }
 
     public int size() {

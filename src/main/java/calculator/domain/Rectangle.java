@@ -3,7 +3,7 @@ package calculator.domain;
 import java.util.*;
 
 /**
- * @author heebg
+ * @author soojinroh
  * @version 1.0 2019-05-23
  */
 public class Rectangle extends Figure{
@@ -31,8 +31,8 @@ public class Rectangle extends Figure{
         Set<Integer> yCoordinates = new HashSet<>();
 
         for (int i = 0; i < coordinates.size(); i++) {
-            xCoordinates.add(coordinates.get(i).getX());
-            yCoordinates.add(coordinates.get(i).getY());
+            xCoordinates.add(coordinates.get(i).getXCoordinate());
+            yCoordinates.add(coordinates.get(i).getYCoordinate());
         }
 
         return straight(xCoordinates) * straight(yCoordinates);
