@@ -13,10 +13,18 @@ public class PointGroup {
         return points.size();
     }
 
-    public List<Double> getDistances() {
+    public Set<Double> getSquareDistances() {
         final Set<Double> distances = new HashSet<>();
         points.forEach(x -> points.forEach(y -> distances.add(x.getSquareDistanceWith(y))));
         distances.remove(Double.valueOf(0));
-        return Collections.unmodifiableList(new ArrayList<>(distances));
+        return Collections.unmodifiableSet(distances);
+    }
+
+    public List<Double> getTriagleSquareDistances() {
+        List<Double> distances = new ArrayList<>();
+        for (int i = 0; i < points.size(); i++) {
+            distances.add(points.get(i).getSquareDistanceWith(points.get((i + 1) % points.size())));
+        }
+        return distances;
     }
 }

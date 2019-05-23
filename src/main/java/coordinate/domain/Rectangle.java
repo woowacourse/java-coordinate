@@ -16,12 +16,14 @@ public class Rectangle {
         if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("직사각형은 4개의 점으로 이루어져야합니다.");
         }
-        if (!checkRectangle(points.getDistances())) {
+        if (!checkRectangle(points.getSquareDistances())) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
     }
 
-    private boolean checkRectangle(List<Double> distances) {
+    private boolean checkRectangle(Set<Double> lengths) {
+        List<Double> distances = new ArrayList<>(lengths);
+        Collections.sort(distances);
         System.out.println(distances);
         if (distances.size() == 2
                 && checkPythagorean(distances.get(1), distances.get(0), distances.get(0))) {
@@ -35,15 +37,16 @@ public class Rectangle {
     }
 
     private boolean checkPythagorean(double hypotenuseSquare, double side1, double side2) {
+        System.out.println(Double.compare(hypotenuseSquare, side1 + side2));
         return Double.compare(hypotenuseSquare, side1 + side2) == 0;
     }
 
     public double area() {
-        List<Double> lengths = points.getDistances();
+        List<Double> lengths = new ArrayList<>(points.getSquareDistances());
+        Collections.sort(lengths);
         if (lengths.size() == 2) {
             return lengths.get(0);
         }
         return Math.sqrt(lengths.get(0) * lengths.get(1));
     }
-
 }

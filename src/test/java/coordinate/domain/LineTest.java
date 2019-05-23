@@ -34,6 +34,5 @@ public class LineTest {
         Line line1 = new Line(Point.create(1, 3), Point.create(2, 4));
         Line line2 = new Line(Point.create(2, 4), Point.create(2, 2));
         assertThat(line1.orthogonalTo(line2)).isFalse();
-
     }
 }

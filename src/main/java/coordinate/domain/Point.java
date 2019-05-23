@@ -20,8 +20,8 @@ public class Point {
     }
 
     public double getSquareDistanceWith(Point point) {
-        return Math.sqrt(Math.pow(this.xCoordinate.getDiffWith(point.xCoordinate), 2)
-                + Math.pow(this.yCoordinate.getDiffWith(point.yCoordinate), 2));
+        return Math.pow(this.xCoordinate.getDiffWith(point.xCoordinate), 2)
+                + Math.pow(this.yCoordinate.getDiffWith(point.yCoordinate), 2);
     }
 
     public int getXValue() {
