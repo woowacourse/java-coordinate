@@ -9,7 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TriangleCalculatorTest {
+class TriangleTest {
     @Test
     void 면적_계산() {
         List<Point> points = Arrays.asList(
@@ -17,8 +17,8 @@ class TriangleCalculatorTest {
                 new Point(14, 15),
                 new Point(20, 8)
         );
-        TriangleCalculator triangleCalculator = new TriangleCalculator(new Figure(points));
-        assertThat(triangleCalculator.getArea()).isEqualTo(29, Offset.offset(0.0099));
+        Triangle triangle = new Triangle(new Points(points));
+        assertThat(triangle.getArea()).isEqualTo(29, Offset.offset(0.0099));
     }
 
     @Test
@@ -29,7 +29,7 @@ class TriangleCalculatorTest {
                 new Point(14, 10)
         );
         assertThrows(IllegalArgumentException.class, () -> {
-            new TriangleCalculator(new Figure(points));
+            new Triangle(new Points(points));
         });
     }
 }

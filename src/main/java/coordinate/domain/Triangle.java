@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TriangleCalculator {
-    double area;
+public class Triangle extends Figure {
+    private final double area;
 
-    public TriangleCalculator(Figure figure) {
-        List<Double> sides = getSides(figure);
+    public Triangle(final Points points) {
+        List<Double> sides = getSides(points);
         validate(sides);
         this.area = calculateArea(sides);
     }
 
-    private List<Double> getSides(Figure figure) {
+    private List<Double> getSides(final Points figure) {
         List<Point> points = figure.getPoints();
         List<Double> sides = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
@@ -23,7 +23,7 @@ public class TriangleCalculator {
         return sides;
     }
 
-    private void validate(List<Double> sides) {
+    private void validate(final List<Double> sides) {
         if (sides.size() != 3) {
             throw new IllegalArgumentException("삼각형이 아닙니다.");
         }
@@ -33,7 +33,7 @@ public class TriangleCalculator {
         }
     }
 
-    private double calculateArea(List<Double> sides) {
+    private double calculateArea(final List<Double> sides) {
         double halfSum = getHalfSum(sides);
         double result = halfSum;
         for (Double aDouble : sides) {
@@ -42,7 +42,7 @@ public class TriangleCalculator {
         return Math.sqrt(result);
     }
 
-    private double getHalfSum(List<Double> sides) {
+    private double getHalfSum(final List<Double> sides) {
         double result = 0;
         for (Double side : sides) {
             result += side;
@@ -50,7 +50,13 @@ public class TriangleCalculator {
         return result / 2;
     }
 
+    @Override
     public double getArea() {
         return area;
+    }
+
+    @Override
+    public String toString() {
+        return "삼각형의 넓이는 " + area;
     }
 }

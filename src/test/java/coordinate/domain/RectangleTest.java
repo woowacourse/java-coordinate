@@ -9,7 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class RectangleCalculatorTest {
+public class RectangleTest {
     @Test
     void 직사각형_아닌_입력() {
         List<Point> points = Arrays.asList(
@@ -19,7 +19,7 @@ public class RectangleCalculatorTest {
                 new Point(10,19)
         );
         assertThrows(IllegalArgumentException.class,()->{
-            new RectangleCalculator(new Figure(points));
+            new Rectangle(new Points(points));
         });
     }
 
@@ -31,7 +31,7 @@ public class RectangleCalculatorTest {
                 new Point(22,18),
                 new Point(10,18)
         );
-        RectangleCalculator rectangleCalculator = new RectangleCalculator(new Figure(points));
-        assertThat(rectangleCalculator.getArea()).isEqualTo(96, Offset.offset(0.0099));
+        Rectangle rectangle = new Rectangle(new Points(points));
+        assertThat(rectangle.getArea()).isEqualTo(96, Offset.offset(0.0099));
     }
 }
