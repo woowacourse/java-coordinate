@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Rectangle {
+public class Rectangle extends Shape{
     private final static int START_POINT = 0;
     private final static int ONE_LINE = 1;
     private final static int PAIR_LINE_COUNT = 2;
@@ -10,9 +10,11 @@ public class Rectangle {
 
     private TreeMap<Double, Integer> rectangleLines = new TreeMap<>();
 
-    public Rectangle(List<Point> points) {
+    @Override
+    public Shape setShape(List<Point> points) {
         setRectangleLines(points);
         validateRectangle();
+        return this;
     }
 
     private void setRectangleLines(List<Point> points) {
@@ -23,7 +25,7 @@ public class Rectangle {
 
     private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
         for (Point endPoint : endPoints) {
-            double lineLength = new Line(startPoint, endPoint).getLength();
+            double lineLength = new Line().setShape(Arrays.asList(startPoint, endPoint)).area();
             addLine(lineLength);
         }
     }
@@ -52,7 +54,8 @@ public class Rectangle {
         return rectangleLines.get(line) % 2 == 0;
     }
 
-    public double getArea() {
+    @Override
+    public double area() {
         double area = DEFAULT_AREA;
 
         removeDiagonal();
@@ -64,5 +67,18 @@ public class Rectangle {
 
     private void removeDiagonal() {
         rectangleLines.pollLastEntry();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Objects.equals(rectangleLines, rectangle.rectangleLines);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rectangleLines);
     }
 }

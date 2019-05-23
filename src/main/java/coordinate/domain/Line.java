@@ -1,20 +1,32 @@
 package coordinate.domain;
 
+import java.util.List;
 import java.util.Objects;
 
-public class Line {
+public class Line extends Shape{
     private static final int SQUARE = 2;
-    private Point startPoint;
-    private Point endPoint;
+    private final static int START_POINT = 0;
+    private final static int END_POINT = 1;
 
-    public Line(Point startPoint, Point endPoint) {
-        this.startPoint = startPoint;
-        this.endPoint = endPoint;
+    private List<Point> points;
+
+    @Override
+    public Shape setShape(List<Point> points) {
+        this.points = points;
+        validateLine();
+        return this;
     }
 
-    public double getLength() {
-        int xDistance = startPoint.getDistanceX(endPoint);
-        int yDistance = startPoint.getDistanceY(endPoint);
+    private void validateLine() {
+        if(points.get(START_POINT).equals(points.get(END_POINT))){
+            throw new IllegalArgumentException("위차가 같은 점이 존재합니다.");
+        }
+    }
+
+    @Override
+    public double area() {
+        int xDistance = points.get(START_POINT).getDistanceX(points.get(END_POINT));
+        int yDistance = points.get(START_POINT).getDistanceY(points.get(END_POINT));
 
         return Math.sqrt(Math.pow(xDistance, SQUARE) + Math.pow(yDistance, SQUARE));
     }
@@ -24,12 +36,11 @@ public class Line {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return Objects.equals(startPoint, line.startPoint) &&
-                Objects.equals(endPoint, line.endPoint);
+        return Objects.equals(points, line.points);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(startPoint, endPoint);
+        return Objects.hash(points);
     }
 }

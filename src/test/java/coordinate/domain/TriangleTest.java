@@ -18,7 +18,7 @@ public class TriangleTest {
         points.add(new Point(new Coordinate(20), new Coordinate(20)));
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Triangle(points);
+            new Triangle().setShape(points);
         });
     }
 
@@ -29,7 +29,7 @@ public class TriangleTest {
         points.add(new Point(new Coordinate(14), new Coordinate(15)));
         points.add(new Point(new Coordinate(20), new Coordinate(8)));
 
-        new Triangle(points);
+        new Triangle().setShape(points);
     }
 
     @Test
@@ -39,6 +39,6 @@ public class TriangleTest {
         points.add(new Point(new Coordinate(14), new Coordinate(15)));
         points.add(new Point(new Coordinate(20), new Coordinate(8)));
 
-        assertThat(new Triangle(points).getArea()).isEqualTo(29, offset(0.00099));
+        assertThat(new Triangle().setShape(points).area()).isEqualTo(29, offset(0.00099));
     }
 }
