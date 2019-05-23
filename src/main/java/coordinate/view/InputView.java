@@ -11,6 +11,7 @@ public class InputView {
     private static Scanner SCANNER = new Scanner(System.in);
 
     public List<String> inputPoints() {
+        System.out.println("좌표를 입력하세요.");
         String input =SCANNER.nextLine();
         Matcher matcher = Pattern.compile("\\(\\d,\\d\\)(-\\(\\d,\\d\\))*").matcher(input);
 
