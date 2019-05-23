@@ -107,3 +107,4 @@
         - [x] LengthCalculable 인터페이스는 length() 메서드를 선언한다.
         - [x] Lines 클래스에 자신이 가진 라인들의 길이를 모두 합해서 반환하는 메서드를 구현한다.
         - [x] 위의 메서드를 이용하여 Triangle 과 Rectangle 에서 length() 메서드를 구현한다.
+    - [ ] 테스트 추가

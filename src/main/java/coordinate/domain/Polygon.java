@@ -13,4 +13,9 @@ public abstract class Polygon extends Figure implements AreaCalculable {
 
         return Math.sqrt(Math.pow(v1.length(), 2) * Math.pow(v2.length(), 2) - Math.pow(v1.innerProduct(v2), 2));
     }
+
+    @Override
+    public double length() {
+        return lines.sumLength();
+    }
 }

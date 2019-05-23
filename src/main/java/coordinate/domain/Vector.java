@@ -30,6 +30,6 @@ public class Vector {
     }
 
     public Vector invert() {
-        return new Vector(y, x);
+        return new Vector(-x, -y);
     }
 }

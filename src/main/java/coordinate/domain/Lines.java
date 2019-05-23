@@ -20,6 +20,9 @@ public class Lines {
         }
     }
 
+    /**
+     * 두 벡터의 내적이 0이면 서로 수직이다.
+     */
     public boolean isOrthogonal(int i, int j) {
         Vector v1 = getVector(i);
         Vector v2 = getVector(j);
@@ -27,11 +30,14 @@ public class Lines {
         return v1.innerProduct(v2) == 0;
     }
 
+    /**
+     * 두 벡터의 내적과 두 벡터의 각 길이의 곱이 같으면 서로 평행이다.
+     */
     public boolean isParallel(int i, int j) {
         Vector v1 = getVector(i);
         Vector v2 = getVector(j);
 
-        return v1.innerProduct(v2) == 1;
+        return v1.innerProduct(v2) == v1.length() * v2.length();
     }
 
     public double sumLength() {
