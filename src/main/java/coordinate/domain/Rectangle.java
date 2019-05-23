@@ -8,6 +8,7 @@ import java.util.Set;
 public class Rectangle extends Figure implements AvailableArea {
     private static final int VALID_LENGTH_OF_POINTS = 4;
     private static final int ALLOWED_NUMBER_OF_POINTS_FOR_AXIS = 2;
+    public static final String INVALID_RECTANGLE_POINTS_MESSAGE = "직사각형의 좌표를 입력해 주세요.";
 
     public Rectangle(List<Point> points) {
         super(points, VALID_LENGTH_OF_POINTS);
@@ -18,7 +19,7 @@ public class Rectangle extends Figure implements AvailableArea {
         Set<Integer> projectedXAxis = getProjectedXAxis();
         Set<Integer> projectedYAxis = getProjectedYAxis();
         if (projectedXAxis.size() != ALLOWED_NUMBER_OF_POINTS_FOR_AXIS || projectedYAxis.size() != ALLOWED_NUMBER_OF_POINTS_FOR_AXIS) {
-            throw new IllegalArgumentException("직사각형의 좌표를 입력해 주세요.");
+            throw new IllegalArgumentException(INVALID_RECTANGLE_POINTS_MESSAGE);
         }
     }
 

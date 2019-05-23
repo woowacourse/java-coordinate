@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Point {
     private static final int MIN_COORDINATE = 1;
     private static final int MAX_COORDINATE = 24;
+    public static final String OUT_OF_RANGE_EXCEPTION_MESSAGE = "값이 범위를 벗어났습니다. 좌표 : (%d, %d)";
 
     private final int x;
     private final int y;
@@ -17,10 +18,10 @@ public class Point {
 
     private void validateRange(int x, int y) {
         if (x < MIN_COORDINATE || x > MAX_COORDINATE) {
-            throw new IllegalArgumentException(String.format("x의 값이 범위를 벗어났습니다. x : %d", x));
+            throw new IllegalArgumentException(String.format(OUT_OF_RANGE_EXCEPTION_MESSAGE, x, y));
         }
         if (y < MIN_COORDINATE || y > MAX_COORDINATE) {
-            throw new IllegalArgumentException(String.format("y의 값이 범위를 벗어났습니다. y : %d", y));
+            throw new IllegalArgumentException(String.format(OUT_OF_RANGE_EXCEPTION_MESSAGE, x, y));
         }
     }
 

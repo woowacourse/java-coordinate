@@ -7,4 +7,8 @@ public class OutputView {
         System.out.println(figure.getPlaneCoordinates().toString());
         System.out.println(figure.toString());
     }
+
+    public static void printMessage(String Message) {
+        System.out.println(Message);
+    }
 }

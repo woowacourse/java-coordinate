@@ -3,6 +3,7 @@ package coordinate.domain;
 import java.util.List;
 
 public class FigureGenerator {
+    private static final String OUT_OF_COORDINANE_COUNT_EXCEPTION_MASSAGE = "좌표의 개수는 2~4개만 가능합니다.";
     private static final int NUMBER_OF_POINTS_FOR_LINE = 2;
     private static final int NUMBER_OF_POINTS_FOR_TRIANGLE = 3;
     private static final int NUMBER_OF_POINTS_FOR_RECTANGLE = 4;
@@ -20,6 +21,6 @@ public class FigureGenerator {
             return new Rectangle(points);
         }
 
-        throw new IllegalArgumentException("좌표의 개수는 2~4개만 가능합니다.");
+        throw new IllegalArgumentException(OUT_OF_COORDINANE_COUNT_EXCEPTION_MASSAGE);
     }
 }
