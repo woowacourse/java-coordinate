@@ -1,29 +1,27 @@
 package coordinatecalculator.model;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Rectangle extends PlaneFigure {
+    private final Lines lines;
 
     public Rectangle(List<Coordinate> coordinates) {
         super(coordinates);
+        Lines lines = new Lines(this.coordinates);
         checkValidRectangle(lines);
+        this.lines = lines;
     }
 
-    private void checkValidRectangle(List<Line> lines) {
-        Map<Double, Long> lineLengthCountMap = lines.stream()
-                .collect(Collectors.groupingBy(Line::getLength, Collectors.counting()));
-
-        if (lineLengthCountMap.values().stream().anyMatch(i -> i % 2 == 1)) {
+    private void checkValidRectangle(Lines lines) {
+        if (!lines.canMakeRectangle()) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
     }
 
     @Override
     public double calculateArea() {
-        Collections.sort(lines);
-        return lines.get(0).getLength() * lines.get(2).getLength();
+        double side1 = lines.get(0).calculateArea();
+        double side2 = lines.get(2).calculateArea();
+        return side1 * side2;
     }
 }

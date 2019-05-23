@@ -38,34 +38,4 @@ public class PlaneFigureTest {
             }
         });
     }
-
-    @Test
-    void 한_직선_위에_있는_세_좌표를_입력한_경우_예외_발생() {
-        Coordinate c1 = new Coordinate(5, 5);
-        Coordinate c2 = new Coordinate(10, 10);
-        Coordinate c3 = new Coordinate(15, 15);
-        List<Coordinate> coordinates = Arrays.asList(c1, c2, c3);
-
-        assertThrows(IllegalArgumentException.class, () -> new PlaneFigure(coordinates) {
-            @Override
-            public double calculateArea() {
-                return 0;
-            }
-        });
-    }
-
-    @Test
-    void 한_직선_위에_있지_않은_세_좌표를_입력한_경우() {
-        Coordinate c1 = new Coordinate(5, 5);
-        Coordinate c2 = new Coordinate(10, 10);
-        Coordinate c3 = new Coordinate(15, 16);
-        List<Coordinate> coordinates = Arrays.asList(c1, c2, c3);
-
-        assertDoesNotThrow(() -> new PlaneFigure(coordinates) {
-            @Override
-            public double calculateArea() {
-                return 0;
-            }
-        });
-    }
 }
