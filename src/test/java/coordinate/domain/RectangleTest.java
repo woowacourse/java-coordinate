@@ -41,4 +41,11 @@ public class RectangleTest {
                 new Point(1,2), new Point(2, 1), new Point(2,2)));
         assertThat(Rectangle.isRectangle(points)).isEqualTo(true);
     }
+
+    @Test
+    void 사각형_넓이_구하는_테스트() {
+        Points points = new Points(Arrays.asList(new Point(1, 1),
+                new Point(1,2), new Point(2, 1), new Point(2,2)));
+        assertThat(new Rectangle(points).calArea()).isEqualTo(1);
+    }
 }
