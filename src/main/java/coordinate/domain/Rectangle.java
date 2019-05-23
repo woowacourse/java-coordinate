@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.*;
 
 public class Rectangle extends Shape implements Figure {
-    public static final int EVEN = 2;
+    private static final int EVEN = 2;
 
     public Rectangle(final List<Point> points) {
         super(points);
@@ -21,10 +21,15 @@ public class Rectangle extends Shape implements Figure {
         }
     }
 
-    private void isEven(Integer value) {
+    private void isEven(final Integer value) {
         if (value % EVEN != 0) {
             throw new IllegalArgumentException("직 사각형이 아닙니다.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "사각형 넓이는 " + area();
     }
 
     @Override
@@ -36,10 +41,5 @@ public class Rectangle extends Shape implements Figure {
         List<Double> sides = getSides();
         Collections.sort(sides);
         return sides.get(0) * sides.get(2);
-    }
-
-    @Override
-    public String toString() {
-        return "사각형 넓이는 " + area();
     }
 }

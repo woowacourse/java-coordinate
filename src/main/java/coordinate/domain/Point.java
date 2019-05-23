@@ -32,11 +32,11 @@ public class Point {
         }
     }
 
-    public double getDistance(Point point) {
+    public double getDistance(final Point point) {
         return Math.sqrt(Math.pow((x - point.x), 2) + Math.pow((y - point.y), 2));
     }
 
-    public int distanceSquare(Point point) {
+    public int distanceSquare(final Point point) {
         int absX = x - point.x;
         int absY = y - point.y;
         return absX * absX + absY * absY;

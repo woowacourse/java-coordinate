@@ -7,19 +7,26 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputView {
-    public static List<Point> intputCoordinate() {
-        List<Point> points = new ArrayList<>();
-        String input = new Scanner(System.in).nextLine();
-        List<String> inputs = Arrays.asList(input.split("-"));
+    private static final Pattern PATTERN = Pattern.compile("[(]([\\d]*)[,]([\\d]*)[)]");
+    private static final String DELIMITER = "-";
+
+    public static List<Point> inputCoordinate() {
+        String consoleInput = new Scanner(System.in).nextLine();
+        List<String> inputs = Arrays.asList(consoleInput.split(DELIMITER));
         try {
             validateDuplication(inputs);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return intputCoordinate();
+            return inputCoordinate();
         }
-        Pattern p = Pattern.compile("[(]([\\d]*)[,]([\\d]*)[)]");
-        for (String s : inputs) {
-            Matcher m = p.matcher(s);
+
+        return getPoints(inputs);
+    }
+
+    private static List<Point> getPoints(List<String> inputs) {
+        List<Point> points = new ArrayList<>();
+        for (String input : inputs) {
+            Matcher m = PATTERN.matcher(input);
             m.matches();
             int x = Integer.parseInt(m.group(1));
             int y = Integer.parseInt(m.group(2));

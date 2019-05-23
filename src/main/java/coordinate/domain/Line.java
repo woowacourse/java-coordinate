@@ -3,10 +3,11 @@ package coordinate.domain;
 import java.util.List;
 
 public class Line extends Shape {
-    public Line(List<Point> points) {
+    public Line(final List<Point> points) {
         super(points);
     }
 
+    @Override
     public String toString() {
         return "두점 사이의 거리는 " + getDistance();
     }

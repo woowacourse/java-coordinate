@@ -6,16 +6,16 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class ShapeFactory implements ShapeCreator {
-    private static Map<Integer, Function<List<Point>, Shape>> functionMap = new HashMap<>();
+    private static final Map<Integer, Function<List<Point>, Shape>> FUNCTION_MAP = new HashMap<>();
 
     static {
-        functionMap.put(2, Line::new);
-        functionMap.put(3, Triangle::new);
-        functionMap.put(4, Rectangle::new);
+        FUNCTION_MAP.put(2, Line::new);
+        FUNCTION_MAP.put(3, Triangle::new);
+        FUNCTION_MAP.put(4, Rectangle::new);
     }
 
     @Override
-    public Shape create(List<Point> points) {
-        return functionMap.get(points.size()).apply(points);
+    public Shape create(final List<Point> points) {
+        return FUNCTION_MAP.get(points.size()).apply(points);
     }
 }
