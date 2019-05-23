@@ -14,7 +14,7 @@ public class CoordinateApp {
     public static void main(String[] args) {
         try {
             start();
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             start();
         }
