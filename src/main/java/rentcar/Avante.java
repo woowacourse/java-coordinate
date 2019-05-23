@@ -1,6 +1,6 @@
 package rentcar;
 
-public class Avante extends Car {
+public class Avante extends AbstractCar {
 	private static final double DISTANCE_FOR_LITTER = 15;
 	private static final String NAME_OF_CAR = "Avante";
 
@@ -9,17 +9,17 @@ public class Avante extends Car {
 	}
 
 	@Override
-	Double getDistancePerLiter() {
+	public Double getDistancePerLiter() {
 		return DISTANCE_FOR_LITTER;
 	}
 
 	@Override
-	Double getChargedLiter() {
+	public Double getChargedLiter() {
 		return super.getChargedLiter();
 	}
 
 	@Override
-	String getName() {
+	public String getName() {
 		return NAME_OF_CAR;
 	}
 }

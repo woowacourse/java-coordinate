@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentCompany {
-	List<Car> cars;
+	private final List<AbstractCar> cars;
 
 	private RentCompany() {
 		cars = new ArrayList<>();
@@ -14,13 +14,13 @@ public class RentCompany {
 		return new RentCompany();
 	}
 
-	public void addCar(Car car) {
+	public void addCar(final AbstractCar car) {
 		cars.add(car);
 	}
 
 	public String generateReport() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (Car car : cars) {
+		for (AbstractCar car : cars) {
 			stringBuilder.append(car.getName() + " : ");
 			stringBuilder.append(car.getChargedLiter().intValue() + "리터");
 			stringBuilder.append("\n");
