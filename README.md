@@ -1,4 +1,4 @@
-# java-coordinate
+# java-coordinateView
 좌표계산기 미션을 진행하기 위한 저장소
 
 ## 우아한테크코스 코드리뷰

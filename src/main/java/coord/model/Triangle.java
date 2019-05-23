@@ -11,12 +11,9 @@ public class Triangle extends Figure {
 
     @Override
     public double area() {
-        Point a = points.get(0);
-        Point b = points.get(1);
-        Point c = points.get(2);
-        Line A = new Line(new Points(Arrays.asList(a, b)));
-        Line B = new Line(new Points(Arrays.asList(b, c)));
-        Line C = new Line(new Points(Arrays.asList(c, a)));
+        Line A = new Line(new Points(Arrays.asList(points.get(0), points.get(1))));
+        Line B = new Line(new Points(Arrays.asList(points.get(1), points.get(2))));
+        Line C = new Line(new Points(Arrays.asList(points.get(2), points.get(1))));
         double s = (A.length() + B.length() + C.length()) / 2.0;
         return Math.sqrt(s * (s - A.length()) * (s - B.length()) * (s - C.length()));
      }

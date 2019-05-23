@@ -15,7 +15,7 @@ public class InputView {
     private static final String validator = "\\([ ]*[0-9]+[ ]*,[ ]*[0-9]+[ ]*\\)";
     private static final String delimiter = "\\(|,|\\)";
 
-    public static List<Integer> inputCoordinates() {
+    public static Points inputCoordinates() {
         System.out.println("좌표를 입력하세요.");
         try {
             return parseCoordinates(input.nextLine());
@@ -25,16 +25,14 @@ public class InputView {
         }
     }
 
-    public static List<Integer> parseCoordinates(String input) {
+    private static Points parseCoordinates(String input) {
         List<String> tokens = validateTokens(Arrays.asList(input.split("-")));
-        System.out.println(tokens);
         try {
-//            return new Points(
-//                IntStream.iterate(0, i -> i + 2)
-//                .limit(tokens.size() / 2).boxed()
-//                .map(i -> new Point(Integer.parseInt(tokens.get(i)), Integer.parseInt(tokens.get(i + 1))))
-//                .collect(Collectors.toList())
-            return tokens.stream().map(Integer::parseInt).collect(Collectors.toList());
+            return new Points(
+                    IntStream.iterate(0, i -> i + 2)
+                            .limit(tokens.size() / 2).boxed()
+                            .map(i -> new Point(Integer.parseInt(tokens.get(i)), Integer.parseInt(tokens.get(i + 1))))
+                            .collect(Collectors.toList()));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("잘못된 입력입니다. 다시 입력해주세요.");
         }
