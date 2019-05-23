@@ -15,6 +15,9 @@ public class FigureFactory {
 
     public static Figure createFigure(Points points) {
         Function<Points, Figure> function = figureCreator.get(points.getSize());
+        if (function == null) {
+            throw new IllegalArgumentException("포인트 개수가 올바르지 않습니다.");
+        }
         return function.apply(points);
     }
 }
