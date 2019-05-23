@@ -1,6 +1,9 @@
 package com.woowacourse.coordinate.domain;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,9 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TriangleTest {
 	@Test
 	void create() {
-		assertThat(new Triangle(Arrays.asList(new Point(10, 10), new Point(14,15),
-				new Point(20, 8)))).isEqualTo(new Triangle(Arrays.asList(new Point(10, 10), new Point(14,15),
-				new Point(20, 8))));
+	    List<Point> points = Arrays.asList(new Point(10, 10), new Point(14,15),
+            new Point(20, 8));
+		assertThat(new Triangle(points)).isEqualTo(new Triangle(points));
+        Collections.swap(points, 0, 1);
+		assertThat(new Triangle(points)).isEqualTo(new Triangle(points));
 	}
 
 	@Test

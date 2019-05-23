@@ -27,7 +27,7 @@ class FigureFactoryTest {
 	void createTriangle() {
 		List<Point> points = Arrays.asList(new Point(10, 10), new Point(14, 15), new Point(20, 8));
 		assertThat(creator.create(points))
-				.isEqualTo(new Triangle(Arrays.asList(new Point(10, 10), new Point(14, 15), new Point(20, 8))));
+				.isEqualTo(new Triangle(points));
 	}
 
 	@Test

@@ -35,15 +35,13 @@ public class OutputView {
 
 	private static void printPoint(StringBuilder sb, List<Point> pointsToPrint) {
 		for (int j = 0; j <= 24; ++j) {
-			final int currentX = j;
-			sb.append(getPointString(pointsToPrint, currentX));
+			sb.append(getPointString(pointsToPrint, j));
 		}
 	}
 
 	private static String getPointString(List<Point> pointsToPrint, int currentX) {
 		if (pointsToPrint.stream()
-				.filter(p -> p.matchX(currentX))
-				.count() > 0) {
+				.anyMatch(p -> p.matchX(currentX))) {
 			return " ·";
 		}
 		return "  ";

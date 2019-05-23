@@ -1,6 +1,8 @@
 package com.woowacourse.coordinate.domain;
 
 import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class SquareTest {
 	@Test
 	void create() {
-		assertThat(new Square(Arrays.asList(new Point(5, 10), new Point(10,10),
-				new Point(5, 8), new Point(10, 8))))
-				.isEqualTo(new Square(Arrays.asList(new Point(5, 10), new Point(10,10),
-						new Point(5, 8), new Point(10, 8))));
+	    List<Point> points = Arrays.asList(new Point(5, 10), new Point(10,10),
+            new Point(5, 8), new Point(10, 8));
+		assertThat(new Square(points))
+				.isEqualTo(new Square(points));
 	}
 
 	@Test

@@ -1,6 +1,8 @@
 package com.woowacourse.coordinate.domain;
 
 import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,8 +12,9 @@ public class LineTest {
 
 	@Test
 	void testCreate() {
-		assertThat(new Line(Arrays.asList(new Point(3, 3), new Point(6, 3))))
-				.isEqualTo(new Line(Arrays.asList(new Point(3, 3), new Point(6, 3))));
+	    List<Point> points = Arrays.asList(new Point(3, 3), new Point(6, 3));
+		assertThat(new Line(points))
+				.isEqualTo(new Line(points));
 	}
 
 	@Test

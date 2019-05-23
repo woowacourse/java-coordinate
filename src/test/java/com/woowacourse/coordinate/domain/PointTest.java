@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PointTest {
 	@Test
-	void creat() {
+	void create() {
 		Point point = new Point(10, 10);
 		assertThat(point).isEqualTo(new Point(10, 10));
 	}
