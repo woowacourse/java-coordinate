@@ -16,6 +16,12 @@ public class ShapeFactory implements ShapeCreator {
 
     @Override
     public Shape create(final List<Point> points) {
-        return FUNCTION_MAP.get(points.size()).apply(points);
+        Shape shape;
+        try {
+            shape = FUNCTION_MAP.get(points.size()).apply(points);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("올바른 점의 갯수를 입력해 주세요");
+        }
+        return shape;
     }
 }
