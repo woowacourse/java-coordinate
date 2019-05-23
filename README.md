@@ -101,4 +101,7 @@
     - [x] FigureCreator 인터페이스 작성
     - [x] FigureFactory 클래스 작성
         - [x] FigureFactory 는 FigureCreator 인터페이스를 구현한다.
-    
+    - [x] Triangle 과 Rectangle 에 공통된 계산부분을 Polygon에 구현한다.
+        - [x] Triangle 과 Rectangle 이 Polygon 의 메서드를 사용하여 면적을 계산하도록 수정한다.
+    - [ ] LengthCalculable 인터페이스를 작성하여, Figure 가 이를 구현하도록 수정한다.
+        - [ ] LengthCalculable 인터페이스는 length() 메서드를 선언한다.

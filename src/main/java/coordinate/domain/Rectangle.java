@@ -34,7 +34,6 @@ public class Rectangle extends Polygon {
 
     @Override
     public double area() {
-        return lines.getLength(0)
-                * lines.getLength(1);
+        return areaOfParallelogram();
     }
 }

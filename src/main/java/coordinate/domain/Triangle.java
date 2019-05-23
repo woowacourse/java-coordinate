@@ -26,9 +26,6 @@ public class Triangle  extends Polygon {
 
     @Override
     public double area() {
-        Vector v1 = lines.getVector(0);
-        Vector v2 = lines.getVector(1);
-
-        return Math.sqrt(Math.pow(v1.length(), 2) * Math.pow(v2.length(), 2) - Math.pow(v1.innerProduct(v2), 2)) / 2;
+        return areaOfParallelogram() / 2;
     }
 }
