@@ -11,6 +11,7 @@ public class ShapeTest {
     @Test
     void 선_생성() {
         Points points = new Points(Arrays.asList(new Point(14, 15), new Point(10, 10)));
+
         assertThat(Shape.createFigure(points) instanceof Line).isTrue();
     }
 
@@ -20,6 +21,7 @@ public class ShapeTest {
                 new Point(1, 5),
                 new Point(1, 1),
                 new Point(5, 1)));
+
         assertThat(Shape.createFigure(points) instanceof Triangle).isTrue();
     }
 
@@ -30,6 +32,7 @@ public class ShapeTest {
                 new Point(1, 1),
                 new Point(5, 1),
                 new Point(5, 5)));
+
         assertThat(Shape.createFigure(points) instanceof Rectangle).isTrue();
     }
 
@@ -41,6 +44,7 @@ public class ShapeTest {
                 new Point(5, 1),
                 new Point(5, 5),
                 new Point(7, 5)));
+
         assertThatThrownBy(() -> Shape.createFigure(points)).isInstanceOf(IllegalArgumentException.class);
     }
 }

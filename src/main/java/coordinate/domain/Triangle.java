@@ -20,6 +20,9 @@ public class Triangle extends Figure {
         }
     }
 
+    /**
+     * 헤론의 공식을 활용한 삼각형 넓이 계산
+     */
     @Override
     public double calculateResult() {
         double a = points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(SECOND_POINT));

@@ -14,6 +14,7 @@ public class Points {
 
     private void checkDuplicateCoordinate(List<Point> points) {
         Set<Point> set = new HashSet<>(points);
+
         if (set.size() != points.size()) {
             throw new IllegalArgumentException("중복된 좌표는 허용하지 않습니다.");
         }

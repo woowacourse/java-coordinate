@@ -10,7 +10,7 @@ public class OutputView {
     private static final String NEWLINE = System.getProperty("line.separator");
     private static final char WHITE_SPACE = ' ';
     private static final char POINT = '*';
-    private static final String POINT_FORMAT = "%2d";
+    private static final String Y_AXIS_NUMBER_FORMAT = "%2d";
     private static final char Y_AXIS = '|';
 
     public static void printResult(Figure figure) {
@@ -36,7 +36,7 @@ public class OutputView {
     private static void print(Character[][] coordinate) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = coordinate.length - 1; i >= 1; i--) {
-            stringBuilder.append(String.format(POINT_FORMAT, (i))).append(Y_AXIS);
+            stringBuilder.append(String.format(Y_AXIS_NUMBER_FORMAT, (i))).append(Y_AXIS);
             for (int j = 1; j < coordinate[i].length; j++) {
                 stringBuilder.append(WHITE_SPACE).append(coordinate[i][j]);
             }

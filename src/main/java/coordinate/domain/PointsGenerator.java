@@ -16,12 +16,12 @@ public class PointsGenerator {
         if (!Pattern.matches(POINTS_REGEX, formula)) {
             throw new IllegalArgumentException("잘못된 식입니다.");
         }
-
         return generatePoints(formula);
     }
 
     private static Points generatePoints(String formula) {
         List<Point> points = new ArrayList<>();
+
         for (String point : formula.split(SEPARATOR)) {
             points.add(generatePoint(point));
         }
@@ -30,6 +30,7 @@ public class PointsGenerator {
 
     private static Point generatePoint(String point) {
         Matcher matcher = Pattern.compile(POINT_REGEX).matcher(point);
+
         if (matcher.find()) {
             return new Point(Integer.parseInt(matcher.group(X_COORDINATE)),
                     Integer.parseInt(matcher.group(Y_COORDINATE)));
