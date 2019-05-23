@@ -61,6 +61,11 @@ public class Point {
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 
+    /**
+     * 두 점 사이의 기울기를 구하여 반환한다.
+     * @param p
+     * @return
+     */
 	public Optional<Double> calculateSlope(Point p) {
 		if (p.x == this.x) {
 			return Optional.ofNullable(null);
@@ -68,6 +73,12 @@ public class Point {
 		return Optional.of(Math.abs((p.y - this.y) / (double) (p.x - this.x)));
 	}
 
+    /**
+     * this를 중심으로 하는 p1-this-p2 사이의 각도를 반환한다.
+     * @param p1
+     * @param p2
+     * @return 계산된 각도, 양수
+     */
 	public double calculateAngle(Point p1, Point p2) {
 		double cangleRad = Math.atan((double)(p2.y - this.y) / (p2.x - this.x)) - Math.atan((double)(p1.y - this.y) / (p1.x - this.x));
 		return Math.abs(Math.toDegrees(cangleRad));
