@@ -7,16 +7,19 @@ import java.util.List;
 
 enum ShapeType {
     LINE(ShapeMaker.COORDINATES_FOR_LINE) {
+        @Override
         public Shape create(List<Coordinate> coordinates) {
             return new Line(coordinates);
         }
     },
     TRIANGLE(ShapeMaker.COORDINATES_FOR_TRIANGLE) {
+        @Override
         public Shape create(List<Coordinate> coordinates) {
             return new Triangle(coordinates);
         }
     },
     RECTANGLE(ShapeMaker.COORDINATES_FOR_RECTANGLE) {
+        @Override
         public Shape create(List<Coordinate> coordinates) {
             return new Rectangle(coordinates);
         }
@@ -28,9 +31,7 @@ enum ShapeType {
         this.countOfCoordinate = countOfCoordinate;
     }
 
-    public Shape create(final List<Coordinate> coordinates) {
-        return null;
-    }
+    public abstract Shape create(final List<Coordinate> coordinates);
 
     public static ShapeType valueOf(final int countOfCoordinate) {
         return Arrays.stream(values())
