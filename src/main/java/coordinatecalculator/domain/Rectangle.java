@@ -1,6 +1,5 @@
 package coordinatecalculator.domain;
 
-import com.google.common.base.Preconditions;
 import coordinatecalculator.visitor.Visitor;
 
 import java.util.*;

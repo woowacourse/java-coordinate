@@ -1,5 +1,6 @@
 package coordinatecalculator.domain;
 
+import com.google.common.base.Preconditions;
 import coordinatecalculator.visitor.Visitor;
 
 import java.util.HashSet;
@@ -22,9 +23,7 @@ public class Triangle implements Figure, Shape {
         double slopeFirst = coordinates.get(0).calculateSlope(coordinates.get(1));
         double slopeSecond = coordinates.get(1).calculateSlope(coordinates.get(2));
 
-        if (slopeFirst == slopeSecond) {
-            throw new IllegalArgumentException("삼각형이 아니에요");
-        }
+        Preconditions.checkArgument(slopeFirst != slopeSecond, "삼각형이 아니에요");
     }
 
     @Override

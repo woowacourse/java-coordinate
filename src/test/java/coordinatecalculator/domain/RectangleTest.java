@@ -36,9 +36,9 @@ class RectangleTest {
 
     @Test
     void 넓이를_제대로_구하는지_테스트() {
-        List<Coordinate> coordinates = Arrays.asList(new Coordinate(1, 9), new Coordinate(1, 4),
+        List<Coordinate> coordinates = Arrays.asList(new Coordinate(1, 4), new Coordinate(1, 9),
                 new Coordinate(6, 4), new Coordinate(6, 9));
-        List<Coordinate> coordinates2 = Arrays.asList(new Coordinate(11, 19), new Coordinate(11, 14),
+        List<Coordinate> coordinates2 = Arrays.asList(new Coordinate(11, 14), new Coordinate(11, 19),
                 new Coordinate(16, 14), new Coordinate(16, 19));
 
         assertThat(new Rectangle(coordinates).area()).isEqualTo(25, offset(0.00099));

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RentCompanyTest {
-    private static final String NEWLINE = System.getProperty("line.separator");
+    private static final String NEWLINE = "\n";
 
     @Test
     public void report() throws Exception {

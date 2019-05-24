@@ -15,8 +15,8 @@ public class InputManager {
     private static final String OPEN_PARENTHESIS = "(";
     private static final String CLOSE_PARENTHESIS = ")";
     private static final int MAX_LENGTH = 7;
-    public static final int X = 1;
-    public static final int Y = 2;
+    private static final int X = 1;
+    private static final int Y = 2;
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
