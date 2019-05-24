@@ -21,6 +21,4 @@ public enum ShapeMsgEnum {
                 .filter(shape -> shape.pointLength == pointLength).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(NOT_MATCH_SHAPE_MSG)).msg;
     }
-
-
 }

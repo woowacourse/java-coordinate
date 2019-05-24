@@ -23,9 +23,13 @@ public class InputView {
     private static List<Point> points;
 
     public static List<Point> inputCoordinate() {
-        System.out.println(INPUT_COORDINATE_MSG);
-        String input = SCANNER.nextLine();
-        return makeCoordinate(input);
+        try {
+            System.out.println(INPUT_COORDINATE_MSG);
+            String input = SCANNER.nextLine();
+            return makeCoordinate(input);
+        } catch (Exception e) {
+            return inputCoordinate();
+        }
     }
 
     public static List<Point> makeCoordinate(String input) {

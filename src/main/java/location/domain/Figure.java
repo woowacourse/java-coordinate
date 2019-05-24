@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 public abstract class Figure implements Calculator {
-    private final static String DUPLICATE_MSG = "중복된 좌표가 있습니다.";
+    private final static String DUPLICATE_MSG = "위치가 같은 점(point)이 존재합니다.";
     private static final double MAX = Double.MAX_VALUE;
 
     public Figure(Points points) {
@@ -34,4 +34,6 @@ public abstract class Figure implements Calculator {
         }
         return molecule / denominator;
     }
+
+    public abstract Points getPoints();
 }
