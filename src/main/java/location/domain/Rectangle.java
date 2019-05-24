@@ -57,7 +57,7 @@ public class Rectangle extends Shape {
     }
 
     private double calculateTilt(final Point point, final Point point1) {
-        return (point.getY() - point1.getY()) / (point.getX() - point1.getX());
+        return (double)(point.getY()-point1.getY())/(double)(point.getX()-point1.getX());
     }
 
 
