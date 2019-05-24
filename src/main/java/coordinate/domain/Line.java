@@ -1,22 +1,26 @@
 package coordinate.domain;
 
 
-import java.util.LinkedHashMap;
 import java.util.Objects;
 
-public class Line implements Comparable<Line> {
+public class Line implements Comparable<Line>, Figure {
     private Double length;
 
-    public Line(Double length) {
+    Line(double length) {
         this.length = length;
     }
 
-    public double findSquareArea(Line length) {
+    double findSquareArea(Line length) {
         return this.length * length.length;
     }
 
-    public boolean isTriangle(Line length, Line longestLine) {
+    boolean isTriangle(Line length, Line longestLine) {
         return (this.length + length.length) > longestLine.length;
+    }
+
+    double findTriangleArea(Line line, Line line2) {
+        double s = (this.length + line.length + line2.length) / 2;
+        return Math.sqrt(s * (s - this.length) * (s - line.length) * (s - line2.length));
     }
 
     @Override
@@ -24,29 +28,27 @@ public class Line implements Comparable<Line> {
         return Double.compare(o.length, length);
     }
 
+    public double findArea() {
+        return length;
+    }
+
     @Override
-<<<<<<< HEAD
-    double findArea() {
-        Point firstPoint = coordinate.getPoint(0);
-        Point secondPoint = coordinate.getPoint(1);
-        return Math.sqrt(Math.pow(firstPoint.getPoint_x() - secondPoint.getPoint_x(), 2)
-                + Math.pow(firstPoint.getPoint_y() - secondPoint.getPoint_y(), 2));
-=======
+    public String findResult() {
+        return "두 점 사이의 거리는 %.2f 입니다.";
+    }
+
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return length.equals(line.length);
+        return Objects.equals(length, line.length);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(length);
     }
-
-    double findTriangleArea(Line line, Line line2) {
-        double s = (this.length + line.length + line2.length) / 2;
-        return Math.sqrt(s * (s - this.length) * (s - line.length) * (s - line2.length));
->>>>>>> fair/imkimheejoo
-    }
 }
+
+

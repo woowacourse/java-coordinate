@@ -3,61 +3,70 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    private double point;
+    private double pointX;
+    private double pointY;
 
-    Point(String input) {
-        point = checkPoint(input);
+    public Point(String x, String y) {
+        checkPoint(x, y);
+        pointX = Double.parseDouble(x);
+        pointY = Double.parseDouble(y);
     }
 
-    double sub_Point(Point point) {
-        return (this.point - point.point);
+    private double subPointX(double x) {
+        return (this.pointX - x);
     }
 
-    protected double checkPoint(String input) {
-        if (!isDouble(input)) {
+    private double subPointY(double y) {
+        return (this.pointY - y);
+    }
+
+    private void checkPoint(String x, String y) {
+        if (isBlank(x, y)) {
+            throw new IllegalArgumentException("공백 넣지 마세요.");
+        }
+        if (!isDouble(x, y)) {
             throw new IllegalArgumentException("숫자를 입력해 주세요.");
         }
-
-        double point = Double.parseDouble(input);
-
-        if (isNotAllowedNumber(point)) {
+        double tempX = Double.parseDouble(x);
+        double tempY = Double.parseDouble(y);
+        if (isNotAllowedNumber(tempX, tempY)) {
             throw new IllegalArgumentException("0 이상 24 이하의 수를 입력하세요.");
         }
-
-        return point;
     }
 
-    private boolean isNotAllowedNumber(double point_x) {
-
-        return (point_x > 24 || point_x < 0);
+    private boolean isNotAllowedNumber(double point_x, double point_y) {
+        return (point_x > 24 || point_x < 0) || (point_y > 24 || point_y < 0);
     }
 
-    private boolean isDouble(String input) {
+    private boolean isDouble(String x, String y) {
         try {
-<<<<<<< HEAD
-            Integer.parseInt(point_x);
-            Integer.parseInt(point_y);
-        } catch (IllegalArgumentException e){
-=======
-            Double.parseDouble(input);
+            Double.parseDouble(x);
+            Double.parseDouble(y);
             return true;
         } catch (IllegalArgumentException e) {
->>>>>>> fair/imkimheejoo
             return false;
         }
     }
 
+    private boolean isBlank(String x, String y) {
+        return x.contains(" ") || y.contains(" ");
+    }
+
+    double findLength(Point point) {
+        return Math.sqrt(Math.pow(subPointX(point.pointX), 2) + Math.pow(subPointY(point.pointY), 2));
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Point point1 = (Point) o;
-        return Double.compare(point1.point, point) == 0;
+        Point point = (Point) o;
+        return Double.compare(point.pointX, pointX) == 0 &&
+                Double.compare(point.pointY, pointY) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(point);
+        return Objects.hash(pointX, pointY);
     }
 }
