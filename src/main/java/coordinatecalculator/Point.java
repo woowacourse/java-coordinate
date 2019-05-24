@@ -4,11 +4,12 @@ import java.util.Objects;
 
 import static java.lang.Math.*;
 
-class Point {
-    private static final int SQUARE_NUMBER = 2;
+class Point implements Comparable<Point> {
+    private static final int SQUARE_VALUE = 2;
     private static final int LIMIT_MINIMUM_NUM = 0;
     private static final int LIMIT_MAXIMUM_NUM = 24;
     private static final String ERROR_RANGE_COORDINATE = "입력된 좌표 범위가 올바르지 않습니다.";
+    private static final double STRAIGHT_ANGLE = 180;
 
     private final int x;
     private final int y;
@@ -37,15 +38,20 @@ class Point {
         int dX = this.x - anotherPoint.x;
         int dY = this.y - anotherPoint.y;
 
-        return sqrt(pow(dX, SQUARE_NUMBER) + pow(dY, SQUARE_NUMBER));
+        return sqrt(square(dX) + square(dY));
     }
 
-    public double getAngle(Point anotherPoint) {
-        int dX = this.x - anotherPoint.x;
-        int dY = this.y - anotherPoint.y;
+    private double square(double number) {
+        return pow(number, SQUARE_VALUE);
+    }
 
-        double radian = Math.atan2(dX, dY);
-        return (radian * 180) / Math.PI;
+    public double getAngle(Point point2, Point point3) {
+        double a = sqrt(square(this.x - point3.x) + square(this.y - point3.y));
+        double b = sqrt(square(this.x - point2.x) + square(this.y - point2.y));
+        double c = sqrt(square(point2.x - point3.x) + square(point2.y - point3.y));
+
+        double Angle = acos((square(b) + square(c) - square(a)) / (2 * b * c));
+        return Angle * STRAIGHT_ANGLE / PI;
     }
 
     @Override
@@ -60,5 +66,10 @@ class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        return this.x < o.x ? -1 : this.x > o.x ? 1 : this.y < o.y ? -1 : 1;
     }
 }
