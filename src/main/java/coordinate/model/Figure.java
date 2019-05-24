@@ -8,6 +8,4 @@ public interface Figure {
     int size();
 
     double area();
-
-    double distance(int originPoint, int destinationPoint);
 }

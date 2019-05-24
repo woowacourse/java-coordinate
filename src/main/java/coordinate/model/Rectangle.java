@@ -1,8 +1,11 @@
 package coordinate.model;
 
-import java.util.*;
 
-public class Rectangle extends AbstractFigure{
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Rectangle extends AbstractFigure {
 
     public Rectangle(List<Point> points) {
         super(points);
@@ -15,8 +18,9 @@ public class Rectangle extends AbstractFigure{
         }
     }
 
+    //직사각형 검증 -> 고칠것
     private boolean checkRectangle(List<Point> points) {
-        return  collectXValues(points).size() == 2 && collectYValues(points).size() == 2;
+        return collectXValues(points).size() == 2 && collectYValues(points).size() == 2;
     }
 
     private Set<Value> collectXValues(List<Point> points) {
@@ -36,37 +40,14 @@ public class Rectangle extends AbstractFigure{
     }
 
     @Override
-    public List<Point> getPoints() {
-        return points;
-    }
-
-    @Override
-    public double distance(int originPoint, int destinationPoint) {
-        return points.get(originPoint).calculate(points.get(destinationPoint));
-    }
-
-    @Override
     public int size() {
         return 4;
     }
 
     @Override
-    public double area(){
-        double firstLine = distance(0,1);
-        double secondLine = distance(0, 2);
+    public double area() {
+        double firstLine = points.get(0).howFar(points.get(1));
+        double secondLine = points.get(0).howFar(points.get(2));
         return firstLine * secondLine;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Rectangle rectangle = (Rectangle) o;
-        return Objects.equals(points, rectangle.points);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(points);
     }
 }

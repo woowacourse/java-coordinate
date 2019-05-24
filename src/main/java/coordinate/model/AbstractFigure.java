@@ -1,23 +1,34 @@
 package coordinate.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractFigure implements Figure {
     protected final List<Point> points;
 
-    public AbstractFigure(List<Point> points) {
+    AbstractFigure(List<Point> points) {
         if (points.size() != size()) {
-            throw new IllegalArgumentException("입력값이 잘못되었습니다. 선분, 삼각형, 직사각형만 넣어주세요");
+            throw new IllegalArgumentException();
         }
-        this.points = points;
-    }
 
-    protected Point getPoint(int index) {
-        return points.get(index);
+        this.points = points;
     }
 
     @Override
     public List<Point> getPoints() {
         return points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbstractFigure that = (AbstractFigure) o;
+        return Objects.equals(points, that.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }

@@ -1,4 +1,8 @@
-package coordinate.model;
+package coordinate.model.creator;
+
+import coordinate.model.Figure;
+import coordinate.model.Point;
+import coordinate.model.Rectangle;
 
 import java.util.List;
 

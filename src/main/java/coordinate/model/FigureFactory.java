@@ -1,5 +1,10 @@
 package coordinate.model;
 
+import coordinate.model.creator.LineCreator;
+import coordinate.model.creator.FigureCreator;
+import coordinate.model.creator.RectangleCreator;
+import coordinate.model.creator.TriangleCreator;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

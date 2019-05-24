@@ -1,10 +1,10 @@
-package coordinate.model;
+package coordinate.view;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class ViewLine {
-    List<String> line;
+    private List<String> line;
 
     ViewLine() {
         line = Arrays.asList("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ");

@@ -1,6 +1,9 @@
 package coordinate;
 
-import coordinate.model.*;
+import coordinate.model.creator.PointsGenerator;
+import coordinate.model.Figure;
+import coordinate.model.FigureFactory;
+import coordinate.model.Point;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
@@ -9,12 +12,10 @@ import java.util.List;
 public class CoordinateApplication {
     public static void main(String[] args) {
         Figure figure = makeFigure();
-        Graph graph = new Graph(figure);
-        graph.markPointsPositions();
-        OutputView.printResult(graph, figure);
+        OutputView.printFigurePoints(figure);
     }
 
-    public static Figure makeFigure() {
+    private static Figure makeFigure() {
         try {
             String coordinates = InputView.askCoordinate();
             List<Point> points = PointsGenerator.makePoints(coordinates);

@@ -7,14 +7,26 @@ public class Value {
     
     public Value(String input) {
         int value = Integer.parseInt(input);
+        checkValue(value);
+        this.value = value;
+    }
+
+    private void checkValue(int value) {
         if (value < 0 || value > 24) {
             throw new IllegalArgumentException();
         }
-        this.value = value;
     }
 
     public int getValue() {
         return (int) value;
+    }
+
+    double rateSquared(Value value) {
+        return Math.pow(getRateOfChange(value), 2);
+    }
+
+    double getRateOfChange(Value value) {
+        return this.value - value.value;
     }
 
     @Override
@@ -30,11 +42,5 @@ public class Value {
         return Objects.hash(value);
     }
 
-    public double message(Value value) {
-        return Math.pow(getRateOfChange(value), 2);
-    }
 
-    public double getRateOfChange(Value value) {
-        return this.value - value.value;
-    }
 }
