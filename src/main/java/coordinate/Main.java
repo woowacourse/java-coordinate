@@ -11,8 +11,6 @@ import java.util.regex.Pattern;
 
 public class Main {
 
-    private static final String POINT_REGEX = "\\(([0-9]+)(,)([0-9]+)\\)";
-
     public static void main(String[] args) {
         Shape shape = createShape();
         OutputView.printCoordinate(shape);
@@ -20,24 +18,12 @@ public class Main {
     }
 
     private static Shape createShape() {
-            try {
-                List<Point> points = makePoints(InputView.inputPoint());
-                return Shape.creator.get(points.size()).apply(points);
-            } catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
-                return createShape();
-            }
-    }
-
-    private static List<Point> makePoints(List<String> inputs) {
-        List<Point> points = new ArrayList<>();
-        for (String input : inputs) {
-            Matcher matcher = Pattern.compile(POINT_REGEX).matcher(input);
-            matcher.matches();
-            PointNumber x = new PointNumber(Integer.parseInt(matcher.group(1)));
-            PointNumber y = new PointNumber(Integer.parseInt(matcher.group(3)));
-            points.add(new Point(x, y));
+        try {
+            StringToPointConverter converter = new StringToPointConverter(InputView.inputPoint());
+            return ShapeFactory.create(converter.generate());
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return createShape();
         }
-        return points;
     }
 }
