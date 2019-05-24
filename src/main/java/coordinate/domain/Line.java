@@ -37,7 +37,7 @@ public class Line implements Comparable<Line>, Figure {
 
     @Override
     public String findResult() {
-        return "두 점 사이의 거리는 "+length+" 입니다.";
+        return "두 점 사이의 거리는 %.2f 입니다.";
     }
 
     @Override

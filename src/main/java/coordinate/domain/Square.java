@@ -29,6 +29,6 @@ public class Square implements Figure {
 
     @Override
     public String findResult() {
-        return "사각형의 넓이는 "+findArea()+" 입니다.";
+        return "사각형의 넓이는 %.2f 입니다.";
     }
 }

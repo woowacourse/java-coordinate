@@ -47,6 +47,6 @@ public class OutputView {
     }
 
     public static void printResult(Figure figure) {
-        System.out.println(figure.findResult());
+        System.out.printf(figure.findResult(),figure.findArea());
     }
 }
