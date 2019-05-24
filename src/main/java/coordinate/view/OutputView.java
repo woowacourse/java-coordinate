@@ -1,8 +1,8 @@
 package coordinate.view;
 
-import coordinate.domain.Figure.AreaCalculable;
-import coordinate.domain.Figure.Figure;
-import coordinate.domain.Figure.Line;
+import coordinate.domain.figure.AreaCalculable;
+import coordinate.domain.figure.Figure;
+import coordinate.domain.figure.Line;
 import coordinate.util.CoordinatePlaneDrawer;
 
 public class OutputView {

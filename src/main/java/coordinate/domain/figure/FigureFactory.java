@@ -1,4 +1,4 @@
-package coordinate.domain.Figure;
+package coordinate.domain.figure;
 
 import coordinate.domain.point.PointGroup;
 
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class FigureFactory implements FigureCreator {
-    Map<Integer, Function<PointGroup, Figure>> figures = new HashMap<Integer, Function<PointGroup, Figure>>() {
+    private static Map<Integer, Function<PointGroup, Figure>> figures = new HashMap<Integer, Function<PointGroup, Figure>>() {
         {
             put(2, (points) -> new Line(points));
             put(3, (points) -> new Triangle(points));

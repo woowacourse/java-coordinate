@@ -1,6 +1,6 @@
 package coordinate.util;
 
-import coordinate.domain.Figure.Figure;
+import coordinate.domain.figure.Figure;
 import coordinate.domain.point.Point;
 import org.apache.commons.lang3.StringUtils;
 
@@ -11,7 +11,7 @@ public class CoordinatePlaneDrawer {
     private static final String VERTICAL_LINE = "—";
     private static final String EMPTY = " ";
     private static final String ORIGIN = "+";
-    private static final String COORDINATES = "⬤";
+    private static final String COORDINATES = "•";
     private static final String NEW_LINE = "\n";
 
     private final StringBuilder drawer;
