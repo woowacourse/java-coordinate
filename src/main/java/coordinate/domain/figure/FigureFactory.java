@@ -9,9 +9,9 @@ import java.util.function.Function;
 public class FigureFactory implements FigureCreator {
     private static Map<Integer, Function<PointGroup, Figure>> figures = new HashMap<Integer, Function<PointGroup, Figure>>() {
         {
-            put(2, (points) -> new Line(points));
-            put(3, (points) -> new Triangle(points));
-            put(4, (points) -> new Rectangle(points));
+            put(Line.POINT_COUNT, (points) -> new Line(points));
+            put(Triangle.POINT_COUNT, (points) -> new Triangle(points));
+            put(Rectangle.POINT_COUNT, (points) -> new Rectangle(points));
         }
     };
 

@@ -3,7 +3,7 @@ package coordinate.domain.figure;
 import coordinate.domain.point.PointGroup;
 
 public class Line extends Figure {
-    private static final int POINT_COUNT = 2;
+    static final int POINT_COUNT = 2;
 
     Line(PointGroup points) {
         super(points, POINT_COUNT);

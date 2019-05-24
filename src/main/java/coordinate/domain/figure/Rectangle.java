@@ -3,7 +3,7 @@ package coordinate.domain.figure;
 import coordinate.domain.point.PointGroup;
 
 public class Rectangle extends Figure implements AreaCalculable {
-    private static final int POINT_COUNT = 4;
+    static final int POINT_COUNT = 4;
 
     public Rectangle(PointGroup points) {
         super(points, POINT_COUNT);

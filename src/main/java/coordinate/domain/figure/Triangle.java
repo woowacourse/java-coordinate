@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Triangle extends Figure implements AreaCalculable {
-    private static final int POINT_COUNT = 3;
+    static final int POINT_COUNT = 3;
 
     Triangle(PointGroup points) {
         super(points, POINT_COUNT);
