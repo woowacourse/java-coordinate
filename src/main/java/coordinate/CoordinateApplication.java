@@ -9,8 +9,8 @@ import java.util.List;
 public class CoordinateApplication {
     public static void main(String[] args) {
         Figure figure = makeFigure();
-        Graph graph = new Graph();
-        graph.setPosition(figure.getPoints());
+        Graph graph = new Graph(figure);
+        graph.markPointsPositions();
         OutputView.printResult(graph, figure);
     }
 
