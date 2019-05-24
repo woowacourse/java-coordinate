@@ -4,9 +4,10 @@ import coordinate.domain.nonefigure.Point;
 import coordinate.domain.nonefigure.PointGroup;
 import coordinate.domain.nonefigure.Vector;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-public class Line extends Figure{
+public class Line extends Figure implements Comparable<Line> {
     private static final int POINT_COUNT = 2;
     private Point startPoint;
     private Point endPoint;
@@ -18,16 +19,9 @@ public class Line extends Figure{
     }
 
     public Line(Point startPoint, Point endPoint) {
-        super(new PointGroup(new ArrayList<Point>(Arrays.asList(startPoint,endPoint))),2);
+        super(new PointGroup(new ArrayList<Point>(Arrays.asList(startPoint, endPoint))), 2);
         this.startPoint = startPoint;
         this.endPoint = endPoint;
-    }
-
-    @Override
-    void validatePoints(PointGroup points) {
-        if (points.size() != POINT_COUNT) {
-            throw new IllegalArgumentException("라인은 두 점으로 구성하세요");
-        }
     }
 
     public double length() {
@@ -41,5 +35,23 @@ public class Line extends Figure{
         Vector vector = new Vector(startPoint.getX() - endPoint.getX(),
                 startPoint.getY() - endPoint.getY());
         return vector;
+    }
+
+    @Override
+    void validatePoints(PointGroup points) {
+        if (points.size() != POINT_COUNT) {
+            throw new IllegalArgumentException("라인은 두 점으로 구성하세요");
+        }
+    }
+
+    @Override
+    public int compareTo(Line anotherLine) {
+        if (this.length() < anotherLine.length()) {
+            return -1;
+        }
+        if (this.length() > anotherLine.length()) {
+            return 1;
+        }
+        return 0;
     }
 }

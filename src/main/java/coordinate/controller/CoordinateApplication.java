@@ -1,7 +1,9 @@
 package coordinate.controller;
 
 import coordinate.domain.figure.AreaCalculable;
-import coordinate.domain.figure.*;
+import coordinate.domain.figure.Figure;
+import coordinate.domain.figure.FigureFactory;
+import coordinate.domain.figure.Line;
 import coordinate.domain.nonefigure.PointGroup;
 import coordinate.util.CoordinateRepresentation;
 import coordinate.view.InputView;
@@ -20,7 +22,7 @@ public class CoordinateApplication {
         }
 
         OutputView.printCoordinatePlane(points);
-        OutputView.printArea(figure.toString(), ((AreaCalculable)figure).area());
+        OutputView.printArea(figure.toString(), ((AreaCalculable) figure).area());
         return;
     }
 

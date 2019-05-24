@@ -1,4 +1,5 @@
 package coordinate.view;
+
 import coordinate.domain.nonefigure.PointGroup;
 
 public class OutputView {
@@ -25,7 +26,7 @@ public class OutputView {
 
     private static void drawXAxis(PointGroup points) {
         for (int i = 1; i <= COORDINATE_PLANE_SIZE; i++) {
-            if (points.have(i, 0)) System.out.print("-"+COORDINATES+"-");
+            if (points.have(i, 0)) System.out.print("-" + COORDINATES + "-");
             else System.out.print(VERTICAL_LINE);
         }
         System.out.println();
@@ -69,7 +70,7 @@ public class OutputView {
 
     public static String drawNumber(boolean havePoint) {
         if (havePoint) {
-            return " "+COORDINATES+" ";
+            return " " + COORDINATES + " ";
         }
         return EMPTY;
     }
@@ -78,17 +79,8 @@ public class OutputView {
         System.out.println("두 점 사이 거리는 " + lineLength);
     }
 
-    public static void printTriangleSize(double area) {
-        System.out.println("삼각형 넓이는 " + area);
-    }
-
-
-    public static void printRectangleSize(double area) {
-        System.out.println("사각형 넓이는 " + area);
-    }
-
     public static void printArea(String figure, double area) {
-        System.out.println(figure + " 넓이는 "+ area);
+        System.out.println(figure + " 넓이는 " + area);
     }
 }
 

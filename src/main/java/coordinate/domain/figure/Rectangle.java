@@ -3,7 +3,8 @@ package coordinate.domain.figure;
 import coordinate.domain.nonefigure.PointGroup;
 import coordinate.domain.nonefigure.Vector;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Rectangle extends Figure implements AreaCalculable {
     private static final int POINT_COUNT = 4;
@@ -23,17 +24,17 @@ public class Rectangle extends Figure implements AreaCalculable {
     }
 
     private boolean checkRectangle(PointGroup points) {
-        List<Line> lines = new ArrayList();
-        for (int i = 0; i < points.size(); i++) {
-            lines.add(new Line(points.getPoint(i), points.getPoint((i+1)%points.size())));
-        }
+        List<Line> lines = points.getLines();
         List<Vector> vectors = new ArrayList<>();
-        for (int i = 0; i < lines.size(); i++) {
-            vectors.add(lines.get(i).toVector());
-        }
+        lines.forEach(line -> vectors.add(line.toVector()));
+
+        return checkDegreesAreAll90(points, vectors);
+    }
+
+    private boolean checkDegreesAreAll90(PointGroup points, List<Vector> vectors) {
         for (int i = 0; i < vectors.size(); i++) {
-            int xProduct = vectors.get(i).getX() * vectors.get((i+1)%points.size()).getX();
-            int yProduct = vectors.get(i).getY() * vectors.get((i+1)%points.size()).getY();
+            int xProduct = vectors.get(i).getX() * vectors.get((i + 1) % points.size()).getX();
+            int yProduct = vectors.get(i).getY() * vectors.get((i + 1) % points.size()).getY();
             int innerProduct = xProduct + yProduct;
             if (innerProduct != 0) {
                 return false;
@@ -45,10 +46,7 @@ public class Rectangle extends Figure implements AreaCalculable {
     public double area() {
         PointGroup points = getPoints();
         double area = 1;
-        List<Line> lines = new ArrayList();
-        for (int i = 0; i < points.size(); i++) {
-            lines.add(new Line(points.getPoint(i), points.getPoint((i+1)%points.size())));
-        }
+        List<Line> lines = points.getLines();
         for (Line line : lines) {
             area = line.length() * area;
         }

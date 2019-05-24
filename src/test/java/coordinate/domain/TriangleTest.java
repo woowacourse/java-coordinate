@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TriangleTest {
@@ -18,7 +19,7 @@ public class TriangleTest {
                 Point.create(1, 1), Point.create(2, 2),
                 Point.create(1, 3)
         );
-        assertThat(new Triangle(new PointGroup(points)).area()).isEqualTo(1);
+        assertEquals(new Triangle(new PointGroup(points)).area(),1,0.1);
     }
 
     @Test

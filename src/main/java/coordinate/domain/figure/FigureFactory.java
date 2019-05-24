@@ -15,6 +15,7 @@ public class FigureFactory {
         figures.put(3, (pointGroup) -> new Triangle(pointGroup));
         figures.put(4, (pointGroup) -> new Rectangle(pointGroup));
     }
+
     public static Figure getInstance(PointGroup pointGroup) {
         return figures.get(pointGroup.size()).apply(pointGroup);
     }

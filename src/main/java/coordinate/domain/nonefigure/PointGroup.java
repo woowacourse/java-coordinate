@@ -1,6 +1,9 @@
 package coordinate.domain.nonefigure;
 
-import java.util.*;
+import coordinate.domain.figure.Line;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PointGroup {
     private final List<Point> points;
@@ -10,16 +13,16 @@ public class PointGroup {
     }
 
 
-    public List<Double> getDistances() {
-        List<Double> distances = new ArrayList<>();
+    public List<Line> getLines() {
+        List<Line> lines = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
-            distances.add(points.get(i).getSquareDistanceWith(points.get((i + 1) % points.size())));
+            lines.add(new Line(points.get(i), points.get((i + 1) % points.size())));
         }
-        return distances;
+        return lines;
     }
 
     public boolean have(int x, int y) {
-        return points.contains(Point.create(x,y));
+        return points.contains(Point.create(x, y));
     }
 
     public int size() {

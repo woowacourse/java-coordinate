@@ -36,13 +36,6 @@ public class Point {
         return Objects.hash(xCoordinate.hashCode() + yCoordinate.hashCode());
     }
 
-    public Point formVectorWith(Point endPoint) {
-        Coordinate xCoordinate = new Coordinate(this.xCoordinate.getDiffWith(endPoint.xCoordinate));
-        Coordinate yCoordinate = new Coordinate(this.yCoordinate.getDiffWith(endPoint.yCoordinate));
-
-        return new Point(xCoordinate, yCoordinate);
-    }
-
     public int getX() {
         return xCoordinate.getValue();
     }
