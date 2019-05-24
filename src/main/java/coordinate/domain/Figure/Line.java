@@ -2,8 +2,6 @@ package coordinate.domain.Figure;
 
 import coordinate.domain.point.PointGroup;
 
-import java.util.Iterator;
-
 public class Line extends Figure {
     private static final int POINT_COUNT = 2;
 
@@ -12,8 +10,7 @@ public class Line extends Figure {
     }
 
     public double length() {
-        Iterator iterator = getPoints().getSquaredDistances().iterator();
-        return Math.sqrt((double) iterator.next());
+        return Math.sqrt(getPoints().getSquaredDistanceOf(0, 1));
     }
 
     @Override

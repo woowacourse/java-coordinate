@@ -8,7 +8,7 @@ import rentcar.car.Sonata;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class RentCompanyTest {
-    private static final String NEWLINE = System.getProperty("line.separator");
+    private static final String NEWLINE = "\n";
 
     @Test
     public void report() throws Exception {

@@ -1,5 +1,6 @@
 package coordinate.domain.Figure;
 
+import coordinate.domain.point.Point;
 import coordinate.domain.point.PointGroup;
 
 public abstract class Figure {
@@ -24,5 +25,9 @@ public abstract class Figure {
 
     PointGroup getPoints() {
         return points;
+    }
+
+    public boolean have(Point point) {
+        return points.have(point);
     }
 }

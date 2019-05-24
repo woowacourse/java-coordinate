@@ -1,43 +1,31 @@
 package coordinate.controller;
 
-import coordinate.domain.Figure.*;
+import coordinate.domain.Figure.Figure;
+import coordinate.domain.Figure.FigureFactory;
 import coordinate.domain.point.PointGroup;
 import coordinate.util.CoordinateRepresentation;
 import coordinate.view.*;
 
 public class CoordinateApplication {
     public static void main(String[] args) {
-        Figure figure = handlePoints();
-
-        if (figure == null) {
-            return;
-        }
-
-        OutputView.printFigureResult(figure);
+        Figure figure = makeFigure();
+        OutputView.printCoordinateResult(figure);
     }
 
-    private static Figure handlePoints() {
-        PointGroup points = createCoordinatesGroup();
-        Figure figure;
+    private static Figure makeFigure() {
         try {
-            figure = createFigure(points);
+            return createFigure(createPointGroup());
         } catch (IllegalArgumentException e) {
-            return handlePoints();
+            OutputView.printErrorMessage(e.getMessage());
+            return makeFigure();
         }
-        OutputView.printCoordinatePlane(points);
-
-        return figure;
     }
 
-    private static PointGroup createCoordinatesGroup() {
+    private static PointGroup createPointGroup() {
         try {
             return CoordinateRepresentation.convertCoordinatePair(InputView.inputCoordinates());
         } catch (NumberFormatException e) {
-            OutputView.printErrorMessage("좌표값은 정수만 가능합니다");
-            return createCoordinatesGroup();
-        } catch (IllegalArgumentException e) {
-            OutputView.printErrorMessage(e.getMessage());
-            return createCoordinatesGroup();
+            throw new IllegalArgumentException("좌표값은 정수만 가능합니다");
         }
     }
 
@@ -45,8 +33,7 @@ public class CoordinateApplication {
         try {
             return new FigureFactory().create(points);
         } catch (IllegalArgumentException e) {
-            OutputView.printErrorMessage(e.getMessage());
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 }

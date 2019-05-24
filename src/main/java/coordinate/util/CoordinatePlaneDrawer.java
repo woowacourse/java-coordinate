@@ -1,35 +1,36 @@
 package coordinate.util;
 
-import coordinate.domain.point.PointGroup;
+import coordinate.domain.Figure.Figure;
+import coordinate.domain.point.Point;
 import org.apache.commons.lang3.StringUtils;
 
 public class CoordinatePlaneDrawer {
     private static final int COORDINATE_PLANE_SIZE = 24;
     private static final int HORIZONTAL_RATIO = 3;
     private static final String HORIZONTAL_LINE = "|";
-    private static final String VERTICAL_LINE = "-";
+    private static final String VERTICAL_LINE = "—";
     private static final String EMPTY = " ";
     private static final String ORIGIN = "+";
-    private static final String COORDINATES = "@";
+    private static final String COORDINATES = "⬤";
     private static final String NEW_LINE = "\n";
 
     private final StringBuilder drawer;
 
-    public CoordinatePlaneDrawer(int coordinatePlaneSize, PointGroup points) {
+    public CoordinatePlaneDrawer(int coordinatePlaneSize, Figure figure) {
         drawer = new StringBuilder();
 
         for (int i = coordinatePlaneSize; i > 0; i--) {
-            drawRow(i, points);
+            drawRow(i, figure);
         }
-        drawOrigin(points.have(0, 0));
-        drawXAxis(points);
+        drawOrigin(figure.have(Point.create(0, 0)));
+        drawXAxis(figure);
     }
 
-    private void drawRow(int rowNumber, PointGroup points) {
+    private void drawRow(int rowNumber, Figure figure) {
         drawer.append(drawAxisNumber(rowNumber));
-        drawer.append(drawYAxis(rowNumber, points));
+        drawer.append(drawYAxis(rowNumber, figure));
         for (int i = 1; i <= COORDINATE_PLANE_SIZE; i++) {
-            drawer.append(drawPoint(points.have(i, rowNumber)));
+            drawer.append(drawPoint(figure.have(Point.create(i, rowNumber))));
         }
         drawer.append(NEW_LINE);
     }
@@ -41,8 +42,8 @@ public class CoordinatePlaneDrawer {
         return StringUtils.repeat(EMPTY, HORIZONTAL_RATIO);
     }
 
-    private String drawYAxis(int rowNumber, PointGroup points) {
-        if (points.have(0, rowNumber)) {
+    private String drawYAxis(int rowNumber, Figure figure) {
+        if (figure.have(Point.create(0, rowNumber))) {
             return COORDINATES;
         }
         return HORIZONTAL_LINE;
@@ -64,9 +65,9 @@ public class CoordinatePlaneDrawer {
         drawer.append(ORIGIN);
     }
 
-    private void drawXAxis(PointGroup points) {
+    private void drawXAxis(Figure figure) {
         for (int i = 1; i <= COORDINATE_PLANE_SIZE; i++) {
-            drawXAxisLine(points.have(i, 0));
+            drawXAxisLine(figure.have(Point.create(i, 0)));
         }
         drawer.append(NEW_LINE);
         drawer.append(EMPTY);
@@ -78,10 +79,10 @@ public class CoordinatePlaneDrawer {
 
     private void drawXAxisLine(boolean havePoint) {
         if (havePoint) {
-            drawer.append(StringUtils.center(COORDINATES, 3, VERTICAL_LINE));
+            drawer.append(StringUtils.center(COORDINATES, HORIZONTAL_RATIO, VERTICAL_LINE));
             return;
         }
-        drawer.append(StringUtils.repeat(VERTICAL_LINE, 3));
+        drawer.append(StringUtils.repeat(VERTICAL_LINE, HORIZONTAL_RATIO));
     }
 
     public String print() {

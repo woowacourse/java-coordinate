@@ -2,8 +2,6 @@ package coordinate.domain.Figure;
 
 import coordinate.domain.point.PointGroup;
 
-import java.util.*;
-
 public class Rectangle extends Figure implements AreaCalculable {
     private static final int POINT_COUNT = 4;
 
@@ -13,12 +11,7 @@ public class Rectangle extends Figure implements AreaCalculable {
 
     @Override
     public double area() {
-        List<Double> lengths = new ArrayList<>(getPoints().getSquaredDistances());
-        Collections.sort(lengths);
-        if (lengths.size() == 2) {
-            return lengths.get(0);
-        }
-        return Math.sqrt(lengths.get(0) * lengths.get(1));
+        return Math.sqrt(getPoints().getSquaredDistanceOf(0, 1) * getPoints().getSquaredDistanceOf(0, 2));
     }
 
     @Override
@@ -26,20 +19,15 @@ public class Rectangle extends Figure implements AreaCalculable {
         if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("직사각형은 4개의 점으로 이루어져야합니다.");
         }
-        if (!checkRectangle(points.getSquaredDistances())) {
+        if (!checkRectangle(points)) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
     }
 
-    private boolean checkRectangle(Set<Double> lengths) {
-        List<Double> distances = new ArrayList<>(lengths);
-        Collections.sort(distances);
-        if (distances.size() == 2
-                && checkPythagorean(distances.get(1), distances.get(0), distances.get(0))) {
-            return true;
-        }
-        return distances.size() == 3
-                && checkPythagorean(distances.get(2), distances.get(1), distances.get(0));
+    private boolean checkRectangle(PointGroup points) {
+        double side = points.getSquaredDistanceOf(0, 2);
+        return checkPythagorean(points.getSquaredDistanceOf(3, 0), points.getSquaredDistanceOf(2, 3), side)
+                && checkPythagorean(points.getSquaredDistanceOf(1, 2), points.getSquaredDistanceOf(0, 1), side);
     }
 
     private boolean checkPythagorean(double hypotenuseSquare, double side1, double side2) {

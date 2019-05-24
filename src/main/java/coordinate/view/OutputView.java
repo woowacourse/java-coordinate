@@ -3,20 +3,24 @@ package coordinate.view;
 import coordinate.domain.Figure.AreaCalculable;
 import coordinate.domain.Figure.Figure;
 import coordinate.domain.Figure.Line;
-import coordinate.domain.point.PointGroup;
 import coordinate.util.CoordinatePlaneDrawer;
 
 public class OutputView {
     private static final String NEW_LINE = "\n";
     private static final int COORDINATE_PLANE_SIZE = 24;
 
-    public static void printCoordinatePlane(PointGroup points) {
-        CoordinatePlaneDrawer drawer = new CoordinatePlaneDrawer(COORDINATE_PLANE_SIZE, points);
+    public static void printCoordinateResult(Figure figure) {
+        printCoordinatePlane(figure);
+        printSizeResult(figure);
+    }
+
+    private static void printCoordinatePlane(Figure figure) {
+        CoordinatePlaneDrawer drawer = new CoordinatePlaneDrawer(COORDINATE_PLANE_SIZE, figure);
         System.out.println();
         System.out.println(drawer.print());
     }
 
-    public static void printFigureResult(Figure figure) {
+    private static void printSizeResult(Figure figure) {
         if (figure instanceof AreaCalculable) {
             OutputView.printArea(figure.toString(), ((AreaCalculable) figure).area());
             return;
