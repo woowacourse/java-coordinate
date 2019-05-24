@@ -20,7 +20,7 @@ public class PlaneFigureTest {
 
         assertThrows(IllegalArgumentException.class, () -> new PlaneFigure(coordinates) {
             @Override
-            public String resultMessage() {
+            public String getPreMessage() {
                 return null;
             }
 
@@ -40,7 +40,7 @@ public class PlaneFigureTest {
 
         assertDoesNotThrow(() -> new PlaneFigure(coordinates) {
             @Override
-            public String resultMessage() {
+            public String getPreMessage() {
                 return null;
             }
 

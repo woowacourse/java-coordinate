@@ -18,7 +18,7 @@ public class LinesTest {
         Coordinate c1 = new Coordinate(0, 0);
         Coordinate c2 = new Coordinate(10, 10);
         Coordinate c3 = new Coordinate(15, 15);
-        Coordinate c4 = new Coordinate(10,20);
+        Coordinate c4 = new Coordinate(10, 20);
         List<Coordinate> coordinates = Arrays.asList(c1, c2, c3, c4);
 
         assertThrows(IllegalArgumentException.class, () -> new Lines(new Coordinates(coordinates)));
