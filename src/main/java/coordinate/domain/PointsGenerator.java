@@ -31,8 +31,8 @@ public class PointsGenerator {
 
         while (matcher.find()) {
             pointCoordinate = input.substring(matcher.start(), matcher.end()).split(",");
-            points.add(new Point(new Coordinate(Integer.parseInt(pointCoordinate[X_COORDINATE_INDEX])),
-                    new Coordinate(Integer.parseInt(pointCoordinate[Y_COORDINATE_INDEX]))));
+            points.add(new Point(Integer.parseInt(pointCoordinate[X_COORDINATE_INDEX]),
+                    Integer.parseInt(pointCoordinate[Y_COORDINATE_INDEX])));
         }
 
         validatePointsNumber(points.size());

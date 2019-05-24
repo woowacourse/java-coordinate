@@ -20,7 +20,7 @@ public class Graph {
     }
 
     public void drawPoints(List<Point> points) {
-        Point originPoint = new Point(new Coordinate(ORIGIN_COORDINATE), new Coordinate(ORIGIN_COORDINATE));
+        Point originPoint = new Point(ORIGIN_COORDINATE, ORIGIN_COORDINATE);
         int xCoordinate;
         int yCoordinate;
 

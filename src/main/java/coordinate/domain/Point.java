@@ -6,9 +6,9 @@ public class Point {
     private Coordinate xCoordinate;
     private Coordinate yCoordinate;
 
-    public Point(Coordinate xCoordinate, Coordinate yCoordinate) {
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+    public Point(int xCoordinate, int yCoordinate) {
+        this.xCoordinate = CoordinateContainer.get(xCoordinate);
+        this.yCoordinate = CoordinateContainer.get(yCoordinate);
     }
 
     public int getDistanceX(Point endPoint) {
