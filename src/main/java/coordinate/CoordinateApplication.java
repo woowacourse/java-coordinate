@@ -11,7 +11,7 @@ public class CoordinateApplication {
         Figure figure = makeFigure();
         Graph graph = new Graph();
         graph.setPosition(figure.getPoints());
-        OutputView.printGraph(graph, figure);
+        OutputView.printResult(graph, figure);
     }
 
     public static Figure makeFigure() {

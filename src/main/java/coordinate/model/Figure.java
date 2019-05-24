@@ -7,9 +7,7 @@ public interface Figure {
 
     int size();
 
-    String getName();
-
     double area();
 
-    double distance();
+    double distance(int originPoint, int destinationPoint);
 }

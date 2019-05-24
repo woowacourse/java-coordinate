@@ -11,14 +11,14 @@ public class OutputView {
     private static String xAxisLine =  "  ----------------------------------------------------------";
     private static String xAxisNumber = "  0   2   4   6   8  10  12  14  16  18  20  22  24";
 
-    public static void printGraph(Graph graph, Figure figure){
+    public static void printResult(Graph graph, Figure figure){
         System.out.println(graph.toString());
         //System.out.println("  ----------------------------------------------------------");
         //System.out.println("  0   2   4   6   8  10  12  14  16  18  20  22  24");
         System.out.println(xAxisLine);
         System.out.println(xAxisNumber);
         if (figure.getPoints().size() == NUMBER_OF_POINTS_IN_LINE) {
-            System.out.println("선분의 길이는 " + figure.distance());
+            System.out.println("선분의 길이는 " + figure.distance(0,1));
         }
         if (figure.getPoints().size() == NUMBER_OF_POINTS_IN_TRIANGLE) {
             System.out.println("삼각형의 넓이는 " + figure.area());

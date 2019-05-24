@@ -41,6 +41,11 @@ public class Rectangle extends AbstractFigure{
     }
 
     @Override
+    public double distance(int originPoint, int destinationPoint) {
+        return points.get(originPoint).calculate(points.get(destinationPoint));
+    }
+
+    @Override
     public int size() {
         return 4;
     }
@@ -52,8 +57,8 @@ public class Rectangle extends AbstractFigure{
 
     @Override
     public double area(){
-        double firstLine = points.get(0).calculate(points.get(1));
-        double secondLine = points.get(0).calculate(points.get(2));
+        double firstLine = distance(0,1);
+        double secondLine = distance(0, 2);
         return firstLine * secondLine;
     }
 

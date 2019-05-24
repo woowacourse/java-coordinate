@@ -27,15 +27,15 @@ public class Triangle extends AbstractFigure{
     }
 
     @Override
-    public String getName() {
-        return null;
+    public double distance(int originPoint, int destinationPoint) {
+        return points.get(originPoint).calculate(points.get(destinationPoint));
     }
 
     @Override
     public double area() {
-        double a = points.get(0).calculate(points.get(1));
-        double b = points.get(1).calculate(points.get(2));
-        double c = points.get(2).calculate(points.get(0));
+        double a = distance(0,1);
+        double b = distance(1,2);
+        double c = distance(2,0);
         double s = (a + b + c) / 2;
 
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));

@@ -9,13 +9,9 @@ public class Line extends AbstractFigure{
         super(points);
     }
 
-    public double calculateDistance() {
-        return points.get(0).calculate(points.get(1));
-    }
-
     @Override
-    public double distance() {
-        return points.get(0).calculate(points.get(1));
+    public double distance(int originPoint, int destinationPoint) {
+        return points.get(originPoint).calculate(points.get(destinationPoint));
     }
 
     @Override
@@ -40,11 +36,6 @@ public class Line extends AbstractFigure{
     @Override
     public int size() {
         return 2;
-    }
-
-    @Override
-    public String getName() {
-        return null;
     }
 
     @Override
