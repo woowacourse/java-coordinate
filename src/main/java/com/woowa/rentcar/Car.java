@@ -10,7 +10,7 @@ public abstract class Car {
 
     public abstract String getName();
 
-    public int calculateFuel() {
-        return distance / mileage;
+    public double calculateFuel() {
+        return (double) distance / mileage;
     }
 }
