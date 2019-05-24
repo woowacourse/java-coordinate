@@ -22,7 +22,13 @@ public class OutputView {
             }
             System.out.println();
         }
-        System.out.print("  +");
+
+        if(pointList.isContain(new Point("0","0"))){
+            System.out.print("  *");
+        }
+        else{
+            System.out.print("  +");
+        }
         for(int i=1;i<=24;i++){
              if(pointList.isContain(new Point(""+i,"0"))){
                  System.out.print(" * ");
