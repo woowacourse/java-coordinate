@@ -18,6 +18,11 @@ public class PlaneFigureTest {
 
         assertThrows(IllegalArgumentException.class, () -> new PlaneFigure(coordinates) {
             @Override
+            public String resultMessage() {
+                return null;
+            }
+
+            @Override
             public double calculateArea() {
                 return 0;
             }
@@ -32,6 +37,11 @@ public class PlaneFigureTest {
         List<Coordinate> coordinates = Arrays.asList(c1, c2, c3);
 
         assertDoesNotThrow(() -> new PlaneFigure(coordinates) {
+            @Override
+            public String resultMessage() {
+                return null;
+            }
+
             @Override
             public double calculateArea() {
                 return 0;
