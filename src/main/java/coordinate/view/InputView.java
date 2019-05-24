@@ -10,14 +10,9 @@ public class InputView {
     private static final String DEFAULT_DELIMITERS = "\\([0-9]{1,2},[0-9]{1,2}\\)";
 
     public static PointList InputPoints() {
-        try {
-            System.out.println("좌표를 입력하세요");
-            Scanner scanner = new Scanner(System.in);
-            return PointFactory.generatePointList(convertPoint(scanner));
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return InputPoints();
-        }
+        System.out.println("좌표를 입력하세요");
+        Scanner scanner = new Scanner(System.in);
+        return PointFactory.generatePointList(convertPoint(scanner));
     }
 
     private static List<String> convertPoint(Scanner scanner) {

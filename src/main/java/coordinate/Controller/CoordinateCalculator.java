@@ -19,7 +19,7 @@ public class CoordinateCalculator {
             return FigureFactory.generateFigure(points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return getFigure(points);
+            return getFigure(InputView.InputPoints());
         }
     }
 }
