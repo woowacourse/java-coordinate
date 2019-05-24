@@ -5,9 +5,6 @@
 
 # java-coordinate
 ### TODO
-* Rectangle 클래스 구현
-    * 정사각형이 아닌 경우에 대한 예외처리
-* Figure 상속 클래스 만드는 generator 클래스 구현
     
 ### Done
 * AxisValidator 생성
@@ -22,6 +19,10 @@
     * 세 점이 일직선일 경우
         * 모두 같은 x좌표 위에 있을 경우(0으로 나눠지게 됨)
         * 모두 같은 기울기일 경우
+* Rectangle 클래스 구현
+    * 정사각형이 아닌 경우에 대한 예외처리
+* Figure 상속 클래스 만드는 generator 클래스 구현
+* 좌표를 그려주는 Drawer 클래스 구현
 
 
 ## 우아한테크코스 코드리뷰
