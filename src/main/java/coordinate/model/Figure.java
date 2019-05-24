@@ -7,7 +7,7 @@ public abstract class Figure implements Shape {
     
     protected List<Point> points;
 
-    Figure(List<Point> points) {
+    public Figure(List<Point> points) {
         Collections.sort(points);
         checkDuplication(points);
         this.points = points;
