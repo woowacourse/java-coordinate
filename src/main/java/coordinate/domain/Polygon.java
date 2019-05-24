@@ -2,8 +2,14 @@ package coordinate.domain;
 
 import java.util.Set;
 
+import static coordinate.util.NotNullValidator.validateNotNull;
+
 public abstract class Polygon extends Figure implements AreaCalculable {
     Lines lines;
+
+    protected Polygon(Lines lines) {
+        validateNotNull(lines);
+    }
 
     /**
      * 평행사변형의 넓이를 구한다.

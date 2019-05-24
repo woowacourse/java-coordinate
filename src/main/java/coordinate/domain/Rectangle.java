@@ -1,12 +1,10 @@
 package coordinate.domain;
 
-import static coordinate.util.NotNullValidator.validateNotNull;
-
 public class Rectangle extends Polygon {
     private static final int NUM_OF_LINES = 4;
 
     public Rectangle(Lines lines) {
-        validateNotNull(lines);
+        super(lines);
         validateNumOf(lines);
         validateRectangle(lines);
         this.lines = lines;
