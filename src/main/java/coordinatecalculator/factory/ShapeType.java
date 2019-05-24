@@ -36,6 +36,6 @@ enum ShapeType {
         return Arrays.stream(values())
                 .filter(shapeType -> shapeType.countOfCoordinate == countOfCoordinate)
                 .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow( () -> new IllegalArgumentException("해당 도형이 없어요") ) ;
     }
 }
