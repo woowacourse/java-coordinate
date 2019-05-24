@@ -10,10 +10,13 @@ public class Main {
     public static void main(String[] args){
         RentCompany rentCompany = RentCompany.create();
         InputView.title();
-        String carName = InputView.car();
-        Distance distance = InputView.distance();
-        Car car = CarFactory.newInstance(carName, distance);
-        rentCompany.addCar(car);
+        while (true) {
+            CarName carName  = InputView.car();
+            if (carName.equals(new CarName("end"))) break;
+            Distance distance = InputView.distance();
+            Car car = CarFactory.newInstance(carName, distance);
+            rentCompany.addCar(car);
+        }
         System.out.println(rentCompany.generateReport());
     }
 }

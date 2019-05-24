@@ -1,5 +1,6 @@
 package com.woowa.rentcar.view;
 
+import com.woowa.rentcar.CarName;
 import com.woowa.rentcar.domain.Distance;
 
 import java.util.Scanner;
@@ -15,13 +16,23 @@ public class InputView {
         System.out.println("3. K5");
     }
 
-    public static String car() {
+    public static CarName car() {
         System.out.print("렌트할 차종을 입력해주세요.\n(추가할 차가 없으면 end 를 입력) : ");
-        return scanner.next();
+        try {
+            return new CarName(scanner.next());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return car();
+        }
     }
 
     public static Distance distance() {
         System.out.print("예상 주행 거리를 입력해주세요 : ");
-        return new Distance(scanner.next());
+        try {
+            return new Distance(scanner.next());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return distance();
+        }
     }
 }
