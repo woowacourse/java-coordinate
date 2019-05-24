@@ -5,10 +5,10 @@ import coordinatecalculator.model.figure.PlaneFigure;
 
 public class OutputView {
     public static void printCoordinatePlane(CoordinatePlane plane) {
-        System.out.println(plane.getPlane());
+        System.out.println(plane);
     }
 
     public static void printFigureArea(PlaneFigure figure) {
-        System.out.println(figure.resultMessage() + figure.calculateArea());
+        System.out.println(figure.getPreMessage() + figure.calculateArea());
     }
 }

@@ -6,6 +6,7 @@ import coordinatecalculator.model.figure.PlaneFigure;
 import java.util.List;
 
 public class Triangle extends PlaneFigure {
+    private static final String PRE_MESSAGE = "삼각형의 넓이는 : ";
     private final Lines lines;
 
     public Triangle(List<Coordinate> coordinates) {
@@ -13,6 +14,9 @@ public class Triangle extends PlaneFigure {
         this.lines = new Lines(this.coordinates);
     }
 
+    /**
+     * @desc : Heron's Formula
+     */
     @Override
     public double calculateArea() {
         double squaredA = Math.pow(lines.get(0).calculateArea(), 2);
@@ -24,7 +28,7 @@ public class Triangle extends PlaneFigure {
     }
 
     @Override
-    public String resultMessage() {
-        return "삼각형의 넓이는 : ";
+    public String getPreMessage() {
+        return PRE_MESSAGE;
     }
 }

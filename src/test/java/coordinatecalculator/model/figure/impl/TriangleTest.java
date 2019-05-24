@@ -1,7 +1,6 @@
 package coordinatecalculator.model.figure.impl;
 
 import coordinatecalculator.model.coordinate.Coordinate;
-import coordinatecalculator.model.figure.impl.Triangle;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -9,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class TriangleTest {
+class TriangleTest {
     @Test
     void 삼각형_넓이_구하기() {
         Coordinate c1 = new Coordinate(10, 10);

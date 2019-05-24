@@ -1,7 +1,6 @@
 package coordinatecalculator.model.figure.impl;
 
 import coordinatecalculator.model.coordinate.Coordinate;
-import coordinatecalculator.model.figure.impl.Rectangle;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -11,7 +10,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class RectangleTest {
+class RectangleTest {
     @Test
     void 사각형_넓이_구하기() {
         Coordinate c1 = new Coordinate(10, 10);

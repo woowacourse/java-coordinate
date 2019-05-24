@@ -6,6 +6,7 @@ import coordinatecalculator.model.figure.PlaneFigure;
 import java.util.List;
 
 public class Rectangle extends PlaneFigure {
+    private static final String PRE_MESSAGE = "사각형의 넓이는 : ";
     private final Lines lines;
 
     public Rectangle(List<Coordinate> coordinates) {
@@ -29,7 +30,7 @@ public class Rectangle extends PlaneFigure {
     }
 
     @Override
-    public String resultMessage() {
-        return "사각형의 넓이는 : ";
+    public String getPreMessage() {
+        return PRE_MESSAGE;
     }
 }

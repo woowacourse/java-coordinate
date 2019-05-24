@@ -6,18 +6,20 @@ import coordinatecalculator.model.figure.PlaneFigure;
 import java.util.List;
 
 public class Line extends PlaneFigure implements Comparable<Line> {
+    private static final String PRE_MESSAGE = "두 점 사이의 거리는 : ";
+
     public Line(List<Coordinate> coordinates) {
         super(coordinates);
     }
 
-    public double calculateGradient() {
+    double calculateGradient() {
         Coordinate coordinateA = coordinates.get(0);
         Coordinate coordinateB = coordinates.get(1);
 
         try {
             double gradient = (double) (coordinateA.getY() - coordinateB.getY())
                     / (coordinateA.getX() - coordinateB.getX());
-            return (Math.abs(gradient) == 0.0)? 0.0 : gradient;
+            return (Math.abs(gradient) == 0.0) ? 0.0 : gradient;
         } catch (ArithmeticException e) {
             return Double.POSITIVE_INFINITY;
         }
@@ -33,13 +35,13 @@ public class Line extends PlaneFigure implements Comparable<Line> {
         Coordinate coordinateA = coordinates.get(0);
         Coordinate coordinateB = coordinates.get(1);
 
-        int dx = Math.abs(coordinateA.getX() - coordinateB.getX());
-        int dy = Math.abs(coordinateA.getY() - coordinateB.getY());
+        int dx = coordinateA.getX() - coordinateB.getX();
+        int dy = coordinateA.getY() - coordinateB.getY();
         return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
     }
 
     @Override
-    public String resultMessage() {
-        return "두 점 사이의 거리는 : ";
+    public String getPreMessage() {
+        return PRE_MESSAGE;
     }
 }

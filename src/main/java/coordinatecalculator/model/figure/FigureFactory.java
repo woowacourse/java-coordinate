@@ -29,8 +29,8 @@ public class FigureFactory {
         return FIGURE_CREATOR_FINDER.get(coordinates.size()).create(coordinates);
     }
 
-    private static void checkIsInMap(List<Coordinate> coordinates){
-        if(!FIGURE_CREATOR_FINDER.containsKey(coordinates.size())){
+    private static void checkIsInMap(List<Coordinate> coordinates) {
+        if (!FIGURE_CREATOR_FINDER.containsKey(coordinates.size())) {
             throw new IllegalArgumentException("잘못된 좌표값 개수입니다.");
         }
     }

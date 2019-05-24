@@ -1,12 +1,11 @@
 package coordinatecalculator.model.coordinate;
 
-import coordinatecalculator.model.coordinate.Coordinate;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CoordinateTest {
+class CoordinateTest {
     @Test
     void 좌표값_범위가_0에서_24사이인_경우() {
         assertDoesNotThrow(() -> new Coordinate(0, 24));

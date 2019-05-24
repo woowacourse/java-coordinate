@@ -12,9 +12,9 @@ public abstract class PlaneFigure implements Figure {
         this.coordinates = new Coordinates(coordinates);
     }
 
-    public Coordinates getCoordinates(){
+    public Coordinates getCoordinates() {
         return coordinates;
     }
 
-    public abstract String resultMessage();
+    public abstract String getPreMessage();
 }

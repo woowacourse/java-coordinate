@@ -2,7 +2,6 @@ package coordinatecalculator.model.figure.impl;
 
 import coordinatecalculator.model.coordinate.Coordinate;
 import coordinatecalculator.model.coordinate.Coordinates;
-import coordinatecalculator.model.figure.impl.Lines;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -11,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class LinesTest {
+class LinesTest {
 
     @Test
     void 한_직선_위에_세_좌표가_있는_경우_예외_발생() {
