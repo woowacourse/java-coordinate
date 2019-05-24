@@ -1,5 +1,7 @@
 package coord.model;
 
+import coord.view.ConsoleMessages;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -21,7 +23,7 @@ public abstract class Figure implements Areable {
         try {
             return figureMap.get(points.size()).apply(points);
         } catch (NullPointerException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ConsoleMessages.ERR_FIGURE.message());
         }
     }
 
@@ -43,7 +45,7 @@ public abstract class Figure implements Areable {
 
     protected double areaOfTriangle(Points points) {
         if (points.size() != TRIANGLE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ConsoleMessages.ERR_FIGURE.message());
         }
         return areaOfTriangle(points.get(0), points.get(1), points.get(2));
     }

@@ -12,11 +12,12 @@ import java.util.stream.IntStream;
 
 public class InputView {
     private static final Scanner input = new Scanner(System.in);
+    private static final String delimeter = "-";
     private static final String validator = "\\([ ]*[0-9]+[ ]*,[ ]*[0-9]+[ ]*\\)";
-    private static final String delimiter = "\\(|,|\\)";
+    private static final String braces = "\\(|,|\\)";
 
     public static Points inputCoordinates() {
-        System.out.println("좌표를 입력하세요.");
+        System.out.println(ConsoleMessages.INPUT_COORDINATE.message());
         try {
             return parseCoordinates(input.nextLine());
         } catch (IllegalArgumentException e) {
@@ -26,7 +27,7 @@ public class InputView {
     }
 
     private static Points parseCoordinates(String input) {
-        List<String> tokens = validateTokens(Arrays.asList(input.split("-")));
+        List<String> tokens = validateTokens(Arrays.asList(input.split(delimeter)));
         try {
             return new Points(
                     IntStream.iterate(0, i -> i + 2)
@@ -34,7 +35,7 @@ public class InputView {
                             .map(i -> new Point(Integer.parseInt(tokens.get(i)), Integer.parseInt(tokens.get(i + 1))))
                             .collect(Collectors.toList()));
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("잘못된 입력입니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException(ConsoleMessages.ERR_COORDINATE.message());
         }
     }
 
@@ -42,9 +43,9 @@ public class InputView {
         List<String> tokens = new ArrayList<>();
         pairs.forEach(pair -> {
             if (!pair.matches(validator)) {
-                throw new IllegalArgumentException("잘못된 입력입니다. 다시 입력해주세요.");
+                throw new IllegalArgumentException(ConsoleMessages.ERR_COORDINATE.message());
             }
-            List<String> numbers = Arrays.asList(pair.split(delimiter));
+            List<String> numbers = Arrays.asList(pair.split(braces));
             tokens.add(numbers.get(1).trim());
             tokens.add(numbers.get(2).trim());
         });

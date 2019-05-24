@@ -11,10 +11,14 @@ public final class Point {
 
     public Point(int x, int y) {
         if (x < MIN || x > MAX || y < MIN || y > MAX) {
-            throw new IllegalArgumentException("x, y의 범위는 "+ MIN + " ~ " + MAX + "입니다.");
+            throw new IllegalArgumentException(rangeError());
         }
         this.x = x;
         this.y = y;
+    }
+
+    private String rangeError() {
+        return "x, y의 범위는 " + MIN + " ~ " + MAX + "입니다.";
     }
 
     @Override

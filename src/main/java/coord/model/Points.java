@@ -1,5 +1,7 @@
 package coord.model;
 
+import coord.view.ConsoleMessages;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -9,7 +11,7 @@ public class Points {
 
     public Points(List<Point> points) {
         if (points.size() != new HashSet<>(points).size()) {
-            throw new IllegalArgumentException("동일한 점은 입력할 수 없습니다.");
+            throw new IllegalArgumentException(ConsoleMessages.ERR_POINTS.message());
         }
         this.points = sortByDescYAscX(points);
     }
