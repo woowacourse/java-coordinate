@@ -40,7 +40,7 @@ public class Lines {
         Vector v1 = getVector(i);
         Vector v2 = getVector(j);
 
-        return DoubleComparator.isEqual(v1.innerProduct(v2), v1.length() * v2.length());
+        return DoubleComparator.isEqual(Math.abs(v1.innerProduct(v2)), v1.length() * v2.length());
     }
 
     public double sumLength() {
