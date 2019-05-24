@@ -3,10 +3,10 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    private Coordinate xCoordinate;
-    private Coordinate yCoordinate;
+    private final Coordinate xCoordinate;
+    private final Coordinate yCoordinate;
 
-    public Point(int xCoordinate, int yCoordinate) {
+    public Point(final int xCoordinate, final int yCoordinate) {
         this.xCoordinate = CoordinateContainer.get(xCoordinate);
         this.yCoordinate = CoordinateContainer.get(yCoordinate);
     }

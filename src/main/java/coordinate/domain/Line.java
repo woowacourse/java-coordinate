@@ -9,7 +9,7 @@ public class Line extends AbstractShape {
     private static final int START_POINT = 0;
     private static final int END_POINT = 1;
 
-    private List<Point> points;
+    private final List<Point> points;
 
     public Line(List<Point> points) {
         super(points);
