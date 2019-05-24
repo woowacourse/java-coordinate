@@ -1,6 +1,5 @@
 package coordinate.controller;
 
-import coordinate.domain.figure.AreaCalculable;
 import coordinate.domain.figure.Figure;
 import coordinate.domain.figure.FigureFactory;
 import coordinate.domain.figure.Line;
@@ -15,14 +14,13 @@ public class CoordinateApplication {
         Figure figure = FigureFactory.getInstance(points);
 
         if (figure instanceof Line) {
-            double lineLength = ((Line) figure).length();
             OutputView.printCoordinatePlane(points);
-            OutputView.printLineLength(lineLength);
+            OutputView.printLineLength(figure.size());
             return;
         }
 
         OutputView.printCoordinatePlane(points);
-        OutputView.printArea(figure.toString(), ((AreaCalculable) figure).area());
+        OutputView.printArea(figure.toString(), figure.size());
         return;
     }
 

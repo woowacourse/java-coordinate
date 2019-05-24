@@ -7,7 +7,7 @@ import coordinate.domain.nonefigure.Vector;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Line extends Figure implements Comparable<Line> {
+public class Line extends Figure implements Comparable<Line>, SizeCalculable {
     private static final int POINT_COUNT = 2;
     private Point startPoint;
     private Point endPoint;
@@ -24,12 +24,6 @@ public class Line extends Figure implements Comparable<Line> {
         this.endPoint = endPoint;
     }
 
-    public double length() {
-        double length = Math.pow(startPoint.getX() - endPoint.getX(), 2);
-        length += Math.pow(startPoint.getY() - endPoint.getY(), 2);
-
-        return Math.sqrt(length);
-    }
 
     public Vector toVector() {
         Vector vector = new Vector(startPoint.getX() - endPoint.getX(),
@@ -45,13 +39,23 @@ public class Line extends Figure implements Comparable<Line> {
     }
 
     @Override
+    public double size() {
+        double length = Math.pow(startPoint.getX() - endPoint.getX(), 2);
+        length += Math.pow(startPoint.getY() - endPoint.getY(), 2);
+
+        return Math.sqrt(length);
+    }
+
+    @Override
     public int compareTo(Line anotherLine) {
-        if (this.length() < anotherLine.length()) {
+        if (this.size() < anotherLine.size()) {
             return -1;
         }
-        if (this.length() > anotherLine.length()) {
+        if (this.size() > anotherLine.size()) {
             return 1;
         }
         return 0;
     }
+
+
 }

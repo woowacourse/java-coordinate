@@ -6,7 +6,7 @@ import coordinate.domain.nonefigure.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rectangle extends Figure implements AreaCalculable {
+public class Rectangle extends Figure implements SizeCalculable {
     private static final int POINT_COUNT = 4;
 
     public Rectangle(PointGroup points) {
@@ -43,12 +43,12 @@ public class Rectangle extends Figure implements AreaCalculable {
         return true;
     }
 
-    public double area() {
+    public double size() {
         PointGroup points = getPoints();
         double area = 1;
         List<Line> lines = points.getLines();
         for (Line line : lines) {
-            area = line.length() * area;
+            area = line.size() * area;
         }
         return Math.sqrt(area);
     }

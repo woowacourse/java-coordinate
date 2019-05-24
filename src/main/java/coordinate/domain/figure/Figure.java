@@ -2,7 +2,7 @@ package coordinate.domain.figure;
 
 import coordinate.domain.nonefigure.PointGroup;
 
-public abstract class Figure {
+public abstract class Figure implements SizeCalculable {
     private final PointGroup points;
 
     Figure(PointGroup points, int pointCount) {

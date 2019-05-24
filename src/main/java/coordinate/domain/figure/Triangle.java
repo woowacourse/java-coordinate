@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Triangle extends Figure implements AreaCalculable {
+public class Triangle extends Figure implements SizeCalculable {
     private static final int POINT_COUNT = 3;
 
     public Triangle(PointGroup points) {
@@ -22,7 +22,7 @@ public class Triangle extends Figure implements AreaCalculable {
         List<Line> lines = points.getLines();
         Collections.sort(lines);
         List<Double> lineLengths = new ArrayList();
-        lines.forEach(line -> lineLengths.add(line.length()));
+        lines.forEach(line -> lineLengths.add(line.size()));
 
         checkStraightLine(lineLengths);
     }
@@ -34,10 +34,10 @@ public class Triangle extends Figure implements AreaCalculable {
         }
     }
 
-    public double area() {
+    public double size() {
         List<Double> squaredLineLengths = new ArrayList<>();
         getPoints().getLines().forEach(
-                line -> squaredLineLengths.add(Math.pow(line.length(), 2)));
+                line -> squaredLineLengths.add(Math.pow(line.size(), 2)));
         return useHeronEquations(squaredLineLengths);
     }
 

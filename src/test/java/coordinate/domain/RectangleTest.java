@@ -48,7 +48,7 @@ public class RectangleTest {
                 Point.create(1, 1), Point.create(4, 1),
                 Point.create(4, 3), Point.create(1, 3)
         );
-        assertThat(new Rectangle(new PointGroup(points)).area()).isEqualTo(6);
+        assertThat(new Rectangle(new PointGroup(points)).size()).isEqualTo(6);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class RectangleTest {
                 Point.create(1, 1), Point.create(2, 1),
                 Point.create(2, 2), Point.create(1, 2)
         );
-        assertThat(new Rectangle(new PointGroup(points)).area()).isEqualTo(1);
+        assertThat(new Rectangle(new PointGroup(points)).size()).isEqualTo(1);
     }
 }
 

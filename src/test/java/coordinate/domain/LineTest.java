@@ -12,6 +12,6 @@ public class LineTest {
         Point point1 = Point.create(6, 3);
         Point point2 = Point.create(9, 7);
         Line line = new Line(point1, point2);
-        assertEquals(5.0, line.length(), 0.1);
+        assertEquals(5.0, line.size(), 0.1);
     }
 }
