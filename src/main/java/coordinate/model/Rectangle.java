@@ -37,7 +37,7 @@ public class Rectangle extends AbstractFigure{
 
     @Override
     public List<Point> getPoints() {
-        return null;
+        return points;
     }
 
     @Override

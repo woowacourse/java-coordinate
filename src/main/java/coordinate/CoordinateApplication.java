@@ -8,26 +8,18 @@ import java.util.List;
 
 public class CoordinateApplication {
     public static void main(String[] args) {
-        List<Point> points = makeFigure();
+        Figure figure = makeFigure();
         Graph graph = new Graph();
-        graph.setPosition(points);
-        OutputView.printGraph(graph);
+        graph.setPosition(figure.getPoints());
+        OutputView.printGraph(graph, figure);
     }
 
-    public static List<Point> makeFigure() {
+    public static Figure makeFigure() {
         try {
             String coordinates = InputView.askCoordinate();
             List<Point> points = PointsGenerator.makePoints(coordinates);
-            if (points.size() == 2) {
-                Line line = new Line(points);
-            }
-            if (points.size() == 3) {
-                Triangle triangle = new Triangle(points);
-            }
-            if (points.size() == 4) {
-                Rectangle rectangle = new Rectangle(points);
-            }
-            return points;
+
+            return FigureFactory.getInstance(points);
         } catch (Exception e) {
             System.out.println("잘못된 입력입니다");
             return makeFigure();

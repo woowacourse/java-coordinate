@@ -14,7 +14,7 @@ public class FigureFactory {
         figures.put(4, new RectangleCreator());
     }
 
-    static Figure getInstance(List<Point> points) {
+    public static Figure getInstance(List<Point> points) {
         return figures.get(points.size()).create(points);
     }
 }
