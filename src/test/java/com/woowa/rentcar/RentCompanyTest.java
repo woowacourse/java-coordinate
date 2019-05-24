@@ -1,6 +1,7 @@
 package com.woowa.rentcar;
 
 import com.woowa.rentcar.domain.Avante;
+import com.woowa.rentcar.domain.Distance;
 import com.woowa.rentcar.domain.K5;
 import com.woowa.rentcar.domain.RentCompany;
 import com.woowa.rentcar.domain.Sonata;
@@ -15,11 +16,11 @@ public class RentCompanyTest {
     @Test
     public void report() throws Exception {
         RentCompany company = RentCompany.create(); // factory method를 사용해 생성
-        company.addCar(new Sonata(150));
-        company.addCar(new K5(260));
-        company.addCar(new Sonata(120));
-        company.addCar(new Avante(300));
-        company.addCar(new K5(390));
+        company.addCar(new Sonata(new Distance("150")));
+        company.addCar(new K5(new Distance("260")));
+        company.addCar(new Sonata(new Distance("120")));
+        company.addCar(new Avante(new Distance("300")));
+        company.addCar(new K5(new Distance("390")));
 
         String report = company.generateReport();
         assertThat(report).isEqualTo(
