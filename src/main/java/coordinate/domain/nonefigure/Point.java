@@ -8,7 +8,7 @@ public class Point {
     private final Coordinate xCoordinate;
     private final Coordinate yCoordinate;
 
-    public Point(Coordinate xCoordinate, Coordinate yCoordinate) {
+    private Point(Coordinate xCoordinate, Coordinate yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
