@@ -1,5 +1,7 @@
 package coordinate.domain;
 
-public abstract class Figure {
-    abstract double findArea();
+import java.util.List;
+
+public interface Figure {
+    double findArea();
 }

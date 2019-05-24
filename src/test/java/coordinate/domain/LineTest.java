@@ -1,3 +1,4 @@
+/*
 package coordinate.domain;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +23,12 @@ public class LineTest {
     }
 
     @Test
+<<<<<<< HEAD
     void 두점사이의_거리계산() {
+=======
+    void 길이구하기() {
+>>>>>>> fair/imkimheejoo
         assertEquals(6.403,line.findArea(),0.001);
     }
 }
+*/
