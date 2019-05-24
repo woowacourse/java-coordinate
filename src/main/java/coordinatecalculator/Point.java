@@ -1,66 +1,43 @@
 package coordinatecalculator;
 
-import java.util.Comparator;
 import java.util.Objects;
 
-class Point implements Comparable<Point> {
-    private static final int UNDER_LIMIT = 1;
-    private static final int UPPER_LIMIT = 24;
-    private static final String ERROR_LIMIT_OVER = "좌표 범위를 초과하였습니다.";
+import static java.lang.Math.*;
 
-    private int x;
-    private int y;
+class Point {
+    private static final int SQUARE_NUMBER = 2;
+    private static final int LIMIT_MINIMUM_NUM = 0;
+    private static final int LIMIT_MAXIMUM_NUM = 24;
+    private static final String ERROR_RANGE_COORDINATE = "입력된 좌표 범위가 올바르지 않습니다.";
 
-    Point(int x, int y) {
-        //        if (isLimitOver(x) || isLimitOver(y)) {
-        //            throw new IllegalArgumentException(ERROR_LIMIT_OVER);
-        //        } // 처리 과정 중에 이 값을 넘어서는 경우가 있다. 일단 주석처리.
+    private final int x;
+    private final int y;
 
+    private Point(int x, int y) {
+        checkValidXY(x, y);
         this.x = x;
         this.y = y;
     }
 
-    private boolean isLimitOver(int x) {
-        return (x > UPPER_LIMIT || x < UNDER_LIMIT);
+    private void checkValidXY(int x, int y) {
+        if (x < LIMIT_MINIMUM_NUM || x > LIMIT_MAXIMUM_NUM) {
+            throw new IllegalArgumentException(ERROR_RANGE_COORDINATE);
+        }
+
+        if (y < LIMIT_MINIMUM_NUM || y > LIMIT_MAXIMUM_NUM) {
+            throw new IllegalArgumentException();
+        }
     }
 
-    public int getX() {
-        return this.x;
-    }
-
-    public int getY() {
-        return this.y;
+    public static Point of(int x, int y) {
+        return new Point(x, y);
     }
 
     public double getDistance(Point anotherPoint) {
-        double x = minusAndPow(this.x, anotherPoint.x);
-        double y = minusAndPow(this.y, anotherPoint.y);
-        return Math.sqrt(x + y);
-    }
+        int deltaX = this.x - anotherPoint.x;
+        int deltaY = this.y - anotherPoint.y;
 
-    private double minusAndPow(int x1, int x2) {
-        return Math.pow((x2 - x1), 2);
-    }
-
-    @Override
-    public int compareTo(Point another) {
-        return Comparator
-                .comparingInt(Point::getX)
-                .thenComparingInt(Point::getY)
-                .compare(this, another);
-    }
-
-    public int compareToReverse(Point another) {
-        return Comparator
-                .comparingInt(Point::getX)
-                .thenComparingInt(Point::getY)
-                .reversed()
-                .compare(this, another);
-    }
-
-    @Override
-    public String toString() {
-        return "Point {x: " + this.x + ", y: " + this.y + "}";
+        return sqrt(pow(deltaX, SQUARE_NUMBER) + pow(deltaY, SQUARE_NUMBER));
     }
 
     @Override
