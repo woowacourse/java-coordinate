@@ -1,7 +1,6 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public interface Shape {
+    int size();
     double area();
 }

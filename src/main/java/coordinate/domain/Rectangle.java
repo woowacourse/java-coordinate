@@ -2,15 +2,17 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Rectangle implements Shape {
-    private final static int START_POINT = 0;
-    private final static int ONE_LINE = 1;
-    private final static int PAIR_LINE_COUNT = 2;
-    private final static int DEFAULT_AREA = 1;
+public class Rectangle extends AbstractShape {
+    private static final int SIZE_OF_POINTS_FOR_RECTANGLE = 4;
+    private static final int START_POINT = 0;
+    private static final int ONE_LINE = 1;
+    private static final int PAIR_LINE_COUNT = 2;
+    private static final int DEFAULT_AREA = 1;
 
     private TreeMap<Double, Integer> rectangleLines = new TreeMap<>();
 
     public Rectangle(List<Point> points) {
+        super(points);
         List<Point> copyedPoints = new ArrayList<>(points);
         setRectangleLines(copyedPoints);
         validateRectangle();
@@ -51,6 +53,11 @@ public class Rectangle implements Shape {
 
     private boolean isPaired(Double line) {
         return rectangleLines.get(line) % 2 == 0;
+    }
+
+    @Override
+    public int size() {
+        return SIZE_OF_POINTS_FOR_RECTANGLE;
     }
 
     @Override

@@ -2,7 +2,8 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Triangle implements Shape {
+public class Triangle extends AbstractShape {
+    private static final int SIZE_OF_POINTS_FOR_TRIANGLE = 3;
     private static final int START_POINT = 0;
     private static final int MAX_LINE_INDEX = 2;
     private static final int HERON_FORMULA_NUMBER = 2;
@@ -10,6 +11,7 @@ public class Triangle implements Shape {
     private List<Double> triangleLines = new ArrayList<>();
 
     public Triangle(List<Point> points) {
+        super(points);
         List<Point> copyedPoints = new ArrayList<>(points);
         setTriangleLines(copyedPoints);
         validateTriangle();
@@ -38,6 +40,11 @@ public class Triangle implements Shape {
         if (longestLine >= sumWithoutLongestLine) {
             throw new IllegalArgumentException("올바른 삼각형을 입력해 주세요.");
         }
+    }
+
+    @Override
+    public int size() {
+        return SIZE_OF_POINTS_FOR_TRIANGLE;
     }
 
     @Override
