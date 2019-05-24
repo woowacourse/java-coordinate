@@ -20,7 +20,6 @@ public class PointNumber {
     private int number;
 
     private PointNumber(int number) {
-        checkValidRange(number);
         this.number = number;
     }
 
