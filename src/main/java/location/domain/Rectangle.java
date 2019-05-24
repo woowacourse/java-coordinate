@@ -1,8 +1,6 @@
 package location.domain;
 
-import java.util.Arrays;
-
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Figure {
     private static final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private static final String NOT_RECTANGLE_MSG = "직사각형이 아닙니다.";
     private static final int SQUARE = 2;
@@ -67,6 +65,11 @@ public class Rectangle extends Shape {
 
     @Override
     public Double calculate() {
+        return calculateLine(points.get(0), points.get(1)) * calculateLine(points.get(0), points.get(2));
+    }
+
+    @Override
+    public double calculateArea() {
         return calculateLine(points.get(0), points.get(1)) * calculateLine(points.get(0), points.get(2));
     }
 }

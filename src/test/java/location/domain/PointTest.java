@@ -13,6 +13,6 @@ public class PointTest {
 
     @Test
     void 음수일때() {
-        assertThrows(IllegalArgumentException.class, () -> new Point(-1,-1) );
+        assertThrows(IllegalArgumentException.class, () -> new Point(-1, -1));
     }
 }

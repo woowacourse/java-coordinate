@@ -8,8 +8,8 @@ public enum ShapeMsgEnum {
     Rectangle(4, "사각형의 넓이는");
 
     private final static String NOT_MATCH_SHAPE_MSG = "해당하는 도형이 없습니다.";
-    int pointLength;
-    String msg;
+    private final int pointLength;
+    private final String msg;
 
     ShapeMsgEnum(int pointLength, String msg) {
         this.pointLength = pointLength;
