@@ -2,24 +2,26 @@ package coordinate;
 
 import coordinate.domain.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.function.Function;
 
-public class FigureFactory {
+class FigureFactory {
     private static final int POINTS_NUMBER_IN_LINE = 2;
     private static final int POINTS_NUMBER_IN_TRIANGLE = 3;
     private static final int POINTS_NUMBER_IN_RECTANGLE = 4;
 
-    public static Figure getFigureOf(List<Point> points) {
-        if (points.size() == POINTS_NUMBER_IN_LINE) {
-            return new StraightLine(points);
-        }
+    private final static HashMap<Integer, Function<List<Point>, Figure>> map = new HashMap<>();
 
-        if (points.size() == POINTS_NUMBER_IN_TRIANGLE) {
-            return new Triangle(points);
-        }
+    static {
+        map.put(POINTS_NUMBER_IN_LINE, StraightLine::create);
+        map.put(POINTS_NUMBER_IN_TRIANGLE, Triangle::create);
+        map.put(POINTS_NUMBER_IN_RECTANGLE, Rectangle::create);
+    }
 
-        if (points.size() == POINTS_NUMBER_IN_RECTANGLE) {
-            return new Rectangle(points);
+    static Figure getFigureOf(List<Point> points) {
+        if (map.containsKey(points.size())) {
+            return map.get(points.size()).apply(points);
         }
 
         throw new IllegalArgumentException("도형을 만들 수 없습니디.");

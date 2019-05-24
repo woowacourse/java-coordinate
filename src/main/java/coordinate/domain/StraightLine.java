@@ -8,15 +8,14 @@ public class StraightLine extends Figure {
     private static final int NUM_OF_POINT = 2;
     private static final int SQUARE = 2;
 
-    public StraightLine(List<Point> points) {
+    StraightLine(List<Point> points) {
         super(points);
         validateSizeOf(points);
         this.points = points;
     }
 
-    @Override
-    public double calculateAttribute() {
-        return calculateLength();
+    public static StraightLine create(List<Point> points) {
+        return new StraightLine(points);
     }
 
     private void validateSizeOf(List<Point> points) {
@@ -25,19 +24,24 @@ public class StraightLine extends Figure {
         }
     }
 
-    public double calculateLength() {
+    double calculateSlope() {
+        Point startPoint = points.get(START_INDEX);
+        Point endPoint = points.get(END_INDEX);
+        if (startPoint.matchX(endPoint)) {
+            return Double.POSITIVE_INFINITY;
+        }
+        return (double) startPoint.getDeltaYTo(endPoint) / startPoint.getDeltaXTo(endPoint);
+    }
+
+    @Override
+    public double calculateAttribute() {
+        return calculateLength();
+    }
+
+    double calculateLength() {
         Point startPoint = points.get(START_INDEX);
         Point endPoint = points.get(END_INDEX);
         return Math.sqrt(Math.pow(startPoint.getDeltaXTo(endPoint), SQUARE)
                 + Math.pow(startPoint.getDeltaYTo(endPoint), SQUARE));
-    }
-
-    public double calculateSlope() {
-        Point startPoint = points.get(START_INDEX);
-        Point endPoint = points.get(END_INDEX);
-        if (startPoint.getDeltaXTo(endPoint) == 0) {
-            return Double.POSITIVE_INFINITY;
-        }
-        return (double) startPoint.getDeltaYTo(endPoint) / startPoint.getDeltaXTo(endPoint);
     }
 }

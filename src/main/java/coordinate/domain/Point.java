@@ -1,6 +1,5 @@
 package coordinate.domain;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,8 +28,8 @@ public class Point {
     }
 
     private void validateNumberRange(int x, int y) {
-        validateMinRange(x, y);
         validateMaxRange(x, y);
+        validateMinRange(x, y);
     }
 
     private void validateMaxRange(int x, int y) {
@@ -53,6 +52,22 @@ public class Point {
         return y;
     }
 
+    int getDeltaXTo(Point point) {
+        return Math.abs(this.x - point.x);
+    }
+
+    int getDeltaYTo(Point point) {
+        return Math.abs(this.y - point.y);
+    }
+
+    boolean matchX(Point point) {
+        return x == point.x;
+    }
+
+    boolean matchY(Point point) {
+        return y == point.y;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,21 +80,5 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
-    }
-
-    public int getDeltaXTo(Point point) {
-        return Math.abs(this.x - point.x);
-    }
-
-    public int getDeltaYTo(Point point) {
-        return Math.abs(this.y - point.y);
-    }
-
-    public boolean matchX(Point point) {
-        return x == point.x;
-    }
-
-    public boolean matchY(Point point) {
-        return y == point.y;
     }
 }

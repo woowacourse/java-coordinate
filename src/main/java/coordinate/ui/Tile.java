@@ -8,7 +8,7 @@ public class Tile {
     }
 
     public void draw() {
-        tileContent = "●";
+        tileContent = "ｘ";
     }
 
     @Override

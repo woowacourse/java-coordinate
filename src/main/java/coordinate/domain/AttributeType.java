@@ -5,18 +5,18 @@ public enum AttributeType {
     TRIANGLE("삼각형 넓이는", 3),
     RECTANGLE("사각형 넓이는", 4);
 
-    private String attribuePrintMessage;
+    private String attributePrintMessage;
     private int numberOfPointInFigure;
 
-    AttributeType(String attribuePrintMessage, int numberOfPointInFigure) {
-        this.attribuePrintMessage = attribuePrintMessage;
+    AttributeType(String attributePrintMessage, int numberOfPointInFigure) {
+        this.attributePrintMessage = attributePrintMessage;
         this.numberOfPointInFigure = numberOfPointInFigure;
     }
 
     public static String getPrintMessage(int numberOfPointInFigure) {
         for (AttributeType attributeType : values()) {
             if (attributeType.matchNumOfPoint(numberOfPointInFigure)) {
-                return attributeType.attribuePrintMessage;
+                return attributeType.attributePrintMessage;
             }
         }
         throw new IllegalArgumentException("해당 AttributeType 이 존재하지 않습니다.");

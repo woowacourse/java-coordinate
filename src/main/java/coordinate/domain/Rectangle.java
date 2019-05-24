@@ -8,11 +8,15 @@ public class Rectangle extends Figure implements Polygon {
     private static final int PAIR = 2;
     private static final int NUM_OF_POINT = 4;
 
-    public Rectangle(List<Point> points) {
+    Rectangle(List<Point> points) {
         super(points);
         validateSizeOf(points);
         validateRectangle(points);
         this.points = points;
+    }
+
+    public static Rectangle create(List<Point> points) {
+        return new Rectangle(points);
     }
 
     @Override
@@ -20,7 +24,7 @@ public class Rectangle extends Figure implements Polygon {
         return calculateArea();
     }
 
-    void validateSizeOf(List<Point> points) {
+    private void validateSizeOf(List<Point> points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
         }

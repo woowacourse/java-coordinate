@@ -2,24 +2,23 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Triangle extends Figure implements Polygon{
+public class Triangle extends Figure implements Polygon {
     private static final int BASE = 0;
     private static final int NUM_OF_POINT = 3;
     private static final int UNIQUE_SIZE = 1;
 
-    public Triangle(List<Point> points) {
+    Triangle(List<Point> points) {
         super(points);
         validateSizeOf(points);
         validateTriangle(points);
         this.points = points;
     }
 
-    @Override
-    public double calculateAttribute() {
-        return calculateArea();
+    public static Triangle create(List<Point> points) {
+        return new Triangle(points);
     }
 
-    void validateSizeOf(List<Point> points) {
+    private void validateSizeOf(List<Point> points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
         }
@@ -38,13 +37,18 @@ public class Triangle extends Figure implements Polygon{
         }
     }
 
+    @Override
+    public double calculateAttribute() {
+        return calculateArea();
+    }
+
     public double calculateArea() {
-        List<Double> lengths = getSideLength();
+        List<Double> lengths = getLengthOfSideLines();
         Iterator<Double> lengthIterator = lengths.iterator();
         return applyHeronFormula(lengthIterator.next(), lengthIterator.next(), lengthIterator.next());
     }
 
-    private List<Double> getSideLength() {
+    private List<Double> getLengthOfSideLines() {
         List<Double> lineLength = new ArrayList<>();
 
         for (Point point : points) {

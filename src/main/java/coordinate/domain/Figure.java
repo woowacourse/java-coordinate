@@ -10,14 +10,14 @@ public abstract class Figure {
         validateDuplicate(points);
     }
 
-    public List<Point> getPoints() {
-        return points;
-    }
-
-    void validateDuplicate(List<Point> points) {
+    private void validateDuplicate(List<Point> points) {
         if (points.size() != (new HashSet<>(points)).size()) {
             throw new IllegalArgumentException("같은 점은 입력할 수 없습니다.");
         }
+    }
+
+    public List<Point> getPoints() {
+        return points;
     }
 
     public int getNumOfPoints() {
