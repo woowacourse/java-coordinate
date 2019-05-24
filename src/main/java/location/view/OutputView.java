@@ -3,8 +3,8 @@ package location.view;
 import location.domain.Points;
 
 public class OutputView {
-    int pointSize;
-    Double value;
+    private int pointSize;
+    private Double value;
 
     public OutputView(int pointSize, Double value) {
         this.pointSize = pointSize;
