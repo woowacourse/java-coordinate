@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FigureGenerator {
+public class FigureFactory {
     private static final String OUT_OF_COORDINANE_COUNT_EXCEPTION_MASSAGE = "좌표의 개수는 2~4개만 가능합니다.";
 
     private static final Map<Integer, FigureCreator> ifExercise = new HashMap<>();

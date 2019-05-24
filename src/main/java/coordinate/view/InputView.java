@@ -1,7 +1,7 @@
 package coordinate.view;
 
 import coordinate.domain.Figure;
-import coordinate.domain.FigureGenerator;
+import coordinate.domain.FigureFactory;
 import coordinate.domain.Point;
 
 import java.util.*;
@@ -19,7 +19,7 @@ public class InputView {
         try {
             OutputView.printMessage(GET_COORDINATE_MESSAGE);
             String userInput = getUserInput();
-            return FigureGenerator.generate(makePoints(userInput));
+            return FigureFactory.generate(makePoints(userInput));
         } catch (IllegalArgumentException e) {
             OutputView.printMessage(e.getMessage());
             return getFigure();
@@ -34,7 +34,7 @@ public class InputView {
         List<Point> points = new ArrayList<>();
 
         List<String> coordinates = new ArrayList<>(Arrays.asList(userInput.split("-")));
-        coordinates.stream().forEach(coordinate -> points.add(makePoint(coordinate)));
+        coordinates.forEach(coordinate -> points.add(makePoint(coordinate)));
 
         validateDuplication(points);
 
