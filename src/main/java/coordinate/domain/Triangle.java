@@ -5,7 +5,7 @@ import java.util.List;
 public class Triangle implements Figure {
     private List<Line> lines;
 
-    public Triangle(List<Line> lines) {
+    Triangle(List<Line> lines) {
         if (!checkTriangle(lines)) {
             throw new IllegalArgumentException("삼각형의 좌표가 아닙니다.");
         }

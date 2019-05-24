@@ -4,11 +4,9 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Line implements Comparable<Line>, Figure {
-//    private PointList points;
     private Double length;
 
     Line(double length) {
-//        this.points = points;
         this.length = length;
     }
 

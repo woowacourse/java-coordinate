@@ -7,8 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-public class PointListTest {
-
+class PointListTest {
     @Test
     void 중복좌표테스트() {
         assertThatIllegalArgumentException().isThrownBy(() ->{

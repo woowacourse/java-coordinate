@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-public class PointTest {
+class PointTest {
 
     @Test
     void 점이_24를넘는지_테스트() {

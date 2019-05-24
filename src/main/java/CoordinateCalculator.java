@@ -16,6 +16,5 @@ public class CoordinateCalculator {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
-
     }
 }

@@ -12,11 +12,11 @@ public class Point {
         pointY = Double.parseDouble(y);
     }
 
-    double subPointX(double x) {
+    private double subPointX(double x) {
         return (this.pointX - x);
     }
 
-    double subPointY(double y) {
+    private double subPointY(double y) {
         return (this.pointY - y);
     }
 
@@ -52,7 +52,7 @@ public class Point {
         return x.contains(" ") || y.contains(" ");
     }
 
-    public double findLength(Point point) {
+    double findLength(Point point) {
         return Math.sqrt(Math.pow(subPointX(point.pointX), 2) + Math.pow(subPointY(point.pointY), 2));
     }
 

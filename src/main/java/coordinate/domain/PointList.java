@@ -10,17 +10,6 @@ public class PointList {
         this.points = checkDuplicate(points);
     }
 
-//    List<Line> findLine() {
-//        List<Line> lines = new ArrayList<>();
-//        for (int i = 0; i < points.size(); i++) {
-//            for (int j = i + 1; j < points.size(); j++) {
-//                lines.add(new Line(new PointList(Arrays.asList(points.get(i),points.get(j)))));
-//            }
-//        }
-//        lines.sort(null);
-//        return lines;
-//    }
-
     private void isCorrectSize(List<Point> points) {
         if(!(points.size()>=2 && points.size()<=4)){
             throw new IllegalArgumentException("좌표는 2~4개 입력하세요");
@@ -49,11 +38,5 @@ public class PointList {
 
     Point getPoint(int index) {
         return points.get(index);
-    }
-
-    public List<Point> getPoints() {
-        List<Point> points =new ArrayList<>();
-        points.addAll(this.points);
-        return points;
     }
 }
