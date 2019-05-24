@@ -39,10 +39,9 @@ public class PointsGenerator {
         return points;
     }
 
-    private static int validatePointsNumber(int size) {
-        if (LINE_POINTS_NUMBER <= size && size <= RECTANGLE_POINTS_NUMBER) {
-            return size;
+    private static void validatePointsNumber(int size) {
+        if (size < LINE_POINTS_NUMBER || size > RECTANGLE_POINTS_NUMBER) {
+            throw new IllegalArgumentException("좌표의 개수는 2개 이상, 4개 이하여야 합니다.");
         }
-        throw new IllegalArgumentException("좌표의 개수는 2개 이상, 4개 이하여야 합니다.");
     }
 }
