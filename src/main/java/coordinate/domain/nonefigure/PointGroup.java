@@ -1,4 +1,4 @@
-package coordinate.domain.point;
+package coordinate.domain.nonefigure;
 
 import java.util.*;
 
@@ -9,18 +9,8 @@ public class PointGroup {
         this.points = points;
     }
 
-    public int size() {
-        return points.size();
-    }
 
-    public Set<Double> getSquareDistances() {
-        final Set<Double> distances = new HashSet<>();
-        points.forEach(x -> points.forEach(y -> distances.add(x.getSquareDistanceWith(y))));
-        distances.remove(Double.valueOf(0));
-        return Collections.unmodifiableSet(distances);
-    }
-
-    public List<Double> getTriagleSquareDistances() {
+    public List<Double> getDistances() {
         List<Double> distances = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
             distances.add(points.get(i).getSquareDistanceWith(points.get((i + 1) % points.size())));
@@ -30,5 +20,13 @@ public class PointGroup {
 
     public boolean have(int x, int y) {
         return points.contains(Point.create(x,y));
+    }
+
+    public int size() {
+        return points.size();
+    }
+
+    public Point getPoint(int index) {
+        return points.get(index);
     }
 }

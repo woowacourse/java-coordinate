@@ -1,5 +1,5 @@
 package coordinate.view;
-import coordinate.domain.point.PointGroup;
+import coordinate.domain.nonefigure.PointGroup;
 
 public class OutputView {
     private static final int COORDINATE_PLANE_SIZE = 24;

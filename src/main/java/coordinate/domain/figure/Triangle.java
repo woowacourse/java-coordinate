@@ -1,6 +1,6 @@
-package coordinate.domain.Figure;
+package coordinate.domain.figure;
 
-import coordinate.domain.point.PointGroup;
+import coordinate.domain.nonefigure.PointGroup;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Triangle extends Figure implements AreaCalculable {
     private static final int POINT_COUNT = 3;
 
-    Triangle(PointGroup points) {
+    public Triangle(PointGroup points) {
         super(points, POINT_COUNT);
     }
 
@@ -18,7 +18,7 @@ public class Triangle extends Figure implements AreaCalculable {
         if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("삼각형은 3개의 점으로 이루어져야 합니다.");
         }
-        List<Double> distances = points.getTriagleSquareDistances();
+        List<Double> distances = points.getDistances();
         Collections.sort(distances);
         distances = distances.stream().map(x -> Math.sqrt(x)).collect(Collectors.toList());
         if (BigDecimal.valueOf(distances.get(2)).compareTo(BigDecimal.valueOf(distances.get(1) + distances.get(0))) == 0) {
@@ -27,7 +27,7 @@ public class Triangle extends Figure implements AreaCalculable {
     }
 
     public double area() {
-        return useHeronEquations(getPoints().getTriagleSquareDistances());
+        return useHeronEquations(getPoints().getDistances());
     }
 
     private double useHeronEquations(List<Double> squaredDistances) {

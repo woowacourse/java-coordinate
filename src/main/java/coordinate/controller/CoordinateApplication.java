@@ -1,8 +1,8 @@
 package coordinate.controller;
 
-import coordinate.domain.Figure.AreaCalculable;
-import coordinate.domain.Figure.*;
-import coordinate.domain.point.PointGroup;
+import coordinate.domain.figure.AreaCalculable;
+import coordinate.domain.figure.*;
+import coordinate.domain.nonefigure.PointGroup;
 import coordinate.util.CoordinateRepresentation;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
@@ -10,11 +10,6 @@ import coordinate.view.OutputView;
 public class CoordinateApplication {
     public static void main(String[] args) {
         PointGroup points = createCoordinatesGroup();
-
-        if (points.size() == 1) {
-            OutputView.printCoordinatePlane(points);
-            return;
-        }
         Figure figure = FigureFactory.getInstance(points);
 
         if (figure instanceof Line) {

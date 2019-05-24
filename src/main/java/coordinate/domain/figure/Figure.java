@@ -1,6 +1,6 @@
-package coordinate.domain.Figure;
+package coordinate.domain.figure;
 
-import coordinate.domain.point.PointGroup;
+import coordinate.domain.nonefigure.PointGroup;
 
 public abstract class Figure {
     private final PointGroup points;

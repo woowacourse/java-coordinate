@@ -1,8 +1,6 @@
-package coordinate.domain.point;
+package coordinate.domain.nonefigure;
 
 import coordinate.domain.coordinate.Coordinate;
-import coordinate.domain.coordinate.XCoordinate;
-import coordinate.domain.coordinate.YCoordinate;
 
 import java.util.Objects;
 
@@ -10,13 +8,13 @@ public class Point {
     private final Coordinate xCoordinate;
     private final Coordinate yCoordinate;
 
-    private Point(Coordinate xCoordinate, Coordinate yCoordinate) {
+    public Point(Coordinate xCoordinate, Coordinate yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
 
     public static Point create(int xCoordinate, int yCoordinate) {
-        return new Point(new XCoordinate(xCoordinate), new YCoordinate(yCoordinate));
+        return new Point(new Coordinate(xCoordinate), new Coordinate(yCoordinate));
     }
 
     public double getSquareDistanceWith(Point point) {
@@ -36,5 +34,20 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(xCoordinate.hashCode() + yCoordinate.hashCode());
+    }
+
+    public Point formVectorWith(Point endPoint) {
+        Coordinate xCoordinate = new Coordinate(this.xCoordinate.getDiffWith(endPoint.xCoordinate));
+        Coordinate yCoordinate = new Coordinate(this.yCoordinate.getDiffWith(endPoint.yCoordinate));
+
+        return new Point(xCoordinate, yCoordinate);
+    }
+
+    public int getX() {
+        return xCoordinate.getValue();
+    }
+
+    public int getY() {
+        return yCoordinate.getValue();
     }
 }

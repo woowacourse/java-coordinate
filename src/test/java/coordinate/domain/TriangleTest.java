@@ -1,8 +1,8 @@
 package coordinate.domain;
 
-import coordinate.domain.Figure.Triangle;
-import coordinate.domain.point.Point;
-import coordinate.domain.point.PointGroup;
+import coordinate.domain.figure.Triangle;
+import coordinate.domain.nonefigure.Point;
+import coordinate.domain.nonefigure.PointGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -18,7 +18,7 @@ public class TriangleTest {
                 Point.create(1, 1), Point.create(2, 2),
                 Point.create(1, 3)
         );
-        assertThat(new Triangle(new PointGroup(points)).area());
+        assertThat(new Triangle(new PointGroup(points)).area()).isEqualTo(1);
     }
 
     @Test

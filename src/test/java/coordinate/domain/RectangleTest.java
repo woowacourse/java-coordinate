@@ -1,8 +1,8 @@
 package coordinate.domain;
 
-import coordinate.domain.Figure.Rectangle;
-import coordinate.domain.point.Point;
-import coordinate.domain.point.PointGroup;
+import coordinate.domain.figure.Rectangle;
+import coordinate.domain.nonefigure.Point;
+import coordinate.domain.nonefigure.PointGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -25,7 +25,7 @@ public class RectangleTest {
     void 정사각형() {
         List<Point> points = Arrays.asList(
                 Point.create(1, 1), Point.create(2, 1),
-                Point.create(2, 2), Point.create(1, 1)
+                Point.create(2, 2), Point.create(1, 2)
         );
         new Rectangle(new PointGroup(points));
     }
@@ -55,7 +55,7 @@ public class RectangleTest {
     void 정사각형_넓이() {
         List<Point> points = Arrays.asList(
                 Point.create(1, 1), Point.create(2, 1),
-                Point.create(2, 2), Point.create(1, 1)
+                Point.create(2, 2), Point.create(1, 2)
         );
         assertThat(new Rectangle(new PointGroup(points)).area()).isEqualTo(1);
     }

@@ -2,7 +2,7 @@ package coordinate.domain.coordinate;
 
 import java.util.Objects;
 
-public abstract class Coordinate {
+public class Coordinate {
     private static final int MAX_VALUE = 24;
     private static final int MIN_VALUE = 0;
     private final int value;
@@ -16,10 +16,6 @@ public abstract class Coordinate {
         if (value > MAX_VALUE || value < MIN_VALUE) {
             throw new IllegalArgumentException("좌표값은 0 이상 24 이하의 정수만 가능합니다.");
         }
-    }
-
-    public int getValue() {
-        return value;
     }
 
     public int getDiffWith(Coordinate coordinate) {
@@ -37,5 +33,9 @@ public abstract class Coordinate {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public int getValue() {
+        return value;
     }
 }
