@@ -20,4 +20,14 @@ class TriangleTest {
         Triangle triangle = Triangle.of(points);
         assertThat(triangle.getArea()).isEqualTo(6.0, offset(0.00099));
     }
+
+    @Test
+    public void 넓이가_2인_삼각형을_생성하고_넓이를_제대로_반환하는지() {
+        points = Arrays.asList(
+                Point.of(0, 0),
+                Point.of(2, 0),
+                Point.of(1, 2));
+        Triangle triangle = Triangle.of(points);
+        assertThat(triangle.getArea()).isEqualTo(2.0, offset(0.00099));
+    }
 }
