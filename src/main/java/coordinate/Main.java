@@ -16,7 +16,7 @@ public class Main {
         try {
             PointGenerator converter = new ConsolePointGenerator(InputView.inputPoint());
             return ShapeFactory.create(converter.generate());
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.err.println(e.getMessage());
             return createShape();
         }
