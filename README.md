@@ -11,7 +11,11 @@
 ---
 # 좌표 계산기
 ## Todo
-
+* InputView 좌표 값 인풋 받기
+* OutputView 좌표 그리기
+* OutputView 결과 값 출력하기
+* Figure 상속 적용하기
+* Shape Interface 적용하기
 
 ## Done
 * Point 테스트 생성
@@ -30,6 +34,8 @@
 * Triangle 유효성 메소드 추가하기
 * Triangle 넓이 테스트 추가하기
 * Triangle 넓이 구하는 메소드 추가하기
+* Board 생성 및 그리는 테스트 추가하기
+* Board 초기화 후 세팅하기
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
