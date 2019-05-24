@@ -3,10 +3,10 @@ package coordinate.model;
 import java.util.List;
 import java.util.Objects;
 
-public class Line {
-    List<Point> points;
+public class Line extends AbstractFigure{
+
     public Line(List<Point> points) {
-        this.points = points;
+        super(points);
     }
 
     @Override
@@ -24,5 +24,25 @@ public class Line {
 
     public double calculateDistance() {
         return points.get(0).calculate(points.get(1));
+    }
+
+    @Override
+    public List<Point> getPoints() {
+        return null;
+    }
+
+    @Override
+    public int size() {
+        return 2;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public double area() {
+        return 0;
     }
 }

@@ -3,12 +3,11 @@ package coordinate.model;
 import java.util.List;
 import java.util.Objects;
 
-public class Triangle {
-    private List<Point> points;
+public class Triangle extends AbstractFigure{
 
     public Triangle(List<Point> points) {
+        super(points);
         validateTriangle(points);
-        this.points = points;
     }
 
     private void validateTriangle(List<Point> points) {
@@ -17,20 +16,29 @@ public class Triangle {
         }
     }
 
-    public double findArea() {
+    @Override
+    public List<Point> getPoints() {
+        return null;
+    }
+
+    @Override
+    public int size() {
+        return 3;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public double area() {
         double a = points.get(0).calculate(points.get(1));
         double b = points.get(1).calculate(points.get(2));
         double c = points.get(2).calculate(points.get(0));
         double s = (a + b + c) / 2;
 
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
-//        List<Double> distances = new ArrayList<>();
-//        distances.add(points.get(0).calculate(points.get(1)));
-//        distances.add(points.get(1).calculate(points.get(2)));
-//        distances.add(points.get(2).calculate(points.get(0)));
-//        double s = distances.stream().mapToDouble(i->i).sum() / 2;
-//
-//        return Math.sqrt(s*(s-distances.get(0))*(s-distances.get(1))*(s-distances.get(2)));
     }
 
     @Override

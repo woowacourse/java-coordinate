@@ -18,7 +18,6 @@ public class PointsGeneratorTest {
         List<Point> testPoints = Arrays.asList(new Point(new Value("1"), new Value("2")),
                 new Point(new Value("3"), new Value("4")));
         assertThat(PointsGenerator.makePoints("(1,2)-(3,4)")).isEqualTo(testPoints);
-        assertThat(PointsGenerator.makePoints("(3,3)-(3,0)-(0,3)-(0,0)")).isEqualTo(testPoints);
     }
     @Test
     void 포인트_중복_테스트() {

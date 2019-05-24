@@ -22,7 +22,7 @@ public class Point {
     public double getSlope(Point point){
         double xRate = this.xValue.getRateOfChange(point.xValue);
         double yRate = this.yValue.getRateOfChange(point.yValue);
-        double result = yRate/xRate;
+        double result = yRate / xRate;
         return result;
     }
 

@@ -2,12 +2,11 @@ package coordinate.model;
 
 import java.util.*;
 
-public class Rectangle {
-    private List<Point> points;
-    public Rectangle(List<Point> points) {
-        validateRectangle(points);
-        this.points = points;
+public class Rectangle extends AbstractFigure{
 
+    public Rectangle(List<Point> points) {
+        super(points);
+        validateRectangle(points);
     }
 
     private void validateRectangle(List<Point> points) {
@@ -17,7 +16,6 @@ public class Rectangle {
     }
 
     private boolean checkRectangle(List<Point> points) {
-
         return  collectXValues(points).size() == 2 && collectYValues(points).size() == 2;
     }
 
@@ -37,8 +35,23 @@ public class Rectangle {
         return yValues;
     }
 
-    public double findArea(){
-        List<Double> distances = new ArrayList<>();
+    @Override
+    public List<Point> getPoints() {
+        return null;
+    }
+
+    @Override
+    public int size() {
+        return 4;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public double area(){
         double firstLine = points.get(0).calculate(points.get(1));
         double secondLine = points.get(0).calculate(points.get(2));
         return firstLine * secondLine;

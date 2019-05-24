@@ -1,7 +1,5 @@
 package coordinate.model;
 
-import coordinate.model.PointsGenerator;
-import coordinate.model.Rectangle;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -30,6 +28,6 @@ public class RectangleTest {
     @Test
     void 넓이_계산_테스트() {
         Rectangle rect = new Rectangle(PointsGenerator.makePoints("(0,0)-(3,2)-(0,2)-(3,0)"));
-        assertThat(rect.findArea()).isEqualTo(6);
+        assertThat(rect.area()).isEqualTo(6);
     }
 }
