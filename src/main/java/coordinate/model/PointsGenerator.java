@@ -13,8 +13,9 @@ public class PointsGenerator {
         for (int i = 0; i < values.size(); i = i + 2) {
             points.add(new Point(new Value(values.get(i)), new Value(values.get(i + 1))));
         }
-        Set<Point> tempSet = new HashSet<>(points);
-        if (tempSet.size() != points.size()){
+
+        Set<Point> pointsForTesting = new HashSet<>(points);
+        if (pointsForTesting.size() != points.size()){
             throw new IllegalArgumentException();
         }
         return points;

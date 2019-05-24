@@ -51,11 +51,6 @@ public class Rectangle extends AbstractFigure{
     }
 
     @Override
-    public String getName() {
-        return null;
-    }
-
-    @Override
     public double area(){
         double firstLine = distance(0,1);
         double secondLine = distance(0, 2);
