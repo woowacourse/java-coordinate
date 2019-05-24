@@ -25,7 +25,6 @@ public class CoordinateApplication {
             return handlePoints();
         }
         OutputView.printCoordinatePlane(points);
-        points.getSquaredLengths();
 
         return figure;
     }
@@ -48,8 +47,6 @@ public class CoordinateApplication {
         } catch (IllegalArgumentException e) {
             OutputView.printErrorMessage(e.getMessage());
             throw new IllegalArgumentException();
-        } catch (IllegalStateException e) {
-            return null;
         }
     }
 }

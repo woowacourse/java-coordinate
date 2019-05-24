@@ -1,9 +1,9 @@
-package coordinate.view;
+package coordinate.util;
 
 import coordinate.domain.point.PointGroup;
 import org.apache.commons.lang3.StringUtils;
 
-class CoordinatePlaneDrawer {
+public class CoordinatePlaneDrawer {
     private static final int COORDINATE_PLANE_SIZE = 24;
     private static final int HORIZONTAL_RATIO = 3;
     private static final String HORIZONTAL_LINE = "|";
@@ -15,7 +15,7 @@ class CoordinatePlaneDrawer {
 
     private final StringBuilder drawer;
 
-    CoordinatePlaneDrawer(int coordinatePlaneSize, PointGroup points) {
+    public CoordinatePlaneDrawer(int coordinatePlaneSize, PointGroup points) {
         drawer = new StringBuilder();
 
         for (int i = coordinatePlaneSize; i > 0; i--) {
@@ -84,7 +84,7 @@ class CoordinatePlaneDrawer {
         drawer.append(StringUtils.repeat(VERTICAL_LINE, 3));
     }
 
-    String print() {
+    public String print() {
         return drawer.toString();
     }
 }

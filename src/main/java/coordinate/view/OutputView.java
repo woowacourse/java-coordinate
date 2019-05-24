@@ -4,6 +4,7 @@ import coordinate.domain.Figure.AreaCalculable;
 import coordinate.domain.Figure.Figure;
 import coordinate.domain.Figure.Line;
 import coordinate.domain.point.PointGroup;
+import coordinate.util.CoordinatePlaneDrawer;
 
 public class OutputView {
     private static final String NEW_LINE = "\n";
@@ -16,11 +17,11 @@ public class OutputView {
     }
 
     public static void printFigureResult(Figure figure) {
-        if (figure instanceof Line) {
-            OutputView.printLineLength(((Line) figure).length());
+        if (figure instanceof AreaCalculable) {
+            OutputView.printArea(figure.toString(), ((AreaCalculable) figure).area());
             return;
         }
-        OutputView.printArea(figure.toString(), ((AreaCalculable) figure).area());
+        OutputView.printLineLength(((Line) figure).length());
     }
 
     private static void printLineLength(double lineLength) {
