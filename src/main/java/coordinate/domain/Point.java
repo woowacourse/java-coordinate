@@ -15,7 +15,6 @@ public class Point implements Comparable<Point>{
         return Math.sqrt(Math.pow(x - secondPoint.x, 2) + Math.pow(y - secondPoint.y, 2));
     }
 
-
     public Point calVector(Point point) {
         return new Point(point.x - x, point.y - y);
     }
@@ -31,6 +30,14 @@ public class Point implements Comparable<Point>{
     public Point calCrossPoint(Point firstVector, Point secondVector) {
         Point addedVector = firstVector.sumOfVector(secondVector);
         return new Point(x + addedVector.x, y + addedVector.y);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     @Override

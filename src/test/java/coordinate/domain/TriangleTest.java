@@ -36,6 +36,6 @@ public class TriangleTest {
                 new Point(0, 1)
         ));
         Triangle triangle = new Triangle(points);
-        assertThat(triangle.calArea()).isEqualTo(0.5, offset(0.00099));
+        assertThat(triangle.calculateFigure()).isEqualTo(0.5, offset(0.00099));
     }
 }

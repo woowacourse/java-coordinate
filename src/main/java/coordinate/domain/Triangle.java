@@ -4,17 +4,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Triangle {
-    Points points;
+public class Triangle extends Figure {
 
     public Triangle(Points points) {
+        super(points);
         if (points.size() != 3) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
         if (!isTriangle(points)) {
             throw new IllegalArgumentException("삼각형이 아닙니다");
         }
-        this.points = points;
     }
 
     static boolean isTriangle(Points points) {
@@ -27,15 +26,15 @@ public class Triangle {
 
     private static List<Double> getLineLengths(Points points) {
         List<Double> lineLengths = Arrays.asList(
-                new Line(points.get(0), points.get(1)).calLength(),
-                new Line(points.get(0), points.get(2)).calLength(),
-                new Line(points.get(1), points.get(2)).calLength()
+                new Line(new Points(Arrays.asList(points.get(0), points.get(1)))).calculateFigure(),
+                new Line(new Points(Arrays.asList(points.get(0), points.get(2)))).calculateFigure(),
+                new Line(new Points(Arrays.asList(points.get(1), points.get(2)))).calculateFigure()
         );
         Collections.sort(lineLengths);
         return lineLengths;
     }
 
-    public double calArea() {
+    public double calculateFigure() {
         List<Double> lineLengths = getLineLengths(points);
         double s = (lineLengths.get(0) + lineLengths.get(1) + lineLengths.get(2)) / 2;
         return Math.sqrt(s * (s - lineLengths.get(0)) *

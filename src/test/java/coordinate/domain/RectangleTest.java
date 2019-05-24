@@ -23,7 +23,7 @@ public class RectangleTest {
                 new Point(1,5), new Point(3, 3), new Point(3,6)));
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
             new Rectangle(points);
-        }).withMessage("4개의 각은 모두 직각이어야 합니다");
+        }).withMessage("직사각형이 아닙니다");
     }
 
     @Test
@@ -46,6 +46,6 @@ public class RectangleTest {
     void 사각형_넓이_구하는_테스트() {
         Points points = new Points(Arrays.asList(new Point(1, 1),
                 new Point(1,2), new Point(2, 1), new Point(2,2)));
-        assertThat(new Rectangle(points).calArea()).isEqualTo(1);
+        assertThat(new Rectangle(points).calculateFigure()).isEqualTo(1);
     }
 }

@@ -1,16 +1,16 @@
 package coordinate.domain;
 
-public class Rectangle {
-    private final Points points;
+import java.util.Arrays;
 
+public class Rectangle extends Figure {
     public Rectangle(Points points) {
+        super(points);
         if (points.size() != 4) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
         if (!isRectangle(points)) {
             throw new IllegalArgumentException("직사각형이 아닙니다");
         }
-        this.points = points;
     }
 
     static boolean isRectangle(Points points) {
@@ -30,9 +30,9 @@ public class Rectangle {
         return true;
     }
 
-    public double calArea() {
-        double width = new Line(points.get(0), points.get(1)).calLength();
-        double height = new Line(points.get(0), points.get(2)).calLength();
+    public double calculateFigure() {
+        double width = new Line(new Points(Arrays.asList(points.get(0), points.get(1)))).calculateFigure();
+        double height = new Line(new Points(Arrays.asList(points.get(0), points.get(2)))).calculateFigure();
         return width * height;
     }
 }
