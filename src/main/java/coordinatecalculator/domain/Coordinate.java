@@ -42,10 +42,7 @@ public class Coordinate implements Comparable<Coordinate> {
 
     @Override
     public int compareTo(final Coordinate o) {
-        if (this.x == o.x) {
-            return Integer.compare(this.y, o.y);
-        }
-        return Integer.compare(this.x, o.x);
+        return (this.x == o.x) ? Integer.compare(this.y, o.y) : Integer.compare(this.x, o.x);
     }
 
     @Override
