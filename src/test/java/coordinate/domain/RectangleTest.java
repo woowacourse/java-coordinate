@@ -44,7 +44,7 @@ public class RectangleTest {
     @Test
     void distortedParallelogramTest() {
         assertThrows(IllegalArgumentException.class, () -> factory.create(Arrays.asList(
-                new Point(0,0), new Point(5,0), new Point(3,5), new Point(1,4)
+                new Point(0, 0), new Point(5, 0), new Point(3, 5), new Point(1, 4)
         )));
     }
 

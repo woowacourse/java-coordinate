@@ -27,7 +27,7 @@ public class Rectangle extends Polygon {
     private boolean hasVerticalLines(Lines lines) {
         boolean isValidate = true;
         for (int i = 0; i < NUM_OF_LINES - 1; i++) {
-            isValidate &= lines.isOrthogonal(i, i+1);
+            isValidate &= lines.isOrthogonal(i, i + 1);
         }
         return isValidate;
     }

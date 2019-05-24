@@ -14,7 +14,7 @@ public class FigureFactory implements FigureCreator {
 
     @Override
     public Figure create(List<Point> points) {
-        if (2 <= points.size() && points.size() <= 4 ) {
+        if (2 <= points.size() && points.size() <= 4) {
             return methodMapping.get(points.size()).apply(points);
         }
         throw new IllegalArgumentException("지원하지 않는 도형입니다.");
@@ -50,8 +50,8 @@ public class FigureFactory implements FigureCreator {
 
     private static Lines getLinesFromPoints(List<Point> points) {
         List<Line> lines = new ArrayList<>();
-        for (int i=0; i<points.size(); i++) {
-            lines.add(new Line(points.get(i), points.get((i+1) % points.size())));
+        for (int i = 0; i < points.size(); i++) {
+            lines.add(new Line(points.get(i), points.get((i + 1) % points.size())));
         }
         return new Lines(lines);
     }

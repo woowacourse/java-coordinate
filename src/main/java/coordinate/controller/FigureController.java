@@ -39,6 +39,4 @@ public class FigureController {
         OutputView.printPoints(figure.getPoints());
         OutputView.printResult(figure);
     }
-
-
 }

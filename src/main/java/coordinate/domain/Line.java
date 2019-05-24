@@ -24,7 +24,7 @@ public class Line extends Figure {
 
     public double length() {
         return Math.sqrt(Math.pow(calculateXDifference(), 2)
-                        + Math.pow(calculateYDifference(), 2));
+                + Math.pow(calculateYDifference(), 2));
     }
 
     private int calculateXDifference() {
@@ -51,7 +51,7 @@ public class Line extends Figure {
         return (Objects.equals(p1, line.p1) &&
                 Objects.equals(p2, line.p2)) ||
                 (Objects.equals(p1, line.p2) &&
-                Objects.equals(p2, line.p1));
+                        Objects.equals(p2, line.p1));
     }
 
     @Override
