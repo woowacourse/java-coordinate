@@ -9,6 +9,15 @@ public class Line extends AbstractFigure{
         super(points);
     }
 
+    public double calculateDistance() {
+        return points.get(0).calculate(points.get(1));
+    }
+
+    @Override
+    public double distance() {
+        return points.get(0).calculate(points.get(1));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,9 +31,6 @@ public class Line extends AbstractFigure{
         return Objects.hash(points);
     }
 
-    public double calculateDistance() {
-        return points.get(0).calculate(points.get(1));
-    }
 
     @Override
     public List<Point> getPoints() {
@@ -43,6 +49,6 @@ public class Line extends AbstractFigure{
 
     @Override
     public double area() {
-        return 0;
+        return 1;
     }
 }
