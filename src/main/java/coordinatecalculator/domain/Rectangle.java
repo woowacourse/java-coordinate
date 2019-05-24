@@ -1,5 +1,6 @@
 package coordinatecalculator.domain;
 
+import com.google.common.base.Preconditions;
 import coordinatecalculator.visitor.Visitor;
 
 import java.util.*;
@@ -10,8 +11,8 @@ public class Rectangle implements Figure, Shape {
     private final List<Coordinate> coordinates;
 
     public Rectangle(final List<Coordinate> coordinates) {
-        isValidRectangle(coordinates);
         isValidShape(coordinates);
+        isValidRectangle(coordinates);
         this.coordinates = coordinates;
     }
 

@@ -1,5 +1,7 @@
 package coordinatecalculator.domain;
 
+import com.google.common.base.Preconditions;
+
 import java.util.Objects;
 
 public class Coordinate implements Comparable<Coordinate> {
@@ -10,9 +12,8 @@ public class Coordinate implements Comparable<Coordinate> {
     private final int y;
 
     public Coordinate(final int x, final int y) {
-        if (x > MAX_BOUND || x < MIN_BOUND || y > MAX_BOUND || y < MIN_BOUND) {
-            throw new IllegalArgumentException(" 범위 넘었어요 ");
-        }
+        Preconditions.checkArgument(x >= MIN_BOUND && x <= MAX_BOUND, "범위를 초과하였습니다", x);
+        Preconditions.checkArgument(y >= MIN_BOUND && y <= MAX_BOUND, "범위를 초과하였습니다", y);
         this.x = x;
         this.y = y;
     }
