@@ -13,8 +13,8 @@ public class Rectangle extends AbstractShape {
 
     public Rectangle(List<Point> points) {
         super(points);
-        List<Point> copyedPoints = new ArrayList<>(points);
-        setRectangleLines(copyedPoints);
+        List<Point> copiedPoints = new ArrayList<>(points);
+        setRectangleLines(copiedPoints);
         validateRectangle();
     }
 

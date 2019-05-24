@@ -12,8 +12,8 @@ public class Triangle extends AbstractShape {
 
     public Triangle(List<Point> points) {
         super(points);
-        List<Point> copyedPoints = new ArrayList<>(points);
-        setTriangleLines(copyedPoints);
+        List<Point> copiedPoints = new ArrayList<>(points);
+        setTriangleLines(copiedPoints);
         validateTriangle();
     }
 
