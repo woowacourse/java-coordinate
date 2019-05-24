@@ -10,6 +10,6 @@ class TriangleTest {
 
     @Test
     void area() {
-        assertEquals(18.0, Figure.fromPoints(new Points(Arrays.asList(new Point(1, 10), new Point(1, 1), new Point (5, 1)))).area(), 0.001);
+        assertEquals(18.0, Figure.getInstance(new Points(Arrays.asList(new Point(1, 10), new Point(1, 1), new Point(5, 1)))).area(), 0.001);
     }
 }

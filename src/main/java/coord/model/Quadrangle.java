@@ -14,7 +14,7 @@ public class Quadrangle extends Figure {
         Point C = points.get(2);
         Point D = points.get(3);
 
-        return areaOfTriangle(A, B, C) + areaOfTriangle(B, C, D);
+        return areaOfTriangle(A, B, C) + areaOfTriangle(A, C, D);
     }
 
     @Override

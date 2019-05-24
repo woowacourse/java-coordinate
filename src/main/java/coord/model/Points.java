@@ -11,7 +11,6 @@ public class Points {
         if (points.size() != new HashSet<>(points).size()) {
             throw new IllegalArgumentException("동일한 점은 입력할 수 없습니다.");
         }
-        System.out.println(points);
         this.points = sortByDescYAscX(points);
     }
 

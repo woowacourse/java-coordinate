@@ -25,7 +25,7 @@ public class App {
             OutputView.printLengthOfLine(new Line(points));
             return;
         }
-        OutputView.printAreaOfFigure(Figure.fromPoints(points));
+        OutputView.printAreaOfFigure(Figure.getInstance(points));
 
 
     }
