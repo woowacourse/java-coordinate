@@ -3,7 +3,7 @@ package coordinate.domain;
 import coordinate.domain.generator.LinesTriangleGenerator;
 
 public final class Triangle extends Figure {
-    private static final int NUMBER_OF_POINTS = 3;
+    public static final int NUMBER_OF_POINTS = 3;
 
     public Triangle(final Points points) {
         super(points, new LinesTriangleGenerator(points));

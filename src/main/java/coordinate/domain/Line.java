@@ -2,7 +2,7 @@ package coordinate.domain;
 
 
 public class Line {
-    private static final int NUMBER_OF_POINTS = 2;
+    public static final int NUMBER_OF_POINTS = 2;
 
     private final Points points;
 

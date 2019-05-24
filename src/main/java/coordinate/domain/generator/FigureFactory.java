@@ -6,8 +6,8 @@ import coordinate.domain.Square;
 import coordinate.domain.Triangle;
 
 public enum FigureFactory {
-    TRIANGLE(3, Triangle::new),
-    SQUARE(4, Square::new);
+    TRIANGLE(Triangle.NUMBER_OF_POINTS, Triangle::new),
+    SQUARE(Square.NUMBER_OF_POINTS, Square::new);
 
     private final int numberOfPoints;
     private final FigureGenerator figureGenerator;

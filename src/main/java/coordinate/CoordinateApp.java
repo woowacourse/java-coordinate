@@ -9,11 +9,9 @@ import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
 public class CoordinateApp {
-    private static final int LINE = 2;
-
     public static void main(String[] args) {
         Points points = generatePoints();
-        if (points.size() == LINE) {
+        if (points.size() == Line.NUMBER_OF_POINTS) {
             Line line = new Line(points);
             OutputView.printResult(line);
         } else {

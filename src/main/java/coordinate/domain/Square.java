@@ -4,7 +4,7 @@ import coordinate.domain.generator.LinesSquareGenerator;
 
 
 public final class Square extends Figure {
-    private static final int NUMBER_OF_POINTS = 4;
+    public static final int NUMBER_OF_POINTS = 4;
 
     public Square(final Points points) {
         super(points, new LinesSquareGenerator(points));
