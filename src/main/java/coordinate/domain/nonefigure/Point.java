@@ -14,7 +14,7 @@ public class Point {
     }
 
     public static Point create(int xCoordinate, int yCoordinate) {
-        return new Point(new Coordinate(xCoordinate), new Coordinate(yCoordinate));
+        return new Point(Coordinate.create(xCoordinate), Coordinate.create(yCoordinate));
     }
 
     public double getSquareDistanceWith(Point point) {
