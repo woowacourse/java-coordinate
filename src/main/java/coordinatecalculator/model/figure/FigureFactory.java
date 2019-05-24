@@ -1,4 +1,10 @@
-package coordinatecalculator.model;
+package coordinatecalculator.model.figure;
+
+import coordinatecalculator.model.coordinate.Coordinate;
+import coordinatecalculator.model.figurecreator.FigureCreator;
+import coordinatecalculator.model.figurecreator.impl.LineCreator;
+import coordinatecalculator.model.figurecreator.impl.RectangleCreator;
+import coordinatecalculator.model.figurecreator.impl.TriangleCreator;
 
 import java.util.AbstractMap;
 import java.util.List;

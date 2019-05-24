@@ -1,8 +1,8 @@
 package coordinatecalculator.view;
 
-import coordinatecalculator.model.Coordinate;
-import coordinatecalculator.model.FigureFactory;
-import coordinatecalculator.model.PlaneFigure;
+import coordinatecalculator.model.coordinate.Coordinate;
+import coordinatecalculator.model.figure.FigureFactory;
+import coordinatecalculator.model.figure.PlaneFigure;
 
 import java.util.Arrays;
 import java.util.List;

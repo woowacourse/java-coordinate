@@ -1,4 +1,4 @@
-package coordinatecalculator.model;
+package coordinatecalculator.model.coordinate;
 
 import java.util.ArrayList;
 import java.util.List;

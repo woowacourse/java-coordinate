@@ -1,4 +1,7 @@
-package coordinatecalculator.model;
+package coordinatecalculator.model.figure.impl;
+
+import coordinatecalculator.model.coordinate.Coordinate;
+import coordinatecalculator.model.figure.PlaneFigure;
 
 import java.util.List;
 

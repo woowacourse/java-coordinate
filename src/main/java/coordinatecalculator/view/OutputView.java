@@ -1,7 +1,7 @@
 package coordinatecalculator.view;
 
-import coordinatecalculator.model.CoordinatePlane;
-import coordinatecalculator.model.PlaneFigure;
+import coordinatecalculator.model.coordinate.CoordinatePlane;
+import coordinatecalculator.model.figure.PlaneFigure;
 
 public class OutputView {
     public static void printCoordinatePlane(CoordinatePlane plane) {

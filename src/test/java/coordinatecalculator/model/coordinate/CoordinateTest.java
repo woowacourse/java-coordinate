@@ -1,5 +1,6 @@
-package coordinatecalculator.model;
+package coordinatecalculator.model.coordinate;
 
+import coordinatecalculator.model.coordinate.Coordinate;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;

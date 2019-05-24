@@ -1,5 +1,8 @@
-package coordinatecalculator.model;
+package coordinatecalculator.model.figure.impl;
 
+import coordinatecalculator.model.coordinate.Coordinate;
+import coordinatecalculator.model.coordinate.Coordinates;
+import coordinatecalculator.model.figure.impl.Lines;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
