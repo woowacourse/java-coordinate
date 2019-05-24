@@ -5,7 +5,7 @@ import coordinatecalculator.domain.parent.Figure;
 import java.util.List;
 
 public class Line implements Figure {
-    public static final String LINE_RESULT_MESSAGE = "두 점 사이 거리는 ";
+    private static final String LINE_RESULT_MESSAGE = "두 점 사이 거리는 ";
     private final Points points;
 
     public Line(final Points points) {

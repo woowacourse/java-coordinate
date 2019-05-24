@@ -8,7 +8,6 @@ public class Application {
     public static void main(String[] args) {
         Figure figure = InputView.inputLocation();
 
-        OutputView.drawGraph(figure);
         OutputView.printResult(figure);
     }
 }
