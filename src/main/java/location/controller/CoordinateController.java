@@ -2,13 +2,15 @@ package location.controller;
 
 import location.domain.*;
 import location.view.InputView;
-import location.view.ShapeMsgEnum;
+import location.view.OutputView;
 
 public class CoordinateController {
 
     public static void main(String[] args) {
         Points points = new Points(InputView.inputCoordinate());
-        Shape shape = ShapeMaker.create(points);
-        System.out.println(ShapeMsgEnum.valueOf(points.size()) + shape.calculate());
+        Figure figure = FigureMaker.create(points);
+        OutputView outputView = new OutputView(points.size(), figure.calculate());
+        outputView.printResultMap(points);
+        outputView.printResultText();
     }
 }

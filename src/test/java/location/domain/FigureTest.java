@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ShapeTest {
+public class FigureTest {
 
     @Test
     void 동일한_점_일때_라인() {

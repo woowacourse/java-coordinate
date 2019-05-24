@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 public enum ShapeEnum {
     LINE(2) {
-        public Shape create(Points points) {
+        public Figure create(Points points) {
             return new Line(points);
         }
     }, Triangle(3) {
-        public Shape create(Points points) {
+        public Figure create(Points points) {
             return new Triangle(points);
         }
     }, Rectangle(4) {
-        public Shape create(Points points) {
+        public Figure create(Points points) {
             return new Rectangle(points);
         }
     };
@@ -30,7 +30,7 @@ public enum ShapeEnum {
                 .orElseThrow(() -> new IllegalArgumentException(NOT_CREATE_SHAPE_MSG));
     }
 
-    public Shape create(Points points) {
+    public Figure create(Points points) {
         return null;
     }
 

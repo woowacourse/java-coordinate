@@ -1,6 +1,6 @@
 package location.domain;
 
-public class Rectangle extends Shape implements Figure {
+public class Rectangle extends Figure {
     private static final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private static final String NOT_RECTANGLE_MSG = "직사각형이 아닙니다.";
     private static final int SQUARE = 2;
@@ -54,22 +54,12 @@ public class Rectangle extends Shape implements Figure {
                 calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(2), points.get(3));
     }
 
-    private double calculateTilt(final Point point, final Point point1) {
-        return (point.getY() - point1.getY()) / (point.getX() - point1.getX());
-    }
-
-
     public double calculateLine(final Point point1, final Point point2) {
         return Math.sqrt(Math.pow((point1.getX() - point2.getX()), SQUARE) + Math.pow((point1.getY() - point2.getY()), SQUARE));
     }
 
     @Override
-    public Double calculate() {
-        return calculateLine(points.get(0), points.get(1)) * calculateLine(points.get(0), points.get(2));
-    }
-
-    @Override
-    public double calculateArea() {
+    public double calculate() {
         return calculateLine(points.get(0), points.get(1)) * calculateLine(points.get(0), points.get(2));
     }
 }
