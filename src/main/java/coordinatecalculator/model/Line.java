@@ -12,8 +12,9 @@ public class Line extends PlaneFigure implements Comparable<Line> {
         Coordinate coordinateB = coordinates.get(1);
 
         try {
-            return (double) (coordinateA.getY() - coordinateB.getY())
+            double gradient = (double) (coordinateA.getY() - coordinateB.getY())
                     / (coordinateA.getX() - coordinateB.getX());
+            return (Math.abs(gradient) == 0.0)? 0.0 : gradient;
         } catch (ArithmeticException e) {
             return Double.POSITIVE_INFINITY;
         }

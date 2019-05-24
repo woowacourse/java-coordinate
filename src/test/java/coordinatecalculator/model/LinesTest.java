@@ -12,7 +12,7 @@ public class LinesTest {
 
     @Test
     void 한_직선_위에_세_좌표가_있는_경우_예외_발생() {
-        Coordinate c1 = new Coordinate(5, 5);
+        Coordinate c1 = new Coordinate(0, 0);
         Coordinate c2 = new Coordinate(10, 10);
         Coordinate c3 = new Coordinate(15, 15);
         Coordinate c4 = new Coordinate(10,20);

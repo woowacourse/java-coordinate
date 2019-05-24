@@ -9,5 +9,9 @@ public abstract class PlaneFigure implements Figure {
         this.coordinates = new Coordinates(coordinates);
     }
 
+    public Coordinates getCoordinates(){
+        return coordinates;
+    }
+
     public abstract String resultMessage();
 }
