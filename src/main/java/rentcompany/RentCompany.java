@@ -17,15 +17,15 @@ public class RentCompany {
     }
 
     public String generateReport() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
 
         for (Car car : cars) {
-            sb.append(car.getName());
-            sb.append(" : ");
-            sb.append((int) car.getChargeQuantity()); // type casting
-            sb.append("리터\n");
+            stringBuilder.append(car.getName());
+            stringBuilder.append(" : ");
+            stringBuilder.append((int) car.getChargeQuantity()); // type casting
+            stringBuilder.append("리터\n");
         }
 
-        return sb.toString();
+        return stringBuilder.toString();
     }
 }

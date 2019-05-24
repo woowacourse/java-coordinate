@@ -10,17 +10,12 @@ public class K5 implements Car {
     }
 
     @Override
-    public double getDistancePerLiter() {
-        return distancePerLiter;
-    }
-
-    @Override
-    public double getTripDistance() {
-        return this.tripDistance;
-    }
-
-    @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public double getChargeQuantity() {
+        return tripDistance / distancePerLiter;
     }
 }
