@@ -20,6 +20,11 @@ public class Point implements Comparable<Point> {
     }
 
     @Override
+    public int compareTo(Point point) {
+        return (this.getX() < point.getX()) ? -1 : ((this.getX() == point.getX()) ? Integer.compare(this.getY(), point.getY()) : 1);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -31,10 +36,5 @@ public class Point implements Comparable<Point> {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
-    }
-
-    @Override
-    public int compareTo(Point point) {
-        return (this.getX() < point.getX()) ? -1 : ((this.getX() == point.getX()) ? Integer.compare(this.getY(), point.getY()) : 1);
     }
 }

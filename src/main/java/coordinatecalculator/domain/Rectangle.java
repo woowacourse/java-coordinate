@@ -11,10 +11,14 @@ public class Rectangle implements Figure {
 
     private final Points points;
 
-    public Rectangle(Points points) {
+    private Rectangle(Points points) {
         this.points = points;
 
         checkValidRectangle();
+    }
+
+    public static Rectangle newInstance(Points points) {
+        return new Rectangle(points);
     }
 
     private void checkValidRectangle() {

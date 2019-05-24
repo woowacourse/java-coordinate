@@ -11,7 +11,7 @@ public class Triangle implements Figure {
 
     private final Points points;
 
-    public Triangle(Points points) {
+    private Triangle(Points points) {
         this.points = points;
 
         // TODO: Refactoring
@@ -19,7 +19,7 @@ public class Triangle implements Figure {
         Point point1 = points1.get(0);
         Point point2 = points1.get(1);
         Point point3 = points1.get(2);
-        
+
         if (point1.getX() == point2.getX() && point2.getX() == point3.getX()) {
             throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
         }
@@ -32,6 +32,10 @@ public class Triangle implements Figure {
         if ((double)y / x == (double)y1 / x1) {
             throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
         }
+    }
+
+    public static Triangle newInstance(Points points) {
+        return new Triangle(points);
     }
 
     @Override

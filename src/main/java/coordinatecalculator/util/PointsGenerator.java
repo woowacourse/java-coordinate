@@ -24,6 +24,7 @@ public class PointsGenerator {
 
     private static void checkDuplicatedPoint(List<Point> points) {
         Set<Point> distinctPoints = new HashSet<>(points);
+
         if (distinctPoints.size() != points.size()) {
             throw new IllegalArgumentException(DUPLICATED_POINT_MESSAGE);
         }

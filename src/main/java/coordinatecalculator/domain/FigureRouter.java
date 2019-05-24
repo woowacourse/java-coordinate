@@ -12,13 +12,13 @@ public class FigureRouter {
         int countOfSize = points.size();
 
         if (countOfSize == LINE_COUNT) {
-            return new Line(points);
+            return Line.newInstance(points);
         }
         if (countOfSize == TRIANGLE_COUNT) {
-            return new Triangle(points);
+            return Triangle.newInstance(points);
         }
         if (countOfSize == RECTANGLE_COUNT) {
-            return new Rectangle(points);
+            return Rectangle.newInstance(points);
         }
 
         throw new IllegalArgumentException(INVALID_FIGURE_MESSAGE);

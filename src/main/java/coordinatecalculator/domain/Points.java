@@ -14,6 +14,7 @@ public class Points {
 
     public List<Point> getSortedPoints() {
         List<Point> clonedPoints = new ArrayList<>(points);
+
         Collections.sort(clonedPoints);
 
         return clonedPoints;

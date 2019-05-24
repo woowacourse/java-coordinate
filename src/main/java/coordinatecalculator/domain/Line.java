@@ -8,8 +8,12 @@ public class Line implements Figure {
     private static final String LINE_RESULT_MESSAGE = "두 점 사이 거리는 ";
     private final Points points;
 
-    public Line(final Points points) {
+    private Line(final Points points) {
         this.points = points;
+    }
+
+    public static Line newInstance(final Points points) {
+        return new Line(points);
     }
 
     @Override

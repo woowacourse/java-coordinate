@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Drawer {
+    private static final int Y_TOP_POSITION = 24;
+    private static final int X_DOUBLE_POSITION = 2;
+    private static final int X_PARALLEL_TRANSLATION = 2;
+
     private final List<StringBuilder> board = new ArrayList<>();
 
     private Drawer(Points points) {
@@ -15,7 +19,7 @@ public class Drawer {
     }
 
     private void makePicture(Points points) {
-        for (int i = 24; i > 0; i--) {
+        for (int i = Y_TOP_POSITION; i > 0; i--) {
             board.add(new StringBuilder((i % 2 == 0) ? String.format("%2d" ,i) : "  ").
                     append("|                                                \n"));
         }
@@ -27,8 +31,10 @@ public class Drawer {
 
     private void plotPoint(Points points) {
         List<Point> sortedPoints = points.getSortedPoints();
+
         for (Point point : sortedPoints) {
-            board.get(24 - point.getY()).replace(point.getX() * 2 + 2, point.getX() * 2 + 3, "*");
+            board.get(Y_TOP_POSITION - point.getY())
+                    .replace((point.getX() * X_DOUBLE_POSITION) + X_PARALLEL_TRANSLATION, (point.getX() * X_DOUBLE_POSITION) + X_PARALLEL_TRANSLATION + 1, "*");
         }
     }
 
