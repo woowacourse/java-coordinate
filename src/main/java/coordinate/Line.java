@@ -1,19 +1,24 @@
 package coordinate;
 
+import java.util.List;
+
 public class Line {
+    private static final int POW_NUM = 2;
 
-	private final Point first;
-	private final Point second;
+    private final List<Point> points;
 
-	public Line(final Point first, final Point second) {
-		this.first = first;
-		this.second = second;
-	}
+    private Line(final List<Point> points) {
+        this.points = points;
+    }
 
-	public Double length() {
-		Double tempX = first.getX().doubleValue() - second.getX().doubleValue();
-		Double tempY = first.getY().doubleValue() - second.getY().doubleValue();
+    public static Line of(final List<Point> points) {
+        return new Line(points);
+    }
 
-		return Math.sqrt(Math.pow(tempX, 2) + Math.pow(tempY, 2));
-	}
+    public Double length() {
+        final Double tempX = points.get(0).getX().doubleValue() - points.get(1).getX().doubleValue();
+        final Double tempY = points.get(0).getY().doubleValue() - points.get(1).getY().doubleValue();
+
+        return Math.sqrt(Math.pow(tempX, POW_NUM) + Math.pow(tempY, POW_NUM));
+    }
 }
