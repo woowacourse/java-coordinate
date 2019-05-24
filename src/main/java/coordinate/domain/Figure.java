@@ -15,7 +15,7 @@ public class Figure {
 
     private void validateLengthOfPoints(List<Point> points, int validLengthOfPoints) {
         if (points.size() != validLengthOfPoints) {
-            throw new IllegalArgumentException("점의 개수가 올바르지 않습니다.");
+            throw new IllegalArgumentException(this.getClass().getName()+"의 점의 개수가 올바르지 않습니다.");
         }
     }
 
