@@ -1,4 +1,4 @@
-package coordinate.domain.view;
+package coordinate.view;
 
 import coordinate.domain.Figure;
 import coordinate.domain.Point;

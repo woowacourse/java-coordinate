@@ -1,8 +1,10 @@
+package coordinate.Controller;
+
 import coordinate.domain.PointList;
 import coordinate.domain.Figure;
 import coordinate.domain.FigureFactory;
-import coordinate.domain.view.InputView;
-import coordinate.domain.view.OutputView;
+import coordinate.view.InputView;
+import coordinate.view.OutputView;
 
 public class CoordinateCalculator {
     public static void main(String[] args) {

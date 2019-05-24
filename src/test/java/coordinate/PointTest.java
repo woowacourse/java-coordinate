@@ -1,5 +1,6 @@
-package coordinate.domain;
+package coordinate;
 
+import coordinate.domain.Point;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;

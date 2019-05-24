@@ -1,9 +1,10 @@
-package coordinate.domain;
+package coordinate;
 
+import coordinate.domain.PointFactory;
+import coordinate.domain.PointList;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
