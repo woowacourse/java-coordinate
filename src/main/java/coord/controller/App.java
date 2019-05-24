@@ -21,7 +21,7 @@ public class App {
         Points points = InputView.inputCoordinates();
         CoordinateView coordinateView = new CoordinateView(points);
         coordinateView.print();
-        if (points.number() == 2) {
+        if (points.size() == 2) {
             OutputView.printLengthOfLine(new Line(points));
             return;
         }

@@ -11,20 +11,21 @@ public class Points {
         if (points.size() != new HashSet<>(points).size()) {
             throw new IllegalArgumentException("동일한 점은 입력할 수 없습니다.");
         }
-        this.points = Collections.unmodifiableList(sortByDescYAscX(points));
+        System.out.println(points);
+        this.points = sortByDescYAscX(points);
     }
 
     private List<Point> sortByDescYAscX(List<Point> points) {
         points.sort((a, b) -> {
             if (a.y == b.y) {
-                return a.x - b.x;
+                return b.x - a.x;
             }
             return b.y - a.y;
         });
         return points;
     }
 
-    public int number() {
+    public int size() {
         return points.size();
     }
 
