@@ -2,23 +2,16 @@ package coordinate;
 
 import java.util.*;
 
-public class Square {
-    private final List<Point> points;
+public class Square extends AbstractFigure {
 
     public Square(final List<Point> points) {
-        validate(points);
-        this.points = points;
+        super(points);
     }
 
-    private void validate(final List<Point> points) throws IllegalArgumentException {
-        Set temp = new HashSet<>(points);
-        if (temp.size() != points.size()) {
-            throw new IllegalArgumentException("직사각형을 만들 수 없습니다");
-        }
-    }
-
+    @Override
     public Double getArea() {
-        Point origin = points.get(0);
+        //TODO Deep copy해서 넣기
+        Point origin = this.points.get(0);
         Line line1 = Line.of(Arrays.asList(origin, getSameX(origin)));
         Line line2 = Line.of(Arrays.asList(origin, getSameY(origin)));
         return (line1.length() * line2.length());
