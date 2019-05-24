@@ -14,12 +14,12 @@ class Point {
     private final int y;
 
     private Point(int x, int y) {
-        checkValidXY(x, y);
+        checkValidRangeXY(x, y);
         this.x = x;
         this.y = y;
     }
 
-    private void checkValidXY(int x, int y) {
+    private void checkValidRangeXY(int x, int y) {
         if (x < LIMIT_MINIMUM_NUM || x > LIMIT_MAXIMUM_NUM) {
             throw new IllegalArgumentException(ERROR_RANGE_COORDINATE);
         }
@@ -34,17 +34,25 @@ class Point {
     }
 
     public double getDistance(Point anotherPoint) {
-        int deltaX = this.x - anotherPoint.x;
-        int deltaY = this.y - anotherPoint.y;
+        int dX = this.x - anotherPoint.x;
+        int dY = this.y - anotherPoint.y;
 
-        return sqrt(pow(deltaX, SQUARE_NUMBER) + pow(deltaY, SQUARE_NUMBER));
+        return sqrt(pow(dX, SQUARE_NUMBER) + pow(dY, SQUARE_NUMBER));
+    }
+
+    public double getAngle(Point anotherPoint) {
+        int dX = this.x - anotherPoint.x;
+        int dY = this.y - anotherPoint.y;
+
+        double radian = Math.atan2(dX, dY);
+        return (radian * 180) / Math.PI;
     }
 
     @Override
-    public boolean equals(Object another) {
-        if (this == another) return true;
-        if (another == null || getClass() != another.getClass()) return false;
-        final Point point = (Point) another;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Point point = (Point) o;
         return x == point.x &&
                 y == point.y;
     }
