@@ -13,7 +13,7 @@ class IShapeTest {
                 Point p1 = new Point(new PointNumber(1), new PointNumber(1));
                 Point p2 = new Point(new PointNumber(3), new PointNumber(1));
                 List<Point> points = Arrays.asList(p1, p2);
-                IShape shape = IShape.createShape(points);
+                IShape shape = IShape.MAPPING_SHAPE.get(points.size()).apply(points);
 
                 assertThat(shape.getClass()).isEqualTo(Line.class);
         }
@@ -24,7 +24,7 @@ class IShapeTest {
                 Point p2 = new Point(new PointNumber(14), new PointNumber(15));
                 Point p3 = new Point(new PointNumber(20), new PointNumber(8));
                 List<Point> points = Arrays.asList(p1, p2, p3);
-                IShape shape = IShape.createShape(points);
+                IShape shape = IShape.MAPPING_SHAPE.get(points.size()).apply(points);
 
                 assertThat(shape.getClass()).isEqualTo(Triangle.class);
         }
@@ -37,7 +37,7 @@ class IShapeTest {
                 Point p3 = new Point(new PointNumber(1), new PointNumber(3));
                 Point p4 = new Point(new PointNumber(3), new PointNumber(3));
                 List<Point> points = Arrays.asList(p1, p2, p3, p4);
-                IShape shape = IShape.createShape(points);
+                IShape shape = IShape.MAPPING_SHAPE.get(points.size()).apply(points);
 
                 assertThat(shape.getClass()).isEqualTo(Square.class);
         }
