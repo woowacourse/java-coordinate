@@ -4,12 +4,12 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Line implements Comparable<Line>, Figure {
-    private PointList points;
+//    private PointList points;
     private Double length;
 
-    Line(PointList points) {
-        this.points = points;
-        length = findArea();
+    Line(double length) {
+//        this.points = points;
+        this.length = length;
     }
 
     double findSquareArea(Line length) {
@@ -31,6 +31,16 @@ public class Line implements Comparable<Line>, Figure {
     }
 
     @Override
+    public double findArea() {
+        return length;
+    }
+
+    @Override
+    public String findResult() {
+        return "두 점 사이의 거리는 "+length+" 입니다.";
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -40,17 +50,7 @@ public class Line implements Comparable<Line>, Figure {
 
     @Override
     public int hashCode() {
-        return Objects.hash(points, length);
-    }
-
-    @Override
-    public double findArea() {
-        return  this.points.getPoint(0).findLength(points.getPoint(1));
-    }
-
-    @Override
-    public String findResult() {
-        return "두 점 사이의 거리는 "+length+" 입니다.";
+        return Objects.hash(length);
     }
 
 }
