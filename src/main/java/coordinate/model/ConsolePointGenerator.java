@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringToPointConverter implements PointGenerator {
+public class ConsolePointGenerator implements PointGenerator {
     private static final String POINT_REGEX = "\\(([0-9]+)(,)([0-9]+)\\)";
 
     List<String> consoleInputs;
 
-    public StringToPointConverter(List<String> consoleInputs) {
+    public ConsolePointGenerator(List<String> consoleInputs) {
         this.consoleInputs = consoleInputs;
     }
 
