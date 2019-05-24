@@ -12,5 +12,6 @@ public class OutputView {
             System.out.print(board.get(i).toString());
         }
 
+        System.out.println(figure.makeResult());
     }
 }

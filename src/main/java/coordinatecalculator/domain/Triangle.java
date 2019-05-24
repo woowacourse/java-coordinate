@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Triangle implements Figure {
-    private static final String INAVALID_TRIANGLE_MESSAGE = "세 점이 일직선 상에 위치할 수는 없습니다. 다시 입력해주세요.";
+    private static final String INVALID_TRIANGLE_MESSAGE = "세 점이 일직선 상에 위치할 수는 없습니다. 다시 입력해주세요.";
     private static final String RECTANGLE_RESULT_MESSAGE = "사각형 넓이는 ";
 
     private final Points points;
@@ -21,7 +21,7 @@ public class Triangle implements Figure {
         Point point3 = points1.get(2);
         
         if (point1.getX() == point2.getX() && point2.getX() == point3.getX()) {
-            throw new IllegalArgumentException(INAVALID_TRIANGLE_MESSAGE);
+            throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
         }
 
         int x = point1.getX() - point2.getX();
@@ -30,7 +30,7 @@ public class Triangle implements Figure {
         int y1 = point3.getY() - point2.getY();
 
         if ((double)y / x == (double)y1 / x1) {
-            throw new IllegalArgumentException(INAVALID_TRIANGLE_MESSAGE);
+            throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
         }
     }
 
