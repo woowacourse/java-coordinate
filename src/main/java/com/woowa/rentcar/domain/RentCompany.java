@@ -6,10 +6,10 @@ import java.util.List;
 public class RentCompany {
     private static final String NEWLINE = System.getProperty("line.separator");
 
-    private List<Car> list;
+    private List<Car> cars;
 
     private RentCompany() {
-        list = new ArrayList<>();
+        cars = new ArrayList<>();
     }
 
     public static RentCompany create() {
@@ -17,12 +17,12 @@ public class RentCompany {
     }
 
     public void addCar(Car car) {
-        list.add(car);
+        cars.add(car);
     }
 
     public String generateReport() {
         StringBuilder sb = new StringBuilder();
-        for (Car aCar : list) {
+        for (Car aCar : cars) {
             sb.append(aCar.getName()).append(" : ").append((int) aCar.calculateFuel()).append("리터").append(NEWLINE);
         }
         return sb.toString();
