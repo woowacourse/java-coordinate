@@ -7,11 +7,14 @@ public abstract class AbstractFigure implements Figure {
     protected final List<Point> points;
 
     AbstractFigure(List<Point> points) {
+        checkFigureSize(points);
+        this.points = points;
+    }
+
+    private void checkFigureSize(List<Point> points) {
         if (points.size() != size()) {
             throw new IllegalArgumentException();
         }
-
-        this.points = points;
     }
 
     @Override

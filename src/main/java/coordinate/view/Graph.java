@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Graph {
+    private static final String NEWLINE = "\n";
+    private static final String GRAPH_LINE = "|";
+    private static final String MATCH_TWO_DIGITS = "%02d";
 
     private List<ViewLine> viewLines;
 
@@ -27,7 +30,7 @@ public class Graph {
     public String toString() {
         Collections.reverse(viewLines);
         return viewLines.stream()
-                .map(viewLine -> 24 - viewLines.indexOf(viewLine) + "|" + viewLine.toString())
-                .collect(Collectors.joining("\n"));
+                .map(viewLine -> String.format(MATCH_TWO_DIGITS, 24 - viewLines.indexOf(viewLine)) + GRAPH_LINE + viewLine.toString())
+                .collect(Collectors.joining(NEWLINE));
     }
 }

@@ -3,7 +3,6 @@ package coordinate.model;
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
-
     public Triangle(List<Point> points) {
         super(points);
         validateTriangle(points);

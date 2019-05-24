@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Rectangle extends AbstractFigure {
-
     public Rectangle(List<Point> points) {
         super(points);
         validateRectangle(points);
@@ -28,6 +27,7 @@ public class Rectangle extends AbstractFigure {
         for (Point point : points) {
             xValues.add(point.getXValue());
         }
+
         return xValues;
     }
 
@@ -36,8 +36,11 @@ public class Rectangle extends AbstractFigure {
         for (Point point : points) {
             yValues.add(point.getYValue());
         }
+
         return yValues;
     }
+
+    //직사각형 검증 -> 고칠것 여기까지
 
     @Override
     public int size() {
@@ -48,6 +51,7 @@ public class Rectangle extends AbstractFigure {
     public double area() {
         double firstLine = points.get(0).howFar(points.get(1));
         double secondLine = points.get(0).howFar(points.get(2));
+
         return firstLine * secondLine;
     }
 }

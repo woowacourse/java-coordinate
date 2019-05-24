@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ViewLine {
+    private static final String CHECK = "x";
+    private static final String DELIMITER = "";
+
     private List<String> line;
 
     ViewLine() {
@@ -11,11 +14,11 @@ public class ViewLine {
     }
 
     void setPosition(int index) {
-        line.set(index, "x");
+        line.set(index, CHECK);
     }
 
     @Override
     public String toString() {
-        return String.join("", line);
+        return String.join(DELIMITER, line);
     }
 }

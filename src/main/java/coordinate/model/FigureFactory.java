@@ -10,13 +10,17 @@ import java.util.List;
 import java.util.Map;
 
 public class FigureFactory {
+    private final static int LINE = 2;
+    private final static int TRIANGLE = 3;
+    private final static int RECTANGLE = 4;
+
     private static final Map<Integer, FigureCreator> figures;
 
     static {
         figures = new HashMap<>();
-        figures.put(2, new LineCreator());
-        figures.put(3, new TriangleCreator());
-        figures.put(4, new RectangleCreator());
+        figures.put(LINE, new LineCreator());
+        figures.put(TRIANGLE, new TriangleCreator());
+        figures.put(RECTANGLE, new RectangleCreator());
     }
 
     public static Figure getInstance(List<Point> points) {

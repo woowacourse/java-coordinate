@@ -12,11 +12,10 @@ public class PointsGenerator {
         List<String> values = Splitter.splitValue(data);
 
         for (int i = 0; i < values.size(); i = i + 2) {
-            points.add(new Point(new Value(values.get(i)), new Value(values.get(i + 1))));
+            points.add(new Point(new Value(Integer.parseInt(values.get(i))), new Value(Integer.parseInt(values.get(i + 1)))));
         }
 
         checkSamePoint(values, points);
-
         return new ArrayList<>(points);
     }
 

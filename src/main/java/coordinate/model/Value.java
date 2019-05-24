@@ -3,10 +3,10 @@ package coordinate.model;
 import java.util.Objects;
 
 public class Value {
-    private final double value;
+    private final int value;
     
-    public Value(String input) {
-        int value = Integer.parseInt(input);
+    public Value(int value) {
+
         checkValue(value);
         this.value = value;
     }
@@ -18,7 +18,7 @@ public class Value {
     }
 
     public int getValue() {
-        return (int) value;
+        return value;
     }
 
     double rateSquared(Value value) {

@@ -29,6 +29,7 @@ public class Point {
     double howFar(Point point) {
         double xSquared = this.xValue.rateSquared(point.xValue);
         double ySquared = this.yValue.rateSquared(point.yValue);
+
         return Math.sqrt(xSquared + ySquared);
     }
 
