@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public abstract class AbstractFigure {
+public abstract class AbstractFigure implements Figure {
     protected final List<Point> points;
 
     protected AbstractFigure(final List<Point> points) {
@@ -19,5 +19,6 @@ public abstract class AbstractFigure {
         }
     }
 
+    @Override
     public abstract Double getArea();
 }
