@@ -8,15 +8,20 @@ import coordinate.view.OutputView;
 
 public class CoordinateCalculator {
     public static void main(String[] args) {
+        executeCoordinateCalculator();
+    }
+
+    private static void executeCoordinateCalculator() {
         PointList pointList = InputView.InputPoints();
-        OutputView.printPoints(pointList);
         Figure figure;
         try {
             figure = FigureFactory.generateFigure(pointList);
+            OutputView.printPoints(pointList);
             OutputView.printResult(figure);
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
             System.out.println(e.getMessage());
+            executeCoordinateCalculator();
+            return;
         }
     }
 }

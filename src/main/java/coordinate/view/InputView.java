@@ -16,7 +16,6 @@ public class InputView {
             Scanner scanner = new Scanner(System.in);
             List<Point> points = PointFactory.generateCoordinateList(convertPoint(scanner));
             return new PointList(points);
-
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return InputPoints();
