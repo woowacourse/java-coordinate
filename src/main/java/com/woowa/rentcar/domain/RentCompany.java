@@ -1,4 +1,4 @@
-package com.woowa.rentcar;
+package com.woowa.rentcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;

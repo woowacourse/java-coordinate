@@ -1,4 +1,4 @@
-package com.woowa.rentcar;
+package com.woowa.rentcar.domain;
 
 public class Avante extends Car {
     private static final String NAME = "Avante";

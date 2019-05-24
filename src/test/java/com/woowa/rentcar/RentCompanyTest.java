@@ -1,5 +1,10 @@
 package com.woowa.rentcar;
 
+import com.woowa.rentcar.domain.Avante;
+import com.woowa.rentcar.domain.K5;
+import com.woowa.rentcar.domain.RentCompany;
+import com.woowa.rentcar.domain.Sonata;
+
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

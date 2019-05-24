@@ -1,4 +1,4 @@
-package com.woowa.rentcar;
+package com.woowa.rentcar.domain;
 
 public abstract class Car {
     private int distance;
