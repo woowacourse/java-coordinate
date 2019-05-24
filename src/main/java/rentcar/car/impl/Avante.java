@@ -18,11 +18,6 @@ public class Avante implements Car {
     }
 
     @Override
-    public String getName() {
-        return NAME;
-    }
-
-    @Override
     public double getChargeQuantity() {
         return getTripDistance() / DISTANCE_PER_LITTER;
     }
