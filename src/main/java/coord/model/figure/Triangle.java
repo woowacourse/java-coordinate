@@ -1,9 +1,5 @@
 package coord.model.figure;
 
-import coord.model.Line;
-import coord.model.Point;
-import coord.model.Points;
-
 public class Triangle extends ConvexPolygon {
     protected Triangle(Points points) {
         super(points);

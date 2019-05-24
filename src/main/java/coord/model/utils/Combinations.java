@@ -1,4 +1,4 @@
-package coord.model;
+package coord.model.utils;
 
 import java.util.*;
 
@@ -9,7 +9,7 @@ public class Combinations implements Iterator<List<Integer>> {
     private Combinations subCombination;
 
     private Combinations(int n, int k, int base) {
-        if (n < 1 || k < 1 || base < 0) {
+        if (n < 1 || k < 1 || n < k || base < 0) {
             throw new IllegalArgumentException();
         }
         this.n = n;

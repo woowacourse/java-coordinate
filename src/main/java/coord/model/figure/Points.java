@@ -1,19 +1,20 @@
-package coord.model;
+package coord.model.figure;
 
 import java.util.*;
 
 public final class Points {
     private final List<Point> points;
 
+    public Points(Set<Point> points) {
+        this.points = Collections.unmodifiableList(new ArrayList<>(points));
+    }
+
     public Points(List<Point> points) {
-        if (points.size() != new HashSet<>(points).size()) {
-            throw new IllegalArgumentException("동일한 점은 입력할 수 없습니다.");
-        }
-        this.points = Collections.unmodifiableList(points);
+        this(new LinkedHashSet<>(points));
     }
 
     public Points(Point ... points) {
-        this(Arrays.asList(points));
+        this(new LinkedHashSet<>(Arrays.asList(points)));
     }
 
     public int number() {

@@ -1,6 +1,6 @@
 package coord.view;
 
-import coord.model.Points;
+import coord.model.figure.Points;
 
 import java.util.Scanner;
 

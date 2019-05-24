@@ -1,6 +1,6 @@
 package coord.view;
 
-import coord.model.Point;
+import coord.model.figure.Point;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

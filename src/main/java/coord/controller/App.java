@@ -1,8 +1,8 @@
 package coord.controller;
 
 import coord.model.figure.ConvexPolygon;
-import coord.model.Line;
-import coord.model.Points;
+import coord.model.figure.Line;
+import coord.model.figure.Points;
 import coord.view.InputView;
 import coord.view.OutputView;
 
@@ -18,10 +18,13 @@ public class App {
     private static void app () {
         final Points points = InputView.inputCoordinates();
         OutputView.printScreen(points);
+        System.out.println();
         if (points.number() == 2) {
             OutputView.printLengthOfLine(new Line(points));
             return;
         }
-        OutputView.printAreaOfFigure(ConvexPolygon.getConvexPolygon(points));
+        if (points.number() > 2) {
+            OutputView.printAreaOfFigure(ConvexPolygon.makeConvexPolygonFrom(points));
+        }
     }
 }

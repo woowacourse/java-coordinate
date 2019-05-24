@@ -1,7 +1,5 @@
 package coord.model.figure;
 
-import coord.model.Points;
-
 public class ConvexPolygon extends Figure {
     protected ConvexPolygon(Points points) {
         super(points);
