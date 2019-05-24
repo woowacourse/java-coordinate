@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Cars implements Iterable<Car> {
+public class Cars implements Iterable<Car>{
     private List<Car> cars;
 
     private Cars() {
         this.cars = new ArrayList<>();
     }
 
-    public Cars create() {
+    static Cars create() {
         return new Cars();
     }
 
-    public void addCar(Car car) {
+    void addCar(Car car) {
         cars.add(car);
     }
 
