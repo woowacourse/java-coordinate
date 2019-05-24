@@ -9,7 +9,7 @@ public class PointNumber {
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 24;
 
-    static List<PointNumber> bucket = new ArrayList<>();
+    private static List<PointNumber> bucket = new ArrayList<>();
 
     static {
         for (int i = MIN_RANGE; i <= MAX_RANGE; i++) {
