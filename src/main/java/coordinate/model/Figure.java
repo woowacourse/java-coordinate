@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Figure implements Shape {
     
-    List<Point> points;
+    protected List<Point> points;
 
     Figure(List<Point> points) {
         Collections.sort(points);
