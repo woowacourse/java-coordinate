@@ -27,6 +27,7 @@ public abstract class Figure implements Shape {
     }
 
     public List<Point> getPoints() {
-        return points;
+        List<Point> readOnlyPoints = Collections.unmodifiableList(points);
+        return readOnlyPoints;
     }
 }
