@@ -9,9 +9,8 @@ public class Coordinate {
     private final int coordinate;
 
     public Coordinate(int coordinate) {
-        validateCoordinateRange(coordinate);
         this.coordinate = coordinate;
-
+        validateCoordinateRange(coordinate);
     }
 
     private void validateCoordinateRange(int coordinate) {
