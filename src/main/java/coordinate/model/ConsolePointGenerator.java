@@ -20,9 +20,8 @@ public class ConsolePointGenerator implements PointGenerator {
         for (String input : consoleInputs) {
             Matcher matcher = Pattern.compile(POINT_REGEX).matcher(input);
             matcher.matches();
-            PointNumber x = new PointNumber(Integer.parseInt(matcher.group(1)));
-            PointNumber y = new PointNumber(Integer.parseInt(matcher.group(3)));
-            points.add(new Point(x, y));
+            points.add(new Point(Integer.parseInt(matcher.group(1)),
+                    Integer.parseInt(matcher.group(3))));
         }
         return points;
     }

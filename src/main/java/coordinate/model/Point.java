@@ -7,9 +7,9 @@ public class Point implements Comparable<Point> {
     private PointNumber x;
     private PointNumber y;
 
-    public Point(PointNumber x, PointNumber y) {
-        this.x = x;
-        this.y = y;
+    public Point(int x, int y) {
+        this.x = PointNumber.create(x);
+        this.y = PointNumber.create(y);
     }
 
     public double getDistance(Point anotherPoint) {
@@ -21,8 +21,7 @@ public class Point implements Comparable<Point> {
         if (this.x.equals(anotherPoint.x)) {
             return Double.MAX_VALUE;
         }
-        return (double) (anotherPoint.y.getNumber() - this.y.getNumber())
-                / (anotherPoint.x.getNumber() - this.x.getNumber());
+        return (double) (anotherPoint.y.minus(this.y)) / (anotherPoint.x.minus(this.x));
     }
 
     public boolean isEqualX(Point anotherPoint) {
