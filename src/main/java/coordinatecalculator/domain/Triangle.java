@@ -8,34 +8,45 @@ import java.util.Objects;
 public class Triangle implements Figure {
     private static final String INVALID_TRIANGLE_MESSAGE = "세 점이 일직선 상에 위치할 수는 없습니다. 다시 입력해주세요.";
     private static final String RECTANGLE_RESULT_MESSAGE = "사각형 넓이는 ";
+    private static final int HERON_NUMBER = 2;
 
     private final Points points;
 
     private Triangle(Points points) {
         this.points = points;
 
-        // TODO: Refactoring
+        checkValidTriangle();
+    }
+
+    public static Triangle newInstance(Points points) {
+        return new Triangle(points);
+    }
+
+    private void checkValidTriangle() {
         List<Point> points1 = this.points.getSortedPoints();
         Point point1 = points1.get(0);
         Point point2 = points1.get(1);
         Point point3 = points1.get(2);
 
-        if (point1.getX() == point2.getX() && point2.getX() == point3.getX()) {
-            throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
-        }
+        checkOnSameXAxis(point1, point2, point3);
+        checkOnSameExtension(point1, point2, point3);
+    }
 
-        int x = point1.getX() - point2.getX();
-        int y = point1.getY() - point2.getY();
-        int x1 = point3.getX() - point2.getX();
-        int y1 = point3.getY() - point2.getY();
-
-        if ((double)y / x == (double)y1 / x1) {
+    private void checkOnSameXAxis(Point p1, Point p2, Point p3) {
+        if (p1.getX() == p2.getX() && p2.getX() == p3.getX()) {
             throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
         }
     }
 
-    public static Triangle newInstance(Points points) {
-        return new Triangle(points);
+    private void checkOnSameExtension(Point p1, Point p2, Point p3) {
+        int x1 = p1.getX() - p2.getX();
+        int y1 = p1.getY() - p2.getY();
+        int x2 = p3.getX() - p2.getX();
+        int y2 = p3.getY() - p2.getY();
+
+        if ((double) y1 / x1 == (double) y2 / x2) {
+            throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
+        }
     }
 
     @Override
@@ -44,7 +55,8 @@ public class Triangle implements Figure {
         double side1 = calculateLength(points.get(0), points.get(1));
         double side2 = calculateLength(points.get(1), points.get(2));
         double side3 = calculateLength(points.get(2), points.get(0));
-        double s = (side1 + side2 + side3) / 2;
+        double s = (side1 + side2 + side3) / HERON_NUMBER;
+
         return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
     }
 
