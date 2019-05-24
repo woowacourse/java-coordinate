@@ -1,6 +1,5 @@
 package coordinate.view;
 
-import coordinate.domain.Point;
 import coordinate.domain.PointList;
 import coordinate.domain.PointFactory;
 
@@ -14,8 +13,7 @@ public class InputView {
         try {
             System.out.println("좌표를 입력하세요");
             Scanner scanner = new Scanner(System.in);
-            List<Point> points = PointFactory.generateCoordinateList(convertPoint(scanner));
-            return new PointList(points);
+            return PointFactory.generatePointList(convertPoint(scanner));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return InputPoints();
@@ -23,10 +21,10 @@ public class InputView {
     }
 
     private static List<String> convertPoint(Scanner scanner) {
-        List<String> coordinates = getSplit(scanner);
-        coordinates.stream().forEach(c -> isValidFormat(c));
-        coordinates = coordinates.stream().map(s -> s.substring(1, s.length()-1)).collect(Collectors.toList());
-        return coordinates;
+        List<String> points = getSplit(scanner);
+        points.stream().forEach(c -> isValidFormat(c));
+        points = points.stream().map(s -> s.substring(1, s.length() - 1)).collect(Collectors.toList());
+        return points;
     }
 
     private static List<String> getSplit(Scanner scanner) {

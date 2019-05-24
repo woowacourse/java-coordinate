@@ -15,6 +15,7 @@ public class Triangle implements Figure {
     private boolean checkTriangle(List<Line> temporaryLines) {
         return temporaryLines.get(1).isTriangle(temporaryLines.get(2), temporaryLines.get(0));
     }
+
     @Override
     public double findArea() {
         return lines.get(0).findTriangleArea(lines.get(1), lines.get(1));

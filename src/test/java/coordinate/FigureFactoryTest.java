@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FigureFactoryTest {
+class FigureFactoryTest {
 
     @Test
     void 길이구하기() {

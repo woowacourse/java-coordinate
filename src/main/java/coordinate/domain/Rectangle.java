@@ -2,10 +2,10 @@ package coordinate.domain;
 
 import java.util.List;
 
-public class Square implements Figure {
+public class Rectangle implements Figure {
     private List<Line> lines;
 
-    Square(List<Line> lines) {
+    Rectangle(List<Line> lines) {
         isRectangle(lines);
         this.lines = lines;
     }

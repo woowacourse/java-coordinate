@@ -11,7 +11,7 @@ public class PointList {
     }
 
     private void isCorrectSize(List<Point> points) {
-        if(!(points.size()>=2 && points.size()<=4)){
+        if (!(points.size() >= 2 && points.size() <= 4)) {
             throw new IllegalArgumentException("좌표는 2~4개 입력하세요");
         }
     }
