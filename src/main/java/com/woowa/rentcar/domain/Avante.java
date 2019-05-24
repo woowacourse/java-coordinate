@@ -3,7 +3,7 @@ package com.woowa.rentcar.domain;
 public class Avante extends Car {
     private static final String NAME = "Avante";
 
-    public Avante(int distance) {
+    public Avante(Distance distance) {
         super(distance);
         super.mileage = 15;
     }

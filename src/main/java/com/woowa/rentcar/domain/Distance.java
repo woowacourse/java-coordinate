@@ -10,4 +10,8 @@ public class Distance {
             throw new IllegalArgumentException("거리는 숫자 형식으로 입력해주세요.");
         }
     }
+
+    public int getDistance() {
+        return distance;
+    }
 }

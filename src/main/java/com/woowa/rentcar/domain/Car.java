@@ -1,16 +1,16 @@
 package com.woowa.rentcar.domain;
 
 public abstract class Car {
-    private int distance;
+    private Distance distance;
     protected int mileage;
 
-    protected Car(int distance) {
+    protected Car(Distance distance) {
         this.distance = distance;
     }
 
     public abstract String getName();
 
     public double calculateFuel() {
-        return (double) distance / mileage;
+        return (double) distance.getDistance() / mileage;
     }
 }

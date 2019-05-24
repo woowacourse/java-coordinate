@@ -13,7 +13,7 @@ public class CarFactory {
         map.put("K5", new K5Creator());
     }
 
-    public static Car newInstance(String carName, int distance) {
+    public static Car newInstance(String carName, Distance distance) {
         try {
             return map.get(carName).create(distance);
         } catch (RuntimeException e) {
