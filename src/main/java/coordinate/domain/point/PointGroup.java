@@ -18,7 +18,7 @@ public class PointGroup {
 
     private void validatePoints(List<Point> points) {
         if (points.size() > new HashSet(points).size()) {
-            throw new IllegalArgumentException("중복된 점은 불가능합니다");
+            throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 세 점의 위치는 달라야 합니다.");
         }
     }
 

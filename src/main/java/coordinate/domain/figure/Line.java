@@ -3,14 +3,10 @@ package coordinate.domain.figure;
 import coordinate.domain.point.PointGroup;
 
 public class Line extends Figure {
-    static final int POINT_COUNT = 2;
+    public static final int POINT_COUNT = 2;
 
     Line(PointGroup points) {
         super(points, POINT_COUNT);
-    }
-
-    public double length() {
-        return Math.sqrt(getPoints().getSquaredDistanceOf(0, 1));
     }
 
     @Override
@@ -18,5 +14,14 @@ public class Line extends Figure {
         if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("라인은 두 점으로 구성하세요");
         }
+    }
+
+    @Override
+    public double calculate() {
+        return length();
+    }
+
+    private double length() {
+        return Math.sqrt(getPoints().getSquaredDistanceOf(0, 1));
     }
 }

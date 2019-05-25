@@ -3,7 +3,7 @@ package coordinate.domain.figure;
 import coordinate.domain.point.Point;
 import coordinate.domain.point.PointGroup;
 
-public abstract class Figure {
+public abstract class Figure implements Calculable{
     private final PointGroup points;
 
     Figure(PointGroup points, int pointCount) {
@@ -29,5 +29,9 @@ public abstract class Figure {
 
     public boolean have(Point point) {
         return points.have(point);
+    }
+
+    public int getPointCount() {
+        return points.size();
     }
 }

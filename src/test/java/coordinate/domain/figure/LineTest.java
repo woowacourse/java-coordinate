@@ -16,6 +16,6 @@ public class LineTest {
                 Point.create(6, 3), Point.create(9, 7)
         );
 
-        assertEquals(5.0, new Line(new PointGroup(points)).length(), 0.1);
+        assertEquals(5.0, new Line(new PointGroup(points)).calculate(), 0.1);
     }
 }

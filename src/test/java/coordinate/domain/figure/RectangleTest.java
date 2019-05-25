@@ -63,7 +63,7 @@ public class RectangleTest {
                 Point.create(1, 3)
         );
 
-        assertThat(new Rectangle(new PointGroup(points)).area()).isEqualTo(6);
+        assertThat(new Rectangle(new PointGroup(points)).calculate()).isEqualTo(6);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class RectangleTest {
                 Point.create(1, 2)
         );
 
-        assertThat(new Rectangle(new PointGroup(points)).area()).isEqualTo(1);
+        assertThat(new Rectangle(new PointGroup(points)).calculate()).isEqualTo(1);
     }
 }
 

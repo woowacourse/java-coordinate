@@ -19,7 +19,7 @@ public class TriangleTest {
                 Point.create(1, 3)
         );
 
-        assertThat(new Triangle(new PointGroup(points)).area()).isEqualTo(1);
+        assertThat(new Triangle(new PointGroup(points)).calculate()).isEqualTo(1);
     }
 
     @Test

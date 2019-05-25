@@ -2,16 +2,11 @@ package coordinate.domain.figure;
 
 import coordinate.domain.point.PointGroup;
 
-public class Rectangle extends Figure implements AreaCalculable {
-    static final int POINT_COUNT = 4;
+public class Rectangle extends Figure {
+    public static final int POINT_COUNT = 4;
 
     public Rectangle(PointGroup points) {
         super(points, POINT_COUNT);
-    }
-
-    @Override
-    public double area() {
-        return Math.sqrt(getPoints().getSquaredDistanceOf(0, 1) * getPoints().getSquaredDistanceOf(0, 2));
     }
 
     @Override
@@ -32,6 +27,15 @@ public class Rectangle extends Figure implements AreaCalculable {
 
     private boolean checkPythagorean(double hypotenuseSquare, double side1, double side2) {
         return Double.compare(hypotenuseSquare, side1 + side2) == 0;
+    }
+
+    @Override
+    public double calculate() {
+        return area();
+    }
+
+    private double area() {
+        return Math.sqrt(getPoints().getSquaredDistanceOf(0, 1) * getPoints().getSquaredDistanceOf(0, 2));
     }
 
     @Override
