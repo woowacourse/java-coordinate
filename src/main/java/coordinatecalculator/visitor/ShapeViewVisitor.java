@@ -4,7 +4,7 @@ import coordinatecalculator.domain.Line;
 import coordinatecalculator.domain.Rectangle;
 import coordinatecalculator.domain.Triangle;
 
-public class ShapePrintViewVisitor implements ViewVisitor {
+public class ShapeViewVisitor implements ViewVisitor {
     private static final String OUTPUT_LINE_DISTANCE = "두 점 사이 거리는 ";
     private static final String OUTPUT_TRIANGLE_AREA = "삼격형 넓이는 ";
     private static final String OUTPUT_RECTANGLE_AREA = "사각형 넓이는 ";
