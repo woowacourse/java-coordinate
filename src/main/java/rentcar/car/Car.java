@@ -1,22 +1,22 @@
 package rentcar.car;
 
-public abstract class Car {
+public abstract class Car implements Fuelable {
     private static final double MIN_TRIP_DISTANCE = 0;
 
-    private final double tripDistance;
     private final String name;
+    private final double tripDistance;
     private final double distancePerLiter;
 
     Car(int tripDistance, String name, int distancePerLiter) {
         validateTripDistance(tripDistance);
-        this.tripDistance = tripDistance;
         this.name = name;
+        this.tripDistance = tripDistance;
         this.distancePerLiter = distancePerLiter;
     }
 
     private void validateTripDistance(int tripDistance) {
         if (tripDistance < MIN_TRIP_DISTANCE) {
-            throw new IllegalArgumentException("0 이상의 이동거리가 필요합니다.");
+            throw new IllegalArgumentException(MIN_TRIP_DISTANCE +" 이상의 이동거리가 필요합니다.");
         }
     }
 
@@ -32,6 +32,7 @@ public abstract class Car {
         return name;
     }
 
+    @Override
     public double getChargeQuantity() {
         return getTripDistance() / getDistancePerLiter();
     }
