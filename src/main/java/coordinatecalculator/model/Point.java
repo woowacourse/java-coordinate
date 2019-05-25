@@ -6,11 +6,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Point {
+
+    private static final Pattern PATTERN = Pattern.compile("\\(([0-9]*),([0-9]*)\\)");
+    private static final int SQUARE = 2;
     private final XPoint xPoint;
     private final YPoint yPoint;
 
     public Point(String inputPoint) {
-        Matcher matcher = Pattern.compile("\\(([0-9]*),([0-9]*)\\)").matcher(inputPoint);
+        Matcher matcher = PATTERN.matcher(inputPoint);
         if (!matcher.find()) {
             throw new IllegalArgumentException("잘못된 입력 형식입니다.");
         }
@@ -27,16 +30,16 @@ public class Point {
     }
 
     public int square(Point anotherPoint) {
-        return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), 2)
-                + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), 2));
+        return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), SQUARE)
+                + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), SQUARE));
     }
 
     public boolean isDifferBothXY(Point point) {
         return !xPoint.equals(point.xPoint) && !yPoint.equals(point.yPoint);
     }
 
-    public double getSlope(Point point){
-        return yPoint.subtract(point.getYPoint().getValue())/xPoint.subtract(point.getXPoint().getValue());
+    public double getSlope(Point point) {
+        return yPoint.subtract(point.getYPoint().getValue()) / xPoint.subtract(point.getXPoint().getValue());
     }
 
     @Override

@@ -5,6 +5,7 @@ import coordinatecalculator.model.Point;
 import coordinatecalculator.model.Points;
 
 public class OutputView {
+
     private static final int COORDINATE_WIDTH = 25;
     private static final int COORDINATE_HEIGHT = 25;
     private static final int COORDINATE_START = 0;
@@ -47,7 +48,7 @@ public class OutputView {
         return BLANK;
     }
 
-    public static void printResult(Figure figure){
+    public static void printResult(Figure figure) {
         System.out.println(figure);
     }
 }

@@ -9,7 +9,7 @@ public class Triangle extends Figure {
     private static final int FIRST_DISTANCE = 0;
     private static final int SECOND_DISTANCE = 1;
     private static final int THIRD_DISTANCE = 2;
-    private static final int TRIANGLE_SIZE = 3;
+    public static final int TRIANGLE_SIZE = 3;
     private static final int START = 0;
     private static final int NEXT = 1;
     private final Points points;
@@ -41,7 +41,7 @@ public class Triangle extends Figure {
     @Override
     public double area() {
         double area = calculateArea(points.generateDistances());
-        return Math.round(area * 1000) / 1000;
+        return Math.round(area * DECIMAL) / DECIMAL;
     }
 
     @Override

@@ -14,20 +14,26 @@ public class CoordinateController {
     public void run() {
         Points points = this.generatePoint();
         OutputView.printCoordinate(points);
-        OutputView.printResult(FigureFactory.create(points));
+        OutputView.printResult(generateFigure(points));
     }
 
     private Points generatePoint() {
-        Points points = Points.create();
-        String[] scannedPoints = InputView.inputCoordinatePoint();
-        for (String point : scannedPoints) {
-            try {
-                points.addPoint(new Point(point));
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-                return generatePoint();
-            }
+        try {
+            Points points = new Points(InputView.inputCoordinatePoint());
+            return points;
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return generatePoint();
         }
-        return points;
+    }
+
+    private Figure generateFigure(Points points) {
+        try {
+            return FigureFactory.create(points);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            points = this.generatePoint();
+            return generateFigure(points);
+        }
     }
 }

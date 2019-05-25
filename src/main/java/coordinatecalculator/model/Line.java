@@ -1,6 +1,7 @@
 package coordinatecalculator.model;
 
 public class Line extends Figure {
+
     private double distance;
 
     public Line(Points points) {
@@ -9,7 +10,7 @@ public class Line extends Figure {
 
     @Override
     public double area() {
-        return Math.round(distance * 1000) / 1000;
+        return distance;
     }
 
     @Override
