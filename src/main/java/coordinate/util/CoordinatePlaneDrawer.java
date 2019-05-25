@@ -16,10 +16,10 @@ public class CoordinatePlaneDrawer {
 
     private final StringBuilder drawer;
 
-    public CoordinatePlaneDrawer(int coordinatePlaneSize, Figure figure) {
+    public CoordinatePlaneDrawer(Figure figure) {
         drawer = new StringBuilder();
 
-        for (int i = coordinatePlaneSize; i > 0; i--) {
+        for (int i = COORDINATE_PLANE_SIZE; i > 0; i--) {
             drawRow(i, figure);
         }
         drawOrigin(figure.have(Point.create(0, 0)));

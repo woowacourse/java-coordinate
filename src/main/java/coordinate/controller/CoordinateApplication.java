@@ -14,7 +14,7 @@ public class CoordinateApplication {
 
     private static Figure createFigure() {
         try {
-            return new FigureFactory().create(createPointGroup());
+            return FigureFactory.create(createPointGroup());
         } catch (IllegalArgumentException e) {
             OutputView.printErrorMessage(e.getMessage());
             return createFigure();

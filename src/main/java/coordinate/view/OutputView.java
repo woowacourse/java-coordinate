@@ -7,7 +7,6 @@ import coordinate.util.CoordinatePlaneDrawer;
 
 public class OutputView {
     private static final String NEW_LINE = "\n";
-    private static final int COORDINATE_PLANE_SIZE = 24;
 
     public static void printCoordinateResult(Figure figure) {
         printCoordinatePlane(figure);
@@ -15,7 +14,7 @@ public class OutputView {
     }
 
     private static void printCoordinatePlane(Figure figure) {
-        CoordinatePlaneDrawer drawer = new CoordinatePlaneDrawer(COORDINATE_PLANE_SIZE, figure);
+        CoordinatePlaneDrawer drawer = new CoordinatePlaneDrawer(figure);
         System.out.println();
         System.out.println(drawer.print());
     }

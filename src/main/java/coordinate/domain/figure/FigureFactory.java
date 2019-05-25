@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class FigureFactory implements FigureCreator {
-    private static Map<Integer, Function<PointGroup, Figure>> figures = new HashMap<Integer, Function<PointGroup, Figure>>() {
+public class FigureFactory {
+    private static final Map<Integer, Function<PointGroup, Figure>> figures = new HashMap<Integer, Function<PointGroup, Figure>>() {
         {
             put(Line.POINT_COUNT, (points) -> new Line(points));
             put(Triangle.POINT_COUNT, (points) -> new Triangle(points));
@@ -15,8 +15,7 @@ public class FigureFactory implements FigureCreator {
         }
     };
 
-    @Override
-    public Figure create(PointGroup points) {
+    public static Figure create(PointGroup points) {
         try {
             return figures.get(points.size()).apply(points);
         } catch (NullPointerException e) {
