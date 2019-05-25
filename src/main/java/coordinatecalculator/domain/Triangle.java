@@ -1,8 +1,8 @@
-package coordinatecalculator;
+package coordinatecalculator.domain;
 
 import java.util.List;
 
-public class Triangle implements Figure {
+public class Triangle extends Shape {
     private static final String THREE_POINTS_SAME_LINE = "입력한 좌표가 삼각형이 아닙니다.";
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
@@ -11,10 +11,8 @@ public class Triangle implements Figure {
     private static final int STRAIGHT_ANGLE = 180;
     private static final int ZERO_ANGLE = 0;
 
-    private List<Point> points;
-
     public Triangle(List<Point> points) {
-        this.points = points;
+        super(points);
         checkValidTriangle();
     }
 
@@ -30,10 +28,6 @@ public class Triangle implements Figure {
 
         return isZeroOrStraightAngle(firstAngle)
                 || isZeroOrStraightAngle(secondAngle);
-    }
-
-    private Point getPoint(int index) {
-        return points.get(index);
     }
 
     private boolean isZeroOrStraightAngle(double angle) {
@@ -56,7 +50,7 @@ public class Triangle implements Figure {
         double a = getPoint(FIRST_POINT).getDistance(getPoint(SECOND_POINT));
         double b = getPoint(SECOND_POINT).getDistance(getPoint(THIRD_POINT));
         double c = getPoint(THIRD_POINT).getDistance(getPoint(FIRST_POINT));
-        double s = (a + b + c) / 2; // 이런 공식도 constant 해야 하나요??
+        double s = (a + b + c) / 2; // 이런 공식의 2도 constant 해야 하나요??
 
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }

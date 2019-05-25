@@ -1,21 +1,18 @@
-package coordinatecalculator;
+package coordinatecalculator.domain;
 
-import java.util.Collections;
 import java.util.List;
 
-public class Rectangle implements Figure {
+public class Rectangle extends Shape {
     private static final String NOT_RECTANGLE_COORDINATE = "입력한 좌표가 직사각형이 아닙니다.";
     private static final int LEFT_BOTTOM = 0;
     private static final int LEFT_TOP = 1;
     private static final int RIGHT_BOTTOM = 2;
     private static final int RIGHT_TOP = 3;
     private static final int RIGHT_ANGLE = 90;
-    private static final int DIFFERENT_VALUE = 1;
-
-    private List<Point> points;
+    private static final int SAME_VALUE = 0;
 
     public Rectangle(List<Point> points) {
-        this.points = points;
+        super(points);
         checkValidRectangle();
     }
 
@@ -27,15 +24,11 @@ public class Rectangle implements Figure {
         }
     }
 
-    private void sortPoints() {
-        Collections.sort(points);
-    }
-
     private boolean hasNonOrthogonal() {
-        double firstAngle = getAngle(LEFT_BOTTOM, LEFT_TOP, RIGHT_BOTTOM);
-        double secondAngle = getAngle(LEFT_TOP, RIGHT_TOP, LEFT_BOTTOM);
-        double thirdAngle = getAngle(RIGHT_BOTTOM, RIGHT_TOP, LEFT_BOTTOM);
-        double fourthAngle = getAngle(RIGHT_TOP, LEFT_TOP, RIGHT_BOTTOM);
+        double firstAngle = getAngle(LEFT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM);
+        double secondAngle = getAngle(RIGHT_TOP, LEFT_TOP, LEFT_BOTTOM);
+        double thirdAngle = getAngle(RIGHT_TOP, RIGHT_BOTTOM, LEFT_BOTTOM);
+        double fourthAngle = getAngle(LEFT_TOP, RIGHT_TOP, RIGHT_BOTTOM);
 
         return isNonOrthogonal(firstAngle)
                 || isNonOrthogonal(secondAngle)
@@ -47,12 +40,8 @@ public class Rectangle implements Figure {
         return getPoint(firstPoint).getAngle(getPoint(secondPoint), getPoint(thirdPoint));
     }
 
-    private Point getPoint(int index) {
-        return points.get(index);
-    }
-
     private boolean isNonOrthogonal(double angle) {
-        return Double.compare(angle, RIGHT_ANGLE) == DIFFERENT_VALUE;
+        return Double.compare(Math.round(angle), RIGHT_ANGLE) != SAME_VALUE;
     }
 
     @Override

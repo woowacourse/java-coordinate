@@ -1,23 +1,22 @@
-package coordinatecalculator;
+package coordinatecalculator.domain;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Line {
-    private static final int FIRST_POINT = 0;
-    private static final int SECOND_POINT = 1;
+public abstract class Shape implements Figure {
     private static final String DUPLICATED_POINTS = "입력한 좌표가 중복됩니다.";
 
     private List<Point> points;
 
-    public Line(List<Point> points) {
+    public Shape(List<Point> points) {
         this.points = points;
-        checkValidLine();
+        checkDuplicatePoints();
     }
 
-    private void checkValidLine() {
-        if(isDuplicatePoints()){
+    private void checkDuplicatePoints() {
+        if (isDuplicatePoints()) {
             throw new IllegalArgumentException(DUPLICATED_POINTS);
         }
     }
@@ -27,10 +26,11 @@ public class Line {
         return uniquePoints.size() != points.size();
     }
 
-    public double getLength() {
-        Point startPoint = points.get(FIRST_POINT);
-        Point endPoint = points.get(SECOND_POINT);
+    public Point getPoint(int index) {
+        return points.get(index);
+    }
 
-        return startPoint.getDistance(endPoint);
+    public void sortPoints() {
+        Collections.sort(points);
     }
 }

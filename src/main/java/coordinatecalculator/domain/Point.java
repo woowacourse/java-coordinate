@@ -1,10 +1,10 @@
-package coordinatecalculator;
+package coordinatecalculator.domain;
 
 import java.util.Objects;
 
 import static java.lang.Math.*;
 
-class Point implements Comparable<Point> {
+public class Point implements Comparable<Point> {
     private static final int SQUARE_VALUE = 2;
     private static final int LIMIT_MINIMUM_NUM = 0;
     private static final int LIMIT_MAXIMUM_NUM = 24;

@@ -1,5 +1,4 @@
-package coordinatecalculator;
-
+package coordinatecalculator.domain;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -27,7 +26,7 @@ class TriangleTest {
     void 넓이() {
         Point point3 = Point.of(2, 0);
         List<Point> points = Arrays.asList(point1, point2, point3);
-        Triangle triangle = new Triangle(points);
+        Shape triangle = new Triangle(points);
         assertThat(triangle.area()).isEqualTo(1, offset(0.001));
     }
 }
