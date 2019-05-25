@@ -2,11 +2,7 @@ package coordinate.view;
 
 import coordinate.UI;
 import coordinate.domain.Figure;
-import coordinate.domain.Line;
 import coordinate.domain.Points;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class OutputView {
     private static final String POLE_HEIGHT = "|";
@@ -14,20 +10,14 @@ public class OutputView {
 
     public static void printResult(final Figure figure) {
         printCoordinates(figure.getPoints());
-        System.out.println(figure.toString() + " 넓이는 " + figure.area());
-    }
-
-    public static void printResult(final Line line) {
-        printCoordinates(line.getPoints());
-        System.out.println("두 점 사이 거리는 " + line.length());
+        System.out.println(figure.getName() + " 넓이는 " + figure.area());
     }
 
     private static void printCoordinates(final Points points) {
-        UI ui = new UI();
-        ui.drawPoints(points);
-        StringBuilder sb = new StringBuilder();
+        UI ui = new UI(points);
         boolean[][] coordinates = ui.getCoordinates();
 
+        StringBuilder sb = new StringBuilder();
         for (int i = coordinates.length - 1; i >= 0; i--) {
             sb.append(i).append(POLE_HEIGHT);
             for (int j = 0; j < coordinates.length; j++) {
