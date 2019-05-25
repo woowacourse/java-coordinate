@@ -1,7 +1,7 @@
 package coordinatecalculator.domain;
 
 import com.google.common.base.Preconditions;
-import coordinatecalculator.visitor.Visitor;
+import coordinatecalculator.visitor.ViewVisitor;
 
 import java.util.HashSet;
 import java.util.List;
@@ -45,8 +45,8 @@ public class Triangle implements Figure, Shape {
     }
 
     @Override
-    public String separateByVisitor(final Visitor visitor) {
-        return visitor.visit(this);
+    public String separateByVisitor(final ViewVisitor viewVisitor) {
+        return viewVisitor.visit(this);
     }
 
     @Override

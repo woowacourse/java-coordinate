@@ -1,6 +1,6 @@
 package coordinatecalculator.domain;
 
-import coordinatecalculator.visitor.Visitor;
+import coordinatecalculator.visitor.ViewVisitor;
 
 import java.util.*;
 
@@ -46,8 +46,8 @@ public class Rectangle implements Figure, Shape {
     }
 
     @Override
-    public String separateByVisitor(final Visitor visitor) {
-        return visitor.visit(this);
+    public String separateByVisitor(final ViewVisitor viewVisitor) {
+        return viewVisitor.visit(this);
     }
 
     @Override

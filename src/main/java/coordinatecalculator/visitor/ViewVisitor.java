@@ -4,7 +4,7 @@ import coordinatecalculator.domain.Line;
 import coordinatecalculator.domain.Rectangle;
 import coordinatecalculator.domain.Triangle;
 
-public interface Visitor {
+public interface ViewVisitor {
     String visit(final Line line);
 
     String visit(final Triangle triangle);
