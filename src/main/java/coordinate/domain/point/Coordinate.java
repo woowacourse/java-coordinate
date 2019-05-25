@@ -1,8 +1,8 @@
-package coordinate.domain.coordinate;
+package coordinate.domain.point;
 
 import java.util.Objects;
 
-public abstract class Coordinate {
+public class Coordinate {
     private static final int MAX_VALUE = 24;
     private static final int MIN_VALUE = 0;
 

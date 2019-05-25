@@ -1,9 +1,5 @@
 package coordinate.domain.point;
 
-import coordinate.domain.coordinate.Coordinate;
-import coordinate.domain.coordinate.XCoordinate;
-import coordinate.domain.coordinate.YCoordinate;
-
 import java.util.Objects;
 
 public class Point implements Comparable<Point> {
@@ -16,7 +12,7 @@ public class Point implements Comparable<Point> {
     }
 
     public static Point create(int xCoordinate, int yCoordinate) {
-        return new Point(new XCoordinate(xCoordinate), new YCoordinate(yCoordinate));
+        return new Point(new Coordinate(xCoordinate), new Coordinate(yCoordinate));
     }
 
     /*
