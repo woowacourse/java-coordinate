@@ -3,7 +3,7 @@ package coordinatecalculator.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rectangle extends Figure {
+public class Rectangle implements Figure {
 
     private static final int FIRST =0;
     private static final int SECOND =1;

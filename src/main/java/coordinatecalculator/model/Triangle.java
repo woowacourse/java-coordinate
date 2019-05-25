@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Triangle extends Figure {
+public class Triangle implements Figure {
 
     private static final int FIRST_DISTANCE = 0;
     private static final int SECOND_DISTANCE = 1;

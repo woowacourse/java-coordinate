@@ -45,7 +45,7 @@
 2. [출력] 판별된 도형에 따라 계산 출력
 
 ## 3주차 미션 - 좌표계산기(5단계)
-1. [추가] 도형의 면적을 계산하는 메소드를 인터페이스 추가
+1. [추가] 도형의 면적을 계산하는 메소드를 가진 인터페이스 추가
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)

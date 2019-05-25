@@ -1,6 +1,6 @@
 package coordinatecalculator.model;
 
-public class Line extends Figure {
+public class Line implements Figure {
 
     private double distance;
 

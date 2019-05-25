@@ -1,9 +1,9 @@
 package coordinatecalculator.model;
 
-public abstract class Figure {
+public interface Figure {
 
-    public static final int DECIMAL = 1000;
+    int DECIMAL = 1000;
 
-    public abstract double area();
+    double area();
 
 }
