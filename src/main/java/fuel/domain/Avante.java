@@ -1,10 +1,10 @@
 package fuel.domain;
 
-public class Avante extends Car {
+class Avante extends Car {
     private static final int FUEL_EFFICIENCY_VALUE = 15;
     private final int distance;
 
-    public Avante(int distance) {
+    Avante(int distance) {
         this.distance = distance;
     }
 
