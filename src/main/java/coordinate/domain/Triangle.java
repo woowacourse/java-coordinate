@@ -10,7 +10,7 @@ public class Triangle extends Figure {
     private static final int ZERO_AREA = 0;
 
     public Triangle(Points points) {
-        super("삼각형의 넓이는 : ", points);
+        super(points);
         checkValidCoordinate();
     }
 

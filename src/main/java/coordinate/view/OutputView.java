@@ -1,6 +1,7 @@
 package coordinate.view;
 
 import coordinate.domain.Figure;
+import coordinate.domain.FigureMessage;
 import coordinate.domain.Point;
 
 import java.util.Arrays;
@@ -13,7 +14,7 @@ public class OutputView {
     private static final char Y_AXIS = '|';
 
     public static void printResult(Figure figure) {
-        System.out.println(figure.getResultMessage() + figure.calculateResult());
+        System.out.println(FigureMessage.getResultMessage(figure) + figure.calculateResult());
     }
 
     public static void printCoordinateSystem(Figure figure) {

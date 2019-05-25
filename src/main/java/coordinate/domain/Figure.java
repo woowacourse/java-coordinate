@@ -4,16 +4,10 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class Figure implements Calculable {
-    private String resultMessage;
     protected Points points;
 
-    public Figure(String resultMessage, Points points) {
-        this.resultMessage = resultMessage;
+    public Figure(Points points) {
         this.points = points;
-    }
-
-    public String getResultMessage() {
-        return resultMessage;
     }
 
     public List<Point> getPoints() {

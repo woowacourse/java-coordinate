@@ -9,7 +9,7 @@ public class Rectangle extends Figure {
     private static final int THIRD_POINT = 2;
 
     public Rectangle(Points points) {
-        super("사각형의 넓이는 : ", points);
+        super(points);
         checkValidCoordinate(points.getNonDuplicateXSize());
         checkValidCoordinate(points.getNonDuplicateYSize());
     }
