@@ -7,7 +7,7 @@ public class InputView {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static String askCoordinate(){
+    public static String askCoordinate() {
         System.out.println(ASK_COORDINATE);
         return scanner.nextLine();
     }

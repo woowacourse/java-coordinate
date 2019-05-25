@@ -10,7 +10,6 @@ public class Splitter {
         String[] temps = splitCoordinates(coordinate);
         List<String> returnList = new ArrayList<>();
 
-
         for (String temp : temps) {
             returnList.addAll(Arrays.asList(temp.split(",")));
         }

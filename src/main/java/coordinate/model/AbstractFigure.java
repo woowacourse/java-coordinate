@@ -12,7 +12,7 @@ public abstract class AbstractFigure implements Figure {
     }
 
     private void checkFigureSize(List<Point> points) {
-        if (points.size() != size()) {
+        if (points.size() != countOfPoints()) {
             throw new IllegalArgumentException();
         }
     }

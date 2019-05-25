@@ -19,13 +19,6 @@ public class Point {
         return yValue;
     }
 
-    double getSlope(Point point) {
-        double xRate = this.xValue.getRateOfChange(point.xValue);
-        double yRate = this.yValue.getRateOfChange(point.yValue);
-
-        return yRate / xRate;
-    }
-
     double howFar(Point point) {
         double xSquared = this.xValue.rateSquared(point.xValue);
         double ySquared = this.yValue.rateSquared(point.yValue);

@@ -5,7 +5,7 @@ import java.util.List;
 public interface Figure {
     List<Point> getPoints();
 
-    int size();
+    int countOfPoints();
 
     double area();
 }

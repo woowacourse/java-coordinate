@@ -12,7 +12,7 @@ public class Line extends AbstractFigure {
     }
 
     @Override
-    public int size() {
+    public int countOfPoints() {
         return 2;
     }
 

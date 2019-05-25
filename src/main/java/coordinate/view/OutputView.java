@@ -10,7 +10,7 @@ public class OutputView {
     private static final String DISTANCE_MESSAGE = "두 점 사이 거리는";
     private static final String AREA_MESSAGE = "넓이는 ";
 
-    public static void printFigurePoints(Figure figure){
+    public static void printFigurePoints(Figure figure) {
         Graph graph = new Graph();
         graph.setPosition(figure.getPoints());
 
@@ -18,9 +18,11 @@ public class OutputView {
         System.out.println(GRAPH_LINE);
         System.out.println(GRAPH_X_AXIS);
 
-        if (figure.area() == 0){
+        if (figure.area() == 0) {
             System.out.println(DISTANCE_MESSAGE + new Line(figure.getPoints()).distance());
         }
-        System.out.println(AREA_MESSAGE + figure.area());
+        if (figure.area() != 0) {
+            System.out.println(AREA_MESSAGE + figure.area());
+        }
     }
 }

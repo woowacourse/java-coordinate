@@ -4,9 +4,8 @@ import java.util.Objects;
 
 public class Value {
     private final int value;
-    
-    public Value(int value) {
 
+    public Value(int value) {
         checkValue(value);
         this.value = value;
     }
@@ -26,7 +25,11 @@ public class Value {
     }
 
     double getRateOfChange(Value value) {
-        return this.value - value.value;
+        return Math.abs(this.value - value.value);
+    }
+
+    Value sum(Value value) {
+        return new Value(this.value + value.value);
     }
 
     @Override
@@ -41,6 +44,4 @@ public class Value {
     public int hashCode() {
         return Objects.hash(value);
     }
-
-
 }
