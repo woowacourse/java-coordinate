@@ -8,16 +8,21 @@ public class FigureFactory {
     private static final Map<Integer, Function<Points, Figure>> figureCreator = new HashMap<>();
 
     static {
-        figureCreator.put(2, Line::new);
-        figureCreator.put(3, Triangle::new);
-        figureCreator.put(4, Rectangle::new);
+        figureCreator.put(Line.LINE_POINT_NUMBER, Line::new);
+        figureCreator.put(Triangle.TRIANGLE_POINT_NUMBER, Triangle::new);
+        figureCreator.put(Rectangle.RECTANGLE_POINT_NUMBER, Rectangle::new);
     }
 
     public static Figure createFigure(Points points) {
         Function<Points, Figure> function = figureCreator.get(points.getSize());
-        if (function == null) {
-            throw new IllegalArgumentException("포인트 개수가 올바르지 않습니다.");
+        Figure figure = null;
+        try {
+            figure = function.apply(points);
+        } catch (NullPointerException e) {
+            System.err.println("포인트 개수가 올바르지 않습니다.");
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
         }
-        return function.apply(points);
+        return figure;
     }
 }
