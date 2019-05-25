@@ -12,14 +12,14 @@ public class Points {
         this.points = points;
     }
 
-    public List<Point> getSortedPoints() {
+    List<Point> getSortedPoints() {
         List<Point> clonedPoints = new ArrayList<>(points);
         Collections.sort(clonedPoints);
 
         return clonedPoints;
     }
 
-    public int size() {
+    int getPointsSize() {
         return points.size();
     }
 

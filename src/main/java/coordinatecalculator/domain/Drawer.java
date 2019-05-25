@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Drawer {
+    private static final int COORDINATE_UPPER_BOUND = 24;
+    private static final int COORDINATE_LOWER_BOUND = 0;
+    private static final int COORDINATE_X_OFFSET = 2;
+    private static final int COORDINATE_Y_OFFSET = 2;
+
     private final List<StringBuilder> board = new ArrayList<>();
 
     private Drawer(Points points) {
@@ -15,20 +20,39 @@ public class Drawer {
     }
 
     private void makePicture(Points points) {
-        for (int i = 24; i > 0; i--) {
+        makeYAxis();
+        makeXAxis();
+        makeXNumber();
+        plotPoint(points);
+    }
+
+    private void makeYAxis() {
+        for (int i = COORDINATE_UPPER_BOUND; i > COORDINATE_LOWER_BOUND; i--) {
             board.add(new StringBuilder((i % 2 == 0) ? String.format("%2d" ,i) : "  ").
                     append("|                                                \n"));
         }
-        board.add(new StringBuilder("  +------------------------------------------------\n"));
-        board.add(new StringBuilder(" 0    2   4   6   8   10  12  14  16  18  20  22  24 \n"));
+    }
 
-        plotPoint(points);
+    private void makeXAxis() {
+        StringBuilder stringBuilder = new StringBuilder("  +");
+        for (int i = COORDINATE_UPPER_BOUND; i > COORDINATE_LOWER_BOUND; i--) {
+            stringBuilder.append("--");
+        }
+        board.add(stringBuilder.append("\n"));
+    }
+
+    private void makeXNumber() {
+        StringBuilder stringBuilder = new StringBuilder(" 0 ");
+        for (int i = COORDINATE_LOWER_BOUND + 1; i <= COORDINATE_UPPER_BOUND; i++) {
+            stringBuilder.append((i % 2 == 0) ? String.format("%2d", i) : "  ");
+        }
+        board.add(stringBuilder.append("\n"));
     }
 
     private void plotPoint(Points points) {
         List<Point> sortedPoints = points.getSortedPoints();
         for (Point point : sortedPoints) {
-            board.get(24 - point.getY()).replace(point.getX() * 2 + 2, point.getX() * 2 + 3, "*");
+            board.get(COORDINATE_UPPER_BOUND - point.getY()).replace(point.getX() * COORDINATE_Y_OFFSET + COORDINATE_X_OFFSET, point.getX() * COORDINATE_Y_OFFSET + COORDINATE_X_OFFSET + 1, "*");
         }
     }
 

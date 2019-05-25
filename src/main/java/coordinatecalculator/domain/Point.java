@@ -11,11 +11,11 @@ public class Point implements Comparable<Point> {
         this.y = new Y(y);
     }
 
-    public int getX() {
+    int getX() {
         return x.getX();
     }
 
-    public int getY() {
+    int getY() {
         return y.getY();
     }
 

@@ -12,14 +12,15 @@ public class Triangle implements Figure {
     private final Points points;
 
     public Triangle(Points points) {
+        checkStraightLine(points);
         this.points = points;
+    }
 
-        // TODO: Refactoring
-        List<Point> points1 = this.points.getSortedPoints();
-        Point point1 = points1.get(0);
-        Point point2 = points1.get(1);
-        Point point3 = points1.get(2);
-
+    private void checkStraightLine(Points points) {
+        List<Point> sortedPoints = points.getSortedPoints();
+        Point point1 = sortedPoints.get(0);
+        Point point2 = sortedPoints.get(1);
+        Point point3 = sortedPoints.get(2);
         if (point1.getX() == point2.getX() && point2.getX() == point3.getX()) {
             throw new IllegalArgumentException(INAVALID_TRIANGLE_MESSAGE);
         }

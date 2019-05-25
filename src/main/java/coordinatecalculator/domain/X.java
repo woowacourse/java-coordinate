@@ -7,13 +7,14 @@ import java.util.Objects;
 public class X extends AxisValidator {
     private final int x;
 
-    public X(final String x) {
+    X(final String x) {
         checkNumeric(x);
         checkBoundary(Integer.parseInt(x));
+
         this.x = Integer.parseInt(x);
     }
 
-    public int getX() {
+    int getX() {
         return x;
     }
 

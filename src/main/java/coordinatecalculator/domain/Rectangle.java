@@ -12,15 +12,14 @@ public class Rectangle implements Figure {
     private final Points points;
 
     public Rectangle(Points points) {
+        checkValidRectangle(points);
         this.points = points;
-
-        checkValidRectangle();
     }
 
-    private void checkValidRectangle() {
-        List<Point> points = this.points.getSortedPoints();
+    private void checkValidRectangle(Points points) {
+        List<Point> sortedPoints = points.getSortedPoints();
 
-        if (!(points.get(1).getX() == points.get(0).getX() && points.get(3).getX() == points.get(2).getX() && points.get(2).getY() == points.get(0).getY() && points.get(3).getY() == points.get(1).getY())) {
+        if (!(sortedPoints.get(1).getX() == sortedPoints.get(0).getX() && sortedPoints.get(3).getX() == sortedPoints.get(2).getX() && sortedPoints.get(2).getY() == sortedPoints.get(0).getY() && sortedPoints.get(3).getY() == sortedPoints.get(1).getY())) {
             throw new IllegalArgumentException(INVALID_CHECK_MESSAGE);
         }
     }
