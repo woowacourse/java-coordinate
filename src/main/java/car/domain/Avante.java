@@ -1,12 +1,12 @@
 package car.domain;
 
-public class Avante extends Car {
+public class Avante extends AbstractCar {
     private static final String NAME = "Avante";
     private static final double FUEL_EFFICIENCY = 15;
 
     public Avante(double distance) {
         super.distance = distance;
-        super.fuelEffiency = FUEL_EFFICIENCY;
+        super.fuelEfficiency = FUEL_EFFICIENCY;
     }
 
     @Override
