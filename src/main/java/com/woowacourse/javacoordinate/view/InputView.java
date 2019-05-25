@@ -28,6 +28,21 @@ public class InputView {
         }
     }
 
+    private static void checkInput(String input) {
+        checkEndCondition(input);
+
+        Matcher matcher = POINTS_PATTERN.matcher(input);
+        if (!matcher.find()) {
+            throw new IllegalArgumentException("좌표 입력 형식이 맞지 않습니다");
+        }
+    }
+
+    private static void checkEndCondition(String input) {
+        if (input.equals(END_INPUT)) {
+            System.exit(0);
+        }
+    }
+
     private static Points parseInput(String input) {
         List<Point> points = new ArrayList<>();
         String[] tokens = input.split("-");
@@ -43,21 +58,6 @@ public class InputView {
 
             String[] numbers = tokens[i].split(",");
             points.add(new Point(Integer.parseInt(numbers[0]), Integer.parseInt(numbers[1])));
-        }
-    }
-
-    private static void checkInput(String input) {
-        checkEndCondition(input);
-
-        Matcher matcher = POINTS_PATTERN.matcher(input);
-        if (!matcher.find()) {
-            throw new IllegalArgumentException("좌표 입력 형식이 맞지 않습니다");
-        }
-    }
-
-    private static void checkEndCondition(String input) {
-        if (input.equals(END_INPUT)) {
-            System.exit(0);
         }
     }
 }
