@@ -9,7 +9,7 @@ public class Lines {
     private final List<Line> lines;
 
     public Lines(Coordinates coordinates){
-        List<Line> lines = getLines(coordinates);
+        List<Line> lines = generateLines(coordinates);
         checkThreeCoordinatesInLine(lines);
         Collections.sort(lines);
         this.lines = lines;
@@ -24,7 +24,7 @@ public class Lines {
         }
     }
 
-    private List<Line> getLines(Coordinates coordinates) {
+    private List<Line> generateLines(Coordinates coordinates) {
         List<Line> lines = new ArrayList<>();
 
         for (int i = 0; i < coordinates.size() - 1; i++) {
@@ -39,14 +39,14 @@ public class Lines {
         }
     }
 
-    public Line get(int index){
-        return lines.get(index);
-    }
-
     public boolean canMakeRectangle() {
         Map<Double, Long> lineLengthCountMap = lines.stream()
             .collect(Collectors.groupingBy(Line::calculateArea, Collectors.counting()));
 
         return lineLengthCountMap.values().stream().allMatch(i -> i % 2 == 0);
+    }
+
+    public Line get(int index){
+        return lines.get(index);
     }
 }
