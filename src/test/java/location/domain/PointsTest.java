@@ -18,4 +18,9 @@ public class PointsTest {
         assertThrows(IllegalArgumentException.class, () -> new Points(null));
     }
 
+    @Test
+    void 중복되는_Point(){
+        assertThrows(IllegalArgumentException.class, () -> new Points(Arrays.asList(new Point(1,1), new Point(1,1))));
+    }
+
 }

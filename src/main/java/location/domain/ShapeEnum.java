@@ -26,12 +26,10 @@ public enum ShapeEnum {
 
     public static ShapeEnum valueOf(int pointLength) {
         return Arrays.stream(values())
-                .filter(shape -> shape.pointLength == pointLength).findFirst()
+                .filter(shape -> shape.pointLength == pointLength)
+                .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(NOT_CREATE_SHAPE_MSG));
     }
 
-    public Figure create(Points points) {
-        return null;
-    }
-
+    public abstract Figure create(Points points);
 }

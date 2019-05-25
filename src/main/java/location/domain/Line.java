@@ -2,11 +2,9 @@ package location.domain;
 
 public class Line extends Figure {
     private static final int SQUARE = 2;
-    private final Points points;
 
     public Line(final Points points) {
         super(points);
-        this.points = points;
     }
 
     @Override

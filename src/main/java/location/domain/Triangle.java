@@ -3,12 +3,11 @@ package location.domain;
 public class Triangle extends Figure {
     private static final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private static final int SQUARE = 2;
-    private final Points points;
+    private static final int HERONS_FORMULA_CONSTANT = 4;
 
     public Triangle(Points points) {
         super(points);
         checkValid(points);
-        this.points = points;
     }
 
     private void checkValid(Points points) {
@@ -26,19 +25,14 @@ public class Triangle extends Figure {
                 == calculateTilt(points.get(1), points.get(2));
     }
 
-    private double calculateLine(final Point point1, final Point point2) {
-        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2)
-                + Math.pow((point1.getY() - point2.getY()), 2));
-    }
-
     @Override
     public double calculate() {
-        double frontTerm = 4 * Math.pow(calculateLine(points.get(0), points.get(1)), SQUARE)
+        double frontTerm = HERONS_FORMULA_CONSTANT * Math.pow(calculateLine(points.get(0), points.get(1)), SQUARE)
                 * Math.pow(calculateLine(points.get(1), points.get(2)), SQUARE);
         double rearTerm = (Math.pow(calculateLine(points.get(0), points.get(1)), SQUARE)
                 + Math.pow(calculateLine(points.get(1), points.get(2)), SQUARE)
                 - Math.pow(calculateLine(points.get(2), points.get(0)), 2));
-        return Math.sqrt(frontTerm - Math.pow(rearTerm, SQUARE)) / 4;
+        return Math.sqrt(frontTerm - Math.pow(rearTerm, SQUARE)) / HERONS_FORMULA_CONSTANT;
     }
 
     @Override

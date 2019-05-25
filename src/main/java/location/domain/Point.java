@@ -11,27 +11,28 @@ public class Point {
     private final int y;
 
     public Point(final int x, final int y) {
-        isValid(x, y);
+        checkValid(x, y);
         this.x = x;
         this.y = y;
     }
 
-    private void isValid(final int x, final int y) {
-        isOver24(x, y);
-        isPositive(x, y);
+    private void checkValid(final int x, final int y) {
+        checkOver24(x, y);
+        checkPositive(x, y);
     }
 
-    private void isPositive(final int x, final int y) {
+    private void checkOver24(final int x, final int y) {
+        if (x > MAX_NUMBER || y > MAX_NUMBER) {
+            throw new IllegalArgumentException(OVER_24_MSG);
+        }
+    }
+
+    private void checkPositive(final int x, final int y) {
         if (x < MIN_NUMBER || y < MIN_NUMBER) {
             throw new IllegalArgumentException(NOT_POSITIVE_MSG);
         }
     }
 
-    private void isOver24(final int x, final int y) {
-        if (x > MAX_NUMBER || y > MAX_NUMBER) {
-            throw new IllegalArgumentException(OVER_24_MSG);
-        }
-    }
 
     public int getX() {
         return x;

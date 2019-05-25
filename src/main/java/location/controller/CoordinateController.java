@@ -2,6 +2,7 @@ package location.controller;
 
 import location.domain.Figure;
 import location.domain.FigureMaker;
+import location.domain.PointMaker;
 import location.domain.Points;
 import location.view.InputView;
 import location.view.OutputView;
@@ -17,11 +18,12 @@ public class CoordinateController {
 
     private static Figure inputValidation() {
         try {
-            Points points = new Points(InputView.inputCoordinate());
+            Points points = new Points(PointMaker.create(InputView.inputCoordinate()));
             return FigureMaker.create(points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return inputValidation();
         }
     }
+
 }

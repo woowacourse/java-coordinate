@@ -3,13 +3,10 @@ package location.domain;
 public class Rectangle extends Figure {
     private static final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private static final String NOT_RECTANGLE_MSG = "직사각형이 아닙니다.";
-    private static final int SQUARE = 2;
-    private final Points points;
 
     public Rectangle(final Points points) {
         super(points);
         checkValid(points);
-        this.points = points;
     }
 
     private void checkValid(final Points points) {
@@ -55,11 +52,6 @@ public class Rectangle extends Figure {
         return calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(1), points.get(2))
                 && calculateTilt(points.get(1), points.get(2)) == calculateTilt(points.get(2), points.get(3))
                 && calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(2), points.get(3));
-    }
-
-    public double calculateLine(final Point point1, final Point point2) {
-        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), SQUARE)
-                + Math.pow((point1.getY() - point2.getY()), SQUARE));
     }
 
     @Override

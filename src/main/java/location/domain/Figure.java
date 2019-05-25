@@ -1,29 +1,12 @@
 package location.domain;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 public abstract class Figure implements Calculator {
-    private final static String DUPLICATE_MSG = "위치가 같은 점(point)이 존재합니다.";
     private static final double MAX = Double.MAX_VALUE;
+    private static final int SQUARE = 2;
+    final Points points;
 
     public Figure(Points points) {
-        checkValid(points.getPoints());
-    }
-
-    private void checkValid(final List<Point> points) {
-        isSamePoint(points);
-    }
-
-    private void isSamePoint(final List<Point> points) {
-        Set<Point> notDuplicatePoints = new HashSet<>();
-        for (Point point : points) {
-            notDuplicatePoints.add(point);
-        }
-        if (notDuplicatePoints.size() != points.size()) {
-            throw new IllegalArgumentException(DUPLICATE_MSG);
-        }
+        this.points = points;
     }
 
     double calculateTilt(final Point point, final Point point1) {
@@ -33,6 +16,11 @@ public abstract class Figure implements Calculator {
             denominator = MAX;
         }
         return molecule / denominator;
+    }
+
+    double calculateLine(final Point point1, final Point point2) {
+        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), SQUARE)
+                + Math.pow((point1.getY() - point2.getY()), SQUARE));
     }
 
     public abstract Points getPoints();
