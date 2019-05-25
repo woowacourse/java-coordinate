@@ -50,7 +50,7 @@ public class Triangle extends Shape {
         double a = getPoint(FIRST_POINT).getDistance(getPoint(SECOND_POINT));
         double b = getPoint(SECOND_POINT).getDistance(getPoint(THIRD_POINT));
         double c = getPoint(THIRD_POINT).getDistance(getPoint(FIRST_POINT));
-        double s = (a + b + c) / 2; // 이런 공식의 2도 constant 해야 하나요??
+        double s = (a + b + c) / 2;
 
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
