@@ -13,17 +13,17 @@ public class Points {
         this.points = points;
     }
 
+    boolean isDuplicate(List<Point> points) {
+        Set<Point> set = new HashSet<>(points);
+        return set.size() != points.size();
+    }
+
     public int size() {
         return points.size();
     }
 
     public Point get(int index) {
         return points.get(index);
-    }
-
-    boolean isDuplicate(List<Point> points) {
-        Set<Point> set = new HashSet<>(points);
-        return set.size() != points.size();
     }
 
     @Override
