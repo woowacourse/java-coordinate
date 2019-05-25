@@ -27,7 +27,7 @@ public class Coordinate {
 
     public static Coordinate of(final int coordinate) {
         Coordinate instance = map.get(coordinate);
-        if(map.get(coordinate)==null) {
+        if (map.get(coordinate) == null) {
             return new Coordinate(coordinate);
         }
         return instance;

@@ -5,6 +5,9 @@ import coordinate.domain.Figure;
 import coordinate.domain.Line;
 import coordinate.domain.Points;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class OutputView {
     private static final String POLE_HEIGHT = "|";
     private static final String NEW_LINE = "\n";
