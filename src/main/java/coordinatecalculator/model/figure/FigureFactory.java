@@ -6,23 +6,22 @@ import coordinatecalculator.model.figurecreator.impl.LineCreator;
 import coordinatecalculator.model.figurecreator.impl.RectangleCreator;
 import coordinatecalculator.model.figurecreator.impl.TriangleCreator;
 
-import java.util.AbstractMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class FigureFactory {
     private static final int LINE_COORDINATES = 2;
     private static final int TRIANGLE_COORDINATES = 3;
     private static final int RECTANGLE_COORDINATES = 4;
 
-    private static final Map<Integer, FigureCreator> FIGURE_CREATOR_FINDER =
-            Stream.of(
-                    new AbstractMap.SimpleImmutableEntry<>(LINE_COORDINATES, new LineCreator()),
-                    new AbstractMap.SimpleImmutableEntry<>(TRIANGLE_COORDINATES, new TriangleCreator()),
-                    new AbstractMap.SimpleImmutableEntry<>(RECTANGLE_COORDINATES, new RectangleCreator())
-            ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    private static final Map<Integer, FigureCreator> FIGURE_CREATOR_FINDER = new HashMap<>();
+
+    static {
+        FIGURE_CREATOR_FINDER.put(LINE_COORDINATES, new LineCreator());
+        FIGURE_CREATOR_FINDER.put(TRIANGLE_COORDINATES, new TriangleCreator());
+        FIGURE_CREATOR_FINDER.put(RECTANGLE_COORDINATES, new RectangleCreator());
+    }
 
     public static PlaneFigure createFigure(List<Coordinate> coordinates) {
         checkIsInMap(coordinates);
