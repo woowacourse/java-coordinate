@@ -17,13 +17,17 @@ public class Points {
 
     public void addPoint(Point point) {
         if (this.points.contains(point)) {
-            throw new IllegalArgumentException("두점이 중복되었습니다.");
+            throw new IllegalArgumentException("중복된 점이 있습니다.");
         }
         this.points.add(point);
     }
 
     public Point getPoint(int index) {
         return this.points.get(index);
+    }
+
+    public int getSize(){
+        return this.points.size();
     }
 
     public List<Point> getPoints() {
@@ -38,9 +42,7 @@ public class Points {
         return distances;
     }
 
-    private Distance getDistance(int previousPointIndex, int currentPointIndex) {
+    public Distance getDistance(int previousPointIndex, int currentPointIndex) {
         return new Distance(this.getPoint(previousPointIndex), this.getPoint(currentPointIndex));
     }
-
-
 }

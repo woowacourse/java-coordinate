@@ -1,11 +1,9 @@
 package coordinatecalculator.model;
 
-import java.util.List;
-
 public abstract class Figure {
 
-    abstract double calculateArea(List<Distance> distances);
+    public static final int DECIMAL = 1000;
 
-    abstract double getArea();
+    public abstract double area();
 
 }

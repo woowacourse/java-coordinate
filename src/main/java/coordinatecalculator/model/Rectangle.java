@@ -1,47 +1,45 @@
 package coordinatecalculator.model;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Rectangle extends Figure {
 
-    private double area;
+    private Points points;
 
-    public Rectangle(List<Distance> distances) {
-        this.area = calculateArea(distances);
-    }
-
-    @Override
-    double calculateArea(List<Distance> distances) {
-        Set<Distance> distanceSet = new HashSet<>(distances);
-        double result = 1;
-        for (Distance distance : distanceSet) {
-            result *= distance.getDistance();
+    public Rectangle(Points points) {
+        if(this.getDifferTwoPoints(points).size()!=2){
+            throw new IllegalArgumentException("잘못된 직사각형 입니다.");
         }
-        return result;
+        this.points = points;
+    }
+
+    private double calculateArea(List<Point> differTwoPoints) {
+        Point firstPoint = differTwoPoints.get(0);
+        Point secondPoint = differTwoPoints.get(1);
+        return Math.abs(firstPoint.getXPoint().subtract(secondPoint.getXPoint().getValue())) *
+                Math.abs(firstPoint.getYPoint().subtract(secondPoint.getYPoint().getValue()));
+    }
+
+    private List<Point> getDifferTwoPoints(Points points) {
+        List<Point> differPoints = new ArrayList<>();
+        Point firstPoint = points.getPoint(0);
+        differPoints.add(firstPoint);
+
+        points.getPoints().stream()
+                .filter(firstPoint::isDifferBothXY)
+                .forEach(differPoints::add);
+        return differPoints;
     }
 
     @Override
-    double getArea() {
-        return area;
+    public double area() {
+        double area = calculateArea(getDifferTwoPoints(points));
+        return Math.round(area * DECIMAL) / DECIMAL;
     }
 
-    //    public Points generateDiagonalPoint(Points points) {
-//        diagonalPoint = Points.create();
-//        diagonalPoint.addPoint(points.getPoint(0));
-//        for (int i = 1; i < points.getPoints().size(); i++) {
-//            checkRectangle(points, i);
-//        }
-//
-//        return diagonalPoint;
-//    }
-
-//    private void checkRectangle(Points points, int index) {
-//        if(diagonalPoint.getPoint(0).getyPoint().getValue() != points.getPoint(index).getyPoint().getValue()
-//            && diagonalPoint.getPoint(0).getxPoint().getValue() != points.getPoint(index).getxPoint().getValue()){
-//            diagonalPoint.addPoint(points.getPoint(index));
-//        }
-//    }
-//
+    @Override
+    public String toString(){
+        return "사각형의 넓이는 "+area();
+    }
 }

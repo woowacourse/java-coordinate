@@ -18,17 +18,25 @@ public class Point {
         this.yPoint = new YPoint(matcher.group(2));
     }
 
-    public XPoint getxPoint() {
+    public XPoint getXPoint() {
         return xPoint;
     }
 
-    public YPoint getyPoint() {
+    public YPoint getYPoint() {
         return yPoint;
     }
 
     public int square(Point anotherPoint) {
         return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), 2)
                 + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), 2));
+    }
+
+    public boolean isDifferBothXY(Point point) {
+        return !xPoint.equals(point.xPoint) && !yPoint.equals(point.yPoint);
+    }
+
+    public double getSlope(Point point){
+        return yPoint.subtract(point.getYPoint().getValue())/xPoint.subtract(point.getXPoint().getValue());
     }
 
     @Override

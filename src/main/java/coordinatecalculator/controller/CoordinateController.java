@@ -1,33 +1,33 @@
 package coordinatecalculator.controller;
 
-import coordinatecalculator.model.CoordinateResult;
-import coordinatecalculator.model.Point;
-import coordinatecalculator.model.Points;
+import coordinatecalculator.model.*;
 import coordinatecalculator.view.InputView;
 import coordinatecalculator.view.OutputView;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
 
 public class CoordinateController {
 
     public void run() {
-        Points points = Points.create();
-        generatePoint(points);
-        OutputView.showCoordinate(points);
-        CoordinateResult coordinateResult = new CoordinateResult(points);
-        //System.out.println(coordinateResult.resultOfDistance());
-        //System.out.println(coordinateResult.resultOfRectangleArea());
-        System.out.println(coordinateResult.resultOfTriangleArea());
+        Points points = this.generatePoint();
+        OutputView.printCoordinate(points);
+        OutputView.printResult(FigureFactory.create(points));
     }
 
-    private void generatePoint(Points points) {
-        Arrays.stream(InputView.inputCoordinatePoint())
-                .forEach(coordinate -> {
-                    try {
-                        points.addPoint(new Point(coordinate));
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
-                });
+    private Points generatePoint() {
+        Points points = Points.create();
+        String[] scannedPoints = InputView.inputCoordinatePoint();
+        for (String point : scannedPoints) {
+            try {
+                points.addPoint(new Point(point));
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+                return generatePoint();
+            }
+        }
+        return points;
     }
 }
