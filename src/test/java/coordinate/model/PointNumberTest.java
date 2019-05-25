@@ -9,7 +9,7 @@ public class PointNumberTest {
     @Test
     void 좌표숫자_범위검사() {
         assertThrows(IllegalArgumentException.class, () -> {
-            PointNumber.create(25);
+            PointNumber.get(25);
         });
     }
 }

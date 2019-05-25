@@ -8,8 +8,8 @@ public class Point implements Comparable<Point> {
     private PointNumber y;
 
     public Point(int x, int y) {
-        this.x = PointNumber.create(x);
-        this.y = PointNumber.create(y);
+        this.x = PointNumber.get(x);
+        this.y = PointNumber.get(y);
     }
 
     public double getDistance(Point anotherPoint) {

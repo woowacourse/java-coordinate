@@ -1,19 +1,17 @@
 package coordinate.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class PointNumber {
 
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 24;
 
-    private static List<PointNumber> bucket = new ArrayList<>();
+    private static Map<Integer, PointNumber> mapBucket = new HashMap<>();
 
     static {
         for (int i = MIN_RANGE; i <= MAX_RANGE; i++) {
-            bucket.add(new PointNumber(i));
+            mapBucket.put(i, new PointNumber(i));
         }
     }
 
@@ -23,9 +21,9 @@ public class PointNumber {
         this.number = number;
     }
 
-    public static PointNumber create(int number) {
+    public static PointNumber get(int number) {
         checkValidRange(number);
-        return bucket.get(number);
+        return mapBucket.get(number);
     }
 
     private static void checkValidRange(int number) {
