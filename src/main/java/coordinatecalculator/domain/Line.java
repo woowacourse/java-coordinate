@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Line implements Shape {
-    private static final int VERTEX_OF_LINE = 2;
+    public static final int VERTEX_OF_LINE = 2;
 
     private final List<Coordinate> coordinates;
 

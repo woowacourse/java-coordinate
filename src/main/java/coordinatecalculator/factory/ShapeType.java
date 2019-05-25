@@ -6,19 +6,19 @@ import java.util.Arrays;
 import java.util.List;
 
 enum ShapeType {
-    LINE(ShapeMaker.COORDINATES_FOR_LINE) {
+    LINE(Line.VERTEX_OF_LINE) {
         @Override
         public Shape create(List<Coordinate> coordinates) {
             return new Line(coordinates);
         }
     },
-    TRIANGLE(ShapeMaker.COORDINATES_FOR_TRIANGLE) {
+    TRIANGLE(Triangle.VERTEX_OF_TRIANGLE) {
         @Override
         public Shape create(List<Coordinate> coordinates) {
             return new Triangle(coordinates);
         }
     },
-    RECTANGLE(ShapeMaker.COORDINATES_FOR_RECTANGLE) {
+    RECTANGLE(Rectangle.VERTEX_OF_RECTANGLE) {
         @Override
         public Shape create(List<Coordinate> coordinates) {
             return new Rectangle(coordinates);
