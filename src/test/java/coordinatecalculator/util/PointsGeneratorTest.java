@@ -10,7 +10,7 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PointsGeneratorTest {
+class PointsGeneratorTest {
     @Test
     void 잘_나눠지는지_확인() {
         String input = "(10,10)-(20,20)";

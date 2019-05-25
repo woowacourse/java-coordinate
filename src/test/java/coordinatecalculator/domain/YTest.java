@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class YTest {
+class YTest {
     @Test
     void 좌표값_문자_예외처리() {
         assertThrows(IllegalArgumentException.class, () -> new Y("a"));

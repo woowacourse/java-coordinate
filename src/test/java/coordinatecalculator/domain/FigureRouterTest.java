@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FigureRouterTest {
+class FigureRouterTest {
     @Test
     void 선분으로_분류가_잘되는지() {
         Points points = new Points(Arrays.asList(new Point("0", "0"), new Point("1", "0")));

@@ -28,7 +28,7 @@ public class Drawer {
 
     private void makeYAxis() {
         for (int i = COORDINATE_UPPER_BOUND; i > COORDINATE_LOWER_BOUND; i--) {
-            board.add(new StringBuilder((i % 2 == 0) ? String.format("%2d" ,i) : "  ").
+            board.add(new StringBuilder((i % 2 == 0) ? String.format("%2d", i) : "  ").
                     append("|                                                \n"));
         }
     }

@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TriangleTest {
+class TriangleTest {
     @Test
     void create() {
         List<Point> points = Arrays.asList(new Point("0", "0"), new Point("1", "0"), new Point("0", "1"));

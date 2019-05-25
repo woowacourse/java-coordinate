@@ -14,8 +14,7 @@ public class InputView {
         try {
             System.out.println(INPUT_MESSAGE);
             return FigureRouter.routing(PointsGenerator.create(SCANNER.nextLine()));
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return inputLocation();
         }

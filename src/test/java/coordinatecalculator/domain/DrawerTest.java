@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DrawerTest {
+class DrawerTest {
     @Test
     void 포인트가_좌표에_정상적으로_찍히는지_테스트() {
         Points points = new Points(Arrays.asList(new Point("1", "1"),new Point("1", "3"), new Point("3", "1"),new Point("3", "3")));
@@ -38,7 +38,7 @@ public class DrawerTest {
                         " 2|                                                \n" +
                         "  | *   *                                          \n" +
                         "  +------------------------------------------------\n" +
-                        " 0    2   4   6   8   10  12  14  16  18  20  22  24 \n");
+                        " 0    2   4   6   8  10  12  14  16  18  20  22  24\n");
 
         StringBuilder actual = new StringBuilder();
         List<StringBuilder> board = drawer.getBoard();

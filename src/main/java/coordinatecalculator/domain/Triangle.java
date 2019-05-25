@@ -11,7 +11,7 @@ public class Triangle implements Figure {
 
     private final Points points;
 
-    public Triangle(Points points) {
+    Triangle(Points points) {
         checkStraightLine(points);
         this.points = points;
     }
@@ -30,7 +30,7 @@ public class Triangle implements Figure {
         int x1 = point3.getX() - point2.getX();
         int y1 = point3.getY() - point2.getY();
 
-        if ((double)y / x == (double)y1 / x1) {
+        if ((double) y / x == (double) y1 / x1) {
             throw new IllegalArgumentException(INAVALID_TRIANGLE_MESSAGE);
         }
     }

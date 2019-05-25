@@ -11,7 +11,7 @@ public class Rectangle implements Figure {
 
     private final Points points;
 
-    public Rectangle(Points points) {
+    Rectangle(Points points) {
         checkValidRectangle(points);
         this.points = points;
     }
@@ -23,6 +23,7 @@ public class Rectangle implements Figure {
             throw new IllegalArgumentException(INVALID_CHECK_MESSAGE);
         }
     }
+
     @Override
     public double calculateResult() {
         List<Point> points = this.points.getSortedPoints();
