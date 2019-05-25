@@ -3,7 +3,7 @@ package coordinate.controller;
 import coordinate.domain.figure.Figure;
 import coordinate.domain.figure.FigureFactory;
 import coordinate.domain.point.PointGroup;
-import coordinate.util.CoordinateRepresentation;
+import coordinate.domain.point.PointGroupFactory;
 import coordinate.view.*;
 
 public class CoordinateApplication {
@@ -23,7 +23,7 @@ public class CoordinateApplication {
 
     private static PointGroup createPointGroup() {
         try {
-            return CoordinateRepresentation.convertCoordinatePair(InputView.inputCoordinates());
+            return PointGroupFactory.create(InputView.inputCoordinates());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("좌표값은 정수만 가능합니다");
         }
