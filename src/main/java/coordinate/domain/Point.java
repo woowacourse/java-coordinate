@@ -3,36 +3,26 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point implements Comparable<Point> {
-    private static final int MAX_COORDINATE_VALUE = 24;
-    private static final int MIN_COORDINATE_VALUE = 1;
     private static final int SQUARE = 2;
 
-    private final int x;
-    private final int y;
+    private final X x;
+    private final Y y;
 
     public Point(int x, int y) {
-        checkCoordinateValue(x);
-        checkCoordinateValue(y);
-        this.x = x;
-        this.y = y;
-    }
-
-    private void checkCoordinateValue(double coordinateValue) {
-        if (coordinateValue < MIN_COORDINATE_VALUE || coordinateValue > MAX_COORDINATE_VALUE) {
-            throw new IllegalArgumentException("좌표가 범위를 벗어났습니다.");
-        }
+        this.x = new X(x);
+        this.y = new Y(y);
     }
 
     public double calculateDistance(Point point) {
-        return Math.sqrt(Math.pow(this.x - point.x, SQUARE) + Math.pow(this.y - point.y, SQUARE));
+        return Math.sqrt(Math.pow(x.getDistance(point.x), SQUARE) + Math.pow(y.getDistance(point.y), SQUARE));
     }
 
-    public int getX() {
-        return x;
+    public int getXCoordinate() {
+        return x.getCoordinate();
     }
 
-    public int getY() {
-        return y;
+    public int getYCoordinate() {
+        return y.getCoordinate();
     }
 
     @Override
@@ -40,8 +30,8 @@ public class Point implements Comparable<Point> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point point = (Point) o;
-        return Double.compare(point.x, x) == 0 &&
-                Double.compare(point.y, y) == 0;
+        return Objects.equals(x, point.x) &&
+                Objects.equals(y, point.y);
     }
 
     @Override
@@ -51,7 +41,7 @@ public class Point implements Comparable<Point> {
 
     @Override
     public int compareTo(Point p) {
-        if ((x < p.x) || (x == p.x && y < p.y)) {
+        if ((x.compare(p.x)) || (x.equals(p.x) && y.compare(p.y))) {
             return -1;
         }
         return 1;

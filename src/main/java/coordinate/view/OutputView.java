@@ -26,7 +26,7 @@ public class OutputView {
             Arrays.fill(coordinate[i], WHITE_SPACE);
         }
         for (Point point : figure.getPoints()) {
-            coordinate[point.getY()][point.getX()] = POINT;
+            coordinate[point.getYCoordinate()][point.getXCoordinate()] = POINT;
         }
         return coordinate;
     }

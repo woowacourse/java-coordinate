@@ -2,26 +2,15 @@ package coordinate.domain;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class PointTest {
     @Test
-    void x좌표가_24를_넘어가는_경우() {
-        assertThatThrownBy(() -> new Point(25, 1)).isInstanceOf(IllegalArgumentException.class);
-    }
+    void 거리_계산() {
+        Point point1 = new Point(1,1);
+        Point point2 = new Point(4,5);
 
-    @Test
-    void y좌표가_24를_넘어가는_경우() {
-        assertThatThrownBy(() -> new Point(1, 25)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void x좌표가_0보다_작은_경우() {
-        assertThatThrownBy(() -> new Point(0, 3)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void y좌표가_0보다_작은_경우() {
-        assertThatThrownBy(() -> new Point(2, 0)).isInstanceOf(IllegalArgumentException.class);
+        assertThat(point1.calculateDistance(point2)).isEqualTo(5);
     }
 }

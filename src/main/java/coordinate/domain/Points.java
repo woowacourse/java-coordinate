@@ -22,14 +22,14 @@ public class Points {
 
     public int getNonDuplicateXSize() {
         return points.stream()
-                .map(Point::getX)
+                .map(Point::getXCoordinate)
                 .collect(Collectors.toSet())
                 .size();
     }
 
     public int getNonDuplicateYSize() {
         return points.stream()
-                .map(Point::getY)
+                .map(Point::getYCoordinate)
                 .collect(Collectors.toSet())
                 .size();
     }
