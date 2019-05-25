@@ -21,12 +21,12 @@ class ShapeMakerTest {
         List<Coordinate> coordinates3 = Arrays.asList(new Coordinate(2, 1), new Coordinate(1, 24));
 
         /* Then */
-        assertThat(ShapeMaker.createShape(new Coordinates(coordinates1, coordinates1.size())))
-                .isEqualTo(new Rectangle(new Coordinates(coordinates1, 4)));
-        assertThat(ShapeMaker.createShape(new Coordinates(coordinates2, coordinates2.size())))
-                .isEqualTo(new Triangle(new Coordinates(coordinates2, 3)));
-        assertThat(ShapeMaker.createShape(new Coordinates(coordinates3, coordinates3.size())))
-                .isEqualTo(new Line(new Coordinates(coordinates3, 2)));
+        assertThat(ShapeMaker.createShape(new Coordinates(coordinates1)))
+                .isEqualTo(new Rectangle(new Coordinates(coordinates1)));
+        assertThat(ShapeMaker.createShape(new Coordinates(coordinates2)))
+                .isEqualTo(new Triangle(new Coordinates(coordinates2)));
+        assertThat(ShapeMaker.createShape(new Coordinates(coordinates3)))
+                .isEqualTo(new Line(new Coordinates(coordinates3)));
     }
 
     @Test
@@ -38,10 +38,10 @@ class ShapeMakerTest {
 
         /* Then */
         assertThrows(IllegalArgumentException.class, () -> {
-            ShapeMaker.createShape(new Coordinates(coordinates1, coordinates1.size()));
+            ShapeMaker.createShape(new Coordinates(coordinates1));
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            ShapeMaker.createShape(new Coordinates(coordinates2, coordinates2.size()));
+            ShapeMaker.createShape(new Coordinates(coordinates2));
         });
     }
 }

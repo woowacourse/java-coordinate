@@ -38,7 +38,7 @@ public class InputManager {
             coordinates.add(new Coordinate(Integer.valueOf(matcher.group(X)), Integer.valueOf(matcher.group(Y))));
         }
         Collections.sort(coordinates);
-        return new Coordinates(coordinates, coordinates.size());
+        return new Coordinates(coordinates);
     }
 
     private static void checkValidPattern(final Matcher matcher, final String coordinate) {

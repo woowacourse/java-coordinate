@@ -12,8 +12,8 @@ public class Coordinates {
 
     private final List<Coordinate> coordinates;
 
-    public Coordinates(final List<Coordinate> coordinates, final int numberOfCoordinate) {
-        Preconditions.checkArgument(new HashSet<>(coordinates).size() == numberOfCoordinate,
+    public Coordinates(final List<Coordinate> coordinates) {
+        Preconditions.checkArgument(new HashSet<>(coordinates).size() == coordinates.size(),
                 "중복되는 좌표가 있습니다!");
         this.coordinates = coordinates;
     }
