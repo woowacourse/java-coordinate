@@ -5,13 +5,13 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Coordinate {
-    private static final int MAX_BOUND = 24;
+    public static final int MAX_BOUND = 25;
     private static final int MIN_BOUND = 0;
 
     private static Map<Integer, Coordinate> map = new HashMap<>();
 
     static {
-        for (int i = MIN_BOUND; i <= MAX_BOUND; i++) {
+        for (int i = MIN_BOUND; i < MAX_BOUND; i++) {
             map.put(i, of(i));
         }
     }
@@ -19,7 +19,7 @@ public class Coordinate {
     private final int coordinate;
 
     private Coordinate(final int coordinate) {
-        if (coordinate < MIN_BOUND || coordinate > MAX_BOUND) {
+        if (coordinate < MIN_BOUND || coordinate >= MAX_BOUND) {
             throw new IllegalArgumentException("좌표는 0~24만 입력 가능합니다.");
         }
         this.coordinate = coordinate;
