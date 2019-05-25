@@ -20,7 +20,7 @@ public class RectangleTest {
     }
 
     @Test
-    void 사각형_생성() {
+    void 직사각형이_아닌_경우() {
         Points points = new Points(Arrays.asList(
                 new Point(1, 5),
                 new Point(1, 1),
