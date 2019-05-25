@@ -3,6 +3,7 @@ package com.woowacourse.javacoordinate.domain;
 import java.util.List;
 
 public class Line extends Figure {
+    public static final String TYPE_OF_LINE = "Line";
     public static final int LINE_POINT_NUMBER = 2;
 
     public Line(Points points) {
@@ -11,6 +12,8 @@ public class Line extends Figure {
         if (points.getSize() != LINE_POINT_NUMBER) {
             throw new IllegalArgumentException("라인은 2개의 Point가 필요합니다");
         }
+
+        this.type = TYPE_OF_LINE;
     }
 
     @Override
@@ -22,12 +25,12 @@ public class Line extends Figure {
     public double calculateLength() {
         Point point = points.getPoints().get(0);
         List<Point> vertices = points.getPoints();
-        double distance = 0;
+        double length = 0;
 
         for (int i = 1; i < points.getSize(); i++) {
-            distance += point.getDistance(vertices.get(i));
+            length += point.calculateDistance(vertices.get(i));
         }
 
-        return distance;
+        return length;
     }
 }

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Triangle extends Figure {
+    public static final String TYPE_OF_TRIANGLE = "Triangle";
     public static final int TRIANGLE_POINT_NUMBER = 3;
 
     public Triangle(Points points) {
@@ -14,10 +15,12 @@ public class Triangle extends Figure {
         }
 
         checkVerticesInLine();
+        this.type = TYPE_OF_TRIANGLE;
     }
 
     private void checkVerticesInLine() {
         List<Point> vertices = points.getPoints();
+
         int dx1 = vertices.get(0).getX() - vertices.get(1).getX();
         int dy1 = vertices.get(0).getY() - vertices.get(1).getY();
         int dx2 = vertices.get(1).getX() - vertices.get(2).getX();
@@ -30,31 +33,32 @@ public class Triangle extends Figure {
 
     @Override
     public double calculateArea() {
-        List<Double> distances = getDistances();
+        List<Double> lengths = calculateLengthOfSide();
 
-        double s = (distances.get(0) + distances.get(1) + distances.get(2)) / 2;
+        double s = (lengths.get(0) + lengths.get(1) + lengths.get(2)) / 2;
 
-        return Math.sqrt(s * (s - distances.get(0)) * (s - distances.get(1)) * (s - distances.get(2)));
+        return Math.sqrt(s * (s - lengths.get(0)) * (s - lengths.get(1)) * (s - lengths.get(2)));
     }
 
     @Override
     public double calculateLength() {
-        List<Double> distances = getDistances();
+        List<Double> lengths = calculateLengthOfSide();
 
-        return distances.get(0) + distances.get(1) + distances.get(2);
+        return lengths.get(0) + lengths.get(1) + lengths.get(2);
     }
 
-    private List<Double> getDistances() {
+    private List<Double> calculateLengthOfSide() {
         List<Point> vertices = points.getPoints();
-        Point point1 = vertices.get(0);
-        Point point2 = vertices.get(1);
-        Point point3 = vertices.get(2);
 
-        double distance1 = point1.getDistance(point2);
-        double distance2 = point1.getDistance(point3);
-        double distance3 = point2.getDistance(point3);
+        Point firstInputPoint = vertices.get(0);
+        Point secondInputPoint = vertices.get(1);
+        Point thirdInputPoint = vertices.get(2);
 
-        return Arrays.asList(distance1, distance2, distance3);
+        double LengthBetweenFirstAndSecond = firstInputPoint.calculateDistance(secondInputPoint);
+        double LengthBetweenFirstAndThird = firstInputPoint.calculateDistance(thirdInputPoint);
+        double LengthBetweenSecondAndThird = secondInputPoint.calculateDistance(thirdInputPoint);
+
+        return Arrays.asList(LengthBetweenFirstAndSecond, LengthBetweenFirstAndThird, LengthBetweenSecondAndThird);
     }
 
 }

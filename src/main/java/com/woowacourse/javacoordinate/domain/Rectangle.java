@@ -3,6 +3,7 @@ package com.woowacourse.javacoordinate.domain;
 import java.util.*;
 
 public class Rectangle extends Figure {
+    public static final String TYPE_OF_RECTANGLE = "Rectangle";
     public static final int RECTANGLE_POINT_NUMBER = 4;
     private static final int POSITION_NUMBER = 2;
 
@@ -14,6 +15,7 @@ public class Rectangle extends Figure {
         }
 
         checkValidRectangle(points);
+        this.type = TYPE_OF_RECTANGLE;
     }
 
     private void checkValidRectangle(Points points) {
@@ -31,31 +33,32 @@ public class Rectangle extends Figure {
 
     @Override
     public double calculateArea() {
-        List<Double> list = getDistances();
+        List<Double> lengths = calculateLengthOfSide();
 
-        return list.get(0) * list.get(1);
+        return lengths.get(0) * lengths.get(1);
     }
 
     @Override
     public double calculateLength() {
-        List<Double> list = getDistances();
+        List<Double> lengths = calculateLengthOfSide();
 
-        return (list.get(0) + list.get(1)) * 2;
+        return (lengths.get(0) + lengths.get(1)) * 2;
     }
 
-    private List<Double> getDistances() {
+    private List<Double> calculateLengthOfSide() {
         List<Point> vertices = points.getPoints();
 
-        Point point1 = vertices.get(0);
-        Point point2 = vertices.get(1);
-        Point point3 = vertices.get(2);
-        Point point4 = vertices.get(3);
+        Point firstInputPoint = vertices.get(0);
+        Point secondInputPoint = vertices.get(1);
+        Point thirdInputPoint = vertices.get(2);
+        Point fourthInputPoint = vertices.get(3);
 
-        double distance1 = point1.getDistance(point2);
-        double distance2 = point1.getDistance(point3);
-        double distance3 = point1.getDistance(point4);
+        double LengthBetweenFirstAndSecond = firstInputPoint.calculateDistance(secondInputPoint);
+        double LengthBetweenFirstAndThird = firstInputPoint.calculateDistance(thirdInputPoint);
+        double LengthBetweenFirstAndFourth = firstInputPoint.calculateDistance(fourthInputPoint);
 
-        List<Double> list = Arrays.asList(distance1, distance2, distance3);
+        List<Double> list = Arrays.asList(
+                LengthBetweenFirstAndSecond, LengthBetweenFirstAndThird, LengthBetweenFirstAndFourth);
         Collections.sort(list);
         return list;
     }
