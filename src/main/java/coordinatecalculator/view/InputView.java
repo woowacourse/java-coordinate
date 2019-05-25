@@ -11,7 +11,13 @@ public class InputView {
     private static final String INPUT_MESSAGE = "좌표를 입력하세요.";
 
     public static Figure inputLocation() {
-        System.out.println(INPUT_MESSAGE);
-        return FigureRouter.routing(PointsGenerator.create(SCANNER.nextLine()));
+        try {
+            System.out.println(INPUT_MESSAGE);
+            return FigureRouter.routing(PointsGenerator.create(SCANNER.nextLine()));
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return inputLocation();
+        }
     }
 }

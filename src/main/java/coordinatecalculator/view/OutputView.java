@@ -11,6 +11,6 @@ public class OutputView {
         for (int i = 0; i < board.size(); i++) {
             System.out.print(board.get(i).toString());
         }
-
+        System.out.println(figure.makeResult());
     }
 }

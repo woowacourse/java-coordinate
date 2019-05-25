@@ -19,7 +19,7 @@ public class Triangle implements Figure {
         Point point1 = points1.get(0);
         Point point2 = points1.get(1);
         Point point3 = points1.get(2);
-        
+
         if (point1.getX() == point2.getX() && point2.getX() == point3.getX()) {
             throw new IllegalArgumentException(INAVALID_TRIANGLE_MESSAGE);
         }
