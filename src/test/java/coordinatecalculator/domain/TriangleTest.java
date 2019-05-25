@@ -22,19 +22,19 @@ class TriangleTest {
                 new Coordinate(23, 23));
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Triangle(coordinate);
+            new Triangle(new Coordinates(coordinate, 3));
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Triangle(coordinate2);
+            new Triangle(new Coordinates(coordinate2, 3));
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Triangle(coordinate3);
+            new Triangle(new Coordinates(coordinate3, 3));
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Triangle(coordinate4);
+            new Triangle(new Coordinates(coordinate4, 3));
         });
     }
 
@@ -44,6 +44,6 @@ class TriangleTest {
         List<Coordinate> coordinate = Arrays.asList(new Coordinate(1, 1),
                 new Coordinate(5, 1), new Coordinate(1, 5));
         /* Then */
-        assertThat(new Triangle(coordinate).area()).isEqualTo(8, offset(0.00099));
+        assertThat(new Triangle(new Coordinates(coordinate, 3)).area()).isEqualTo(8, offset(0.00099));
     }
 }

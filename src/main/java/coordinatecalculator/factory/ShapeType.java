@@ -3,24 +3,23 @@ package coordinatecalculator.factory;
 import coordinatecalculator.domain.*;
 
 import java.util.Arrays;
-import java.util.List;
 
 enum ShapeType {
     LINE(Line.VERTEX_OF_LINE) {
         @Override
-        public Shape create(List<Coordinate> coordinates) {
+        public Shape create(Coordinates coordinates) {
             return new Line(coordinates);
         }
     },
     TRIANGLE(Triangle.VERTEX_OF_TRIANGLE) {
         @Override
-        public Shape create(List<Coordinate> coordinates) {
+        public Shape create(Coordinates coordinates) {
             return new Triangle(coordinates);
         }
     },
     RECTANGLE(Rectangle.VERTEX_OF_RECTANGLE) {
         @Override
-        public Shape create(List<Coordinate> coordinates) {
+        public Shape create(Coordinates coordinates) {
             return new Rectangle(coordinates);
         }
     };
@@ -31,7 +30,7 @@ enum ShapeType {
         this.countOfCoordinate = countOfCoordinate;
     }
 
-    public abstract Shape create(final List<Coordinate> coordinates);
+    public abstract Shape create(final Coordinates coordinates);
 
     public static ShapeType valueOf(final int countOfCoordinate) {
         return Arrays.stream(values())

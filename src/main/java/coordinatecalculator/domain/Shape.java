@@ -5,7 +5,8 @@ import coordinatecalculator.visitor.ViewVisitor;
 import java.util.List;
 
 public interface Shape {
-    void isValidShape(final List<Coordinate> coordinates);
+    int FIRST_COORDINATE = 0;
+    int SECOND_COORDINATE = 1;
 
     String separateByVisitor(final ViewVisitor viewVisitor);
 

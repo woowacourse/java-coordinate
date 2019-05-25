@@ -6,23 +6,24 @@ import java.util.*;
 
 public class Rectangle implements Figure, Shape {
     public static final int VERTEX_OF_RECTANGLE = 4;
+    private static final int FOURTH_COORDINATE = 3;
+    private static final int SQUARE = 2;
 
-    private final List<Coordinate> coordinates;
+    private final Coordinates coordinates;
 
-    public Rectangle(final List<Coordinate> coordinates) {
-        isValidShape(coordinates);
+    public Rectangle(final Coordinates coordinates) {
         isValidRectangle(coordinates);
         this.coordinates = coordinates;
     }
 
-    private void isValidRectangle(final List<Coordinate> coordinates) {
-        double vertical = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(1)), 2));
-        double horizontal = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(2)), 2));
-        double diagonal = Math.round(Math.pow(coordinates.get(1).calculateDistance(coordinates.get(2)), 2));
+    private void isValidRectangle(Coordinates coordinates) {
+        double vertical = Math.round(Math.pow(coordinates.getDistanceBetweenTwoPoints(FIRST_COORDINATE, SECOND_COORDINATE), SQUARE));
+        double horizontal = Math.round(Math.pow(coordinates.getDistanceBetweenTwoPoints(FIRST_COORDINATE, THIRD_COORDINATE), SQUARE));
+        double diagonal = Math.round(Math.pow(coordinates.getDistanceBetweenTwoPoints(SECOND_COORDINATE, THIRD_COORDINATE), SQUARE));
         checkPythagoras(vertical, horizontal, diagonal);
 
-        vertical = Math.round(Math.pow(coordinates.get(2).calculateDistance(coordinates.get(3)), 2));
-        horizontal = Math.round(Math.pow(coordinates.get(1).calculateDistance(coordinates.get(3)), 2));
+        vertical = Math.round(Math.pow(coordinates.getDistanceBetweenTwoPoints(THIRD_COORDINATE, FOURTH_COORDINATE), SQUARE));
+        horizontal = Math.round(Math.pow(coordinates.getDistanceBetweenTwoPoints(SECOND_COORDINATE, FOURTH_COORDINATE), SQUARE));
         checkPythagoras(vertical, horizontal, diagonal);
     }
 
@@ -34,15 +35,8 @@ public class Rectangle implements Figure, Shape {
 
     @Override
     public double area() {
-        return coordinates.get(0).calculateDistance(coordinates.get(1)) * coordinates.get(0).calculateDistance(coordinates.get(2));
-    }
-
-    @Override
-    public void isValidShape(final List<Coordinate> coordinates) {
-        Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
-        if (overlapCoordinate.size() != VERTEX_OF_RECTANGLE) {
-            throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 네 점의 위치는 달라야 합니다.");
-        }
+        return coordinates.getDistanceBetweenTwoPoints(FIRST_COORDINATE, SECOND_COORDINATE) *
+                coordinates.getDistanceBetweenTwoPoints(FIRST_COORDINATE, THIRD_COORDINATE);
     }
 
     @Override
@@ -52,7 +46,7 @@ public class Rectangle implements Figure, Shape {
 
     @Override
     public List<Coordinate> getCoordinate() {
-        return coordinates;
+        return coordinates.getCoordinates();
     }
 
     @Override

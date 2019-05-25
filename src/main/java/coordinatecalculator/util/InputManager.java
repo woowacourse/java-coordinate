@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import coordinatecalculator.domain.Coordinate;
+import coordinatecalculator.domain.Coordinates;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -20,7 +21,7 @@ public class InputManager {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static List<Coordinate> getCoordinates() {
+    public static Coordinates getCoordinates() {
         System.out.println("좌표를 입력하세요.");
         return makeCoordinates(Splitter.on(HYPHEN)
                 .trimResults()
@@ -28,7 +29,7 @@ public class InputManager {
                 .split(SCANNER.nextLine()));
     }
 
-    private static List<Coordinate> makeCoordinates(Iterable<String> inputCoordinates) {
+    private static Coordinates makeCoordinates(Iterable<String> inputCoordinates) {
         List<Coordinate> coordinates = Lists.newArrayList();
 
         for (String coordinate : inputCoordinates) {
@@ -37,7 +38,7 @@ public class InputManager {
             coordinates.add(new Coordinate(Integer.valueOf(matcher.group(X)), Integer.valueOf(matcher.group(Y))));
         }
         Collections.sort(coordinates);
-        return coordinates;
+        return new Coordinates(coordinates, coordinates.size());
     }
 
     private static void checkValidPattern(final Matcher matcher, final String coordinate) {

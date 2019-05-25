@@ -22,15 +22,15 @@ class RectangleTest {
 
         /* Then */
         assertThrows(IllegalArgumentException.class, () -> {
-            new Rectangle(coordinates);
+            new Rectangle(new Coordinates(coordinates, 4));
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Rectangle(coordinates2);
+            new Rectangle(new Coordinates(coordinates2, 4));
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Rectangle(coordinates3);
+            new Rectangle(new Coordinates(coordinates3, 4));
         });
     }
 
@@ -41,8 +41,10 @@ class RectangleTest {
         List<Coordinate> coordinates2 = Arrays.asList(new Coordinate(11, 14), new Coordinate(11, 19),
                 new Coordinate(16, 14), new Coordinate(16, 19));
 
-        assertThat(new Rectangle(coordinates).area()).isEqualTo(25, offset(0.00099));
-        assertThat(new Rectangle(coordinates2).area()).isEqualTo(25, offset(0.00099));
+        assertThat(new Rectangle(new Coordinates(coordinates, 4)).area())
+                .isEqualTo(25, offset(0.00099));
+        assertThat(new Rectangle(new Coordinates(coordinates2, 4)).area())
+                .isEqualTo(25, offset(0.00099));
 
     }
 }

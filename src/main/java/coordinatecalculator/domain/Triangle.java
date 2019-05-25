@@ -3,45 +3,34 @@ package coordinatecalculator.domain;
 import com.google.common.base.Preconditions;
 import coordinatecalculator.visitor.ViewVisitor;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Triangle implements Figure, Shape {
     public static final int VERTEX_OF_TRIANGLE = 3;
+    private static final int THIRD_COORDINATE = 2;
 
-    private List<Coordinate> coordinates;
+    private Coordinates coordinates;
 
-    public Triangle(final List<Coordinate> coordinates) {
-        isValidShape(coordinates);
+    public Triangle(final Coordinates coordinates) {
         isValidTriangle(coordinates);
         this.coordinates = coordinates;
     }
 
-    private void isValidTriangle(final List<Coordinate> coordinates) {
-        double slopeFirst = coordinates.get(0).calculateSlope(coordinates.get(1));
-        double slopeSecond = coordinates.get(1).calculateSlope(coordinates.get(2));
-
+    private void isValidTriangle(final Coordinates coordinates) {
+        double slopeFirst = coordinates.getSlopeBetweenTwoPoints(FIRST_COORDINATE, SECOND_COORDINATE);
+        double slopeSecond = coordinates.getSlopeBetweenTwoPoints(SECOND_COORDINATE, THIRD_COORDINATE);
         Preconditions.checkArgument(slopeFirst != slopeSecond, "삼각형이 아니에요");
     }
 
     @Override
     public double area() {
-        double line1 = coordinates.get(0).calculateDistance(coordinates.get(1));
-        double line2 = coordinates.get(1).calculateDistance(coordinates.get(2));
-        double line3 = coordinates.get(2).calculateDistance(coordinates.get(0));
+        double line1 = coordinates.getDistanceBetweenTwoPoints(FIRST_COORDINATE, SECOND_COORDINATE);
+        double line2 = coordinates.getDistanceBetweenTwoPoints(SECOND_COORDINATE, THIRD_COORDINATE);
+        double line3 = coordinates.getDistanceBetweenTwoPoints(2, 0);
 
         //해론의 법칙
         return Math.sqrt((line1 + line2 + line3) * (line2 - line1 + line3) * (line1 - line2 + line3) * (line1 + line2 - line3)) / 4;
-    }
-
-    @Override
-    public void isValidShape(List<Coordinate> coordinates) {
-        Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
-        if (overlapCoordinate.size() != VERTEX_OF_TRIANGLE) {
-            throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 세 점의 위치는 달라야 합니다.");
-        }
     }
 
     @Override
@@ -51,7 +40,7 @@ public class Triangle implements Figure, Shape {
 
     @Override
     public List<Coordinate> getCoordinate() {
-        return coordinates;
+        return coordinates.getCoordinates();
     }
 
     @Override

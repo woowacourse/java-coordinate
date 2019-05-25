@@ -1,10 +1,9 @@
 package coordinatecalculator.factory;
 
-import coordinatecalculator.domain.*;
+import coordinatecalculator.domain.Coordinates;
+import coordinatecalculator.domain.Shape;
 import coordinatecalculator.util.InputManager;
 import coordinatecalculator.util.OutputView;
-
-import java.util.List;
 
 public class ShapeMaker {
     public static Shape createShape() {
@@ -16,8 +15,8 @@ public class ShapeMaker {
         }
     }
 
-    public static Shape createShape(final List<Coordinate> coordinates) {
-        return ShapeType.valueOf(coordinates.size()).create(coordinates);
+    public static Shape createShape(final Coordinates coordinates) {
+        return ShapeType.valueOf(coordinates.getNumberOfCoordinates()).create(coordinates);
     }
 
 }

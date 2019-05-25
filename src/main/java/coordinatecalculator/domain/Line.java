@@ -2,23 +2,20 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.visitor.ViewVisitor;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Line implements Shape {
     public static final int VERTEX_OF_LINE = 2;
 
-    private final List<Coordinate> coordinates;
+    private final Coordinates coordinates;
 
-    public Line(final List<Coordinate> coordinates) {
-        isValidShape(coordinates);
+    public Line(final Coordinates coordinates) {
         this.coordinates = coordinates;
     }
 
     public double getLineLength() {
-        return coordinates.get(0).calculateDistance(coordinates.get(1));
+        return coordinates.getDistanceBetweenTwoPoints(FIRST_COORDINATE, SECOND_COORDINATE);
     }
 
     @Override
@@ -28,15 +25,7 @@ public class Line implements Shape {
 
     @Override
     public List<Coordinate> getCoordinate() {
-        return coordinates;
-    }
-
-    @Override
-    public void isValidShape(final List<Coordinate> coordinates) {
-        Set<Coordinate> overlapCoordinate = new HashSet<>(coordinates);
-        if (overlapCoordinate.size() != VERTEX_OF_LINE) {
-            throw new IllegalArgumentException("위치가 같은 점(point)이 존재합니다. 두 점의 위치는 달라야 합니다.");
-        }
+        return coordinates.getCoordinates();
     }
 
     @Override
