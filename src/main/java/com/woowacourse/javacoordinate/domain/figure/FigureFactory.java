@@ -1,4 +1,6 @@
-package com.woowacourse.javacoordinate.domain;
+package com.woowacourse.javacoordinate.domain.figure;
+
+import com.woowacourse.javacoordinate.domain.point.Points;
 
 import java.util.HashMap;
 import java.util.Map;

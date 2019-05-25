@@ -1,4 +1,4 @@
-package com.woowacourse.javacoordinate.domain;
+package com.woowacourse.javacoordinate.domain.point;
 
 
 public class Point {

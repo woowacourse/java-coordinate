@@ -1,4 +1,6 @@
-package com.woowacourse.javacoordinate.domain;
+package com.woowacourse.javacoordinate.domain.figure;
+
+import com.woowacourse.javacoordinate.domain.point.Points;
 
 import java.util.Objects;
 
@@ -10,7 +12,7 @@ public abstract class Figure implements FigureCalculator {
         this.points = points;
     }
 
-    String getType() {
+    public String getType() {
         return type;
     }
 

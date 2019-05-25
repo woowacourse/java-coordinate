@@ -1,6 +1,10 @@
 package com.woowacourse.javacoordinate;
 
 import com.woowacourse.javacoordinate.domain.*;
+import com.woowacourse.javacoordinate.domain.coordinate.CoordinateSystem;
+import com.woowacourse.javacoordinate.domain.figure.Figure;
+import com.woowacourse.javacoordinate.domain.figure.FigureFactory;
+import com.woowacourse.javacoordinate.domain.point.Points;
 import com.woowacourse.javacoordinate.view.InputView;
 import com.woowacourse.javacoordinate.view.OutputView;
 

@@ -1,5 +1,9 @@
 package com.woowacourse.javacoordinate.domain;
 
+import com.woowacourse.javacoordinate.domain.figure.Figure;
+import com.woowacourse.javacoordinate.domain.figure.Triangle;
+import com.woowacourse.javacoordinate.domain.point.Point;
+import com.woowacourse.javacoordinate.domain.point.Points;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

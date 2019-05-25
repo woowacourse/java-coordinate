@@ -1,4 +1,4 @@
-package com.woowacourse.javacoordinate.domain;
+package com.woowacourse.javacoordinate.domain.coordinate;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,5 +1,6 @@
 package com.woowacourse.javacoordinate.domain;
 
+import com.woowacourse.javacoordinate.domain.coordinate.CoordinateLine;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

@@ -1,6 +1,11 @@
 package com.woowacourse.javacoordinate.view;
 
 import com.woowacourse.javacoordinate.domain.*;
+import com.woowacourse.javacoordinate.domain.coordinate.CoordinateLine;
+import com.woowacourse.javacoordinate.domain.coordinate.CoordinateSystem;
+import com.woowacourse.javacoordinate.domain.figure.Line;
+import com.woowacourse.javacoordinate.domain.figure.Rectangle;
+import com.woowacourse.javacoordinate.domain.figure.Triangle;
 
 import java.util.List;
 

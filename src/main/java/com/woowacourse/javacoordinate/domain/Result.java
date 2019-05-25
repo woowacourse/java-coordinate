@@ -1,5 +1,10 @@
 package com.woowacourse.javacoordinate.domain;
 
+import com.woowacourse.javacoordinate.domain.figure.Figure;
+import com.woowacourse.javacoordinate.domain.figure.Line;
+import com.woowacourse.javacoordinate.domain.figure.Rectangle;
+import com.woowacourse.javacoordinate.domain.figure.Triangle;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
