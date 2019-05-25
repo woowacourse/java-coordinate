@@ -27,7 +27,7 @@ public class Triangle implements Figure, Shape {
     public double area() {
         double line1 = coordinates.getDistanceBetweenTwoPoints(FIRST_COORDINATE, SECOND_COORDINATE);
         double line2 = coordinates.getDistanceBetweenTwoPoints(SECOND_COORDINATE, THIRD_COORDINATE);
-        double line3 = coordinates.getDistanceBetweenTwoPoints(2, 0);
+        double line3 = coordinates.getDistanceBetweenTwoPoints(THIRD_COORDINATE, FIRST_COORDINATE);
 
         //해론의 법칙
         return Math.sqrt((line1 + line2 + line3) * (line2 - line1 + line3) * (line1 - line2 + line3) * (line1 + line2 - line3)) / 4;

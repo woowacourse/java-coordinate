@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Coordinates {
+    private static final int FIRST_INDEX = 0;
+
     private final List<Coordinate> coordinates;
 
     public Coordinates(final List<Coordinate> coordinates, final int numberOfCoordinate) {
@@ -16,12 +18,20 @@ public class Coordinates {
         this.coordinates = coordinates;
     }
 
-    public double getDistanceBetweenTwoPoints(final int first, final int second) {
+    public double getDistanceBetweenTwoPoints(final int first, final int second) throws IllegalArgumentException {
+        Preconditions.checkArgument(checkPointOfIndex(first) && checkPointOfIndex(second),
+                "입력된 좌표는 존재하지 않습니다");
         return coordinates.get(first).calculateDistance(coordinates.get(second));
     }
 
-    public double getSlopeBetweenTwoPoints(final int first, final int second) {
+    public double getSlopeBetweenTwoPoints(final int first, final int second) throws IllegalArgumentException {
+        Preconditions.checkArgument(checkPointOfIndex(first) && checkPointOfIndex(second),
+                "입력된 좌표는 존재하지 않습니다");
         return coordinates.get(first).calculateSlope(coordinates.get(second));
+    }
+
+    private boolean checkPointOfIndex(final int first) {
+        return (first >= FIRST_INDEX && first < coordinates.size());
     }
 
     public List<Coordinate> getCoordinates() {

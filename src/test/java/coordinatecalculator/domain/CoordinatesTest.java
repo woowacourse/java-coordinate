@@ -32,4 +32,23 @@ class CoordinatesTest {
         /* Then */
         assertThat(coordinates.getSlopeBetweenTwoPoints(0, 1)).isEqualTo(1, offset(0.00999));
     }
+
+    @Test
+    void 잘못된_인덱스_접근을_할때_예외를_던지는지_테스트() {
+        /* Given */
+        Coordinates coordinates = new Coordinates(Arrays.asList(new Coordinate(2, 2), new Coordinate(4, 4)), 2);
+        /* Then */
+        assertThrows(IllegalArgumentException.class, () -> {
+            coordinates.getDistanceBetweenTwoPoints(-1, 1);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            coordinates.getDistanceBetweenTwoPoints(0, 2);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            coordinates.getSlopeBetweenTwoPoints(-1, 1);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            coordinates.getSlopeBetweenTwoPoints(0, 2);
+        });
+    }
 }
