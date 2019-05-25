@@ -1,4 +1,6 @@
-package coordinate;
+package coordinate.domain;
+
+import coordinate.AbstractFigure;
 
 import java.util.*;
 
@@ -14,7 +16,7 @@ public class Square extends AbstractFigure {
         Point origin = this.points.get(0);
         Line line1 = Line.of(Arrays.asList(origin, getSameX(origin)));
         Line line2 = Line.of(Arrays.asList(origin, getSameY(origin)));
-        return (line1.length() * line2.length());
+        return (line1.getArea() * line2.getArea());
     }
 
     private Point getSameX(final Point origin) {

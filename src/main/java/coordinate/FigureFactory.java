@@ -1,5 +1,7 @@
 package coordinate;
 
+import coordinate.domain.*;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +11,8 @@ public class FigureFactory {
 
     static {
         MAP = new HashMap<>();
+        MAP.put(Integer.valueOf(1), new NotFigureCreator());
+        MAP.put(Integer.valueOf(2), new LineCreator());
         MAP.put(Integer.valueOf(3), new TriangleCreator());
         MAP.put(Integer.valueOf(4), new SquareCreator());
     }

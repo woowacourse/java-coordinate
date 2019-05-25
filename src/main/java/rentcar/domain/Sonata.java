@@ -1,10 +1,10 @@
-package rentcar;
+package rentcar.domain;
 
-public class Avante extends AbstractCar {
-	private static final double DISTANCE_FOR_LITTER = 15;
-	private static final String NAME_OF_CAR = "Avante";
+public class Sonata extends AbstractCar {
+	private static final double DISTANCE_FOR_LITTER = 10;
+	private static final String NAME_OF_CAR = "Sonata";
 
-	public Avante(final int distance) {
+	public Sonata(final int distance) {
 		super(distance);
 	}
 

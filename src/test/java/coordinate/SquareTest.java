@@ -1,5 +1,7 @@
 package coordinate;
 
+import coordinate.domain.Point;
+import coordinate.domain.Square;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

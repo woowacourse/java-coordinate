@@ -1,4 +1,6 @@
-package rentcar;
+package rentcar.domain;
+
+import rentcar.Car;
 
 public abstract class AbstractCar implements Car {
 	private static final int MIN_DISTANCE = 0;

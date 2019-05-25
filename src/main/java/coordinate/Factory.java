@@ -4,6 +4,6 @@ import coordinate.domain.Point;
 
 import java.util.List;
 
-public interface FigureCreator {
+public interface Factory {
     Figure create(final List<Point> points);
 }

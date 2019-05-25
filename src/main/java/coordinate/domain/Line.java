@@ -1,21 +1,21 @@
-package coordinate;
+package coordinate.domain;
+
+import coordinate.AbstractFigure;
 
 import java.util.List;
 
-public class Line {
+public class Line extends AbstractFigure {
     private static final int POW_NUM = 2;
 
-    private final List<Point> points;
-
     private Line(final List<Point> points) {
-        this.points = points;
+        super(points);
     }
 
     public static Line of(final List<Point> points) {
         return new Line(points);
     }
 
-    public Double length() {
+    public Double getArea() {
         final Double tempX = points.get(0).getX().doubleValue() - points.get(1).getX().doubleValue();
         final Double tempY = points.get(0).getY().doubleValue() - points.get(1).getY().doubleValue();
 

@@ -1,5 +1,6 @@
 package coordinate;
 
+import coordinate.domain.Point;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

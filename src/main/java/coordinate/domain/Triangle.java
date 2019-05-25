@@ -1,4 +1,6 @@
-package coordinate;
+package coordinate.domain;
+
+import coordinate.AbstractFigure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,8 +21,8 @@ public class Triangle extends AbstractFigure {
         Line b = Line.of(Arrays.asList(this.points.get(1), this.points.get(2)));
         Line c = Line.of(Arrays.asList(this.points.get(2), this.points.get(0)));
 
-        Double s = (a.length() + b.length() + c.length()) / Double.valueOf(2.0);
+        Double s = (a.getArea() + b.getArea() + c.getArea()) / Double.valueOf(2.0);
 
-        return Math.sqrt(s * (s - a.length()) * (s - b.length()) * (s - c.length()));
+        return Math.sqrt(s * (s - a.getArea()) * (s - b.getArea()) * (s - c.getArea()));
     }
 }

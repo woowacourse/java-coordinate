@@ -1,6 +1,10 @@
 package rentcar;
 
 import org.junit.jupiter.api.Test;
+import rentcar.domain.Avante;
+import rentcar.domain.K5;
+import rentcar.domain.RentCompany;
+import rentcar.domain.Sonata;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;

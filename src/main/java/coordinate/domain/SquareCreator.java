@@ -1,4 +1,7 @@
-package coordinate;
+package coordinate.domain;
+
+import coordinate.Figure;
+import coordinate.FigureCreator;
 
 import java.util.List;
 
