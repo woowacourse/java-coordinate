@@ -32,7 +32,7 @@ class RectangleTest {
 
     @Test
     void 넓이() {
-        Shape answer2 = new Rectangle(PointTest.answer1);
+        Figure answer2 = new Rectangle(PointTest.answer1);
         assertThat(answer2.area()).isEqualTo(1);
     }
 }

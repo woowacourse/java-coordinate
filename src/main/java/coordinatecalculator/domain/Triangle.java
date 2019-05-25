@@ -2,7 +2,7 @@ package coordinatecalculator.domain;
 
 import java.util.List;
 
-public class Triangle extends Shape {
+public class Triangle extends Figure {
     private static final String THREE_POINTS_SAME_LINE = "입력한 좌표가 삼각형이 아닙니다.";
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
@@ -35,18 +35,15 @@ public class Triangle extends Shape {
                 || Double.compare(angle, STRAIGHT_ANGLE) == SAME_ANGLE;
     }
 
-    @Override
-    public double area() {
-        return heronFormula();
-    }
-
     /**
+     * 'heronFormula'
      * area = sqrt(s*(s-a)(s-b)(s-c))
      * s = (a + b + c) / 2
      *
      * @return area
      */
-    private double heronFormula() {
+    @Override
+    public double area() {
         double a = getPoint(FIRST_POINT).getDistance(getPoint(SECOND_POINT));
         double b = getPoint(SECOND_POINT).getDistance(getPoint(THIRD_POINT));
         double c = getPoint(THIRD_POINT).getDistance(getPoint(FIRST_POINT));

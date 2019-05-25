@@ -22,7 +22,7 @@ class TriangleTest {
     @Test
     void 넓이() {
         List<Point> points = Arrays.asList(PointTest.zero_zero, PointTest.one_one, Point.of(2, 0));
-        Shape triangle = new Triangle(points);
+        Figure triangle = new Triangle(points);
 
         assertThat(triangle.area()).isEqualTo(1, offset(0.001));
     }
