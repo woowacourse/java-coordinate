@@ -2,7 +2,7 @@ package coordinatecalculator.domain;
 
 import java.util.List;
 
-public class Rectangle extends Figure {
+public class Rectangle extends AbstractFigure {
     private static final String NOT_RECTANGLE_COORDINATE = "입력한 좌표가 직사각형이 아닙니다.";
     private static final int LEFT_BOTTOM = 0;
     private static final int LEFT_TOP = 1;

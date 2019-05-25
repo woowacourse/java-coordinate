@@ -11,7 +11,7 @@ public class FigureFactory implements FigureCreator {
     private static final int RECTANGLE_SIZE = 4;
     private static final String INSUFFICIENT_POINTS = "입력한 좌표의 개수는 '선', '삼각형', '직사각형'을 만들 수 없습니다.";
 
-    private Map<Integer, Function<List<Point>, Area>> figures;
+    private Map<Integer, Function<List<Point>, Figure>> figures;
 
     public FigureFactory(){
         figures  = new HashMap<>();
@@ -21,7 +21,7 @@ public class FigureFactory implements FigureCreator {
     }
 
     @Override
-    public Area create(List<Point> points) {
+    public Figure create(List<Point> points) {
         try {
             return figures.get(points.size()).apply(points);
         } catch (NullPointerException npe) {

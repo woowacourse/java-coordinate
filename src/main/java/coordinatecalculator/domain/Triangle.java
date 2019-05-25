@@ -2,7 +2,7 @@ package coordinatecalculator.domain;
 
 import java.util.List;
 
-public class Triangle extends Figure {
+public class Triangle extends AbstractFigure {
     private static final String THREE_POINTS_SAME_LINE = "입력한 좌표가 삼각형이 아닙니다.";
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;

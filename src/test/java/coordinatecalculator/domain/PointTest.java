@@ -14,7 +14,9 @@ class PointTest {
     static Point zero_one = Point.of(0, 1);
     static Point one_zero = Point.of(1, 0);
     static Point one_one = Point.of(1, 1);
-    static List<Point> answer1 = Arrays.asList(zero_zero, zero_one, one_zero, one_one);
+    static List<Point> line = Arrays.asList(zero_zero, one_one);
+    static List<Point> triangle = Arrays.asList(zero_zero, zero_one, one_zero);
+    static List<Point> rectangle = Arrays.asList(zero_zero, zero_one, one_zero, one_one);
 
     @Test
     void 좌표_입력범위() {

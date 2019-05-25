@@ -12,7 +12,7 @@ class InputVerificationTest {
     @Test
     void 올바른_입력1() {
         String input = "(0,0)-(0,1)-(1,0)-(1,1)";
-        assertThat(InputVerification.getValidPoints(input)).isEqualTo(PointTest.answer1);
+        assertThat(InputVerification.getValidPoints(input)).isEqualTo(PointTest.rectangle);
     }
 
     @Test
