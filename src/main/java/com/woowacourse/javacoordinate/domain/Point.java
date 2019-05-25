@@ -9,18 +9,18 @@ public class Point {
     private final int y;
 
     public Point(int x, int y) {
-        checkValidPointRange(x, y);
+        validPointRange(x, y);
         this.x = x;
         this.y = y;
     }
 
-    private void checkValidPointRange(int x, int y) {
+    private void validPointRange(int x, int y) {
         if (x < MIN_BOUNDARY || x > MAX_BOUNDARY || y < MIN_BOUNDARY || y > MAX_BOUNDARY) {
             throw new IllegalArgumentException("좌표 입력 범위를 넘어갔습니다");
         }
     }
 
-    public double getDistance(Point point) {
+    public double calculateDistance(Point point) {
         int thatX = point.getX();
         int thatY = point.getY();
 

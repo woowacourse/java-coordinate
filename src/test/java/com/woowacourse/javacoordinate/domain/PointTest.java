@@ -20,7 +20,7 @@ public class PointTest {
         int y = 25;
 
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> new Point(x,y)).withMessage("좌표 입력 범위를 넘어갔습니다");
+                .isThrownBy(() -> new Point(x, y)).withMessage("좌표 입력 범위를 넘어갔습니다");
     }
 
     @Test
@@ -29,6 +29,6 @@ public class PointTest {
         int y = -10;
 
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> new Point(x,y)).withMessage("좌표 입력 범위를 넘어갔습니다");
+                .isThrownBy(() -> new Point(x, y)).withMessage("좌표 입력 범위를 넘어갔습니다");
     }
 }

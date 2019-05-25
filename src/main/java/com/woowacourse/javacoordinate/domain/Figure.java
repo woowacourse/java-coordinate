@@ -4,9 +4,14 @@ import java.util.Objects;
 
 public abstract class Figure implements FigureCalculator {
     protected Points points;
+    String type;
 
-    public Figure(Points points) {
+    Figure(Points points) {
         this.points = points;
+    }
+
+    String getType() {
+        return type;
     }
 
     @Override

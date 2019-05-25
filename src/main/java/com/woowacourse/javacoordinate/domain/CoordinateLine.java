@@ -1,6 +1,7 @@
 package com.woowacourse.javacoordinate.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CoordinateLine {
     private final List<Boolean> line;
@@ -20,7 +21,7 @@ public class CoordinateLine {
 
         CoordinateLine that = (CoordinateLine) o;
 
-        return line != null ? line.equals(that.line) : that.line == null;
+        return Objects.equals(line, that.line);
     }
 
     @Override
