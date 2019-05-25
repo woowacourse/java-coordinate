@@ -11,10 +11,10 @@ public class Rectangle extends Figure {
     private Points points;
 
     public Rectangle(Points points) {
-        if (this.getDifferTwoPoints(points).size() != DIFFER_POINT_NUMBER) {
+        this.points = points;
+        if (this.getDifferTwoPoints().size() != DIFFER_POINT_NUMBER) {
             throw new IllegalArgumentException("잘못된 직사각형 입니다.");
         }
-        this.points = points;
     }
 
     private double calculateArea(List<Point> differTwoPoints) {
@@ -24,7 +24,7 @@ public class Rectangle extends Figure {
                 Math.abs(firstPoint.getYPoint().subtract(secondPoint.getYPoint().getValue()));
     }
 
-    private List<Point> getDifferTwoPoints(Points points) {
+    public List<Point> getDifferTwoPoints() {
         List<Point> differPoints = new ArrayList<>();
         Point firstPoint = points.getPoint(FIRST);
         differPoints.add(firstPoint);
@@ -37,7 +37,7 @@ public class Rectangle extends Figure {
 
     @Override
     public double area() {
-        double area = calculateArea(getDifferTwoPoints(points));
+        double area = calculateArea(getDifferTwoPoints());
         return Math.round(area * DECIMAL) / DECIMAL;
     }
 

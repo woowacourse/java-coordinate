@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public class Point {
 
     private static final Pattern PATTERN = Pattern.compile("\\(([0-9]*),([0-9]*)\\)");
+    private static final int ZERO = 0;
     private static final int SQUARE = 2;
     private final XPoint xPoint;
     private final YPoint yPoint;
@@ -39,7 +40,10 @@ public class Point {
     }
 
     public double getSlope(Point point) {
-        return yPoint.subtract(point.getYPoint().getValue()) / xPoint.subtract(point.getXPoint().getValue());
+        if (xPoint.subtract(point.xPoint.getValue()) == ZERO) {
+            return Double.MAX_VALUE;
+        }
+        return yPoint.subtract(point.yPoint.getValue()) / xPoint.subtract(point.xPoint.getValue());
     }
 
     @Override

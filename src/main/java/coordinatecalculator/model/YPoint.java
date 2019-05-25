@@ -3,6 +3,7 @@ package coordinatecalculator.model;
 import java.util.Objects;
 
 public class YPoint extends PointProperties {
+
     private final int yPoint;
 
     public YPoint(final String yPoint) {
