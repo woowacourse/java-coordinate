@@ -1,35 +1,11 @@
 package coordinate.domain;
 
-import coordinate.domain.generator.LinesGenerator;
+public interface Figure {
+    int size();
 
-public abstract class Figure implements AreaCalculator {
-    private Points points;
-    private Lines lines;
+    double area();
 
-    protected Figure(final Points points, final LinesGenerator linesGenerator) {
-        this.points = points;
-        this.lines = linesGenerator.generate();
-        validateSize();
-    }
+    Points getPoints();
 
-    protected void validateSize() {
-        if (size() != points.size()) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    protected abstract int size();
-
-    @Override
-    public double area() {
-        throw new UnsupportedOperationException();
-    }
-
-    public Points getPoints() {
-        return points;
-    }
-
-    public Lines getLines() {
-        return lines;
-    }
+    String getName();
 }

@@ -3,7 +3,7 @@ package coordinate.domain;
 import coordinate.domain.generator.LinesSquareGenerator;
 
 
-public final class Square extends Figure {
+public final class Square extends RealFigure {
     public static final int NUMBER_OF_POINTS = 4;
 
     public Square(final Points points) {
@@ -25,7 +25,7 @@ public final class Square extends Figure {
     }
 
     @Override
-    protected int size() {
+    public int size() {
         return NUMBER_OF_POINTS;
     }
 
@@ -35,7 +35,7 @@ public final class Square extends Figure {
     }
 
     @Override
-    public String toString() {
+    public String getName() {
         return "사각형";
     }
 }

@@ -12,6 +12,6 @@ public class Lines {
     }
 
     public List<Double> lengths() {
-        return lines.stream().mapToDouble(Line::length).boxed().collect(Collectors.toList());
+        return lines.stream().mapToDouble(Line::area).boxed().collect(Collectors.toList());
     }
 }

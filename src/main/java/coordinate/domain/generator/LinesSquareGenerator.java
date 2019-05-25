@@ -30,7 +30,7 @@ public class LinesSquareGenerator implements LinesGenerator {
 
     private List<Line> filterDiagonal(List<Line> lines) {
         lines = lines.stream()
-                .sorted((line1, line2) -> (int) (line1.length() - line2.length()))
+                .sorted((line1, line2) -> (int) (line1.area() - line2.area()))
                 .limit(lines.size() - 2)
                 .collect(Collectors.toList());
         return lines;

@@ -1,11 +1,9 @@
 package coordinate.domain.generator;
 
-import coordinate.domain.Figure;
-import coordinate.domain.Points;
-import coordinate.domain.Square;
-import coordinate.domain.Triangle;
+import coordinate.domain.*;
 
 public enum FigureFactory {
+    LINE(Line.NUMBER_OF_POINTS, Line::new),
     TRIANGLE(Triangle.NUMBER_OF_POINTS, Triangle::new),
     SQUARE(Square.NUMBER_OF_POINTS, Square::new);
 
