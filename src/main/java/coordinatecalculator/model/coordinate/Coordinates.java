@@ -24,4 +24,8 @@ public class Coordinates {
     public int size() {
         return coordinates.size();
     }
+
+    public List<Coordinate> getCoordinates() {
+        return coordinates;
+    }
 }

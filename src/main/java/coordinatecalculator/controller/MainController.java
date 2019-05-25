@@ -9,8 +9,12 @@ import coordinatecalculator.view.OutputView;
 public class MainController {
 
     public static void main(String[] args) {
-        PlaneFigure planeFigure = InputView.createFigure();
-        OutputView.printCoordinatePlane(new CoordinatePlane(planeFigure.getCoordinates()));
-        OutputView.printFigureArea(planeFigure);
+        PlaneFigure figure = InputView.createFigure();
+        CoordinatePlane plane = new CoordinatePlane();
+
+        plane.pointCoordinates(figure.getCoordinates());
+
+        OutputView.printCoordinatePlane(plane);
+        OutputView.printFigureArea(figure);
     }
 }
