@@ -1,6 +1,6 @@
 package rentcar.car;
 
-public class Avante implements Car{
+public class Avante implements Car {
     private static final int DISTANCE_PER_LITER = 15;
     private static final String CAR_NAME = "Avante";
 
