@@ -1,57 +1,33 @@
 package coordinate.model;
 
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Rectangle extends AbstractFigure {
+    private Vector firstNearVector;
+    private Vector secondNearVector;
+
     public Rectangle(List<Point> points) {
         super(points);
-        validateRectangle(points);
+        checkRectangle(points);
     }
 
-    private void validateRectangle(List<Point> points) {
-        if (!checkRectangle(points)) {
+    private void checkRectangle(List<Point> points) {
+        firstNearVector = new Vector(points.get(0), points.get(3));
+        secondNearVector = new Vector(points.get(0), points.get(2));
+
+        if (!(firstNearVector.getDotProduct(secondNearVector) == 0 &&
+                points.get(1).equals(firstNearVector.sum(secondNearVector)))) {
             throw new IllegalArgumentException();
         }
     }
 
-    //직사각형 검증 -> 고칠것
-    private boolean checkRectangle(List<Point> points) {
-        return collectXValues(points).size() == 2 && collectYValues(points).size() == 2;
-    }
-
-    private Set<Value> collectXValues(List<Point> points) {
-        Set<Value> xValues = new HashSet<>();
-        for (Point point : points) {
-            xValues.add(point.getXValue());
-        }
-
-        return xValues;
-    }
-
-    private Set<Value> collectYValues(List<Point> points) {
-        Set<Value> yValues = new HashSet<>();
-        for (Point point : points) {
-            yValues.add(point.getYValue());
-        }
-
-        return yValues;
-    }
-
-    //직사각형 검증 -> 고칠것 여기까지
-
     @Override
-    public int size() {
+    public int countOfPoints() {
         return 4;
     }
 
     @Override
     public double area() {
-        double firstLine = points.get(0).howFar(points.get(1));
-        double secondLine = points.get(0).howFar(points.get(2));
-
-        return firstLine * secondLine;
+        return firstNearVector.getCrossProduct(secondNearVector);
     }
 }
