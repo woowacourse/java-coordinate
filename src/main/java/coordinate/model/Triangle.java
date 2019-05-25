@@ -9,13 +9,13 @@ public class Triangle extends AbstractFigure {
     }
 
     private void validateTriangle(List<Point> points) {
-        if (points.get(0).getSlope(points.get(1)) == points.get(0).getSlope(points.get(2))) {
+        if (new Vector(points.get(0), points.get(1)).equals(new Vector(points.get(1), points.get(2)))) {
             throw new IllegalArgumentException();
         }
     }
 
     @Override
-    public int size() {
+    public int countOfPoints() {
         return 3;
     }
 
