@@ -12,7 +12,7 @@ public class Line extends Figure {
 
     @Override
     public double calculateResult() {
-        return points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(SECOND_POINT));
+        return points.getPoint(FIRST_POINT).calculateDistance(points.getPoint(SECOND_POINT));
     }
 
     @Override

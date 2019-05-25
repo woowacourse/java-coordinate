@@ -17,6 +17,6 @@ public abstract class Figure implements Calculable {
     }
 
     public List<Point> getPoints() {
-        return Collections.unmodifiableList(points.getPoints());
+        return Collections.unmodifiableList(points.getPoint());
     }
 }

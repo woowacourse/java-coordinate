@@ -10,8 +10,8 @@ public class Rectangle extends Figure {
 
     public Rectangle(Points points) {
         super("사각형의 넓이는 : ", points);
-        checkValidCoordinate(points.nonDuplicateXSize());
-        checkValidCoordinate(points.nonDuplicateYSize());
+        checkValidCoordinate(points.getNonDuplicateXSize());
+        checkValidCoordinate(points.getNonDuplicateYSize());
     }
 
     private void checkValidCoordinate(int size) {
@@ -22,8 +22,8 @@ public class Rectangle extends Figure {
 
     @Override
     public double calculateResult() {
-        double height = points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(SECOND_POINT));
-        double width = points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(THIRD_POINT));
+        double height = points.getPoint(FIRST_POINT).calculateDistance(points.getPoint(SECOND_POINT));
+        double width = points.getPoint(FIRST_POINT).calculateDistance(points.getPoint(THIRD_POINT));
         return height * width;
     }
 

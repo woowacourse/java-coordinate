@@ -24,7 +24,7 @@ public class PointsTest {
                 new Point(1, 4),
                 new Point(2, 1));
 
-        assertThat(new Points(points).nonDuplicateXSize()).isEqualTo(2);
+        assertThat(new Points(points).getNonDuplicateXSize()).isEqualTo(2);
     }
 
     @Test
@@ -35,6 +35,6 @@ public class PointsTest {
                 new Point(1, 3),
                 new Point(2, 1));
 
-        assertThat(new Points(points).nonDuplicateYSize()).isEqualTo(3);
+        assertThat(new Points(points).getNonDuplicateYSize()).isEqualTo(3);
     }
 }

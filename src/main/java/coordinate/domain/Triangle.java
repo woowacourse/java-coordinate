@@ -25,9 +25,9 @@ public class Triangle extends Figure {
      */
     @Override
     public double calculateResult() {
-        double a = points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(SECOND_POINT));
-        double b = points.getPoints(FIRST_POINT).calculateDistance(points.getPoints(THIRD_POINT));
-        double c = points.getPoints(SECOND_POINT).calculateDistance(points.getPoints(THIRD_POINT));
+        double a = points.getPoint(FIRST_POINT).calculateDistance(points.getPoint(SECOND_POINT));
+        double b = points.getPoint(FIRST_POINT).calculateDistance(points.getPoint(THIRD_POINT));
+        double c = points.getPoint(SECOND_POINT).calculateDistance(points.getPoint(THIRD_POINT));
         double s = (a + b + c) / 2;
         return Math.round((Math.sqrt(s * (s - a) * (s - b) * (s - c)) * ROUNDING_CRITERION)) / ROUNDING_CRITERION;
     }

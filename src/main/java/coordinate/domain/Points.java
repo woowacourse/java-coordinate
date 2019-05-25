@@ -20,21 +20,21 @@ public class Points {
         }
     }
 
-    public int nonDuplicateXSize() {
+    public int getNonDuplicateXSize() {
         return points.stream()
                 .map(Point::getX)
                 .collect(Collectors.toSet())
                 .size();
     }
 
-    public int nonDuplicateYSize() {
+    public int getNonDuplicateYSize() {
         return points.stream()
                 .map(Point::getY)
                 .collect(Collectors.toSet())
                 .size();
     }
 
-    public Point getPoints(int index) {
+    public Point getPoint(int index) {
         return points.get(index);
     }
 
@@ -42,7 +42,7 @@ public class Points {
         return points.size();
     }
 
-    public List<Point> getPoints() {
+    public List<Point> getPoint() {
         return Collections.unmodifiableList(points);
     }
 
