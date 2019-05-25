@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class FigureFactory {
+public class FigureFactory implements FigureCreator {
 
     private static final int LINE_SIZE = 2;
     private static final int TRIANGLE_SIZE = 3;
@@ -18,7 +18,7 @@ public class FigureFactory {
         figureFactory.put(RECTANGLE_SIZE, Rectangle::new);
     }
 
-    public static Figure create(Points points) {
+    public Figure create(Points points) {
         if (!figureFactory.containsKey(points.getSize())) {
             throw new IllegalArgumentException("잘못된 점의 개수 입니다.");
         }
