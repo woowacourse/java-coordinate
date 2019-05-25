@@ -1,6 +1,5 @@
 package coordinate.view;
 
-import coordinate.domain.Calculable;
 import coordinate.domain.Figure;
 import coordinate.domain.Point;
 
@@ -14,8 +13,7 @@ public class OutputView {
     private static final char Y_AXIS = '|';
 
     public static void printResult(Figure figure) {
-        Calculable calculableFigure = figure;
-        System.out.println(figure.getResultMessage() + calculableFigure.calculateResult());
+        System.out.println(figure.getResultMessage() + figure.calculateResult());
     }
 
     public static void printCoordinateSystem(Figure figure) {
