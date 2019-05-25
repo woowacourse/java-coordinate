@@ -18,30 +18,25 @@ public class Rectangle extends Shape {
 
     private void checkValidRectangle() {
         sortPoints();
-
         if (hasNonOrthogonal()) {
             throw new IllegalArgumentException(NOT_RECTANGLE_COORDINATE);
         }
     }
 
     private boolean hasNonOrthogonal() {
-        double firstAngle = getAngle(LEFT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM);
-        double secondAngle = getAngle(RIGHT_TOP, LEFT_TOP, LEFT_BOTTOM);
-        double thirdAngle = getAngle(RIGHT_TOP, RIGHT_BOTTOM, LEFT_BOTTOM);
-        double fourthAngle = getAngle(LEFT_TOP, RIGHT_TOP, RIGHT_BOTTOM);
+        return isNonOrthogonal(LEFT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM)
+                || isNonOrthogonal(RIGHT_TOP, LEFT_TOP, LEFT_BOTTOM)
+                || isNonOrthogonal(RIGHT_TOP, RIGHT_BOTTOM, LEFT_BOTTOM)
+                || isNonOrthogonal(LEFT_TOP, RIGHT_TOP, RIGHT_BOTTOM);
+    }
 
-        return isNonOrthogonal(firstAngle)
-                || isNonOrthogonal(secondAngle)
-                || isNonOrthogonal(thirdAngle)
-                || isNonOrthogonal(fourthAngle);
+    private boolean isNonOrthogonal(int firstPoint, int secondPoint, int thirdPoint) {
+        double angle = getAngle(firstPoint, secondPoint, thirdPoint);
+        return Double.compare(Math.round(angle), RIGHT_ANGLE) != SAME_VALUE;
     }
 
     private double getAngle(int firstPoint, int secondPoint, int thirdPoint) {
         return getPoint(firstPoint).getAngle(getPoint(secondPoint), getPoint(thirdPoint));
-    }
-
-    private boolean isNonOrthogonal(double angle) {
-        return Double.compare(Math.round(angle), RIGHT_ANGLE) != SAME_VALUE;
     }
 
     @Override

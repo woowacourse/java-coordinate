@@ -34,4 +34,11 @@ class InputVerificationTest {
             InputVerification.getValidPoints("(0,0)-(1,a)");
         });
     }
+
+    @Test
+    void 중복된_좌표() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputVerification.getValidPoints("(0,0)-(0,0)");
+        });
+    }
 }
