@@ -1,10 +1,23 @@
 package coordinate;
 
-import coordinate.view.OuputView;
+import coordinate.controller.FigureController;
+import coordinate.controller.InputViewController;
+import coordinate.controller.OutputViewController;
+import coordinate.domain.Line;
+import coordinate.domain.Points;
+import coordinate.view.InputView;
+import coordinate.view.OutputView;
 
 public class Main {
     public static void main(String[] args) {
-        OuputView ouputView = new OuputView();
-        ouputView.run();
+        InputViewController inputViewController = new InputViewController(new InputView());
+        Points points = inputViewController.inputCoordinates();
+
+        FigureController figureController = new FigureController();
+        Line line = figureController.getFigure(points);
+
+        OutputView outputView = new OutputView();
+        OutputViewController outputViewController = new OutputViewController(outputView, line);
+        outputViewController.printFigureInfo();
     }
 }
