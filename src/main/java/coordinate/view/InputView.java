@@ -1,6 +1,5 @@
 package coordinate.view;
 
-import coordinate.Message;
 import coordinate.model.Figure;
 import coordinate.model.FigureFactory;
 import coordinate.model.Point;
@@ -13,11 +12,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputView {
+    private static final String INPUT_COORDINATE = "좌표를 입력하세요.";
+    private static final String ERROR_INVALID_COORDINATES = "올바르지 않은 입력값입니다.";
+    private static final String ERROR_DUPLICATE_POINTS = "중복된 좌표가 존재합니다.";
     private static final String POINT_DELIMITER = "-";
     private static Scanner scanner = new Scanner(System.in);
 
     public static Figure inputCoordinates() {
-        System.out.println(Message.INPUT_COORDINATE);
+        System.out.println(INPUT_COORDINATE);
         return inputCoordinates(scanner.nextLine());
     }
 
@@ -37,7 +39,7 @@ public class InputView {
         Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
         Matcher matcher = pattern.matcher(input);
         if (!matcher.matches()) {
-            throw new IllegalArgumentException(Message.ERROR_INVALID_COORDINATES);
+            throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
         }
     }
 
@@ -60,12 +62,12 @@ public class InputView {
             int y = Integer.parseInt(matcher.group(2));
             return new Point(x, y);
         }
-        throw new IllegalArgumentException(Message.ERROR_INVALID_COORDINATES);
+        throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
     }
 
     private static void checkDuplicationOf(List<Point> points) {
         if (points.size() != new HashSet<>(points).size()) {
-            throw new IllegalArgumentException(Message.ERROR_DUPLICATE_POINTS);
+            throw new IllegalArgumentException(ERROR_DUPLICATE_POINTS);
         }
     }
 }

@@ -1,9 +1,11 @@
 package coordinate.view;
 
-import coordinate.Message;
 import coordinate.model.*;
 
 public class OutputView {
+    private static final String OUTPUT_AREA_OF_LINE = "두 점 사이의 거리는 ";
+    private static final String OUTPUT_AREA_OF_TRIANGLE = "삼각형의 넓이는 ";
+    private static final String OUTPUT_AREA_OF_RECTANGLE = "사각형의 넓이는 ";
     private static final String FOUR_BLANK = "    ";
     private static final String VERTICAL_AXIS = "|";
     private static final String ORIGIN = "+";
@@ -64,13 +66,13 @@ public class OutputView {
 
     public static void showArea(Figure figure) {
         if (figure instanceof Line) {
-            System.out.println(Message.OUTPUT_AREA_OF_LINE + figure.area());
+            System.out.println(OUTPUT_AREA_OF_LINE + figure.area());
         }
         if (figure instanceof Triangle) {
-            System.out.println(Message.OUTPUT_AREA_OF_TRIANGLE + figure.area());
+            System.out.println(OUTPUT_AREA_OF_TRIANGLE + figure.area());
         }
         if (figure instanceof Rectangle) {
-            System.out.println(Message.OUTPUT_AREA_OF_RECTANGLE + figure.area());
+            System.out.println(OUTPUT_AREA_OF_RECTANGLE + figure.area());
         }
     }
 }

@@ -1,7 +1,5 @@
 package coordinate.model;
 
-import coordinate.Message;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -9,6 +7,8 @@ import java.util.Set;
 import static java.util.stream.Collectors.toSet;
 
 public class Rectangle extends AbstractFigure {
+    private static final String ERROR_INVALID_RECTANGLE = "직사각형 모양이 아닙니다.";
+
     public Rectangle(List<Point> points) {
         super(points);
         checkRectangleWith(points);
@@ -22,7 +22,7 @@ public class Rectangle extends AbstractFigure {
                 .map(Point::getY)
                 .collect(toSet());
         if (hasNotTwoPoints(xValuesOfPoints) || hasNotTwoPoints(yValuesOfPoints)) {
-            throw new IllegalArgumentException(Message.ERROR_INVALID_RECTANGLE);
+            throw new IllegalArgumentException(ERROR_INVALID_RECTANGLE);
         }
     }
 

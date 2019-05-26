@@ -1,14 +1,14 @@
 package coordinate.model;
 
-import coordinate.Message;
-
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
+    private static final String ERROR_INVALID_TRIANGLE = "삼각형 모양이 아닙니다.";
+
     public Triangle(List<Point> points) {
         super(points);
         if (isInStraightLine(points)) {
-            throw new IllegalArgumentException(Message.ERROR_INVALID_TRIANGLE);
+            throw new IllegalArgumentException(ERROR_INVALID_TRIANGLE);
         }
     }
 

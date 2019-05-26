@@ -1,10 +1,10 @@
 package coordinate.model;
 
-import coordinate.Message;
-
 import java.util.List;
 
 public class FigureFactory {
+    private static final String ERROR_FIGURE_NULL = "Point 입력값이 없습니다.";
+    private static final String ERROR_INVALID_FIGURE_CREATION = "입력된 Point 개수가 유효하지 않습니다.";
     private static final int ONE_POINT = 1;
     private static final int NUM_OF_VERTICES_OF_LINE = 2;
     private static final int NUM_OF_VERTICES_OF_TRIANGLE = 3;
@@ -12,10 +12,10 @@ public class FigureFactory {
 
     public static Figure create(List<Point> points) {
         if (points == null) {
-            throw new IllegalArgumentException(Message.ERROR_FIGURE_NULL);
+            throw new IllegalArgumentException(ERROR_FIGURE_NULL);
         }
         if (points.size() == ONE_POINT) {
-            throw new IllegalArgumentException(Message.ERROR_INVALID_FIGURE_CREATION);
+            throw new IllegalArgumentException(ERROR_INVALID_FIGURE_CREATION);
         }
         return classifyFigure(points);
     }
@@ -30,6 +30,6 @@ public class FigureFactory {
         if (points.size() == NUM_OF_VERTICES_OF_RECTANGLE) {
             return new Rectangle(points);
         }
-        throw new IllegalArgumentException(Message.ERROR_INVALID_FIGURE_CREATION);
+        throw new IllegalArgumentException(ERROR_INVALID_FIGURE_CREATION);
     }
 }
