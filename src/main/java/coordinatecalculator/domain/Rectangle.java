@@ -19,7 +19,28 @@ public class Rectangle implements Figure {
     private void checkValidRectangle(Points points) {
         List<Point> sortedPoints = points.getSortedPoints();
 
-        if (!(sortedPoints.get(1).getX() == sortedPoints.get(0).getX() && sortedPoints.get(3).getX() == sortedPoints.get(2).getX() && sortedPoints.get(2).getY() == sortedPoints.get(0).getY() && sortedPoints.get(3).getY() == sortedPoints.get(1).getY())) {
+        checkXLocation(sortedPoints);
+        checkYLocation(sortedPoints);
+    }
+
+    private void checkXLocation(List<Point> sortedPoints) {
+        Point leftBottom = sortedPoints.get(0);
+        Point leftTop = sortedPoints.get(1);
+        Point rightBottom = sortedPoints.get(2);
+        Point rightTop = sortedPoints.get(3);
+
+        if (leftBottom.getX() != leftTop.getX() || rightBottom.getX() != rightTop.getX()) {
+            throw new IllegalArgumentException(INVALID_CHECK_MESSAGE);
+        }
+    }
+
+    private void checkYLocation(List<Point> sortedPoints) {
+        Point leftBottom = sortedPoints.get(0);
+        Point leftTop = sortedPoints.get(1);
+        Point rightBottom = sortedPoints.get(2);
+        Point rightTop = sortedPoints.get(3);
+
+        if (leftBottom.getY() != rightBottom.getY() || leftTop.getY() != rightTop.getY()) {
             throw new IllegalArgumentException(INVALID_CHECK_MESSAGE);
         }
     }
