@@ -1,6 +1,6 @@
 package rentcarcompany;
 
-public abstract class Car {
+public abstract class Car implements CarInformation {
     private int distance;
     private int distacnePerLitter;
 
@@ -10,14 +10,10 @@ public abstract class Car {
     }
 
     /**
-     * 차종의 이름
-     */
-    abstract String getName();
-
-    /**
      * 주입해야할 연료량을 구한다.
      */
-    double getChargeQuantity() {
-        return distance / distacnePerLitter;
+    @Override
+    public double getChargeQuantity() {
+        return (double) distance / distacnePerLitter;
     }
 }
