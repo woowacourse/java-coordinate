@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Rectangle extends Figure {
     public Rectangle(Points points) {
-        super(points);
+        super(points, "사각형","넓이");
         if (points.size() != 4) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
@@ -13,7 +13,22 @@ public class Rectangle extends Figure {
         }
     }
 
-    static boolean isRectangle(Points points) {
+    boolean isRectangle(Points points) {
+        return (isOrthogonal(points) && isEqualCrossPoint(points));
+    }
+
+    boolean isOrthogonal(Points points) {
+        Point pivPoint = points.get(0);
+        Point rightPoint = points.get(1);
+        Point leftPoint = points.get(2);
+
+        Point rightVector = pivPoint.calVector(rightPoint);
+        Point leftVector = pivPoint.calVector(leftPoint);
+
+        return rightVector.calDotProduct(leftVector) == 0;
+    }
+
+    boolean isEqualCrossPoint(Points points) {
         Point pivPoint = points.get(0);
         Point rightPoint = points.get(1);
         Point leftPoint = points.get(2);
@@ -21,13 +36,8 @@ public class Rectangle extends Figure {
 
         Point rightVector = pivPoint.calVector(rightPoint);
         Point leftVector = pivPoint.calVector(leftPoint);
-        if (rightVector.calDotProduct(leftVector) != 0) {
-            return false;
-        }
-        if (!pivPoint.calCrossPoint(rightVector, leftVector).equals(crossPoint)) {
-            return false;
-        }
-        return true;
+
+        return pivPoint.calCrossPoint(rightVector, leftVector).equals(crossPoint);
     }
 
     public double calculateFigure() {

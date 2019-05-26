@@ -39,7 +39,7 @@ public class RectangleTest {
     void 사각형의_유효성_정상_테스트() {
         Points points = new Points(Arrays.asList(new Point(1, 1),
                 new Point(1,2), new Point(2, 1), new Point(2,2)));
-        assertThat(Rectangle.isRectangle(points)).isEqualTo(true);
+        new Rectangle(points);
     }
 
     @Test
