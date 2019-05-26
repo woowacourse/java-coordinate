@@ -45,7 +45,7 @@ public class Triangle implements Figure, Shape {
     }
 
     @Override
-    public String separateByVisitor(Visitor visitor) {
+    public String separateShapeByVisitor(Visitor visitor) {
         return visitor.visit(this);
     }
 

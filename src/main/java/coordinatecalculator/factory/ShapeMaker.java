@@ -7,6 +7,7 @@ import coordinatecalculator.util.OutputView;
 import java.util.List;
 
 public class ShapeMaker {
+
     public static Shape createShape() {
         try {
             return createShape(InputManager.getCoordinates());
