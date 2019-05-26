@@ -30,6 +30,10 @@ public class Points {
         return points;
     }
 
+    public int getSize() {
+        return points.size();
+    }
+
     public List<Distance> generateDistances() {
         List<Distance> distances = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
@@ -41,6 +45,5 @@ public class Points {
     private Distance getDistance(int previousPointIndex, int currentPointIndex) {
         return new Distance(this.getPoint(previousPointIndex), this.getPoint(currentPointIndex));
     }
-
 
 }

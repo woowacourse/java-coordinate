@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class PointProperties {
-
     private final static int MIN_POINT_NUMBER = 0;
     private final static int MAX_POINT_NUMBER = 24;
     private final static String NUMBER_REGEX = "[0-9]*";

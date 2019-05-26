@@ -1,11 +1,12 @@
 package coordinatecalculator.model;
 
-
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Point {
+    private static final int SQUARE_NUMBER = 2;
+
     private final XPoint xPoint;
     private final YPoint yPoint;
 
@@ -27,8 +28,12 @@ public class Point {
     }
 
     public int square(Point anotherPoint) {
-        return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), 2)
-                + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), 2));
+        return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), SQUARE_NUMBER)
+                + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), SQUARE_NUMBER));
+    }
+
+    public boolean isDifferentXYValue(Point point) {
+        return !xPoint.equals(point.xPoint) && !yPoint.equals(point.yPoint);
     }
 
     @Override

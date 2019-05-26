@@ -1,27 +1,14 @@
 package coordinatecalculator.model;
 
-import java.util.List;
+public class Triangle implements Figure {
+    private double distance;
 
-public class Triangle extends Figure {
-
-    private double area;
-
-    public Triangle(List<Distance> distances) {
-        this.area = calculateArea(distances);
+    public Triangle(final Points points){
+//        this.distance = points.getDistance(0, 1).getDistance();
     }
 
     @Override
-    public double calculateArea(List<Distance> distances) {
-        double firstLength = distances.get(0).getDistance();
-        double secondLength = distances.get(1).getDistance();
-        double thirdLength = distances.get(2).getDistance();
-
-        final double pythagorean = firstLength * firstLength + secondLength * secondLength - thirdLength * thirdLength;
-        return Math.sqrt(4 * firstLength * firstLength * secondLength * secondLength - pythagorean * pythagorean) / 4;
-    }
-
-    @Override
-    public double getArea() {
-        return Math.round(area * 1000) / 1000.0;
+    public double getResult() {
+        return distance;
     }
 }

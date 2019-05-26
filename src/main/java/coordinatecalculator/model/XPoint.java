@@ -3,7 +3,6 @@ package coordinatecalculator.model;
 import java.util.Objects;
 
 public class XPoint extends PointProperties {
-
     private final int xPoint;
 
     public XPoint(final String xPoint) {

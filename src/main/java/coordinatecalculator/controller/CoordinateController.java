@@ -1,6 +1,5 @@
 package coordinatecalculator.controller;
 
-import coordinatecalculator.model.CoordinateResult;
 import coordinatecalculator.model.Point;
 import coordinatecalculator.model.Points;
 import coordinatecalculator.view.InputView;
@@ -9,15 +8,11 @@ import coordinatecalculator.view.OutputView;
 import java.util.Arrays;
 
 public class CoordinateController {
-
     public void run() {
         Points points = Points.create();
         generatePoint(points);
         OutputView.showCoordinate(points);
-        CoordinateResult coordinateResult = new CoordinateResult(points);
-        //System.out.println(coordinateResult.resultOfDistance());
-        //System.out.println(coordinateResult.resultOfRectangleArea());
-        System.out.println(coordinateResult.resultOfTriangleArea());
+//        CoordinateResult coordinateResult = new CoordinateResult(points);
     }
 
     private void generatePoint(Points points) {
