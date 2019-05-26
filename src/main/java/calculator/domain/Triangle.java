@@ -44,10 +44,10 @@ public class Triangle extends Figure {
 
     @Override
     public double area() {
-        double powerLengthA = Math.pow(ASideOfTriangle, 2);
-        double powerLengthB = Math.pow(BSideOfTriangle, 2);
-        double powerLengthC = Math.pow(CSideOfTriangle, 2);
-        double triangleArea = Math.sqrt(4 * powerLengthA * powerLengthB - Math.pow(powerLengthA + powerLengthB - powerLengthC, 2)) / 4;
+        double squaredASideOfTriangle = Math.pow(ASideOfTriangle, 2);
+        double squaredBSideOfTriangle = Math.pow(BSideOfTriangle, 2);
+        double suqaredCSideOfTriangle = Math.pow(CSideOfTriangle, 2);
+        double triangleArea = Math.sqrt(4 * squaredASideOfTriangle * squaredBSideOfTriangle - Math.pow(squaredASideOfTriangle + squaredBSideOfTriangle - suqaredCSideOfTriangle, 2)) / 4;
         return triangleArea;
     }
 
