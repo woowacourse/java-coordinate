@@ -10,17 +10,17 @@ class Sonata extends AbstractCar {
     }
 
     @Override
-    int getDistancePerLitter() {
+    public int getDistancePerLitter() {
         return FUEL_EFFICIENCY_VALUE;
     }
 
     @Override
-    int getDistance() {
+    public int getDistance() {
         return this.distance;
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return "Sonata";
     }
 
