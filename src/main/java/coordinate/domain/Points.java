@@ -1,6 +1,7 @@
 package coordinate.domain;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Points {
     private final List<Point> points;
@@ -16,5 +17,13 @@ public class Points {
 
     public Point get(int i) {
         return points.get(i);
+    }
+
+    public Point find(Predicate<Point> predicate) {
+        return points.stream().filter(predicate).findFirst().get();
+    }
+
+    public int size() {
+        return points.size();
     }
 }

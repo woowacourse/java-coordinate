@@ -1,11 +1,9 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public class Line {
-    private final List<Point> points;
+    private final Points points;
 
-    public Line(List<Point> points) {
+    public Line(Points points) {
         this.points = points;
     }
 

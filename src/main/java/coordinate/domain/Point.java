@@ -14,6 +14,14 @@ public class Point {
         return Vector2.of(x - p2.x, y - p2.y);
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

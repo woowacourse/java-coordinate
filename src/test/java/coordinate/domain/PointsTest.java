@@ -24,4 +24,11 @@ public class PointsTest {
 
         assertThat(points.get(idx)).isEqualTo(points.get(idx));
     }
+
+    @Test
+    void size() {
+        Points points = Points.from(pointList);
+
+        assertThat(points.size()).isEqualTo(pointList.size());
+    }
 }
