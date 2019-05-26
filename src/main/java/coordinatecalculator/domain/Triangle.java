@@ -18,21 +18,31 @@ public class Triangle implements Figure {
 
     private void checkStraightLine(Points points) {
         List<Point> sortedPoints = points.getSortedPoints();
-        Point point1 = sortedPoints.get(0);
-        Point point2 = sortedPoints.get(1);
-        Point point3 = sortedPoints.get(2);
-        if (point1.getX() == point2.getX() && point2.getX() == point3.getX()) {
+        Point leftPoint = sortedPoints.get(0);
+        Point middlePoint = sortedPoints.get(1);
+        Point rightPoint = sortedPoints.get(2);
+
+        checkSameXLocation(sortedPoints);
+
+        double slope1 = makeSlope(leftPoint, middlePoint);
+        double slope2 = makeSlope(middlePoint, rightPoint);
+
+        if (slope1 == slope2) {
             throw new IllegalArgumentException(INAVALID_TRIANGLE_MESSAGE);
         }
+    }
 
-        int x = point1.getX() - point2.getX();
-        int y = point1.getY() - point2.getY();
-        int x1 = point3.getX() - point2.getX();
-        int y1 = point3.getY() - point2.getY();
-
-        if ((double) y / x == (double) y1 / x1) {
+    private void checkSameXLocation(List<Point> sortedPoints) {
+        Point leftPoint = sortedPoints.get(0);
+        Point middlePoint = sortedPoints.get(1);
+        Point rightPoint = sortedPoints.get(2);
+        if (leftPoint.getX() == middlePoint.getX() && middlePoint.getX() == rightPoint.getX()) {
             throw new IllegalArgumentException(INAVALID_TRIANGLE_MESSAGE);
         }
+    }
+
+    private double makeSlope(Point left, Point right) {
+        return ((double) left.getY() - right.getY()) / (left.getX() - right.getX());
     }
 
     @Override
