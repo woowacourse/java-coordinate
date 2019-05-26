@@ -5,26 +5,28 @@ import java.util.Objects;
 public class Coordinate implements Comparable<Coordinate> {
     private static final int MAX_BOUND = 24;
     private static final int MIN_BOUND = 1;
+    private static final int SQUARE = 2;
+    private static final int ZERO = 0;
     private int x;
     private int y;
 
     public Coordinate(int x, int y) {
         if (x > MAX_BOUND || x < MIN_BOUND || y > MAX_BOUND || y < MIN_BOUND) {
-            throw new IllegalArgumentException(" 범위 넘었어요 ");
+            throw new IllegalArgumentException(" 범위를 제대로 입력하세요. ");
         }
         this.x = x;
         this.y = y;
     }
 
     public double calculateDistance(Coordinate coordinate) {
-        return Math.sqrt(Math.pow(Math.abs(coordinate.x - this.x), 2) + Math.pow(Math.abs(coordinate.y - this.y), 2));
+        return Math.sqrt(Math.pow(Math.abs(coordinate.x - this.x), SQUARE) + Math.pow(Math.abs(coordinate.y - this.y), SQUARE));
     }
 
     public double calculateSlope(Coordinate coordinate) {
         int dx = Math.abs(coordinate.x - this.x);
         int dy = Math.abs(coordinate.y - this.y);
 
-        if (dx == 0) {
+        if (dx == ZERO) {
             return Double.MAX_VALUE;
         }
         return dy / dx;
