@@ -20,7 +20,7 @@ public class Square extends Figure {
 
     @Override
     public double getScore() {
-        return (points.get(0).getDistance(points.get(1))
-                * points.get(0).getDistance(points.get(2)));
+        return (super.getPoint(0).getDistance(super.getPoint(1))
+                * super.getPoint(0).getDistance(super.getPoint(2)));
     }
 }

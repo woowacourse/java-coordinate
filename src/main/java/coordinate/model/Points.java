@@ -29,7 +29,7 @@ public class Points {
         return Collections.unmodifiableList(points).get(index);
     }
 
-    public List<Point> getPoints() {
+    public List<Point> get() {
         return Collections.unmodifiableList(points);
     }
 }

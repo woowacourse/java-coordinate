@@ -20,9 +20,9 @@ public class Triangle extends Figure {
 
     @Override
     public double getScore() {
-        double a = points.get(0).getDistance(points.get(1));
-        double b = points.get(0).getDistance(points.get(2));
-        double c = points.get(1).getDistance(points.get(2));
+        double a = super.getPoint(0).getDistance(super.getPoint(1));
+        double b = super.getPoint(0).getDistance(super.getPoint(2));
+        double c = super.getPoint(1).getDistance(super.getPoint(2));
         return HeronFormula.getTriangleArea(a, b, c);
     }
 }

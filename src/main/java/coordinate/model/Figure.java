@@ -4,13 +4,17 @@ import java.util.List;
 
 public abstract class Figure implements Shape {
 
-    protected Points points;
+    private Points points;
 
     public Figure(List<Point> points) {
         this.points = new Points(points);
     }
 
-    public List<Point> getPoints() {
-        return points.getPoints();
+    public Points getPoints() {
+        return points;
+    }
+
+    public Point getPoint(int index) {
+        return points.get(index);
     }
 }

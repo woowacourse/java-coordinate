@@ -52,9 +52,9 @@ public class OutputView {
         sb.append(TWO_SPACE).append(VERTICAL_BAR);
     }
 
-    private static void drawHorizonLine(List<Point> points, StringBuilder sb, int index) {
+    private static void drawHorizonLine(Points points, StringBuilder sb, int index) {
         int previousX = 0;
-        for (Point point : points) {
+        for (Point point : points.get()) {
             previousX = drawDot(sb, index, previousX, point);
         }
     }
