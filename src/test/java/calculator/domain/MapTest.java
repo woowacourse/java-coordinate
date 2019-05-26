@@ -18,14 +18,15 @@ public class MapTest {
 
     @BeforeEach
     void setUp() {
-        map = new Map();
         coordinate = Coordinate.create(10,2);
         coordinates = new Coordinates();
+        coordinates.add((coordinate));
+        map = new Map(coordinates);
     }
 
     @Test
     void create_생성() {
-        assertThat(map).isEqualTo(new Map());
+        assertThat(map).isEqualTo(new Map(coordinates));
     }
 
     @Test
@@ -35,8 +36,6 @@ public class MapTest {
 
     @Test
     void drawPoint_확인() {
-        coordinates.add((coordinate));
-        map.drawCoordinate(coordinate);
         assertTrue(map.isCoordinateDrawn(coordinate));
     }
 }

@@ -11,10 +11,14 @@ public class Map implements Iterable<MapLine> {
     private static final int MAX_SIZE = 25;
     private List<MapLine> map;
 
-    public Map() {
+    public Map(Coordinates coordinates) {
         this.map = new ArrayList<>();
         for (int i = 0; i < MAX_SIZE; i++) {
             map.add(new MapLine());
+        }
+
+        for (Coordinate coordinate : coordinates) {
+            drawCoordinate(coordinate);
         }
     }
 

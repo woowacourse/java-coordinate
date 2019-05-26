@@ -11,13 +11,9 @@ import calculator.view.UserOutputView;
 public class Main {
     public static void main(String[] args) {
         Coordinates coordinates = UserInputView.generaValidatedCoordinates();
-        Map map = new Map();
-
-        for (Coordinate coordinate : coordinates) {
-            map.drawCoordinate(coordinate);
-        }
-
+        Map map = new Map(coordinates);
         Figure figure = FigureFactory.getInstance().create(coordinates);
+
         UserOutputView.outputMap(map);
         UserOutputView.outputCalculatedResult(figure);
     }
