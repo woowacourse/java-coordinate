@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.toSet;
 public class Rectangle extends AbstractFigure {
     private static final String ERROR_INVALID_RECTANGLE = "직사각형 모양이 아닙니다.";
 
-    public Rectangle(List<Point> points) {
+    Rectangle(List<Point> points) {
         super(points);
         checkRectangleWith(points);
     }
