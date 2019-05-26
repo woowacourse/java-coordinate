@@ -6,6 +6,11 @@ import java.util.*;
 
 public class Rectangle implements Figure, Shape {
     public static final int VERTEX_OF_RECTANGLE = 4;
+    private static final int FIRST_VERTEX = 0;
+    private static final int SECOND_VERTEX = 1;
+    private static final int THIRD_VERTEX = 2;
+    private static final int FOURTH_VERTEX = 3;
+    private static final int SQUARE = 2;
 
     private final List<Coordinate> coordinates;
 
@@ -16,13 +21,13 @@ public class Rectangle implements Figure, Shape {
     }
 
     private void isValidRectangle(List<Coordinate> coordinates) {
-        double vertical = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(1)), 2));
-        double horizontal = Math.round(Math.pow(coordinates.get(0).calculateDistance(coordinates.get(2)), 2));
-        double diagonal = Math.round(Math.pow(coordinates.get(1).calculateDistance(coordinates.get(2)), 2));
+        double vertical = Math.round(Math.pow(coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(SECOND_VERTEX)), SQUARE));
+        double horizontal = Math.round(Math.pow(coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(THIRD_VERTEX)), SQUARE));
+        double diagonal = Math.round(Math.pow(coordinates.get(SECOND_VERTEX).calculateDistance(coordinates.get(THIRD_VERTEX)), SQUARE));
         checkPythagoras(vertical, horizontal, diagonal);
 
-        vertical = Math.round(Math.pow(coordinates.get(2).calculateDistance(coordinates.get(3)), 2));
-        horizontal = Math.round(Math.pow(coordinates.get(1).calculateDistance(coordinates.get(3)), 2));
+        vertical = Math.round(Math.pow(coordinates.get(THIRD_VERTEX).calculateDistance(coordinates.get(FOURTH_VERTEX)), SQUARE));
+        horizontal = Math.round(Math.pow(coordinates.get(SECOND_VERTEX).calculateDistance(coordinates.get(FOURTH_VERTEX)), SQUARE));
         checkPythagoras(vertical, horizontal, diagonal);
     }
 
@@ -34,7 +39,7 @@ public class Rectangle implements Figure, Shape {
 
     @Override
     public double area() {
-        return coordinates.get(0).calculateDistance(coordinates.get(1)) * coordinates.get(0).calculateDistance(coordinates.get(2));
+        return coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(SECOND_VERTEX)) * coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(THIRD_VERTEX));
     }
 
     @Override

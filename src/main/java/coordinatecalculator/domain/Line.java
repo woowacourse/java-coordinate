@@ -9,6 +9,8 @@ import java.util.Set;
 
 public class Line implements Shape {
     public static final int VERTEX_OF_LINE = 2;
+    private static final int FIRST_VERTEX = 0;
+    private static final int SECOND_VERTEX = 1;
 
     private final List<Coordinate> coordinates;
 
@@ -18,7 +20,7 @@ public class Line implements Shape {
     }
 
     public double getLineLength() {
-        return coordinates.get(0).calculateDistance(coordinates.get(1));
+        return coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(SECOND_VERTEX));
     }
 
     @Override
