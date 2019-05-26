@@ -3,9 +3,6 @@ package coordinate.domain;
 import java.util.List;
 
 public class Figure {
-    static final int MAX_Y = 24;
-    static final int MAX_X = 24;
-
     protected final List<Point> points;
 
     Figure(List<Point> points, int validLengthOfPoints) {
@@ -20,6 +17,6 @@ public class Figure {
     }
 
     public PlaneCoordinates getPlaneCoordinates() {
-        return new PlaneCoordinates(MAX_X, MAX_Y).plotPoints(points);
+        return new PlaneCoordinates(Point.MAX_X, Point.MAX_Y).plotPoints(points);
     }
 }

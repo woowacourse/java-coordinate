@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Point {
     private static final int MIN_X = 0;
-    private static final int MAX_X= Figure.MAX_X;
+    static final int MAX_X = 24;
     private static final int MIN_Y = 0;
-    private static final int MAX_Y= Figure.MAX_Y;
+    static final int MAX_Y = 24;
     private static final String OUT_OF_RANGE_EXCEPTION_MESSAGE = "값이 범위를 벗어났습니다. 좌표 : (%d, %d)";
 
     private final int x;
