@@ -38,7 +38,7 @@ public class FigureFactory implements Factory {
         try {
             return FIGURE_CREATORS.get(points.size()).create(points);
         } catch (RuntimeException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("5개 미만의 좌표를 입력하세요");
         }
     }
 }

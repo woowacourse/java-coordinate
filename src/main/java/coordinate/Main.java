@@ -9,8 +9,7 @@ import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
-		List<Point> points = InputView.inputCoordinate();
-		Coordinates coordinates = new Coordinates(points);
+		Coordinates coordinates = InputView.inputCoordinate();
 		OutputView.showGraph(coordinates.getFigure());
 		try {
 			OutputView.showArea(coordinates.getFigure());

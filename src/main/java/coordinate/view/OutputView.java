@@ -7,6 +7,9 @@ public class OutputView {
 	private static final int MAX_POINT = Point.MAX_POINT;
 	private static final int MIN_POINT = Point.MIN_POINT;
 
+	private OutputView() {
+	}
+
 	public static void showGraph(final Figure figure) {
 		showHorizontalLines(figure);
 
