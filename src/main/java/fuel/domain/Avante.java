@@ -1,6 +1,6 @@
 package fuel.domain;
 
-class Avante extends Car {
+class Avante extends AbstractCar {
     private static final int FUEL_EFFICIENCY_VALUE = 15;
     private final int distance;
 

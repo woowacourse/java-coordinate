@@ -1,6 +1,6 @@
 package fuel.domain;
 
-class K5 extends Car{
+class K5 extends AbstractCar {
     private static final int FUEL_EFFICIENCY_VALUE = 13;
     private final int distance;
 

@@ -1,6 +1,6 @@
 package fuel.domain;
 
-class Sonata extends Car {
+class Sonata extends AbstractCar {
     private static final int FUEL_EFFICIENCY_VALUE = 10;
     private final int distance;
 
