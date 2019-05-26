@@ -2,20 +2,20 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class X {
+public class Coordinate implements Comparable<Coordinate> {
     private static final int MAX_COORDINATE_VALUE = 24;
     private static final int MIN_COORDINATE_VALUE = 1;
 
     private int coordinate;
 
-    public X(int coordinate) {
+    public Coordinate(int coordinate) {
         checkCoordinateValue(coordinate);
         this.coordinate = coordinate;
     }
 
     private void checkCoordinateValue(int coordinateValue) {
         if (coordinateValue < MIN_COORDINATE_VALUE || coordinateValue > MAX_COORDINATE_VALUE) {
-            throw new IllegalArgumentException("X 좌표가 범위를 벗어났습니다.");
+            throw new IllegalArgumentException("좌표가 범위를 벗어났습니다.");
         }
     }
 
@@ -23,19 +23,15 @@ public class X {
         return coordinate;
     }
 
-    public int getDistance(X x) {
-        return Math.abs(this.coordinate - x.coordinate);
+    public int getDistance(Coordinate coordinate) {
+        return Math.abs(this.coordinate - coordinate.coordinate);
     }
-
-    public boolean compare(X x) {
-        return this.coordinate < x.coordinate;
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        X x = (X) o;
+        Coordinate x = (Coordinate) o;
         return coordinate == x.coordinate;
     }
 

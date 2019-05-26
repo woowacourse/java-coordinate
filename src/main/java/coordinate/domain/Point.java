@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Point implements Comparable<Point> {
     private static final int SQUARE = 2;
 
-    private final X x;
-    private final Y y;
+    private final Coordinate x;
+    private final Coordinate y;
 
     public Point(int x, int y) {
-        this.x = new X(x);
-        this.y = new Y(y);
+        this.x = new Coordinate(x);
+        this.y = new Coordinate(y);
     }
 
     public double calculateDistance(Point point) {
