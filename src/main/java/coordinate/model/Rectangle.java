@@ -22,6 +22,7 @@ public class Rectangle extends AbstractFigure {
         Set<Integer> yValuesOfPoints = points.stream()
                 .map(Point::getY)
                 .collect(toSet());
+
         if (hasNotTwoPoints(xValuesOfPoints) || hasNotTwoPoints(yValuesOfPoints)) {
             throw new IllegalArgumentException(ERROR_INVALID_RECTANGLE);
         }
