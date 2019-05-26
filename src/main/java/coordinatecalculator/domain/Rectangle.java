@@ -53,8 +53,7 @@ public class Rectangle implements Figure {
 
     @Override
     public String makeResult() {
-        StringBuilder sb = new StringBuilder(TRIANGLE_RESULT_MESSAGE);
-        return sb.append(calculateResult()).toString();
+        return TRIANGLE_RESULT_MESSAGE + calculateResult();
     }
 
     @Override
