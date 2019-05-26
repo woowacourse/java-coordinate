@@ -23,7 +23,7 @@ public class InputView {
             checkInput(input);
 
             return parseInput(input);
-        } catch (IllegalArgumentException e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             return inputCoordinatePoints();
         }
     }

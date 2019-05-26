@@ -5,11 +5,16 @@ import com.woowacourse.javacoordinate.domain.point.Points;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CoordinateSystem {
     private final List<CoordinateLine> coordinateLines;
 
     public CoordinateSystem(Points points) {
+        if (Objects.isNull(points)) {
+            throw new NullPointerException();
+        }
+
         coordinateLines = drawCoordinate(points);
     }
 
@@ -52,7 +57,7 @@ public class CoordinateSystem {
     }
 
     public boolean isMarked(int x, int y) {
-        if (coordinateLines.get(y) == null) {
+        if (Objects.isNull(coordinateLines.get(y))) {
             return false;
         }
 

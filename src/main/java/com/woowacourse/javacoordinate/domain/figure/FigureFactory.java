@@ -4,6 +4,7 @@ import com.woowacourse.javacoordinate.domain.point.Points;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Function;
 
 public class FigureFactory {
@@ -16,9 +17,13 @@ public class FigureFactory {
     }
 
     public static Figure createFigure(Points points) {
+        if (Objects.isNull(points)) {
+            throw new NullPointerException();
+        }
+
         Function<Points, Figure> function = figureCreator.get(points.getSize());
-        if (function == null) {
-            throw new NullPointerException("포인트 개수가 올바르지 않습니다");
+        if (Objects.isNull(function)) {
+            throw new NullPointerException();
         }
 
         return function.apply(points);

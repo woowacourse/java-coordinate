@@ -12,7 +12,7 @@ public class CoordinateLine {
         }
 
         if (line.size() == 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("빈 데이터가 입력되었습니다");
         }
 
         this.line = line;

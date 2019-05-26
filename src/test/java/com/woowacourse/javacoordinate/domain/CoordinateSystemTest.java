@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class CoordinateSystemTest {
     @Test
@@ -18,5 +19,11 @@ public class CoordinateSystemTest {
 
         assertThat(coordinateSystem.isMarked(20, 0)).isTrue();
         assertThat(coordinateSystem.isMarked(19, 0)).isFalse();
+    }
+
+    @Test
+    void 생성자_null_예외처리() {
+        assertThatExceptionOfType(NullPointerException.class)
+                .isThrownBy(() -> new CoordinateSystem(null));
     }
 }

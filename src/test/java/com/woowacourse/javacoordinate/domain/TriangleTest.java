@@ -26,6 +26,12 @@ public class TriangleTest {
     }
 
     @Test
+    void 생성자에_null_입력_예외처리() {
+        assertThatExceptionOfType(NullPointerException.class)
+                .isThrownBy(() -> new Triangle(null));
+    }
+
+    @Test
     void 삼각형_초기화_오류_포인트_개수가_다를_때() {
         points = new Points(Arrays.asList(new Point(10, 10),
                 new Point(14, 15)));

@@ -51,7 +51,19 @@ public class FigureFactoryTest {
                 new Point(0, 0)));
 
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> FigureFactory.createFigure(points))
-                .withMessage("포인트 개수가 올바르지 않습니다");
+                .isThrownBy(() -> FigureFactory.createFigure(points));
+    }
+
+    @Test
+    void 한_점을_생성하면_예외처리() {
+        Points points = new Points(Arrays.asList(new Point(1, 1)));
+        assertThatExceptionOfType(NullPointerException.class)
+                .isThrownBy(() -> FigureFactory.createFigure(points));
+    }
+
+    @Test
+    void null_입력되면_예외처리() {
+        assertThatExceptionOfType(NullPointerException.class)
+                .isThrownBy(() -> FigureFactory.createFigure(null));
     }
 }

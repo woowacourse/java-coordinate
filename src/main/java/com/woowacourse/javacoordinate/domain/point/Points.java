@@ -6,8 +6,20 @@ public class Points {
     private final List<Point> points;
 
     public Points(List<Point> points) {
-        checkPointsIsDuplicate(points);
+        checkPoints(points);
         this.points = points;
+    }
+
+    private void checkPoints(List<Point> points) {
+        if (Objects.isNull(points)) {
+            throw new NullPointerException();
+        }
+
+        if (points.size() == 0) {
+            throw new IllegalArgumentException("빈 point가 입력되었습니다");
+        }
+
+        checkPointsIsDuplicate(points);
     }
 
     private void checkPointsIsDuplicate(List<Point> points) {

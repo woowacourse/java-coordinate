@@ -12,20 +12,25 @@ public class Application {
     public static void main(String[] args) {
         while (true) {
             Points points = InputView.inputCoordinatePoints();
-            Result result = null;
-            CoordinateSystem coordinateSystem = null;
+            Result result;
+            CoordinateSystem coordinateSystem;
 
             try {
                 Figure figure = FigureFactory.createFigure(points);
                 result = new Result(figure);
                 coordinateSystem = new CoordinateSystem(points);
-            } catch (Exception e) {
+
+                OutputView.printCoordinateSystem(coordinateSystem);
+                OutputView.printResult(result);
+            } catch (NullPointerException e) {
+                System.exit(0);
+            } catch (IllegalArgumentException e) {
                 System.err.println(e.getMessage());
                 System.exit(0);
+            } catch (Exception e) {
+                System.err.println("알 수 없는 예외 발생");
+                System.exit(0);
             }
-
-            OutputView.printCoordinateSystem(coordinateSystem);
-            OutputView.printResult(result);
         }
     }
 }

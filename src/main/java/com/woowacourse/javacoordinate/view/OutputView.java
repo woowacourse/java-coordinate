@@ -8,14 +8,18 @@ import com.woowacourse.javacoordinate.domain.figure.Rectangle;
 import com.woowacourse.javacoordinate.domain.figure.Triangle;
 
 import java.util.List;
+import java.util.Objects;
 
 public class OutputView {
     private static final int MIN_COORDINATE = 0;
     private static final int MAX_COORDINATE = 24;
 
     public static void printCoordinateSystem(CoordinateSystem coordinateSystem) {
-        List<CoordinateLine> lines = coordinateSystem.getCoordinateLines();
+        if (Objects.isNull(coordinateSystem)) {
+            throw new NullPointerException();
+        }
 
+        List<CoordinateLine> lines = coordinateSystem.getCoordinateLines();
         for (int i = MAX_COORDINATE; i >= MIN_COORDINATE; i--) {
             printCoordinateLine(lines, i);
         }
@@ -69,6 +73,10 @@ public class OutputView {
     }
 
     public static void printResult(Result result) {
+        if (Objects.isNull(result)) {
+            throw new NullPointerException();
+        }
+
         checkResultIfLine(result);
         checkResultIfTriangle(result);
         checkResultIfRectangle(result);

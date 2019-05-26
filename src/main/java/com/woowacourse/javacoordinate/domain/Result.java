@@ -26,8 +26,8 @@ public class Result {
 
     private double calculate(Figure figure) {
         Supplier<Double> calculator = map.get(figure.getType());
-        if (calculator == null) {
-            throw new NullPointerException("도형 타입이 올바르지 않습니다");
+        if (Objects.isNull(calculator)) {
+            throw new NullPointerException();
         }
 
         return calculator.get();

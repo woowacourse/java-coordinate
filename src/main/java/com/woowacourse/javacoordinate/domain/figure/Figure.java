@@ -9,6 +9,10 @@ public abstract class Figure implements FigureCalculator {
     String type;
 
     Figure(Points points) {
+        if (Objects.isNull(points)) {
+            throw new NullPointerException();
+        }
+
         this.points = points;
     }
 
