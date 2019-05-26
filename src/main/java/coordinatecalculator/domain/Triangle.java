@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Triangle implements Figure, Shape {
     private List<Coordinate> coordinates;
-    private static final int VERTEX_OF_TRIANGLE = 3;
+    public static final int VERTEX_OF_TRIANGLE = 3;
 
     public Triangle(final List<Coordinate> coordinates) {
         isValidShape(coordinates);

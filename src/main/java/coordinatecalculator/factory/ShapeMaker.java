@@ -7,10 +7,6 @@ import coordinatecalculator.util.OutputView;
 import java.util.List;
 
 public class ShapeMaker {
-    static final int COORDINATES_FOR_LINE = 2;
-    static final int COORDINATES_FOR_TRIANGLE = 3;
-    static final int COORDINATES_FOR_RECTANGLE = 4;
-
     public static Shape createShape() {
         try {
             return createShape(InputManager.getCoordinates());
