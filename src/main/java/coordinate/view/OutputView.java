@@ -11,47 +11,59 @@ public class OutputView {
     private final static String POINT = "●";
 
     public static void printResult(Shape shape) {
-        //TODO
-        // 삼각형,사각형, 길이 또는 면적 넓이 출력
-        System.out.println(shape.toString());
+        System.out.println(String.format("%s의 %s는 %.1f", shape.getName(), shape.getOperationName(), shape.calculateFigure()));
     }
 
-    public static void printBoard(Board boardVo) {
+    public static void printBoard(Board board) {
+        System.out.println(buildBoard(board));
+    }
+
+    public static String buildBoard(Board boardVo) {
         List<List<Boolean>> board = boardVo.getBoard();
         StringBuilder sb = new StringBuilder();
-        for (int axisY = MAX_BOARD_SIZE-1; axisY > MIN_BOARD_SIZE; axisY--) {
+        buildAxisY(board, sb);
+        buildAxisX(board, sb);
+        return sb.toString();
+    }
+
+    private static void buildAxisX(List<List<Boolean>> board, StringBuilder sb) {
+        sb.append(String.format("%6.6s", ""));
+        if (board.get(0).get(0)) {
+            sb.append(POINT);
+        }
+        if (!board.get(0).get(0)) {
+            sb.append("+");
+        }
+        for (int axisX = MIN_BOARD_SIZE + 1; axisX < MAX_BOARD_SIZE; axisX++) {
+            boolean pointState = board.get(0).get(axisX);
+            if (pointState) {
+                sb.append(String.format("%5.5s%s", "-----", POINT));
+                continue;
+            }
+            sb.append(String.format("%6.6s", "-------"));
+        }
+        sb.append("\n ");
+        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX += 2) {
+            sb.append(String.format("%6.6s", axisX));
+            sb.append(String.format("%6.6s", ""));
+        }
+    }
+
+    private static void buildAxisY(List<List<Boolean>> board, StringBuilder sb) {
+        for (int axisY = MAX_BOARD_SIZE - 1; axisY > MIN_BOARD_SIZE; axisY--) {
             for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
                 boolean pointState = board.get(axisY).get(axisX);
                 if (axisX == MIN_BOARD_SIZE && !pointState) {
-                    sb.append(String.format("%5.5s|", axisY));
+                    sb.append(String.format("%6.6s|", axisY));
                     continue;
                 }
                 if (pointState) {
-                    sb.append(String.format("%5.5s", POINT));
+                    sb.append(String.format("%6.6s", POINT));
                     continue;
                 }
-                sb.append(String.format("%5.5s", ""));
+                sb.append(String.format("%6.6s", ""));
             }
-            sb.append(String.format("\n%5.5s|\n", ""));
+            sb.append(String.format("\n%6.6s|\n", ""));
         }
-
-        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
-            boolean pointState = board.get(0).get(axisX);
-            if (axisX == MIN_BOARD_SIZE && !pointState) {
-                sb.append(String.format("%5.5s+", ""));
-                continue;
-            }
-            if (pointState) {
-                sb.append(String.format("%5.5s",  "----"+ POINT));
-                continue;
-            }
-            sb.append(String.format("%5.5s", "-----"));
-        }
-        sb.append("\n ");
-        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX+=2) {
-            sb.append(String.format("%5.5s", axisX));
-            sb.append(String.format("%5.5s", ""));
-        }
-        sb.toString();
     }
 }
