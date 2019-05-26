@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 public class Point {
     private static final int SQUARE_NUMBER = 2;
+    private static final int ZERO = 0;
 
     private final XPoint xPoint;
     private final YPoint yPoint;
@@ -34,6 +35,13 @@ public class Point {
 
     public boolean isDifferentXYValue(Point point) {
         return !xPoint.equals(point.xPoint) && !yPoint.equals(point.yPoint);
+    }
+
+    public double getSlope(Point point) {
+        if (xPoint.subtract(point.xPoint.getValue()) == ZERO) {
+            return Double.MAX_VALUE;
+        }
+        return yPoint.subtract(point.yPoint.getValue()) / xPoint.subtract(point.xPoint.getValue());
     }
 
     @Override

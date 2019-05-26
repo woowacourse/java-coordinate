@@ -12,16 +12,7 @@ public class Rectangle implements Figure {
     private double area;
 
     public Rectangle(final Points points) {
-        this.area = calculateArea(points);
-    }
-
-    private double calculateArea(Points points) {
-        List<Point> differentPoints = validateRectangle(getDifferentPoints(points));
-        Point firstPoint = differentPoints.get(FIRST_POINT);
-        Point secondPoint = differentPoints.get(SECOND_POINT);
-
-        return Math.abs(firstPoint.getxPoint().subtract(secondPoint.getxPoint().getValue())
-                * firstPoint.getyPoint().subtract(secondPoint.getyPoint().getValue()));
+        this.area = calculateResult(points);
     }
 
     private List<Point> getDifferentPoints(final Points points) {
@@ -44,5 +35,15 @@ public class Rectangle implements Figure {
     @Override
     public double getResult() {
         return Math.round(area * DEGREE_OF_THIRD_PRECISION) / DEGREE_OF_THIRD_PRECISION;
+    }
+
+    @Override
+    public double calculateResult(final Points points) {
+        List<Point> differentPoints = validateRectangle(getDifferentPoints(points));
+        Point firstPoint = differentPoints.get(FIRST_POINT);
+        Point secondPoint = differentPoints.get(SECOND_POINT);
+
+        return Math.abs(firstPoint.getxPoint().subtract(secondPoint.getxPoint().getValue())
+                * firstPoint.getyPoint().subtract(secondPoint.getyPoint().getValue()));
     }
 }
