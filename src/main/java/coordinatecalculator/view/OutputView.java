@@ -7,9 +7,10 @@ import java.util.List;
 
 public class OutputView {
     public static void printResult(Figure figure) {
-        List<StringBuilder> board = Drawer.newInstance(figure.getPoints()).getBoard();
-        for (int i = 0; i < board.size(); i++) {
-            System.out.print(board.get(i).toString());
+        Drawer drawer = new Drawer(figure.getPoints());
+        List<StringBuilder> board = drawer.getBoard();
+        for (StringBuilder oneLine : board) {
+            System.out.print(oneLine.toString());
         }
         System.out.println(figure.makeResult());
     }

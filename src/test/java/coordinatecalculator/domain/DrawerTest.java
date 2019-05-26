@@ -11,7 +11,7 @@ class DrawerTest {
     @Test
     void 포인트가_좌표에_정상적으로_찍히는지_테스트() {
         Points points = new Points(Arrays.asList(new Point("1", "1"),new Point("1", "3"), new Point("3", "1"),new Point("3", "3")));
-        Drawer drawer = Drawer.newInstance(points);
+        Drawer drawer = new Drawer(points);
         StringBuilder result = new StringBuilder(
                         "24|                                                \n" +
                         "  |                                                \n" +

@@ -11,12 +11,8 @@ public class Drawer {
 
     private final List<StringBuilder> board = new ArrayList<>();
 
-    private Drawer(Points points) {
+    public Drawer(Points points) {
         makePicture(points);
-    }
-
-    public static Drawer newInstance(Points points) {
-        return new Drawer(points);
     }
 
     private void makePicture(Points points) {
@@ -52,7 +48,9 @@ public class Drawer {
     private void plotPoint(Points points) {
         List<Point> sortedPoints = points.getSortedPoints();
         for (Point point : sortedPoints) {
-            board.get(COORDINATE_UPPER_BOUND - point.getY()).replace(point.getX() * COORDINATE_Y_OFFSET + COORDINATE_X_OFFSET, point.getX() * COORDINATE_Y_OFFSET + COORDINATE_X_OFFSET + 1, "*");
+            int xIndex = point.getX() * COORDINATE_Y_OFFSET + COORDINATE_X_OFFSET;
+            int yIndex = COORDINATE_UPPER_BOUND - point.getY();
+            board.get(yIndex).replace(xIndex, xIndex + 1, "*");
         }
     }
 
