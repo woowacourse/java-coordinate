@@ -41,29 +41,4 @@ public class CoordinatesTest {
             coordinates.add(new Coordinate(1,1));
         });
     }
-
-    @Test
-    void checkTriangle_일직선_확인() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            coordinates.add(new Coordinate(10,5));
-        });
-    }
-
-    @Test
-    void checkRectangle_직사각형_확인() {
-        coordinates.add(new Coordinate(0,10));
-        coordinates.add(new Coordinate(0,20));
-    }
-
-    @Test
-    void checkRectangle_직사각형_예외() {
-        Coordinates coordinatesException = new Coordinates();
-        coordinatesException.add(new Coordinate(10,20));
-        coordinatesException.add(new Coordinate(10,10));
-        coordinatesException.add(new Coordinate(0,10));
-        assertThrows(IllegalArgumentException.class, () -> {
-            coordinatesException.add(new Coordinate(0,5));
-        });
-
-    }
 }

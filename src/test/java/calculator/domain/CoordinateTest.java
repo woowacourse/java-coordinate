@@ -25,15 +25,15 @@ public class CoordinateTest {
     }
 
     @Test
-    void matchYAxis_y값_일치_확인() {
-        int xCoordinate = coordinate.matchYAxis(15);
-        assertThat(xCoordinate).isEqualTo(10);
+    void matchAxis_좌표값_일치_확인() {
+        boolean rightCoordinate = coordinate.matchAxis(10, 15);
+        assertThat(rightCoordinate).isEqualTo(true);
     }
 
     @Test
-    void matchYAxis_y값_불일치_확인() {
-        int xCoordinate = coordinate.matchYAxis(14);
-        assertThat(xCoordinate).isEqualTo(-1);
+    void matchAxis_좌표값_불일치_확인() {
+        boolean rightCoordinate = coordinate.matchAxis(5, 15);
+        assertThat(rightCoordinate).isEqualTo(false);
     }
 
     @Test

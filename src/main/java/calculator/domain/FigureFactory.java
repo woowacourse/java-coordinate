@@ -8,6 +8,8 @@ public class FigureFactory {
     private static final int POINT = 1;
     private static final int LINE = 2;
     private static final int TRIANGLE = 3;
+    private static final int RECTANGLE = 4;
+    public static final String EX_NO_SUCH_FIGURE_MESSAGE = "4각형까지만 지원되는 프로그램입니다.";
     private static FigureFactory instance = new FigureFactory();
 
     public static FigureFactory getInstance() {
@@ -26,6 +28,10 @@ public class FigureFactory {
         if (coordinates.size() == TRIANGLE) {
             return new Triangle(coordinates);
         }
-        return new Rectangle(coordinates);
+        if (coordinates.size() == RECTANGLE) {
+            return new Rectangle((coordinates));
+        }
+
+        throw new IllegalArgumentException(EX_NO_SUCH_FIGURE_MESSAGE);
     }
 }

@@ -1,5 +1,8 @@
 package calculator.domain;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -8,11 +11,32 @@ import java.util.Objects;
  */
 public class Triangle extends Figure {
 
+    private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
+    private static final int TRI_LONGEST_SIDE = 2;
+    private static final int TRI_OTHER_SIDE = 1;
+    private static final int TRI_ANOTHER_SIDE = 0;
     private final Coordinates coordinates;
 
     public Triangle(Coordinates coordinates) {
         super("삼각형", "넓이");
         this.coordinates = coordinates;
+        checkTriangle();
+    }
+
+    private void checkTriangle() {
+        double lengthA = straight(coordinates.get(0), coordinates.get(1));
+        double lengthB = straight(coordinates.get(1), coordinates.get(2));
+        double lengthC = straight(coordinates.get(0), coordinates.get(2));
+
+        List<Double> lengths = Arrays.asList(lengthA, lengthB, lengthC);
+        Collections.sort(lengths);
+        checkNotTriangle(lengths);
+    }
+
+    private void checkNotTriangle(List<Double> lengths) {
+        if (lengths.get(TRI_LONGEST_SIDE) >= lengths.get(TRI_OTHER_SIDE) + lengths.get(TRI_ANOTHER_SIDE)) {
+            throw new IllegalArgumentException(EX_NOT_TRIANGLE_MESSAGE);
+        }
     }
 
     @Override

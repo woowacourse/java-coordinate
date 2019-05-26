@@ -8,7 +8,6 @@ import java.util.Objects;
  */
 public class Coordinate  {
     private static final String EX_COORDINATE_RANGE_MESSAGE = "좌표 범위는 0~24 사이입니다.";
-    private static final int NOT_MATCH = -1;
     private static final int MIN_COORDINATE = 0;
     private static final int MAX_COORDINATE = 24;
     private final int xCoordinate;
@@ -33,12 +32,8 @@ public class Coordinate  {
         }
     }
 
-    public int matchYAxis(int yCoordinate) {
-        if (yCoordinate == this.yCoordinate) {
-            return xCoordinate;
-        }
-
-        return NOT_MATCH;
+    public boolean matchAxis(int xCoordinate, int yCoordinate) {
+        return (yCoordinate == this.yCoordinate && xCoordinate == this.xCoordinate);
     }
 
     public int getXCoordinate() {

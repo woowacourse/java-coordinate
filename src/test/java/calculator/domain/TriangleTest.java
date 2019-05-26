@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author soojinroh
@@ -32,5 +33,16 @@ public class TriangleTest {
     @Test
     void area_삼각형_넓이_확인() {
         assertThat(triangle.area()).isEqualTo(50.000,offset(0.00099));
+    }
+
+    @Test
+    void checkTriangle_일직선_확인() {
+        coordinates = new Coordinates();
+        coordinates.add(new Coordinate(0 ,0));
+        coordinates.add(new Coordinate(0 ,5));
+        coordinates.add(new Coordinate(0,10));
+        assertThrows(IllegalArgumentException.class, () -> {
+            FigureFactory.getInstance().create(coordinates);
+        });
     }
 }
