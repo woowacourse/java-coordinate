@@ -1,4 +1,4 @@
-package coordinate.controller;
+package coordinate.service;
 
 import coordinate.domain.Board;
 import coordinate.domain.Points;
@@ -6,7 +6,7 @@ import coordinate.domain.Shape;
 import coordinate.domain.ShapeFactory;
 import coordinate.dto.CoordinateDto;
 
-public class CoordinateController {
+public class CoordinateService {
     public static CoordinateDto request(Points points) {
         Shape shape = ShapeFactory.create(points);
         Board board = new Board(points);
