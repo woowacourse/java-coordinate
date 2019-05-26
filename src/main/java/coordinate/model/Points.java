@@ -26,12 +26,10 @@ public class Points {
     }
 
     public Point get(int index) {
-        List<Point> readOnlyPoints = Collections.unmodifiableList(points);
-        return readOnlyPoints.get(index);
+        return Collections.unmodifiableList(points).get(index);
     }
 
     public List<Point> getPoints() {
-        List<Point> readOnlyPoints = Collections.unmodifiableList(points);
-        return readOnlyPoints;
+        return Collections.unmodifiableList(points);
     }
 }
