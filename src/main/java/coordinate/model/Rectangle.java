@@ -3,6 +3,7 @@ package coordinate.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 import static java.util.stream.Collectors.toSet;
 
@@ -16,16 +17,26 @@ public class Rectangle extends AbstractFigure {
     }
 
     private void checkRectangleWith(List<Point> points) {
-        Set<Integer> xValuesOfPoints = points.stream()
-                .map(Point::getX)
-                .collect(toSet());
-        Set<Integer> yValuesOfPoints = points.stream()
-                .map(Point::getY)
-                .collect(toSet());
+        Set<Integer> xValuesOfPoints = convertToUniqueXValues(points);
+        Set<Integer> yValuesOfPoints = convertToUniqueYValues(points);
 
         if (hasNotTwoPoints(xValuesOfPoints) || hasNotTwoPoints(yValuesOfPoints)) {
             throw new IllegalArgumentException(ERROR_INVALID_RECTANGLE);
         }
+    }
+
+    private Set<Integer> convertToUniqueXValues(List<Point> points) {
+        return convertToUniqueValues(points, Point::getX);
+    }
+
+    private Set<Integer> convertToUniqueYValues(List<Point> points) {
+        return convertToUniqueValues(points, Point::getY);
+    }
+
+    private Set<Integer> convertToUniqueValues(List<Point> points, Function<Point, Integer> function) {
+        return points.stream()
+                .map(function)
+                .collect(toSet());
     }
 
     private boolean hasNotTwoPoints(Set<Integer> valuesOfPoints) {
@@ -34,12 +45,9 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double area() {
-        int differenceOfXValues = calculateDifference(getPoints().stream()
-                .map(Point::getX)
-                .collect(toSet()));
-        int differenceOfYValues = calculateDifference(getPoints().stream()
-                .map(Point::getY)
-                .collect(toSet()));
+        List<Point> points = getPoints();
+        int differenceOfXValues = calculateDifference(convertToUniqueXValues(points));
+        int differenceOfYValues = calculateDifference(convertToUniqueYValues(points));
 
         return (double) (differenceOfXValues * differenceOfYValues);
     }
