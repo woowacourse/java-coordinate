@@ -2,6 +2,7 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.domain.parent.Figure;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class Triangle implements Figure {
     }
 
     private void checkValidTriangle() {
-        List<Point> points1 = this.points.getSortedPoints();
+        List<Point> points1 = Collections.unmodifiableList(this.points.getSortedPoints());
         Point point1 = points1.get(0);
         Point point2 = points1.get(1);
         Point point3 = points1.get(2);
@@ -51,7 +52,7 @@ public class Triangle implements Figure {
 
     @Override
     public double calculateResult() {
-        List<Point> points = this.points.getSortedPoints();
+        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
         double side1 = calculateLength(points.get(0), points.get(1));
         double side2 = calculateLength(points.get(1), points.get(2));
         double side3 = calculateLength(points.get(2), points.get(0));
@@ -62,8 +63,7 @@ public class Triangle implements Figure {
 
     @Override
     public String makeResult() {
-        StringBuilder sb = new StringBuilder(RECTANGLE_RESULT_MESSAGE);
-        return sb.append(calculateResult()).toString();
+        return RECTANGLE_RESULT_MESSAGE + calculateResult();
     }
 
     @Override

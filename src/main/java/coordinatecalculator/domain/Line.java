@@ -2,6 +2,7 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.domain.parent.Figure;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Line implements Figure {
@@ -18,7 +19,7 @@ public class Line implements Figure {
 
     @Override
     public double calculateResult() {
-        List<Point> points = this.points.getSortedPoints();
+        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
         Point p1 = points.get(0);
         Point p2 = points.get(1);
 
@@ -26,13 +27,6 @@ public class Line implements Figure {
         int y = Math.abs(p2.getY() - p1.getY());
 
         return Math.sqrt(x * x + y * y);
-    }
-
-    @Override
-    public String toString() {
-        return "Line{" +
-                "points=" + points +
-                '}';
     }
 
     @Override

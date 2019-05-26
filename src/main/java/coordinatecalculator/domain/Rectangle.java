@@ -2,6 +2,7 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.domain.parent.Figure;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,24 +23,39 @@ public class Rectangle implements Figure {
     }
 
     private void checkValidRectangle() {
-        List<Point> points = this.points.getSortedPoints();
+        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
 
-        if ((points.get(1).getX() != points.get(0).getX()) || (points.get(3).getX() != points.get(2).getX())
-                || (points.get(2).getY() != points.get(0).getY()) || (points.get(3).getY() != points.get(1).getY())) {
+        if (matchesPoint(points)) {
             throw new IllegalArgumentException(INVALID_CHECK_MESSAGE);
         }
     }
 
+    private boolean matchesPoint(List<Point> points) {
+        Point p1 = points.get(0);
+        Point p2 = points.get(1);
+        Point p3 = points.get(2);
+        Point p4 = points.get(3);
+
+        return !(matchesX(p1, p2) && matchesX(p3, p4) && matchesY(p1, p3) && matchesY(p2, p4));
+    }
+
+    private boolean matchesX(Point firstPoint, Point secondPoint) {
+        return firstPoint.getX() == secondPoint.getX();
+    }
+
+    private boolean matchesY(Point firstPoint, Point secondPoint) {
+        return firstPoint.getY() == secondPoint.getY();
+    }
+
     @Override
     public double calculateResult() {
-        List<Point> points = this.points.getSortedPoints();
+        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
         return Math.abs((points.get(0).getY() - points.get(1).getY()) * (points.get(2).getX() - points.get(0).getX()));
     }
 
     @Override
     public String makeResult() {
-        StringBuilder sb = new StringBuilder(TRIANGLE_RESULT_MESSAGE);
-        return sb.append(calculateResult()).toString();
+        return TRIANGLE_RESULT_MESSAGE + calculateResult();
     }
 
     @Override

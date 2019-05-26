@@ -1,9 +1,11 @@
 package coordinatecalculator.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Drawer {
+    private static final int EVEN_NUMBER = 0;
     private static final int Y_TOP_POSITION = 24;
     private static final int X_DOUBLE_POSITION = 2;
     private static final int X_PARALLEL_TRANSLATION = 2;
@@ -20,7 +22,7 @@ public class Drawer {
 
     private void makePicture(Points points) {
         for (int i = Y_TOP_POSITION; i > 0; i--) {
-            board.add(new StringBuilder((i % 2 == 0) ? String.format("%2d" ,i) : "  ").
+            board.add(new StringBuilder((i % 2 == EVEN_NUMBER) ? String.format("%2d", i) : "  ").
                     append("|                                                "));
         }
         board.add(new StringBuilder("  +------------------------------------------------"));
@@ -30,7 +32,7 @@ public class Drawer {
     }
 
     private void plotPoint(Points points) {
-        List<Point> sortedPoints = points.getSortedPoints();
+        List<Point> sortedPoints = Collections.unmodifiableList(points.getSortedPoints());
 
         for (Point point : sortedPoints) {
             board.get(Y_TOP_POSITION - point.getY())

@@ -10,7 +10,7 @@ public class FigureRouter {
 
         try {
             return CountOfPoints.valueOf("_" + countOfPoints).getFigure(points);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(INVALID_FIGURE_MESSAGE);
         }
     }
