@@ -8,6 +8,7 @@ import static java.util.stream.Collectors.toSet;
 
 public class Rectangle extends AbstractFigure {
     private static final String ERROR_INVALID_RECTANGLE = "직사각형 모양이 아닙니다.";
+    private static final int NUM_OF_TYPES_OF_RECTANGLE_COORDINATES = 2;
 
     Rectangle(List<Point> points) {
         super(points);
@@ -27,7 +28,7 @@ public class Rectangle extends AbstractFigure {
     }
 
     private boolean hasNotTwoPoints(Set<Integer> valuesOfPoints) {
-        return valuesOfPoints.size() != 2;
+        return valuesOfPoints.size() != NUM_OF_TYPES_OF_RECTANGLE_COORDINATES;
     }
 
     @Override
