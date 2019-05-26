@@ -1,6 +1,5 @@
 package coordinate.domain;
 
-import coordinate.domain.PointFactory;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -11,7 +10,7 @@ class PointsTest {
     @Test
     void 중복좌표테스트() {
         assertThatIllegalArgumentException().isThrownBy(() ->{
-            PointFactory.generatePoints(Arrays.asList("0,0","0,0","7,5","10,0"));
+            PointFactory.generatePoints(Arrays.asList("(0,0)","(0,0)","(7,5)","(10,0)"));
         });
     }
 

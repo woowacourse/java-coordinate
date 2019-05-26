@@ -19,5 +19,7 @@ class FigureFactoryTest {
         points = new Points(Arrays.asList(new Point(1, 0), new Point(3, 0), new Point(1, 1), new Point(3, 1)));
         assertThat(FigureFactory.generateFigure(points)).isEqualTo(new Rectangle(points));
     }
+    //TODO
+    //좌표가 1개일때 5개이상일떄 구현해야함
 
 }
