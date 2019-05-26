@@ -3,6 +3,8 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
+    private static final int MIN_POINT_NUMBER = 0;
+    private static final int MAX_POINT_NUMBER = 24;
     private int pointX;
     private int pointY;
 
@@ -31,7 +33,7 @@ public class Point {
     }
 
     private boolean isNotAllowedNumber(int point_x, int point_y) {
-        return (point_x > 24 || point_x < 0) || (point_y > 24 || point_y < 0);
+        return (point_x > MAX_POINT_NUMBER || point_x < MIN_POINT_NUMBER) || (point_y > MAX_POINT_NUMBER || point_y < MIN_POINT_NUMBER);
     }
 
     @Override
@@ -39,8 +41,8 @@ public class Point {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point point = (Point) o;
-        return Double.compare(point.pointX, pointX) == 0 &&
-                Double.compare(point.pointY, pointY) == 0;
+        return pointX == point.pointX &&
+                pointY == point.pointY;
     }
 
     @Override

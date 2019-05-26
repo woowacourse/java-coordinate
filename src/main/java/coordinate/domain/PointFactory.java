@@ -1,7 +1,8 @@
 package coordinate.domain;
 
+import coordinate.utils.InputSplitter;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class PointFactory {
@@ -16,12 +17,8 @@ public class PointFactory {
 
     private static Point convertPoint(String inputPoints) {
         inputPoints = inputPoints.substring(1, inputPoints.length() - 1);
-        List<String> splitPoint = splitByComma(inputPoints);
+        List<String> splitPoint = InputSplitter.getSplit(inputPoints,",");
         return new Point(Integer.parseInt(splitPoint.get(0)), Integer.parseInt(splitPoint.get(1)));
-    }
-
-    private static List<String> splitByComma(String inputPoint) {
-        return Arrays.asList(inputPoint.split(","));
     }
 
 }

@@ -1,6 +1,7 @@
 package coordinate.domain;
 
 public class Line extends AbstractFigure {
+    static final int COUNT_OF_POINT = 2;
 
     Line(Points points) {
         super(points);

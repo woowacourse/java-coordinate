@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.List;
 
 public class Rectangle extends AbstractFigure {
-
+    static final int COUNT_OF_POINT = 4;
     Rectangle(Points points) {
         super(points);
         checkRectangleValidation(points);
@@ -29,7 +29,7 @@ public class Rectangle extends AbstractFigure {
         double depth = points.getPoint(FIRST_POINT).calculateLength(points.getPoint(THIRD_POINT));
         return width * depth;
     }
-
+    @Override
     public String getResult() {
         return "사각형의 넓이는 %.2f 입니다.";
     }

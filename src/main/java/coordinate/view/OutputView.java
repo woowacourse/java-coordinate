@@ -51,7 +51,7 @@ public class OutputView {
     }
 
     private static void printRowPart(Points points, int y, int x) {
-        if (points.isContain(new Point(x,  y))) {
+        if (points.isContain(new Point(x, y))) {
             System.out.print("*");
             return;
         }

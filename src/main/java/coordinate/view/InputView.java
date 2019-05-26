@@ -1,5 +1,7 @@
 package coordinate.view;
 
+import coordinate.utils.InputSplitter;
+
 import java.util.*;
 
 public class InputView {
@@ -18,7 +20,7 @@ public class InputView {
     }
 
     static List<String> checkValidFormat(String input) {
-        List<String> points = convertPoint(getSplit(input, "-"));
+        List<String> points = convertPoint(InputSplitter.getSplit(input, "-"));
         for (String point : points) {
             isValidFormat(point);
         }
@@ -30,9 +32,6 @@ public class InputView {
         return points;
     }
 
-    private static List<String> getSplit(String input, String splitter) {
-        return Arrays.asList(input.split(splitter));
-    }
 
     private static void isValidFormat(String points) {
         if (!points.matches(DEFAULT_DELIMITERS)) {

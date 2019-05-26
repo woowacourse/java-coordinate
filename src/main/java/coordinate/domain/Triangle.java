@@ -4,6 +4,7 @@ package coordinate.domain;
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
+    static final int COUNT_OF_POINT = 3;
 
     Triangle(Points points) {
         super(points);
@@ -21,6 +22,7 @@ public class Triangle extends AbstractFigure {
         lines.sort(null);
         return lines.get(FIRST_POINT) + lines.get(SECOND_POINT) <= lines.get(THIRD_POINT);
     }
+
 
     @Override
     public double calculateArea() {

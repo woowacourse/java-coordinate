@@ -1,19 +1,32 @@
 package coordinate.domain;
 
 
-public class FigureFactory {
-    //TODO : Enum
-    private static final int TRIANGLE_LIMIT_SIZE = 3;
-    private static final int RECTANGLE_LIMIT_SIZE = 4;
+import java.util.function.Function;
+
+public enum FigureFactory {
+    LINE(Line.COUNT_OF_POINT, Line::new),
+    TRIANGLE(Triangle.COUNT_OF_POINT, Triangle::new),
+    RECTANGLE(Rectangle.COUNT_OF_POINT, Rectangle::new);
+
+    private int countOfPoint;
+    private Function<Points, Figure> mapper;
+
+    FigureFactory(int countOfPoint, Function<Points, Figure> mapper) {
+        this.countOfPoint = countOfPoint;
+        this.mapper = mapper;
+    }
+
+    public Figure mapToShape(Points points) {
+        return mapper.apply(points);
+    }
 
     public static Figure generateFigure(Points points) {
-        if (points.getSize() == TRIANGLE_LIMIT_SIZE) {
-            return new Triangle(points);
+        for (FigureFactory figure : FigureFactory.values()) {
+            if (figure.countOfPoint == points.getSize()) {
+                return figure.mapToShape(points);
+            }
         }
-        if (points.getSize() == RECTANGLE_LIMIT_SIZE) {
-            return new Rectangle(points);
-        }
-        return new Line(points);
+        throw new IllegalArgumentException("만들 수 있는 도형이 없습니다.");
     }
 
 }

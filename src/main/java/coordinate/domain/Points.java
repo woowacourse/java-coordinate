@@ -3,19 +3,10 @@ package coordinate.domain;
 import java.util.*;
 
 public class Points {
-    private static final int MIN_POINT = 2;
-    private static final int MAX_POINT = 4;
     private final List<Point> points;
 
     public Points(List<Point> points) {
-        isCorrectSize(points);
         this.points = checkDuplicate(points);
-    }
-
-    private void isCorrectSize(List<Point> points) {
-        if (!(points.size() >= MIN_POINT && points.size() <= MAX_POINT)) {
-            throw new IllegalArgumentException("좌표는 2~4개 입력하세요");
-        }
     }
 
     private List<Point> checkDuplicate(List<Point> points) {
