@@ -57,11 +57,4 @@ public class RectangleTest {
 
         assertThat(rectangle.calculateArea()).isEqualTo(96);
     }
-
-    @Test
-    void 사각형_둘레() {
-        Figure rectangle = new Rectangle(points);
-
-        assertThat(rectangle.calculateLength()).isEqualTo(40);
-    }
 }

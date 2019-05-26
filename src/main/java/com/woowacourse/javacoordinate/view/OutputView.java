@@ -83,19 +83,19 @@ public class OutputView {
     }
 
     private static void checkResultIfLine(Result result) {
-        if (result.getResultType().equals(Line.TYPE_OF_LINE)) {
+        if (result.getResultType() == Line.LINE_POINT_NUMBER) {
             System.out.println("두 점 사이의 거리는 " + result.getResult());
         }
     }
 
     private static void checkResultIfTriangle(Result result) {
-        if (result.getResultType().equals(Triangle.TYPE_OF_TRIANGLE)) {
+        if (result.getResultType() == Triangle.TRIANGLE_POINT_NUMBER) {
             System.out.println("삼각형 넓이는 " + String.format("%.1f", result.getResult()));
         }
     }
 
     private static void checkResultIfRectangle(Result result) {
-        if (result.getResultType().equals(Rectangle.TYPE_OF_RECTANGLE)) {
+        if (result.getResultType() == Rectangle.RECTANGLE_POINT_NUMBER) {
             System.out.println("사각형 넓이는 " + String.format("%.0f", result.getResult()));
         }
     }

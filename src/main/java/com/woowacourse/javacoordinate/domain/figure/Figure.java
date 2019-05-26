@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public abstract class Figure implements FigureCalculator {
     protected Points points;
-    String type;
 
     Figure(Points points) {
         if (Objects.isNull(points)) {
@@ -16,8 +15,8 @@ public abstract class Figure implements FigureCalculator {
         this.points = points;
     }
 
-    public String getType() {
-        return type;
+    public int getPointsSize() {
+        return points.getSize();
     }
 
     @Override

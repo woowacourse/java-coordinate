@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Triangle extends Figure {
-    public static final String TYPE_OF_TRIANGLE = "Triangle";
     public static final int TRIANGLE_POINT_NUMBER = 3;
 
     public Triangle(Points points) {
@@ -18,7 +17,6 @@ public class Triangle extends Figure {
         }
 
         checkVerticesInLine();
-        this.type = TYPE_OF_TRIANGLE;
     }
 
     private void checkVerticesInLine() {
@@ -41,13 +39,6 @@ public class Triangle extends Figure {
         double s = (lengths.get(0) + lengths.get(1) + lengths.get(2)) / 2;
 
         return Math.sqrt(s * (s - lengths.get(0)) * (s - lengths.get(1)) * (s - lengths.get(2)));
-    }
-
-    @Override
-    public double calculateLength() {
-        List<Double> lengths = calculateLengthOfSide();
-
-        return lengths.get(0) + lengths.get(1) + lengths.get(2);
     }
 
     private List<Double> calculateLengthOfSide() {

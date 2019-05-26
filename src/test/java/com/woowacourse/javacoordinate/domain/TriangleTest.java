@@ -55,11 +55,4 @@ public class TriangleTest {
 
         assertThat(triangle.calculateArea()).isEqualTo(29.0, offset(0.99));
     }
-
-    @Test
-    void 삼각형_둘레_구하기() {
-        Figure triangle = new Triangle(points);
-
-        assertThat(triangle.calculateLength()).isEqualTo(25.8, offset(0.99));
-    }
 }

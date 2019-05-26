@@ -6,7 +6,6 @@ import com.woowacourse.javacoordinate.domain.point.Points;
 import java.util.*;
 
 public class Rectangle extends Figure {
-    public static final String TYPE_OF_RECTANGLE = "Rectangle";
     public static final int RECTANGLE_POINT_NUMBER = 4;
     private static final int POSITION_NUMBER = 2;
 
@@ -18,7 +17,6 @@ public class Rectangle extends Figure {
         }
 
         checkValidRectangle(points);
-        this.type = TYPE_OF_RECTANGLE;
     }
 
     private void checkValidRectangle(Points points) {
@@ -34,13 +32,6 @@ public class Rectangle extends Figure {
         List<Double> lengths = calculateLengthOfSide();
 
         return lengths.get(0) * lengths.get(1);
-    }
-
-    @Override
-    public double calculateLength() {
-        List<Double> lengths = calculateLengthOfSide();
-
-        return (lengths.get(0) + lengths.get(1)) * 2;
     }
 
     private List<Double> calculateLengthOfSide() {
