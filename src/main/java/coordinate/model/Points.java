@@ -25,11 +25,11 @@ public class Points {
         }
     }
 
-    public Point get(int index) {
-        return Collections.unmodifiableList(points).get(index);
-    }
-
     public List<Point> get() {
         return Collections.unmodifiableList(points);
+    }
+
+    public Point get(int index) {
+        return get().get(index);
     }
 }
