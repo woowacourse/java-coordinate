@@ -41,7 +41,8 @@ public class Point implements Comparable<Point> {
 
     @Override
     public int compareTo(Point p) {
-        if ((x.compare(p.x)) || (x.equals(p.x) && y.compare(p.y))) {
+        if ((x.compareTo(p.x) < 0)
+                || (x.compareTo(p.x) == 0 && y.compareTo(p.y) < 0)) {
             return -1;
         }
         return 1;
