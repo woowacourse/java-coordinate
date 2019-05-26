@@ -2,6 +2,7 @@ package coordinate.domain;
 
 
 public class FigureFactory {
+    //TODO : Enum
     private static final int TRIANGLE_LIMIT_SIZE = 3;
     private static final int RECTANGLE_LIMIT_SIZE = 4;
 

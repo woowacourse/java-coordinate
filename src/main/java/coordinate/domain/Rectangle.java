@@ -25,8 +25,8 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double calculateArea() {
-        double width = points.getPoint(0).calculateLength(points.getPoint(1));
-        double depth = points.getPoint(0).calculateLength(points.getPoint(2));
+        double width = points.getPoint(FIRST_POINT).calculateLength(points.getPoint(SECOND_POINT));
+        double depth = points.getPoint(FIRST_POINT).calculateLength(points.getPoint(THIRD_POINT));
         return width * depth;
     }
 

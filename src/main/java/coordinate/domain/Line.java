@@ -8,7 +8,7 @@ public class Line extends AbstractFigure {
 
     @Override
     public double calculateArea() {
-        return points.getPoint(0).calculateLength(points.getPoint(1));
+        return points.getPoint(FIRST_POINT).calculateLength(points.getPoint(SECOND_POINT));
     }
 
     @Override

@@ -4,9 +4,12 @@ package coordinate.domain;
 import java.util.Objects;
 
 public abstract class AbstractFigure implements Figure {
+    static final int FIRST_POINT = 0;
+    static final int SECOND_POINT = 1;
+    static final int THIRD_POINT = 2;
     final Points points;
 
-    public AbstractFigure(Points points) {
+    AbstractFigure(Points points) {
         this.points = points;
     }
 
