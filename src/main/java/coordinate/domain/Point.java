@@ -22,7 +22,7 @@ public class Point {
 
     private void validate(final int x) {
         if (x < MIN_POINT || x > MAX_POINT) {
-            throw new IllegalArgumentException("정상적인 x 좌표값을 입력하세요");
+            throw new IllegalArgumentException("정상적인 좌표값을 입력하세요");
         }
     }
 

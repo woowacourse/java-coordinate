@@ -1,6 +1,6 @@
-package coordinate;
+package coordinate.domain;
 
-import coordinate.domain.Point;
+import coordinate.Figure;
 
 import java.util.HashSet;
 import java.util.List;

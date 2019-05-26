@@ -1,7 +1,9 @@
-package coordinate.domain;
+package coordinate.domain.creator;
 
 import coordinate.Figure;
-import coordinate.FigureCreator;
+import coordinate.domain.FigureCreator;
+import coordinate.domain.Line;
+import coordinate.domain.Point;
 
 import java.util.List;
 

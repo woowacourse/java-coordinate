@@ -1,7 +1,5 @@
 package coordinate.domain;
 
-import coordinate.AbstractFigure;
-
 import java.util.Arrays;
 import java.util.List;
 

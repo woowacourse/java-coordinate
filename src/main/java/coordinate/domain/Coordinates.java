@@ -1,23 +1,21 @@
-package coordinate.domain.graph;
+package coordinate.domain;
 
+import coordinate.Factory;
 import coordinate.Figure;
-import coordinate.FigureFactory;
+import coordinate.domain.FigureFactory;
 import coordinate.domain.Point;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Coordinates {
-    private static final FigureFactory FIGURE_FACTORY = FigureFactory.getInstance();
+    private static final Factory FIGURE_FACTORY = FigureFactory.getInstance();
 
-    private final List<Point> points;
     private final Figure figure;
 
     public Coordinates(final List<Point> points) {
         validate(points);
-        this.points = new ArrayList<>(points);
         this.figure = FIGURE_FACTORY.create(points);
     }
 
