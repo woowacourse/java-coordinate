@@ -15,28 +15,26 @@ public class Coordinate  {
     private final int yCoordinate;
 
     private Coordinate(int xCoordinate, int yCoordinate) {
-        this.xCoordinate = checkXCoordinateRange(xCoordinate);
-        this.yCoordinate = checkYCoordinateRange(yCoordinate);
+        checkXCoordinateRange(xCoordinate);
+        checkYCoordinateRange(yCoordinate);
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
     }
 
     public static Coordinate create(int xCoordinate, int yCoordinate) {
         return new Coordinate(xCoordinate, yCoordinate);
     }
 
-    private int checkXCoordinateRange(int xCoordinate) {
+    private void checkXCoordinateRange(int xCoordinate) {
         if(xCoordinate < MIN_COORDINATE || xCoordinate > MAX_COORDINATE) {
             throw new IllegalArgumentException(EX_COORDINATE_RANGE_MESSAGE);
         }
-
-        return xCoordinate;
     }
 
-    private int checkYCoordinateRange(int yCoordinate) {
+    private void checkYCoordinateRange(int yCoordinate) {
         if(yCoordinate < MIN_COORDINATE || yCoordinate > MAX_COORDINATE) {
             throw new IllegalArgumentException(EX_COORDINATE_RANGE_MESSAGE);
         }
-
-        return yCoordinate;
     }
 
     public int matchYAxis(int yCoordinate) {
