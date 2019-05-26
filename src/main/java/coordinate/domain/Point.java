@@ -27,11 +27,11 @@ public class Point {
         return Math.sqrt(calculationX + calculationY);
     }
 
-    private Number getX() {
+    public Number getX() {
         return x;
     }
 
-    private Number getY() {
+    public Number getY() {
         return y;
     }
 

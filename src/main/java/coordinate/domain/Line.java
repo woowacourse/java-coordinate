@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class Line {
 
-    private final Point point1;
-    private final Point point2;
+    private final Points points;
 
     private Line(Point point1, Point point2) {
         if (Objects.isNull(point1) || Objects.isNull(point2)) {
             throw new IllegalArgumentException("점이 하나밖에 입력되지 않았습니다.");
         }
 
-        this.point1 = point1;
-        this.point2 = point2;
+        this.points = Points.create();
+        points.addPoint(point1);
+        points.addPoint(point2);
     }
 
     public static Line create(Point point1, Point point2) {
@@ -21,7 +21,11 @@ public class Line {
     }
 
     public double calculateDistance() {
-        return point1.getDistance(point2);
+        return points.pointsByIndex(0).getDistance(points.pointsByIndex(1));
+    }
+
+    public Points getPoints() {
+        return points;
     }
 
     @Override
@@ -29,20 +33,18 @@ public class Line {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return Objects.equals(point1, line.point1) &&
-                Objects.equals(point2, line.point2);
+        return Objects.equals(points, line.points);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(point1, point2);
+        return Objects.hash(points);
     }
 
     @Override
     public String toString() {
         return "Line{" +
-                "point1=" + point1 +
-                ", point2=" + point2 +
+                "points=" + points +
                 '}';
     }
 }

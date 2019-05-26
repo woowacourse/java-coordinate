@@ -15,4 +15,8 @@ public class OutputViewController {
     public void printFigureInfo() {
         outputView.printDistance(line.calculateDistance());
     }
+
+    public void printCoordinatesBoard() {
+        outputView.printCoordinatesBoard(line.getPoints());
+    }
 }

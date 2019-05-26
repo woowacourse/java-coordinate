@@ -16,8 +16,8 @@ public class Main {
         FigureController figureController = new FigureController();
         Line line = figureController.getFigure(points);
 
-        OutputView outputView = new OutputView();
-        OutputViewController outputViewController = new OutputViewController(outputView, line);
+        OutputViewController outputViewController = new OutputViewController(new OutputView(), line);
+        outputViewController.printCoordinatesBoard();
         outputViewController.printFigureInfo();
     }
 }
