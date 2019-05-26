@@ -38,7 +38,7 @@ public class Rectangle implements Figure, Shape {
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         return coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(SECOND_VERTEX)) * coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(THIRD_VERTEX));
     }
 

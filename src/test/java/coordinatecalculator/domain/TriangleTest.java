@@ -44,6 +44,6 @@ class TriangleTest {
         List<Coordinate> coordinate = Arrays.asList(new Coordinate(1, 1),
                 new Coordinate(5, 1), new Coordinate(1, 5));
         /* Then */
-        assertThat(new Triangle(coordinate).area()).isEqualTo(8, offset(0.00099));
+        assertThat(new Triangle(coordinate).getArea()).isEqualTo(8, offset(0.00099));
     }
 }

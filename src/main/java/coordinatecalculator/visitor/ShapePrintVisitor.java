@@ -16,11 +16,11 @@ public class ShapePrintVisitor implements Visitor {
 
     @Override
     public String visit(final Triangle triangle) {
-        return OUTPUT_TRIANGLE_AREA + triangle.area();
+        return OUTPUT_TRIANGLE_AREA + triangle.getArea();
     }
 
     @Override
     public String visit(final Rectangle rectangle) {
-        return OUTPUT_RECTANGLE_AREA + rectangle.area();
+        return OUTPUT_RECTANGLE_AREA + rectangle.getArea();
     }
 }

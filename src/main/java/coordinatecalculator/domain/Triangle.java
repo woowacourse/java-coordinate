@@ -30,7 +30,7 @@ public class Triangle implements Figure, Shape {
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         double line1 = coordinates.get(FIRST_VERTEX).calculateDistance(coordinates.get(SECOND_VERTEX));
         double line2 = coordinates.get(SECOND_VERTEX).calculateDistance(coordinates.get(THIRD_VERTEX));
         double line3 = coordinates.get(THIRD_VERTEX).calculateDistance(coordinates.get(FIRST_VERTEX));

@@ -42,7 +42,7 @@ class RectangleTest {
         //List<Coordinate> coordinates2 = Arrays.asList(new Coordinate(11, 19), new Coordinate(11, 14),
           //      new Coordinate(16, 14), new Coordinate(16, 19));
         Collections.sort(coordinates);
-        assertThat(new Rectangle(coordinates).area()).isEqualTo(25, offset(0.00099));
+        assertThat(new Rectangle(coordinates).getArea()).isEqualTo(25, offset(0.00099));
         //assertThat(new Rectangle(coordinates2).area()).isEqualTo(25, offset(0.00099));
 
     }
