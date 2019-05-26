@@ -14,15 +14,11 @@ public class Coordinate  {
     private final int xCoordinate;
     private final int yCoordinate;
 
-    private Coordinate(int xCoordinate, int yCoordinate) {
+    public Coordinate(int xCoordinate, int yCoordinate) {
         checkXCoordinateRange(xCoordinate);
         checkYCoordinateRange(yCoordinate);
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
-    }
-
-    public static Coordinate create(int xCoordinate, int yCoordinate) {
-        return new Coordinate(xCoordinate, yCoordinate);
     }
 
     private void checkXCoordinateRange(int xCoordinate) {

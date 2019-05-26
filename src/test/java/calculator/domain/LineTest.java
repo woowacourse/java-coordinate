@@ -18,8 +18,8 @@ class LineTest {
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
-        coordinates.add(Coordinate.create(8,21));
-        coordinates.add(Coordinate.create(16,3));
+        coordinates.add(new Coordinate(8,21));
+        coordinates.add(new Coordinate(16,3));
         figure = FigureFactory.getInstance().create(coordinates);
     }
 
