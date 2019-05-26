@@ -15,11 +15,11 @@ public class Line implements Figure, Console {
     @Override
     public double calculateResult() {
         List<Point> points = this.points.getSortedPoints();
-        Point p1 = points.get(0);
-        Point p2 = points.get(1);
+        Point left = points.get(0);
+        Point right = points.get(1);
 
-        int x = Math.abs(p2.getX() - p1.getX());
-        int y = Math.abs(p2.getY() - p1.getY());
+        int x = Math.abs(right.getX() - left.getX());
+        int y = Math.abs(right.getY() - left.getY());
 
         return Math.sqrt(x * x + y * y);
     }

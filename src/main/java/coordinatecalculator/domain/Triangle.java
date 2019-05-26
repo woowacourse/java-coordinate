@@ -17,14 +17,14 @@ public class Triangle implements Figure, Console {
 
     private void checkStraightLine(Points points) {
         List<Point> sortedPoints = points.getSortedPoints();
-        Point leftPoint = sortedPoints.get(0);
-        Point middlePoint = sortedPoints.get(1);
-        Point rightPoint = sortedPoints.get(2);
+        Point left = sortedPoints.get(0);
+        Point middle = sortedPoints.get(1);
+        Point right = sortedPoints.get(2);
 
         checkSameXLocation(sortedPoints);
 
-        double slope1 = makeSlope(leftPoint, middlePoint);
-        double slope2 = makeSlope(middlePoint, rightPoint);
+        double slope1 = makeSlope(left, middle);
+        double slope2 = makeSlope(middle, right);
 
         if (slope1 == slope2) {
             throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
