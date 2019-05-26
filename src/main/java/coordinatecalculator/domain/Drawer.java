@@ -21,10 +21,10 @@ public class Drawer {
     private void makePicture(Points points) {
         for (int i = Y_TOP_POSITION; i > 0; i--) {
             board.add(new StringBuilder((i % 2 == 0) ? String.format("%2d" ,i) : "  ").
-                    append("|                                                \n"));
+                    append("|                                                "));
         }
-        board.add(new StringBuilder("  +------------------------------------------------\n"));
-        board.add(new StringBuilder(" 0    2   4   6   8   10  12  14  16  18  20  22  24 \n"));
+        board.add(new StringBuilder("  +------------------------------------------------"));
+        board.add(new StringBuilder(" 0    2   4   6   8   10  12  14  16  18  20  22  24 "));
 
         plotPoint(points);
     }

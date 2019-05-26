@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Triangle implements Figure {
     private static final String INVALID_TRIANGLE_MESSAGE = "세 점이 일직선 상에 위치할 수는 없습니다. 다시 입력해주세요.";
-    private static final String RECTANGLE_RESULT_MESSAGE = "사각형 넓이는 ";
+    private static final String RECTANGLE_RESULT_MESSAGE = "삼각형 넓이는 ";
     private static final int HERON_NUMBER = 2;
 
     private final Points points;

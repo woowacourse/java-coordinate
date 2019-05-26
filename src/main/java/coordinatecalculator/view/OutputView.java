@@ -8,10 +8,10 @@ import java.util.List;
 public class OutputView {
     public static void printResult(Figure figure) {
         List<StringBuilder> board = Drawer.newInstance(figure.getPoints()).getBoard();
-        for (int i = 0; i < board.size(); i++) {
-            System.out.print(board.get(i).toString());
-        }
 
+        for (StringBuilder resultLine : board) {
+            System.out.println(resultLine.toString());
+        }
         System.out.println(figure.makeResult());
     }
 }

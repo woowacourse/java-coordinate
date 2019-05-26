@@ -24,10 +24,12 @@ public class Rectangle implements Figure {
     private void checkValidRectangle() {
         List<Point> points = this.points.getSortedPoints();
 
-        if (!(points.get(1).getX() == points.get(0).getX() && points.get(3).getX() == points.get(2).getX() && points.get(2).getY() == points.get(0).getY() && points.get(3).getY() == points.get(1).getY())) {
+        if ((points.get(1).getX() != points.get(0).getX()) || (points.get(3).getX() != points.get(2).getX())
+                || (points.get(2).getY() != points.get(0).getY()) || (points.get(3).getY() != points.get(1).getY())) {
             throw new IllegalArgumentException(INVALID_CHECK_MESSAGE);
         }
     }
+
     @Override
     public double calculateResult() {
         List<Point> points = this.points.getSortedPoints();

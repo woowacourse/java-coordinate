@@ -29,9 +29,15 @@ public class Line implements Figure {
     }
 
     @Override
+    public String toString() {
+        return "Line{" +
+                "points=" + points +
+                '}';
+    }
+
+    @Override
     public String makeResult() {
-        StringBuilder sb = new StringBuilder(LINE_RESULT_MESSAGE);
-        return sb.append(calculateResult()).toString();
+        return LINE_RESULT_MESSAGE + calculateResult();
     }
 
     @Override
