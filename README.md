@@ -11,7 +11,6 @@
 ---
 # 좌표 계산기
 ## Todo
-* List 초기화
 * InputView 메서드 분리하기
 * OutputView 메서드 분리하기
 * Rectangle 메서드 분리하기
@@ -44,6 +43,7 @@
 * OutputView 결과 값 출력하기
 * Board 메소드 분리
 * ShapeFactory 테스트 추가하기
+* Board List 초기화 로직 변경
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)

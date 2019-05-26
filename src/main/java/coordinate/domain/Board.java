@@ -9,24 +9,20 @@ public class Board {
     private final List<List<Boolean>> board;
 
     public Board(Points points) {
-        this.board = initBoardAxisY();
+        this.board = initBoard();
         setPoints(points);
     }
 
-    private List<List<Boolean>> initBoardAxisY() { //TODO 보드 초기화하기
+    private static List<List<Boolean>> initBoard() {
         List<List<Boolean>> board = new ArrayList<>();
-        for (int axisY = MIN_BOARD_SIZE; axisY < MAX_BOARD_SIZE; axisY++) {
-            board.add(initBoardAxisX());
+        for (int i = MIN_BOARD_SIZE; i < MAX_BOARD_SIZE; i++) {
+            board.add(initBoardOfSingleLine());
         }
         return board;
     }
 
-    public static List<Boolean> initBoardAxisX() { //TODO #보드 초기화하기 : List초기화하는 방법??
-        List<Boolean> oneLineOfBoard = new ArrayList<>(MAX_BOARD_SIZE);
-        for (int i = MIN_BOARD_SIZE; i < MAX_BOARD_SIZE; i++) {
-            oneLineOfBoard.add(false);
-        }
-        return oneLineOfBoard;
+    private static List<Boolean> initBoardOfSingleLine() {
+        return new ArrayList<>(Collections.nCopies(MAX_BOARD_SIZE, Boolean.FALSE));
     }
 
     private void setPoints(Points points) {
