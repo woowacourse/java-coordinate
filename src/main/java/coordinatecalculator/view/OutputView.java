@@ -13,6 +13,6 @@ public class OutputView {
         for (StringBuilder oneLine : board) {
             System.out.print(oneLine.toString());
         }
-        System.out.println(((Console)figure).makeResult());
+        System.out.println(((Console) figure).makeResult());
     }
 }

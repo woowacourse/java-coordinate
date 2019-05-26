@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class Triangle implements Figure, Console {
-
     private final Points points;
 
     Triangle(Points points) {
