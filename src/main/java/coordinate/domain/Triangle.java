@@ -7,7 +7,7 @@ import java.util.List;
 public class Triangle extends Figure {
 
     public Triangle(Points points) {
-        super(points);
+        super(points, "삼각형","넓이");
         if (points.size() != 3) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
