@@ -23,6 +23,6 @@ public class TriangleTest {
     @Test
     void 삼각형_넓이_구하는_테스트() {
         Points points = new Points("(1,1)-(3,1)-(3,3)".split("-"));
-        assertThat(new Triangle(points).area()).isEqualTo(2);
+        assertThat(new Triangle(points).getArea()).isEqualTo(2);
     }
 }

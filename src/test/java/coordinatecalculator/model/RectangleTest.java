@@ -25,7 +25,7 @@ public class RectangleTest {
     @Test
     void 직사각형_넓이_구하는_테스트() {
         Points points = new Points("(1,1)-(1,3)-(2,1)-(2,3)".split("-"));
-        assertThat(new Rectangle(points).area()).isEqualTo(2);
+        assertThat(new Rectangle(points).getArea()).isEqualTo(2);
     }
 
     @Test

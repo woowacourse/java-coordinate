@@ -9,7 +9,7 @@ public class Line implements Figure {
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         return distance;
     }
 

@@ -36,13 +36,13 @@ public class Rectangle implements Figure {
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         double area = calculateArea(getDifferTwoPoints());
         return Math.round(area * DECIMAL) / DECIMAL;
     }
 
     @Override
     public String toString() {
-        return "사각형의 넓이는 " + area();
+        return "사각형의 넓이는 " + getArea();
     }
 }

@@ -30,7 +30,7 @@ public class Point {
         return yPoint;
     }
 
-    public int square(Point anotherPoint) {
+    public int getSquare(Point anotherPoint) {
         return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), SQUARE)
                 + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), SQUARE));
     }

@@ -39,13 +39,13 @@ public class Triangle implements Figure {
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         double area = calculateArea(points.generateDistances());
         return Math.round(area * DECIMAL) / DECIMAL;
     }
 
     @Override
     public String toString() {
-        return "삼각형의 넓이는 " + area();
+        return "삼각형의 넓이는 " + getArea();
     }
 }
