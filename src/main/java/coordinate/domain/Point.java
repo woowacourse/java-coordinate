@@ -2,34 +2,36 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Point implements Comparable<Point>{
+public class Point implements Comparable<Point> {
+    private static final int SQUARE = 2;
+
     private final int x;
     private final int y;
 
-    Point(int x, int y) {
+    Point(final int x, final int y) {
         this.x = x;
         this.y = y;
     }
 
     public double sub(Point secondPoint) {
-        return Math.sqrt(Math.pow(x - secondPoint.x, 2) + Math.pow(y - secondPoint.y, 2));
-    }
-
-    public Point calVector(Point point) {
-        return new Point(point.x - x, point.y - y);
+        return Math.sqrt(Math.pow(x - secondPoint.x, SQUARE) + Math.pow(y - secondPoint.y, SQUARE));
     }
 
     public int calDotProduct(Point vector) {
         return (vector.x * x) + (vector.y * y);
     }
 
-    public Point sumOfVector(Point vector) {
-        return new Point(this.x + vector.x, this.y + vector.y);
+    public Point calVector(Point point) {
+        return new Point(point.x - x, point.y - y);
     }
 
     public Point calCrossPoint(Point firstVector, Point secondVector) {
-        Point addedVector = firstVector.sumOfVector(secondVector);
+        Point addedVector = firstVector.calSumOfVector(secondVector);
         return new Point(x + addedVector.x, y + addedVector.y);
+    }
+
+    public Point calSumOfVector(Point vector) {
+        return new Point(this.x + vector.x, this.y + vector.y);
     }
 
     public int getX() {

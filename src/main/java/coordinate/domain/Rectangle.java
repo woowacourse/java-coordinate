@@ -3,9 +3,16 @@ package coordinate.domain;
 import java.util.Arrays;
 
 public class Rectangle extends Figure {
+    private static final int RECTANGLE_POINT_SIZE = 4;
+    private static final int STANDARD_POINT = 0;
+    private static final int RIGHT_POINT = 1;
+    private static final int LEFT_POINT = 2;
+    private static final int CROSS_POINT = 3;
+    private static final int NINETY_DEGREE = 0;
+
     public Rectangle(Points points) {
         super(points);
-        if (points.size() != 4) {
+        if (points.size() != RECTANGLE_POINT_SIZE) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
         if (!isRectangle(points)) {
@@ -14,25 +21,29 @@ public class Rectangle extends Figure {
     }
 
     static boolean isRectangle(Points points) {
-        Point pivPoint = points.get(0);
-        Point rightPoint = points.get(1);
-        Point leftPoint = points.get(2);
-        Point crossPoint = points.get(3);
+        Point standardPoint = points.get(STANDARD_POINT);
 
-        Point rightVector = pivPoint.calVector(rightPoint);
-        Point leftVector = pivPoint.calVector(leftPoint);
-        if (rightVector.calDotProduct(leftVector) != 0) {
-            return false;
-        }
-        if (!pivPoint.calCrossPoint(rightVector, leftVector).equals(crossPoint)) {
-            return false;
-        }
-        return true;
+        Point rightVector = standardPoint.calVector(points.get(RIGHT_POINT));
+        Point leftVector = standardPoint.calVector(points.get(LEFT_POINT));
+        Point guessCrossPoint = standardPoint.calCrossPoint(rightVector, leftVector);
+        return (isDotProductZero(rightVector, leftVector) &&
+                isSameCrossPoint(guessCrossPoint, points.get(CROSS_POINT))) ? true : false;
+    }
+
+    private static boolean isDotProductZero(Point rightVector, Point leftVector) {
+        return rightVector.calDotProduct(leftVector) == NINETY_DEGREE;
+    }
+
+    private static boolean isSameCrossPoint(Point guessCrossPoint, Point crossPoint) {
+        return guessCrossPoint.equals(crossPoint);
     }
 
     public double calculateFigure() {
-        double width = new Line(new Points(Arrays.asList(points.get(0), points.get(1)))).calculateFigure();
-        double height = new Line(new Points(Arrays.asList(points.get(0), points.get(2)))).calculateFigure();
+        double width = new Line(new Points(Arrays.asList(
+                points.get(STANDARD_POINT), points.get(RIGHT_POINT)))).calculateFigure();
+        double height = new Line(new Points(Arrays.asList(
+                points.get(STANDARD_POINT), points.get(LEFT_POINT)))).calculateFigure();
+
         return width * height;
     }
 
