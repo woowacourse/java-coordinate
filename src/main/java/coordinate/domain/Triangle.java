@@ -41,4 +41,9 @@ public class Triangle extends Figure {
                 (s - lineLengths.get(1)) *
                 (s - lineLengths.get(2)));
     }
+
+    @Override
+    public String toString() {
+        return "삼각형 넓이는 ";
+    }
 }

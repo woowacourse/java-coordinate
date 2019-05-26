@@ -12,4 +12,9 @@ public class Line extends Figure {
     public double calculateFigure() {
         return points.get(0).sub(points.get(1));
     }
+
+    @Override
+    public String toString() {
+        return "두 점 사이의 거리는 ";
+    }
 }

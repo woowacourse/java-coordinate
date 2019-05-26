@@ -35,4 +35,9 @@ public class Rectangle extends Figure {
         double height = new Line(new Points(Arrays.asList(points.get(0), points.get(2)))).calculateFigure();
         return width * height;
     }
+
+    @Override
+    public String toString() {
+        return "사각형 넓이는 ";
+    }
 }
