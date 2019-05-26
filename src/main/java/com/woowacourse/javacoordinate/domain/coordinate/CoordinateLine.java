@@ -7,6 +7,14 @@ public class CoordinateLine {
     private final List<Boolean> line;
 
     public CoordinateLine(List<Boolean> line) {
+        if (Objects.isNull(line)) {
+            throw new NullPointerException();
+        }
+
+        if (line.size() == 0) {
+            throw new IllegalArgumentException();
+        }
+
         this.line = line;
     }
 
