@@ -2,13 +2,15 @@ package coordinatecalculator;
 
 import coordinatecalculator.model.Figure;
 import coordinatecalculator.model.FigureFactory;
+import coordinatecalculator.model.Graph;
 import coordinatecalculator.view.InputView;
+import coordinatecalculator.view.OutputView;
 
 public class CoordinateLauncher {
     public static void main(String[] args) {
         Figure figure = generateFigure();
-
-
+        Graph graph = new Graph(figure);
+        OutputView.printResult(graph, figure);
     }
 
     private static Figure generateFigure() {

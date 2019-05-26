@@ -1,14 +1,21 @@
 package coordinatecalculator.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class StringSplitter {
     public static List<String> split(String points) {
         List<String> cleanedPoints = removeUnnecessaryCharacters(points);
+        Collections.sort(cleanedPoints);
+        validatePoints(cleanedPoints);
         List<String> values = splitPoints(cleanedPoints);
         return values;
+    }
+
+    private static void validatePoints(List<String> values) {
+        Set<String> valuesForValidating = new HashSet<>(values);
+        if (valuesForValidating.size() != values.size()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static List<String> removeUnnecessaryCharacters(String points) {
