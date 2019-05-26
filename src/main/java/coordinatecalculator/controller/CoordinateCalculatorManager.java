@@ -5,6 +5,7 @@ import coordinatecalculator.domain.FigureFactory;
 import coordinatecalculator.domain.InputVerification;
 import coordinatecalculator.domain.Point;
 import coordinatecalculator.view.InputView;
+import coordinatecalculator.view.outputview.OutputView;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class CoordinateCalculatorManager {
     public void run() {
         FigureFactory figureFactory = new FigureFactory();
         Figure figure = figureFactory.create(getValidPoints());
+        OutputView.printResult(figure);
     }
 
     private List<Point> getValidPoints() {
