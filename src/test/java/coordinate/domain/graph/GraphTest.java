@@ -1,4 +1,4 @@
-package coordinate.domain.board;
+package coordinate.domain.graph;
 
 import coordinate.domain.Point;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-class BoardTest {
+class GraphTest {
 
 	@Test
 	public void Board클래스가_직사각형을_제대로_생성하는지() {
@@ -17,8 +17,7 @@ class BoardTest {
 				Point.of(2, 2),
 				Point.of(1, 2),
 				Point.of(2, 1));
-		CoordinateBoard cb = new CoordinateBoard(points);
-		assertThat(cb.getPoints()).isEqualTo(points);
+		Coordinates cb = new Coordinates(points);
 		assertThat(cb.getAreaElement()).isEqualTo(1.0, offset(0.00099));
 	}
 
@@ -27,7 +26,7 @@ class BoardTest {
 		List<Point> points = Arrays.asList(
 				Point.of(1, 1)
 		);
-		CoordinateBoard cb = new CoordinateBoard(points);
+		Coordinates cb = new Coordinates(points);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
 			cb.getAreaElement();
 		});
@@ -43,7 +42,7 @@ class BoardTest {
 				Point.of(3, 3)
 		);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			CoordinateBoard cb = new CoordinateBoard(points);
+			Coordinates cb = new Coordinates(points);
 		});
 	}
 
@@ -55,7 +54,7 @@ class BoardTest {
 				Point.of(1, 1)
 		);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			CoordinateBoard cb = new CoordinateBoard(points);
+			Coordinates cb = new Coordinates(points);
 		});
 	}
 }

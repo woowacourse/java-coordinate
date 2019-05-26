@@ -22,5 +22,13 @@ public abstract class AbstractFigure implements Figure {
     }
 
     @Override
+    public Boolean hasPoint(final Point point) {
+        return points.contains(point);
+    }
+
+    @Override
     public abstract Double getArea();
+
+    @Override
+    public abstract String getName();
 }

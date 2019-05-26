@@ -25,4 +25,9 @@ public class Triangle extends AbstractFigure {
 
         return Math.sqrt(s * (s - a.getArea()) * (s - b.getArea()) * (s - c.getArea()));
     }
+
+    @Override
+    public String getName() {
+        return "삼각형의 넓이";
+    }
 }

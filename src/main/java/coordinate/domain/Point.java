@@ -3,14 +3,15 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    private static final int MIN_POINT = 0;
-    private static final int MAX_POINT = 24;
+    public static final int MIN_POINT = 0;
+    public static final int MAX_POINT = 24;
 
     private final Integer x;
     private final Integer y;
 
     private Point(final Integer x, final Integer y) {
-        validate(x, y);
+        validate(x);
+        validate(y);
         this.x = x;
         this.y = y;
     }
@@ -19,12 +20,9 @@ public class Point {
         return new Point(x, y);
     }
 
-    private void validate(final int x, final int y) {
+    private void validate(final int x) {
         if (x < MIN_POINT || x > MAX_POINT) {
             throw new IllegalArgumentException("정상적인 x 좌표값을 입력하세요");
-        }
-        if (y < MIN_POINT || y > MAX_POINT) {
-            throw new IllegalArgumentException("정상적인 y 좌표값을 입력하세요");
         }
     }
 

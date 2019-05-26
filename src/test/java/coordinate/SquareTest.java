@@ -20,7 +20,7 @@ public class SquareTest {
                 Point.of(2, 2),
                 Point.of(1, 2),
                 Point.of(2, 1));
-        Square square = new Square(points);
+        Square square = Square.of(points);
         assertThat(square.getArea()).isEqualTo(1.0, offset(0.0099));
     }
 
@@ -32,7 +32,7 @@ public class SquareTest {
                 Point.of(22, 22),
                 Point.of(24, 22));
 
-        Square square = new Square(points);
+        Square square = Square.of(points);
         assertThat(square.getArea()).isEqualTo(4.0, offset(0.0099));
 
     }
@@ -45,7 +45,7 @@ public class SquareTest {
                 Point.of(4, 2),
                 Point.of(4, 0));
 
-        Square square = new Square(points);
+        Square square = Square.of(points);
         assertThat(square.getArea()).isEqualTo(8.0, offset(0.0099));
     }
 
@@ -58,7 +58,7 @@ public class SquareTest {
                 Point.of(4, 1));
 
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            Square square = new Square(points);
+            Square square = Square.of(points);
             assertThat(square.getArea()).isEqualTo(8.0, offset(0.0099));
         });
     }

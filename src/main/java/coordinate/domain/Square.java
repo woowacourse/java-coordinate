@@ -2,36 +2,46 @@ package coordinate.domain;
 
 import coordinate.AbstractFigure;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 public class Square extends AbstractFigure {
 
-    public Square(final List<Point> points) {
-        super(points);
-    }
+	private Square(final List<Point> points) {
+		super(points);
+	}
 
-    @Override
-    public Double getArea() {
-        //TODO Deep copy해서 넣기
-        Point origin = this.points.get(0);
-        Line line1 = Line.of(Arrays.asList(origin, getSameX(origin)));
-        Line line2 = Line.of(Arrays.asList(origin, getSameY(origin)));
-        return (line1.getArea() * line2.getArea());
-    }
+	public static Square of(final List<Point> points) {
+		return new Square(points);
+	}
 
-    private Point getSameX(final Point origin) {
-        Optional<Point> optPoint = points.subList(1, points.size()).stream()
-                .filter(origin::isSameX)
-                .findFirst();
+	@Override
+	public Double getArea() {
+		Point origin = this.points.get(0);
+		Line verticalLine = Line.of(Arrays.asList(origin, getSameX(origin)));
+		Line horizontalLine = Line.of(Arrays.asList(origin, getSameY(origin)));
+		return (verticalLine.getArea() * horizontalLine.getArea());
+	}
 
-        return optPoint.orElseThrow(IllegalArgumentException::new);
-    }
+	private Point getSameX(final Point origin) {
+		Optional<Point> optPoint = points.subList(1, points.size()).stream()
+				.filter(origin::isSameX)
+				.findFirst();
 
-    private Point getSameY(final Point origin) {
-        Optional<Point> optPoint = points.subList(1, points.size()).stream()
-                .filter(origin::isSameY)
-                .findFirst();
+		return optPoint.orElseThrow(() -> new IllegalArgumentException("점이 네개지만 직사각형이 아닙니다"));
+	}
 
-        return optPoint.orElseThrow(IllegalArgumentException::new);
-    }
+	private Point getSameY(final Point origin) {
+		Optional<Point> optPoint = points.subList(1, points.size()).stream()
+				.filter(origin::isSameY)
+				.findFirst();
+
+		return optPoint.orElseThrow(() -> new IllegalArgumentException("점이 네개지만 직사각형이 아닙니다"));
+	}
+
+	@Override
+	public String getName() {
+		return "직사각형의 넓이";
+	}
 }
