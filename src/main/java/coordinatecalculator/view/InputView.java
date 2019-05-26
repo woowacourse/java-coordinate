@@ -2,7 +2,7 @@ package coordinatecalculator.view;
 
 import coordinatecalculator.domain.FigureRouter;
 import coordinatecalculator.domain.parent.Figure;
-import coordinatecalculator.util.PointsGenerator;
+import coordinatecalculator.domain.PointsGenerator;
 
 import java.util.*;
 

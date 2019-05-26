@@ -1,7 +1,5 @@
 package coordinatecalculator.domain;
 
-import coordinatecalculator.util.AxisValidator;
-
 import java.util.Objects;
 
 public class Y extends AxisValidator {

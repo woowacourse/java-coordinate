@@ -1,7 +1,5 @@
-package coordinatecalculator.util;
+package coordinatecalculator.domain;
 
-import coordinatecalculator.domain.Point;
-import coordinatecalculator.domain.Points;
 import org.junit.jupiter.api.Test;
 
 

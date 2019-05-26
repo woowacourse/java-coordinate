@@ -1,7 +1,4 @@
-package coordinatecalculator.util;
-
-import coordinatecalculator.domain.Point;
-import coordinatecalculator.domain.Points;
+package coordinatecalculator.domain;
 
 import java.util.*;
 
