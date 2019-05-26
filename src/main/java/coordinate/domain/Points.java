@@ -2,10 +2,10 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class PointList {
+public class Points {
     private final List<Point> points;
 
-    public PointList(List<Point> points) {
+    public Points(List<Point> points) {
         isCorrectSize(points);
         this.points = checkDuplicate(points);
     }
@@ -39,4 +39,5 @@ public class PointList {
     Point getPoint(int index) {
         return points.get(index);
     }
+
 }

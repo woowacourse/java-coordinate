@@ -1,28 +1,39 @@
 package coordinate.domain;
 
+
 import java.util.List;
 
-public class Triangle implements Figure {
-    private List<Line> lines;
+public class Triangle extends AbstractFigure {
 
-    Triangle(List<Line> lines) {
-        if (!checkTriangle(lines)) {
+    Triangle(Points points) {
+        super(points);
+        checkTriangleValidation(points);
+    }
+
+    private void checkTriangleValidation(Points points){
+        if (checkTriangle(points)) {
             throw new IllegalArgumentException("삼각형의 좌표가 아닙니다.");
         }
-        this.lines = lines;
     }
 
-    private boolean checkTriangle(List<Line> temporaryLines) {
-        return temporaryLines.get(1).isTriangle(temporaryLines.get(2), temporaryLines.get(0));
-    }
-
-    @Override
-    public double findArea() {
-        return lines.get(0).findTriangleArea(lines.get(1), lines.get(1));
+    private boolean checkTriangle(Points points) {
+        List<Double> lines = LengthFactory.generateLengths(points);
+        lines.sort(null);
+        return lines.get(0) + lines.get(1) <= lines.get(2);
     }
 
     @Override
-    public String findResult() {
+    public double calculateArea() {
+        List<Double> lines = LengthFactory.generateLengths(points);
+        double a = lines.get(0);
+        double b = lines.get(1);
+        double c = lines.get(2);
+        double s = (lines.get(0) + lines.get(1) + lines.get(2)) / 2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    @Override
+    public String getResult() {
         return "삼각형의 넓이는 %.2f 입니다.";
     }
 }

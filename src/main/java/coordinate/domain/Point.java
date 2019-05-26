@@ -3,57 +3,35 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    private double pointX;
-    private double pointY;
+    private int pointX;
+    private int pointY;
 
-    public Point(String x, String y) {
+    public Point(int x, int y) {
         checkPoint(x, y);
-        pointX = Double.parseDouble(x);
-        pointY = Double.parseDouble(y);
+        pointX = x;
+        pointY = y;
     }
 
-    private double subPointX(double x) {
+    double calculateLength(Point point) {
+        return Math.sqrt(Math.pow(subPointX(point.pointX), 2) + Math.pow(subPointY(point.pointY), 2));
+    }
+
+    private double subPointX(int x) {
         return (this.pointX - x);
     }
 
-    private double subPointY(double y) {
+    private double subPointY(int y) {
         return (this.pointY - y);
     }
 
-    private void checkPoint(String x, String y) {
-        if (isBlank(x, y)) {
-            throw new IllegalArgumentException("공백 넣지 마세요.");
-        }
-        if (!isDouble(x, y)) {
-            throw new IllegalArgumentException("숫자를 입력해 주세요.");
-        }
-        double tempX = Double.parseDouble(x);
-        double tempY = Double.parseDouble(y);
-        if (isNotAllowedNumber(tempX, tempY)) {
+    private void checkPoint(int x, int y) {
+        if (isNotAllowedNumber(x, y)) {
             throw new IllegalArgumentException("0 이상 24 이하의 수를 입력하세요.");
         }
     }
 
-    private boolean isNotAllowedNumber(double point_x, double point_y) {
+    private boolean isNotAllowedNumber(int point_x, int point_y) {
         return (point_x > 24 || point_x < 0) || (point_y > 24 || point_y < 0);
-    }
-
-    private boolean isDouble(String x, String y) {
-        try {
-            Double.parseDouble(x);
-            Double.parseDouble(y);
-            return true;
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
-    }
-
-    private boolean isBlank(String x, String y) {
-        return x.contains(" ") || y.contains(" ");
-    }
-
-    double findLength(Point point) {
-        return Math.sqrt(Math.pow(subPointX(point.pointX), 2) + Math.pow(subPointY(point.pointY), 2));
     }
 
     @Override
