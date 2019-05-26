@@ -1,12 +1,9 @@
-package com.woowacourse.javacoordinate.domain;
+package com.woowacourse.javacoordinate.domain.coordinate;
 
-import com.woowacourse.javacoordinate.domain.coordinate.CoordinateLine;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;

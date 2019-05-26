@@ -1,6 +1,5 @@
-package com.woowacourse.javacoordinate.domain;
+package com.woowacourse.javacoordinate.domain.coordinate;
 
-import com.woowacourse.javacoordinate.domain.coordinate.CoordinateSystem;
 import com.woowacourse.javacoordinate.domain.point.Point;
 import com.woowacourse.javacoordinate.domain.point.Points;
 import org.junit.jupiter.api.Test;
