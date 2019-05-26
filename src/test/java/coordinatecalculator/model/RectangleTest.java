@@ -1,7 +1,5 @@
 package coordinatecalculator.model;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,28 +9,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class RectangleTest {
 
     private Points points;
-
-    @BeforeEach
-    void setUp() {
-        points = Points.create();
-        points.addPoint(new Point("(1,1)"));
-        points.addPoint(new Point("(1,3)"));
-        points.addPoint(new Point("(2,1)"));
-        points.addPoint(new Point("(2,3)"));
-    }
+    private String[] input_points;
+    private String[] wrong_input_points;
 
     @Test
     void 직사각형_맞는지_검증_테스트() {
+        input_points = new String[]{"(1,1)", "(1,3)", "(2,1)","(2,3)"};
+        points = Points.create(input_points);
         assertDoesNotThrow(() -> new Rectangle(points));
     }
 
     @Test
     void 직사각형이_아닐때_검증_테스트() {
-        points.getPoints().clear();
-        points.addPoint(new Point("(1,2)"));
-        points.addPoint(new Point("(1,3)"));
-        points.addPoint(new Point("(2,1)"));
-        points.addPoint(new Point("(2,3)"));
+        wrong_input_points = new String[]{"(1,2)", "(1,3)", "(2,1)","(2,3)"};
+        points = Points.create(wrong_input_points);
 
         assertThrows(IllegalArgumentException.class, () ->
                 new Rectangle(points)
@@ -41,11 +31,9 @@ public class RectangleTest {
 
     @Test
     void 직사각형_넓이_구하는_테스트() {
+        input_points = new String[]{"(1,1)", "(1,3)", "(2,1)","(2,3)"};
+        points = Points.create(input_points);
         assertThat(new Rectangle(points).getResult()).isEqualTo(2);
     }
 
-    @AfterEach
-    void tearDown() {
-        points = null;
-    }
 }

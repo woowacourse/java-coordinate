@@ -1,28 +1,33 @@
 package coordinatecalculator.controller;
 
-import coordinatecalculator.model.Point;
-import coordinatecalculator.model.Points;
+import coordinatecalculator.model.*;
 import coordinatecalculator.view.InputView;
 import coordinatecalculator.view.OutputView;
 
-import java.util.Arrays;
-
 public class CoordinateController {
+    private Points points;
+
     public void run() {
-        Points points = Points.create();
-        generatePoint(points);
-        OutputView.showCoordinate(points);
-//        CoordinateResult coordinateResult = new CoordinateResult(points);
+        this.points = generatePoint();
+        OutputView.showCoordinate(generateFigure(points), this.points);
     }
 
-    private void generatePoint(Points points) {
-        Arrays.stream(InputView.inputCoordinatePoint())
-                .forEach(coordinate -> {
-                    try {
-                        points.addPoint(new Point(coordinate));
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
-                });
+    private Points generatePoint() {
+        try{
+            return Points.create(InputView.inputCoordinatePoint());
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+            return generatePoint();
+        }
+    }
+
+    private Figure generateFigure(Points points){
+        try{
+            return new FigureFactory().create(points);
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+            this.points = generatePoint();
+            return generateFigure(this.points);
+        }
     }
 }

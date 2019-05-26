@@ -18,4 +18,9 @@ public class Line implements Figure {
     public double calculateResult(Points points) {
         return points.generateDistances().get(DISTANCES_FIRST_INDEX).getDistance();
     }
+
+    @Override
+    public String toString() {
+        return "두 점 사이 거리는 " + String.format("%.6f",getResult());
+    }
 }

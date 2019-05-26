@@ -1,5 +1,6 @@
 package coordinatecalculator.view;
 
+import coordinatecalculator.model.Figure;
 import coordinatecalculator.model.Point;
 import coordinatecalculator.model.Points;
 
@@ -12,9 +13,9 @@ public class OutputView {
     private static final String X_AXIS = "-";
     private static final String POINT = "ㆍ";
 
-    public static void showCoordinate(Points points) {
+    public static void showCoordinate(Figure figure, Points points) {
         printCoordinate(points);
-        printDistanceResult(points);
+        showCoordinateResult(figure);
     }
 
     private static void printCoordinate(Points points) {
@@ -50,7 +51,7 @@ public class OutputView {
         return BLANK;
     }
 
-    private static void printDistanceResult(Points points) {
-//        System.out.print(String.format("두 점 사이의 거리는 %f", points.getDistances(0,1).getDistance()));
+    private static void showCoordinateResult(Figure figure){
+        System.out.println(figure);
     }
 }

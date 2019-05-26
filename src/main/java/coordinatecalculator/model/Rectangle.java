@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class Rectangle implements Figure {
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
-    private static final int DEGREE_OF_THIRD_PRECISION = 1000;
+    private static final int GET_TWO_POINTS_SIZE = 2;
 
     private double area;
 
@@ -25,8 +25,8 @@ public class Rectangle implements Figure {
         return differPoints;
     }
 
-    private List<Point> validateRectangle(List<Point> differentPoints){
-        if(differentPoints.size() != 2){
+    private List<Point> validateRectangle(List<Point> differentPoints) {
+        if (differentPoints.size() != GET_TWO_POINTS_SIZE) {
             throw new IllegalArgumentException("옯바른 직사각형 형식이 아닙니다.");
         }
         return differentPoints;
@@ -34,7 +34,7 @@ public class Rectangle implements Figure {
 
     @Override
     public double getResult() {
-        return Math.round(area * DEGREE_OF_THIRD_PRECISION) / DEGREE_OF_THIRD_PRECISION;
+        return area;
     }
 
     @Override
@@ -45,5 +45,10 @@ public class Rectangle implements Figure {
 
         return Math.abs(firstPoint.getxPoint().subtract(secondPoint.getxPoint().getValue())
                 * firstPoint.getyPoint().subtract(secondPoint.getyPoint().getValue()));
+    }
+
+    @Override
+    public String toString() {
+        return "사각형 넓이는 " + String.format("%.3f", getResult());
     }
 }

@@ -13,9 +13,8 @@ public class LineTest {
 
     @BeforeEach
     void setUp() {
-        points = Points.create();
-        points.addPoint(new Point("(10,10)"));
-        points.addPoint(new Point("(11,11)"));
+        String[] input_points = {"(10,10)", "(11,11)"};
+        points = Points.create(input_points);
     }
 
     @Test
