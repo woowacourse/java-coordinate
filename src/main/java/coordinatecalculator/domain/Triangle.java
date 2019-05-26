@@ -3,22 +3,25 @@ package coordinatecalculator.domain;
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
-    private static final String THREE_POINTS_SAME_LINE = "입력한 좌표가 삼각형이 아닙니다.";
+    private static final String ERROR_THREE_POINTS_SAME_LINE = "입력한 좌표가 삼각형이 아닙니다.";
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
     private static final int THIRD_POINT = 2;
     private static final int SAME_ANGLE = 0;
     private static final int STRAIGHT_ANGLE = 180;
     private static final int ZERO_ANGLE = 0;
+    private static final String TRIANGLE_NAME = "삼각형";
+    private static final int TRIANGLE_SIZE = 3;
+    private static final int HALF = 2;
 
-    public Triangle(List<Point> points) {
+    public Triangle(final List<Point> points) {
         super(points);
         checkValidTriangle();
     }
 
     private void checkValidTriangle() {
         if (isPointsSameLine()) {
-            throw new IllegalArgumentException(THREE_POINTS_SAME_LINE);
+            throw new IllegalArgumentException(ERROR_THREE_POINTS_SAME_LINE);
         }
     }
 
@@ -30,7 +33,7 @@ public class Triangle extends AbstractFigure {
                 || isZeroOrStraightAngle(secondAngle);
     }
 
-    private boolean isZeroOrStraightAngle(double angle) {
+    private boolean isZeroOrStraightAngle(final double angle) {
         return Double.compare(angle, ZERO_ANGLE) == SAME_ANGLE
                 || Double.compare(angle, STRAIGHT_ANGLE) == SAME_ANGLE;
     }
@@ -47,8 +50,18 @@ public class Triangle extends AbstractFigure {
         double a = getPoint(FIRST_POINT).getDistance(getPoint(SECOND_POINT));
         double b = getPoint(SECOND_POINT).getDistance(getPoint(THIRD_POINT));
         double c = getPoint(THIRD_POINT).getDistance(getPoint(FIRST_POINT));
-        double s = (a + b + c) / 2;
+        double s = (a + b + c) / HALF;
 
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    @Override
+    public String getName() {
+        return TRIANGLE_NAME;
+    }
+
+    @Override
+    public int size() {
+        return TRIANGLE_SIZE;
     }
 }

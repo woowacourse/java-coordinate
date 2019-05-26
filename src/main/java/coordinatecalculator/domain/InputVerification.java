@@ -11,19 +11,27 @@ public class InputVerification {
     private static final String DELIMITER = "-";
     private static final int POINT_X = 1;
     private static final int POINT_Y = 2;
-    private static final String NOT_INTEGER_POINT = "x 또는 y가 정수가 아닙니다.";
+    private static final String ERROR_NOT_INTEGER_POINT = "x 또는 y가 정수가 아닙니다.";
     private static final String ERROR_INPUT_PATTERN = "'-'로 구분하여 (x1,y1)-(x2, y2)... 형태로 입력하세요.";
-    private static final String DUPLICATED_POINTS = "입력한 좌표가 중복됩니다.";
+    private static final String ERROR_DUPLICATED_POINTS = "입력한 좌표가 중복됩니다.";
+    private static final String ERROR_EMPTY_INPUT = "입력이 없습니다.";
 
     private static Pattern pattern = Pattern.compile("\\((.*),(.*)\\)");
 
     public static List<Point> getValidPoints(String input) {
         List<Point> points = new ArrayList<>();
 
+        isEmpty(input);
         fillPoints(input, points);
         checkDuplicatePoints(points);
 
         return points;
+    }
+
+    private static void isEmpty(String input) {
+        if (input == null || input.isEmpty()) {
+            throw new NullPointerException(ERROR_EMPTY_INPUT);
+        }
     }
 
     private static void fillPoints(String input, List<Point> points) {
@@ -55,17 +63,17 @@ public class InputVerification {
         try {
             return Integer.parseInt(number);
         } catch (NumberFormatException nfe) {
-            throw new NumberFormatException(NOT_INTEGER_POINT);
+            throw new NumberFormatException(ERROR_NOT_INTEGER_POINT);
         }
     }
 
-    private static void checkDuplicatePoints(List<Point> points) {
+    private static void checkDuplicatePoints(final List<Point> points) {
         if (isDuplicatePoints(points)) {
-            throw new IllegalArgumentException(DUPLICATED_POINTS);
+            throw new IllegalArgumentException(ERROR_DUPLICATED_POINTS);
         }
     }
 
-    private static boolean isDuplicatePoints(List<Point> points) {
+    private static boolean isDuplicatePoints(final List<Point> points) {
         Set<Point> uniquePoints = new HashSet<>(points);
         return uniquePoints.size() != points.size();
     }

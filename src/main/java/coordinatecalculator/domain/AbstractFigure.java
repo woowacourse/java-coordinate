@@ -7,12 +7,17 @@ public abstract class AbstractFigure implements Figure {
 
     private final List<Point> points;
 
-    public AbstractFigure(final List<Point> points) {
+    AbstractFigure(final List<Point> points) {
         this.points = points;
         Collections.sort(points);
     }
 
-    public Point getPoint(final int index) {
+    Point getPoint(final int index) {
         return points.get(index);
+    }
+
+    @Override
+    public List<Point> getPoints() {
+        return points;
     }
 }

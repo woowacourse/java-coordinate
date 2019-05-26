@@ -5,7 +5,7 @@ public class K5 implements Car {
     private static final int distancePerLiter = 13; // km/Liter
     private int tripDistance;
 
-    public K5(int tripDistance) {
+    public K5(final int tripDistance) {
         this.tripDistance = tripDistance;
     }
 

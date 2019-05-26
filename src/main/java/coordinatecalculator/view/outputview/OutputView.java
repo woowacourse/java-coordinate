@@ -11,6 +11,8 @@ public class OutputView {
     private static final int LINE_SIZE = 2;
     private static final int TRIANGLE_SIZE = 3;
     private static final int RECTANGLE_SIZE = 4;
+    private static final String LINE_MESSAGE = "두 점 사이 거리는 ";
+    private static final String AREA_MESSAGE = "의 넓이는 ";
 
     public static void printResult(Figure figure) {
         ConsoleUI.printConsoleUI(figure);
@@ -27,10 +29,10 @@ public class OutputView {
     }
 
     private static String getLineLength(Figure figure) {
-        return "두 점 사이 거리는 " + ((Line) figure).getLength();
+        return LINE_MESSAGE + ((Line) figure).getLength();
     }
 
     private static String getArea(Figure figure) {
-        return figure.getName() + "의 넓이는 " + figure.area();
+        return figure.getName() + AREA_MESSAGE + figure.area();
     }
 }

@@ -5,7 +5,7 @@ public class Avante implements Car {
     private static final int distancePerLiter = 15; // km/Liter
     private int tripDistance;
 
-    public Avante(int tripDistance) {
+    public Avante(final int tripDistance) {
         this.tripDistance = tripDistance;
     }
 
