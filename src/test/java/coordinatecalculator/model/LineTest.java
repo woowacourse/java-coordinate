@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LineTest {
 
@@ -20,6 +21,11 @@ public class LineTest {
     @Test
     void 선의_길이가_잘_나오는지_테스트() {
         assertDoesNotThrow(() -> new Line(points));
+    }
+
+    @Test
+    void 거리계산_테스트() {
+        assertEquals(1.414, new Line(points).getResult(), 0.001);
     }
 
     @AfterEach

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PointsTest {
 
@@ -23,10 +24,15 @@ public class PointsTest {
         assertThat(points.getPoint(1)).isEqualTo(new Point("(2,2)"));
     }
 
-//    @Test
-//    void 거리계산_테스트() {
-//        assertEquals(1.414, points.distanceResult(), 0.001);
-//    }
+    @Test
+    void 중복점_테스트() {
+        points.getPoints().clear();
+
+        assertThrows(IllegalArgumentException.class, () ->{
+            points.addPoint(new Point("(1,1)"));
+            points.addPoint(new Point("(1,1)"));
+        });
+    }
 
     @AfterEach
     void tearDown() {
