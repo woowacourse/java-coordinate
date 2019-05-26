@@ -9,16 +9,27 @@ import com.woowacourse.javacoordinate.view.InputView;
 import com.woowacourse.javacoordinate.view.OutputView;
 
 public class Application {
-    public static void main(String[] args) throws IllegalArgumentException{
+    public static void main(String[] args) {
         while (true) {
             Points points = InputView.inputCoordinatePoints();
 
-            Figure figure = FigureFactory.createFigure(points);
-            Result result = new Result(figure);
+            Result result = createResult(points);
             CoordinateSystem coordinateSystem = new CoordinateSystem(points);
 
             OutputView.printCoordinateSystem(coordinateSystem);
             OutputView.printResult(result);
         }
+    }
+
+    private static Result createResult(Points points) {
+        Result result = null;
+        try {
+            Figure figure = FigureFactory.createFigure(points);
+            result = new Result(figure);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+        return result;
     }
 }

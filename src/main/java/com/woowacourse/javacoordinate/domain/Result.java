@@ -20,25 +20,17 @@ public class Result {
         map.put(Triangle.TYPE_OF_TRIANGLE, figure::calculateArea);
         map.put(Rectangle.TYPE_OF_RECTANGLE, figure::calculateArea);
 
-        try {
-            this.result = calculate(figure);
-        } catch (IllegalArgumentException e) {
-            System.err.println("도형 타입이 올바르지 않습니다");
-        }
+        this.result = calculate(figure);
         this.resultType = figure.getType();
     }
 
     private double calculate(Figure figure) {
         Supplier<Double> calculator = map.get(figure.getType());
-        double result = 0;
-        try {
-            result = calculator.get();
-        } catch (NullPointerException e) {
-            System.err.println("도형 타입이 올바르지 않습니다");
-        } catch (RuntimeException e) {
-            System.err.println(e.getMessage());
+        if (calculator == null) {
+            throw new NullPointerException("도형 타입이 올바르지 않습니다");
         }
-        return result;
+
+        return calculator.get();
     }
 
     public double getResult() {
