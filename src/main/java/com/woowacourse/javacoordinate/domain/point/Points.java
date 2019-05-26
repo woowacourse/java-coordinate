@@ -17,6 +17,20 @@ public class Points {
         }
     }
 
+    public int calculateXAxisPositionNumber() {
+        Set<Integer> xAxises = new HashSet<>();
+        points.stream().map(Point::getX).forEach(xAxises::add);
+
+        return xAxises.size();
+    }
+
+    public int calculateYAxisPositionNumber() {
+        Set<Integer> yAxises = new HashSet<>();
+        points.stream().map(Point::getY).forEach(yAxises::add);
+
+        return yAxises.size();
+    }
+
     public List<Point> getPoints() {
         return points;
     }
@@ -32,7 +46,7 @@ public class Points {
 
         Points points1 = (Points) o;
 
-        return points != null ? points.equals(points1.points) : points1.points == null;
+        return Objects.equals(points, points1.points);
     }
 
     @Override

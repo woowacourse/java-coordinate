@@ -14,8 +14,8 @@ public class Application {
             Points points = InputView.inputCoordinatePoints();
 
             Figure figure = FigureFactory.createFigure(points);
-            CoordinateSystem coordinateSystem = new CoordinateSystem(points);
             Result result = new Result(figure);
+            CoordinateSystem coordinateSystem = new CoordinateSystem(points);
 
             OutputView.printCoordinateSystem(coordinateSystem);
             OutputView.printResult(result);

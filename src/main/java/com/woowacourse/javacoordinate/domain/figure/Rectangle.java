@@ -22,13 +22,8 @@ public class Rectangle extends Figure {
     }
 
     private void checkValidRectangle(Points points) {
-        Set<Integer> xAxises = new HashSet<>();
-        Set<Integer> yAxises = new HashSet<>();
-
-        points.getPoints().stream().map(Point::getX).forEach(xAxises::add);
-        points.getPoints().stream().map(Point::getY).forEach(yAxises::add);
-
-        if (xAxises.size() != POSITION_NUMBER || yAxises.size() != POSITION_NUMBER) {
+        if ((points.calculateXAxisPositionNumber() != POSITION_NUMBER)
+                || (points.calculateYAxisPositionNumber() != POSITION_NUMBER)) {
             throw new IllegalArgumentException("유효한 사각형이 아닙니다");
         }
     }
