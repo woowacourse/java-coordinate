@@ -1,13 +1,12 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.domain.parent.Console;
 import coordinatecalculator.domain.parent.Figure;
 
 import java.util.List;
 import java.util.Objects;
 
-public class Rectangle implements Figure {
-    private static final String INVALID_CHECK_MESSAGE = "직사각형이 아닙니다. 다시 입력해 주세요";
-    private static final String TRIANGLE_RESULT_MESSAGE = "사각형 넓이는 ";
+public class Rectangle implements Figure, Console {
 
     private final Points points;
 

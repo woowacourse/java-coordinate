@@ -1,12 +1,11 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.domain.parent.Console;
 import coordinatecalculator.domain.parent.Figure;
 
 import java.util.List;
 
-public class Line implements Figure {
-    private static final String LINE_RESULT_MESSAGE = "두 점 사이 거리는 ";
-
+public class Line implements Figure, Console {
     private final Points points;
 
     Line(final Points points) {

@@ -1,6 +1,7 @@
 package coordinatecalculator.view;
 
 import coordinatecalculator.domain.Drawer;
+import coordinatecalculator.domain.parent.Console;
 import coordinatecalculator.domain.parent.Figure;
 
 import java.util.List;
@@ -12,6 +13,6 @@ public class OutputView {
         for (StringBuilder oneLine : board) {
             System.out.print(oneLine.toString());
         }
-        System.out.println(figure.makeResult());
+        System.out.println(((Console)figure).makeResult());
     }
 }
