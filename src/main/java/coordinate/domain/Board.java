@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
+    private final List<List<Boolean>> board;
     final static int MIN_BOARD_SIZE = 0;
     final static int MAX_BOARD_SIZE = 25;
-
-    private final List<List<Boolean>> board;
 
     public Board(Points points) {
         checkValidPoints(points);
