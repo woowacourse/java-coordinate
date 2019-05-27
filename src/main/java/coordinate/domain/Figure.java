@@ -1,22 +1,20 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public class Figure {
-    protected final List<Point> points;
+    protected final Vertices vertices;
 
-    Figure(List<Point> points, int validLengthOfPoints) {
-        validateLengthOfPoints(points, validLengthOfPoints);
-        this.points = points;
+    Figure(Vertices vertices, int validLengthOfPoints) {
+        validateLengthOfPoints(vertices, validLengthOfPoints);
+        this.vertices = vertices;
     }
 
-    private void validateLengthOfPoints(List<Point> points, int validLengthOfPoints) {
-        if (points.size() != validLengthOfPoints) {
-            throw new IllegalArgumentException(this.getClass().getName()+"의 점의 개수가 올바르지 않습니다.");
+    private void validateLengthOfPoints(Vertices vertices, int validLengthOfPoints) {
+        if (vertices.size() != validLengthOfPoints) {
+            throw new IllegalArgumentException(this.getClass().getName() + "의 점의 개수가 올바르지 않습니다.");
         }
     }
 
     public PlaneCoordinates getPlaneCoordinates() {
-        return new PlaneCoordinates(Point.MAX_X, Point.MAX_Y).plotPoints(points);
+        return new PlaneCoordinates(Point.MAX_X, Point.MAX_Y).plotPoints(vertices.getPoints());
     }
 }

@@ -1,53 +1,40 @@
 package coordinate.domain;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Rectangle extends Figure implements AvailableArea {
     private static final int VALID_LENGTH_OF_POINTS = 4;
-    private static final int ALLOWED_NUMBER_OF_POINTS_FOR_AXIS = 2;
     private static final String INVALID_RECTANGLE_POINTS_MESSAGE = "직사각형의 좌표를 입력해 주세요.";
 
-    public Rectangle(List<Point> points) {
-        super(points, VALID_LENGTH_OF_POINTS);
+    private Double area;
+
+    public Rectangle(Vertices vertices) {
+        super(vertices, VALID_LENGTH_OF_POINTS);
         validateRectanglePoints();
     }
 
     private void validateRectanglePoints() {
-        Set<Integer> projectedXAxis = getProjectedXAxis();
-        Set<Integer> projectedYAxis = getProjectedYAxis();
-        if (projectedXAxis.size() != ALLOWED_NUMBER_OF_POINTS_FOR_AXIS || projectedYAxis.size() != ALLOWED_NUMBER_OF_POINTS_FOR_AXIS) {
+        List<Vector> vectorsFrom0 = IntStream.range(1, 4)
+                .mapToObj(i -> vertices.vector(0, i))
+                .sorted(Vector::compareTo)
+                .collect(Collectors.toCollection(ArrayList::new));
+        Vector side1 = vectorsFrom0.get(0);
+        Vector side2 = vectorsFrom0.get(1);
+        Vector opposite = vectorsFrom0.get(2);
+
+        area = (double) Math.abs(side1.crossProduct(side2));
+
+        if ((side1.dotProduct(side2) != 0) || !side1.add(side2).equals(opposite)) {
             throw new IllegalArgumentException(INVALID_RECTANGLE_POINTS_MESSAGE);
         }
     }
 
-    private Set<Integer> getProjectedXAxis() {
-        Set<Integer> projectedXAxis = new HashSet<>();
-        for (Point point : points) {
-            projectedXAxis.add(point.getX());
-        }
-        return projectedXAxis;
-    }
-
-    private Set<Integer> getProjectedYAxis() {
-        Set<Integer> projectedYAxis = new HashSet<>();
-        for (Point point : points) {
-            projectedYAxis.add(point.getY());
-        }
-        return projectedYAxis;
-    }
-
     @Override
     public double area() {
-        List<Integer> projectedXAxis = new ArrayList<>(getProjectedXAxis());
-        List<Integer> projectedYAxis = new ArrayList<>(getProjectedYAxis());
-
-        int width = Math.abs(projectedXAxis.get(0) - projectedXAxis.get(1));
-        int height = Math.abs(projectedYAxis.get(0) - projectedYAxis.get(1));
-
-        return width * height;
+        return area;
     }
 
     @Override

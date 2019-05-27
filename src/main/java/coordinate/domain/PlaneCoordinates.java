@@ -71,8 +71,8 @@ public class PlaneCoordinates {
 
     @Override
     public String toString() {
-        StringBuilder temp = new StringBuilder();
-        plane.forEach(line -> temp.append(line).append(NEXT_LINE));
-        return temp.toString();
+        StringBuilder stringBuilder = new StringBuilder();
+        plane.forEach(line -> stringBuilder.append(line).append(NEXT_LINE));
+        return stringBuilder.toString();
     }
 }

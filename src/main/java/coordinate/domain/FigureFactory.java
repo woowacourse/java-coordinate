@@ -1,7 +1,6 @@
 package coordinate.domain;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class FigureFactory {
@@ -15,11 +14,11 @@ public class FigureFactory {
         ifExercise.put(4, Rectangle::new);
     }
 
-    public static Figure generate(List<Point> points) {
-        int size = points.size();
+    public static Figure generate(Vertices vertices) {
+        int size = vertices.size();
         validPointsSize(size);
 
-        return ifExercise.get(size).create(points);
+        return ifExercise.get(size).create(vertices);
     }
 
     private static void validPointsSize(int size) {

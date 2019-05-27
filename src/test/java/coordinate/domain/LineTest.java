@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,25 +13,25 @@ public class LineTest {
 
     @BeforeEach
     public void setUp() {
-        List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2)));
-        line = new Line(points);
+        Vertices vertices = new Vertices(new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2))));
+        line = new Line(vertices);
     }
 
     @Test
     public void Point가_2개_미만_들어올_경우() {
-        List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1)));
+        Vertices vertices = new Vertices(new ArrayList<>(Arrays.asList(new Point(1, 1))));
 
         assertThatThrownBy(() -> {
-            new Line(points);
+            new Line(vertices);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void Point가_2개_이상_들어올_경우() {
-        List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3)));
+        Vertices vertices = new Vertices(new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3))));
 
         assertThatThrownBy(() -> {
-            new Line(points);
+            new Line(vertices);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
