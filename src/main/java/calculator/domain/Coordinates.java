@@ -6,7 +6,7 @@ import java.util.*;
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class Coordinates implements Iterable<Coordinate>{
+public class Coordinates implements Iterable<Coordinate> {
     private static final String EX_DUPLICATED_COORDINATES_MESSAGE = "위치가 같은 점(point)이 존재합니다.";
     private static final String EX_MAX_COORDINATES_COUNT_MESSAGE = "4개 이하의 좌표를 입력해주세요.";
     private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
@@ -22,7 +22,7 @@ public class Coordinates implements Iterable<Coordinate>{
     /**
      * 생성자
      */
-    public Coordinates()  {
+    public Coordinates() {
         this.coordinates = new ArrayList<>();
     }
 
@@ -50,9 +50,9 @@ public class Coordinates implements Iterable<Coordinate>{
         Set<Integer> xCoordinates = new HashSet<>();
         Set<Integer> yCoordinates = new HashSet<>();
 
-        for (int i = 0; i < coordinates.size(); i++) {
-            xCoordinates.add(coordinates.get(i).getX());
-            yCoordinates.add(coordinates.get(i).getY());
+        for (Coordinate coordinate : coordinates) {
+            xCoordinates.add(coordinate.getX());
+            yCoordinates.add(coordinate.getY());
         }
 
         checkNotRectangle(xCoordinates, yCoordinates);
