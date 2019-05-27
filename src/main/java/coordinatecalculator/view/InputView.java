@@ -12,6 +12,11 @@ import java.util.stream.Collectors;
 public class InputView {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final String COORDINATES_SPLIT_REGEX = "(?<=\\))(-)(?=\\()";
+    private static final String VALUE_SPLIT_REGEX = ",";
+    private static final int FIRST_INDEX = 1;
+    private static final int LAST_INDEX = -1;
+    private static final int X_VALUE_INDEX = 0;
+    private static final int Y_VALUE_INDEX = 1;
 
     public static PlaneFigure createFigure() {
         try {
@@ -36,9 +41,9 @@ public class InputView {
     }
 
     private static Coordinate toCoordinate(String coordinate) {
-        String[] splitted = coordinate.substring(1, coordinate.length() - 1).split(",");
+        String[] splittedCoordinates = coordinate.substring(FIRST_INDEX, coordinate.length() + LAST_INDEX).split(VALUE_SPLIT_REGEX);
         try {
-            return new Coordinate(Integer.parseInt(splitted[0]), Integer.parseInt(splitted[1]));
+            return new Coordinate(Integer.parseInt(splittedCoordinates[X_VALUE_INDEX]), Integer.parseInt(splittedCoordinates[Y_VALUE_INDEX]));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("올바른 수를 입력해주세요.");
         }

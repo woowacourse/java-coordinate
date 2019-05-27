@@ -11,14 +11,14 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class FigureFactoryTest {
+class FigureCreatorsTest {
     @Test
     void line() {
         List<Coordinate> points = Arrays.asList(
                 new Coordinate(1, 2),
                 new Coordinate(2, 3));
 
-        PlaneFigure figure = FigureFactory.createFigure(points);
+        PlaneFigure figure = FigureCreators.findFigureCreator(points.size()).create(points);
         assertThat(figure).isInstanceOfAny(Line.class);
     }
 
@@ -29,7 +29,7 @@ class FigureFactoryTest {
                 new Coordinate(5, 2),
                 new Coordinate(2, 3));
 
-        PlaneFigure figure = FigureFactory.createFigure(points);
+        PlaneFigure figure = FigureCreators.findFigureCreator(points.size()).create(points);
         assertThat(figure).isInstanceOfAny(Triangle.class);
     }
 
@@ -41,7 +41,7 @@ class FigureFactoryTest {
                 new Coordinate(2, 1),
                 new Coordinate(1, 1));
 
-        PlaneFigure figure = FigureFactory.createFigure(points);
+        PlaneFigure figure = FigureCreators.findFigureCreator(points.size()).create(points);
         assertThat(figure).isInstanceOfAny(Rectangle.class);
     }
 

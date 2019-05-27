@@ -2,7 +2,7 @@ package coordinatecalculator.model.coordinate;
 
 import java.util.Objects;
 
-public class Coordinate {
+public class Coordinate implements Comparable<Coordinate> {
     private static final int MIN_COORDINATE_VALUE = 0;
     private static final int MAX_COORDINATE_VALUE = 24;
 
@@ -43,5 +43,13 @@ public class Coordinate {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public int compareTo(Coordinate o) {
+        if (this.x < o.x || this.x == o.x && this.y < o.y) {
+            return -1;
+        }
+        return 1;
     }
 }
