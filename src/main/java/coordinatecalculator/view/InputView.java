@@ -1,8 +1,8 @@
 package coordinatecalculator.view;
 
 import coordinatecalculator.model.coordinate.Coordinate;
-import coordinatecalculator.model.figure.FigureFactory;
 import coordinatecalculator.model.figure.PlaneFigure;
+import coordinatecalculator.model.figure.FigureCreators;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +15,8 @@ public class InputView {
 
     public static PlaneFigure createFigure() {
         try {
-            return FigureFactory.createFigure(inputCoordinates());
+            List<Coordinate> coordinates = inputCoordinates();
+            return FigureCreators.findFigureCreator(coordinates.size()).create(coordinates);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return createFigure();
