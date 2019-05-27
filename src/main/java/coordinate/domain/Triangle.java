@@ -8,7 +8,7 @@ public class Triangle extends Figure {
 
     public Triangle(Points points) {
         super(points);
-        if (points.size() != 3) {
+        if (points.size() != ShapeFactory.TRIANGLE_POINT_SIZE) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
         if (!isTriangle(points)) {

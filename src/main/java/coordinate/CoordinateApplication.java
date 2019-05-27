@@ -8,9 +8,9 @@ import coordinate.view.OutputView;
 
 public class CoordinateApplication {
     public static void main(String[] args) {
-        Points points = InputView.inputPoints();
-        CoordinateDto coordinateDto = CoordinateController.request(points);
-        OutputView.printBoard(coordinateDto.getBoard());
-        OutputView.printResult(coordinateDto.getShape());
+        Points points = new Points(InputView.inputPoints());
+//        CoordinateDto coordinateDto = CoordinateController.request(points);
+//        OutputView.printBoard(coordinateDto.getBoard());
+//        OutputView.printResult(coordinateDto.getShape());
     }
 }

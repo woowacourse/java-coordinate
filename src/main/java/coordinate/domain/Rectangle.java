@@ -3,7 +3,6 @@ package coordinate.domain;
 import java.util.Arrays;
 
 public class Rectangle extends Figure {
-    private static final int RECTANGLE_POINT_SIZE = 4;
     private static final int STANDARD_POINT = 0;
     private static final int RIGHT_POINT = 1;
     private static final int LEFT_POINT = 2;
@@ -12,7 +11,7 @@ public class Rectangle extends Figure {
 
     public Rectangle(Points points) {
         super(points);
-        if (points.size() != RECTANGLE_POINT_SIZE) {
+        if (points.size() != ShapeFactory.RECTANGLE_POINT_SIZE) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
         if (!isRectangle(points)) {
