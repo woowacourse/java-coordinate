@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.offset;
  */
 class LineTest {
 
-    Figure figure;
+    Figure line;
     Coordinates coordinates;
 
     @BeforeEach
@@ -20,16 +20,16 @@ class LineTest {
         coordinates = new Coordinates();
         coordinates.add(new Coordinate(8,21));
         coordinates.add(new Coordinate(16,3));
-        figure = FigureFactory.getInstance().create(coordinates);
+        line = FigureFactory.getInstance().create(coordinates);
     }
 
     @Test
     void create_계산_정답() {
-        assertThat(figure.area()).isEqualTo(19.697,offset(0.00099));
+        assertThat(line.straight(coordinates.get(0), coordinates.get(1))).isEqualTo(19.697,offset(0.00099));
     }
 
     @Test
     void line_계산_반올림_확인() {
-        assertThat(figure.area()).isEqualTo(19.698,offset(0.00099));
+        assertThat(line.straight(coordinates.get(0), coordinates.get(1))).isEqualTo(19.698,offset(0.00099));
     }
 }

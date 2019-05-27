@@ -13,7 +13,7 @@ public class Line extends Figure {
     }
 
     @Override
-    public double area() {
-        return straight(coordinates.get(0), coordinates.get(1));
+    public double straight(Coordinate firstCoordinate, Coordinate secondCoordinate) {
+        return super.straight(firstCoordinate, secondCoordinate);
     }
 }
