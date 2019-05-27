@@ -10,23 +10,23 @@ public class Point {
     private static final Pattern PATTERN = Pattern.compile("\\(([0-9]*),([0-9]*)\\)");
     private static final int ZERO = 0;
     private static final int SQUARE = 2;
-    private final XPoint xPoint;
-    private final YPoint yPoint;
+    private final Coordinate xPoint;
+    private final Coordinate yPoint;
 
     public Point(String inputPoint) {
         Matcher matcher = PATTERN.matcher(inputPoint);
         if (!matcher.find()) {
             throw new IllegalArgumentException("잘못된 입력 형식입니다.");
         }
-        this.xPoint = new XPoint(matcher.group(1));
-        this.yPoint = new YPoint(matcher.group(2));
+        this.xPoint = new Coordinate(matcher.group(1));
+        this.yPoint = new Coordinate(matcher.group(2));
     }
 
-    public XPoint getXPoint() {
+    public Coordinate getXPoint() {
         return xPoint;
     }
 
-    public YPoint getYPoint() {
+    public Coordinate getYPoint() {
         return yPoint;
     }
 
@@ -50,13 +50,17 @@ public class Point {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Point point = (Point) o;
-        return Objects.equals(xPoint, point.xPoint) &&
-                Objects.equals(yPoint, point.yPoint);
+        if (!xPoint.equals(point.xPoint)) return false;
+        return yPoint.equals(point.yPoint);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(xPoint, yPoint);
+        int result = xPoint.hashCode();
+        result = 31 * result + yPoint.hashCode();
+        return result;
     }
 }
