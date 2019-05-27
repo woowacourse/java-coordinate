@@ -2,6 +2,7 @@ package coordinate.domain.figure;
 
 import coordinate.domain.nonefigure.PointGroup;
 import coordinate.domain.nonefigure.Vector;
+import coordinate.domain.nonefigure.VectorGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,22 +16,9 @@ public class Rectangle extends Figure {
 
     private boolean checkRectangle(PointGroup points) {
         List<Line> lines = points.getLines();
-        List<Vector> vectors = new ArrayList<>();
-        lines.forEach(line -> vectors.add(line.toVector()));
+        VectorGroup vectors = VectorGroup.create(lines);
 
-        return checkDegreesAreAll90(points, vectors);
-    }
-
-    private boolean checkDegreesAreAll90(PointGroup points, List<Vector> vectors) {
-        for (int i = 0; i < vectors.size(); i++) {
-            int xProduct = vectors.get(i).getX() * vectors.get((i + 1) % points.size()).getX();
-            int yProduct = vectors.get(i).getY() * vectors.get((i + 1) % points.size()).getY();
-            int innerProduct = xProduct + yProduct;
-            if (innerProduct != 0) {
-                return false;
-            }
-        }
-        return true;
+        return vectors.checkDegreesAreAll90();
     }
 
     public double size() {
