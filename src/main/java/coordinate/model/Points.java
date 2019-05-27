@@ -1,20 +1,17 @@
 package coordinate.model;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Points {
     private List<Point> points;
 
     public Points(List<Point> points) {
-        checkDuplication(points);
-        Collections.sort(points);
-        this.points = points;
+        this.points = new ArrayList<>(points);
+        checkDuplication();
+        Collections.sort(this.points);
     }
 
-    private void checkDuplication(List<Point> points) {
+    private void checkDuplication() {
         Set<Point> checkOverlap = new HashSet<>();
         for (Point point : points) {
             checkOverlap.add(point);
