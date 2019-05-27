@@ -8,12 +8,12 @@ import java.util.*;
  */
 public class Map implements Iterable<MapLine> {
 
-    private static final int MAX_SIZE = 25;
+    private static final int MAX_SIZE = 24;
     private List<MapLine> map;
 
     public Map(Coordinates coordinates) {
         this.map = new ArrayList<>();
-        for (int i = 0; i < MAX_SIZE; i++) {
+        for (int i = 0; i <= MAX_SIZE; i++) {
             map.add(new MapLine());
         }
 
