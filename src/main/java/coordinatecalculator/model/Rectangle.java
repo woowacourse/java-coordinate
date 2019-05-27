@@ -2,6 +2,7 @@ package coordinatecalculator.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Rectangle implements Figure {
@@ -50,5 +51,18 @@ public class Rectangle implements Figure {
     @Override
     public String toString() {
         return "사각형 넓이는 " + String.format("%.3f", getResult());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Double.compare(rectangle.area, area) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(area);
     }
 }

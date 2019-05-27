@@ -8,13 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LineTest {
-
     private Points points;
 
     @BeforeEach
     void setUp() {
-        String[] input_points = {"(10,10)", "(11,11)"};
-        points = Points.create(input_points);
+        String[] inputPoints = {"(10,10)", "(11,11)"};
+        points = Points.create(inputPoints);
     }
 
     @Test
