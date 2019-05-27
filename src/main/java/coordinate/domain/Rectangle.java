@@ -1,6 +1,6 @@
 package coordinate.domain;
 
-public class Rectangle {
+public class Rectangle implements Figure {
     private final Points points;
 
     private Rectangle(Points points) {
@@ -21,5 +21,10 @@ public class Rectangle {
         double h = p.subtract(pNextY).length();
 
         return w * h;
+    }
+
+    @Override
+    public Points getPoints() {
+        return points;
     }
 }

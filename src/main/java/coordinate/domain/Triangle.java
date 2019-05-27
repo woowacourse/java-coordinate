@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
-public class Triangle {
+public class Triangle implements Figure{
     private final Points points;
 
     private Triangle(Points points) {
@@ -35,5 +35,10 @@ public class Triangle {
 
             return v.length();
         });
+    }
+
+    @Override
+    public Points getPoints() {
+        return points;
     }
 }

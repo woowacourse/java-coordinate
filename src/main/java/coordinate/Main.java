@@ -1,9 +1,9 @@
 package coordinate;
 
+import coordinate.domain.Figure;
 import coordinate.domain.PointFactory;
 import coordinate.view.InputView;
 
-import java.util.List;
 
 public class Main {
     private static final int xBegin = 0;
@@ -14,7 +14,9 @@ public class Main {
     private static final PointFactory POINT_FACTORY = PointFactory.of(xBegin, xEnd, yBegin, yEnd);
 
     public static void main(String[] args) {
-        InputView.readFigure(POINT_FACTORY);
+        Figure figure = InputView.readFigure(POINT_FACTORY);
+
+        System.out.printf("figure size: %d\n", figure.getPoints().size());
 
         // OutputView.printFigurePoints();
         // OutputView.printFigureMessage(figure);
