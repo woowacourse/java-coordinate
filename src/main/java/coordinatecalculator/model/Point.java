@@ -29,7 +29,7 @@ public class Point implements Comparable<Point> {
         return yPoint;
     }
 
-    public int getSquareOfTwoPointsSubtract(Point anotherPoint) {
+    public int calculateSquareOfTwoPointsSubtract(Point anotherPoint) {
         return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint), SQUARE)
                 + Math.pow(this.yPoint.subtract(anotherPoint.yPoint), SQUARE));
     }
@@ -38,14 +38,14 @@ public class Point implements Comparable<Point> {
         return !xPoint.equals(point.xPoint) && !yPoint.equals(point.yPoint);
     }
 
-    public double getSlope(Point point) {
+    public double calculateSlope(Point point) {
         if (xPoint.subtract(point.xPoint) == ZERO) {
             return Double.MAX_VALUE;
         }
         return yPoint.subtract(point.yPoint) / xPoint.subtract(point.xPoint);
     }
 
-    public Distance getDistance(Point anotherPoint) {
+    public Distance calculateDistance(Point anotherPoint) {
         return new Distance(this, anotherPoint);
     }
 
@@ -75,8 +75,8 @@ public class Point implements Comparable<Point> {
     @Override
     public int compareTo(Point o) {
         if (xPoint.equals(o.xPoint)) {
-            return yPoint.subtract(o.yPoint);
+            return yPoint.compareTo(o.yPoint);
         }
-        return xPoint.subtract(o.xPoint);
+        return xPoint.compareTo(o.xPoint);
     }
 }

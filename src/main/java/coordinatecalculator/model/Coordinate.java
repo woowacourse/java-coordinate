@@ -3,7 +3,7 @@ package coordinatecalculator.model;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Coordinate {
+public class Coordinate implements Comparable<Coordinate> {
 
     private final static int MIN_POINT_NUMBER = 0;
     private final static int MAX_POINT_NUMBER = 24;
@@ -50,5 +50,10 @@ public class Coordinate {
     @Override
     public int hashCode() {
         return pointValue;
+    }
+
+    @Override
+    public int compareTo(Coordinate o) {
+        return this.pointValue - o.pointValue;
     }
 }

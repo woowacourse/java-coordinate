@@ -43,7 +43,7 @@ public class Points {
     public List<Distance> generateDistances() {
         List<Distance> distances = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
-            distances.add(this.getPointByIndex(i).getDistance(getPointByIndex((i + 1) % points.size())));
+            distances.add(this.getPointByIndex(i).calculateDistance(getPointByIndex((i + 1) % points.size())));
         }
         return distances;
     }
@@ -51,7 +51,7 @@ public class Points {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("Points\n");
-        points.forEach(point -> stringBuilder.append(points).append(NEW_LINE));
+        points.forEach(point -> stringBuilder.append(point).append(NEW_LINE));
         return stringBuilder.toString();
     }
 }

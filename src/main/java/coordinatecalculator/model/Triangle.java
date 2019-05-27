@@ -34,7 +34,7 @@ public class Triangle implements Figure {
     public void checkValidate() {
         Set<Double> inclidations = new HashSet<>();
         for (int i = START; i < TRIANGLE_SIZE; i++) {
-            inclidations.add(points.getPointByIndex(i).getSlope(points.getPointByIndex((i + NEXT) % TRIANGLE_SIZE)));
+            inclidations.add(points.getPointByIndex(i).calculateSlope(points.getPointByIndex((i + NEXT) % TRIANGLE_SIZE)));
         }
         if (inclidations.size() != TRIANGLE_SIZE) {
             throw new IllegalArgumentException("잘못된 삼각형 입니다.");

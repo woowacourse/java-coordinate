@@ -9,7 +9,7 @@ public class Line implements Figure {
 
     public Line(Points points) {
         this.points = points;
-        this.distance = points.getPointByIndex(FIRST_POINT_INDEX).getDistance(points.getPointByIndex(SECOND_POINT_INDEX));
+        this.distance = points.getPointByIndex(FIRST_POINT_INDEX).calculateDistance(points.getPointByIndex(SECOND_POINT_INDEX));
     }
 
     @Override
