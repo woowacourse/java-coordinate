@@ -30,10 +30,12 @@
     - Line (which contains two ``Point`` instance)
 
 ### Step 2. Area of Square
+#### Function Requirements
 1. View
     - distinguish between Line and Square by input string
         - if input string have only one dash, shape is Line
         - if input string have three dashes, shape is Square
+
 2. Domain
     - Square
         - contains four Point instance
