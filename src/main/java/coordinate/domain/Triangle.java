@@ -37,9 +37,10 @@ public class Triangle extends Figure {
     public double calculateFigure() {
         List<Double> lineLengths = getLineLengths(points);
         double s = (lineLengths.get(0) + lineLengths.get(1) + lineLengths.get(2)) / 2;
-        return Math.sqrt(s * (s - lineLengths.get(0)) *
+        double result = Math.sqrt(s * (s - lineLengths.get(0)) *
                 (s - lineLengths.get(1)) *
                 (s - lineLengths.get(2)));
+        return Double.parseDouble(String.format("%.1f", result));
     }
 
     @Override

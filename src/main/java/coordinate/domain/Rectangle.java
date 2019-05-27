@@ -42,7 +42,6 @@ public class Rectangle extends Figure {
                 points.get(STANDARD_POINT), points.get(RIGHT_POINT)))).calculateFigure();
         double height = new Line(new Points(Arrays.asList(
                 points.get(STANDARD_POINT), points.get(LEFT_POINT)))).calculateFigure();
-
         return width * height;
     }
 

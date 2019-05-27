@@ -12,7 +12,8 @@ public class Line extends Figure {
     }
 
     public double calculateFigure() {
-        return points.get(FIRST_POINT).sub(points.get(SECOND_POINT));
+        double result = points.get(FIRST_POINT).sub(points.get(SECOND_POINT));
+        return Double.parseDouble(String.format("%.6f", result));
     }
 
     @Override

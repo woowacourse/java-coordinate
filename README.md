@@ -11,8 +11,6 @@
 ---
 # 좌표 계산기
 ## Todo
-* OutputView 메서드 분리하기
-* CoordinateApplication 완성하기
 
 ## Done
 * Point 테스트 생성
@@ -47,6 +45,8 @@
 * 입력 값에서 알맞게 문자 분리하기
 * PointsValidator 생성
 * Points 테스트 추가하기
+* OutputView 메서드 분리하기
+* CoordinateApplication 로직 구현하기
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
