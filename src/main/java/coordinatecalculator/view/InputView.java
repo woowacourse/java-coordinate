@@ -10,5 +10,4 @@ public class InputView {
         System.out.println("좌표를 입력하세요.");
         return scanner.nextLine().split("-");
     }
-
 }

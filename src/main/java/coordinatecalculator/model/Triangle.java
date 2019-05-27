@@ -27,7 +27,7 @@ public class Triangle implements Figure {
         double squareOfThirdLength = Math.pow(distances.get(THIRD_DISTANCE).getDistance(), TWO);
 
 
-        final double squareOfPythagorean = Math.pow(squareOfFirstLength + squareOfSecondLength - squareOfThirdLength,2);
+        final double squareOfPythagorean = Math.pow(squareOfFirstLength + squareOfSecondLength - squareOfThirdLength, 2);
         return Math.sqrt(FOUR * squareOfFirstLength * squareOfSecondLength - squareOfPythagorean) / FOUR;
     }
 
@@ -48,7 +48,12 @@ public class Triangle implements Figure {
     }
 
     @Override
+    public String getResultForPrint() {
+        return "삼각형의 넓이는 " + getArea();
+    }
+
+    @Override
     public String toString() {
-        return points +"삼각형의 넓이는 "+ getArea();
+        return points + "삼각형의 넓이는 " + getArea();
     }
 }

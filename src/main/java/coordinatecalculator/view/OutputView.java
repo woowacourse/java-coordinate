@@ -49,6 +49,6 @@ public class OutputView {
     }
 
     public static void printResult(Figure figure) {
-        System.out.println(figure);
+        System.out.println(figure.getResultForPrint());
     }
 }

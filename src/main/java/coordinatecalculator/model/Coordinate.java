@@ -29,13 +29,13 @@ public class Coordinate {
         return pointValue;
     }
 
-    public int subtract(int anotherPointValue) {
-        return this.pointValue - anotherPointValue;
+    public int subtract(Coordinate anotherCoordinate) {
+        return this.pointValue - anotherCoordinate.pointValue;
     }
 
     @Override
-    public String toString(){
-        return String.format("%d",pointValue);
+    public String toString() {
+        return String.format("%d", pointValue);
     }
 
     @Override

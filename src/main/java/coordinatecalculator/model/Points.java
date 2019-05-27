@@ -25,6 +25,7 @@ public class Points {
             throw new IllegalArgumentException("중복된 점이 있습니다.");
         }
         this.points.add(point);
+        Collections.sort(points);
     }
 
     public Point getPointByIndex(int index) {

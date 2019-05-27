@@ -32,7 +32,7 @@ public class Distance {
     }
 
     @Override
-    public String toString(){
-        return "거리 : "+distance;
+    public String toString() {
+        return "거리 : " + distance;
     }
 }

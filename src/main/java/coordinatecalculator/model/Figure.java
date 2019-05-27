@@ -6,4 +6,5 @@ public interface Figure {
 
     double getArea();
 
+    String getResultForPrint();
 }

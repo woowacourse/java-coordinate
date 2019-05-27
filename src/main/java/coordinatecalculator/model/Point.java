@@ -4,7 +4,7 @@ package coordinatecalculator.model;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Point {
+public class Point implements Comparable<Point> {
 
     private static final Pattern PATTERN = Pattern.compile("\\(([0-9]*),([0-9]*)\\)");
     private static final int ZERO = 0;
@@ -30,8 +30,8 @@ public class Point {
     }
 
     public int getSquare(Point anotherPoint) {
-        return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint.getValue()), SQUARE)
-                + Math.pow(this.yPoint.subtract(anotherPoint.yPoint.getValue()), SQUARE));
+        return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint), SQUARE)
+                + Math.pow(this.yPoint.subtract(anotherPoint.yPoint), SQUARE));
     }
 
     public boolean isDifferBothXY(Point point) {
@@ -39,10 +39,10 @@ public class Point {
     }
 
     public double getSlope(Point point) {
-        if (xPoint.subtract(point.xPoint.getValue()) == ZERO) {
+        if (xPoint.subtract(point.xPoint) == ZERO) {
             return Double.MAX_VALUE;
         }
-        return yPoint.subtract(point.yPoint.getValue()) / xPoint.subtract(point.xPoint.getValue());
+        return yPoint.subtract(point.yPoint) / xPoint.subtract(point.xPoint);
     }
 
     public Distance getDistance(Point anotherPoint) {
@@ -50,8 +50,8 @@ public class Point {
     }
 
     @Override
-    public String toString(){
-        return "xPoint : "+xPoint+" yPoint : "+yPoint;
+    public String toString() {
+        return "xPoint : " + xPoint + " yPoint : " + yPoint;
     }
 
     @Override
@@ -70,5 +70,13 @@ public class Point {
         int result = xPoint.hashCode();
         result = 31 * result + yPoint.hashCode();
         return result;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        if (xPoint.equals(o.xPoint)) {
+            return yPoint.subtract(o.yPoint);
+        }
+        return xPoint.subtract(o.xPoint);
     }
 }

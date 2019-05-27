@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Rectangle implements Figure {
 
-    private static final int FIRST =0;
-    private static final int SECOND =1;
+    private static final int FIRST = 0;
+    private static final int SECOND = 1;
     private static final int DIFFER_POINT_NUMBER = 2;
     private Points points;
 
@@ -20,8 +20,8 @@ public class Rectangle implements Figure {
     private double calculateArea(List<Point> differTwoPoints) {
         Point firstPoint = differTwoPoints.get(FIRST);
         Point secondPoint = differTwoPoints.get(SECOND);
-        return Math.abs(firstPoint.getXPoint().subtract(secondPoint.getXPoint().getValue())) *
-                Math.abs(firstPoint.getYPoint().subtract(secondPoint.getYPoint().getValue()));
+        return Math.abs(firstPoint.getXPoint().subtract(secondPoint.getXPoint())) *
+                Math.abs(firstPoint.getYPoint().subtract(secondPoint.getYPoint()));
     }
 
     public List<Point> getDifferTwoPoints() {
@@ -42,7 +42,12 @@ public class Rectangle implements Figure {
     }
 
     @Override
+    public String getResultForPrint() {
+        return "사각형 넓이 " + getArea();
+    }
+
+    @Override
     public String toString() {
-        return points +"사각형 넓이 :"+ getArea();
+        return points + "사각형 넓이 :" + getArea();
     }
 }
