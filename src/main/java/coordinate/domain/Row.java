@@ -12,7 +12,7 @@ public class Row {
 
     private List<String> nthRow = new ArrayList<>();
 
-    public Row(int height) {
+    Row(int height) {
         nthRow.add(String.format("%2s", String.valueOf(height)));
         nthRow.add(VERTICAL_AXIS);
         for (int i = 0; i < MAX_WIDTH; i++) {
@@ -20,7 +20,7 @@ public class Row {
         }
     }
 
-    public void paintPoint(int xCoordinate) {
+    void paintPoint(int xCoordinate) {
         nthRow.set(xCoordinate + EXTRA_INDEX, POINT);
     }
 

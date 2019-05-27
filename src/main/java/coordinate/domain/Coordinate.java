@@ -19,7 +19,7 @@ public class Coordinate {
         }
     }
 
-    public int getDistance(Coordinate endPointCoordinate) {
+    int getDistance(Coordinate endPointCoordinate) {
         return endPointCoordinate.coordinate - this.coordinate;
     }
 
