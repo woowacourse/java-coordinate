@@ -24,5 +24,4 @@ public class FigureFactory implements FigureCreator {
         }
         return figureFactory.get(points.getSize()).apply(points);
     }
-
 }

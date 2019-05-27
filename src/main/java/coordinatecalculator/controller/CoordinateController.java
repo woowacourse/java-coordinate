@@ -14,7 +14,7 @@ public class CoordinateController {
 
     private Points generatePoint() {
         try{
-            return Points.create(InputView.inputCoordinatePoint());
+            return new Points(InputView.inputCoordinatePoint());
         } catch (Exception e){
             System.err.println(e.getMessage());
             return generatePoint();

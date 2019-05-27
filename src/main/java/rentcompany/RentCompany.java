@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentCompany {
-
     private List<Car> cars;
 
     private RentCompany() {

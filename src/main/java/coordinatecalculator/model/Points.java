@@ -1,6 +1,5 @@
 package coordinatecalculator.model;
 
-
 import java.util.*;
 
 public class Points {
@@ -10,13 +9,9 @@ public class Points {
 
     private List<Point> points;
 
-    private Points(String[] inputPoint) {
+    public Points(String[] inputPoint) {
         this.points = new ArrayList<>();
         createPoints(inputPoint);
-    }
-
-    public static Points create(String[] inputPoint) {
-        return new Points(inputPoint);
     }
 
     private void createPoints(String[] inputPoint){
@@ -62,5 +57,4 @@ public class Points {
     private Distance getDistance(int previousPointIndex, int currentPointIndex) {
         return new Distance(this.getPoint(previousPointIndex), this.getPoint(currentPointIndex));
     }
-
 }

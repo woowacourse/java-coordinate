@@ -1,7 +1,6 @@
 package rentcompany;
 
 public class Avante extends Car {
-
     private static final String CAR_NAME = "Avante";
     private static final double DISTANCE_PER_LITER = 15;
 

@@ -1,7 +1,6 @@
 package rentcompany;
 
 public abstract class Car implements ICar {
-
     private static final String COLON = " : ";
     private static final String LITER = "리터";
     private static final String NEW_LINE = "\n";
