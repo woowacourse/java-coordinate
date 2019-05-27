@@ -28,8 +28,11 @@
     - Point (which contains x-coordinate and y-coordinate)
         - upper bound is 24, lower bound is 0
 
-#### Implements Codes
-1. Coordinate.java
+#### Code Implements
+1. Coordinate
 - This Object have a ``int`` value.
 - Purpose of this class is to make Point Class. (Point Class have two ``Coordinate`` instance)
 - Check lower bound(0) and upper bound(24)
+
+2. Point
+- This Object have two ``Coordinate`` instance.
