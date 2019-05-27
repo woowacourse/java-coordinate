@@ -3,7 +3,7 @@ package coordinate.model;
 import java.util.*;
 
 public class Points {
-    private List<Point> points;
+    private final List<Point> points;
 
     public Points(List<Point> points) {
         this.points = new ArrayList<>(points);
