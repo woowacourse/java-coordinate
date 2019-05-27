@@ -12,16 +12,12 @@ public class Point implements Comparable<Point> {
         this.y = PointNumber.get(y);
     }
 
-    public double getDistance(Point anotherPoint) {
-        return Math.sqrt(Math.pow(this.x.minus(anotherPoint.x), 2)
-                + Math.pow(this.y.minus(anotherPoint.y), 2));
+    public int minusX(Point anotherPoint) {
+        return this.x.minus(anotherPoint.x);
     }
 
-    public double getIncline(Point anotherPoint) {
-        if (this.x.equals(anotherPoint.x)) {
-            return Double.MAX_VALUE;
-        }
-        return (double) (anotherPoint.y.minus(this.y)) / (anotherPoint.x.minus(this.x));
+    public int minusY(Point anotherPoint) {
+        return this.y.minus(anotherPoint.y);
     }
 
     public boolean isEqualX(Point anotherPoint) {

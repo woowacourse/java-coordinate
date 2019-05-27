@@ -10,11 +10,19 @@ public abstract class Figure implements Shape {
         this.points = new Points(points);
     }
 
-    public Points getPoints() {
-        return points;
+    public double getDistance(int index1, int index2) {
+        return Math.sqrt(Math.pow(points.minusX(index1, index2), 2)
+                + Math.pow(points.minusY(index1, index2), 2));
     }
 
-    public Point getPoint(int index) {
-        return points.get(index);
+    public double getIncline(int index1, int index2) {
+        if (points.isEqualX(index1, index2)) {
+            return Double.MAX_VALUE;
+        }
+        return (double) (points.minusY(index1, index2)) / (points.minusX(index1, index2));
+    }
+
+    public Points getPoints() {
+        return points;
     }
 }

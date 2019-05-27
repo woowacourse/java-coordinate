@@ -10,6 +10,6 @@ public class Line extends Figure {
 
     @Override
     public double getScore() {
-        return super.getPoint(0).getDistance(super.getPoint(1));
+        return getDistance(0, 1);
     }
 }

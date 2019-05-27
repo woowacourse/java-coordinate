@@ -6,21 +6,18 @@ public class Square extends Figure {
 
     public Square(List<Point> points) {
         super(points);
-        checkTwist(points);
+        checkTwist(getPoints());
     }
 
-    private void checkTwist(List<Point> points) {
-        if (!points.get(0).isEqualX(points.get(1)) ||
-                !points.get(0).isEqualY(points.get(2)) ||
-                !points.get(3).isEqualX(points.get(2)) ||
-                !points.get(3).isEqualY(points.get(1))) {
+    private void checkTwist(Points points) {
+        if (!points.isEqualX(0, 1) || !points.isEqualY(0, 2) ||
+                !points.isEqualX(3, 2) || !points.isEqualY(3, 1)) {
             throw new IllegalArgumentException("올바른 사각형이 아닙니다");
         }
     }
 
     @Override
     public double getScore() {
-        return (super.getPoint(0).getDistance(super.getPoint(1))
-                * super.getPoint(0).getDistance(super.getPoint(2)));
+        return getDistance(0, 1) * getDistance(0, 2);
     }
 }

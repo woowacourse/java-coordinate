@@ -25,11 +25,23 @@ public class Points {
         }
     }
 
-    public List<Point> get() {
-        return Collections.unmodifiableList(points);
+    public int minusX(int index1, int index2) {
+        return points.get(index1).minusX(points.get(index2));
     }
 
-    public Point get(int index) {
-        return get().get(index);
+    public int minusY(int index1, int index2) {
+        return points.get(index1).minusY(points.get(index2));
+    }
+
+    public boolean isEqualX(int index1, int index2) {
+        return points.get(index1).isEqualX(points.get(index2));
+    }
+
+    public boolean isEqualY(int index1, int index2) {
+        return points.get(index1).isEqualY(points.get(index2));
+    }
+
+    public List<Point> get() {
+        return Collections.unmodifiableList(points);
     }
 }
