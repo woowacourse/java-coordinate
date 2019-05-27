@@ -9,7 +9,7 @@ public class PointTest {
     @Test
     void generate_valid_point() {
         Point point1 = new Point(1, 1);
-        assertThat(new Point(new Coordinate(1), new Coordinate(1))).isEqualTo(point1);
+        assertThat(new Point(1, 1)).isEqualTo(point1);
     }
 
     @Test

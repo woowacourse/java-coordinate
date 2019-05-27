@@ -5,10 +5,21 @@ import java.util.List;
 import java.util.Objects;
 
 public class Points {
-    private final List<Point> points;
+    private List<Point> points;
 
-    public Points(List<Point> points) {
-        this.points = new ArrayList<>(points);
+    public Points(List<Point> input) {
+        points = new ArrayList<>(input);
+        Point criteria = points.get(0);
+        sortPoints(criteria);
+    }
+
+    private void sortPoints(Point criteria) {
+        points.sort((o1, o2) -> {
+            double distance1 = criteria.distance(o1);
+            double distance2 = criteria.distance(o2);
+
+            return ((Comparable)distance1).compareTo(distance2);
+        });
     }
 
     public Point get(int index) {

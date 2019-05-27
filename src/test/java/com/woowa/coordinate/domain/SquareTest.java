@@ -24,8 +24,8 @@ public class SquareTest {
     void area() {
         Point leftDown = new Point(1, 1);
         Point rightDown = new Point(4, 1);
-        Point leftUp = new Point(1, 3);
-        Point rightUp = new Point(4, 3);
+        Point leftUp = new Point(4, 3);
+        Point rightUp = new Point(1, 3);
         List<Point> points = Arrays.asList(leftDown, rightDown, leftUp, rightUp);
         assertThat(new Square(points).area()).isEqualTo(6);
     }

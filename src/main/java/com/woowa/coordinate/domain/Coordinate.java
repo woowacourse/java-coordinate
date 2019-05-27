@@ -15,8 +15,12 @@ public class Coordinate {
         this.coordinate = i;
     }
 
-    public double subtract(Coordinate coordinate) {
-        return Math.abs(this.coordinate - coordinate.coordinate);
+    public int subtract(Coordinate coordinate) {
+        return this.coordinate - coordinate.coordinate;
+    }
+
+    public int multiply(Coordinate coordinate) {
+        return this.coordinate * coordinate.coordinate;
     }
 
     @Override

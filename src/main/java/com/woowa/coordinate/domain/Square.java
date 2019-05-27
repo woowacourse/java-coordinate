@@ -6,8 +6,6 @@ import java.util.List;
 
 public class Square {
     private final List<Point> points;
-    private double width;
-    private double height;
 
     public Square(List<Point> points) {
         if(points.size() != 4) {

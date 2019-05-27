@@ -3,7 +3,6 @@ package com.woowa.coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-
     private final Coordinate x;
     private final Coordinate y;
 
@@ -12,22 +11,17 @@ public class Point {
         this.y = new Coordinate(y);
     }
 
-    public Point(Coordinate x, Coordinate y) {
-        this.x = x;
-        this.y = y;
+    public int subtractX(Point point) {
+        return x.subtract(point.x);
     }
 
-    public Coordinate getX() {
-        return this.x;
-    }
-
-    public Coordinate getY() {
-        return this.y;
+    public int subtractY(Point point) {
+        return x.subtract(point.x);
     }
 
     public double distance(Point point) {
-        double xDistance = x.subtract(point.getX());
-        double yDistance = y.subtract(point.getY());
+        double xDistance = x.subtract(point.x);
+        double yDistance = y.subtract(point.y);
         return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
     }
 
