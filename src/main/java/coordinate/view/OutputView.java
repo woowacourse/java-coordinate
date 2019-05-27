@@ -1,31 +1,29 @@
 package coordinate.view;
 
-import coordinate.domain.Figure;
-import coordinate.domain.Point;
-import coordinate.domain.PointList;
+import coordinate.domain.*;
 
 
 public class OutputView {
-    public static void printPoints(PointList pointList) {
-        printRows(pointList);
-        printZeroPosition(pointList);
-        printLastRow(pointList);
+    public static void printPoints(Points points) {
+        printRows(points);
+        printZeroPosition(points);
+        printLastRow(points);
         System.out.println();
         printRowNumbers();
         System.out.println();
     }
 
-    private static void printRows(PointList pointList) {
+    private static void printRows(Points points) {
         for (int y = 24; y >= 1; y--) {
             System.out.printf("%2s", isEvenNumber(y));
-            printRow(pointList, y);
+            printRow(points, y);
             System.out.println();
         }
     }
 
-    private static void printRow(PointList pointList, int y) {
+    private static void printRow(Points points, int y) {
         for (int x = 0; x <= 24; x++) {
-            printRowPart(pointList, y, x);
+            printRowPart(points, x, y);
         }
     }
 
@@ -36,22 +34,24 @@ public class OutputView {
         }
     }
 
-    private static void printLastRow(PointList pointList) {
+    private static void printLastRow(Points points) {
         for (int i = 1; i <= 24; i++) {
-            printLastRowPart(pointList, i);
+            printLastRowPart(points, i);
         }
     }
 
-    private static void printLastRowPart(PointList pointList, int i) {
-        if (pointList.isContain(new Point("" + i, "0"))) {
+    private static void printLastRowPart(Points points, int i) {
+
+        if (points.isContain(PointFactory.generatePoint(String.valueOf(i),"0"))) {
             System.out.print(" * ");
             return;
         }
         System.out.print("ㅡ");
     }
 
-    private static void printRowPart(PointList pointList, int y, int x) {
-        if (pointList.isContain(new Point("" + x, "" + y))) {
+    private static void printRowPart(Points points, int x, int y) {
+
+        if (points.isContain(PointFactory.generatePoint(String.valueOf(x),String.valueOf(y)))) {
             System.out.print("*");
             return;
         }
@@ -63,8 +63,8 @@ public class OutputView {
 
     }
 
-    private static void printZeroPosition(PointList pointList) {
-        if (pointList.isContain(new Point("0", "0"))) {
+    private static void printZeroPosition(Points points) {
+        if (points.isContain(PointFactory.generatePoint("0","0"))) {
             System.out.print("  *");
             return;
         }
@@ -79,6 +79,6 @@ public class OutputView {
     }
 
     public static void printResult(Figure figure) {
-        System.out.printf(figure.findResult(), figure.findArea());
+        System.out.printf(figure.getResult(), figure.getArea());
     }
 }

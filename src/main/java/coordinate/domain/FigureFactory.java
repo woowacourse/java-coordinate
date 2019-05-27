@@ -1,31 +1,22 @@
 package coordinate.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.function.Function;
 
 public class FigureFactory {
-    public static Figure generateFigure(PointList pointList) {
-        if (pointList.getSize() == 3) {
-            return new Triangle(findLine(pointList));
-        }
-        if (pointList.getSize() == 4) {
-            return new Square(findLine(pointList));
-        }
-        return generateLine(pointList.getPoint(0),pointList.getPoint(1));
-    }
+    public static Figure generateFigure(Points points) {
+        HashMap<Integer, Function<Points,Figure>> hashMap = new HashMap<>();
 
-    private static List<Line> findLine(PointList points) {
-        List<Line> lines = new ArrayList<>();
-        for (int i = 0; i < points.getSize(); i++) {
-            for (int j = i + 1; j < points.getSize(); j++) {
-                lines.add(generateLine(points.getPoint(i),points.getPoint(j)));
-            }
-        }
-        lines.sort(null);
-        return lines;
-    }
+        hashMap.put(Line.POINTS_NUMBER, (c) -> {
+           return LineFactory.generateLine(c.getPoint(0), c.getPoint(1));
+        });
+        hashMap.put(Triangle.POINT_NUMBER, (c) -> {
+            return new Triangle(LineFactory.generateLines(c));
+        });
+        hashMap.put(Square.POINT_NUMBER, (c) -> {
+            return new Square(LineFactory.generateLines(c));
+        });
 
-    private static Line generateLine(Point point1, Point point2) {
-        return new Line(point1.findLength(point2));
+        return hashMap.get(points.getSize()).apply(points);
     }
 }

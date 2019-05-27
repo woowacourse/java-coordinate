@@ -2,7 +2,7 @@ package coordinate;
 
 import coordinate.domain.FigureFactory;
 import coordinate.domain.PointFactory;
-import coordinate.domain.PointList;
+import coordinate.domain.Points;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -14,7 +14,7 @@ class TriangleTest {
 
     @Test
     void 삼각형예외() {
-        PointList points = new PointList(PointFactory.generateCoordinateList(Arrays.asList("1,0","2,0","3,0")));
+        Points points = new Points(PointFactory.generatePoints(Arrays.asList("1,0","2,0","3,0")));
         assertThatIllegalArgumentException().isThrownBy(() ->{
             FigureFactory.generateFigure(points);
         });
@@ -22,8 +22,8 @@ class TriangleTest {
 
     @Test
     void 삼각형넓이() {
-        PointList points = new PointList(PointFactory.generateCoordinateList(Arrays.asList("0,0","2,0","0,2")));
-        assertEquals(FigureFactory.generateFigure(points).findArea(),2,0.001);
+        Points points = new Points(PointFactory.generatePoints(Arrays.asList("0,0","2,0","0,2")));
+        assertEquals(FigureFactory.generateFigure(points).getArea(),2,0.001);
 
     }
 }

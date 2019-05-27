@@ -1,14 +1,11 @@
 package fuel.domain;
 
-public abstract class Car {
-    abstract int getDistancePerLitter();
+public interface Car {
+    int getDistancePerLitter();
 
-    abstract int getDistance();
+    int getDistance();
 
-    abstract String getName();
+    String getName();
 
-    public int getFuel() {
-        return getDistance() / getDistancePerLitter();
-    }
-
+    int getFuel();
 }

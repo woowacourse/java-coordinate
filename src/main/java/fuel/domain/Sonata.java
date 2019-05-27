@@ -1,7 +1,8 @@
 package fuel.domain;
 
-public class Sonata extends Car {
+public class Sonata implements Car {
     private static final int FUEL_EFFICIENCY_VALUE = 10;
+    private static final String CAR_NAME = "Sonata";
     private final int distance;
 
     public Sonata(final int distance) {
@@ -9,18 +10,23 @@ public class Sonata extends Car {
     }
 
     @Override
-    int getDistancePerLitter() {
+    public int getDistancePerLitter() {
         return FUEL_EFFICIENCY_VALUE;
     }
 
     @Override
-    int getDistance() {
+    public int getDistance() {
         return this.distance;
     }
 
     @Override
-    String getName() {
-        return "Sonata";
+    public String getName() {
+        return CAR_NAME;
+    }
+
+    @Override
+    public int getFuel() {
+        return getDistance() / getDistancePerLitter();
     }
 
 }

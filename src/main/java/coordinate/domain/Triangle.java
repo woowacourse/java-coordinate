@@ -1,27 +1,26 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public class Triangle implements Figure {
-    private List<Line> lines;
+    static final int POINT_NUMBER = 3;
+    private Lines lines;
 
-    Triangle(List<Line> lines) {
-        if (!checkTriangle(lines)) {
+    Triangle(Lines lines) {
+        if (isNotTriangle(lines)) {
             throw new IllegalArgumentException("삼각형의 좌표가 아닙니다.");
         }
         this.lines = lines;
     }
 
-    private boolean checkTriangle(List<Line> temporaryLines) {
-        return temporaryLines.get(1).isTriangle(temporaryLines.get(2), temporaryLines.get(0));
+    private boolean isNotTriangle(Lines lines) {
+        return lines.isNotTriangle();
     }
     @Override
-    public double findArea() {
-        return lines.get(0).findTriangleArea(lines.get(1), lines.get(1));
+    public double getArea() {
+        return lines.calculateTriangleArea();
     }
 
     @Override
-    public String findResult() {
+    public String getResult() {
         return "삼각형의 넓이는 %.2f 입니다.";
     }
 }

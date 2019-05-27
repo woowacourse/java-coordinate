@@ -1,6 +1,6 @@
 package coordinate.Controller;
 
-import coordinate.domain.PointList;
+import coordinate.domain.Points;
 import coordinate.domain.Figure;
 import coordinate.domain.FigureFactory;
 import coordinate.view.InputView;
@@ -12,11 +12,11 @@ public class CoordinateCalculator {
     }
 
     private static void executeCoordinateCalculator() {
-        PointList pointList = InputView.InputPoints();
+        Points points = InputView.InputPoints();
         Figure figure;
         try {
-            figure = FigureFactory.generateFigure(pointList);
-            OutputView.printPoints(pointList);
+            figure = FigureFactory.generateFigure(points);
+            OutputView.printPoints(points);
             OutputView.printResult(figure);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

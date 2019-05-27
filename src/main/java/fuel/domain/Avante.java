@@ -1,26 +1,32 @@
 package fuel.domain;
 
-public class Avante extends Car {
+public class Avante implements Car {
     private static final int FUEL_EFFICIENCY_VALUE = 15;
+    private static final String CAR_NAME = "Avante";
     private final int distance;
 
-    public Avante(int distance) {
+    public Avante(final int distance) {
         this.distance = distance;
     }
 
     @Override
-    int getDistancePerLitter() {
+    public int getDistancePerLitter() {
         return FUEL_EFFICIENCY_VALUE;
     }
 
     @Override
-    int getDistance() {
+    public int getDistance() {
         return this.distance;
     }
 
     @Override
-    String getName() {
-        return "Avante";
+    public String getName() {
+        return CAR_NAME;
+    }
+
+    @Override
+    public int getFuel() {
+        return getDistance() / getDistancePerLitter();
     }
 
 }
