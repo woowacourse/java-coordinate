@@ -17,30 +17,27 @@ public class CoordinatePlane {
     private static final String ZERO = " 0 ";
     private static final String NUMBER_FORMAT = "%2d";
 
-    private List<StringBuilder> plane;
+    private List<StringBuilder> plane = new ArrayList<>();
 
     public CoordinatePlane(Coordinates coordinates) {
-        List<StringBuilder> plane = drawDefaultPlane();
-        insertPoints(plane, coordinates);
-        insertNumbers(plane);
-        this.plane = plane;
+        drawDefaultPlane();
+        insertPoints(coordinates);
+        insertNumbers();
     }
 
-    private void insertPoints(List<StringBuilder> defaultPlane, Coordinates coordinates) {
+    private void insertPoints(Coordinates coordinates) {
         for (int i = 0, len = coordinates.size(); i < len; i++) {
-            int y = Math.abs(HEIGHT - coordinates.get(i).getY());
-            defaultPlane.get(y).setCharAt(coordinates.get(i).getX() * STRIDE, POINT);
+            int y = HEIGHT - coordinates.get(i).getY();
+            plane.get(y).setCharAt(coordinates.get(i).getX() * STRIDE, POINT);
         }
     }
 
-    private List<StringBuilder> drawDefaultPlane() {
-        List<StringBuilder> plane = new ArrayList<>();
-        addYAxis(plane);
-        addXAxis(plane);
-        return plane;
+    private void drawDefaultPlane() {
+        addYAxis();
+        addXAxis();
     }
 
-    private void addYAxis(List<StringBuilder> plane) {
+    private void addYAxis() {
         for (int i = 0; i < HEIGHT; i++) {
             StringBuilder stringBuilder = new StringBuilder(Y_AXIS);
             appendWhiteSpaces(stringBuilder, WIDTH);
@@ -48,7 +45,7 @@ public class CoordinatePlane {
         }
     }
 
-    private void addXAxis(List<StringBuilder> plane) {
+    private void addXAxis() {
         StringBuilder stringBuilder = new StringBuilder(X_AXIS_START);
         for (int i = 0; i < WIDTH; i++) {
             stringBuilder.append(X_AXIS_LINE);
@@ -62,50 +59,32 @@ public class CoordinatePlane {
         }
     }
 
-    private void insertNumbers(List<StringBuilder> plane) {
-        insertYAxisNumber(plane);
-        insertXAxisNumber(plane);
+    private void insertNumbers() {
+        insertYAxisNumber();
+        insertXAxisNumber();
     }
 
-    private void insertYAxisNumber(List<StringBuilder> plane) {
-        for (int i = 0; i < HEIGHT; i++) {
-            insertNumber(plane, i);
+    private void insertYAxisNumber() {
+        for (int i = 0; i < HEIGHT; i += STRIDE) {
+            int index = Math.abs(HEIGHT - i);
+            plane.get(i).insert(NUMBER_OFFSET, String.format(NUMBER_FORMAT, index));
+            plane.get(i + 1).insert(NUMBER_OFFSET, WHITE_SPACE);
         }
     }
 
-    private void insertXAxisNumber(List<StringBuilder> plane) {
+    private void insertXAxisNumber() {
         StringBuilder stringBuilder = new StringBuilder(ZERO);
-        for (int i = 1; i <= WIDTH; i++) {
-            appendNumber(stringBuilder, i);
+        for (int i = 1; i <= WIDTH; i += STRIDE) {
+            stringBuilder.append(WHITE_SPACE);
+            stringBuilder.append(String.format(NUMBER_FORMAT, i + 1));
         }
         plane.add(stringBuilder);
-    }
-
-    private void insertNumber(List<StringBuilder> plane, int number) {
-        int index = Math.abs(HEIGHT - number);
-        if (isEvenNumber(number)) {
-            plane.get(number).insert(NUMBER_OFFSET, String.format(NUMBER_FORMAT, index));
-            return;
-        }
-        plane.get(number).insert(NUMBER_OFFSET, WHITE_SPACE);
-    }
-
-    private void appendNumber(StringBuilder stringBuilder, int number) {
-        if (isEvenNumber(number)) {
-            stringBuilder.append(String.format(NUMBER_FORMAT, number));
-            return;
-        }
-        stringBuilder.append(WHITE_SPACE);
-    }
-
-    private boolean isEvenNumber(int number) {
-        return number % 2 == 0;
     }
 
     @Override
     public String toString() {
         return plane.stream()
-                .reduce(new StringBuilder(), (previous, next) -> previous.append(next + NEW_LINE))
+                .reduce(new StringBuilder(), (previous, next) -> previous.append(next).append(NEW_LINE))
                 .toString();
     }
 }
