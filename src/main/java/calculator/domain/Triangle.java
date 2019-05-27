@@ -20,8 +20,8 @@ public class Triangle extends Figure {
         double powerLengthA = Math.pow(straight(coordinates.get(0), coordinates.get(1)), 2);
         double powerLengthB = Math.pow(straight(coordinates.get(1), coordinates.get(2)), 2);
         double powerLengthC = Math.pow(straight(coordinates.get(0), coordinates.get(2)), 2);
-        double triangleArea = Math.sqrt(4 * powerLengthA * powerLengthB - Math.pow(powerLengthA + powerLengthB - powerLengthC, 2)) / 4;
-        return triangleArea;
+
+        return Math.sqrt(4 * powerLengthA * powerLengthB - Math.pow(powerLengthA + powerLengthB - powerLengthC, 2)) / 4;
     }
 
     @Override
