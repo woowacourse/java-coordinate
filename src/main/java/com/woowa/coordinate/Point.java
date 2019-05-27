@@ -25,6 +25,12 @@ public class Point {
         return this.y;
     }
 
+    public double distance(Point point) {
+        double xDistance = x.subtract(point.getX());
+        double yDistance = y.subtract(point.getY());
+        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,11 +43,5 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
-    }
-
-    public double distance(Point point) {
-        double xDistance = x.subtract(point.getX());
-        double yDistance = y.subtract(point.getY());
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
     }
 }

@@ -14,6 +14,6 @@ public class Line {
     }
 
     public double distance() {
-        return Math.sqrt(line.get(0).distance(line.get(1)));
+        return line.get(0).distance(line.get(1));
     }
 }
