@@ -15,19 +15,21 @@ public class Triangle extends Figure {
     private static final int LONGEST_SIDE_OF_TRIANGLE = 2;
     private static final int TRI_OTHER_SIDE = 1;
     private static final int TRI_ANOTHER_SIDE = 0;
-    private final Coordinates coordinates;
     private final double ASideOfTriangle;
     private final double BSideOfTriangle;
     private final double CSideOfTriangle;
 
+    private final Coordinates coordinates;
+
     public Triangle(Coordinates coordinates) {
         super("삼각형", "넓이");
         this.coordinates = coordinates;
-        checkTriangle();
 
         ASideOfTriangle = straight(coordinates.get(0), coordinates.get(1));
         BSideOfTriangle = straight(coordinates.get(1), coordinates.get(2));
         CSideOfTriangle = straight(coordinates.get(0), coordinates.get(2));
+
+        checkTriangle();
     }
 
     private void checkTriangle() {
@@ -47,8 +49,7 @@ public class Triangle extends Figure {
         double squaredASideOfTriangle = Math.pow(ASideOfTriangle, 2);
         double squaredBSideOfTriangle = Math.pow(BSideOfTriangle, 2);
         double suqaredCSideOfTriangle = Math.pow(CSideOfTriangle, 2);
-        double triangleArea = Math.sqrt(4 * squaredASideOfTriangle * squaredBSideOfTriangle - Math.pow(squaredASideOfTriangle + squaredBSideOfTriangle - suqaredCSideOfTriangle, 2)) / 4;
-        return triangleArea;
+        return Math.sqrt(4 * squaredASideOfTriangle * squaredBSideOfTriangle - Math.pow(squaredASideOfTriangle + squaredBSideOfTriangle - suqaredCSideOfTriangle, 2)) / 4;
     }
 
     @Override
