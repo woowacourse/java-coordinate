@@ -4,7 +4,7 @@ import coordinate.controller.FigureController;
 import coordinate.controller.InputViewController;
 import coordinate.controller.OutputViewController;
 import coordinate.domain.Points;
-import coordinate.domain.Rectangle;
+import coordinate.domain.Triangle;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
@@ -15,9 +15,9 @@ public class Main {
 
         FigureController figureController = new FigureController();
 
-        Rectangle rectangle = Rectangle.create(points);
+        Triangle triangle = Triangle.create(points);
 
-        OutputViewController outputViewController = new OutputViewController(new OutputView(), rectangle);
+        OutputViewController outputViewController = new OutputViewController(new OutputView(), triangle);
         outputViewController.printCoordinatesBoard();
         outputViewController.printFigureInfo();
     }

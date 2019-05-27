@@ -20,6 +20,10 @@ public class OutputView {
         System.out.printf("사각형 넓이는 %.0f", area);
     }
 
+    public void printTriangleArea(double area) {
+        System.out.printf("삼각형 넓이는 %.1f", area);
+    }
+
     public void printCoordinatesBoard(Points points) {
         List<List<Character>> board = initBoard();
 

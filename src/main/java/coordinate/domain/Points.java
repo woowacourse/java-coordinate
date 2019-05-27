@@ -6,8 +6,6 @@ public class Points {
     private List<Point> points;
 
     private Points(List<Point> points) {
-
-
         this.points = points;
     }
 
