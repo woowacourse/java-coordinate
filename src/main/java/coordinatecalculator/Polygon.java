@@ -3,8 +3,16 @@ package coordinatecalculator;
 import java.util.*;
 
 abstract class Polygon implements Figure {
-    protected List<Point> points = new ArrayList<>();
-    protected List<Segment> segments = new ArrayList<>();
+    protected List<Point> points;
+    protected List<Line> lines = new ArrayList<>();
+
+    Polygon(List<Point> points) {
+        if (points.size() != getPointsCount()) {
+            throw new IllegalArgumentException(getName() + "의 길이는 " + getPointsCount() + "이어야 합니다.");
+        }
+
+        this.points = points;
+    }
 
     private int nextNumber(int number, int max) {
         return (number + 1) % max;
@@ -19,14 +27,14 @@ abstract class Polygon implements Figure {
         }
     }
 
-    protected List<Segment> makeSegment(List<Point> points) {
+    protected List<Line> makeSegment(List<Point> points) {
         checkDuplicate(points);
-        List<Segment> segments = new ArrayList<>();
+        List<Line> lines = new ArrayList<>();
         for (int i = 0, length = points.size(), nextNumber; i < length; i++) {
             nextNumber = nextNumber(i, length);
-            segments.add(new Segment(points.get(i), points.get(nextNumber)));
+            lines.add(new Line(Arrays.asList(points.get(i), points.get(nextNumber))));
         }
-        return segments;
+        return lines;
     }
 
     /* 헤론의 공식. 삼각형의 세 변의 길이를 통해 넓이를 구한다.
@@ -34,6 +42,11 @@ abstract class Polygon implements Figure {
     protected double heronFormula(double a, double b, double c) {
         double s = (a + b + c) / 2;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    @Override
+    public List<Point> getPoints() {
+        return this.points;
     }
 
     @Override
@@ -52,7 +65,8 @@ abstract class Polygon implements Figure {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Triangle: {");
+        sb.append(getName());
+        sb.append(": {");
         for (Point p : points) {
             sb.append(p.toString());
             sb.append(", ");

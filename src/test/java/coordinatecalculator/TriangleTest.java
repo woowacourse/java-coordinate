@@ -15,19 +15,20 @@ class TriangleTest {
 
     @Test
     void area1() {
-        p1 = new Point(0, 0);
-        p2 = new Point(10, 10);
+        p1 = new Point(1, 1);
+        p2 = new Point(15, 15);
         p3 = new Point(4, 8);
-        triangle = new Triangle(p1, p2, p3);
-        assertThat(triangle.area()).isEqualTo(20, epsilon);
+        //        triangle = new Triangle(Arrays.asList(p1, p2, p3));
+        triangle = Triangle.of(p1, p2, p3);
+        assertThat(triangle.area()).isEqualTo(28, epsilon);
     }
 
     @Test
     void colinearCase() {
-        p1 = new Point(0, 0);
+        p1 = new Point(1, 1);
         p2 = new Point(4, 4);
         p3 = new Point(8, 8);
-        triangle = new Triangle(p1, p2, p3);
+        triangle = Triangle.of(p1, p2, p3);
         assertThat(triangle.area()).isEqualTo(0, epsilon);
     }
 }

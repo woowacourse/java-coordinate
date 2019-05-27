@@ -1,9 +1,11 @@
 package coordinatecalculator;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
-class Point implements Comparable<Point> {
+class Point implements Figure, Comparable<Point> {
     private static final int UNDER_LIMIT = 1;
     private static final int UPPER_LIMIT = 24;
     private static final String ERROR_LIMIT_OVER = "좌표 범위를 초과하였습니다.";
@@ -12,12 +14,16 @@ class Point implements Comparable<Point> {
     private int y;
 
     Point(int x, int y) {
-        //        if (isLimitOver(x) || isLimitOver(y)) {
-        //            throw new IllegalArgumentException(ERROR_LIMIT_OVER);
-        //        } // 처리 과정 중에 이 값을 넘어서는 경우가 있다. 일단 주석처리.
+        if (isLimitOver(x) || isLimitOver(y)) {
+            throw new IllegalArgumentException(ERROR_LIMIT_OVER);
+        }
 
         this.x = x;
         this.y = y;
+    }
+
+    Point(List<Point> points) {
+        this(points.get(0).getX(), points.get(0).getY());
     }
 
     private boolean isLimitOver(int x) {
@@ -32,10 +38,35 @@ class Point implements Comparable<Point> {
         return this.y;
     }
 
+    public static Point of(int x, int y) {
+        return new Point(x, y);
+    }
+
+    public String getName() {
+        return "Point";
+    }
+
+    @Override
+    public double area() {
+        return 0;
+    }
+
+    @Override
+    public List<Point> getPoints() {
+        List<Point> result = new ArrayList<>();
+        result.add(this);
+        return result;
+    }
+
     public double getDistance(Point anotherPoint) {
         double x = minusAndPow(this.x, anotherPoint.x);
         double y = minusAndPow(this.y, anotherPoint.y);
         return Math.sqrt(x + y);
+    }
+
+    @Override
+    public int getPointsCount() {
+        return 1;
     }
 
     private double minusAndPow(int x1, int x2) {
@@ -60,7 +91,7 @@ class Point implements Comparable<Point> {
 
     @Override
     public String toString() {
-        return "Point: {x: " + this.x + ", y: " + this.y + "}";
+        return this.getName() + ": {x: " + this.x + ", y: " + this.y + "}";
     }
 
     @Override

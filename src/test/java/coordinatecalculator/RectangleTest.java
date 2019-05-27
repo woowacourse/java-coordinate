@@ -16,11 +16,11 @@ class RectangleTest {
 
     @Test
     void area1() {
-        p1 = new Point(0, 0);
-        p2 = new Point(0, 10);
-        p3 = new Point(10, 0);
-        p4 = new Point(10, 10);
-        rectangle = new Rectangle(p1, p2, p3, p4);
+        p1 = new Point(1, 1);
+        p2 = new Point(1, 11);
+        p3 = new Point(11, 1);
+        p4 = new Point(11, 11);
+        rectangle = Rectangle.of(p1, p2, p3, p4);
         assertThat(rectangle.area()).isEqualTo(100, epsilon);
     }
 
@@ -28,9 +28,9 @@ class RectangleTest {
     void area2() {
         p1 = new Point(1, 1);
         p2 = new Point(3, 5);
-        p3 = new Point(4, 0);
-        p4 = new Point(5, 2);
-        rectangle = new Rectangle(p1, p2, p3, p4);
-        assertThat(rectangle.area()).isEqualTo(10.5, epsilon);
+        p3 = new Point(4, 2);
+        p4 = new Point(5, 3);
+        rectangle = Rectangle.of(p1, p2, p3, p4);
+        assertThat(rectangle.area()).isEqualTo(7, epsilon);
     }
 }
