@@ -1,6 +1,8 @@
 package coordinate.domain;
 
 public class Square implements Figure {
+    private static final int SQUARE_SECOND_LONGEST_LENGTH_INDEX = 3;
+    private static final int SQUARE_THIRD_LONGEST_LENGTH_INDEX = 5;
     static final int POINT_NUMBER = 4;
     private Lines lines;
 
@@ -23,8 +25,8 @@ public class Square implements Figure {
 
     @Override
     public double getArea() {
-        return lines.calculateSquareArea();
-
+        return lines.getLines().get(SQUARE_SECOND_LONGEST_LENGTH_INDEX)
+                .multipleLength(lines.getLines().get(SQUARE_THIRD_LONGEST_LENGTH_INDEX));
     }
 
     @Override

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentCompany {
-    private final List<Car> cars;
+    private final List<AbstractCar> cars;
 
-    private RentCompany(final List<Car> cars) {
+    private RentCompany(final List<AbstractCar> cars) {
         this.cars = cars;
     }
 
@@ -14,14 +14,14 @@ public class RentCompany {
         return new RentCompany(new ArrayList<>());
     }
 
-    public void addCar(Car car) {
+    public void addCar(AbstractCar car) {
         this.cars.add(car);
     }
 
     public String generateReport() {
         StringBuilder sb = new StringBuilder();
-        for (Car car : cars) {
-            sb.append(car.getName() + " : " + car.getFuel() + "리터"+System.getProperty("line.separator"));
+        for (AbstractCar car : cars) {
+            sb.append(car.getName() + " : " + car.getFuelEfficiency() + "리터"+System.getProperty("line.separator"));
         }
         return sb.toString();
     }

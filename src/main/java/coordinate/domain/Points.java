@@ -29,7 +29,7 @@ public class Points {
     }
 
     private boolean isDuplicate(List<Point> points) {
-        HashSet<Point> set = new HashSet<>(points);
+        Set<Point> set = new HashSet<>(points);
         return set.size() != points.size();
     }
 

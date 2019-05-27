@@ -5,23 +5,27 @@ import java.util.Objects;
 
 public class Line implements Comparable<Line>, Figure {
     static final int POINTS_NUMBER = 2;
-    private Double length;
+    private double length;
 
     Line(double length) {
         this.length = length;
     }
 
-    double calculateSquareArea(Line length) {
-        return this.length * length.length;
+    double addLength(Line line) {
+        return this.length + line.length;
     }
 
-    boolean isTriangle(Line secondLongest, Line thirdLongest) {
-        return (secondLongest.length + thirdLongest.length) > this.length;
+    double addTwoLength(Line line, Line line2) {
+        return this.length + line.length + line2.length;
     }
 
-    double calculateTriangleArea(Line secondLongest, Line thirdLongest) {
-        double s = (this.length + secondLongest.length + thirdLongest.length) / 2;
-        return Math.sqrt(s * (s - this.length) * (s - secondLongest.length) * (s - thirdLongest.length));
+    double multipleLength(Line line) {
+        return this.length * line.length;
+    }
+
+
+    public double getLength() {
+        return length;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.InputValidator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +19,15 @@ public class PointFactory {
     }
 
     public static Point generatePoint(String xPoint, String yPoint) {
+        if (InputValidator.isNotInteger(xPoint, yPoint)) {
+            throw new IllegalArgumentException("문자열이 아닌 숫자를 입력해 주세요.");
+        }
+
         return new Point(generateScala(xPoint), generateScala(yPoint));
     }
 
     private static Scala generateScala(String scala) {
-        return new Scala(scala);
+        return new Scala(Integer.parseInt(scala));
     }
 
 }

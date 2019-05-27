@@ -1,4 +1,4 @@
-package coordinate;
+package coordinate.domain;
 
 import coordinate.domain.PointFactory;
 import coordinate.domain.Points;

@@ -1,6 +1,9 @@
 package coordinate.domain;
 
 public class Triangle implements Figure {
+    private static final int LONGEST_LENGTH_INDEX = 0;
+    private static final int SECOND_LONGEST_LENGTH_INDEX = 1;
+    private static final int THIRD_LONGEST_LENGTH_INDEX = 2;
     static final int POINT_NUMBER = 3;
     private Lines lines;
 
@@ -12,11 +15,20 @@ public class Triangle implements Figure {
     }
 
     private boolean isNotTriangle(Lines lines) {
-        return lines.isNotTriangle();
+        return lines.getLines().get(LONGEST_LENGTH_INDEX).getLength() >=
+                (lines.getLines().get(SECOND_LONGEST_LENGTH_INDEX)
+                        .addLength(lines.getLines().get(THIRD_LONGEST_LENGTH_INDEX)));
     }
+
     @Override
     public double getArea() {
-        return lines.calculateTriangleArea();
+        double s = lines.getLines().get(LONGEST_LENGTH_INDEX)
+                .addTwoLength(lines.getLines().get(SECOND_LONGEST_LENGTH_INDEX),
+                        lines.getLines().get(THIRD_LONGEST_LENGTH_INDEX)) / 2;
+
+        return Math.sqrt(s * (s - lines.getLines().get(LONGEST_LENGTH_INDEX).getLength())
+                * (s - lines.getLines().get(SECOND_LONGEST_LENGTH_INDEX).getLength())
+                * (s - lines.getLines().get(THIRD_LONGEST_LENGTH_INDEX).getLength()));
     }
 
     @Override
