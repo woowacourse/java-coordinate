@@ -35,7 +35,7 @@ public class UserOutputView {
         StringBuilder resultLine = new StringBuilder();
 
         for (int xCoordinate = 0; xCoordinate < mapLine.size(); xCoordinate++) {
-            resultLine.append(drawCoordinate(mapLine.get(xCoordinate),xCoordinate, yCoordinate));
+            resultLine.append(drawCoordinate(mapLine.get(xCoordinate), xCoordinate, yCoordinate));
         }
 
         return resultLine.toString();
@@ -59,7 +59,7 @@ public class UserOutputView {
         bottomLine.append(DOUBLE_BLANK);
 
         for (int i = 0; i <= MAX_X_SIZE; i++) {
-            bottomLine.append(String.format(FORMAT_ALIGN_RIGHT,i)).append(SINGLE_BLANK);
+            bottomLine.append(String.format(FORMAT_ALIGN_RIGHT, i)).append(SINGLE_BLANK);
         }
 
         return bottomLine.toString();
@@ -74,10 +74,6 @@ public class UserOutputView {
         calculatedResult.append(figure.area());
 
         System.out.println(calculatedResult.toString());
-    }
-
-
-        outputMap(map);
     }
 
 }
