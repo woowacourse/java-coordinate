@@ -3,8 +3,7 @@ package coordinate.domain;
 import java.util.List;
 import java.util.Objects;
 
-public class Line extends AbstractShape {
-    static final int SIZE_OF_POINTS_FOR_LINE = 2;
+public class Line implements Shape {
     private static final int SQUARE = 2;
     private static final int START_POINT = 0;
     private static final int END_POINT = 1;
@@ -12,7 +11,7 @@ public class Line extends AbstractShape {
     private final List<Point> points;
 
     public Line(List<Point> points) {
-        super(points);
+        //super(points);
         this.points = points;
         validateLine();
     }
@@ -21,11 +20,6 @@ public class Line extends AbstractShape {
         if (points.get(START_POINT).equals(points.get(END_POINT))) {
             throw new IllegalArgumentException("위치가 같은 점이 존재합니다.");
         }
-    }
-
-    @Override
-    public int size() {
-        return SIZE_OF_POINTS_FOR_LINE;
     }
 
     @Override
