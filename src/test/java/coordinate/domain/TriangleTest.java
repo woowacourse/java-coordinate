@@ -22,6 +22,5 @@ class TriangleTest {
     void 삼각형넓이() {
         Points points = new Points(Arrays.asList(new Point(0, 0), new Point(2, 0), new Point(0, 2)));
         assertEquals(new Triangle(points).calculateArea(), 2, 0.001);
-
     }
 }
