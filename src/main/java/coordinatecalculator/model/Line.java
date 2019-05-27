@@ -7,7 +7,7 @@ public class Line extends AbstractFigure {
 
     private double distance;
 
-    public Line(final Points points){
+    public Line(final Points points) {
         super(points);
         this.distance = calculateResult();
     }
@@ -24,7 +24,7 @@ public class Line extends AbstractFigure {
 
     @Override
     public String toString() {
-        return "두 점 사이 거리는 " + String.format("%.6f",getResult());
+        return "두 점 사이 거리는 " + String.format("%.6f", getResult());
     }
 
     @Override

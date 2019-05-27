@@ -18,7 +18,7 @@ public class Distance {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Distance distance1 = (Distance) o;

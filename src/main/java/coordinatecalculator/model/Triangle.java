@@ -20,7 +20,7 @@ public class Triangle extends AbstractFigure {
         this.area = calculateResult();
     }
 
-    private Points validateTrianglePoints() {
+    private void validateTrianglePoints() {
         Set<Double> checkSlops = new HashSet<>();
         for (int i = START; i < TRIANGLE_SIZE; i++) {
             checkSlops.add(points.getPoint(i).getSlope(points.getPoint((i + NEXT) % TRIANGLE_SIZE)));
@@ -29,7 +29,6 @@ public class Triangle extends AbstractFigure {
             throw new IllegalArgumentException("잘못된 삼각형 입니다.");
         }
 
-        return points;
     }
 
     private double getTriangleArea(double firstLine, double secondLine, double thirdLine) {

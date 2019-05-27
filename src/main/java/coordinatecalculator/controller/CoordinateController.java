@@ -13,18 +13,18 @@ public class CoordinateController {
     }
 
     private Points generatePoint() {
-        try{
+        try {
             return new Points(InputView.inputCoordinatePoint());
-        } catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
             return generatePoint();
         }
     }
 
-    private Figure generateFigure(Points points){
-        try{
+    private Figure generateFigure(Points points) {
+        try {
             return new FigureFactory().create(points);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
             this.points = generatePoint();
             return generateFigure(this.points);

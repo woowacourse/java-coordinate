@@ -29,6 +29,6 @@ public class TriangleTest {
     void 삼각형_넓이_구하는_테스트() {
         inputPoints = new String[]{"(10,10)", "(14,15)", "(20,8)"};
         points = new Points(inputPoints);
-        assertEquals(28.999,new Triangle(points).getResult(),0.001);
+        assertEquals(28.999, new Triangle(points).getResult(), 0.001);
     }
 }

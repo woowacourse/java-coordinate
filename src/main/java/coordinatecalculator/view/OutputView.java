@@ -51,7 +51,7 @@ public class OutputView {
         return BLANK;
     }
 
-    private static void showCoordinateResult(Figure figure){
+    private static void showCoordinateResult(Figure figure) {
         System.out.println(figure);
     }
 }

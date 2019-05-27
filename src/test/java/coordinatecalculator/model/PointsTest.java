@@ -21,7 +21,7 @@ public class PointsTest {
     @Test
     void 중복점_테스트() {
         overlapInputPoints = new String[]{"(1,1)", "(1,1)"};
-        assertThrows(IllegalArgumentException.class, () ->{
+        assertThrows(IllegalArgumentException.class, () -> {
             points = new Points(overlapInputPoints);
         });
     }
