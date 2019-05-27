@@ -10,33 +10,33 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class MapTest {
+public class GraphMapTest {
 
-    Map map;
+    GraphMap graphMap;
     Coordinate coordinate;
     Coordinates coordinates;
 
     @BeforeEach
     void setUp() {
-        map = new Map();
+        graphMap = new GraphMap();
         coordinate = new Coordinate(10,2);
         coordinates = new Coordinates();
     }
 
     @Test
     void create_생성() {
-        assertThat(map).isEqualTo(new Map());
+        assertThat(graphMap).isEqualTo(new GraphMap());
     }
 
     @Test
     void create_사이즈_확인() {
-        assertThat(map.size()).isEqualTo(25);
+        assertThat(graphMap.size()).isEqualTo(25);
     }
 
     @Test
     void drawPoint_확인() {
         coordinates.add((coordinate));
-        map.drawCoordinate(coordinate);
-        assertTrue(map.isCoordinateDrawn(coordinate));
+        graphMap.drawCoordinate(coordinate);
+        assertTrue(graphMap.isCoordinateDrawn(coordinate));
     }
 }

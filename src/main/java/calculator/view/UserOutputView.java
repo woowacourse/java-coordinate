@@ -18,12 +18,12 @@ public class UserOutputView {
     private static final String Y_AXIS_MARK = "|  ";
     private static final String IS_MESSAGE = "은(는) ";
 
-    public static void outputMap(Map map) {
+    public static void outputMap(GraphMap graphMap) {
         StringBuilder resultMap = new StringBuilder();
 
-        for (int yCoordinate = map.size() - 1; yCoordinate >= 0; yCoordinate--) {
+        for (int yCoordinate = graphMap.size() - 1; yCoordinate >= 0; yCoordinate--) {
             resultMap.append(String.format(FORMAT_ALIGN_RIGHT, yCoordinate));
-            resultMap.append(drawLine(map.getMapLine(yCoordinate), yCoordinate)).append(NEW_LINE);
+            resultMap.append(drawLine(graphMap.getMapLine(yCoordinate), yCoordinate)).append(NEW_LINE);
         }
 
         resultMap.append(drawBottomLine());
@@ -31,11 +31,11 @@ public class UserOutputView {
         System.out.println(resultMap);
     }
 
-    private static String drawLine(MapLine mapLine, int yCoordinate) {
+    private static String drawLine(GraphMapLine graphMapLine, int yCoordinate) {
         StringBuilder resultLine = new StringBuilder();
 
-        for (int xCoordinate = 0; xCoordinate < mapLine.size(); xCoordinate++) {
-            resultLine.append(drawCoordinate(mapLine.get(xCoordinate), xCoordinate, yCoordinate));
+        for (int xCoordinate = 0; xCoordinate < graphMapLine.size(); xCoordinate++) {
+            resultLine.append(drawCoordinate(graphMapLine.get(xCoordinate), xCoordinate, yCoordinate));
         }
 
         return resultLine.toString();
