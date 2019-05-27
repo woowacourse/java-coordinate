@@ -26,7 +26,7 @@ public class UserInputView {
             String inputText = UserInputView.inputByUser();
             UserInputView.checkFormat(inputText);
             return generateCoordinates(inputText);
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return generaValidatedCoordinates();
         }
@@ -36,17 +36,15 @@ public class UserInputView {
         return SCANNER.nextLine().replaceAll(SINGLE_BLANK, EMPTY);
     }
 
-    private static String checkFormat(String inputText) {
+    private static void checkFormat(String inputText) {
         Pattern formatPattern = Pattern.compile(FORMAT_PATTERN);
         Matcher formatMatcher = formatPattern.matcher(inputText);
 
         checkElementFormat(formatMatcher);
 
-        while(formatMatcher.find()) {
-            inputText = formatMatcher.group(0);
+        while (formatMatcher.find()) {
+            formatMatcher.group(0);
         }
-
-        return inputText;
     }
 
     private static void checkElementFormat(Matcher formatMatcher) {
@@ -60,7 +58,7 @@ public class UserInputView {
         Pattern coordinatePattern = Pattern.compile(COORDINATE_PATTERN);
         Matcher coordinateMatcher = coordinatePattern.matcher(inputText);
 
-        while(coordinateMatcher.find()) {
+        while (coordinateMatcher.find()) {
             int xCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[0]);
             int yCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[1]);
             coordinates.add(new Coordinate(xCoordinate, yCoordinate));
