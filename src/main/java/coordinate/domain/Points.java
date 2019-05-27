@@ -41,10 +41,6 @@ public class Points {
         return points.get(0).getDistance(points.get(index));
     }
 
-    boolean isNotEqualX(int index) {
-        return !points.get(0).isEqualX(points.get(index));
-    }
-
     public double getSecondDistance() {
         int index = 1;
 
@@ -55,8 +51,32 @@ public class Points {
         return points.get(0).getDistance(points.get(index));
     }
 
-    private boolean isNotEqualY(int index) {
+    boolean isNotEqualX(int index) {
+        return !points.get(0).isEqualX(points.get(index));
+    }
+
+    boolean isNotEqualY(int index) {
         return !points.get(0).isEqualY(points.get(index));
+    }
+
+    boolean checkX() {
+        Set<Integer> checkers = new HashSet<>();
+
+        for (Point checker : points) {
+            checkers.add(checker.getX().getNumber());
+        }
+
+        return checkers.size() == 2;
+    }
+
+    boolean checkY() {
+        Set<Integer> checkers = new HashSet<>();
+
+        for (Point checker : points) {
+            checkers.add(checker.getY().getNumber());
+        }
+
+        return checkers.size() == 2;
     }
 
     @Override

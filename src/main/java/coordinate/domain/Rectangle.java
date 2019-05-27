@@ -6,6 +6,10 @@ public class Rectangle {
     private Points points;
 
     public Rectangle(Points points) {
+        if (isNotRectangles(points)) {
+            throw new IllegalArgumentException("사각형이 아닙니다.");
+        }
+
         this.points = points;
     }
 
@@ -29,6 +33,10 @@ public class Rectangle {
 
     public Points getPoints() {
         return points;
+    }
+
+    private boolean isNotRectangles(Points points) {
+        return !points.checkX() && points.checkY();
     }
 
     @Override
