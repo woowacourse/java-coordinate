@@ -1,4 +1,4 @@
-package com.woowa.coordinate;
+package com.woowa.coordinate.domain;
 
 import org.junit.jupiter.api.Test;
 
