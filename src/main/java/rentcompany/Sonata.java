@@ -1,6 +1,6 @@
 package rentcompany;
 
-public class Sonata extends Car {
+public class Sonata extends CarImpl {
 
     private static final String CAR_NAME = "Sonata";
     private static final double DISTANCE_PER_LITER = 10;

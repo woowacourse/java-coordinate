@@ -5,23 +5,23 @@ import java.util.List;
 
 public class RentCompany {
 
-    private List<Car> cars;
+    private List<CarImpl> carImpls;
 
     private RentCompany() {
-        this.cars = new ArrayList<>();
+        this.carImpls = new ArrayList<>();
     }
 
     public static RentCompany create() {
         return new RentCompany();
     }
 
-    public void addCar(Car car) {
-        cars.add(car);
+    public void addCar(CarImpl carImpl) {
+        carImpls.add(carImpl);
     }
 
     public String generateReport() {
         StringBuilder stringBuilder = new StringBuilder();
-        cars.forEach(stringBuilder::append);
+        carImpls.forEach(stringBuilder::append);
 
         return stringBuilder.toString();
     }
