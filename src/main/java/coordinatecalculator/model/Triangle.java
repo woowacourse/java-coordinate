@@ -4,21 +4,23 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Triangle implements Figure {
+public class Triangle extends AbstractFigure {
     private static final int TRIANGLE_SIZE = 3;
     private static final int START = 0;
     private static final int NEXT = 1;
     private static final int FIRST_DISTANCE = 0;
     private static final int SECOND_DISTANCE = 1;
-    private static final int THRID_DISTANCE = 2;
+    private static final int THIRD_DISTANCE = 2;
 
     private double area;
 
     public Triangle(final Points points) {
-        this.area = calculateResult(validateTrianglePoints(points));
+        super(points);
+        validateTrianglePoints();
+        this.area = calculateResult();
     }
 
-    private Points validateTrianglePoints(Points points) {
+    private Points validateTrianglePoints() {
         Set<Double> checkSlops = new HashSet<>();
         for (int i = START; i < TRIANGLE_SIZE; i++) {
             checkSlops.add(points.getPoint(i).getSlope(points.getPoint((i + NEXT) % TRIANGLE_SIZE)));
@@ -26,6 +28,7 @@ public class Triangle implements Figure {
         if (checkSlops.size() != TRIANGLE_SIZE) {
             throw new IllegalArgumentException("잘못된 삼각형 입니다.");
         }
+
         return points;
     }
 
@@ -40,10 +43,10 @@ public class Triangle implements Figure {
     }
 
     @Override
-    public double calculateResult(final Points points) {
+    public double calculateResult() {
         double firstLine = points.generateDistances().get(FIRST_DISTANCE).getDistance();
         double secondLine = points.generateDistances().get(SECOND_DISTANCE).getDistance();
-        double thirdLine = points.generateDistances().get(THRID_DISTANCE).getDistance();
+        double thirdLine = points.generateDistances().get(THIRD_DISTANCE).getDistance();
 
         return getTriangleArea(firstLine, secondLine, thirdLine);
     }

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Rectangle implements Figure {
+public class Rectangle extends AbstractFigure {
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
     private static final int GET_TWO_POINTS_SIZE = 2;
@@ -13,10 +13,11 @@ public class Rectangle implements Figure {
     private double area;
 
     public Rectangle(final Points points) {
-        this.area = calculateResult(points);
+        super(points);
+        this.area = calculateResult();
     }
 
-    private List<Point> getDifferentPoints(final Points points) {
+    private List<Point> getDifferentPoints() {
         List<Point> differPoints = new ArrayList<>();
         differPoints.add(points.getPoint(FIRST_POINT));
 
@@ -39,8 +40,8 @@ public class Rectangle implements Figure {
     }
 
     @Override
-    public double calculateResult(final Points points) {
-        List<Point> differentPoints = validateRectangle(getDifferentPoints(points));
+    public double calculateResult() {
+        List<Point> differentPoints = validateRectangle(getDifferentPoints());
         Point firstPoint = differentPoints.get(FIRST_POINT);
         Point secondPoint = differentPoints.get(SECOND_POINT);
 

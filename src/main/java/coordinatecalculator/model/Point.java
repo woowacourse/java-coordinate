@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Point {
-    private static final String PATTERN = "\\(([0-9]*),([0-9]*)\\)";
+    private static final String PATTERN = "(\\([0-9]*),([0-9]*)\\)";
     private static final int FIRST_GROUP = 1;
     private static final int SECOND_GROUP = 2;
     private static final int SQUARE_NUMBER = 2;
@@ -19,6 +19,7 @@ public class Point {
         if (!matcher.find()) {
             throw new IllegalArgumentException("잘못된 입력 형식입니다.");
         }
+        System.out.println(matcher.group(FIRST_GROUP)+","+matcher.group(SECOND_GROUP));
         this.xPoint = new XPoint(matcher.group(FIRST_GROUP));
         this.yPoint = new YPoint(matcher.group(SECOND_GROUP));
     }

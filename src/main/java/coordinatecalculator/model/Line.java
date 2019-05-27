@@ -2,13 +2,14 @@ package coordinatecalculator.model;
 
 import java.util.Objects;
 
-public class Line implements Figure {
+public class Line extends AbstractFigure {
     private static final int DISTANCES_FIRST_INDEX = 0;
 
     private double distance;
 
     public Line(final Points points){
-        this.distance = calculateResult(points);
+        super(points);
+        this.distance = calculateResult();
     }
 
     @Override
@@ -17,7 +18,7 @@ public class Line implements Figure {
     }
 
     @Override
-    public double calculateResult(Points points) {
+    public double calculateResult() {
         return points.generateDistances().get(DISTANCES_FIRST_INDEX).getDistance();
     }
 
