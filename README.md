@@ -36,3 +36,6 @@
 
 2. Point
 - This Object have two ``Coordinate`` instance.
+
+3. Line
+- ``-ing``
