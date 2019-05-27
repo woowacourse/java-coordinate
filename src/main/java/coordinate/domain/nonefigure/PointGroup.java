@@ -12,6 +12,13 @@ public class PointGroup {
         this.points = points;
     }
 
+    public boolean have(int x, int y) {
+        return points.contains(Point.create(x, y));
+    }
+
+    public int size() {
+        return points.size();
+    }
 
     public List<Line> getLines() {
         List<Line> lines = new ArrayList<>();
@@ -19,14 +26,6 @@ public class PointGroup {
             lines.add(new Line(points.get(i), points.get((i + 1) % points.size())));
         }
         return lines;
-    }
-
-    public boolean have(int x, int y) {
-        return points.contains(Point.create(x, y));
-    }
-
-    public int size() {
-        return points.size();
     }
 
     public Point getPoint(int index) {

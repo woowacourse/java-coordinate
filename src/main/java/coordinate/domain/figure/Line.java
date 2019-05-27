@@ -7,7 +7,7 @@ import coordinate.domain.nonefigure.Vector;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Line extends Figure implements Comparable<Line>, SizeCalculable {
+public class Line extends Figure implements Comparable<Line> {
     private static final int POINT_COUNT = 2;
     private Point startPoint;
     private Point endPoint;

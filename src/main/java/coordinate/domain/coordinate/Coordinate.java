@@ -8,8 +8,9 @@ public class Coordinate {
     private static final int MAX_VALUE = 24;
     private static final int MIN_VALUE = 0;
 
-    private final int value;
     private static List<Coordinate> coordinates;
+    private final int value;
+
 
     static {
         coordinates = new ArrayList<>();

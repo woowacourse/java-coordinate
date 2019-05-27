@@ -7,25 +7,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Triangle extends Figure implements SizeCalculable {
+public class Triangle extends Figure {
     private static final int POINT_COUNT = 3;
 
     public Triangle(PointGroup points) {
         super(points, POINT_COUNT);
     }
 
-    @Override
-    void validatePoints(PointGroup points) {
-        if (points.size() != POINT_COUNT) {
-            throw new IllegalArgumentException("삼각형은 3개의 점으로 이루어져야 합니다.");
-        }
-        List<Line> lines = points.getLines();
-        Collections.sort(lines);
-        List<Double> lineLengths = new ArrayList();
-        lines.forEach(line -> lineLengths.add(line.size()));
-
-        checkStraightLine(lineLengths);
-    }
 
     private void checkStraightLine(List<Double> lineLengths) {
         if (BigDecimal.valueOf(lineLengths.get(2))
@@ -44,6 +32,20 @@ public class Triangle extends Figure implements SizeCalculable {
     private double useHeronEquations(List<Double> squaredLineLengths) {
         return Math.sqrt(4 * squaredLineLengths.get(0) * squaredLineLengths.get(1)
                 - Math.pow((squaredLineLengths.get(0) + squaredLineLengths.get(1) - squaredLineLengths.get(2)), 2)) / 4;
+    }
+
+
+    @Override
+    void validatePoints(PointGroup points) {
+        if (points.size() != POINT_COUNT) {
+            throw new IllegalArgumentException("삼각형은 3개의 점으로 이루어져야 합니다.");
+        }
+        List<Line> lines = points.getLines();
+        Collections.sort(lines);
+        List<Double> lineLengths = new ArrayList();
+        lines.forEach(line -> lineLengths.add(line.size()));
+
+        checkStraightLine(lineLengths);
     }
 
     @Override

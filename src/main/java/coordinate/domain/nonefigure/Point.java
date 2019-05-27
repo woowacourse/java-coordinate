@@ -22,6 +22,14 @@ public class Point {
                 + Math.pow(this.yCoordinate.getDiffWith(point.yCoordinate), 2);
     }
 
+    public int getX() {
+        return xCoordinate.getValue();
+    }
+
+    public int getY() {
+        return yCoordinate.getValue();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,11 +44,4 @@ public class Point {
         return Objects.hash(xCoordinate.hashCode() + yCoordinate.hashCode());
     }
 
-    public int getX() {
-        return xCoordinate.getValue();
-    }
-
-    public int getY() {
-        return yCoordinate.getValue();
-    }
 }
