@@ -1,6 +1,9 @@
 package com.woowacourse.javacoordinate.domain.point;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 public class Points {
     private final List<Point> points;
@@ -15,7 +18,7 @@ public class Points {
             throw new NullPointerException();
         }
 
-        if (points.size() == 0) {
+        if (points.isEmpty()) {
             throw new IllegalArgumentException("빈 point가 입력되었습니다");
         }
 

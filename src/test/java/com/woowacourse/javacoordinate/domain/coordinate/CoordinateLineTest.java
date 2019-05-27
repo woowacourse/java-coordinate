@@ -27,7 +27,7 @@ public class CoordinateLineTest {
 
     @Test
     void 빈_리스트_예외처리() {
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(NullPointerException.class)
                 .isThrownBy(() -> new CoordinateLine(Collections.emptyList()));
     }
 }

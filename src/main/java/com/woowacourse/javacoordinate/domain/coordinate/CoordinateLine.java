@@ -7,12 +7,8 @@ public class CoordinateLine {
     private final List<Boolean> line;
 
     public CoordinateLine(List<Boolean> line) {
-        if (Objects.isNull(line)) {
+        if (Objects.isNull(line) || line.isEmpty()) {
             throw new NullPointerException();
-        }
-
-        if (line.size() == 0) {
-            throw new IllegalArgumentException("빈 데이터가 입력되었습니다");
         }
 
         this.line = line;

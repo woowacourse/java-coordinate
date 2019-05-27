@@ -31,6 +31,10 @@ public class OutputView {
     }
 
     private static void printCoordinateLine(List<CoordinateLine> lines, int i) {
+        if (Objects.isNull(lines) || lines.isEmpty()) {
+            throw new NullPointerException();
+        }
+
         if (checkYAxisMarkingLine(lines, i)) {
             return;
         }
