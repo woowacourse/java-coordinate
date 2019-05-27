@@ -21,9 +21,9 @@ public class Rectangle extends Figure{
         Set<Integer> xCoordinates = new HashSet<>();
         Set<Integer> yCoordinates = new HashSet<>();
 
-        for (int i = 0; i < coordinates.size(); i++) {
-            xCoordinates.add(coordinates.get(i).getXCoordinate());
-            yCoordinates.add(coordinates.get(i).getYCoordinate());
+        for (Coordinate coordinate : coordinates) {
+            xCoordinates.add(coordinate.getXCoordinate());
+            yCoordinates.add(coordinate.getYCoordinate());
         }
 
         checkNotRectangle(xCoordinates, yCoordinates);
