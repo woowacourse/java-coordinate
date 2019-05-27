@@ -1,7 +1,7 @@
 package rantCar.domain;
 
 public class Avante extends RentCar {
-    Avante(int tripDitance) {
-        super("Avante", 15, tripDitance);
+    Avante(int tripDistance) {
+        super("Avante", 15, tripDistance);
     }
 }

@@ -25,7 +25,7 @@ public class Point implements Comparable<Point> {
     }
 
     public Point calVector(Point point) {
-        return new Point(new Scalar(point.x.getNo()- x.getNo()), new Scalar(point.y.getNo() - y.getNo()));
+        return new Point(new Scalar(point.x.getNo() - x.getNo()), new Scalar(point.y.getNo() - y.getNo()));
     }
 
     public Scalar calDotProduct(Point vector) {

@@ -10,6 +10,7 @@ public abstract class RentCar implements Car {
         this.DISTANCE_PER_LITER = distancePErLiter;
         this.TRIP_DISTANCE = tripDistance;
     }
+
     /**
      * 차종의 이름
      */

@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.function.Function;
 
 public class ShapeFactory {
-    private static HashMap<Integer, Function<Points, Shape>> shapeHashMap = new HashMap<>();
     static final int MIN_POINTS_SIZE = 2;
     static final int MAX_POINTS_SIZE = 4;
+    private static HashMap<Integer, Function<Points, Shape>> shapeHashMap = new HashMap<>();
 
     public static Shape create(Points points) {
         if (points == null) {
