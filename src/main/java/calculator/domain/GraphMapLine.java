@@ -23,7 +23,7 @@ public class GraphMapLine implements Iterable<Boolean> {
         return graphMapLine.size();
     }
 
-    public void drawX(int xCoordinate) {
+    public void plotX(int xCoordinate) {
         graphMapLine.set(xCoordinate, true);
     }
 

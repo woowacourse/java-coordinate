@@ -34,9 +34,9 @@ public class GraphMapTest {
     }
 
     @Test
-    void drawPoint_확인() {
+    void plotCoordinate_확인() {
         coordinates.add((coordinate));
-        graphMap.drawCoordinate(coordinate);
-        assertTrue(graphMap.isCoordinateDrawn(coordinate));
+        graphMap.plotCoordinate(coordinate);
+        assertTrue(graphMap.isPlottedCoordinate(coordinate));
     }
 }

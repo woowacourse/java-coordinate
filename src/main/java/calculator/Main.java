@@ -14,7 +14,7 @@ public class Main {
         GraphMap graphMap = new GraphMap();
 
         for (Coordinate coordinate : coordinates) {
-            graphMap.drawCoordinate(coordinate);
+            graphMap.plotCoordinate(coordinate);
         }
 
         Figure figure = FigureFactory.getInstance().create(coordinates);

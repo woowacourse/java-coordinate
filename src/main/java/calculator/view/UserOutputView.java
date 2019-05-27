@@ -23,25 +23,25 @@ public class UserOutputView {
 
         for (int yCoordinate = graphMap.size() - 1; yCoordinate >= 0; yCoordinate--) {
             resultMap.append(String.format(FORMAT_ALIGN_RIGHT, yCoordinate));
-            resultMap.append(drawLine(graphMap.getMapLine(yCoordinate), yCoordinate)).append(NEW_LINE);
+            resultMap.append(plotLine(graphMap.getMapLine(yCoordinate), yCoordinate)).append(NEW_LINE);
         }
 
-        resultMap.append(drawBottomLine());
+        resultMap.append(plotBottomLine());
 
         System.out.println(resultMap);
     }
 
-    private static String drawLine(GraphMapLine graphMapLine, int yCoordinate) {
+    private static String plotLine(GraphMapLine graphMapLine, int yCoordinate) {
         StringBuilder resultLine = new StringBuilder();
 
         for (int xCoordinate = 0; xCoordinate < graphMapLine.size(); xCoordinate++) {
-            resultLine.append(drawCoordinate(graphMapLine.get(xCoordinate), xCoordinate, yCoordinate));
+            resultLine.append(plotCoordinate(graphMapLine.get(xCoordinate), xCoordinate, yCoordinate));
         }
 
         return resultLine.toString();
     }
 
-    private static String drawCoordinate(Boolean coordinate, int xCoordinate, int yCoordinate) {
+    private static String plotCoordinate(Boolean coordinate, int xCoordinate, int yCoordinate) {
         if (coordinate) {
             return STAR;
         }
@@ -54,7 +54,7 @@ public class UserOutputView {
         return TRIPLE_BLANK;
     }
 
-    private static String drawBottomLine() {
+    private static String plotBottomLine() {
         StringBuilder bottomLine = new StringBuilder();
         bottomLine.append(DOUBLE_BLANK);
 

@@ -18,11 +18,11 @@ public class GraphMap implements Iterable<GraphMapLine> {
         }
     }
 
-    public void drawCoordinate(Coordinate coordinate) {
-        graphMap.get(coordinate.getY()).drawX(coordinate.getX());
+    public void plotCoordinate(Coordinate coordinate) {
+        graphMap.get(coordinate.getY()).plotX(coordinate.getX());
     }
 
-    public boolean isCoordinateDrawn(Coordinate coordinate) {
+    public boolean isPlottedCoordinate(Coordinate coordinate) {
         return graphMap.get(coordinate.getY()).get(coordinate.getX());
     }
 
