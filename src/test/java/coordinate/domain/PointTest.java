@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,6 +39,20 @@ public class PointTest {
         Point calCrossPoint = pivPoint.calCrossPoint(rightVector, topVector);
 
         assertThat(calCrossPoint).isEqualTo(crossPoint);
+    }
+
+    @Test
+    void 좌표값이_24를_넘어가는_경우_테스트() {
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
+            new Point(25, 0);
+        }).withMessage("좌표는 0부터 24까지만 입력할 수 있습니다");
+    }
+
+    @Test
+    void 좌표값이_음수가_포함된_경우_테스트() {
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
+            new Point(-1, 0);
+        }).withMessage("좌표는 0부터 24까지만 입력할 수 있습니다");
     }
 }
 

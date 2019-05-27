@@ -66,20 +66,4 @@ public class PointsTest {
             new Points(inputPoints);
         }).withMessage("숫자가 아닌 값이 들어있습니다");
     }
-
-    @Test
-    void 좌표값이_24를_넘어가는_경우_테스트() {
-        String inputPoints = "(10,2)-(25,8)-(9,1)-(3,5)";
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            new Points(inputPoints);
-        }).withMessage("좌표는 0부터 24까지만 입력할 수 있습니다");
-    }
-
-    @Test
-    void 좌표값이_음수가_포함된_경우_테스트() {
-        String inputPoints = "(10,2)-(-1,8)-(9,1)-(3,5)";
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            new Points(inputPoints);
-        }).withMessage("좌표는 0부터 24까지만 입력할 수 있습니다");
-    }
 }

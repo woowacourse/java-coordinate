@@ -4,11 +4,14 @@ import java.util.Objects;
 
 public class Point implements Comparable<Point> {
     private static final int SQUARE = 2;
+    private static final int COORDINATE_MAX_SIZE = 24;
+    private static final int COORDINATE_MIN_SIZE = 0;
 
     private final int x;
     private final int y;
 
     public Point(final int x, final int y) {
+        checkCoordinateSize(x, y);
         this.x = x;
         this.y = y;
     }
@@ -32,6 +35,13 @@ public class Point implements Comparable<Point> {
 
     public Point calSumOfVector(Point vector) {
         return new Point(this.x + vector.x, this.y + vector.y);
+    }
+
+    private static void checkCoordinateSize(int x, int y) {
+        if ((x < COORDINATE_MIN_SIZE || x > COORDINATE_MAX_SIZE) ||
+                (y < COORDINATE_MIN_SIZE || y > COORDINATE_MAX_SIZE)) {
+            throw new IllegalArgumentException("좌표는 0부터 24까지만 입력할 수 있습니다");
+        }
     }
 
     public int getX() {

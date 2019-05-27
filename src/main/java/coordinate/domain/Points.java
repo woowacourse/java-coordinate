@@ -28,7 +28,7 @@ public class Points {
             String pointLine = matcher.group().replaceAll("\\(", "").replaceAll("\\)", "");
             coordinateValue.addAll(PointsValidator.convertPoints(pointLine));
         }
-        PointsValidator.validatePoints(coordinateValue);
+        PointsValidator.checkPointSize(coordinateValue);
         return coordinateValue;
     }
 
