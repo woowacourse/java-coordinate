@@ -18,10 +18,10 @@ public class RectangleTest {
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
-        coordinates.add(Coordinate.create(0 ,0));
-        coordinates.add(Coordinate.create(10 ,0));
-        coordinates.add(Coordinate.create(0 ,10));
-        coordinates.add(Coordinate.create(10 ,10));
+        coordinates.add(new Coordinate(0 ,0));
+        coordinates.add(new Coordinate(10 ,0));
+        coordinates.add(new Coordinate(0 ,10));
+        coordinates.add(new Coordinate(10 ,10));
         rectangle = FigureFactory.getInstance().create(coordinates);
     }
 

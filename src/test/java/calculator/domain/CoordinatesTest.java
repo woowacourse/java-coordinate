@@ -16,8 +16,8 @@ public class CoordinatesTest {
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
-        coordinates.add(Coordinate.create(10,20));
-        coordinates.add(Coordinate.create(10,10));
+        coordinates.add(new Coordinate(10,20));
+        coordinates.add(new Coordinate(10,10));
     }
 
     @Test
@@ -28,41 +28,41 @@ public class CoordinatesTest {
     @Test
     void add_중복_체크() {
         assertThrows(IllegalArgumentException.class, () -> {
-            coordinates.add(Coordinate.create(10,10));
+            coordinates.add(new Coordinate(10,10));
         });
     }
 
     @Test
     void add_추가_갯수_확인() {
-        coordinates.add(Coordinate.create(0,10));
-        coordinates.add(Coordinate.create(0,20));
+        coordinates.add(new Coordinate(0,10));
+        coordinates.add(new Coordinate(0,20));
 
         assertThrows(IllegalArgumentException.class, () -> {
-            coordinates.add(Coordinate.create(1,1));
+            coordinates.add(new Coordinate(1,1));
         });
     }
 
     @Test
     void checkTriangle_일직선_확인() {
         assertThrows(IllegalArgumentException.class, () -> {
-            coordinates.add(Coordinate.create(10,5));
+            coordinates.add(new Coordinate(10,5));
         });
     }
 
     @Test
     void checkRectangle_직사각형_확인() {
-        coordinates.add(Coordinate.create(0,10));
-        coordinates.add(Coordinate.create(0,20));
+        coordinates.add(new Coordinate(0,10));
+        coordinates.add(new Coordinate(0,20));
     }
 
     @Test
     void checkRectangle_직사각형_예외() {
         Coordinates coordinatesException = new Coordinates();
-        coordinatesException.add(Coordinate.create(10,20));
-        coordinatesException.add(Coordinate.create(10,10));
-        coordinatesException.add(Coordinate.create(0,10));
+        coordinatesException.add(new Coordinate(10,20));
+        coordinatesException.add(new Coordinate(10,10));
+        coordinatesException.add(new Coordinate(0,10));
         assertThrows(IllegalArgumentException.class, () -> {
-            coordinatesException.add(Coordinate.create(0,5));
+            coordinatesException.add(new Coordinate(0,5));
         });
 
     }

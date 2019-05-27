@@ -18,9 +18,9 @@ public class TriangleTest {
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
-        coordinates.add(Coordinate.create(0 ,0));
-        coordinates.add(Coordinate.create(10 ,0));
-        coordinates.add(Coordinate.create(5 ,10));
+        coordinates.add(new Coordinate(0 ,0));
+        coordinates.add(new Coordinate(10 ,0));
+        coordinates.add(new Coordinate(5 ,10));
         triangle = FigureFactory.getInstance().create(coordinates);
     }
 

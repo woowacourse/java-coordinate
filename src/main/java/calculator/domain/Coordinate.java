@@ -6,7 +6,7 @@ import java.util.Objects;
  * @author heebg
  * @version 1.0 2019-05-21
  */
-public class Coordinate  {
+public class Coordinate {
     private static final String EX_COORDINATE_RANGE_MESSAGE = "좌표 범위는 0~24 사이입니다.";
     private static final int NOT_MATCH = -1;
     private static final int MIN_COORDINATE = 0;
@@ -14,24 +14,19 @@ public class Coordinate  {
     private final int xCoordinate;
     private final int yCoordinate;
 
-    private Coordinate(int xCoordinate, int yCoordinate) {
-        this.xCoordinate = checkXCoordinateRange(xCoordinate);
-        this.yCoordinate = checkYCoordinateRange(yCoordinate);
-    }
-
     /**
      * 생성자
      *
      * @param xCoordinate x좌표
      * @param yCoordinate y좌표
-     * @return Coordinate
      */
-    public static Coordinate create(int xCoordinate, int yCoordinate) {
-        return new Coordinate(xCoordinate, yCoordinate);
+    public Coordinate(int xCoordinate, int yCoordinate) {
+        this.xCoordinate = checkXCoordinateRange(xCoordinate);
+        this.yCoordinate = checkYCoordinateRange(yCoordinate);
     }
 
     private int checkXCoordinateRange(int xCoordinate) {
-        if(xCoordinate < MIN_COORDINATE || xCoordinate > MAX_COORDINATE) {
+        if (xCoordinate < MIN_COORDINATE || xCoordinate > MAX_COORDINATE) {
             throw new IllegalArgumentException(EX_COORDINATE_RANGE_MESSAGE);
         }
 
@@ -39,7 +34,7 @@ public class Coordinate  {
     }
 
     private int checkYCoordinateRange(int yCoordinate) {
-        if(yCoordinate < MIN_COORDINATE || yCoordinate > MAX_COORDINATE) {
+        if (yCoordinate < MIN_COORDINATE || yCoordinate > MAX_COORDINATE) {
             throw new IllegalArgumentException(EX_COORDINATE_RANGE_MESSAGE);
         }
 

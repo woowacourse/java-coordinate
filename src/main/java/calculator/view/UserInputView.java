@@ -63,7 +63,7 @@ public class UserInputView {
         while(coordinateMatcher.find()) {
             int xCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[0]);
             int yCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[1]);
-            coordinates.add(Coordinate.create(xCoordinate, yCoordinate));
+            coordinates.add(new Coordinate(xCoordinate, yCoordinate));
         }
         return coordinates;
     }

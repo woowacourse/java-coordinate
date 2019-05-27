@@ -19,7 +19,7 @@ public class MapTest {
     @BeforeEach
     void setUp() {
         map = new Map();
-        coordinate = Coordinate.create(10,2);
+        coordinate = new Coordinate(10,2);
         coordinates = new Coordinates();
     }
 

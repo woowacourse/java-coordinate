@@ -16,12 +16,12 @@ public class CoordinateTest {
 
     @BeforeEach
     void setUp() {
-        coordinate = Coordinate.create(10,15);
+        coordinate = new Coordinate(10,15);
     }
 
     @Test
     void create_생성() {
-        assertThat(coordinate).isEqualTo(Coordinate.create(10,15));
+        assertThat(coordinate).isEqualTo(new Coordinate(10,15));
     }
 
     @Test
@@ -39,14 +39,14 @@ public class CoordinateTest {
     @Test
     void create_x값_범위_초과_예외처리() {
         assertThrows(IllegalArgumentException.class, () ->{
-            Coordinate.create(-1, 10);
+            new Coordinate(-1, 10);
         });
     }
 
     @Test
     void create_y값_범위_초과_예외처리() {
         assertThrows(IllegalArgumentException.class, () ->{
-            Coordinate.create(10, 25);
+            new Coordinate(10, 25);
         });
     }
 }
