@@ -3,6 +3,9 @@ package coordinate.domain;
 public class Line extends Figure {
     private static final String NAME = "선";
     private static final String OPERATION_NAME = "길이";
+    private static final int FIRST_POINT = 0;
+    private static final int SECOND_POINT = 1;
+
 
     public Line(Points points) {
         super(points);
@@ -13,7 +16,7 @@ public class Line extends Figure {
 
     @Override
     public double calculateFigure() {
-        return points.get(0).sub(points.get(1));
+        return points.get(FIRST_POINT).sub(points.get(SECOND_POINT));
     }
 
     @Override

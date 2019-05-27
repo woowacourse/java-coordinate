@@ -2,64 +2,75 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Point implements Comparable<Point>{
-    private final int x;
-    private final int y;
+public class Point implements Comparable<Point> {
+    private static final int MIN_SCALAR_VALUE = 0;
+    private static final int MAX_SCALAR_VALUE = 25;
+    private final Scalar x;
+    private final Scalar y;
 
-    public Point(int x, int y) {
+    public Point(final Scalar x, final Scalar y) {
+        if (x.isLessThan(MIN_SCALAR_VALUE) || x.isMoreThan(MAX_SCALAR_VALUE)) {
+            throw new IllegalArgumentException(String.format("X값은 %d ~ %d 입니다", MIN_SCALAR_VALUE, MAX_SCALAR_VALUE));
+        }
+        if (y.isLessThan(MIN_SCALAR_VALUE) || y.isMoreThan(MAX_SCALAR_VALUE)) {
+            throw new IllegalArgumentException(String.format("Y값은 %d ~ %d 입니다", MIN_SCALAR_VALUE, MAX_SCALAR_VALUE));
+        }
         this.x = x;
         this.y = y;
     }
 
-    public double sub(Point secondPoint) {
-        return Math.sqrt(Math.pow(x - secondPoint.x, 2) + Math.pow(y - secondPoint.y, 2));
+    public double sub(Point point) {
+        return Math.sqrt(Math.pow(x.sub(point.x).getNo(), 2) +
+                Math.pow(y.sub(point.y).getNo(), 2));
     }
 
     public Point calVector(Point point) {
-        return new Point(point.x - x, point.y - y);
+        return new Point(new Scalar(point.x.getNo()- x.getNo()), new Scalar(point.y.getNo() - y.getNo()));
     }
 
-    public int calDotProduct(Point vector) {
-        return (vector.x * x) + (vector.y * y);
+    public Scalar calDotProduct(Point vector) {
+        return x.multiply(vector.getX())
+                .add((y.multiply(vector.getY())))
+                ;
     }
 
-    public Point sumOfVector(Point vector) {
-        return new Point(this.x + vector.x, this.y + vector.y);
+    private Point sumOfVector(Point vector) {
+        return new Point(x.add(vector.x), y.add(vector.y));
     }
 
     public Point calCrossPoint(Point firstVector, Point secondVector) {
         Point addedVector = firstVector.sumOfVector(secondVector);
-        return new Point(x + addedVector.x, y + addedVector.y);
+        return new Point(x.add(addedVector.x), y.add(addedVector.y));
     }
 
-    public int getX() {
+    Scalar getX() {
         return x;
     }
 
-    public int getY() {
+    Scalar getY() {
         return y;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Point)) return false;
         Point point = (Point) o;
-        return x == point.x &&
-                y == point.y;
+        return Objects.equals(getX(), point.getX()) &&
+                Objects.equals(getY(), point.getY());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return Objects.hash(getX(), getY());
     }
 
     @Override
     public int compareTo(Point o) {
-        if (this.y == o.y) {
-            return this.x - o.x;
+        if (y == o.y) {
+            return x.sub(o.x).getNo();
         }
-        return this.y - o.y;
+        return y.sub(o.y).getNo();
     }
 
     @Override

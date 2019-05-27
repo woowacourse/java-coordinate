@@ -21,12 +21,11 @@ public class Board {
     }
 
     private void checkValidPoint(Point point) {
-        if (point.getX() < MIN_BOARD_SIZE || point.getX() > MAX_BOARD_SIZE) {
-            throw new IllegalArgumentException(String.format("X값은 %d ~ %d 입니다.", MIN_BOARD_SIZE, MAX_BOARD_SIZE));
+        if (point.getX().isLessThan(MIN_BOARD_SIZE) || point.getX().isMoreThan(MAX_BOARD_SIZE)) {
+            throw new IllegalArgumentException(String.format("X값은 %d ~ %d 입니다", MIN_BOARD_SIZE, MAX_BOARD_SIZE));
         }
-
-        if (point.getY() < MIN_BOARD_SIZE || point.getY() > MAX_BOARD_SIZE) {
-            throw new IllegalArgumentException(String.format("Y값은 %d ~ %d 입니다.", MIN_BOARD_SIZE, MAX_BOARD_SIZE));
+        if (point.getY().isLessThan(MIN_BOARD_SIZE) || point.getY().isMoreThan(MAX_BOARD_SIZE)) {
+            throw new IllegalArgumentException(String.format("Y값은 %d ~ %d 입니다", MIN_BOARD_SIZE, MAX_BOARD_SIZE));
         }
     }
 
@@ -48,7 +47,7 @@ public class Board {
     void setPoints(Points points) {
         for (int pointIndex = 0; pointIndex < points.size(); pointIndex++) {
             Point point = points.get(pointIndex);
-            board.get(point.getY()).set(point.getX(), true);
+            board.get(point.getY().getNo()).set(point.getX().getNo(), true);
         }
     }
 
