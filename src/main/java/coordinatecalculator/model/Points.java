@@ -26,7 +26,7 @@ public class Points {
         this.points.add(point);
     }
 
-    public Point getPoint(int index) {
+    public Point getPointByIndex(int index) {
         return this.points.get(index);
     }
 
@@ -47,6 +47,6 @@ public class Points {
     }
 
     public Distance getDistance(int previousPointIndex, int currentPointIndex) {
-        return new Distance(this.getPoint(previousPointIndex), this.getPoint(currentPointIndex));
+        return new Distance(this.getPointByIndex(previousPointIndex), this.getPointByIndex(currentPointIndex));
     }
 }

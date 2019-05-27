@@ -26,7 +26,7 @@ public class Rectangle implements Figure {
 
     public List<Point> getDifferTwoPoints() {
         List<Point> differPoints = new ArrayList<>();
-        Point firstPoint = points.getPoint(FIRST);
+        Point firstPoint = points.getPointByIndex(FIRST);
         differPoints.add(firstPoint);
 
         points.getPoints().stream()
