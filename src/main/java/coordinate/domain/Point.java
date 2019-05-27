@@ -3,13 +3,15 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
+    private static final String ERROR_EMPTY = "아무것도 입력되지 않았습니다.";
+    private static final int SQUARE_ROOT = 2;
 
     private final Number x;
     private final Number y;
 
     private Point(Number x, Number y) {
         if (Objects.isNull(x) || Objects.isNull(y)) {
-            throw new IllegalArgumentException("아무것도 입력되지 않았습니다.");
+            throw new IllegalArgumentException(ERROR_EMPTY);
         }
 
         this.x = x;
@@ -29,8 +31,8 @@ public class Point {
     }
 
     public double getDistance(Point point) {
-        double calculationX = Math.pow(x.subtract(point.getX()), 2);
-        double calculationY = Math.pow(y.subtract(point.getY()), 2);
+        double calculationX = Math.pow(x.subtract(point.getX()), SQUARE_ROOT);
+        double calculationY = Math.pow(y.subtract(point.getY()), SQUARE_ROOT);
 
         return Math.sqrt(calculationX + calculationY);
     }

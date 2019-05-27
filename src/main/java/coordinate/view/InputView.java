@@ -1,18 +1,17 @@
 package coordinate.view;
 
+import coordinate.MessageConstants.MessageConstant;
 import coordinate.domain.Point;
 import coordinate.domain.Points;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InputView {
     private static final Scanner SCAN = new Scanner(System.in);
 
     public Points inputCoordinates() {
-        System.out.println("좌표를 입력하세요.");
+        System.out.println(MessageConstant.INPUT_COORDINATES);
         String input = SCAN.nextLine();
 
         try {
@@ -35,10 +34,11 @@ public class InputView {
     }
 
     private List<Integer> extractCoordinates(String input) {
-        String result = input.replace("-", ",")
-                .replace(")", "").replace("(", "");
+        String result = input.replace(MessageConstant.DASH, MessageConstant.SPLIT_COMMA)
+                .replace(MessageConstant.START_POINT, MessageConstant.EMPTY)
+                .replace(MessageConstant.END_POINT, MessageConstant.EMPTY);
 
-        return Arrays.stream(result.split(","))
+        return Arrays.stream(result.split(MessageConstant.SPLIT_COMMA))
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
     }

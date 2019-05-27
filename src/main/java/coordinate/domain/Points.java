@@ -3,6 +3,8 @@ package coordinate.domain;
 import java.util.*;
 
 public class Points {
+    private static final String ERROR_DUPLICATE = "중복된 점이 있습니다.";
+
     private List<Point> points;
 
     private Points(List<Point> points) {
@@ -15,7 +17,7 @@ public class Points {
 
     public void addPoint(Point point) {
         if (points.contains(point)) {
-            throw new IllegalArgumentException("중복된 점이 있습니다.");
+            throw new IllegalArgumentException(ERROR_DUPLICATE);
         }
 
         points.add(point);

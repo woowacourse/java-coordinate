@@ -3,12 +3,15 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Number {
+    private static final String ERROR_BOUNDARY = "잘못된 범위의 수가 입력되었습니다.";
+    private static final int MIN = 0;
+    private static final int MAX = 24;
 
     private final int number;
 
     private Number(int number) {
-        if (number < 0 || number > 24) {
-            throw new IllegalArgumentException("잘못된 범위의 수가 입력되었습니다.");
+        if (number < MIN || number > MAX) {
+            throw new IllegalArgumentException(ERROR_BOUNDARY);
         }
 
         this.number = number;
@@ -18,12 +21,12 @@ public class Number {
         return new Number(number);
     }
 
-    int subtract(Number otherNumber) {
-        return number - otherNumber.getNumber();
-    }
-
     public int getNumber() {
         return this.number;
+    }
+
+    int subtract(Number otherNumber) {
+        return number - otherNumber.getNumber();
     }
 
     @Override

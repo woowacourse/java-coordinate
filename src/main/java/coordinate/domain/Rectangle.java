@@ -3,20 +3,30 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Rectangle implements Figure, ResultPrintable {
+    private static final String ERROR_SQUARE = "사각형이 아닙니다.";
+    private static final String ERROR_POINT_SIZE = "4개의 점이 입력되지 않았습니다.";
+    private static final String RESULT_FORMAT = "사각형 넓이는 %.0f";
+
     private Points points;
 
-    public Rectangle(Points points) throws IllegalArgumentException {
-
+    private Rectangle(Points points) throws IllegalArgumentException {
         if (isNotRectangles(points)) {
-            throw new IllegalArgumentException("사각형이 아닙니다.");
+            throw new IllegalArgumentException(ERROR_SQUARE);
         }
 
         this.points = points;
     }
 
     public static Rectangle create(Points points) {
-
         return new Rectangle(points);
+    }
+
+    private boolean isNotRectangles(Points points) {
+        if (points.getSize() != 4) {
+            throw new IllegalArgumentException(ERROR_POINT_SIZE);
+        }
+
+        return !points.checkX() && points.checkY();
     }
 
     @Override
@@ -32,12 +42,9 @@ public class Rectangle implements Figure, ResultPrintable {
         return points;
     }
 
-    private boolean isNotRectangles(Points points) {
-        if (points.getSize() != 4) {
-            throw new IllegalArgumentException("4개의 점이 입력되지 않았습니다.");
-        }
-
-        return !points.checkX() && points.checkY();
+    @Override
+    public String getResultMessage() {
+        return String.format(RESULT_FORMAT, getArea());
     }
 
     @Override
@@ -51,10 +58,5 @@ public class Rectangle implements Figure, ResultPrintable {
     @Override
     public int hashCode() {
         return Objects.hash(points);
-    }
-
-    @Override
-    public String getResultMessage() {
-        return String.format("사각형 넓이는 %.0f", getArea());
     }
 }
