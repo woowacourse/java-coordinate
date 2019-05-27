@@ -10,12 +10,6 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LineTest {
-    @Test
-    void 점의_개수가_2개가_아니면_예외처리_테스트() {
-        List<Point> points = Arrays.asList(new Point(10, 10));
-
-        assertThatIllegalArgumentException().isThrownBy(() -> new Line(points));
-    }
 
     @Test
     public void 두_점_사이의_거리를_제대로_출력해주는지_테스트() {

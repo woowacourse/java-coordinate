@@ -2,12 +2,17 @@ package coordinate.domain;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CoordinateTest {
-
     @Test
-    public void 좌표가_0과24_사이가_아니면_예외처리() {
-        assertThrows(IllegalArgumentException.class, () -> new Coordinate(30));
+    public void CoordinateContainer에서_범위에_벗어난_좌표를_꺼낼_때_예외처리_테스트() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Coordinate.get(25);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            Coordinate.get(-1);
+        });
     }
 }
