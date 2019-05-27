@@ -17,7 +17,6 @@ public class CoordinateApplication {
             CoordinateDto coordinateDto = CoordinateService.request(points);
             OutputView.printBoard(coordinateDto.getBoard());
             OutputView.printResult(coordinateDto.getShape());
-
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             run();
