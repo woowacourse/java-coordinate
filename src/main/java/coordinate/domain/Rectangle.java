@@ -5,7 +5,8 @@ import java.util.Objects;
 public class Rectangle {
     private Points points;
 
-    public Rectangle(Points points) {
+    public Rectangle(Points points) throws IllegalArgumentException{
+
         if (isNotRectangles(points)) {
             throw new IllegalArgumentException("사각형이 아닙니다.");
         }
@@ -13,13 +14,7 @@ public class Rectangle {
         this.points = points;
     }
 
-    public static Rectangle create(Point point1, Point point2, Point point3, Point point4) {
-        Points points = Points.create();
-
-        points.addPoint(point1);
-        points.addPoint(point2);
-        points.addPoint(point3);
-        points.addPoint(point4);
+    public static Rectangle create(Points points) {
 
         return new Rectangle(points);
     }
@@ -36,6 +31,10 @@ public class Rectangle {
     }
 
     private boolean isNotRectangles(Points points) {
+        if (points.getSize() != 4) {
+            throw new IllegalArgumentException("4개의 점이 입력되지 않았습니다.");
+        }
+
         return !points.checkX() && points.checkY();
     }
 

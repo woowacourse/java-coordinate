@@ -18,7 +18,7 @@ public class InputView {
         try {
             return getPoints(input);
         } catch (IllegalArgumentException e) {
-            e.getMessage();
+            System.err.println(e.getMessage());
             return inputCoordinates();
         }
     }

@@ -6,11 +6,7 @@ public class Points {
     private List<Point> points;
 
     private Points(List<Point> points) {
-        Set<Point> duplicationCheck = new HashSet<>(points);
 
-        if (points.size() != duplicationCheck.size()) {
-            throw new IllegalArgumentException("중복된 점이 있습니다.");
-        }
 
         this.points = points;
     }
@@ -20,6 +16,10 @@ public class Points {
     }
 
     public void addPoint(Point point) {
+        if (points.contains(point)) {
+            throw new IllegalArgumentException("중복된 점이 있습니다.");
+        }
+
         points.add(point);
     }
 

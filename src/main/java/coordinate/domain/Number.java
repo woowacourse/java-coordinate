@@ -8,7 +8,7 @@ public class Number {
 
     private Number(int number) {
         if (number < 0 || number > 24) {
-            throw new IllegalArgumentException("아무것도 입력되지 않았습니다.");
+            throw new IllegalArgumentException("잘못된 범위의 수가 입력되었습니다.");
         }
 
         this.number = number;

@@ -6,26 +6,20 @@ public class Line {
 
     private final Points points;
 
-    private Line(Point point1, Point point2) {
-        if (Objects.isNull(point1) || Objects.isNull(point2)) {
-            throw new IllegalArgumentException("점이 하나밖에 입력되지 않았습니다.");
+    private Line(Points points) {
+        if (points.getSize() != 2) {
+            throw new IllegalArgumentException("두개의 점이 입력되지 않았습니다.");
         }
 
-        this.points = Points.create();
-        points.addPoint(point1);
-        points.addPoint(point2);
+        this.points = points;
     }
 
-    public static Line create(Point point1, Point point2) {
-        return new Line(point1, point2);
+    public static Line create(Points points) {
+        return new Line(points);
     }
 
     public double calculateDistance() {
         return points.pointsByIndex(0).getDistance(points.pointsByIndex(1));
-    }
-
-    public Points getPoints() {
-        return points;
     }
 
     @Override
@@ -39,12 +33,5 @@ public class Line {
     @Override
     public int hashCode() {
         return Objects.hash(points);
-    }
-
-    @Override
-    public String toString() {
-        return "Line{" +
-                "points=" + points +
-                '}';
     }
 }

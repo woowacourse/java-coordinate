@@ -15,7 +15,7 @@ public class Main {
 
         FigureController figureController = new FigureController();
 
-        Rectangle rectangle = Rectangle.create(points.pointsByIndex(0), points.pointsByIndex(1), points.pointsByIndex(2), points.pointsByIndex(3));
+        Rectangle rectangle = Rectangle.create(points);
 
         OutputViewController outputViewController = new OutputViewController(new OutputView(), rectangle);
         outputViewController.printCoordinatesBoard();
