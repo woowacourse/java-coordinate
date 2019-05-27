@@ -17,7 +17,7 @@ public class Main {
             graphMap.plotCoordinate(coordinate);
         }
 
-        Figure figure = FigureFactory.getInstance().create(coordinates);
+        Figure figure = new FigureFactory().create(coordinates);
         UserOutputView.outputMap(graphMap);
         UserOutputView.outputCalculatedResult(figure);
     }

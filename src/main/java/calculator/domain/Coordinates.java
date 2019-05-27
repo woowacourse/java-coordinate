@@ -65,9 +65,9 @@ public class Coordinates implements Iterable<Coordinate> {
     }
 
     private void checkTriangle() {
-        double lengthA = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(1));
-        double lengthB = FigureFactory.getInstance().create(this).straight(coordinates.get(1), coordinates.get(2));
-        double lengthC = FigureFactory.getInstance().create(this).straight(coordinates.get(0), coordinates.get(2));
+        double lengthA = new FigureFactory().create(this).straight(coordinates.get(0), coordinates.get(1));
+        double lengthB = new FigureFactory().create(this).straight(coordinates.get(1), coordinates.get(2));
+        double lengthC = new FigureFactory().create(this).straight(coordinates.get(0), coordinates.get(2));
 
         List<Double> lengths = Arrays.asList(lengthA, lengthB, lengthC);
         Collections.sort(lengths);

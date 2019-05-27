@@ -10,14 +10,6 @@ public class FigureFactory {
     private static final int TRIANGLE_CONDITION = 3;
     private static final int RECTANGLE_CONDITION = 4;
     private static final String EX_NO_FIGURE_CONDITION_MESSAGE = "만들 수 있는 도형이 없습니다. (가능한 도형은 점, 선, 삼각형, 사각형입니다.)";
-    private static FigureFactory instance = new FigureFactory();
-
-    public static FigureFactory getInstance() {
-        return instance;
-    }
-
-    private FigureFactory() {
-    }
 
     public Figure create(Coordinates coordinates) {
         if (coordinates.size() == POINT_CONDITION) {

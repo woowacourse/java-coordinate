@@ -18,18 +18,18 @@ class LineTest {
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
-        coordinates.add(new Coordinate(8,21));
-        coordinates.add(new Coordinate(16,3));
-        figure = FigureFactory.getInstance().create(coordinates);
+        coordinates.add(new Coordinate(8, 21));
+        coordinates.add(new Coordinate(16, 3));
+        figure = new FigureFactory().create(coordinates);
     }
 
     @Test
     void create_계산_정답() {
-        assertThat(figure.area()).isEqualTo(19.697,offset(0.00099));
+        assertThat(figure.area()).isEqualTo(19.697, offset(0.00099));
     }
 
     @Test
     void line_계산_반올림_확인() {
-        assertThat(figure.area()).isEqualTo(19.698,offset(0.00099));
+        assertThat(figure.area()).isEqualTo(19.698, offset(0.00099));
     }
 }

@@ -18,19 +18,19 @@ public class TriangleTest {
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
-        coordinates.add(new Coordinate(0 ,0));
-        coordinates.add(new Coordinate(10 ,0));
-        coordinates.add(new Coordinate(5 ,10));
-        triangle = FigureFactory.getInstance().create(coordinates);
+        coordinates.add(new Coordinate(0, 0));
+        coordinates.add(new Coordinate(10, 0));
+        coordinates.add(new Coordinate(5, 10));
+        triangle = new FigureFactory().create(coordinates);
     }
 
     @Test
     void create_생성_확인() {
-        assertThat(triangle).isEqualTo(FigureFactory.getInstance().create(coordinates));
+        assertThat(triangle).isEqualTo(new FigureFactory().create(coordinates));
     }
 
     @Test
     void area_삼각형_넓이_확인() {
-        assertThat(triangle.area()).isEqualTo(50.000,offset(0.00099));
+        assertThat(triangle.area()).isEqualTo(50.000, offset(0.00099));
     }
 }

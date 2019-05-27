@@ -18,20 +18,20 @@ public class RectangleTest {
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
-        coordinates.add(new Coordinate(0 ,0));
-        coordinates.add(new Coordinate(10 ,0));
-        coordinates.add(new Coordinate(0 ,10));
-        coordinates.add(new Coordinate(10 ,10));
-        rectangle = FigureFactory.getInstance().create(coordinates);
+        coordinates.add(new Coordinate(0, 0));
+        coordinates.add(new Coordinate(10, 0));
+        coordinates.add(new Coordinate(0, 10));
+        coordinates.add(new Coordinate(10, 10));
+        rectangle = new FigureFactory().create(coordinates);
     }
 
     @Test
     void create_생성_확인() {
-        assertThat(rectangle).isEqualTo(FigureFactory.getInstance().create(coordinates));
+        assertThat(rectangle).isEqualTo(new FigureFactory().create(coordinates));
     }
 
     @Test
     void area_사각형_넓이_확인() {
-        assertThat(rectangle.area()).isEqualTo(100.000,offset(0.00099));
+        assertThat(rectangle.area()).isEqualTo(100.000, offset(0.00099));
     }
 }
