@@ -2,10 +2,7 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.visitor.Visitor;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Triangle implements Figure, Shape {
     private final List<Coordinate> coordinates;
@@ -54,7 +51,7 @@ public class Triangle implements Figure, Shape {
 
     @Override
     public List<Coordinate> getCoordinate() {
-        return coordinates;
+        return Collections.unmodifiableList(coordinates);
     }
 
     @Override

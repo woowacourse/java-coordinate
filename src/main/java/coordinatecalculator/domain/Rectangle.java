@@ -57,7 +57,7 @@ public class Rectangle implements Figure, Shape {
 
     @Override
     public List<Coordinate> getCoordinate() {
-        return coordinates;
+        return Collections.unmodifiableList(coordinates);
     }
 
     @Override
