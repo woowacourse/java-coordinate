@@ -19,6 +19,10 @@ public abstract class AbstractFigure implements Figure {
         return points;
     }
 
+    Point getPoint(int index){
+        return points.getPoint(index);
+    }
+
     @Override
     public abstract String getResult();
 

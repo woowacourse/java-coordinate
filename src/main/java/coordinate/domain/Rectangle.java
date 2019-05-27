@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Rectangle extends AbstractFigure {
     static final int COUNT_OF_POINT = 4;
+
     Rectangle(Points points) {
         super(points);
         checkRectangleValidation(points);
@@ -13,11 +14,11 @@ public class Rectangle extends AbstractFigure {
         List<Double> lines = LengthFactory.generateLengths(points);
         lines.sort(null);
         for (int i = 0; i < lines.size(); i += 2) {
-            checkTriangle(lines, i);
+            checkRectangle(lines, i);
         }
     }
 
-    private void checkTriangle(List<Double> lines, int index) {
+    private void checkRectangle(List<Double> lines, int index) {
         if (!(lines.get(index).equals(lines.get(index + 1)))) {
             throw new IllegalArgumentException("직사각형이나 정사각형이 아닙니다.");
         }
@@ -25,8 +26,8 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double calculateArea() {
-        double width = points.getPoint(FIRST_POINT).calculateLength(points.getPoint(SECOND_POINT));
-        double depth = points.getPoint(FIRST_POINT).calculateLength(points.getPoint(THIRD_POINT));
+        double width = getPoint(FIRST_POINT).calculateLength(getPoint(SECOND_POINT));
+        double depth = getPoint(FIRST_POINT).calculateLength(getPoint(THIRD_POINT));
         return width * depth;
     }
     @Override

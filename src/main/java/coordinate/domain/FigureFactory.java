@@ -1,6 +1,7 @@
 package coordinate.domain;
 
 
+import java.util.Arrays;
 import java.util.function.Function;
 
 public enum FigureFactory {
@@ -21,12 +22,11 @@ public enum FigureFactory {
     }
 
     public static Figure generateFigure(Points points) {
-        for (FigureFactory figure : FigureFactory.values()) {
-            if (figure.countOfPoint == points.getSize()) {
-                return figure.mapToShape(points);
-            }
-        }
-        throw new IllegalArgumentException("만들 수 있는 도형이 없습니다.");
+        FigureFactory result =  Arrays.stream(values())
+                .filter(figure -> figure.countOfPoint == points.getSize())
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("만들 수 있는 도형이 없습니다."));
+        return result.mapToShape(points);
     }
 
 }

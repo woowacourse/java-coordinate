@@ -33,4 +33,16 @@ public class Points {
         return points.get(index);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Points points1 = (Points) o;
+        return Objects.equals(points, points1.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
+    }
 }
