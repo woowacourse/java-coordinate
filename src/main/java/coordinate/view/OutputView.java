@@ -16,6 +16,10 @@ public class OutputView {
         System.out.printf("두 점 사이 거리는 %.6f", distance);
     }
 
+    public void printArea(double area) {
+        System.out.printf("사각형 넓이는 %.0f", area);
+    }
+
     public void printCoordinatesBoard(Points points) {
         List<List<Character>> board = initBoard();
 
@@ -80,8 +84,8 @@ public class OutputView {
     }
 
     private void drawPoints(List<List<Character>> board, Points points, char ch) {
-        for (int i=0; i<points.getSize(); i++) {
-            set(board, VERTICAL_START + points.pointsByIndex(i).getX().getNumber(), HORIZON_START + (LEN_DIGITS * points.pointsByIndex(i).getY().getNumber()), ch);
+        for (int i = 0; i < points.getSize(); i++) {
+            set(board, VERTICAL_START + points.pointsByIndex(i).getY().getNumber(), HORIZON_START + (LEN_DIGITS * points.pointsByIndex(i).getX().getNumber()), ch);
         }
     }
 

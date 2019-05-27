@@ -23,7 +23,7 @@ public class Number {
     }
 
     public int getNumber() {
-        return number;
+        return this.number;
     }
 
     @Override
@@ -37,12 +37,5 @@ public class Number {
     @Override
     public int hashCode() {
         return Objects.hash(number);
-    }
-
-    @Override
-    public String toString() {
-        return "Number{" +
-                "number=" + number +
-                '}';
     }
 }

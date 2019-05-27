@@ -31,6 +31,34 @@ public class Points {
         return points.size();
     }
 
+    public double getFirstDistance() {
+        int index = 1;
+
+        while (isNotEqualX(index)) {
+            index++;
+        }
+
+        return points.get(0).getDistance(points.get(index));
+    }
+
+    boolean isNotEqualX(int index) {
+        return !points.get(0).isEqualX(points.get(index));
+    }
+
+    public double getSecondDistance() {
+        int index = 1;
+
+        while (isNotEqualY(index)) {
+            index++;
+        }
+
+        return points.get(0).getDistance(points.get(index));
+    }
+
+    private boolean isNotEqualY(int index) {
+        return !points.get(0).isEqualY(points.get(index));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,12 +70,5 @@ public class Points {
     @Override
     public int hashCode() {
         return Objects.hash(points);
-    }
-
-    @Override
-    public String toString() {
-        return "Points{" +
-                "points=" + points +
-                '}';
     }
 }

@@ -20,6 +20,14 @@ public class Point {
         return new Point(Number.create(x), Number.create(y));
     }
 
+    public boolean isEqualX(Point point) {
+        return x.equals(point.getX());
+    }
+
+    public boolean isEqualY(Point point) {
+        return y.equals(point.getY());
+    }
+
     public double getDistance(Point point) {
         double calculationX = Math.pow(x.subtract(point.getX()), 2);
         double calculationY = Math.pow(y.subtract(point.getY()), 2);
@@ -47,13 +55,5 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
-    }
-
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
     }
 }

@@ -19,4 +19,20 @@ public class PointTest {
 
         assertThat(point1.getDistance(point2)).isEqualTo(6.403124, offset(0.00099));
     }
+
+    @Test
+    void x가_같은지_확인() {
+        Point point1 = Point.create(10, 11);
+        Point point2 = Point.create(10, 12);
+
+        assertThat(point1.isEqualX(point2)).isTrue();
+    }
+
+    @Test
+    void y가_같은지_확인() {
+        Point point1 = Point.create(10, 12);
+        Point point2 = Point.create(11, 12);
+
+        assertThat(point1.isEqualY(point2)).isTrue();
+    }
 }
