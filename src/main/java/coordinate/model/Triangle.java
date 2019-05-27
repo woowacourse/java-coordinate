@@ -1,7 +1,5 @@
 package coordinate.model;
 
-import coordinate.util.HeronFormula;
-
 import java.util.List;
 
 public class Triangle extends Shape {
@@ -19,8 +17,13 @@ public class Triangle extends Shape {
 
         @Override
         public double getScore() {
-                return HeronFormula.getTriangleArea(points.get(FIRST_POINT).getDistance(points.get(SECOND_POINT)),
+                return getTriangleArea(points.get(FIRST_POINT).getDistance(points.get(SECOND_POINT)),
                                                         points.get(FIRST_POINT).getDistance(points.get(THIRD_POINT)),
                                                         points.get(SECOND_POINT).getDistance(points.get(THIRD_POINT)));
+        }
+
+        private static double getTriangleArea(double a, double b, double c) {
+                double s = (a + b + c) / 2;
+                return Math.sqrt(s * (s - a) * (s - b) * (s - c));
         }
 }
