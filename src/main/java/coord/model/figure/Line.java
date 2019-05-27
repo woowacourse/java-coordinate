@@ -44,9 +44,12 @@ public final class Line {
         return l.includes(p) || l.includes(q);
     }
 
-    public Point getCommonPoint(Line l) {
-        if (isConnectedTo(l)) {
-            return l.includes(p) ? p : q;
+    public Point getCommonPointWith(Line l) {
+        if (l.includes(p)) {
+            return p;
+        }
+        if (l.includes(q)) {
+            return p;
         }
         return null;
     }
