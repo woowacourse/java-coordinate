@@ -43,11 +43,15 @@ public class Rectangle extends AbstractFigure{
         return yValues;
     }
 
-
-    @Override
-    public double area() {
+    private double area() {
         double firstLine = distance(FIRST_POINT_INDEX, SECOND_POINT_INDEX);
         double secondLine = distance(FIRST_POINT_INDEX, THIRD_POINT_INDEX);
         return firstLine * secondLine;
+    }
+
+
+    @Override
+    public double calculateFigureInformation() {
+        return area();
     }
 }

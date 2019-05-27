@@ -21,13 +21,17 @@ public class Triangle extends AbstractFigure{
         }
     }
 
-    @Override
-    public double area() {
+    private double area() {
         double a = distance(FIRST_POINT_INDEX, SECOND_POINT_INDEX);
         double b = distance(SECOND_POINT_INDEX, THIRD_POINT_INDEX);
         double c = distance(THIRD_POINT_INDEX, FIRST_POINT_INDEX);
         double s = (a + b + c) / 2;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    @Override
+    public double calculateFigureInformation() {
+        return area();
     }
 
 }

@@ -2,7 +2,7 @@ package coordinatecalculator.model;
 
 import java.util.Objects;
 
-public abstract class AbstractFigure implements Figure{
+public abstract class AbstractFigure implements Figure {
     protected final Points points;
 
     public AbstractFigure(Points points) {
@@ -13,6 +13,10 @@ public abstract class AbstractFigure implements Figure{
         return points.getPoint(index);
     }
 
+    public double distance(int originPointIndex, int destinationPointIndex) {
+        return this.getPoint(originPointIndex).calculateDistance(this.getPoint(destinationPointIndex));
+    }
+
     @Override
     public int getPointSize() {
         return points.getPointCount();
@@ -21,11 +25,6 @@ public abstract class AbstractFigure implements Figure{
     @Override
     public Points getPoints() {
         return points;
-    }
-
-    @Override
-    public double distance(int originPointIndex, int destinationPointIndex) {
-        return this.getPoint(originPointIndex).calculateDistance(this.getPoint(destinationPointIndex));
     }
 
     @Override

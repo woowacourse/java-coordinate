@@ -16,7 +16,7 @@ public class Points {
     }
 
     public List<Point> retrivePoints() {
-        List<Point> retrivedPoints = new ArrayList<>(points);
+        List<Point> retrivedPoints = Collections.unmodifiableList(points);
         return retrivedPoints;
     }
 

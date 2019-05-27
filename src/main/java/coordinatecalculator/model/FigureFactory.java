@@ -17,12 +17,7 @@ public class FigureFactory {
         figures.put(NUMBER_OF_POINTS_IN_RECTANGLE, FigureMaker.RECTANGLE_MAKER);
     }
 
-    public static Figure generateFigure(String points) {
-        //split string
-        List<String> values = StringSplitter.split(points);
-        //make Points
-        Points figurePoints = new Points(values);
-        //make figure instance
+    public static Figure generateFigure(Points figurePoints) {
         return makeInstance(figurePoints);
     }
 

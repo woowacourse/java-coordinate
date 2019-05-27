@@ -1,8 +1,6 @@
 package coordinatecalculator;
 
-import coordinatecalculator.model.Figure;
-import coordinatecalculator.model.FigureFactory;
-import coordinatecalculator.model.Graph;
+import coordinatecalculator.model.*;
 import coordinatecalculator.view.InputView;
 import coordinatecalculator.view.OutputView;
 
@@ -16,7 +14,8 @@ public class CoordinateLauncher {
     private static Figure generateFigure() {
         try {
             String points = InputView.askPoints();
-            return FigureFactory.generateFigure(points);
+            Points figurePoints = PointsFactory.generatePoints(points);
+            return FigureFactory.generateFigure(figurePoints);
         } catch (Exception e) {
             System.out.println("잘못된 입력입니다");
             return generateFigure();

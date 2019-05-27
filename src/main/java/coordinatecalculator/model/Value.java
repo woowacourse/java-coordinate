@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Value {
     private static final int MINIMUM_VALUE = 0;
     private static final int MAXIMUM_VALUE = 24;
-    private static Map<Integer, Value> values = new HashMap<>();
+    private static final Map<Integer, Value> values = new HashMap<>();
 
     private double value;
 

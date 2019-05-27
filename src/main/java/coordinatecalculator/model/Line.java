@@ -1,7 +1,8 @@
 package coordinatecalculator.model;
 
 public class Line extends AbstractFigure {
-    private static final int LINE_AREA = 1;
+    private static final int ORIGIN_POINT_INDEX = 0;
+    private static final int DESTINATION_POINT_INDEX = 1;
 
     private static final int NUMBER_OF_POINTS_IN_LINE = 2;
 
@@ -17,8 +18,7 @@ public class Line extends AbstractFigure {
     }
 
     @Override
-    public double area() {
-        return LINE_AREA;
+    public double calculateFigureInformation() {
+        return distance(ORIGIN_POINT_INDEX, DESTINATION_POINT_INDEX );
     }
-
 }
