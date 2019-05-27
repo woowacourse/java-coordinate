@@ -18,23 +18,20 @@ public class OutputView {
         List<List<Boolean>> board = boardVo.getBoard();
         StringBuilder stringBuilder = new StringBuilder();
         for (int axisY = MAX_BOARD_SIZE - 1; axisY > MIN_BOARD_SIZE; axisY--) {
-            stringBuilder.append(pointingAxisX(board, axisY));
-            stringBuilder.append(String.format("\n%5.5s|\n", ""));
+            stringBuilder.append(drawAxisXOfAxisY(board, axisY));
         }
-        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
-            boolean pointState = board.get(0).get(axisX);
-            stringBuilder.append(pointCoordinateX(axisX, pointState));
-        }
+        stringBuilder.append(drawOnlyAxisX(board));
         stringBuilder.append(numberOfAxisX());
         System.out.println(stringBuilder);
     }
 
-    private static String pointingAxisX(List<List<Boolean>> board, int axisY) {
+    private static String drawAxisXOfAxisY(List<List<Boolean>> board, int axisY) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
             boolean pointState = board.get(axisY).get(axisX);
             stringBuilder.append(pointCoordinate(axisX, axisY, pointState));
         }
+        stringBuilder.append(String.format("\n%5.5s|\n", ""));
         return stringBuilder.toString();
     }
 
@@ -51,7 +48,16 @@ public class OutputView {
         return String.format("%5.5s", "");
     }
 
-    private static String pointCoordinateX(int axisX, boolean pointState) {
+    private static String drawOnlyAxisX(List<List<Boolean>> board) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
+            boolean pointState = board.get(0).get(axisX);
+            stringBuilder.append(pointOnlyCoordinateX(axisX, pointState));
+        }
+        return stringBuilder.toString();
+    }
+
+    private static String pointOnlyCoordinateX(int axisX, boolean pointState) {
         if (axisX == MIN_BOARD_SIZE && !pointState) {
             return String.format("%5.5s+", "");
         }
