@@ -24,5 +24,5 @@ public abstract class Figure {
         return points.size();
     }
 
-    public abstract double calculateAttribute();
+    public abstract double calculateArea();
 }

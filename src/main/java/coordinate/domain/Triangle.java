@@ -38,10 +38,6 @@ public class Triangle extends Figure implements Polygon {
     }
 
     @Override
-    public double calculateAttribute() {
-        return calculateArea();
-    }
-
     public double calculateArea() {
         List<Double> lengths = getLengthOfSideLines();
         Iterator<Double> lengthIterator = lengths.iterator();
@@ -54,7 +50,7 @@ public class Triangle extends Figure implements Polygon {
         for (Point point : points) {
             List<Point> points = new ArrayList<>(this.points);
             points.remove(point);
-            lineLength.add(new StraightLine(points).calculateLength());
+            lineLength.add(new StraightLine(points).calculateArea());
         }
         return lineLength;
     }

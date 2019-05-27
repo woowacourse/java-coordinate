@@ -34,11 +34,7 @@ public class StraightLine extends Figure {
     }
 
     @Override
-    public double calculateAttribute() {
-        return calculateLength();
-    }
-
-    double calculateLength() {
+    public double calculateArea() {
         Point startPoint = points.get(START_INDEX);
         Point endPoint = points.get(END_INDEX);
         return Math.sqrt(Math.pow(startPoint.getDeltaXTo(endPoint), SQUARE)

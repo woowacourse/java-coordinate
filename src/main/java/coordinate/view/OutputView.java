@@ -14,7 +14,7 @@ public class OutputView {
     }
 
     public static void printAttributeOf(Figure figure) {
-        System.out.println(NEWLINE + AttributeType.getPrintMessage(figure.getNumOfPoints()) + figure.calculateAttribute());
+        System.out.println(NEWLINE + AttributeType.getPrintMessage(figure.getNumOfPoints()) + figure.calculateArea());
     }
 
     public static void printGraph(CartesianPlane plane) {

@@ -19,11 +19,6 @@ public class Rectangle extends Figure implements Polygon {
         return new Rectangle(points);
     }
 
-    @Override
-    public double calculateAttribute() {
-        return calculateArea();
-    }
-
     private void validateSizeOf(List<Point> points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
@@ -55,9 +50,10 @@ public class Rectangle extends Figure implements Polygon {
         return points.stream().filter(p -> p.matchY(point)).collect(Collectors.toList());
     }
 
+    @Override
     public double calculateArea() {
         StraightLine horizontalLine = new StraightLine(findYPair(points, points.get(BASE)));
         StraightLine verticalLine = new StraightLine(findXPair(points, points.get(BASE)));
-        return horizontalLine.calculateLength() * verticalLine.calculateLength();
+        return horizontalLine.calculateArea() * verticalLine.calculateArea();
     }
 }
