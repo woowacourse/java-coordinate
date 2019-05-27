@@ -23,6 +23,11 @@ public abstract class Figure implements Calculate{
     }
 
     @Override
+    public double area() {
+        return 0;
+    }
+
+    @Override
     public double straight(Coordinate a, Coordinate b) {
         return Math.sqrt(Math.pow(a.getXCoordinate()-b.getXCoordinate(),2) + Math.pow(a.getYCoordinate() - b.getYCoordinate(),2));
     }
