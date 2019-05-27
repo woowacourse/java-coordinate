@@ -28,7 +28,7 @@ public class CoordinateController {
 
     private Figure generateFigure(Points points) {
         try {
-            FigureCreator figureCreator=new FigureFactory();
+            FigureCreator figureCreator = new FigureFactory();
             return figureCreator.create(points);
         } catch (Exception e) {
             System.err.println(e.getMessage());
