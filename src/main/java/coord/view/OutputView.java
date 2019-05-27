@@ -5,8 +5,6 @@ import coord.model.figure.Line;
 import coord.model.figure.Point;
 import coord.model.figure.Points;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class OutputView {
@@ -14,14 +12,12 @@ public class OutputView {
     private static final int Y_MIN = 0;
 
     public static void printScreen(Points points) {
-        List<Point> aligned = new ArrayList();
-        aligned.addAll(points.getPoints());
-        aligned.sort((a, b) -> (a.y != b.y) ? b.y - a.y : a.x - b.x);
+        Points aligned = new Points(points, (a, b) -> (a.y() != b.y() ? b.y() - a.y() : a.x() - b.x()));
         StringBuilder result = new StringBuilder();
         for (int y = Y_MAX, cursor = 0, offset = 0; y >= Y_MIN;) {
-            if (cursor < points.number() && y == aligned.get(cursor).y) {
+            if (cursor < points.number() && y == aligned.get(cursor).y()) {
                 result.append(printLine(aligned.get(cursor), offset));
-                offset = aligned.get(cursor).x;
+                offset = aligned.get(cursor).x();
                 cursor++;
                 continue;
             }
@@ -33,7 +29,7 @@ public class OutputView {
     }
 
     private static String printLine(Point p, int offset) {
-        return repeatBlank(offset + p.x - 1) + "-*-";
+        return repeatBlank(offset + p.x() - 1) + "-*-";
     }
 
     private static String repeatBlank(int n) {

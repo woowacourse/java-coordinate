@@ -2,51 +2,56 @@ package coord.model.figure;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 class LineTest {
     @Test
     void lengthTest() {
-        assertEquals(15.811, new Line(new Point(1, 4), new Point(6, 19)).length(), 0.001);
+        assertThat(new Line(new Point(1, 4), new Point(6, 19)).length()).isCloseTo(15.8113883, offset(0.0000001));
     }
 
     @Test
     void gradientTest() {
-        assertEquals(4.0, new Line(new Point(1, 4), new Point(2, 8)).gradient(), 0.001);
+        assertThat(new Line(new Point(1, 4), new Point(2, 8)).gradient()).isCloseTo(4.0, offset(0.0000001));
     }
 
     @Test
     void sortTestA() {
-        assertEquals(2, new Line(new Point(4, 8), new Point(2, 3)).P.x);
+        assertThat(new Line(new Point(4, 8), new Point(2, 3)).p().x()).isEqualTo(2);
     }
 
     @Test
     void sortTestB() {
-        assertEquals(10, new Line(new Point(15, 5), new Point(10, 10)).P.x);
+        assertThat(new Line(new Point(15, 5), new Point(10, 10)).p().x()).isEqualTo(10);
     }
 
     @Test
-    void includesTestA() {
-        assertEquals(true, new Line(new Point(1, 2), new Point(4, 8)).includes(new Point(2, 4)));
+    void inclusionTestA() {
+        assertThat(new Line(new Point(1, 2), new Point(4, 8)).includes(new Point(2, 4))).isTrue();
     }
 
     @Test
-    void includesTestB() {
-        assertEquals(true, new Line(new Point(4, 8), new Point(1, 2)).includes(new Point(2, 4)));
+    void inclusionTestB() {
+        assertThat(new Line(new Point(4, 8), new Point(1, 2)).includes(new Point(2, 4))).isTrue();
     }
 
     @Test
-    void includesTestC() {
-        assertEquals(true, new Line(new Point(4, 8), new Point(1, 2)).includes(new Point(1, 2)));
+    void inclusionTestC() {
+        assertThat(new Line(new Point(4, 8), new Point(1, 2)).includes(new Point(1, 2))).isTrue();
     }
 
     @Test
     void connectionTestA()  {
-        assertEquals(true, new Line(new Point(0, 0), new Point(20, 20)).isConnectedTo(new Line(new Point(0, 0), new Point(2, 7))));
+        assertThat(new Line(new Point(0, 0), new Point(20, 20)).isConnectedTo(
+                new Line(new Point(0, 0), new Point(2, 7)))
+        ).isTrue();
     }
 
     @Test
     void connectionTestB()  {
-        assertEquals(true, new Line(new Point(5, 5), new Point(10, 10)).isConnectedTo(new Line(new Point(15, 5), new Point(10, 10))));
+        assertThat(new Line(new Point(5, 5), new Point(10, 10)).isConnectedTo(
+                new Line(new Point(15, 5), new Point(10, 10)))
+        ).isTrue();
     }
 }

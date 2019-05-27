@@ -3,53 +3,65 @@ package coord.model.figure;
 import java.util.Objects;
 
 public final class Line {
-    public final Point P;
-    public final Point Q;
+    private final Point p;
+    private final Point q;
 
-    public Line(Point P, Point Q) {
-        if (P.x > Q.x) {
-            Point temp = Q;
-            Q = P;
-            P = temp;
-        }
-        this.P = P;
-        this.Q = Q;
+    public Line(Point p, Point q) {
+        Points points = new Points(new Points(p, q), (a, b) -> (a.x() != b.x()) ? a.x() - b.x() : b.y() - a.y());
+        this.p = points.get(0);
+        this.q = points.get(1);
     }
 
     public Line(Points points) {
-        this(points.getPoints().get(0), points.getPoints().get(1));
+        this(points.get(0), points.get(1));
     }
 
     public double length() {
-        return Math.sqrt(Math.pow((P.x - Q.x), 2.0) + Math.pow((P.y - Q.y), 2.0));
+        return Math.sqrt(Math.pow((p.x() - q.x()), 2.0) + Math.pow((p.y() - q.y()), 2.0));
     }
 
     public double gradient() {
-        return (double) (Q.y - P.y) / (Q.x - P.x);
+        return (double) (q.y() - p.y()) / (q.x() - p.x());
+    }
+
+    public boolean intersectsWith(Line l) {
+        return ((p.x() - q.x()) * (l.p.y() - p.y()) + (p.y() - q.y()) * (p.x() - l.p.x()))
+                * ((p.x() - q.x()) * (l.q.y() - p.y()) + (p.y() - q.y()) * (p.x() - l.q.x())) < 0
+                && ((l.p.x() - l.q.x()) * (p.y() - l.p.y()) + (l.p.y() - l.q.y()) * (l.p.x() - p.x()))
+                * ((l.p.x() - l.q.x()) * (q.y() - l.p.y()) + (l.p.y() - l.q.y()) * (l.p.x() - q.x())) < 0;
     }
 
     public boolean onTheSameLineWith(Point R) {
-        return Double.compare(gradient() * (R.x - P.x) + P.y - R.y, .0) == 0 || R.x == P.x && P.x == Q.x;
+        return Double.compare(gradient() * (R.x() - p.x()) + p.y() - R.y(), .0) == 0
+                || R.x() == p.x() && p.x() == q.x();
     }
 
     public boolean includes(Point R) {
-        return onTheSameLineWith(R) && P.x <= R.x && R.x <= Q.x;
+        return onTheSameLineWith(R) && p.x() <= R.x() && R.x() <= q.x();
     }
 
-    public boolean intersectsWith(Line b) {
-        return ((P.x - Q.x) * (b.P.y - P.y) + (P.y - Q.y) * (P.x - b.P.x))
-                * ((P.x - Q.x) * (b.Q.y - P.y) + (P.y - Q.y) * (P.x - b.Q.x)) < 0
-                && ((b.P.x - b.Q.x) * (P.y - b.P.y) + (b.P.y - b.Q.y) * (b.P.x - P.x))
-                * ((b.P.x - b.Q.x) * (Q.y - b.P.y) + (b.P.y - b.Q.y) * (b.P.x - Q.x)) < 0;
+    public boolean isConnectedTo(Line l) {
+        return l.includes(p) || l.includes(q);
     }
 
-    public boolean isConnectedTo(Line b) {
-        return b.includes(P) || b.includes(Q);
+    public Point getCommonPoint(Line l) {
+        if (isConnectedTo(l)) {
+            return l.includes(p) ? p : q;
+        }
+        return null;
+    }
+
+    public Point p() {
+        return p;
+    }
+
+    public Point q() {
+        return q;
     }
 
     @Override
     public String toString() {
-        return P.toString() + "-" + Q.toString();
+        return p.toString() + "-" + q.toString();
     }
 
     @Override
@@ -61,11 +73,11 @@ public final class Line {
             return false;
         }
         Line rhs = (Line) o;
-        return Objects.equals(P, rhs.P) && Objects.equals(Q, rhs.Q);
+        return Objects.equals(p, rhs.p) && Objects.equals(q, rhs.q);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(P, Q);
+        return Objects.hash(p, q);
     }
 }

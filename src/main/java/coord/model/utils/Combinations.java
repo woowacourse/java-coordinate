@@ -10,7 +10,7 @@ public class Combinations implements Iterator<List<Integer>> {
 
     private Combinations(int n, int k, int base) {
         if (n < 1 || k < 1 || n < k || base < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("잘못된 입력입니다.");
         }
         this.n = n;
         this.k = k;

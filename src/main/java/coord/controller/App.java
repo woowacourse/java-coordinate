@@ -1,6 +1,6 @@
 package coord.controller;
 
-import coord.model.figure.ConvexPolygon;
+import coord.model.figure.ConvexPolygonFactory;
 import coord.model.figure.Line;
 import coord.model.figure.Points;
 import coord.view.InputView;
@@ -24,7 +24,7 @@ public class App {
             return;
         }
         if (points.number() > 2) {
-            OutputView.printAreaOfFigure(ConvexPolygon.makeConvexPolygonFrom(points));
+            OutputView.printAreaOfFigure(ConvexPolygonFactory.makeFrom(points));
         }
     }
 }

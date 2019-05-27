@@ -2,7 +2,7 @@ package car;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
     @Test
@@ -12,11 +12,11 @@ class CarTest {
 
     @Test
     void chargeQuantityTest() {
-        assertEquals(17, new Avante(255).getChargeQuantity());
+        assertThat(new Avante(255).getChargeQuantity()).isEqualTo(17);
     }
 
     @Test
     void getNameTest() {
-        assertEquals("K5", new K5(123).getName());
+        assertThat(new K5(123).getName()).isEqualTo("K5");
     }
 }

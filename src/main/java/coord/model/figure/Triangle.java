@@ -5,7 +5,7 @@ public class Triangle extends ConvexPolygon {
         super(points);
     }
 
-    protected Triangle(Point... points) {
+    protected Triangle(Point ... points) {
         super(new Points(points));
     }
 

@@ -1,15 +1,18 @@
 package coord.view;
 
 import coord.model.figure.Point;
+import coord.model.figure.Points;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ParserTest {
     @Test
     void parseTest() {
-        assertEquals(Arrays.asList(new Point(1, 2), new Point(3, 4), new Point(5, 6)), Parser.parseCoordinates("(1,2)-(3,4)-(5,6)"));
+        assertThat(Parser.parseCoordinates("(1,2)-(5, 6)-( 3 ,   4)")).isEqualTo(
+                new Points(Arrays.asList(new Point(1, 2), new Point(5, 6), new Point(3, 4)))
+        );
     }
 }
