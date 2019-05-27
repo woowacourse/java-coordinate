@@ -15,6 +15,10 @@ public class Coordinate {
         this.coordinate = i;
     }
 
+    public double subtract(Coordinate coordinate) {
+        return Math.abs(this.coordinate - coordinate.coordinate);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -26,9 +30,5 @@ public class Coordinate {
     @Override
     public int hashCode() {
         return Objects.hash(coordinate);
-    }
-
-    public double subtract(Coordinate coordinate) {
-        return Math.pow(this.coordinate - coordinate.coordinate, 2);
     }
 }
