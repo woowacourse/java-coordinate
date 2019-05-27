@@ -34,52 +34,49 @@ public class OutputView {
         public static void printCoordinate(IShape shape) {
                 StringBuilder sb = new StringBuilder();
                 for (int index = MAX_RANGE; index > 0; index--) {
-                        drawYAxis(sb, index);
-                        drawHorizonLine(shape.getPoints(), sb, index);
+                        sb.append(drawYAxis(index));
+                        sb.append(drawHorizonLine(shape.getPoints(), index));
                 }
-                drawXAxis(sb);
+                sb.append(drawXAxis());
                 System.out.println(sb.toString());
         }
 
-        private static void drawYAxis(StringBuilder sb, int index) {
-                sb.append(isEven(index) ? String.format("%2d", index) + VERTICAL_BAR : TWO_SPACE + VERTICAL_BAR);
+        private static String drawYAxis(int index) {
+                return isEven(index) ? String.format("%2d", index) + VERTICAL_BAR : TWO_SPACE + VERTICAL_BAR;
         }
 
         private static boolean isEven(int index) {
                 return (index % 2) == 0;
         }
 
-        private static void drawHorizonLine(List<Point> points, StringBuilder sb, int index) {
+        private static String drawHorizonLine(List<Point> points, int index) {
+                StringBuilder sb = new StringBuilder();
                 int x = 0;
                 for (Point point : points) {
-                        x = drawDot(sb, index, x, point);
+                        sb.append(point.getY() == index ? drawHorizonLineSpace(x, point) + DOT : "");
+                        x = point.getY() == index ? point.getX() + 1 : x;
                 }
                 sb.append(NEW_LINE);
+                return sb.toString();
         }
 
-        private static int drawDot(StringBuilder sb, int i, int x, Point point) {
-                if (point.getY() == i) {
-                        drawHorizonLineSpace(sb, x, point);
-                        sb.append(DOT);
-                        x = point.getX() + 1;
-                }
-                return x;
-        }
-
-        private static void drawHorizonLineSpace(StringBuilder sb, int x, Point point) {
+        private static String drawHorizonLineSpace(int x, Point point) {
+                String str = "";
                 for (int j = x; j < point.getX(); j++) {
-                        sb.append(TWO_SPACE);
+                        str += TWO_SPACE;
                 }
+                return str;
         }
 
-        private static void drawXAxis(StringBuilder sb) {
-                sb.append(TWO_SPACE).append(CROSS);
+        private static String drawXAxis() {
+                String str = TWO_SPACE + CROSS;
                 for (int i = 0; i < MAX_RANGE; i++) {
-                        sb.append(HORIZON_BAR);
+                        str += HORIZON_BAR;
                 }
-                sb.append(NEW_LINE).append(TWO_SPACE);
+                str += (NEW_LINE + TWO_SPACE);
                 for (int i = 0; i <= MAX_RANGE; i += 2) {
-                        sb.append(String.format("%2d", i)).append(TWO_SPACE);
+                        str += (String.format("%2d", i) + TWO_SPACE);
                 }
+                return str;
         }
 }
