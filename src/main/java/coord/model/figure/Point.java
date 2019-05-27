@@ -1,23 +1,22 @@
 package coord.model.figure;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 public final class Point {
-    private final List<Coord> coords;
+    private final Coord x;
+    private final Coord y;
 
     public Point(int x, int y) {
-        coords = Collections.unmodifiableList(Arrays.asList(new Coord(x), new Coord(y)));
+        this.x = Coord.of(x);
+        this.y = Coord.of(y);
     }
 
     public int x() {
-        return coords.get(0).get();
+        return x.val();
     }
 
     public int y() {
-        return coords.get(1).get();
+        return y.val();
     }
 
     @Override

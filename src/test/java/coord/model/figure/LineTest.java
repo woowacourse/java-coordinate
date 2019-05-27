@@ -17,13 +17,8 @@ class LineTest {
     }
 
     @Test
-    void sortTestA() {
-        assertThat(new Line(new Point(4, 8), new Point(2, 3)).p().x()).isEqualTo(2);
-    }
-
-    @Test
-    void sortTestB() {
-        assertThat(new Line(new Point(15, 5), new Point(10, 10)).p().x()).isEqualTo(10);
+    void sortTest() {
+        assertThat(new Line(new Point(4, 8), new Point(2, 3))).isEqualTo(new Line(new Point(2, 3), new Point(4, 8)));
     }
 
     @Test

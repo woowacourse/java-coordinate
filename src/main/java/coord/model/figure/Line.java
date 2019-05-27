@@ -49,17 +49,9 @@ public final class Line {
             return p;
         }
         if (l.includes(q)) {
-            return p;
+            return q;
         }
         return null;
-    }
-
-    public Point p() {
-        return p;
-    }
-
-    public Point q() {
-        return q;
     }
 
     @Override
