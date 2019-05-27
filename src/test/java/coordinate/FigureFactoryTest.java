@@ -2,6 +2,7 @@ package coordinate;
 
 import coordinate.domain.FigureFactory;
 import coordinate.domain.Point;
+import coordinate.domain.PointFactory;
 import coordinate.domain.Points;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ public class FigureFactoryTest {
 
     @Test
     void 길이구하기() {
-        Points points = new Points(Arrays.asList(new Point("1","1"),new Point("1","2") ));
-        assertEquals(FigureFactory.generateFigure(points).getArea(),1);
+        Points points = PointFactory.generatePoints(Arrays.asList("1,1", "1,2"));
+        assertEquals(FigureFactory.generateFigure(points).getArea(), 1);
     }
 }

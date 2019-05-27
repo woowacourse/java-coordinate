@@ -12,7 +12,7 @@ class PointListTest {
     @Test
     void 중복좌표테스트() {
         assertThatIllegalArgumentException().isThrownBy(() ->{
-            new Points(PointFactory.generatePoints(Arrays.asList("0,0","0,0","7,5","10,0")));
+            PointFactory.generatePoints(Arrays.asList("0,0","0,0","7,5","10,0"));
         });
     }
 

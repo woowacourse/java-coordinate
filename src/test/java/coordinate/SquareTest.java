@@ -14,31 +14,31 @@ class SquareTest {
 
     @Test
     void 입력이_사다리꼴() {
-        Points points = new Points(PointFactory.generatePoints(Arrays.asList("0,0","3,5","7,5","10,0")));
-        assertThatIllegalArgumentException().isThrownBy(() ->{
+        Points points = PointFactory.generatePoints(Arrays.asList("0,0", "3,5", "7,5", "10,0"));
+        assertThatIllegalArgumentException().isThrownBy(() -> {
             FigureFactory.generateFigure(points);
         });
     }
 
     @Test
     void 입력이_마름모() {
-        Points points = new Points(PointFactory.generatePoints(Arrays.asList("0,1","2,0","4,1","2,2")));
-        assertThatIllegalArgumentException().isThrownBy(() ->{
+        Points points = PointFactory.generatePoints(Arrays.asList("0,1", "2,0", "4,1", "2,2"));
+        assertThatIllegalArgumentException().isThrownBy(() -> {
             FigureFactory.generateFigure(points);
         });
     }
 
     @Test
     void 점들이_같은_선일때() {
-        Points points = new Points(PointFactory.generatePoints(Arrays.asList("1,0","2,0","3,0","4,0")));
-        assertThatIllegalArgumentException().isThrownBy(() ->{
+        Points points = PointFactory.generatePoints(Arrays.asList("1,0", "2,0", "3,0", "4,0"));
+        assertThatIllegalArgumentException().isThrownBy(() -> {
             FigureFactory.generateFigure(points);
         });
     }
 
     @Test
     void 넓이구하는_테스트() {
-        Points points = new Points(PointFactory.generatePoints(Arrays.asList("0,0","10,0","0,10","10,10")));
-        assertThat( FigureFactory.generateFigure(points).getArea()).isEqualTo(100);
+        Points points = PointFactory.generatePoints(Arrays.asList("0,0", "10,0", "0,10", "10,10"));
+        assertThat(FigureFactory.generateFigure(points).getArea()).isEqualTo(100);
     }
 }

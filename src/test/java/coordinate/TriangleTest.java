@@ -14,7 +14,7 @@ class TriangleTest {
 
     @Test
     void 삼각형예외() {
-        Points points = new Points(PointFactory.generatePoints(Arrays.asList("1,0","2,0","3,0")));
+        Points points = PointFactory.generatePoints(Arrays.asList("1,0","2,0","3,0"));
         assertThatIllegalArgumentException().isThrownBy(() ->{
             FigureFactory.generateFigure(points);
         });
@@ -22,8 +22,7 @@ class TriangleTest {
 
     @Test
     void 삼각형넓이() {
-        Points points = new Points(PointFactory.generatePoints(Arrays.asList("0,0","2,0","0,2")));
+        Points points = PointFactory.generatePoints(Arrays.asList("0,0","2,0","0,2"));
         assertEquals(FigureFactory.generateFigure(points).getArea(),2,0.001);
-
     }
 }
