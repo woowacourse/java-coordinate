@@ -3,7 +3,6 @@ package coordinatecalculator.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Rectangle extends AbstractFigure {
     private static final int FIRST_POINT = 0;
@@ -45,8 +44,8 @@ public class Rectangle extends AbstractFigure {
         Point firstPoint = differentPoints.get(FIRST_POINT);
         Point secondPoint = differentPoints.get(SECOND_POINT);
 
-        return Math.abs(firstPoint.getxPoint().subtract(secondPoint.getxPoint().getValue())
-                * firstPoint.getyPoint().subtract(secondPoint.getyPoint().getValue()));
+        return Math.abs(firstPoint.getXPoint().subtract(secondPoint.getXPoint().getValue())
+                * firstPoint.getYPoint().subtract(secondPoint.getYPoint().getValue()));
     }
 
     @Override
