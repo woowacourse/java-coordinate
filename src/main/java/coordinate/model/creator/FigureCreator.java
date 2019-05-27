@@ -1,10 +1,8 @@
 package coordinate.model.creator;
 
 import coordinate.model.Figure;
-import coordinate.model.Point;
-
-import java.util.List;
+import coordinate.model.Vertices;
 
 public interface FigureCreator {
-    Figure create(List<Point> points);
+    Figure create(Vertices vertices);
 }

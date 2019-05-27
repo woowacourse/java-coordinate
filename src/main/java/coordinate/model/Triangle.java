@@ -1,29 +1,34 @@
 package coordinate.model;
 
-import java.util.List;
-
 public class Triangle extends AbstractFigure {
-    public Triangle(List<Point> points) {
-        super(points);
-        validateTriangle(points);
+    private static final int TRIANGLE_COUNT_OF_POINT = 3;
+
+    public Triangle(Vertices vertices) {
+        super(vertices);
+        validateTriangle(vertices);
     }
 
-    private void validateTriangle(List<Point> points) {
-        if (new Vector(points.get(0), points.get(1)).equals(new Vector(points.get(1), points.get(2)))) {
+    private void validateTriangle(Vertices vertices) {
+        if (vertices.getVector(FIRST_POINT, SECOND_POINT).equals(vertices.getVector(SECOND_POINT, THIRD_POINT))) {
             throw new IllegalArgumentException();
         }
     }
 
     @Override
     public int countOfPoints() {
-        return 3;
+        return TRIANGLE_COUNT_OF_POINT;
     }
 
     @Override
-    public double area() {
-        double lengthA = points.get(0).howFar(points.get(1));
-        double lengthB = points.get(1).howFar(points.get(2));
-        double lengthC = points.get(2).howFar(points.get(0));
+    public double getDistance() {
+        return 0;
+    }
+
+    @Override
+    public double getArea() {
+        double lengthA = vertices.calculatorDistance(FIRST_POINT, SECOND_POINT);
+        double lengthB = vertices.calculatorDistance(SECOND_POINT, THIRD_POINT);
+        double lengthC = vertices.calculatorDistance(THIRD_POINT, FIRST_POINT);
         double s = (lengthA + lengthB + lengthC) / 2;
 
         return Math.sqrt(s * (s - lengthA) * (s - lengthB) * (s - lengthC));

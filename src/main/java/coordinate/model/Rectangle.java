@@ -1,33 +1,38 @@
 package coordinate.model;
 
-import java.util.List;
-
 public class Rectangle extends AbstractFigure {
-    private Vector firstNearVector;
-    private Vector secondNearVector;
+    private static final int RECTANGLE_COUNT_OF_POINT = 4;
 
-    public Rectangle(List<Point> points) {
-        super(points);
-        checkRectangle(points);
+    public Rectangle(Vertices vertices) {
+        super(vertices);
+        checkRectangle(vertices);
     }
 
-    private void checkRectangle(List<Point> points) {
-        firstNearVector = new Vector(points.get(0), points.get(3));
-        secondNearVector = new Vector(points.get(0), points.get(2));
+    private void checkRectangle(Vertices vertices) {
+        Vector firstNearVector = vertices.getVector(FIRST_POINT, SECOND_POINT);
+        Vector secondNearVector = vertices.getVector(FIRST_POINT, THIRD_POINT);
 
         if (!(firstNearVector.getDotProduct(secondNearVector) == 0 &&
-                points.get(1).equals(firstNearVector.sum(secondNearVector)))) {
+                vertices.getTheFarthestPoint()
+                        .equals(vertices.getStandardPoint()
+                                .move(firstNearVector.sum(secondNearVector))))) {
             throw new IllegalArgumentException();
         }
     }
 
     @Override
     public int countOfPoints() {
-        return 4;
+        return RECTANGLE_COUNT_OF_POINT;
     }
 
     @Override
-    public double area() {
-        return firstNearVector.getCrossProduct(secondNearVector);
+    public double getDistance() {
+        return 0;
+    }
+
+    @Override
+    public double getArea() {
+        return vertices.getVector(FIRST_POINT, SECOND_POINT)
+                .getCrossProduct(vertices.getVector(SECOND_POINT, THIRD_POINT));
     }
 }

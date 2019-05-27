@@ -1,12 +1,11 @@
 package coordinate.model;
 
-import coordinate.model.creator.LineCreator;
 import coordinate.model.creator.FigureCreator;
+import coordinate.model.creator.LineCreator;
 import coordinate.model.creator.RectangleCreator;
 import coordinate.model.creator.TriangleCreator;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class FigureFactory {
@@ -23,7 +22,7 @@ public class FigureFactory {
         figures.put(RECTANGLE, new RectangleCreator());
     }
 
-    public static Figure getInstance(List<Point> points) {
-        return figures.get(points.size()).create(points);
+    public static Figure getInstance(Vertices vertices) {
+        return figures.get(vertices.getSize()).create(vertices);
     }
 }

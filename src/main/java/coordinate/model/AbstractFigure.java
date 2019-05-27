@@ -1,25 +1,29 @@
 package coordinate.model;
 
-import java.util.List;
 import java.util.Objects;
 
 public abstract class AbstractFigure implements Figure {
-    protected final List<Point> points;
+    protected static final int FIRST_POINT = 0;
+    protected static final int SECOND_POINT = 1;
+    protected static final int THIRD_POINT = 2;
+    protected static final int FOURTH_POINT = 3;
 
-    AbstractFigure(List<Point> points) {
-        checkFigureSize(points);
-        this.points = points;
+    protected final Vertices vertices;
+
+    AbstractFigure(Vertices vertices) {
+        checkFigureSize(vertices);
+        this.vertices = vertices;
     }
 
-    private void checkFigureSize(List<Point> points) {
-        if (points.size() != countOfPoints()) {
+    private void checkFigureSize(Vertices vertices) {
+        if (vertices.getSize() != countOfPoints()) {
             throw new IllegalArgumentException();
         }
     }
 
     @Override
-    public List<Point> getPoints() {
-        return points;
+    public Vertices getVertices() {
+        return vertices;
     }
 
     @Override
@@ -27,11 +31,11 @@ public abstract class AbstractFigure implements Figure {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AbstractFigure that = (AbstractFigure) o;
-        return Objects.equals(points, that.points);
+        return Objects.equals(vertices, that.vertices);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(points);
+        return Objects.hash(vertices);
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class SplitterTest {
+class SplitterTest {
     @Test
     void 좌표값_구분자_테스트() {
         List<String> test = Arrays.asList("1", "2", "2", "3", "3", "4");

@@ -26,6 +26,10 @@ public class Point {
         return Math.sqrt(xSquared + ySquared);
     }
 
+    Point move(Vector vector) {
+        return new Point(xValue.move(vector.getxDelta()) , yValue.move(vector.getyDelta()));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,5 +43,4 @@ public class Point {
     public int hashCode() {
         return Objects.hash(xValue, yValue);
     }
-
 }

@@ -1,7 +1,6 @@
 package coordinate.view;
 
 import coordinate.model.Figure;
-import coordinate.model.Line;
 
 public class OutputView {
 
@@ -11,18 +10,17 @@ public class OutputView {
     private static final String AREA_MESSAGE = "넓이는 ";
 
     public static void printFigurePoints(Figure figure) {
-        Graph graph = new Graph();
-        graph.setPosition(figure.getPoints());
+        Graph graph = new Graph(figure);
 
         System.out.println(graph.toString());
         System.out.println(GRAPH_LINE);
         System.out.println(GRAPH_X_AXIS);
 
-        if (figure.area() == 0) {
-            System.out.println(DISTANCE_MESSAGE + new Line(figure.getPoints()).distance());
+        if (figure.getArea() == 0) {
+            System.out.println(DISTANCE_MESSAGE + figure.getDistance());
         }
-        if (figure.area() != 0) {
-            System.out.println(AREA_MESSAGE + figure.area());
+        if (figure.getArea() != 0) {
+            System.out.println(AREA_MESSAGE + figure.getArea());
         }
     }
 }

@@ -10,18 +10,18 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PointsGeneratorTest {
+class VerticesGeneratorTest {
 
     @Test
     void 포인트_생성_테스트() {
         List<Point> testPoints = Arrays.asList(new Point(new Value(1), new Value(2)),
                 new Point(new Value(3), new Value(4)));
-        AssertionsForClassTypes.assertThat(PointsGenerator.makePoints("(1,2)-(3,4)")).isEqualTo(testPoints);
+        AssertionsForClassTypes.assertThat(VerticesGenerator.makePoints("(1,2)-(3,4)").equals(testPoints));
     }
     @Test
     void 포인트_중복_테스트() {
         assertThrows(IllegalArgumentException.class,
-                ()-> PointsGenerator.makePoints("(1,1)-(1,1)"));
+                ()-> VerticesGenerator.makePoints("(1,1)-(1,1)"));
     }
 
 }

@@ -1,23 +1,24 @@
 package coordinate.model;
 
-import java.util.List;
-
 public class Line extends AbstractFigure {
-    public Line(List<Point> points) {
-        super(points);
-    }
+    private static final int LINE_COUNT_OF_POINT = 2;
 
-    public double distance() {
-        return points.get(0).howFar(points.get(1));
+    public Line(Vertices vertices) {
+        super(vertices);
     }
 
     @Override
     public int countOfPoints() {
-        return 2;
+        return LINE_COUNT_OF_POINT;
     }
 
     @Override
-    public double area() {
+    public double getDistance() {
+        return vertices.calculatorDistance(FIRST_POINT, SECOND_POINT);
+    }
+
+    @Override
+    public double getArea() {
         return 0;
     }
 }

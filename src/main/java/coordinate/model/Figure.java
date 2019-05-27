@@ -1,11 +1,11 @@
 package coordinate.model;
 
-import java.util.List;
-
 public interface Figure {
-    List<Point> getPoints();
+    Vertices getVertices();
 
     int countOfPoints();
 
-    double area();
+    double getDistance();
+
+    double getArea();
 }

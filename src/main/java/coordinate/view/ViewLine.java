@@ -1,19 +1,23 @@
 package coordinate.view;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ViewLine {
     private static final String CHECK = "x";
     private static final String DELIMITER = "";
+    private static final String BLANK = "  ";
 
     private List<String> line;
 
     ViewLine() {
-        line = Arrays.asList("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ");
+        line = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            line.add(BLANK);
+        }
     }
 
-    void setPosition(int index) {
+    void checkPoint(int index) {
         line.set(index, CHECK);
     }
 

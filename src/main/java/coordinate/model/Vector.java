@@ -1,41 +1,37 @@
 package coordinate.model;
 
-import java.util.Objects;
+class Vector {
+    private Delta xDelta;
 
-public class Vector {
-    private Value xValue;
-    private Value yValue;
+    private Delta yDelta;
+
+    private Vector(Delta xDelta, Delta yDelta){
+        this.xDelta = xDelta;
+        this.yDelta = yDelta;
+    }
 
     Vector(Point firstPoint, Point secondPoint) {
-        this.xValue = new Value((int) firstPoint.getXValue().getRateOfChange(secondPoint.getXValue()));
-        this.yValue = new Value((int) firstPoint.getYValue().getRateOfChange(secondPoint.getYValue()));
+        this.xDelta = new Delta((int) secondPoint.getXValue().getRateOfChange(firstPoint.getXValue()));
+        this.yDelta = new Delta((int) secondPoint.getYValue().getRateOfChange(firstPoint.getYValue()));
+    }
+
+    Delta getxDelta() {
+        return xDelta;
+    }
+
+    Delta getyDelta() {
+        return yDelta;
     }
 
     double getDotProduct(Vector vector) {
-        return (this.xValue.getValue() * vector.xValue.getValue())
-                + (this.yValue.getValue() * vector.yValue.getValue());
+        return Math.abs(this.xDelta.multiply(vector.xDelta) + this.yDelta.multiply(vector.yDelta));
     }
 
     double getCrossProduct(Vector vector) {
-        return this.xValue.getValue() * vector.yValue.getValue()
-                + this.yValue.getValue() * vector.xValue.getValue();
+        return Math.abs(this.xDelta.multiply(vector.yDelta) + this.yDelta.multiply(vector.xDelta));
     }
 
-    Point sum(Vector vector) {
-        return new Point(xValue.sum(vector.xValue), yValue.sum(vector.yValue));
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vector vector = (Vector) o;
-        return Objects.equals(xValue, vector.xValue) &&
-                Objects.equals(yValue, vector.yValue);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(xValue, yValue);
+    Vector sum(Vector vector) {
+        return new Vector(xDelta.sum(vector.xDelta), yDelta.sum(vector.yDelta));
     }
 }

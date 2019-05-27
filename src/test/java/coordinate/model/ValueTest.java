@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ValueTest {
+class ValueTest {
     @Test
     void 유효한_값_검증_25_테스트() {
         assertThrows(IllegalArgumentException.class, () -> new Value(25));

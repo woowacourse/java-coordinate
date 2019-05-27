@@ -1,5 +1,6 @@
 package coordinate.view;
 
+import coordinate.model.Figure;
 import coordinate.model.Point;
 
 import java.util.ArrayList;
@@ -14,16 +15,16 @@ public class Graph {
 
     private List<ViewLine> viewLines;
 
-    Graph() {
+    Graph(Figure figure) {
         viewLines = new ArrayList<>();
-
         for (int i = 0; i < 25; i++) {
             viewLines.add(new ViewLine());
         }
+        checkPoints(figure.getVertices().getPoints());
     }
 
-    void setPosition(List<Point> points) {
-        points.forEach(point -> viewLines.get(point.getYValue().getValue()).setPosition(point.getXValue().getValue()));
+    private void checkPoints(List<Point> points) {
+        points.forEach(point -> viewLines.get(point.getYValue().getValue()).checkPoint(point.getXValue().getValue()));
     }
 
     @Override
