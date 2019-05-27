@@ -1,5 +1,5 @@
 package coordinate.domain;
 
-public interface Figure {
+public interface Figure extends Message{
     Points getPoints();
 }

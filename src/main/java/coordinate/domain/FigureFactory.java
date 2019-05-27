@@ -1,18 +1,25 @@
 package coordinate.domain;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FigureFactory {
-    public static Figure createFigure(Points points) {
-        if (points.size() == 2) {
-            return Line.from(points);
-        }
-        if (points.size() == 3) {
 
-            return Triangle.from(points);
-        }
-        if (points.size() == 4) {
-            return Rectangle.from(points);
+    private static Map<Integer, FigureCreator> creators = initCreators();
+
+    private static Map<Integer, FigureCreator> initCreators() {
+        Map<Integer, FigureCreator> creators = new HashMap<>();
+
+        creators.put(2, Line::from);
+        creators.put(3, Triangle::from);
+        creators.put(4, Rectangle::from);
+
+        return creators;
+    }
+
+    public static Figure createFigure(Points points) {
+        if (creators.containsKey(points.size())) {
+            return creators.get(points.size()).create(points);
         }
 
         throw new IllegalArgumentException("현재는 지원하지 않는 입력입니다.");

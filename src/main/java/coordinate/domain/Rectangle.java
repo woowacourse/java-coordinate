@@ -1,9 +1,10 @@
 package coordinate.domain;
 
-public class Rectangle implements Figure {
+public class Rectangle extends AbstractFigure{
     private final Points points;
 
     private Rectangle(Points points) {
+        super(points);
         this.points = points;
     }
 
@@ -26,5 +27,20 @@ public class Rectangle implements Figure {
     @Override
     public Points getPoints() {
         return points;
+    }
+
+    @Override
+    String getFigureName() {
+        return "사각형";
+    }
+
+    @Override
+    String getMeasureUnitName() {
+        return "넓이";
+    }
+
+    @Override
+    double measure() {
+        return area();
     }
 }

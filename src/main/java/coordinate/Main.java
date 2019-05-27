@@ -3,6 +3,7 @@ package coordinate;
 import coordinate.domain.Figure;
 import coordinate.domain.PointFactory;
 import coordinate.view.InputView;
+import coordinate.view.OutputView;
 
 
 public class Main {
@@ -16,9 +17,7 @@ public class Main {
     public static void main(String[] args) {
         Figure figure = InputView.readFigure(POINT_FACTORY);
 
-        System.out.printf("figure size: %d\n", figure.getPoints().size());
-
-        // OutputView.printFigurePoints();
-        // OutputView.printFigureMessage(figure);
+        OutputView.printFigurePoints(figure);
+        OutputView.printMessage(figure);
     }
 }

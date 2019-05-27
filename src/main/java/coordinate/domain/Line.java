@@ -1,9 +1,10 @@
 package coordinate.domain;
 
-public class Line implements Figure{
+public class Line extends AbstractFigure {
     private final Points points;
 
     private Line(Points points) {
+        super(points);
         this.points = points;
     }
 
@@ -21,5 +22,20 @@ public class Line implements Figure{
     @Override
     public Points getPoints() {
         return points;
+    }
+
+    @Override
+    String getFigureName() {
+        return "선";
+    }
+
+    @Override
+    String getMeasureUnitName() {
+        return "길이";
+    }
+
+    @Override
+    double measure() {
+        return length();
     }
 }

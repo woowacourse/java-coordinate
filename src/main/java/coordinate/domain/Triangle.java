@@ -3,17 +3,17 @@ package coordinate.domain;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
-public class Triangle implements Figure{
+public class Triangle extends AbstractFigure {
     private final Points points;
 
     private Triangle(Points points) {
+        super(points);
         this.points = points;
     }
 
     public static Triangle from(Points points) {
         return new Triangle(points);
     }
-
 
     public double area() {
         // s == (len1 + len2 + len3) / 2
@@ -40,5 +40,20 @@ public class Triangle implements Figure{
     @Override
     public Points getPoints() {
         return points;
+    }
+
+    @Override
+    String getFigureName() {
+        return "삼각형";
+    }
+
+    @Override
+    String getMeasureUnitName() {
+        return "넓이";
+    }
+
+    @Override
+    double measure() {
+        return area();
     }
 }
