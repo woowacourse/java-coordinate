@@ -27,7 +27,8 @@ public class PointFactory {
 
     public Point createPoint(int x, int y) {
         if (!isIn(xBegin, xEnd, x) || !isIn(yBegin, yEnd, y)) {
-            throw new IllegalArgumentException("범위를 초과한 입력입니다. ");
+            throw new IllegalArgumentException(
+                    String.format("범위를 초과한 입력입니다. x범위: [%d:%d), y범위: [%d, %d)", xBegin, xEnd, yBegin, yEnd));
         }
         return new Point(x, y);
     }
