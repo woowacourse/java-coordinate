@@ -44,4 +44,4 @@
 - request to user coordinate input
 
 5. view/OutputView
-- print result of Line distance
+- print result of
