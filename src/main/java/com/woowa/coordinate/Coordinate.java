@@ -11,11 +11,11 @@ import java.util.List;
 public class Coordinate {
     public static void main(String[] args){
         String input = InputView.request();
-        double distance = new Line(pointsGenerator(hypenProcessor(input))).distance();
+        double distance = new Line(pointsGenerator(dashProcessor(input))).distance();
         OutputView.lineDistance(distance);
     }
 
-    public static String[] hypenProcessor(String input) {
+    public static String[] dashProcessor(String input) {
         return input.replace("(", "").replace(")", "").split("-");
     }
 

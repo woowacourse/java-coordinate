@@ -18,7 +18,7 @@
 ### Step 1. Length of Line
 #### Function Requirements
 1. View
-    - X and Y coordinate
+    - X and Y coordinates
         - [INPUT] coordinates are written in parenthesis ``(x,y)``
     - When two coordinates are found from user input, it is a **Line**
         - [INPUT] separate each coordinate using ``-``
@@ -27,21 +27,14 @@
 2. Domain
     - ~~Point (which contains x-coordinate and y-coordinate)~~
         - ~~{EXCEPTION} upper bound is 24, lower bound is 0~~
+    - Line (which contains two ``Point`` instance)
 
-#### Code Implements
-1. domain/Coordinate
-- This Object have a ``int`` value.
-- Purpose of this class is to make Point Class. (Point Class have two ``Coordinate`` instance)
-- Check lower bound(0) and upper bound(24)
-
-2. domain/Point
-- This Object have two ``Coordinate`` instance.
-
-3. domain/Line
-- ``-ing``
-
-4. view/InputView
-- request to user coordinate input
-
-5. view/OutputView
-- print result of
+### Step 2. Area of Square
+1. View
+    - distinguish between Line and Square by input string
+        - if input string have only one dash, shape is Line
+        - if input string have three dashes, shape is Square
+2. Domain
+    - Square
+        - contains four Point instance
+        - {EXCEPTION} input *must be* **RECTANGLE**

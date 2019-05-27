@@ -1,19 +1,18 @@
 package com.woowa.coordinate.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Line {
-    private final List<Point> line;
+    private final Points points;
 
-    public Line(List<Point> line) {
-        if (line.size() != 2) {
+    public Line(List<Point> points) {
+        if (points.size() != 2) {
             throw new IllegalArgumentException("Line 은 점 2개로 생성이 가능합니다.");
         }
-        this.line = new ArrayList<>(line);
+        this.points = new Points(points);
     }
 
     public double distance() {
-        return line.get(0).distance(line.get(1));
+        return points.get(0).distance(points.get(1));
     }
 }
