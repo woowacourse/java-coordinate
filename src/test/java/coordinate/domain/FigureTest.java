@@ -1,7 +1,6 @@
-package coordinate;
+package coordinate.domain;
 
-import coordinate.domain.FigureFactory;
-import coordinate.domain.Point;
+import coordinate.Figure;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -9,7 +9,7 @@ public class Line extends AbstractFigure {
 		super(points);
 	}
 
-	public static Line of(final List<Point> points) {
+	static Line of(final List<Point> points) {
 		return new Line(points);
 	}
 

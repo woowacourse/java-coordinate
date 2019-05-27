@@ -2,10 +2,6 @@ package coordinate.domain;
 
 import coordinate.Factory;
 import coordinate.Figure;
-import coordinate.domain.creator.LineCreator;
-import coordinate.domain.creator.NotFigureCreator;
-import coordinate.domain.creator.SquareCreator;
-import coordinate.domain.creator.TriangleCreator;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +21,7 @@ public class FigureFactory implements Factory {
     private FigureFactory() {
     }
 
-    public static FigureFactory getInstance() {
+    static FigureFactory getInstance() {
         return SingleTon.SINGLETON_INSTANCE;
     }
 

@@ -10,7 +10,7 @@ public class Square extends AbstractFigure {
 		super(points);
 	}
 
-	public static Square of(final List<Point> points) {
+	static Square of(final List<Point> points) {
 		return new Square(points);
 	}
 

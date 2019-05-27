@@ -9,7 +9,7 @@ public class Triangle extends AbstractFigure {
         super(points);
     }
 
-    public static Triangle of(List<Point> points) {
+    static Triangle of(List<Point> points) {
         return new Triangle(points);
     }
 

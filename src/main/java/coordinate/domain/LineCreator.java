@@ -1,4 +1,4 @@
-package coordinate.domain.creator;
+package coordinate.domain;
 
 import coordinate.Figure;
 import coordinate.domain.FigureCreator;
