@@ -39,11 +39,8 @@ public class Lines {
         }
     }
 
-    public boolean canMakeRectangle() {
-        Map<Double, Long> lineLengthCountMap = lines.stream()
-            .collect(Collectors.groupingBy(Line::calculateArea, Collectors.counting()));
-
-        return lineLengthCountMap.values().stream().allMatch(i -> i % 2 == 0);
+    public List<Line> getLines() {
+        return lines;
     }
 
     public Line get(int index){

@@ -4,6 +4,8 @@ import coordinatecalculator.model.coordinate.Coordinate;
 import coordinatecalculator.model.figure.PlaneFigure;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Rectangle extends PlaneFigure {
     private final Lines lines;
@@ -16,9 +18,16 @@ public class Rectangle extends PlaneFigure {
     }
 
     private void checkValidRectangle(Lines lines) {
-        if (!lines.canMakeRectangle()) {
+        if (!canMakeRectangle(lines)) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
+    }
+
+    private boolean canMakeRectangle(Lines lines) {
+        Map<Double, Long> lineLengthCountMap = lines.getLines().stream()
+                .collect(Collectors.groupingBy(Line::calculateArea, Collectors.counting()));
+
+        return lineLengthCountMap.values().stream().allMatch(i -> i % 2 == 0);
     }
 
     @Override
