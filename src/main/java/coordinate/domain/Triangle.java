@@ -1,6 +1,6 @@
-package coordinate;
+package coordinate.domain;
 
-import static util.NotNullValidator.validateNotNull;
+import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Triangle extends Figure{
     private static final int LINES_SIZE = 3;

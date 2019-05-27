@@ -1,5 +1,6 @@
 package coordinate;
 
+import coordinate.domain.Point;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

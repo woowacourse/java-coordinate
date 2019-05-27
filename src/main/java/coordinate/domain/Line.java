@@ -1,11 +1,11 @@
-package coordinate;
+package coordinate.domain;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-import static util.NotNullValidator.validateNotNull;
+import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Line {
     private static final int DIFFERENCE_ZERO = 0;

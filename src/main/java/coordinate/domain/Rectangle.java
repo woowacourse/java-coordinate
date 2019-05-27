@@ -1,9 +1,9 @@
-package coordinate;
+package coordinate.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static util.NotNullValidator.validateNotNull;
+import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Rectangle extends Figure {
     private static final int LINES_SIZE = 4;
@@ -52,9 +52,9 @@ public class Rectangle extends Figure {
         return checkTiledVertical(currentLine, nextLine);
     }
 
-    private boolean hasParallelAxis(Line currentLine) {
-        return currentLine.hasHorizontalAxisParallel()
-                || currentLine.hasVerticalAxisParallel();
+    private boolean hasParallelAxis(Line line) {
+        return line.hasHorizontalAxisParallel()
+                || line.hasVerticalAxisParallel();
     }
 
     private boolean checkParallelAxisVertical(Line currentLine, Line nextLine) {

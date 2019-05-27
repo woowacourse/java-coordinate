@@ -1,9 +1,9 @@
-package coordinate;
+package coordinate.domain;
 
 import java.util.HashSet;
 import java.util.List;
 
-import static util.NotNullValidator.validateNotNull;
+import static coordinate.util.NotNullValidator.validateNotNull;
 
 public class Lines {
     private final List<Line> lines;

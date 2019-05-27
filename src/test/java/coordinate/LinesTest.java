@@ -1,5 +1,8 @@
 package coordinate;
 
+import coordinate.domain.Line;
+import coordinate.domain.Lines;
+import coordinate.domain.Point;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

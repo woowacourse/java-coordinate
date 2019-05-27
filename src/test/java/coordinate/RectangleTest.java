@@ -1,9 +1,12 @@
 package coordinate;
 
+import coordinate.domain.Line;
+import coordinate.domain.Lines;
+import coordinate.domain.Point;
+import coordinate.domain.Rectangle;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package coordinate;
 
+import coordinate.domain.Line;
+import coordinate.domain.Point;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

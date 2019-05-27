@@ -1,5 +1,9 @@
 package coordinate;
 
+import coordinate.domain.Line;
+import coordinate.domain.Lines;
+import coordinate.domain.Point;
+import coordinate.domain.Triangle;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
