@@ -1,0 +1,85 @@
+package coordinatecalculator.domain;
+
+import coordinatecalculator.domain.parent.Console;
+import coordinatecalculator.domain.parent.Figure;
+
+import java.util.List;
+import java.util.Objects;
+
+public class Triangle implements Figure, Console {
+    private final Points points;
+
+    Triangle(Points points) {
+        checkStraightLine(points);
+        this.points = points;
+    }
+
+    private void checkStraightLine(Points points) {
+        List<Point> sortedPoints = points.getSortedPoints();
+        Point left = sortedPoints.get(0);
+        Point middle = sortedPoints.get(1);
+        Point right = sortedPoints.get(2);
+
+        checkSameXLocation(sortedPoints);
+
+        double slope1 = makeSlope(left, middle);
+        double slope2 = makeSlope(middle, right);
+
+        if (slope1 == slope2) {
+            throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
+        }
+    }
+
+    private void checkSameXLocation(List<Point> sortedPoints) {
+        Point leftPoint = sortedPoints.get(0);
+        Point middlePoint = sortedPoints.get(1);
+        Point rightPoint = sortedPoints.get(2);
+        if (leftPoint.getX() == middlePoint.getX() && middlePoint.getX() == rightPoint.getX()) {
+            throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
+        }
+    }
+
+    private double makeSlope(Point left, Point right) {
+        return ((double) left.getY() - right.getY()) / (left.getX() - right.getX());
+    }
+
+    @Override
+    public double calculateResult() {
+        List<Point> points = this.points.getSortedPoints();
+        double side1 = calculateLength(points.get(0), points.get(1));
+        double side2 = calculateLength(points.get(1), points.get(2));
+        double side3 = calculateLength(points.get(2), points.get(0));
+        double s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    public String makeResult() {
+        return RECTANGLE_RESULT_MESSAGE + calculateResult();
+    }
+
+    @Override
+    public Points getPoints() {
+        return this.points;
+    }
+
+    private double calculateLength(Point p1, Point p2) {
+        int x = Math.abs(p2.getX() - p1.getX());
+        int y = Math.abs(p2.getY() - p1.getY());
+
+        return Math.sqrt(x * x + y * y);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Objects.equals(points, triangle.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
+    }
+}
