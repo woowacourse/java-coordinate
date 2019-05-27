@@ -49,6 +49,6 @@ public class Triangle implements Figure {
 
     @Override
     public String toString() {
-        return "삼각형의 넓이는 " + getArea();
+        return points +"삼각형의 넓이는 "+ getArea();
     }
 }

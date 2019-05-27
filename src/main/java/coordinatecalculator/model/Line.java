@@ -2,15 +2,17 @@ package coordinatecalculator.model;
 
 public class Line implements Figure {
 
-    private double distance;
+    private static final int FIRST_POINT_INDEX = 0;
+    private static final int SECOND_POINT_INDEX = 1;
+    private final Distance distance;
 
     public Line(Points points) {
-        this.distance = points.getDistance(0, 1).getDistance();
+        this.distance = points.getPointByIndex(FIRST_POINT_INDEX).getDistance(points.getPointByIndex(SECOND_POINT_INDEX));
     }
 
     @Override
     public double getArea() {
-        return distance;
+        return distance.getDistance();
     }
 
     @Override

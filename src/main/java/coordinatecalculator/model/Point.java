@@ -45,6 +45,15 @@ public class Point {
         return yPoint.subtract(point.yPoint.getValue()) / xPoint.subtract(point.xPoint.getValue());
     }
 
+    public Distance getDistance(Point anotherPoint) {
+        return new Distance(this, anotherPoint);
+    }
+
+    @Override
+    public String toString(){
+        return "xPoint : "+xPoint+" yPoint : "+yPoint;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

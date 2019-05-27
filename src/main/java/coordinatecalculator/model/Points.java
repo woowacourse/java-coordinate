@@ -7,6 +7,7 @@ public class Points {
 
     private static final int LINE_SIZE = 2;
     private static final int RECTANGLE_SIZE = 4;
+    private static final String NEW_LINE = "\n";
     private final List<Point> points;
 
     public Points(String[] scannedPoints) {
@@ -41,12 +42,15 @@ public class Points {
     public List<Distance> generateDistances() {
         List<Distance> distances = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
-            distances.add(this.getDistance(i, (i + 1) % points.size()));
+            distances.add(this.getPointByIndex(i).getDistance(getPointByIndex((i + 1) % points.size())));
         }
         return distances;
     }
 
-    public Distance getDistance(int previousPointIndex, int currentPointIndex) {
-        return new Distance(this.getPointByIndex(previousPointIndex), this.getPointByIndex(currentPointIndex));
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder("Points\n");
+        points.forEach(point -> stringBuilder.append(points).append(NEW_LINE));
+        return stringBuilder.toString();
     }
 }

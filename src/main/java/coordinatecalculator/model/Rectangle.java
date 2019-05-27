@@ -43,6 +43,6 @@ public class Rectangle implements Figure {
 
     @Override
     public String toString() {
-        return "사각형의 넓이는 " + getArea();
+        return points +"사각형 넓이 :"+ getArea();
     }
 }

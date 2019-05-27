@@ -30,4 +30,9 @@ public class Distance {
     public int hashCode() {
         return Objects.hash(distance);
     }
+
+    @Override
+    public String toString(){
+        return "거리 : "+distance;
+    }
 }
