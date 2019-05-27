@@ -6,7 +6,7 @@ import java.util.*;
  * @author soojinroh
  * @version 1.0 2019-05-23
  */
-public class Rectangle extends Figure{
+public class Rectangle extends Figure {
 
     private final Coordinates coordinates;
 
