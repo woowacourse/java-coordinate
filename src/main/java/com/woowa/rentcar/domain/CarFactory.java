@@ -1,7 +1,5 @@
 package com.woowa.rentcar.domain;
 
-import com.woowa.rentcar.CarName;
-
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,6 +1,6 @@
 package com.woowa.rentcar.view;
 
-import com.woowa.rentcar.CarName;
+import com.woowa.rentcar.domain.CarName;
 import com.woowa.rentcar.domain.Distance;
 
 import java.util.Scanner;
