@@ -2,10 +2,10 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Rectangle {
+public class Rectangle extends Figure implements ResultPrintable {
     private Points points;
 
-    public Rectangle(Points points) throws IllegalArgumentException{
+    public Rectangle(Points points) throws IllegalArgumentException {
 
         if (isNotRectangles(points)) {
             throw new IllegalArgumentException("사각형이 아닙니다.");
@@ -19,6 +19,7 @@ public class Rectangle {
         return new Rectangle(points);
     }
 
+    @Override
     public double getArea() {
         double height = points.getFirstDistance();
         double weight = points.getSecondDistance();
@@ -26,6 +27,7 @@ public class Rectangle {
         return height * weight;
     }
 
+    @Override
     public Points getPoints() {
         return points;
     }
@@ -49,5 +51,10 @@ public class Rectangle {
     @Override
     public int hashCode() {
         return Objects.hash(points);
+    }
+
+    @Override
+    public String getResultMessage() {
+        return String.format("사각형 넓이는 %.0f", getArea());
     }
 }

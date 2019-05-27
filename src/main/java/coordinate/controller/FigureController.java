@@ -1,15 +1,21 @@
 package coordinate.controller;
 
-import coordinate.domain.Line;
-import coordinate.domain.Points;
-import coordinate.domain.Rectangle;
+import coordinate.domain.*;
 
 public class FigureController {
-    public Line getFigure(Points points) {
-        return Line.create(points);
-    }
+    public ResultPrintable getFigure(Points points) {
+        if (points.getSize() == 3) {
+            return Triangle.create(points);
+        }
 
-    public Rectangle getRectangle(Points points) {
-        return Rectangle.create(points);
+        if (points.getSize() == 4) {
+            return Rectangle.create(points);
+        }
+
+        if (points.getSize() == 2) {
+            return Line.create(points);
+        }
+
+        return null;
     }
 }

@@ -12,16 +12,8 @@ public class OutputView {
     private static final int VERTICAL_START = 1;
     private static final int HORIZON_START = LEN_DIGITS;
 
-    public void printDistance(double distance) {
-        System.out.printf("두 점 사이 거리는 %.6f", distance);
-    }
-
-    public void printArea(double area) {
-        System.out.printf("사각형 넓이는 %.0f", area);
-    }
-
-    public void printTriangleArea(double area) {
-        System.out.printf("삼각형 넓이는 %.1f", area);
+    public void printResult(String message) {
+        System.out.println(message);
     }
 
     public void printCoordinatesBoard(Points points) {

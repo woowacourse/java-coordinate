@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Triangle {
+public class Triangle extends Figure implements ResultPrintable {
 
     private final Points points;
 
@@ -15,6 +15,7 @@ public class Triangle {
         return new Triangle(points);
     }
 
+    @Override
     public double getArea() {
         List<Double> distances = new ArrayList<>();
         double s = 0;
@@ -39,7 +40,13 @@ public class Triangle {
         return result;
     }
 
+    @Override
     public Points getPoints() {
         return points;
+    }
+
+    @Override
+    public String getResultMessage() {
+        return String.format("삼각형 넓이는 %.1f", getArea());
     }
 }

@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Line {
+public class Line implements ResultPrintable {
 
     private final Points points;
 
@@ -33,5 +33,10 @@ public class Line {
     @Override
     public int hashCode() {
         return Objects.hash(points);
+    }
+
+    @Override
+    public String getResultMessage() {
+        return String.format("두 점 사이 거리는 %.6f", calculateDistance());
     }
 }

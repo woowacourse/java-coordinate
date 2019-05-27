@@ -1,22 +1,23 @@
 package coordinate.controller;
 
-import coordinate.domain.Triangle;
+import coordinate.domain.Points;
+import coordinate.domain.ResultPrintable;
 import coordinate.view.OutputView;
 
 public class OutputViewController {
     private final OutputView outputView;
-    private final Triangle triangle;
+    private final ResultPrintable resultPrintable;
 
-    public OutputViewController(OutputView outputView, Triangle triangle) {
+    public OutputViewController(OutputView outputView, ResultPrintable resultPrintable) {
         this.outputView = outputView;
-        this.triangle = triangle;
+        this.resultPrintable = resultPrintable;
     }
 
     public void printFigureInfo() {
-        outputView.printTriangleArea(triangle.getArea());
+        outputView.printResult(resultPrintable.getResultMessage());
     }
 
-    public void printCoordinatesBoard() {
-        outputView.printCoordinatesBoard(triangle.getPoints());
+    public void printCoordinatesBoard(Points points) {
+        outputView.printCoordinatesBoard(points);
     }
 }
