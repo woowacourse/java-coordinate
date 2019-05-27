@@ -15,4 +15,9 @@ public class YPointTest {
     void 옳바르지_않은_Y좌표가_들어올때_테스트() {
         assertThrows(IllegalArgumentException.class, () -> new XPoint("25"));
     }
+
+    @Test
+    void Y좌표가_음수가_들어올때_테스트() {
+        assertThrows(IllegalArgumentException.class, () -> new XPoint("-1"));
+    }
 }
