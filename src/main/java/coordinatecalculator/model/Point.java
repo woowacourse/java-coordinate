@@ -29,7 +29,7 @@ public class Point implements Comparable<Point> {
         return yPoint;
     }
 
-    public int getSquare(Point anotherPoint) {
+    public int getSquareOfTwoPointsSubtract(Point anotherPoint) {
         return (int) (Math.pow(this.xPoint.subtract(anotherPoint.xPoint), SQUARE)
                 + Math.pow(this.yPoint.subtract(anotherPoint.yPoint), SQUARE));
     }

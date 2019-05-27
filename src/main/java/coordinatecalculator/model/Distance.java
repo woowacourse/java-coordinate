@@ -11,7 +11,7 @@ public class Distance {
     }
 
     private double calculateDistance(Point previousPoint, Point currentPoint) {
-        return Math.sqrt(previousPoint.getSquare(currentPoint));
+        return Math.sqrt(previousPoint.getSquareOfTwoPointsSubtract(currentPoint));
     }
 
     public double getDistance() {
