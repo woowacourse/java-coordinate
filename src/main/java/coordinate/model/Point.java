@@ -6,9 +6,9 @@ public class Point implements Comparable<Point> {
         private PointNumber x;
         private PointNumber y;
 
-        public Point(PointNumber x, PointNumber y) {
-                this.x = x;
-                this.y = y;
+        public Point(int x, int y) {
+                this.x = new PointNumber(x);
+                this.y = new PointNumber(y);
         }
 
         public double getDistance(Point anotherPoint) {

@@ -14,7 +14,7 @@ public class InputViewTest {
                 assertThrows(IllegalArgumentException.class, () -> {
                         ByteArrayInputStream input = new ByteArrayInputStream("(0,0)=".getBytes());
                         System.setIn(input);
-                        InputView.inputPoint();
+                        InputView.inputPoints();
                 });
         }
 
@@ -23,7 +23,7 @@ public class InputViewTest {
                 assertThrows(IllegalArgumentException.class, () -> {
                         ByteArrayInputStream input = new ByteArrayInputStream("(1,1)-(2,2)-(3,3)-(4,4)-(5,5)".getBytes());
                         System.setIn(input);
-                        InputView.inputPoint();
+                        InputView.inputPoints();
                 });
         }
 

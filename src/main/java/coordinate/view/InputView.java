@@ -16,7 +16,7 @@ public class InputView {
         private static final String DELIMITER = "-";
         private static final String POINT_REGEX = "\\(([0-9]+)(,)([0-9]+)\\)";
 
-        public static List<Point> inputPoint() {
+        public static List<Point> inputPoints() {
                 System.out.println("좌표를 입력하세요.");
                 Scanner scanner = new Scanner(System.in);
                 String input = scanner.nextLine();
@@ -35,8 +35,8 @@ public class InputView {
                 for (String input : inputs) {
                         Matcher matcher = Pattern.compile(POINT_REGEX).matcher(input);
                         matcher.matches();
-                        PointNumber x = new PointNumber(Integer.parseInt(matcher.group(1)));
-                        PointNumber y = new PointNumber(Integer.parseInt(matcher.group(3)));
+                        int x = Integer.parseInt(matcher.group(1));
+                        int y = Integer.parseInt(matcher.group(3));
                         points.add(new Point(x, y));
                 }
                 checkPointNumber(points);
