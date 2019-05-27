@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class Triangle extends Figure {
+    private static final String NAME = "삼각형";
+    private static final String OPERATION_NAME = "넓이";
 
     public Triangle(Points points) {
-        super(points, "삼각형","넓이");
+        super(points);
         if (points.size() != 3) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
@@ -40,5 +42,15 @@ public class Triangle extends Figure {
         return Math.sqrt(s * (s - lineLengths.get(0)) *
                 (s - lineLengths.get(1)) *
                 (s - lineLengths.get(2)));
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
+    @Override
+    public String getOperationName() {
+        return OPERATION_NAME;
     }
 }
