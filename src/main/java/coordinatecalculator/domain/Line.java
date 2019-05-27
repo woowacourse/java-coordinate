@@ -2,10 +2,7 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.visitor.Visitor;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Line implements Shape {
     public static final int VERTEX_OF_LINE = 2;
@@ -30,7 +27,7 @@ public class Line implements Shape {
 
     @Override
     public List<Coordinate> getCoordinate() {
-        return coordinates;
+        return Collections.unmodifiableList(coordinates);
     }
 
     @Override

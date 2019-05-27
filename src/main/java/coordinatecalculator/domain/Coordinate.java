@@ -3,28 +3,24 @@ package coordinatecalculator.domain;
 import java.util.Objects;
 
 public class Coordinate implements Comparable<Coordinate> {
-    private static final int MAX_BOUND = 24;
-    private static final int MIN_BOUND = 1;
     private static final int SQUARE = 2;
     private static final int ZERO = 0;
-    private int x;
-    private int y;
+
+    private CoordinatePoint x;
+    private CoordinatePoint y;
 
     public Coordinate(int x, int y) {
-        if (x > MAX_BOUND || x < MIN_BOUND || y > MAX_BOUND || y < MIN_BOUND) {
-            throw new IllegalArgumentException(" 범위를 제대로 입력하세요. ");
-        }
-        this.x = x;
-        this.y = y;
+        this.x = new CoordinatePoint(x);
+        this.y = new CoordinatePoint(y);
     }
 
     public double calculateDistance(Coordinate coordinate) {
-        return Math.sqrt(Math.pow(Math.abs(coordinate.x - this.x), SQUARE) + Math.pow(Math.abs(coordinate.y - this.y), SQUARE));
+        return Math.sqrt(Math.pow(Math.abs(coordinate.x.getCoordinate() - this.x.getCoordinate()), SQUARE) + Math.pow(Math.abs(coordinate.y.getCoordinate() - this.y.getCoordinate()), SQUARE));
     }
 
     public double calculateSlope(Coordinate coordinate) {
-        int dx = Math.abs(coordinate.x - this.x);
-        int dy = Math.abs(coordinate.y - this.y);
+        int dx = Math.abs(coordinate.x.getCoordinate() - this.x.getCoordinate());
+        int dy = Math.abs(coordinate.y.getCoordinate() - this.y.getCoordinate());
 
         if (dx == ZERO) {
             return Double.POSITIVE_INFINITY; //양의 무한대값
@@ -33,28 +29,28 @@ public class Coordinate implements Comparable<Coordinate> {
     }
 
     public int getX() {
-        return x;
+        return x.getCoordinate();
     }
 
     public int getY() {
-        return y;
+        return y.getCoordinate();
     }
 
     @Override
     public int compareTo(final Coordinate o) {
-        if (this.x == o.x) {
-            return Integer.compare(this.y, o.y);
+        if (this.x.getCoordinate() == o.x.getCoordinate()) {
+            return Integer.compare(this.y.getCoordinate(), o.y.getCoordinate());
         }
-        return Integer.compare(this.x, o.x);
+        return Integer.compare(this.x.getCoordinate(), o.x.getCoordinate());
     }
 
     @Override
-    public boolean equals(final Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final Coordinate that = (Coordinate) o;
-        return x == that.x &&
-                y == that.y;
+        Coordinate that = (Coordinate) o;
+        return Objects.equals(x, that.x) &&
+                Objects.equals(y, that.y);
     }
 
     @Override
