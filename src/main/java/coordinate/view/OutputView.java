@@ -1,6 +1,6 @@
 package coordinate.view;
 
-import coordinate.domain.AttributeType;
+import coordinate.domain.AreaType;
 import coordinate.domain.Figure;
 import coordinate.ui.CartesianPlane;
 import coordinate.ui.Row;
@@ -13,8 +13,8 @@ public class OutputView {
         System.out.println(e.getMessage());
     }
 
-    public static void printAttributeOf(Figure figure) {
-        System.out.println(NEWLINE + AttributeType.getPrintMessage(figure.getNumOfPoints()) + figure.calculateArea());
+    public static void printAreaOf(Figure figure) {
+        System.out.println(NEWLINE + AreaType.getAreaTypeMessage(figure.getNumOfPoints()) + figure.calculateArea());
     }
 
     public static void printGraph(CartesianPlane plane) {

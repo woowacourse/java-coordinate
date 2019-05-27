@@ -1,6 +1,7 @@
 package coordinate;
 
 import coordinate.domain.Figure;
+import coordinate.domain.FigureFactory;
 import coordinate.domain.Point;
 import coordinate.domain.PointParser;
 import coordinate.ui.CartesianPlane;
@@ -17,7 +18,7 @@ public class CoordinateCalculator {
         plane.drawPoints(figure);
         OutputView.printGraph(plane);
 
-        OutputView.printAttributeOf(figure);
+        OutputView.printAreaOf(figure);
     }
 
     private static Figure getFigure() {
