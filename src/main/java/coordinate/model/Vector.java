@@ -1,5 +1,7 @@
 package coordinate.model;
 
+import java.util.Objects;
+
 class Vector {
     private Delta xDelta;
 
@@ -33,5 +35,19 @@ class Vector {
 
     Vector sum(Vector vector) {
         return new Vector(xDelta.sum(vector.xDelta), yDelta.sum(vector.yDelta));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector vector = (Vector) o;
+        return Objects.equals(xDelta, vector.xDelta) &&
+                Objects.equals(yDelta, vector.yDelta);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(xDelta, yDelta);
     }
 }

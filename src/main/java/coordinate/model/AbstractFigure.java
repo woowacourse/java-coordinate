@@ -3,10 +3,10 @@ package coordinate.model;
 import java.util.Objects;
 
 public abstract class AbstractFigure implements Figure {
-    protected static final int FIRST_POINT = 0;
-    protected static final int SECOND_POINT = 1;
-    protected static final int THIRD_POINT = 2;
-    protected static final int FOURTH_POINT = 3;
+    static final int FIRST_POINT = 0;
+    static final int SECOND_POINT = 1;
+    static final int THIRD_POINT = 2;
+    static final int FOURTH_POINT = 3;
 
     protected final Vertices vertices;
 

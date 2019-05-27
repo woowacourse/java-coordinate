@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Splitter {
-
     public static List<String> splitValue(String coordinate) {
         String[] temps = splitCoordinates(coordinate);
         List<String> returnList = new ArrayList<>();
