@@ -2,7 +2,6 @@ package coordinate.view;
 
 import coordinate.domain.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +20,6 @@ public class InputView {
             return readFigure(pointFactory);
         }
     }
-
 
     private static List<Integer> inputToCoordinateNumbers(String input) {
         return CoordinateNumberSplitter.split(input);

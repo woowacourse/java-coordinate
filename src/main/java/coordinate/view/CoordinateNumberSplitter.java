@@ -17,7 +17,7 @@ public class CoordinateNumberSplitter {
         input = input.replace(START_POINT, EMPTY);
         input = input.replace(END_POINT, EMPTY);
 
-        return  Arrays.asList(input.split(NUMBER_SEPARATOR))
+        return Arrays.asList(input.split(NUMBER_SEPARATOR))
                 .stream()
                 .mapToInt(str -> Integer.parseInt(str))
                 .boxed().collect(Collectors.toList());

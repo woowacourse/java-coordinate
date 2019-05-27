@@ -13,7 +13,7 @@ public class LineTest {
     @Test
     void length_() {
         Points points = Points.from(Arrays.asList(new Point(0, 0), new Point(1, 1)));
-        Line line = new Line(points);
+        Line line = Line.from(points);
 
         assertThat(line.length()).isEqualTo(1.414, offset(0.00099));
     }

@@ -11,15 +11,13 @@ public abstract class AbstractFigure implements Figure {
         }
     }
 
-
-
-    @Override
-    abstract public Points getPoints();
-
     @Override
     public String getMessage() {
         return String.format("%s의 %s는 %.6f 입니다.", getFigureName(), getMeasureUnitName(), measure());
     }
+
+    @Override
+    abstract public Points getPoints();
 
     abstract String getFigureName();
 

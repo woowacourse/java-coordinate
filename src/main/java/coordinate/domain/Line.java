@@ -12,7 +12,6 @@ public class Line extends AbstractFigure {
         return new Line(points);
     }
 
-
     public double length() {
         Vector2 v = points.get(0).subtract(points.get(1));
 
