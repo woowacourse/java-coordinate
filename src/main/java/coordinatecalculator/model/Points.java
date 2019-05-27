@@ -7,7 +7,7 @@ public class Points {
 
     private static final int LINE_SIZE = 2;
     private static final int RECTANGLE_SIZE = 4;
-    private List<Point> points;
+    private final List<Point> points;
 
     public Points(String[] scannedPoints) {
         if (scannedPoints.length < LINE_SIZE || scannedPoints.length > RECTANGLE_SIZE) {
@@ -35,7 +35,7 @@ public class Points {
     }
 
     public List<Point> getPoints() {
-        return points;
+        return Collections.unmodifiableList(points);
     }
 
     public List<Distance> generateDistances() {
