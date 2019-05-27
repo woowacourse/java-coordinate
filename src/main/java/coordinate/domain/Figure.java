@@ -1,7 +1,7 @@
 package coordinate.domain;
 
-public abstract class Figure {
-    public abstract double getArea();
+public interface Figure {
+    double getArea();
 
-    public abstract Points getPoints();
+    Points getPoints();
 }

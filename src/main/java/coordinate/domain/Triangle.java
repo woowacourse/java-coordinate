@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Triangle extends Figure implements ResultPrintable {
+public class Triangle implements Figure, ResultPrintable {
 
     private final Points points;
 

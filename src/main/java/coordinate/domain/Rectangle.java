@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Rectangle extends Figure implements ResultPrintable {
+public class Rectangle implements Figure, ResultPrintable {
     private Points points;
 
     public Rectangle(Points points) throws IllegalArgumentException {
