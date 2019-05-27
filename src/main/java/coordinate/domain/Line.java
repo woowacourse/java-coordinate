@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Line extends AbstractShape {
-    private static final int SIZE_OF_POINTS_FOR_LINE = 2;
+    static final int SIZE_OF_POINTS_FOR_LINE = 2;
     private static final int SQUARE = 2;
     private static final int START_POINT = 0;
     private static final int END_POINT = 1;

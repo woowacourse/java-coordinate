@@ -6,16 +6,13 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class ShapeGenerator {
-    private static final int LINE_POINTS_NUMBER = 2;
-    private static final int TRIANGLE_POINTS_NUMBER = 3;
-    private static final int RECTANGLE_POINTS_NUMBER = 4;
-
-    private static final Map<Integer, Function<List<Point>, Shape>> shapeMapper = new HashMap<>();
+    private static final Map<Integer, Function<List<Point>, Shape>> shapeMapper;
 
     static {
-        shapeMapper.put(LINE_POINTS_NUMBER, Line::new);
-        shapeMapper.put(TRIANGLE_POINTS_NUMBER, Triangle::new);
-        shapeMapper.put(RECTANGLE_POINTS_NUMBER, Rectangle::new);
+        shapeMapper = new HashMap<>();
+        shapeMapper.put(Line.SIZE_OF_POINTS_FOR_LINE, Line::new);
+        shapeMapper.put(Triangle.SIZE_OF_POINTS_FOR_TRIANGLE, Triangle::new);
+        shapeMapper.put(Rectangle.SIZE_OF_POINTS_FOR_RECTANGLE, Rectangle::new);
     }
 
     public static Shape create(List<Point> points) {

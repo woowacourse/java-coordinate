@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.*;
 
 public class Triangle extends AbstractShape {
-    private static final int SIZE_OF_POINTS_FOR_TRIANGLE = 3;
+    static final int SIZE_OF_POINTS_FOR_TRIANGLE = 3;
     private static final int START_POINT = 0;
     private static final int MAX_LINE_INDEX = 2;
     private static final int HERON_FORMULA_NUMBER = 2;

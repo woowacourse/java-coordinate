@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.*;
 
 public class Rectangle extends AbstractShape {
-    private static final int SIZE_OF_POINTS_FOR_RECTANGLE = 4;
+    static final int SIZE_OF_POINTS_FOR_RECTANGLE = 4;
     private static final int START_POINT = 0;
     private static final int ONE_LINE = 1;
     private static final int PAIR_LINE_COUNT = 2;
