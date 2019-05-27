@@ -39,21 +39,6 @@ public class Coordinate {
         }
     }
 
-    /**
-     * y좌표가 맞으면 x좌표 반환
-     * <br> 맞지 않으면 -1 반환
-     *
-     * @param yCoordinate y좌표
-     * @return xCoordinate
-     */
-    public int matchYAxis(int yCoordinate) {
-        if (yCoordinate == this.yCoordinate) {
-            return xCoordinate;
-        }
-
-        return NOT_MATCH;
-    }
-
     public int getX() {
         return xCoordinate;
     }

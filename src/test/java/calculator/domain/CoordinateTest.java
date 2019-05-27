@@ -25,18 +25,6 @@ public class CoordinateTest {
     }
 
     @Test
-    void matchYAxis_y값_일치_확인() {
-        int xCoordinate = coordinate.matchYAxis(15);
-        assertThat(xCoordinate).isEqualTo(10);
-    }
-
-    @Test
-    void matchYAxis_y값_불일치_확인() {
-        int xCoordinate = coordinate.matchYAxis(14);
-        assertThat(xCoordinate).isEqualTo(-1);
-    }
-
-    @Test
     void create_x값_범위_초과_예외처리() {
         assertThrows(IllegalArgumentException.class, () ->{
             new Coordinate(-1, 10);
