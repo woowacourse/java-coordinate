@@ -1,9 +1,5 @@
-package coordinate;
+package coordinate.domain;
 
-import coordinate.domain.Line;
-import coordinate.domain.Lines;
-import coordinate.domain.Point;
-import coordinate.domain.Triangle;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
@@ -51,7 +47,7 @@ public class TriangleTest {
         Triangle triangle = new Triangle(lines);
         List<Double> lineDistance = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
-            lineDistance.add(lines.getLine(i).calculateDistance());
+            lineDistance.add(lines.getIndex(i).calculateDistance());
         }
         assertThat(triangle.area(lineDistance)).isEqualTo(2.0, Offset.offset(0.001));
     }

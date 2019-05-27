@@ -76,4 +76,12 @@ public class Line {
     public int hashCode() {
         return Objects.hash(p1, p2);
     }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "p1=" + p1 +
+                ", p2=" + p2 +
+                '}';
+    }
 }

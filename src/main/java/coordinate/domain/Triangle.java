@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import static coordinate.util.NotNullValidator.validateNotNull;
 
-public class Triangle extends Figure{
+public class Triangle extends Figure {
     private static final int LINES_SIZE = 3;
     private static final int COMPARE_SLOPE = 0;
 
@@ -10,15 +10,9 @@ public class Triangle extends Figure{
 
     public Triangle(Lines lines) {
         validateNotNull(lines);
-        validateNumOf(lines);
+        validateNumOf(lines, LINES_SIZE);
         this.lines = lines;
         validateFigure();
-    }
-
-    private void validateNumOf(Lines lines) {
-        if (lines.getSize() != LINES_SIZE) {
-            throw new IllegalArgumentException("삼각형은 3개의 라인을 가져야 합니다.");
-        }
     }
 
     private void validateFigure() {
@@ -28,7 +22,7 @@ public class Triangle extends Figure{
     }
 
     private boolean checkSameSlope() {
-        return Double.compare(lines.getLine(0).calculateSlope()
-                , lines.getLine(1).calculateSlope()) == COMPARE_SLOPE;
+        return Double.compare(lines.getIndex(0).calculateSlope(),
+                lines.getIndex(1).calculateSlope()) == COMPARE_SLOPE;
     }
 }

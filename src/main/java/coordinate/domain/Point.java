@@ -77,4 +77,12 @@ public class Point implements Comparable<Point> {
 
         return COMPARE_SAME_POINT;
     }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "xValue=" + xValue +
+                ", yValue=" + yValue +
+                '}';
+    }
 }

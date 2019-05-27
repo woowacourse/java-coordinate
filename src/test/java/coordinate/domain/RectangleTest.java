@@ -1,9 +1,5 @@
-package coordinate;
+package coordinate.domain;
 
-import coordinate.domain.Line;
-import coordinate.domain.Lines;
-import coordinate.domain.Point;
-import coordinate.domain.Rectangle;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.linesOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {

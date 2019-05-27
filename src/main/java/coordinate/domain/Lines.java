@@ -20,7 +20,11 @@ public class Lines {
         }
     }
 
-    public Line getLine(int index) {
+    public List<Line> getLines() {
+        return lines;
+    }
+
+    public Line getIndex(int index) {
         validateIndex(index);
         return lines.get(index);
     }

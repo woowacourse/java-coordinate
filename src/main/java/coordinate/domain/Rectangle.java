@@ -17,15 +17,9 @@ public class Rectangle extends Figure {
 
     public Rectangle(Lines lines) {
         validateNotNull(lines);
-        validateNumOf(lines);
+        validateNumOf(lines, LINES_SIZE);
         this.lines = lines;
         validateFigure();
-    }
-
-    private void validateNumOf(Lines lines) {
-        if (lines.getSize() != LINES_SIZE) {
-            throw new IllegalArgumentException("직사각형은 4개의 라인을 가져야 합니다.");
-        }
     }
 
     private void validateFigure() {
@@ -38,9 +32,9 @@ public class Rectangle extends Figure {
         boolean isValidate = true;
 
         for (int i = FIRST_LINE_NUMBER; i < LAST_LINE_NUMBER; i++) {
-            isValidate &= checkVerticalLines(lines.getLine(i), lines.getLine(i + 1));
+            isValidate &= checkVerticalLines(lines.getIndex(i), lines.getIndex(i + 1));
         }
-        isValidate &= checkVerticalLines(lines.getLine(LAST_LINE_NUMBER), lines.getLine(FIRST_LINE_NUMBER));
+        isValidate &= checkVerticalLines(lines.getIndex(LAST_LINE_NUMBER), lines.getIndex(FIRST_LINE_NUMBER));
 
         return isValidate;
     }
@@ -84,14 +78,14 @@ public class Rectangle extends Figure {
     public List<Double> createTriangle() {
         List<Double> lineDistance = new ArrayList<>();
         for (int i = 0; i < TRIANGLE_LINE_SIZE - 1; i++) {
-            lineDistance.add(lines.getLine(i).calculateDistance());
+            lineDistance.add(lines.getIndex(i).calculateDistance());
         }
         lineDistance.add((diagonalDistance()));
         return lineDistance;
     }
 
     private double diagonalDistance() {
-        return Math.sqrt(Math.pow(lines.getLine(FIRST_LINE_NUMBER).calculateDistance(), 2)
-                + Math.pow(lines.getLine(LAST_LINE_NUMBER).calculateDistance(), 2));
+        return Math.sqrt(Math.pow(lines.getIndex(FIRST_LINE_NUMBER).calculateDistance(), 2)
+                + Math.pow(lines.getIndex(LAST_LINE_NUMBER).calculateDistance(), 2));
     }
 }

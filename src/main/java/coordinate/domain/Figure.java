@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.List;
 
-public class Figure implements Shapeable {
+public abstract class Figure implements Figureable {
     private static final int TRIANGLE_LINE_SIZE = 3;
 
     @Override
@@ -21,5 +21,12 @@ public class Figure implements Shapeable {
             sum += lineDistance.get(i);
         }
         return sum;
+    }
+
+    @Override
+    public void validateNumOf(Lines lines, int size) {
+        if (lines.getSize() != size) {
+            throw new IllegalArgumentException("해당 도형은 라인을 " + size + "만큼 가져야 합니다.");
+        }
     }
 }
