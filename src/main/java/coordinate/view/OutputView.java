@@ -1,6 +1,7 @@
 package coordinate.view;
 
 import coordinate.model.*;
+import coordinate.model.framework.IShape;
 
 import java.util.HashMap;
 import java.util.List;
@@ -57,16 +58,16 @@ public class OutputView {
         }
 
         private static int drawDot(StringBuilder sb, int i, int x, Point point) {
-                if (point.getY().getNumber() == i) {
+                if (point.getY() == i) {
                         drawHorizonLineSpace(sb, x, point);
                         sb.append(DOT);
-                        x = point.getX().getNumber() + 1;
+                        x = point.getX() + 1;
                 }
                 return x;
         }
 
         private static void drawHorizonLineSpace(StringBuilder sb, int x, Point point) {
-                for (int j = x; j < point.getX().getNumber(); j++) {
+                for (int j = x; j < point.getX(); j++) {
                         sb.append(TWO_SPACE);
                 }
         }

@@ -1,5 +1,6 @@
 package coordinate.model;
 
+import coordinate.model.framework.IShape;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

@@ -1,4 +1,9 @@
-package coordinate.model;
+package coordinate.model.framework;
+
+import coordinate.model.Line;
+import coordinate.model.Point;
+import coordinate.model.Square;
+import coordinate.model.Triangle;
 
 import java.util.HashMap;
 import java.util.List;

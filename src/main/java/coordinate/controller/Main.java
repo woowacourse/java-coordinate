@@ -1,6 +1,9 @@
 package coordinate.controller;
 
 import coordinate.model.*;
+import coordinate.model.framework.IShape;
+import coordinate.model.framework.IShapeCreator;
+import coordinate.model.framework.PointsCreator;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
@@ -13,7 +16,8 @@ public class Main {
 
         private static IShape makeIShape() {
                 try {
-                        return IShapeCreator.create(InputView.inputPoints());
+                        Points points = PointsCreator.create(InputView.inputPoints());
+                        return IShapeCreator.create(points);
                 } catch (IllegalArgumentException e) {
                         System.err.println(e.getMessage());
                         return makeIShape();

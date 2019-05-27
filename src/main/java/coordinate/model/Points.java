@@ -3,10 +3,10 @@ package coordinate.model;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Shape implements IShape {
-        protected List<Point> points;
+public class Points {
+        private List<Point> points;
 
-        protected Shape(List<Point> points) {
+        public Points(List<Point> points) {
                 Collections.sort(points);
                 checkDuplication(points);
                 this.points = points;
@@ -26,5 +26,18 @@ public abstract class Shape implements IShape {
 
         public List<Point> getPoints() {
                 return points;
+        }
+
+        public Double getDistance(int FromIndex, int ToIndex) {
+                return Math.sqrt(Math.pow(points.get(FromIndex).getX() - points.get(ToIndex).getX(), 2)
+                    + Math.pow(points.get(FromIndex).getY() - points.get(ToIndex).getY(), 2));
+        }
+
+        public double getIncline(int fromIndex, int toIndex) {
+                if ((points.get(toIndex).getX()) == points.get(fromIndex).getX()) {
+                        return Double.MAX_VALUE;
+                }
+                return (double) (points.get(toIndex).getY() - points.get(fromIndex).getY())
+                    / (points.get(toIndex).getX() - points.get(fromIndex).getX());
         }
 }

@@ -1,5 +1,7 @@
 package coordinate.model;
 
+import coordinate.model.framework.Shape;
+
 import java.util.List;
 
 public class Line extends Shape {
@@ -9,6 +11,6 @@ public class Line extends Shape {
 
         @Override
         public double getScore() {
-                return points.get(FIRST_POINT).getDistance(points.get(SECOND_POINT));
+                return points.getDistance(FIRST_POINT,SECOND_POINT);
         }
 }

@@ -11,19 +11,6 @@ public class Point implements Comparable<Point> {
                 this.y = new PointNumber(y);
         }
 
-        public double getDistance(Point anotherPoint) {
-                return Math.sqrt(Math.pow(this.x.getNumber() - anotherPoint.x.getNumber(), 2)
-                        + Math.pow(this.y.getNumber() - anotherPoint.y.getNumber(), 2));
-        }
-
-        public double getIncline(Point anotherPoint) {
-                if (this.x.equals(anotherPoint.x)) {
-                        return Double.MAX_VALUE;
-                }
-                return (double) (anotherPoint.y.getNumber() - this.y.getNumber())
-                         / (anotherPoint.x.getNumber() - this.x.getNumber());
-        }
-
         public boolean isEqualX(Point anotherPoint) {
                 return this.x.equals(anotherPoint.x);
         }
@@ -32,12 +19,12 @@ public class Point implements Comparable<Point> {
                 return this.y.equals(anotherPoint.y);
         }
 
-        public PointNumber getX() {
-                return x;
+        public int getX() {
+                return x.getNumber();
         }
 
-        public PointNumber getY() {
-                return y;
+        public int getY() {
+                return y.getNumber();
         }
 
         @Override

@@ -1,5 +1,7 @@
 package coordinate.model;
 
+import coordinate.model.framework.Shape;
+
 import java.util.List;
 
 public class Square extends Shape {
@@ -19,7 +21,7 @@ public class Square extends Shape {
 
         @Override
         public double getScore() {
-                return (points.get(FIRST_POINT).getDistance(points.get(SECOND_POINT))
-                         * points.get(FIRST_POINT).getDistance(points.get(THIRD_POINT)));
+                return (points.getDistance(FIRST_POINT, SECOND_POINT))
+                    * points.getDistance(FIRST_POINT, THIRD_POINT);
         }
 }
