@@ -25,7 +25,7 @@ public class Coordinate {
 
     public static Coordinate get(int index) {
         validateCoordinateRange(index);
-        return Collections.unmodifiableList(coordinates).get(index);
+        return coordinates.get(index);
     }
 
     private static void validateCoordinateRange(int coordinate) {
