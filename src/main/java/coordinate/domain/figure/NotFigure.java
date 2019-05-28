@@ -1,4 +1,7 @@
-package coordinate.domain;
+package coordinate.domain.figure;
+
+import coordinate.domain.AbstractFigure;
+import coordinate.domain.Point;
 
 import java.util.List;
 
@@ -8,7 +11,7 @@ public class NotFigure extends AbstractFigure {
         super(points);
     }
 
-    static NotFigure of(final List<Point> points) {
+    public static NotFigure of(final List<Point> points) {
         return new NotFigure(points);
     }
 

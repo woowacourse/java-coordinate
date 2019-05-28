@@ -1,4 +1,7 @@
-package coordinate.domain;
+package coordinate.domain.figure;
+
+import coordinate.domain.AbstractFigure;
+import coordinate.domain.Point;
 
 import java.util.List;
 
@@ -7,12 +10,12 @@ public class Line extends AbstractFigure {
 		super(points);
 	}
 
-	static Line of(final List<Point> points) {
+	public static Line of(final List<Point> points) {
 		return new Line(points);
 	}
 
 	public Double getArea() {
-		return super.getDistance(0, 1);
+		return super.getDistance(FIRST, SECOND);
 	}
 
 	@Override

@@ -1,22 +1,24 @@
-package coordinate.domain;
+package coordinate.domain.figure;
+
+import coordinate.domain.AbstractFigure;
+import coordinate.domain.Point;
 
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
-
     private Triangle(final List<Point> points) {
         super(points);
     }
 
-    static Triangle of(List<Point> points) {
+    public static Triangle of(List<Point> points) {
         return new Triangle(points);
     }
 
     @Override
     public Double getArea() {
-        double lineA = getDistance(0, 1);
-        double lineB = getDistance(1, 2);
-        double lineC = getDistance(2, 0);
+        double lineA = getDistance(FIRST, SECOND);
+        double lineB = getDistance(SECOND, THIRD);
+        double lineC = getDistance(THIRD, FIRST);
 
         Double semiParameter = (lineA + lineB + lineC) / Double.valueOf(2.0);
 

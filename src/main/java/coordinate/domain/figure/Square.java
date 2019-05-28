@@ -1,4 +1,7 @@
-package coordinate.domain;
+package coordinate.domain.figure;
+
+import coordinate.domain.AbstractFigure;
+import coordinate.domain.Point;
 
 import java.util.List;
 
@@ -8,14 +11,13 @@ public class Square extends AbstractFigure {
 		super(points);
 	}
 
-	static Square of(final List<Point> points) {
+	public static Square of(final List<Point> points) {
 		return new Square(points);
 	}
 
 	@Override
 	public Double getArea() {
-		int origin = 0;
-		return (sameX(origin) * sameY(origin));
+		return (getMinVerticalDistance(FIRST) * getMinHorizontalDistance(FIRST));
 	}
 
 	@Override

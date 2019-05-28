@@ -31,11 +31,11 @@ public class Point {
         return this.y.minus(other.y);
     }
 
-    boolean isSameX(final Point other) {
+    boolean isSameVerticalLine(final Point other) {
         return this.x.equals(other.x);
     }
 
-    boolean isSameY(final Point other) {
+    boolean isSameHorizontalLine(final Point other) {
         return this.y.equals(other.y);
     }
 

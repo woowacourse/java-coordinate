@@ -1,6 +1,7 @@
 package coordinate.domain;
 
 import coordinate.Figure;
+import coordinate.domain.figure.Triangle;
 
 import java.util.List;
 

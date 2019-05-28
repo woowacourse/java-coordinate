@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import coordinate.domain.figure.Square;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
