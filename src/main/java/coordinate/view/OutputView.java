@@ -66,7 +66,7 @@ public class OutputView {
 
     private static void printXAxis() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 24; i++) {
+        for (int i = 0; i < MAX_X; i++) {
             if (i == 0) {
                 sb.append(String.format("%3s", ORIGIN_POINT));
             }
