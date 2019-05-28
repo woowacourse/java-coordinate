@@ -7,10 +7,10 @@ public class Rectangle extends Shape implements Figure {
 
     public Rectangle(final List<Point> points) {
         super(points);
-        validate();
+        validateRectangle();
     }
 
-    private void validate() {
+    private void validateRectangle() {
         Map<Integer, Integer> map = new HashMap<>();
         List<Integer> sides = getSideSquares();
         groupSides(map, sides);
