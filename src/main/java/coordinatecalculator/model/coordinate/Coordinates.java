@@ -3,6 +3,8 @@ package coordinatecalculator.model.coordinate;
 import java.util.HashSet;
 import java.util.List;
 
+import static java.util.Collections.unmodifiableList;
+
 public class Coordinates {
     private final List<Coordinate> coordinates;
 
@@ -26,6 +28,6 @@ public class Coordinates {
     }
 
     public List<Coordinate> getCoordinates() {
-        return coordinates;
+        return unmodifiableList(coordinates);
     }
 }

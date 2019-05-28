@@ -5,10 +5,14 @@ import coordinatecalculator.model.coordinate.Coordinates;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Collections.unmodifiableList;
+
 public class Lines {
+    private static final int INLINE_COORDINATE_LIMIT = 3;
+
     private final List<Line> lines;
 
-    public Lines(Coordinates coordinates){
+    public Lines(Coordinates coordinates) {
         List<Line> lines = generateLines(coordinates);
         checkThreeCoordinatesInLine(lines);
         Collections.sort(lines);
@@ -19,7 +23,7 @@ public class Lines {
         Map<Double, Long> lineLengthCountMap = lines.stream()
                 .collect(Collectors.groupingBy(Line::calculateGradient, Collectors.counting()));
 
-        if (lineLengthCountMap.values().stream().anyMatch(i -> i >= 3)) {
+        if (lineLengthCountMap.values().stream().anyMatch(i -> i >= INLINE_COORDINATE_LIMIT)) {
             throw new IllegalArgumentException("세 좌표가 한 직선 위에 있습니다.");
         }
     }
@@ -40,10 +44,10 @@ public class Lines {
     }
 
     public List<Line> getLines() {
-        return lines;
+        return unmodifiableList(lines);
     }
 
-    public Line get(int index){
+    public Line get(int index) {
         return lines.get(index);
     }
 }
