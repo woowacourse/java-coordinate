@@ -23,13 +23,21 @@ public abstract class Shape {
 
     public List<Integer> getSideSquares() {
         List<Integer> sides = new ArrayList<>();
-        for (int i = 0; i < points.size(); i++) {
-            Point firstPoint = points.get(i);
-            for (int j = i + 1; j < points.size(); j++) {
-                Point secondPoint = points.get(j);
-                sides.add(firstPoint.distanceSquare(secondPoint));
-            }
-        }
-        return sides;
+        List<Point> list = getPoints();
+
+        do {
+            Point standardPoint = list.get(0);
+            list.remove(0);
+            addSide(sides, list, standardPoint);
+        } while (list.size() != 0);
+
+        return new ArrayList<>(sides);
     }
+
+    private void addSide(List<Integer> sides, List<Point> list, Point standardPoint) {
+        for (Point point : list) {
+            sides.add(point.distanceSquare(standardPoint));
+        }
+    }
+
 }
