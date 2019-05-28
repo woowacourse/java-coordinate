@@ -2,53 +2,61 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Triangle implements Shape {
-    private static final int START_POINT = 0;
+public class Triangle extends AbstractShape {
     private static final int MAX_LINE_INDEX = 2;
     private static final int HERON_FORMULA_NUMBER = 2;
 
-    private List<Double> triangleLines = new ArrayList<>();
-
     public Triangle(List<Point> points) {
-        //super(points);
-        List<Point> copiedPoints = new ArrayList<>(points);
-        setTriangleLines(copiedPoints);
-        validateTriangle();
+        super(points);
+        validateShape();
     }
 
-    private void setTriangleLines(List<Point> points) {
-        while (!points.isEmpty()) {
-            setLinesFromOnePoint(points.remove(START_POINT), points);
-        }
-    }
-
-    private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
-        for (Point endPoint : endPoints) {
-            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
-            triangleLines.add(lineLength);
-        }
-    }
-
-    private void validateTriangle() {
-        Collections.sort(triangleLines);
-        double longestLine = triangleLines.get(MAX_LINE_INDEX);
-        double sumWithoutLongestLine = triangleLines.stream()
-                .filter(length -> !length.equals(triangleLines.get(MAX_LINE_INDEX)))
-                .mapToDouble(Double::doubleValue).sum();
-
+    @Override
+    public void validateShape() {
+        Collections.sort(lines);
+        double longestLine = lines.get(MAX_LINE_INDEX);
+        double sumWithoutLongestLine = lines.stream()
+                .filter(length -> !length.equals(lines.get(MAX_LINE_INDEX)))
+                .mapToDouble(Double::doubleValue)
+                .sum();
         if (longestLine >= sumWithoutLongestLine) {
             throw new IllegalArgumentException("올바른 삼각형을 입력해 주세요.");
         }
     }
 
+//    private void setTriangleLines(List<Point> points) {
+//        while (!points.isEmpty()) {
+//            setLinesFromOnePoint(points.remove(START_POINT), points);
+//        }
+//    }
+//
+//    private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
+//        for (Point endPoint : endPoints) {
+//            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
+//            triangleLines.add(lineLength);
+//        }
+//    }
+
+//    private void validateTriangle() {
+//        Collections.sort(triangleLines);
+//        double longestLine = triangleLines.get(MAX_LINE_INDEX);
+//        double sumWithoutLongestLine = triangleLines.stream()
+//                .filter(length -> !length.equals(triangleLines.get(MAX_LINE_INDEX)))
+//                .mapToDouble(Double::doubleValue).sum();
+//
+//        if (longestLine >= sumWithoutLongestLine) {
+//            throw new IllegalArgumentException("올바른 삼각형을 입력해 주세요.");
+//        }
+//    }
+
     @Override
     public double area() {
-        double heron = triangleLines.stream()
+        double heron = lines.stream()
                 .mapToDouble(Double::doubleValue)
                 .sum() / HERON_FORMULA_NUMBER;
         double area = heron;
 
-        for (Double triangleLine : triangleLines) {
+        for (Double triangleLine : lines) {
             area *= (heron - triangleLine);
         }
         return Math.sqrt(area);
@@ -59,12 +67,12 @@ public class Triangle implements Shape {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Triangle triangle = (Triangle) o;
-        return Objects.equals(triangleLines, triangle.triangleLines);
+        return Objects.equals(lines, triangle.lines);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(triangleLines);
+        return Objects.hash(lines);
     }
 
     @Override

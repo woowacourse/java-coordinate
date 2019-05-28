@@ -2,8 +2,7 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Rectangle implements Shape {
-    private static final int START_POINT = 0;
+public class Rectangle extends AbstractShape {
     private static final int ONE_LINE = 1;
     private static final int PAIR_LINE_COUNT = 2;
     private static final int DEFAULT_AREA = 1;
@@ -11,26 +10,18 @@ public class Rectangle implements Shape {
     private TreeMap<Double, Integer> rectangleLines = new TreeMap<>();
 
     public Rectangle(List<Point> points) {
-        //super(points);
-        List<Point> copiedPoints = new ArrayList<>(points);
-        setRectangleLines(copiedPoints);
-        validateRectangle();
+        super(points);
+        initializeRectangleLines();
+        validateShape();
     }
 
-    private void setRectangleLines(List<Point> points) {
-        while (!points.isEmpty()) {
-            setLinesFromOnePoint(points.remove(START_POINT), points);
-        }
-    }
-
-    private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
-        for (Point endPoint : endPoints) {
-            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
+    private void initializeRectangleLines() {
+        for (Double lineLength : lines) {
             addLine(lineLength);
         }
     }
 
-    private void addLine(double lineLength) {
+    private void addLine(Double lineLength){
         if (rectangleLines.containsKey(lineLength)) {
             rectangleLines.put(lineLength, rectangleLines.get(lineLength) + ONE_LINE);
             return;
@@ -38,7 +29,8 @@ public class Rectangle implements Shape {
         rectangleLines.put(lineLength, ONE_LINE);
     }
 
-    private void validateRectangle() {
+    @Override
+    public void validateShape() {
         for (Double line : rectangleLines.keySet()) {
             checkPairOf(line);
         }
@@ -53,6 +45,25 @@ public class Rectangle implements Shape {
     private boolean isPaired(Double line) {
         return rectangleLines.get(line) % 2 == 0;
     }
+
+//    private void setRectangleLines(List<Point> points) {
+//        while (!points.isEmpty()) {
+//            setLinesFromOnePoint(points.remove(START_POINT), points);
+//        }
+//    }
+//
+//    private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
+//        for (Point endPoint : endPoints) {
+//            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
+//            addLine(lineLength);
+//        }
+//    }
+
+//    private void validateRectangle() {
+////        for (Double line : rectangleLines.keySet()) {
+////            checkPairOf(line);
+////        }
+////    }
 
     @Override
     public double area() {

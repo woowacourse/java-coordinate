@@ -11,12 +11,12 @@ public class Line implements Shape {
     private final List<Point> points;
 
     public Line(List<Point> points) {
-        //super(points);
         this.points = points;
-        validateLine();
+        validateShape();
     }
 
-    private void validateLine() {
+    @Override
+    public void validateShape() {
         if (points.get(START_POINT).equals(points.get(END_POINT))) {
             throw new IllegalArgumentException("위치가 같은 점이 존재합니다.");
         }

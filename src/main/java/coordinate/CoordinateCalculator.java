@@ -4,13 +4,14 @@ import coordinate.domain.*;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoordinateCalculator {
 
     public static void main(String[] args) {
         List<Point> points = createPoints();
-        Shape shape = createShape(points);
+        Shape shape = createShape(new ArrayList<>(points));
         Graph graph = new Graph();
         graph.drawPoints(points);
         OutputView.printGraph(graph);
