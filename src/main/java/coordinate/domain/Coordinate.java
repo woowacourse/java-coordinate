@@ -2,21 +2,22 @@ package coordinate.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Coordinate {
-    private final int cor;
+    private final int coordinate;
 
-    private Coordinate(int cor) {
-        this.cor = cor;
+    private Coordinate(int coordinate) {
+        this.coordinate = coordinate;
     }
 
-    public int getMinus(Coordinate x) {
-        return cor - x.cor;
+    public int getMinus(Coordinate otherCoordinate) {
+        return this.coordinate - otherCoordinate.coordinate;
     }
 
     public int getCoordinate() {
-        return cor;
+        return coordinate;
     }
 
     private static class CoordinateCache {
@@ -39,5 +40,18 @@ public class Coordinate {
             return CoordinateCache.cache.get(i);
         }
         throw new IllegalArgumentException("올바른 좌표값을 입력해주세요");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinate that = (Coordinate) o;
+        return coordinate == that.coordinate;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coordinate);
     }
 }
