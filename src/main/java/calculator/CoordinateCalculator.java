@@ -25,6 +25,8 @@ public class CoordinateCalculator {
 
     public void printCoordinateCalculatorResult() {
         UserOutputView.outputMap(map);
-        UserOutputView.outputCalculatedResult(figure);
+        if (figure.getName() != "한 점") {
+            UserOutputView.outputCalculatedResult(figure);
+        }
     }
 }
