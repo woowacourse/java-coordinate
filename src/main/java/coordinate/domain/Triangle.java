@@ -1,6 +1,8 @@
 package coordinate.domain;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class Triangle extends AbstractShape {
     private static final int MAX_LINE_INDEX = 2;
@@ -23,31 +25,6 @@ public class Triangle extends AbstractShape {
             throw new IllegalArgumentException("올바른 삼각형을 입력해 주세요.");
         }
     }
-
-//    private void setTriangleLines(List<Point> points) {
-//        while (!points.isEmpty()) {
-//            setLinesFromOnePoint(points.remove(START_POINT), points);
-//        }
-//    }
-//
-//    private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
-//        for (Point endPoint : endPoints) {
-//            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
-//            triangleLines.add(lineLength);
-//        }
-//    }
-
-//    private void validateTriangle() {
-//        Collections.sort(triangleLines);
-//        double longestLine = triangleLines.get(MAX_LINE_INDEX);
-//        double sumWithoutLongestLine = triangleLines.stream()
-//                .filter(length -> !length.equals(triangleLines.get(MAX_LINE_INDEX)))
-//                .mapToDouble(Double::doubleValue).sum();
-//
-//        if (longestLine >= sumWithoutLongestLine) {
-//            throw new IllegalArgumentException("올바른 삼각형을 입력해 주세요.");
-//        }
-//    }
 
     @Override
     public double area() {

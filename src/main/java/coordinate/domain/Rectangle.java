@@ -1,6 +1,8 @@
 package coordinate.domain;
 
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.TreeMap;
 
 public class Rectangle extends AbstractShape {
     private static final int ONE_LINE = 1;
@@ -21,7 +23,7 @@ public class Rectangle extends AbstractShape {
         }
     }
 
-    private void addLine(Double lineLength){
+    private void addLine(Double lineLength) {
         if (rectangleLines.containsKey(lineLength)) {
             rectangleLines.put(lineLength, rectangleLines.get(lineLength) + ONE_LINE);
             return;
@@ -45,25 +47,6 @@ public class Rectangle extends AbstractShape {
     private boolean isPaired(Double line) {
         return rectangleLines.get(line) % 2 == 0;
     }
-
-//    private void setRectangleLines(List<Point> points) {
-//        while (!points.isEmpty()) {
-//            setLinesFromOnePoint(points.remove(START_POINT), points);
-//        }
-//    }
-//
-//    private void setLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
-//        for (Point endPoint : endPoints) {
-//            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
-//            addLine(lineLength);
-//        }
-//    }
-
-//    private void validateRectangle() {
-////        for (Double line : rectangleLines.keySet()) {
-////            checkPairOf(line);
-////        }
-////    }
 
     @Override
     public double area() {
