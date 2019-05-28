@@ -21,7 +21,6 @@ public class Coordinate implements Comparable<Coordinate> {
     }
 
     private static class CoordinateCache {
-
         static final int low = 0;
         static final int high = 24;
         static final List<Coordinate> cache = new ArrayList<>();

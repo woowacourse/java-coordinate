@@ -15,7 +15,7 @@ class LineTest {
                 new Point(10, 10),
                 new Point(14, 15)
         );
-        Line line = new Line(points);
+        Line line = new Line(new Points(points));
         assertThat(line.getDistance()).isEqualTo(6.403124, Offset.offset(0.00099));
     }
 }

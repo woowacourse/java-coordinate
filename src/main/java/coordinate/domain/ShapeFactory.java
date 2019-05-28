@@ -1,12 +1,10 @@
 package coordinate.domain;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
-public class ShapeFactory implements ShapeCreator {
-    private static final Map<Integer, Function<List<Point>, Shape>> FUNCTION_MAP = new HashMap<>();
+public class ShapeFactory {
+    private static final Map<Integer, ShapeCreator> FUNCTION_MAP = new HashMap<>();
 
     static {
         FUNCTION_MAP.put(2, Line::new);
@@ -14,11 +12,10 @@ public class ShapeFactory implements ShapeCreator {
         FUNCTION_MAP.put(4, Rectangle::new);
     }
 
-    @Override
-    public Shape create(final List<Point> points) {
+    public Shape create(final Points points) {
         Shape shape;
         try {
-            shape = FUNCTION_MAP.get(points.size()).apply(points);
+            shape = FUNCTION_MAP.get(points.size()).create(points);
         } catch (NullPointerException e) {
             throw new IllegalArgumentException("올바른 점의 갯수를 입력해 주세요");
         }

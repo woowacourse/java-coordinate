@@ -1,6 +1,7 @@
 package coordinate.view;
 
 import coordinate.domain.Point;
+import coordinate.domain.Points;
 import coordinate.domain.Shape;
 
 import java.util.ArrayList;
@@ -20,13 +21,13 @@ public class OutputView {
     private static final String X_AXIS_LINE = "---";
 
 
-    public static void printCoordinate(List<Point> points) {
+    public static void printCoordinate(Points points) {
         printPoints(points);
         printXAxis();
     }
 
-    private static void printPoints(List<Point> points) {
-        List<Point> sortedPoints = sortPoints(points);
+    private static void printPoints(Points points) {
+        List<Point> sortedPoints = sortPoints(points.getPoints());
         for (int y = MAX_Y - 1; y >= 1; y--) {
             String line = getLine(y, sortedPoints);
             System.out.println(line);

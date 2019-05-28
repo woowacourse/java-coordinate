@@ -4,14 +4,15 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PointFactory {
+public class PointsFactory {
     private static final Pattern PATTERN = Pattern.compile("[(]([\\d]*)[,]([\\d]*)[)]");
     private static final String DELIMITER = "-";
 
-    public static List<Point> create(String consoleInput) {
+    public static Points create(String consoleInput) {
         List<String> inputs = Arrays.asList(consoleInput.split(DELIMITER));
         validateDuplication(inputs);
-        return getPoints(inputs);
+        List<Point> points = getPoints(inputs);
+        return new Points(points);
     }
 
     private static void validateDuplication(List<String> inputs) {

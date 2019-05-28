@@ -1,9 +1,6 @@
 package coordinate;
 
-import coordinate.domain.Point;
-import coordinate.domain.PointFactory;
-import coordinate.domain.Shape;
-import coordinate.domain.ShapeFactory;
+import coordinate.domain.*;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
@@ -23,7 +20,7 @@ public class CoordinateApp {
 
     private static void start() {
         String consoleInput = InputView.inputCoordinate();
-        List<Point> points = PointFactory.create(consoleInput);
+        Points points = PointsFactory.create(consoleInput);
         Shape shape = shapeFactory.create(points);
         OutputView.printCoordinate(points);
         OutputView.printArea(shape);

@@ -5,7 +5,7 @@ import java.util.*;
 public class Rectangle extends Shape implements Figure {
     private static final int EVEN = 2;
 
-    public Rectangle(final List<Point> points) {
+    public Rectangle(final Points points) {
         super(points);
         validateRectangle();
     }

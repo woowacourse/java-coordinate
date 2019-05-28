@@ -19,7 +19,7 @@ public class RectangleTest {
                 new Point(10, 19)
         );
         assertThrows(IllegalArgumentException.class, () -> {
-            new Rectangle(points);
+            new Rectangle(new Points(points));
         });
     }
 
@@ -31,7 +31,7 @@ public class RectangleTest {
                 new Point(22, 18),
                 new Point(10, 18)
         );
-        Rectangle rectangle = new Rectangle(points);
+        Rectangle rectangle = new Rectangle(new Points(points));
         assertThat(rectangle.area()).isEqualTo(96, Offset.offset(0.0099));
     }
 }

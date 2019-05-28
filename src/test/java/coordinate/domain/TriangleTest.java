@@ -17,7 +17,7 @@ class TriangleTest {
                 new Point(14, 15),
                 new Point(20, 8)
         );
-        Triangle triangle = new Triangle(points);
+        Triangle triangle = new Triangle(new Points(points));
         assertThat(triangle.area()).isEqualTo(29, Offset.offset(0.0099));
     }
 
@@ -29,7 +29,7 @@ class TriangleTest {
                 new Point(14, 10)
         );
         assertThrows(IllegalArgumentException.class, () -> {
-            new Triangle(points);
+            new Triangle(new Points(points));
         });
     }
 }

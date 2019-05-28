@@ -1,10 +1,17 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public class Line extends Shape {
-    public Line(final List<Point> points) {
+    private static final int LINE_POINT = 2;
+
+    public Line(final Points points) {
         super(points);
+        validate(points);
+    }
+
+    private void validate(Points points) {
+        if (points.size() != LINE_POINT) {
+            throw new IllegalArgumentException("선의 점의 갯수는 2개 입니다.");
+        }
     }
 
     @Override

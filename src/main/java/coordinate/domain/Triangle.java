@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Triangle extends Shape implements Figure {
-    public Triangle(final List<Point> points) {
+    public Triangle(final Points points) {
         super(points);
         validate();
     }
