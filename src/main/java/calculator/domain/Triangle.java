@@ -9,7 +9,7 @@ import java.util.Objects;
  * @author heebg
  * @version 1.0 2019-05-23
  */
-public class Triangle extends Figure {
+public class Triangle extends AbstractFigure {
     private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
 
     private final Coordinates coordinates;

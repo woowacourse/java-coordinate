@@ -20,7 +20,7 @@ public class UserInputView {
     private static final String EMPTY = "";
     private static final String COMMA = ",";
 
-    public static Figure generaValidatedFigure() {
+    public static AbstractFigure generaValidatedFigure() {
         try {
             System.out.println(INPUT_MESSAGE);
             String inputText = inputByUser();
@@ -53,10 +53,10 @@ public class UserInputView {
         }
     }
 
-    private static Figure generateFigure(String inputText) {
+    private static AbstractFigure generateFigure(String inputText) {
         Coordinates coordinates = generateCoordinates(inputText);
-        Figure figure = new FigureFactory().create(coordinates);
-        return figure;
+        AbstractFigure abstractFigure = new FigureFactory().create(coordinates);
+        return abstractFigure;
     }
 
     private static Coordinates generateCoordinates(String inputText) {

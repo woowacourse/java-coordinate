@@ -4,7 +4,7 @@ package calculator.domain;
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class Line extends Figure {
+public class Line extends AbstractFigure {
     private final Coordinates coordinates;
 
     public Line(Coordinates coordinates) {

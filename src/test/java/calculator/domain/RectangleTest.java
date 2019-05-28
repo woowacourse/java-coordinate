@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class RectangleTest {
 
-    Figure rectangle;
+    AbstractFigure rectangle;
     Coordinates coordinates;
 
     @BeforeEach

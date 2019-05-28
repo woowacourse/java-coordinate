@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class TriangleTest {
 
-    Figure triangle;
+    AbstractFigure triangle;
     Coordinates coordinates;
 
     @BeforeEach

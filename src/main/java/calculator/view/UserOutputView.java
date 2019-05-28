@@ -65,13 +65,13 @@ public class UserOutputView {
         return bottomLine.toString();
     }
 
-    public static void outputCalculatedResult(Figure figure) {
+    public static void outputCalculatedResult(AbstractFigure abstractFigure) {
         StringBuilder calculatedResult = new StringBuilder();
-        calculatedResult.append(figure.getName());
+        calculatedResult.append(abstractFigure.getName());
         calculatedResult.append(SINGLE_BLANK);
-        calculatedResult.append(figure.getCalculateTarget());
+        calculatedResult.append(abstractFigure.getCalculateTarget());
         calculatedResult.append(IS_MESSAGE);
-        calculatedResult.append(figure.area());
+        calculatedResult.append(abstractFigure.area());
 
         System.out.println(calculatedResult.toString());
     }

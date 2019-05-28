@@ -10,10 +10,10 @@ import calculator.view.UserOutputView;
  */
 public class Main {
     public static void main(String[] args) {
-        Figure figure = UserInputView.generaValidatedFigure();
-        Canvas canvas = new Canvas().plotCoordinate(figure);
+        AbstractFigure abstractFigure = UserInputView.generaValidatedFigure();
+        Canvas canvas = new Canvas().plotCoordinate(abstractFigure);
 
         UserOutputView.outputCanvas(canvas);
-        UserOutputView.outputCalculatedResult(figure);
+        UserOutputView.outputCalculatedResult(abstractFigure);
     }
 }

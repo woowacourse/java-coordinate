@@ -6,7 +6,7 @@ import java.util.*;
  * @author heebg
  * @version 1.0 2019-05-23
  */
-public class Rectangle extends Figure {
+public class Rectangle extends AbstractFigure {
     private static final String EX_NOT_RECTANGLE_MESSAGE = "x축, y축과 평행한 직사각형이 아닙니다.";
     private final Coordinates coordinates;
 
