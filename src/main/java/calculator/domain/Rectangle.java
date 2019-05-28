@@ -8,10 +8,12 @@ import java.util.*;
  */
 public class Rectangle extends AbstractFigure {
     private static final String EX_NOT_RECTANGLE_MESSAGE = "x축, y축과 평행한 직사각형이 아닙니다.";
+    private final FigureType figureType;
     private final Coordinates coordinates;
 
-    public Rectangle(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public Rectangle(FigureType figureType) {
+        this.figureType = figureType;
+        this.coordinates = figureType.getCoordinates();
         checkFigureCondition();
     }
 
@@ -27,7 +29,7 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public String getName() {
-        return "사각형";
+        return figureType.getType();
     }
 
     @Override

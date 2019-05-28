@@ -5,10 +5,12 @@ package calculator.domain;
  * @version 1.0 2019-05-22
  */
 public class Line extends AbstractFigure {
+    private final FigureType figureType;
     private final Coordinates coordinates;
 
-    public Line(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public Line(FigureType figureType) {
+        this.figureType = figureType;
+        this.coordinates = figureType.getCoordinates();
     }
 
     @Override
@@ -18,7 +20,7 @@ public class Line extends AbstractFigure {
 
     @Override
     public String getName() {
-        return "직선";
+        return figureType.getType();
     }
 
     @Override

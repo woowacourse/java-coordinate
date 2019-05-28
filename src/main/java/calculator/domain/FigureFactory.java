@@ -9,7 +9,7 @@ import java.util.function.Function;
  * @version 1.0 2019-05-22
  */
 public class FigureFactory {
-    private static final Map<FigureType, Function<Coordinates, AbstractFigure>> figureCreate;
+    private static final Map<FigureType, Function<FigureType, AbstractFigure>> figureCreate;
 
     static {
         figureCreate = new HashMap<>();
@@ -19,6 +19,6 @@ public class FigureFactory {
     }
 
     public AbstractFigure create(FigureType figureType) {
-        return figureCreate.get(figureType).apply(figureType.getCoordinates());
+        return figureCreate.get(figureType).apply(figureType);
     }
 }

@@ -11,18 +11,19 @@ import java.util.Objects;
  */
 public class Triangle extends AbstractFigure {
     private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
-
+    private final FigureType figureType;
     private final Coordinates coordinates;
 
-    public Triangle(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public Triangle(FigureType figureType) {
+        this.figureType = figureType;
+        this.coordinates = figureType.getCoordinates();
         checkFigureCondition();
     }
 
 
     @Override
     public String getName() {
-        return "삼각형";
+        return figureType.getType();
     }
 
     @Override
