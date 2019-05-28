@@ -10,12 +10,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class FigureFactoryTest {
-	FigureFactory figureFactory;
+	PolygonFigureFactory figureFactory;
 	List<Point> points;
 
 	@BeforeEach
 	public void setUp() {
-		figureFactory = FigureFactory.getInstance();
+		figureFactory = PolygonFigureFactory.getInstance();
 	}
 
 	@Test
@@ -25,7 +25,7 @@ class FigureFactoryTest {
 				Point.of(2, 2),
 				Point.of(1, 2),
 				Point.of(2, 1));
-		Figure figure = FigureFactory.getInstance().create(points);
+		Figure figure = PolygonFigureFactory.getInstance().create(points);
 		assertThat(figure.getArea()).isEqualTo(1.0, offset(0.00099));
 	}
 
@@ -37,7 +37,7 @@ class FigureFactoryTest {
 				Point.of(22, 22),
 				Point.of(24, 22));
 
-		Figure figure = FigureFactory.getInstance().create(points);
+		Figure figure = PolygonFigureFactory.getInstance().create(points);
 		assertThat(figure.getArea()).isEqualTo(4.0, offset(0.0099));
 
 	}
@@ -50,7 +50,7 @@ class FigureFactoryTest {
 				Point.of(4, 2),
 				Point.of(4, 0));
 
-		Figure figure = FigureFactory.getInstance().create(points);
+		Figure figure = PolygonFigureFactory.getInstance().create(points);
 		assertThat(figure.getArea()).isEqualTo(8.0, offset(0.0099));
 	}
 
@@ -62,7 +62,7 @@ class FigureFactoryTest {
 				Point.of(4, 2),
 				Point.of(4, 1));
 
-		Figure figure = FigureFactory.getInstance().create(points);
+		Figure figure = PolygonFigureFactory.getInstance().create(points);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
 			assertThat(figure.getArea()).isEqualTo(8.0, offset(0.0099));
 		});
@@ -103,7 +103,7 @@ class FigureFactoryTest {
 		points = Arrays.asList(
 				Point.of(1, 1)
 		);
-		Figure figure = FigureFactory.getInstance().create(points);
+		Figure figure = PolygonFigureFactory.getInstance().create(points);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
 			figure.getArea();
 		});
@@ -119,7 +119,7 @@ class FigureFactoryTest {
 				Point.of(3, 3)
 		);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			FigureFactory.getInstance().create(points);
+			PolygonFigureFactory.getInstance().create(points);
 		});
 	}
 
@@ -131,7 +131,7 @@ class FigureFactoryTest {
 				Point.of(1, 1)
 		);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			FigureFactory.getInstance().create(points);
+			PolygonFigureFactory.getInstance().create(points);
 		});
 	}
 }

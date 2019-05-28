@@ -1,12 +1,12 @@
 package coordinate;
 
-import coordinate.domain.FigureFactory;
+import coordinate.domain.PolygonFigureFactory;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
 public class Main {
 	public static void main(String[] args) {
-		Factory factory = FigureFactory.getInstance();
+		FigureFactory factory = PolygonFigureFactory.getInstance();
 		Figure figure = factory.create(InputView.inputPoints());
 		OutputView.showGraph(figure);
 		System.out.println();

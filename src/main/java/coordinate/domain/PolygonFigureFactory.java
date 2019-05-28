@@ -1,13 +1,12 @@
 package coordinate.domain;
 
-import coordinate.Factory;
 import coordinate.Figure;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FigureFactory implements Factory {
+public class PolygonFigureFactory implements coordinate.FigureFactory {
     private static final Map<Integer, FigureCreator> FIGURE_CREATORS;
 
     static {
@@ -18,15 +17,15 @@ public class FigureFactory implements Factory {
         FIGURE_CREATORS.put(Integer.valueOf(4), new SquareCreator());
     }
 
-    private FigureFactory() {
+    private PolygonFigureFactory() {
     }
 
-    public static FigureFactory getInstance() {
+    public static PolygonFigureFactory getInstance() {
         return SingleTon.SINGLETON_INSTANCE;
     }
 
     private static class SingleTon {
-        private static final FigureFactory SINGLETON_INSTANCE = new FigureFactory();
+        private static final PolygonFigureFactory SINGLETON_INSTANCE = new PolygonFigureFactory();
     }
 
     @Override
