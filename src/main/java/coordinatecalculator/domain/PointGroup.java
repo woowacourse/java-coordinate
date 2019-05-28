@@ -1,13 +1,10 @@
 package coordinatecalculator.domain;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class InputVerification {
+public class PointGroup {
     private static final String DELIMITER = "-";
     private static final int POINT_X = 1;
     private static final int POINT_Y = 2;
@@ -18,14 +15,17 @@ public class InputVerification {
 
     private static Pattern pattern = Pattern.compile("\\((.*),(.*)\\)");
 
-    public static List<Point> getValidPoints(String input) {
-        List<Point> points = new ArrayList<>();
+    private List<Point> points;
+
+    public PointGroup(String input) {
+        List<Point> unprocessedPoints = new ArrayList<>();
 
         isEmpty(input);
-        fillPoints(input, points);
-        checkDuplicatePoints(points);
+        fillUnverifiedPoints(input, unprocessedPoints);
+        checkDuplicatePoints(unprocessedPoints);
+        Collections.sort(unprocessedPoints);
 
-        return points;
+        this.points = unprocessedPoints;
     }
 
     private static void isEmpty(String input) {
@@ -34,7 +34,7 @@ public class InputVerification {
         }
     }
 
-    private static void fillPoints(String input, List<Point> points) {
+    private static void fillUnverifiedPoints(String input, List<Point> points) {
         String[] separatedPoints = input.split(DELIMITER);
         for (String separatedPoint : separatedPoints) {
             points.add(makePoint(separatedPoint));
@@ -76,5 +76,22 @@ public class InputVerification {
     private static boolean isDuplicatePoints(final List<Point> points) {
         Set<Point> uniquePoints = new HashSet<>(points);
         return uniquePoints.size() != points.size();
+    }
+
+    List<Point> getPoints() {
+        return this.points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final PointGroup that = (PointGroup) o;
+        return Objects.equals(points, that.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }

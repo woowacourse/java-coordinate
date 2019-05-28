@@ -10,13 +10,6 @@ import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PointTest {
-    static Point zero_zero = Point.of(0, 0);
-    static Point zero_one = Point.of(0, 1);
-    static Point one_zero = Point.of(1, 0);
-    static Point one_one = Point.of(1, 1);
-    static List<Point> line = Arrays.asList(zero_zero, one_one);
-    static List<Point> triangle = Arrays.asList(zero_zero, zero_one, one_zero);
-    static List<Point> rectangle = Arrays.asList(zero_zero, zero_one, one_zero, one_one);
 
     @Test
     void 좌표_입력범위() {
@@ -36,6 +29,8 @@ class PointTest {
 
     @Test
     void 길이() {
+        Point zero_zero = Point.of(0, 0);
+        Point one_one = Point.of(1, 1);
         assertThat(one_one.getDistance(zero_zero)).isEqualTo(1.414, offset(0.001));
     }
 }

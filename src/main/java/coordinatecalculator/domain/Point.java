@@ -8,7 +8,6 @@ public class Point implements Comparable<Point> {
     private static final int SQUARE_VALUE = 2;
     private static final int LIMIT_MINIMUM_NUM = 0;
     private static final int LIMIT_MAXIMUM_NUM = 24;
-    private static final double STRAIGHT_ANGLE = 180;
     private static final String ERROR_OUT_RANGE_COORDINATE = "입력된 좌표 범위가 올바르지 않습니다.";
     private static final int DOUBLE = 2;
     private static final int TRUE = 1;
@@ -54,7 +53,7 @@ public class Point implements Comparable<Point> {
         double c = sqrt(square(point2.x - point3.x) + square(point2.y - point3.y));
 
         double Angle = acos((square(b) + square(c) - square(a)) / (DOUBLE * b * c));
-        return Angle * STRAIGHT_ANGLE / PI;
+        return Angle * FigureConstant.STRAIGHT_ANGLE / PI;
     }
 
     @Override

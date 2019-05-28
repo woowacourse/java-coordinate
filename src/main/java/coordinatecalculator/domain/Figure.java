@@ -8,6 +8,4 @@ public interface Figure {
     List<Point> getPoints();
 
     String getName();
-
-    int size();
 }

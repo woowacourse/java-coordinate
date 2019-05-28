@@ -2,21 +2,13 @@ package coordinatecalculator.controller;
 
 import coordinatecalculator.domain.Figure;
 import coordinatecalculator.domain.FigureFactory;
-import coordinatecalculator.domain.InputVerification;
-import coordinatecalculator.domain.Point;
+import coordinatecalculator.domain.PointGroup;
 import coordinatecalculator.view.InputView;
 import coordinatecalculator.view.outputview.OutputView;
 
-import java.util.List;
-
 public class CoordinateCalculatorManager {
     public void run() {
-        FigureFactory figureFactory = new FigureFactory();
-        Figure figure = figureFactory.create(getValidPoints());
+        Figure figure = FigureFactory.create(new PointGroup(InputView.inputPoints()));
         OutputView.printResult(figure);
-    }
-
-    private List<Point> getValidPoints() {
-        return InputVerification.getValidPoints(InputView.inputPoints());
     }
 }

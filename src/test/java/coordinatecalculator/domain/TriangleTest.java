@@ -12,8 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class TriangleTest {
     @Test
     void 좌표가_한_줄에_있는_경우() {
-        List<Point> points = new ArrayList<>(PointTest.triangle);
-        points.set(2, Point.of(0, 2));
+        PointGroup points = new PointGroup("(0,0)-(1,1)-(2,2)");
 
         assertThrows(IllegalArgumentException.class, () -> {
             new Triangle(points);
@@ -22,7 +21,7 @@ class TriangleTest {
 
     @Test
     void 넓이() {
-        AbstractFigure triangle = new Triangle(PointTest.triangle);
+        AbstractFigure triangle = new Triangle(PointGroupTest.triangle);
         assertThat(triangle.area()).isEqualTo(0.5, offset(0.001));
     }
 }

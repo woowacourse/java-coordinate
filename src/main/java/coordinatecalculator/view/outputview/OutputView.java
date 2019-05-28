@@ -2,6 +2,7 @@ package coordinatecalculator.view.outputview;
 
 import coordinatecalculator.domain.Figure;
 import coordinatecalculator.domain.Line;
+import coordinatecalculator.domain.PointGroup;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class OutputView {
         messageBox.put(TRIANGLE_SIZE, OutputView::getArea);
         messageBox.put(RECTANGLE_SIZE, OutputView::getArea);
 
-        System.out.println(messageBox.get(figure.size()).apply(figure));
+        System.out.println(messageBox.get(figure.getPoints().size()).apply(figure));
     }
 
     private static String getLineLength(Figure figure) {
