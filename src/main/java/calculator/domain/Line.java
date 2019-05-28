@@ -14,6 +14,16 @@ public class Line extends Figure {
 
     @Override
     public double area() {
-        return straight(coordinates.get(0), coordinates.get(1));
+        return coordinates.get(0).straight(coordinates.get(1));
+    }
+
+    @Override
+    void checkFigureCondition() {
+        // 값이 같을 경우
+    }
+
+    @Override
+    Coordinates getCoordinates() {
+        return coordinates;
     }
 }

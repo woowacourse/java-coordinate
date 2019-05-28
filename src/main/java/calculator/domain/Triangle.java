@@ -1,5 +1,8 @@
 package calculator.domain;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -7,19 +10,40 @@ import java.util.Objects;
  * @version 1.0 2019-05-23
  */
 public class Triangle extends Figure {
+    private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
 
     private final Coordinates coordinates;
 
     public Triangle(Coordinates coordinates) {
         super("삼각형", "넓이");
         this.coordinates = coordinates;
+        checkFigureCondition();
+    }
+
+
+    @Override
+    void checkFigureCondition() {
+        int TRI_LONGEST_SIDE = 2;
+        int TRI_OTHER_SIDE = 1;
+        int TRI_ANOTHER_SIDE = 0;
+
+        List<Double> lengths = Arrays.asList(coordinates.get(0).straight(coordinates.get(1)),
+                coordinates.get(1).straight(coordinates.get(2)),
+                coordinates.get(0).straight(coordinates.get(2)));
+        Collections.sort(lengths);
+        checkNotFigure(lengths.get(TRI_LONGEST_SIDE) >= lengths.get(TRI_OTHER_SIDE) + lengths.get(TRI_ANOTHER_SIDE), EX_NOT_TRIANGLE_MESSAGE);
+    }
+
+    @Override
+    Coordinates getCoordinates() {
+        return coordinates;
     }
 
     @Override
     public double area() {
-        double powerLengthA = Math.pow(straight(coordinates.get(0), coordinates.get(1)), 2);
-        double powerLengthB = Math.pow(straight(coordinates.get(1), coordinates.get(2)), 2);
-        double powerLengthC = Math.pow(straight(coordinates.get(0), coordinates.get(2)), 2);
+        double powerLengthA = Math.pow(coordinates.get(0).straight(coordinates.get(1)), 2);
+        double powerLengthB = Math.pow(coordinates.get(1).straight(coordinates.get(2)), 2);
+        double powerLengthC = Math.pow(coordinates.get(0).straight(coordinates.get(2)), 2);
         return Math.sqrt(4 * powerLengthA * powerLengthB - Math.pow(powerLengthA + powerLengthB - powerLengthC, 2)) / 4;
     }
 
@@ -35,5 +59,4 @@ public class Triangle extends Figure {
     public int hashCode() {
         return Objects.hash(coordinates);
     }
-
 }

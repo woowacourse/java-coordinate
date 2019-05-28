@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author heebg
@@ -27,6 +28,17 @@ public class TriangleTest {
     @Test
     void create_생성_확인() {
         assertThat(triangle).isEqualTo(new FigureFactory().create(coordinates));
+    }
+
+    @Test
+    void create_일직선_예외_확인() {
+        Coordinates exCoordinates = new Coordinates();
+        exCoordinates.add(new Coordinate(0,0));
+        exCoordinates.add(new Coordinate(1,1));
+        exCoordinates.add(new Coordinate(2,2));
+        assertThrows(Exception.class, () -> {
+            new FigureFactory().create(exCoordinates);
+        });
     }
 
     @Test

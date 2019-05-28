@@ -10,14 +10,9 @@ import calculator.view.UserOutputView;
  */
 public class Main {
     public static void main(String[] args) {
-        Coordinates coordinates = UserInputView.generaValidatedCoordinates();
-        GraphMap graphMap = new GraphMap();
+        Figure figure = UserInputView.generaValidatedFigure();
+        GraphMap graphMap = new GraphMap().plotCoordinate(figure);
 
-        for (Coordinate coordinate : coordinates) {
-            graphMap.plotCoordinate(coordinate);
-        }
-
-        Figure figure = new FigureFactory().create(coordinates);
         UserOutputView.outputMap(graphMap);
         UserOutputView.outputCalculatedResult(figure);
     }

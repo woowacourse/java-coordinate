@@ -28,4 +28,13 @@ class FigureFactoryTest {
             new FigureFactory().create(new Coordinates());
         });
     }
+
+    @Test
+    void create_4각형_초과_예외_확인() {
+        coordinates.add(new Coordinate(20,10));
+        coordinates.add(new Coordinate(2,1));
+        assertThrows(Exception.class, () -> {
+            new FigureFactory().create(coordinates);
+        });
+    }
 }

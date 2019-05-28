@@ -18,8 +18,19 @@ public class GraphMap implements Iterable<GraphMapLine> {
         }
     }
 
+    public GraphMap(List<GraphMapLine> graphMap) {
+        this.graphMap = graphMap;
+    }
+
     public void plotCoordinate(Coordinate coordinate) {
         graphMap.get(coordinate.getY()).plotX(coordinate.getX());
+    }
+
+    public GraphMap plotCoordinate(Figure figure) {
+        for (Coordinate coordinate : figure.getCoordinates()) {
+            graphMap.get(coordinate.getY()).plotX(coordinate.getX());
+        }
+        return new GraphMap(graphMap);
     }
 
     public boolean isPlottedCoordinate(Coordinate coordinate) {
@@ -51,5 +62,4 @@ public class GraphMap implements Iterable<GraphMapLine> {
     public Iterator<GraphMapLine> iterator() {
         return graphMap.iterator();
     }
-
 }

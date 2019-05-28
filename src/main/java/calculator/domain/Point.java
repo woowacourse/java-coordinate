@@ -16,4 +16,14 @@ public class Point extends Figure {
     public double area() {
         return 0;
     }
+
+    @Override
+    void checkFigureCondition() {
+
+    }
+
+    @Override
+    Coordinates getCoordinates() {
+        return coordinates;
+    }
 }

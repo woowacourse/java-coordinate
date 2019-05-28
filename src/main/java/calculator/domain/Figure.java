@@ -4,7 +4,7 @@ package calculator.domain;
  * @author heebg
  * @version 1.0 2019-05-23
  */
-public abstract class Figure implements Calculate{
+public abstract class Figure implements Calculate {
 
     private String name;
     private String calculateTarget;
@@ -22,8 +22,13 @@ public abstract class Figure implements Calculate{
         return calculateTarget;
     }
 
-    @Override
-    public double straight(Coordinate a, Coordinate b) {
-        return Math.sqrt(Math.pow(a.getX()-b.getX(),2) + Math.pow(a.getY() - b.getY(),2));
+    public void checkNotFigure(boolean state, String message) {
+        if (state) {
+            throw new IllegalArgumentException(message);
+        }
     }
+
+    abstract void checkFigureCondition();
+
+    abstract Coordinates getCoordinates();
 }

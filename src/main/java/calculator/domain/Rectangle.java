@@ -7,12 +7,13 @@ import java.util.*;
  * @version 1.0 2019-05-23
  */
 public class Rectangle extends Figure {
-
+    private static final String EX_NOT_RECTANGLE_MESSAGE = "x축, y축과 평행한 직사각형이 아닙니다.";
     private final Coordinates coordinates;
 
     public Rectangle(Coordinates coordinates) {
         super("사각형", "넓이");
         this.coordinates = coordinates;
+        checkFigureCondition();
     }
 
     public double straight(Set<Integer> axisCoordinates) {
@@ -23,6 +24,24 @@ public class Rectangle extends Figure {
         }
 
         return Math.abs(coordinates.get(0) - coordinates.get(1));
+    }
+
+    @Override
+    void checkFigureCondition() {
+        Set<Integer> xCoordinates = new HashSet<>();
+        Set<Integer> yCoordinates = new HashSet<>();
+
+        for (Coordinate coordinate : coordinates) {
+            xCoordinates.add(coordinate.getX());
+            yCoordinates.add(coordinate.getY());
+        }
+
+        checkNotFigure(!(xCoordinates.size() == 2 && yCoordinates.size() == 2), EX_NOT_RECTANGLE_MESSAGE);
+    }
+
+    @Override
+    Coordinates getCoordinates() {
+        return coordinates;
     }
 
     @Override

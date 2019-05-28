@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author heebg
@@ -28,6 +29,19 @@ public class RectangleTest {
     @Test
     void create_생성_확인() {
         assertThat(rectangle).isEqualTo(new FigureFactory().create(coordinates));
+    }
+
+    @Test
+    void create_직사각형_예외_확인() {
+        Coordinates coordinatesException = new Coordinates();
+        coordinatesException.add(new Coordinate(10,20));
+        coordinatesException.add(new Coordinate(10,10));
+        coordinatesException.add(new Coordinate(0,10));
+        coordinatesException.add(new Coordinate(1,10));
+
+        assertThrows(Exception.class, () -> {
+            new FigureFactory().create(coordinatesException);
+        });
     }
 
     @Test

@@ -20,15 +20,15 @@ public class UserInputView {
     private static final String EMPTY = "";
     private static final String COMMA = ",";
 
-    public static Coordinates generaValidatedCoordinates() {
+    public static Figure generaValidatedFigure() {
         try {
             System.out.println(INPUT_MESSAGE);
-            String inputText = UserInputView.inputByUser();
-            UserInputView.checkFormat(inputText);
-            return generateCoordinates(inputText);
+            String inputText = inputByUser();
+            checkFormat(inputText);
+            return generateFigure(inputText);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return generaValidatedCoordinates();
+            return generaValidatedFigure();
         }
     }
 
@@ -51,6 +51,12 @@ public class UserInputView {
         if (!formatMatcher.find()) {
             throw new IllegalArgumentException(EX_FORMAT_PATTERN_MESSAGE);
         }
+    }
+
+    private static Figure generateFigure(String inputText) {
+        Coordinates coordinates = generateCoordinates(inputText);
+        Figure figure = new FigureFactory().create(coordinates);
+        return figure;
     }
 
     private static Coordinates generateCoordinates(String inputText) {
