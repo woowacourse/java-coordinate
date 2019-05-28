@@ -1,5 +1,6 @@
 package coordinatecalculator;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -85,15 +86,23 @@ public class Line extends Polygon {
                 .compare(this, another);
     }
 
+    //    @Override
+    //    public String toString() {
+    //        return this.getName()
+    //                + ": {start: "
+    //                + this.start.toString()
+    //                + ", end: "
+    //                + this.end.toString()
+    //                + ", length: "
+    //                + this.getLength() + "}";
+    //    }
+
     @Override
     public String toString() {
-        return this.getName()
-                + ": {start: "
-                + this.start.toString()
-                + ", end: "
-                + this.end.toString()
-                + ", length: "
-                + this.getLength() + "}";
+        DecimalFormat format = new DecimalFormat("0.###");
+        return "두 점 사이의 거리는 "
+                + format.format(getLength())
+                + "입니다.";
     }
 
     /* 선과 주어진 점을 비교하여, 주어진 점이 선의 위에 있는지

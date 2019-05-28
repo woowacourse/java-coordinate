@@ -1,5 +1,6 @@
 package coordinatecalculator;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,6 +17,14 @@ class Triangle extends Polygon {
     @Override
     public String getName() {
         return "Triangle";
+    }
+
+    @Override
+    public String toString() {
+        DecimalFormat format = new DecimalFormat("0.###");
+        return "삼각형의 넓이는 "
+                + format.format(area())
+                + "입니다.";
     }
 
     @Override

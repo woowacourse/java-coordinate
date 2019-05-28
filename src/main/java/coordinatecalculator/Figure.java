@@ -15,6 +15,8 @@ interface Figure {
 
     String getName();
 
+    String toString();
+
     List<Point> getPoints();
 
     int getPointsCount();

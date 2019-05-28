@@ -1,5 +1,6 @@
 package coordinatecalculator;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,6 +26,14 @@ class Rectangle extends Polygon {
     @Override
     public String getName() {
         return "Rectangle";
+    }
+
+    @Override
+    public String toString() {
+        DecimalFormat format = new DecimalFormat("0.###");
+        return "사각형의 넓이는 "
+                + format.format(area())
+                + "입니다.";
     }
 
     @Override
