@@ -4,9 +4,9 @@ public class Point {
     private final Coordinate x;
     private final Coordinate y;
 
-    public Point(final Coordinate x, final Coordinate y) {
-        this.x = x;
-        this.y = y;
+    public Point(final int x, final int y) {
+        this.x = Coordinate.valueOf(x);
+        this.y = Coordinate.valueOf(y);
     }
 
     public double getDistance(final Point point) {

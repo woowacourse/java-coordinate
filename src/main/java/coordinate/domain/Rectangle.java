@@ -11,11 +11,19 @@ public class Rectangle extends Shape implements Figure {
     }
 
     private void validate() {
-        List<Integer> sides = getSideSquares();
         Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> sides = getSideSquares();
+        groupSides(map, sides);
+        countSidePairs(map);
+    }
+
+    private void groupSides(Map<Integer, Integer> map, List<Integer> sides) {
         for (Integer side : sides) {
             map.put(side, map.getOrDefault(side, 0) + 1);
         }
+    }
+
+    private void countSidePairs(Map<Integer, Integer> map) {
         for (Integer value : map.values()) {
             isEven(value);
         }
