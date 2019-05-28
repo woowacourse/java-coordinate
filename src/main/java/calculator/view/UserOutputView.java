@@ -71,9 +71,13 @@ public class UserOutputView {
         calculatedResult.append(SINGLE_BLANK);
         calculatedResult.append(abstractFigure.getCalculateTarget());
         calculatedResult.append(IS_MESSAGE);
-        calculatedResult.append(abstractFigure.area());
+        calculatedResult.append(generateCalculateValue(abstractFigure));
 
         System.out.println(calculatedResult.toString());
+    }
+
+    private static double generateCalculateValue(AbstractFigure abstractFigure) {
+        return abstractFigure.calculateResult();
     }
 
 }

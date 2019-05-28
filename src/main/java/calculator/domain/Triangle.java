@@ -11,24 +11,12 @@ import java.util.Objects;
  */
 public class Triangle extends AbstractFigure {
     private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
-    private final FigureType figureType;
     private final Coordinates coordinates;
 
     public Triangle(FigureType figureType) {
-        this.figureType = figureType;
-        this.coordinates = figureType.getCoordinates();
+        super(figureType);
+        this.coordinates = getCoordinates();
         checkFigureCondition();
-    }
-
-
-    @Override
-    public String getName() {
-        return figureType.getType();
-    }
-
-    @Override
-    public String getCalculateTarget() {
-        return "넓이";
     }
 
     @Override
@@ -45,8 +33,8 @@ public class Triangle extends AbstractFigure {
     }
 
     @Override
-    Coordinates getCoordinates() {
-        return coordinates;
+    public double perimeter() {
+        return coordinates.get(0).straight(coordinates.get(1)) + coordinates.get(1).straight(coordinates.get(2)) + coordinates.get(0).straight(coordinates.get(2));
     }
 
     @Override

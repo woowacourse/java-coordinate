@@ -8,12 +8,11 @@ import java.util.*;
  */
 public class Rectangle extends AbstractFigure {
     private static final String EX_NOT_RECTANGLE_MESSAGE = "x축, y축과 평행한 직사각형이 아닙니다.";
-    private final FigureType figureType;
     private final Coordinates coordinates;
 
     public Rectangle(FigureType figureType) {
-        this.figureType = figureType;
-        this.coordinates = figureType.getCoordinates();
+        super(figureType);
+        this.coordinates = getCoordinates();
         checkFigureCondition();
     }
 
@@ -25,16 +24,6 @@ public class Rectangle extends AbstractFigure {
         }
 
         return Math.abs(coordinates.get(0) - coordinates.get(1));
-    }
-
-    @Override
-    public String getName() {
-        return figureType.getType();
-    }
-
-    @Override
-    public String getCalculateTarget() {
-        return "넓이";
     }
 
     @Override
@@ -51,8 +40,8 @@ public class Rectangle extends AbstractFigure {
     }
 
     @Override
-    Coordinates getCoordinates() {
-        return coordinates;
+    public double perimeter() {
+        return 0;
     }
 
     @Override

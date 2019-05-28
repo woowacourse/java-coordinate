@@ -20,6 +20,10 @@ public class Coordinates implements Iterable<Coordinate> {
         this.coordinates = new ArrayList<>();
     }
 
+    public Coordinates(List<Coordinate> coordinates) {
+        this.coordinates = new ArrayList<>(coordinates);
+    }
+
     /**
      * Coordinate 추가
      * <br> 중복된 Coordinate 추가 시 예외 발생
@@ -27,9 +31,10 @@ public class Coordinates implements Iterable<Coordinate> {
      * @param coordinate 추가할 Coordinate
      * @throws IllegalArgumentException
      */
-    public void add(Coordinate coordinate) {
+    public Coordinates add(Coordinate coordinate) {
         checkDuplication(coordinate);
         coordinates.add(coordinate);
+        return new Coordinates(coordinates);
     }
 
     private void checkDuplication(Coordinate coordinate) {
