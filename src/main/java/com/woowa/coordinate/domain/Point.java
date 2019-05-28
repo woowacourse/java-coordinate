@@ -25,6 +25,10 @@ public class Point {
         return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
     }
 
+    public Vector toVector() {
+        return new Vector(x.toDelta(), y.toDelta());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,27 +1,27 @@
 package com.woowa.coordinate.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class Square {
-    private final List<Point> points;
+    private final Points points;
 
-    public Square(List<Point> points) {
+    public Square(Points points) {
         if(points.size() != 4) {
             throw new IllegalArgumentException("사각형은 점 4개로 생성 가능 합니다.");
         }
-        // TODO: Valid Rectangle
+        if(isDotProductNonZero(points) || hasRightAngle(points))  {
+            throw new IllegalArgumentException("직사각형이 아닙니다.");
+        }
         this.points = points;
     }
 
+    private boolean hasRightAngle(Points points) {
+        return Vector.get(points, 0, 1).sum(Vector.get(points, 0, 2)).sum(points.get(0).toVector()).equals(points.get(3).toVector());
+    }
+
+    private boolean isDotProductNonZero(Points points) {
+        return Vector.get(points, 0, 3).dotProduct(Vector.get(points, 1, 2)) != 0;
+    }
+
     public double area() {
-        List<Double> lines = new ArrayList<>();
-        for (int i = 0; i < points.size(); i++) {
-            lines.add(points.get((i) % 4).distance(points.get((i + 1) % 4)));
-        }
-        double width = Collections.max(lines);
-        double height = Collections.min(lines);
-        return width * height;
+        return Vector.get(points, 0, 3).crossProduct(Vector.get(points, 1, 2));
     }
 }

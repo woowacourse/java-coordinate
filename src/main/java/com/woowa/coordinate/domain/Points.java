@@ -17,7 +17,6 @@ public class Points {
         points.sort((o1, o2) -> {
             double distance1 = criteria.distance(o1);
             double distance2 = criteria.distance(o2);
-
             return ((Comparable)distance1).compareTo(distance2);
         });
     }

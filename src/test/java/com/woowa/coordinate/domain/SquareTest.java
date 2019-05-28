@@ -11,12 +11,26 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class SquareTest {
     @Test
     void invalid_generate_square_empty_point() {
-        Point point1 = new Point(1, 1);
-        Point point2 = new Point(9, 1);
-        Point point3 = new Point(5, 2);
-        List<Point> points = Arrays.asList(point1, point2, point3);
+        List<Point> points = Arrays.asList(
+                new Point(1, 1),
+                new Point(9, 1),
+                new Point(5, 2)
+        );
         assertThrows(IllegalArgumentException.class, () -> {
-            new Square(points);
+            new Square(new Points(points));
+        });
+    }
+
+    @Test
+    void invalid_generate_square_not_rectangle() {
+        List<Point> points = Arrays.asList(
+                new Point(1, 1),
+                new Point(9, 1),
+                new Point(5, 2),
+                new Point(0, 2)
+        );
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Square(new Points(points));
         });
     }
 
@@ -27,6 +41,6 @@ public class SquareTest {
         Point leftUp = new Point(4, 3);
         Point rightUp = new Point(1, 3);
         List<Point> points = Arrays.asList(leftDown, rightDown, leftUp, rightUp);
-        assertThat(new Square(points).area()).isEqualTo(6);
+        assertThat(new Square(new Points(points)).area()).isEqualTo(6);
     }
 }

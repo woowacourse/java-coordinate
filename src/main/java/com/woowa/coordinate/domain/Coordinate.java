@@ -19,6 +19,10 @@ public class Coordinate {
         return this.coordinate - coordinate.coordinate;
     }
 
+    public Delta toDelta() {
+        return new Delta(coordinate);
+    }
+
     public int multiply(Coordinate coordinate) {
         return this.coordinate * coordinate.coordinate;
     }
