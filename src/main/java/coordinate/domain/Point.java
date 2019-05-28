@@ -3,43 +3,40 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    public static final int MIN_POINT = 0;
-    public static final int MAX_POINT = 24;
+    private static final double POW_NUM = 2.0;
 
-    private final Integer x;
-    private final Integer y;
+    private final PointElement x;
+    private final PointElement y;
 
     private Point(final Integer x, final Integer y) {
-        validate(x);
-        validate(y);
-        this.x = x;
-        this.y = y;
+        this.x = PointElement.of(x);
+        this.y = PointElement.of(y);
     }
 
     public static Point of(final Integer x, final Integer y) {
         return new Point(x, y);
     }
 
-    private void validate(final int x) {
-        if (x < MIN_POINT || x > MAX_POINT) {
-            throw new IllegalArgumentException("정상적인 좌표값을 입력하세요");
-        }
+    double getDistance(final Point other) {
+        int lengthOfX = this.minusX(other);
+        int lengthOfY = this.minusY(other);
+        return Math.sqrt(Math.pow(lengthOfX, POW_NUM) + Math.pow(lengthOfY, POW_NUM));
     }
 
-    public Integer getX() {
-        return this.x;
+    private int minusX(Point other) {
+        return this.x.minus(other.x);
     }
 
-    public Integer getY() {
-        return this.y;
+    private int minusY(Point other) {
+        return this.y.minus(other.y);
     }
 
-    public Boolean isSameX(Point other) {
-        return Objects.equals(this.x, other.x);
+    boolean isSameX(final Point other) {
+        return this.x.equals(other.x);
     }
 
-    public Boolean isSameY(Point other) {
-        return Objects.equals(this.y, other.y);
+    boolean isSameY(final Point other) {
+        return this.y.equals(other.y);
     }
 
     @Override
@@ -47,11 +44,16 @@ public class Point {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point other = (Point) o;
-        return (this.x == other.x) && (this.y == other.y);
+        return (this.x.equals(other.x) && this.y.equals(other.y));
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "Point" + "(" + x + "," + y + ")";
     }
 }

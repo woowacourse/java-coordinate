@@ -2,6 +2,7 @@ package coordinate.view;
 
 import coordinate.Figure;
 import coordinate.domain.Point;
+import coordinate.domain.PointElement;
 
 public class OutputView {
     private static final String LINES = "----";
@@ -9,8 +10,8 @@ public class OutputView {
     private static final String FORMAT_NUMBER = "3";
     private static final String STAR = "* ";
 
-    private static final int MAX_POINT = Point.MAX_POINT;
-    private static final int MIN_POINT = Point.MIN_POINT;
+    private static final int MAX_POINT = PointElement.MAX_POINT;
+    private static final int MIN_POINT = PointElement.MIN_POINT;
 
     private OutputView() {
     }

@@ -1,6 +1,5 @@
 package coordinate.domain;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
@@ -15,15 +14,15 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public Double getArea() {
-        Line lineA = Line.of(Arrays.asList(this.points.get(0), this.points.get(1)));
-        Line lineB = Line.of(Arrays.asList(this.points.get(1), this.points.get(2)));
-        Line lineC = Line.of(Arrays.asList(this.points.get(2), this.points.get(0)));
+        double lineA = getDistance(0, 1);
+        double lineB = getDistance(1, 2);
+        double lineC = getDistance(2, 0);
 
-        Double semiParameter = (lineA.getArea() + lineB.getArea() + lineC.getArea()) / Double.valueOf(2.0);
+        Double semiParameter = (lineA + lineB + lineC) / Double.valueOf(2.0);
 
         return Math.sqrt(semiParameter
-                * (semiParameter - lineA.getArea())
-                * (semiParameter - lineB.getArea()) * (semiParameter - lineC.getArea()));
+                * (semiParameter - lineA)
+                * (semiParameter - lineB) * (semiParameter - lineC));
     }
 
     @Override

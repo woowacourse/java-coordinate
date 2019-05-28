@@ -1,7 +1,6 @@
 package coordinate.domain;
 
 import coordinate.Figure;
-import coordinate.domain.Point;
 
 import java.util.List;
 
