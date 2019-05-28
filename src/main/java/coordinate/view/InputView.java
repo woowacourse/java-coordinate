@@ -1,10 +1,10 @@
 package coordinate.view;
 
 import coordinate.domain.Figure;
-import coordinate.domain.FigureFactory;
+import coordinate.domain.FigureEnum;
 import coordinate.domain.VerticesFactory;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class InputView {
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -13,7 +13,7 @@ public class InputView {
     public static Figure getFigure() {
         try {
             OutputView.printMessage(GET_COORDINATE_MESSAGE);
-            return FigureFactory.generate(VerticesFactory.makeVertices(getUserInput()));
+            return FigureEnum.figureOf(VerticesFactory.makeVertices(getUserInput()));
         } catch (IllegalArgumentException e) {
             OutputView.printMessage(e.getMessage());
             return getFigure();
