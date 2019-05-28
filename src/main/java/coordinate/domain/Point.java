@@ -10,9 +10,9 @@ public class Point {
     private final int y;
 
     public Point(final int x, final int y) {
+        validate();
         this.x = x;
         this.y = y;
-        validate();
     }
 
     private void validate() {
