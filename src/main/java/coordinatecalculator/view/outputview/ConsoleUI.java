@@ -1,7 +1,7 @@
 package coordinatecalculator.view.outputview;
 
-import coordinatecalculator.domain.Figure;
 import coordinatecalculator.domain.Point;
+import coordinatecalculator.domain.PointGroup;
 
 class ConsoleUI {
     private static final int LIMIT_MAX_COORDINATE = 24;
@@ -19,26 +19,24 @@ class ConsoleUI {
     private static final String X_BAR = "--";
     private static final String X_BAR_POINT = "-•";
     private static StringBuilder stringBuilder;
-    private static Figure figure;
 
-    static void printConsoleUI(Figure figure) {
-        ConsoleUI.figure = figure;
-        drawConsoleUI();
+    static void printConsoleUI(PointGroup pointGroup) {
+        drawConsoleUI(pointGroup);
         System.out.println(stringBuilder.toString());
     }
 
-    private static void drawConsoleUI() {
+    private static void drawConsoleUI(PointGroup pointGroup) {
         stringBuilder = new StringBuilder();
-        moveY();
+        moveY(pointGroup);
     }
 
-    private static void moveY() {
+    private static void moveY(PointGroup pointGroup) {
         for (int yCoordinate = LIMIT_MAX_COORDINATE; yCoordinate > LIMIT_MIN_COORDINATE; yCoordinate--) {
             stringBuilder.append(drawAxisY(yCoordinate));
-            moveX(yCoordinate);
+            moveX(yCoordinate, pointGroup);
             stringBuilder.append(NEXT_LINE);
         }
-        moveAxisX();
+        moveAxisX(pointGroup);
     }
 
     private static String drawAxisY(int lineNum) {
@@ -53,70 +51,66 @@ class ConsoleUI {
         return number % CONVERT_EVEN == ZERO;
     }
 
-    private static void moveX(int yCoordinate) {
+    private static void moveX(int yCoordinate, PointGroup pointGroup) {
         for (int xCoordinate = LIMIT_MIN_COORDINATE; xCoordinate <= LIMIT_MAX_COORDINATE; xCoordinate++) {
-            stringBuilder.append(getDrawnPoint(xCoordinate, yCoordinate));
+            stringBuilder.append(getDrawnPoint(xCoordinate, yCoordinate, pointGroup));
         }
     }
 
-    private static String getDrawnPoint(final int xCoordinate, final int yCoordinate) {
+    private static String getDrawnPoint(final int xCoordinate, final int yCoordinate, PointGroup pointGroup) {
         if (xCoordinate == ZERO) {
-            return drawPointAtXZero(yCoordinate);
+            return drawPointAtXZero(yCoordinate, pointGroup);
         }
 
-        return drawPoint(xCoordinate, yCoordinate);
+        return drawPoint(xCoordinate, yCoordinate, pointGroup);
     }
 
-    private static String drawPointAtXZero(final int yCoordinate) {
-        if (isContainsPoint(ZERO, yCoordinate)) {
+    private static String drawPointAtXZero(final int yCoordinate, PointGroup pointGroup) {
+        if (pointGroup.isContainsPoint(Point.of(ZERO, yCoordinate))) {
             return POINT;
         }
 
         return Y_BAR;
     }
 
-    private static boolean isContainsPoint(final int xCoordinate, final int yCoordinate) {
-        return figure.getPoints().contains(Point.of(xCoordinate, yCoordinate));
-    }
-
-    private static String drawPoint(int xCoordinate, int yCoordinate) {
-        if (isContainsPoint(xCoordinate, yCoordinate)) {
+    private static String drawPoint(int xCoordinate, int yCoordinate, PointGroup pointGroup) {
+        if (pointGroup.isContainsPoint(Point.of(xCoordinate, yCoordinate))) {
             return String.format(ALIGN_RIGHT_POINT, POINT);
         }
 
         return DOUBLE_SPACE;
     }
 
-    private static void moveAxisX() {
+    private static void moveAxisX(PointGroup pointGroup) {
         for (int xCoordinate = LIMIT_MIN_COORDINATE; xCoordinate <= LIMIT_MAX_COORDINATE; xCoordinate++) {
-            stringBuilder.append(drawAxisX(xCoordinate));
+            stringBuilder.append(drawAxisX(xCoordinate, pointGroup));
         }
         stringBuilder.append(NEXT_LINE);
         moveAxisXNum();
     }
 
-    private static String drawOrigin() {
-        if (isContainsPoint(ZERO, ZERO)) {
+    private static String drawOrigin(PointGroup pointGroup) {
+        if (pointGroup.isContainsPoint(Point.of(ZERO, ZERO))) {
             return POINT;
         }
 
         return ORIGIN_CHARACTER;
     }
 
-    private static String drawAxisX(final int xCoordinate) {
+    private static String drawAxisX(final int xCoordinate, PointGroup pointGroup) {
         if (xCoordinate == ZERO) {
-            return drawAtXZero();
+            return drawAtXZero(pointGroup);
         }
 
-        if (isContainsPoint(xCoordinate, ZERO)) {
+        if (pointGroup.isContainsPoint(Point.of(xCoordinate, ZERO))) {
             return X_BAR_POINT;
         }
 
         return X_BAR;
     }
 
-    private static String drawAtXZero() {
-        return DOUBLE_SPACE + drawOrigin();
+    private static String drawAtXZero(PointGroup pointGroup) {
+        return DOUBLE_SPACE + drawOrigin(pointGroup);
     }
 
     private static void moveAxisXNum() {

@@ -1,5 +1,6 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.view.inputview.PointParser;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,7 +11,7 @@ class FigureFactoryTest {
     @Test
     void 입력없음_NULL() {
         assertThrows(NullPointerException.class, () -> {
-            FigureFactory.create(new PointGroup(""));
+            FigureFactory.create(new PointGroup(PointParser.getValidPoints("")));
         });
     }
 
@@ -32,14 +33,14 @@ class FigureFactoryTest {
     @Test
     void 잘못된_입력_생성_X_1() {
         assertThrows(IllegalArgumentException.class, () -> {
-           FigureFactory.create(new PointGroup("(0,0)"));
+            FigureFactory.create(new PointGroup(PointParser.getValidPoints("(0,0)")));
         });
     }
 
     @Test
     void 잘못된_입력_생성_X_2() {
         assertThrows(IllegalArgumentException.class, () -> {
-            FigureFactory.create(new PointGroup("(0,0)-(0,1)-(1,0)-(1,1)-(1,2)"));
+            FigureFactory.create(new PointGroup(PointParser.getValidPoints("(0,0)-(0,1)-(1,0)-(1,1)-(1,2)")));
         });
     }
 }

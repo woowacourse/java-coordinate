@@ -1,18 +1,17 @@
 package coordinatecalculator.domain;
 
-public class Line extends AbstractFigure {
+public class Line implements Figure {
     private static final String LINE_NAME = "선";
     private static final int EMPTY = 0;
 
-    Line(final PointGroup points) {
-        super(points);
+    private PointGroup pointGroup;
+
+    Line(final PointGroup pointGroup) {
+        this.pointGroup = pointGroup;
     }
 
     public double getLength() {
-        Point startPoint = getPoint(FigureConstant.FIRST_POINT);
-        Point endPoint = getPoint(FigureConstant.SECOND_POINT);
-
-        return startPoint.getDistance(endPoint);
+        return pointGroup.getLength(FigureConstant.FIRST_POINT, FigureConstant.SECOND_POINT);
     }
 
     @Override

@@ -15,18 +15,18 @@ public class OutputView {
     private static final String LINE_MESSAGE = "두 점 사이 거리는 ";
     private static final String AREA_MESSAGE = "의 넓이는 ";
 
-    public static void printResult(Figure figure) {
-        ConsoleUI.printConsoleUI(figure);
-        printArea(figure);
+    public static void printResult(Figure figure, PointGroup pointGroup) {
+        ConsoleUI.printConsoleUI(pointGroup);
+        printArea(figure, pointGroup);
     }
 
-    private static void printArea(Figure figure) {
+    private static void printArea(Figure figure, PointGroup pointGroup) {
         Map<Integer, Function<Figure, String>> messageBox = new HashMap<>();
         messageBox.put(LINE_SIZE, OutputView::getLineLength);
         messageBox.put(TRIANGLE_SIZE, OutputView::getArea);
         messageBox.put(RECTANGLE_SIZE, OutputView::getArea);
 
-        System.out.println(messageBox.get(figure.getPoints().size()).apply(figure));
+        System.out.println(messageBox.get(pointGroup.getPointsCount()).apply(figure));
     }
 
     private static String getLineLength(Figure figure) {

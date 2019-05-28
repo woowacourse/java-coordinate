@@ -1,5 +1,6 @@
 package coordinatecalculator.domain;
 
+import coordinatecalculator.view.inputview.PointParser;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -29,8 +30,13 @@ class PointTest {
 
     @Test
     void 길이() {
-        Point zero_zero = Point.of(0, 0);
-        Point one_one = Point.of(1, 1);
-        assertThat(one_one.getDistance(zero_zero)).isEqualTo(1.414, offset(0.001));
+        assertThat(PointGroupTest.one_one.getDistance(PointGroupTest.zero_zero))
+                .isEqualTo(1.414, offset(0.001));
+    }
+
+    @Test
+    void 각도() {
+        double angle = PointGroupTest.one_zero.getAngle(PointGroupTest.zero_zero, PointGroupTest.zero_one);
+        assertThat(angle).isEqualTo(90, offset(0.001));
     }
 }

@@ -1,12 +1,14 @@
 package coordinatecalculator.domain;
 
-public class Triangle extends AbstractFigure {
+public class Triangle implements Figure {
     private static final String ERROR_THREE_POINTS_SAME_LINE = "입력한 좌표가 삼각형이 아닙니다.";
     private static final String TRIANGLE_NAME = "삼각형";
     private static final int HALF = 2;
 
-    public Triangle(final PointGroup points) {
-        super(points);
+    private PointGroup pointGroup;
+
+    public Triangle(final PointGroup pointGroup) {
+        this.pointGroup = pointGroup;
         checkValidTriangle();
     }
 
@@ -17,15 +19,11 @@ public class Triangle extends AbstractFigure {
     }
 
     private boolean isPointsSameLine() {
-        double firstAngle = getAngle(FigureConstant.SECOND_POINT, FigureConstant.THIRD_POINT);
-        double secondAngle = getAngle(FigureConstant.THIRD_POINT, FigureConstant.SECOND_POINT);
+        double firstAngle = pointGroup.getAngle(FigureConstant.FIRST_POINT, FigureConstant.SECOND_POINT, FigureConstant.THIRD_POINT);
+        double secondAngle = pointGroup.getAngle(FigureConstant.FIRST_POINT, FigureConstant.THIRD_POINT, FigureConstant.SECOND_POINT);
 
         return isZeroOrStraightAngle(firstAngle)
                 || isZeroOrStraightAngle(secondAngle);
-    }
-
-    private double getAngle(int secondPoint, int thirdPoint) {
-        return getPoint(FigureConstant.FIRST_POINT).getAngle(getPoint(secondPoint), getPoint(thirdPoint));
     }
 
     private boolean isZeroOrStraightAngle(final double angle) {
@@ -42,9 +40,9 @@ public class Triangle extends AbstractFigure {
      */
     @Override
     public double area() {
-        double a = getPoint(FigureConstant.FIRST_POINT).getDistance(getPoint(FigureConstant.SECOND_POINT));
-        double b = getPoint(FigureConstant.SECOND_POINT).getDistance(getPoint(FigureConstant.THIRD_POINT));
-        double c = getPoint(FigureConstant.THIRD_POINT).getDistance(getPoint(FigureConstant.FIRST_POINT));
+        double a = pointGroup.getLength(FigureConstant.FIRST_POINT, FigureConstant.SECOND_POINT);
+        double b = pointGroup.getLength(FigureConstant.SECOND_POINT, FigureConstant.THIRD_POINT);
+        double c = pointGroup.getLength(FigureConstant.THIRD_POINT, FigureConstant.FIRST_POINT);
         double s = (a + b + c) / HALF;
 
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));

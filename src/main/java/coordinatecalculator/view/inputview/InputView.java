@@ -1,4 +1,4 @@
-package coordinatecalculator.view;
+package coordinatecalculator.view.inputview;
 
 import java.util.Scanner;
 
