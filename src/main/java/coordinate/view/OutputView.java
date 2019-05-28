@@ -1,7 +1,7 @@
 package coordinate.view;
 
-import coordinate.domain.Graph;
-import coordinate.domain.Shape;
+import coordinate.domain.graph.Graph;
+import coordinate.domain.shape.Shape;
 
 public class OutputView {
     public static void printArea(Shape shape) {

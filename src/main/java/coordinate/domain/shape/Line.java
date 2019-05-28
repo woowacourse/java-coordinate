@@ -1,4 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.shape;
+
+import coordinate.domain.point.Point;
 
 import java.util.List;
 import java.util.Objects;

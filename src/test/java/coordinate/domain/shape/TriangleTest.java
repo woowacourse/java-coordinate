@@ -1,5 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.shape;
 
+import coordinate.domain.point.Point;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

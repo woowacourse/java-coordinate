@@ -1,4 +1,4 @@
-package coordinate.domain;
+package coordinate.domain.shape;
 
 public interface Shape {
     void validateShape();

@@ -1,4 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.shape;
+
+import coordinate.domain.point.Point;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +15,7 @@ public abstract class AbstractShape implements Shape {
         extractLinesFromPolygon(points);
     }
 
-    List<Double> getLines(){
+    List<Double> getLines() {
         return this.lines;
     }
 

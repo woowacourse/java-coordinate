@@ -1,6 +1,10 @@
 package coordinate;
 
-import coordinate.domain.*;
+import coordinate.domain.graph.Graph;
+import coordinate.domain.point.Point;
+import coordinate.domain.point.PointsGenerator;
+import coordinate.domain.shape.Shape;
+import coordinate.domain.shape.ShapeGenerator;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 

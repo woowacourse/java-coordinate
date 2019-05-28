@@ -1,4 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.shape;
+
+import coordinate.domain.point.Point;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,8 +14,8 @@ public class Triangle extends AbstractShape {
 
     public Triangle(List<Point> points) {
         super(points);
-        validateShape();
         lines = getLines();
+        validateShape();
     }
 
     @Override

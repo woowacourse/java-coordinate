@@ -1,4 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.graph;
+
+import coordinate.domain.point.Point;
 
 import java.util.ArrayList;
 import java.util.List;

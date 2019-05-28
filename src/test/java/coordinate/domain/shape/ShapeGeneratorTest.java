@@ -1,5 +1,11 @@
-package coordinate.domain;
+package coordinate.domain.shape;
 
+import coordinate.domain.point.Point;
+import coordinate.domain.point.PointsGenerator;
+import coordinate.domain.shape.Line;
+import coordinate.domain.shape.Rectangle;
+import coordinate.domain.shape.ShapeGenerator;
+import coordinate.domain.shape.Triangle;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

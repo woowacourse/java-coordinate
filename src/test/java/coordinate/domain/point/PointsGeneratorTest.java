@@ -1,5 +1,7 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
+import coordinate.domain.point.PointsGenerator;
+import coordinate.domain.shape.ShapeGenerator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

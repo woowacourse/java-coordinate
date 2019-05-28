@@ -1,5 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
+import coordinate.domain.point.Coordinate;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

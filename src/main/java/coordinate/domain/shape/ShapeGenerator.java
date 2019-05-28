@@ -1,9 +1,10 @@
-package coordinate.domain;
+package coordinate.domain.shape;
+
+import coordinate.domain.point.Point;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 public class ShapeGenerator {
     private static final int SIZE_OF_POINTS_FOR_LINE = 2;
