@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
-public class Coordinate {
+public class Coordinate implements Comparable<Coordinate> {
     private final int coordinate;
 
     private Coordinate(int coordinate) {
@@ -21,6 +21,7 @@ public class Coordinate {
     }
 
     private static class CoordinateCache {
+
         static final int low = 0;
         static final int high = 24;
         static final List<Coordinate> cache = new ArrayList<>();
@@ -33,6 +34,7 @@ public class Coordinate {
 
         private CoordinateCache() {
         }
+
     }
 
     public static Coordinate valueOf(int i) {
@@ -40,6 +42,14 @@ public class Coordinate {
             return CoordinateCache.cache.get(i);
         }
         throw new IllegalArgumentException("올바른 좌표값을 입력해주세요");
+    }
+
+    @Override
+    public int compareTo(Coordinate o) {
+        if (this.coordinate > o.coordinate) {
+            return 1;
+        }
+        return -1;
     }
 
     @Override

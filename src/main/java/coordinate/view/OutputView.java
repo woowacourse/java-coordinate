@@ -1,9 +1,10 @@
 package coordinate.view;
 
-import coordinate.domain.Figure;
 import coordinate.domain.Point;
 import coordinate.domain.Shape;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 //(10,10)-(22,10)-(22,18)-(10,18)
@@ -20,39 +21,51 @@ public class OutputView {
 
 
     public static void printCoordinate(List<Point> points) {
-        boolean[][] coordinates = new boolean[MAX_Y][MAX_X];
-        initCoordinates(coordinates);
-        drawPoints(points, coordinates);
-        printPoints(coordinates);
+        printPoints(points);
         printXAxis();
     }
 
-    private static void initCoordinates(boolean[][] coordinates) {
-        for (int i = 0; i < MAX_Y; i++) {
-            for (int j = 0; j < MAX_X; j++) {
-                coordinates[i][j] = false;
-            }
+    private static void printPoints(List<Point> points) {
+        List<Point> sortedPoints = sortPoints(points);
+        for (int y = MAX_Y - 1; y >= 1; y--) {
+            String line = getLine(y, sortedPoints);
+            System.out.println(line);
         }
     }
 
-    private static void drawPoints(List<Point> points, boolean[][] coordinates) {
+    private static List<Point> sortPoints(List<Point> points) {
+        List<Point> tempPoints = new ArrayList<>(points);
+        Collections.sort(tempPoints);
+        return tempPoints;
+    }
+
+    private static String getLine(int y, List<Point> points) {
+        StringBuilder sb = initStringBuilder(y);
+        for (int x = 0; x < MAX_X; x++) {
+            sb.append(getPointX(x, points, y));
+        }
+        return sb.toString();
+    }
+
+    private static String getPointX(int x, List<Point> points, int y) {
+        if (checkPoints(x, points, y)) {
+            return EXIST_POINT;
+        }
+        return EMPTY_POINT;
+    }
+
+    private static boolean checkPoints(int x, List<Point> points, int y) {
         for (Point point : points) {
-            coordinates[point.getY()][point.getX()] = true;
+            if (point.getX() == x && point.getY() == y) {
+                removePoint(points, point);
+                return true;
+            }
         }
+        return false;
     }
 
-    private static void printPoints(boolean[][] coordinates) {
-        for (int i = MAX_Y - 1; i >= 1; i--) {
-            StringBuilder sb = initStringBuilder(i);
-            for (int j = 0; j < MAX_X; j++) {
-                if (coordinates[i][j]) {
-                    sb.append(EXIST_POINT);
-                    continue;
-                }
-                sb.append(EMPTY_POINT);
-            }
-            System.out.println(sb.toString());
-        }
+    private static void removePoint(List<Point> points, Point point) {
+        points.remove(point);
     }
 
     private static StringBuilder initStringBuilder(int index) {
@@ -67,13 +80,17 @@ public class OutputView {
     private static void printXAxis() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < MAX_X; i++) {
-            if (i == 0) {
-                sb.append(String.format("%3s", ORIGIN_POINT));
-            }
-            sb.append(X_AXIS_LINE);
+            isZero(sb, i);
         }
         sb.append(EMPTY_LINE + X_AXIS_NUMBER);
         System.out.println(sb.toString());
+    }
+
+    private static void isZero(StringBuilder sb, int i) {
+        if (i == 0) {
+            sb.append(String.format("%3s", ORIGIN_POINT));
+        }
+        sb.append(X_AXIS_LINE);
     }
 
     public static void printArea(Shape shape) {
