@@ -15,12 +15,12 @@ public class Triangle extends AbstractFigure {
     }
 
     @Override
-    public Double getArea() {
-        double lineA = getDistance(FIRST, SECOND);
-        double lineB = getDistance(SECOND, THIRD);
-        double lineC = getDistance(THIRD, FIRST);
+    public double getArea() {
+        double lineA = super.getDistance(FIRST, SECOND);
+        double lineB = super.getDistance(SECOND, THIRD);
+        double lineC = super.getDistance(THIRD, FIRST);
 
-        Double semiParameter = (lineA + lineB + lineC) / Double.valueOf(2.0);
+        double semiParameter = (lineA + lineB + lineC) / Double.valueOf(2.0);
 
         return Math.sqrt(semiParameter
                 * (semiParameter - lineA)

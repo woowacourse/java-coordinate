@@ -10,7 +10,6 @@ public abstract class AbstractFigure implements Figure {
 	protected static final int FIRST = 0;
 	protected static final int SECOND = 1;
 	protected static final int THIRD = 2;
-	protected static final int FOURTH = 3;
 
 	private final List<Point> points;
 
@@ -32,10 +31,10 @@ public abstract class AbstractFigure implements Figure {
 
 		return from.getDistance(to);
 	}
-	
+
 	protected double getMinVerticalDistance(final int origin) {
 		Point from = points.get(origin);
-		Point sameXPoint = points.subList(1, points.size()).stream()
+		Point sameXPoint = points.subList(SECOND, points.size()).stream()
 				.filter(point -> from.isSameVerticalLine(point))
 				.findFirst()
 				.orElseThrow(IllegalArgumentException::new);
@@ -45,7 +44,7 @@ public abstract class AbstractFigure implements Figure {
 	protected double getMinHorizontalDistance(final int origin) {
 		Point from = points.get(origin);
 
-		Point sameYPoint = points.subList(1, points.size()).stream()
+		Point sameYPoint = points.subList(SECOND, points.size()).stream()
 				.filter(point -> from.isSameHorizontalLine(point))
 				.findFirst()
 				.orElseThrow(IllegalArgumentException::new);
@@ -53,7 +52,7 @@ public abstract class AbstractFigure implements Figure {
 	}
 
 	@Override
-	public Boolean hasPoint(final Point point) {
+	public boolean hasPoint(final Point point) {
 		return points.contains(point);
 	}
 }

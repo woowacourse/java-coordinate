@@ -14,7 +14,7 @@ public class Line extends AbstractFigure {
 		return new Line(points);
 	}
 
-	public Double getArea() {
+	public double getArea() {
 		return super.getDistance(FIRST, SECOND);
 	}
 

@@ -16,7 +16,7 @@ public class NotFigure extends AbstractFigure {
     }
 
     @Override
-    public Double getArea() {
+    public double getArea() {
         throw new IllegalArgumentException("점이 한개입니다");
     }
 

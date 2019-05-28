@@ -26,7 +26,7 @@ public class FigureFactory implements Factory {
     }
 
     private static class SingleTon {
-        static final FigureFactory SINGLETON_INSTANCE = new FigureFactory();
+        private static final FigureFactory SINGLETON_INSTANCE = new FigureFactory();
     }
 
     @Override

@@ -4,9 +4,9 @@ import coordinate.domain.Point;
 
 public interface Figure {
 
-    Double getArea();
+    double getArea();
 
-    Boolean hasPoint(final Point point);
+    boolean hasPoint(final Point point);
 
     String getName();
 }

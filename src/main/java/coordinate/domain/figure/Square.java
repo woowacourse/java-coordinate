@@ -16,8 +16,8 @@ public class Square extends AbstractFigure {
 	}
 
 	@Override
-	public Double getArea() {
-		return (getMinVerticalDistance(FIRST) * getMinHorizontalDistance(FIRST));
+	public double getArea() {
+		return (super.getMinVerticalDistance(FIRST) * super.getMinHorizontalDistance(FIRST));
 	}
 
 	@Override
