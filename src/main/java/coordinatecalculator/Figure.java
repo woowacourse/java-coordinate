@@ -5,7 +5,7 @@ import java.util.List;
 
 interface Figure {
     String ERROR_POINTS_DUPLICATE
-            = "입력된 점의 좌표가 중복됩니다.";
+            = "위치가 같은 점(point)이 존재합니다. 각 점의 위치는 달라야 합니다.";
 
     static Figure of(Point... points) {
         return FigureFactory.of(Arrays.asList(points));

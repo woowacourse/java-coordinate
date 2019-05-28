@@ -23,12 +23,7 @@ class Input {
         List<Point> result = new ArrayList<>();
         String[] temp = splitByDelimiter(inputWithMessage(MSG_INPUT_COORD), DASH);
         for (String raw : temp) {
-            try {
-                result.add(parsePoint(raw));
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                return points(); // 재귀
-            }
+            result.add(parsePoint(raw));
         }
         return result;
     }
@@ -63,5 +58,4 @@ class Input {
         final String regex = MAYBE_WHITESPACE + delimiter + MAYBE_WHITESPACE;
         return input.split(regex);
     }
-
 }
