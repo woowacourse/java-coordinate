@@ -15,11 +15,20 @@ public class Triangle extends Figure {
     private final Coordinates coordinates;
 
     public Triangle(Coordinates coordinates) {
-        super("삼각형", "넓이");
         this.coordinates = coordinates;
         checkFigureCondition();
     }
 
+
+    @Override
+    public String getName() {
+        return "삼각형";
+    }
+
+    @Override
+    public String getCalculateTarget() {
+        return "넓이";
+    }
 
     @Override
     void checkFigureCondition() {

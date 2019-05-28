@@ -11,7 +11,6 @@ public class Rectangle extends Figure {
     private final Coordinates coordinates;
 
     public Rectangle(Coordinates coordinates) {
-        super("사각형", "넓이");
         this.coordinates = coordinates;
         checkFigureCondition();
     }
@@ -24,6 +23,16 @@ public class Rectangle extends Figure {
         }
 
         return Math.abs(coordinates.get(0) - coordinates.get(1));
+    }
+
+    @Override
+    public String getName() {
+        return "사각형";
+    }
+
+    @Override
+    public String getCalculateTarget() {
+        return "넓이";
     }
 
     @Override

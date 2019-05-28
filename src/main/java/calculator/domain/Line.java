@@ -8,13 +8,22 @@ public class Line extends Figure {
     private final Coordinates coordinates;
 
     public Line(Coordinates coordinates) {
-        super("직선", "거리");
         this.coordinates = coordinates;
     }
 
     @Override
     public double area() {
         return coordinates.get(0).straight(coordinates.get(1));
+    }
+
+    @Override
+    public String getName() {
+        return "직선";
+    }
+
+    @Override
+    public String getCalculateTarget() {
+        return "거리";
     }
 
     @Override
