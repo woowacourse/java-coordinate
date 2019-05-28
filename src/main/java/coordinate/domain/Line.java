@@ -14,12 +14,12 @@ public class Line extends Shape {
         }
     }
 
+    public double getDistance() {
+        return getSides().get(0);
+    }
+
     @Override
     public String toString() {
         return "두점 사이의 거리는 " + getDistance();
-    }
-
-    public double getDistance() {
-        return getSides().get(0);
     }
 }
