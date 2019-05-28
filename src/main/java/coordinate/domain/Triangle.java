@@ -7,13 +7,14 @@ import java.util.List;
 public class Triangle extends Figure {
     private static final String NAME = "삼각형";
     private static final String OPERATION_NAME = "넓이";
+    private static final int POINT_COUNT = 3;
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
     private static final int THIRD_POINT = 2;
 
     public Triangle(Points points) {
         super(points);
-        if (points.size() != 3) {
+        if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("4개의 점으로 구성되어야 합니다");
         }
         if (!isTriangle(points)) {

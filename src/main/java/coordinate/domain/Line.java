@@ -3,13 +3,14 @@ package coordinate.domain;
 public class Line extends Figure {
     private static final String NAME = "선";
     private static final String OPERATION_NAME = "길이";
+    private static final int POINT_COUNT = 2;
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
 
 
     public Line(Points points) {
         super(points);
-        if (points.size() != 2) {
+        if (points.size() != POINT_COUNT) {
             throw new IllegalArgumentException("2개의 점으로 구성되어야 합니다");
         }
     }
