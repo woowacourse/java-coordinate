@@ -11,9 +11,9 @@ import calculator.view.UserOutputView;
 public class Main {
     public static void main(String[] args) {
         Figure figure = UserInputView.generaValidatedFigure();
-        GraphMap graphMap = new GraphMap().plotCoordinate(figure);
+        Canvas canvas = new Canvas().plotCoordinate(figure);
 
-        UserOutputView.outputMap(graphMap);
+        UserOutputView.outputCanvas(canvas);
         UserOutputView.outputCalculatedResult(figure);
     }
 }

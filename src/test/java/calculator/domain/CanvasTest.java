@@ -10,41 +10,41 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class GraphMapTest {
+public class CanvasTest {
 
-    GraphMap graphMap;
+    Canvas canvas;
     Coordinate coordinate;
     Coordinates coordinates;
 
     @BeforeEach
     void setUp() {
-        graphMap = new GraphMap();
+        canvas = new Canvas();
         coordinate = new Coordinate(10,2);
         coordinates = new Coordinates();
     }
 
     @Test
     void create_생성() {
-        assertThat(graphMap).isEqualTo(new GraphMap());
+        assertThat(canvas).isEqualTo(new Canvas());
     }
 
     @Test
     void create_사이즈_확인() {
-        assertThat(graphMap.size()).isEqualTo(25);
+        assertThat(canvas.size()).isEqualTo(25);
     }
 
     @Test
     void plotCoordinate_확인() {
         coordinates.add((coordinate));
-        graphMap.plotCoordinate(coordinate);
-        assertTrue(graphMap.isPlottedCoordinate(coordinate));
+        canvas.plotCoordinate(coordinate);
+        assertTrue(canvas.isPlottedCoordinate(coordinate));
     }
 
     @Test
     void plotCoordinate_figure_확인() {
         coordinates.add(coordinate);
         coordinates.add(new Coordinate(21,5));
-        graphMap.plotCoordinate(new FigureFactory().create(coordinates));
-        assertTrue(graphMap.isPlottedCoordinate(coordinate) && graphMap.isPlottedCoordinate(new Coordinate(21,5)));
+        canvas.plotCoordinate(new FigureFactory().create(coordinates));
+        assertTrue(canvas.isPlottedCoordinate(coordinate) && canvas.isPlottedCoordinate(new Coordinate(21,5)));
     }
 }

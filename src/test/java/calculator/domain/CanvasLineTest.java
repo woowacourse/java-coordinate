@@ -11,31 +11,31 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  * @author heebg
  * @version 1.0 2019-05-22
  */
-public class GraphGraphMapLineTest {
-    GraphMapLine graphMapLine;
+public class CanvasLineTest {
+    CanvasLine canvasLine;
 
     @BeforeEach
     void setUp() {
-        graphMapLine = new GraphMapLine();
+        canvasLine = new CanvasLine();
     }
 
     @Test
     void create_확인 () {
-        assertThat(graphMapLine).isEqualTo(new GraphMapLine());
+        assertThat(canvasLine).isEqualTo(new CanvasLine());
     }
 
     @Test
     void create_초기값_확인() {
-        assertFalse(graphMapLine.get(0));
+        assertFalse(canvasLine.get(0));
     }
 
     @Test
     void crete_초기값_경계값_확인() {
-        assertFalse(graphMapLine.get(24));
+        assertFalse(canvasLine.get(24));
     }
 
     @Test
     void create_초기값_라인_크기_확인() {
-        assertThat(graphMapLine.size()).isEqualTo(25);
+        assertThat(canvasLine.size()).isEqualTo(25);
     }
 }
