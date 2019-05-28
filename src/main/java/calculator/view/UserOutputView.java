@@ -18,7 +18,7 @@ public class UserOutputView {
     private static final String Y_AXIS_MARK = "|  ";
     private static final String IS_MESSAGE = "은(는) ";
 
-    public static void outputMap(Map map) {
+    public static void outputMap(ResultMap map) {
         StringBuilder resultMap = new StringBuilder();
 
         for (int yCoordinate = map.size() - 1; yCoordinate >= 0; yCoordinate--) {

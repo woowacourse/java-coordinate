@@ -7,7 +7,12 @@ package calculator;
 public class Main {
     public static void main(String[] args) {
         CoordinateCalculator coordinateCalculator = new CoordinateCalculator();
-        coordinateCalculator.excuteCoordinateCalculator();
-        coordinateCalculator.printCoordinateCalculatorResult();
+        coordinateCalculator.makeResultMap();
+
+        if (!coordinateCalculator.isPoint(1)) {
+            coordinateCalculator.makeFigure();
+        }
+
+        coordinateCalculator.printResultMap();
     }
 }

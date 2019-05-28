@@ -3,7 +3,7 @@ package calculator;
 import calculator.domain.Coordinates;
 import calculator.domain.Figure;
 import calculator.domain.FigureFactory;
-import calculator.domain.Map;
+import calculator.domain.ResultMap;
 import calculator.view.UserInputView;
 import calculator.view.UserOutputView;
 
@@ -11,22 +11,34 @@ public class CoordinateCalculator {
 
     private Coordinates coordinates;
     private Figure figure;
-    private Map map;
+    private ResultMap map;
 
-    public void excuteCoordinateCalculator() {
+    public void makeResultMap() {
         try {
             coordinates = UserInputView.generaValidatedCoordinates();
-            figure = FigureFactory.create(coordinates);
-            map = new Map(coordinates);
+            map = new ResultMap(coordinates);
         } catch(Exception e) {
-             excuteCoordinateCalculator();
+             makeResultMap();
         }
     }
 
-    public void printCoordinateCalculatorResult() {
+    public void makeFigure() {
+        try {
+            figure = FigureFactory.create(coordinates);
+        } catch(Exception e) {
+            makeResultMap();
+            makeFigure();
+        }
+    }
+
+    public void printResultMap() {
         UserOutputView.outputMap(map);
-        if (figure.getName() != "한 점") {
+        if (coordinates.size() != 1) {
             UserOutputView.outputCalculatedResult(figure);
         }
+    }
+
+    public boolean isPoint(int coordinatesSize) {
+        return coordinates.size() == coordinatesSize;
     }
 }

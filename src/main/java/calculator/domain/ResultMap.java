@@ -6,12 +6,12 @@ import java.util.*;
  * @author soojinroh
  * @version 1.0 2019-05-22
  */
-public class Map implements Iterable<MapLine> {
+public class ResultMap implements Iterable<MapLine> {
 
     private static final int MAX_SIZE = 24;
     private List<MapLine> map;
 
-    public Map(Coordinates coordinates) {
+    public ResultMap(Coordinates coordinates) {
         this.map = new ArrayList<>();
         for (int i = 0; i <= MAX_SIZE; i++) {
             map.add(new MapLine());
@@ -42,7 +42,7 @@ public class Map implements Iterable<MapLine> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Map map1 = (Map) o;
+        ResultMap map1 = (ResultMap) o;
         return Objects.equals(map, map1.map);
     }
 

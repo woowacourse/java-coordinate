@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class MapTest {
 
-    Map map;
+    ResultMap map;
     Coordinate coordinate;
     Coordinates coordinates;
 
@@ -21,12 +21,12 @@ public class MapTest {
         coordinate = new Coordinate(10,2);
         coordinates = new Coordinates();
         coordinates.add((coordinate));
-        map = new Map(coordinates);
+        map = new ResultMap(coordinates);
     }
 
     @Test
     void create_생성() {
-        assertThat(map).isEqualTo(new Map(coordinates));
+        assertThat(map).isEqualTo(new ResultMap(coordinates));
     }
 
     @Test
