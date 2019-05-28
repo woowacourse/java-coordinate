@@ -19,6 +19,6 @@ public class OutputView {
     }
 
     private static String areaMessage(Figure figure) {
-        return figure.getName() + "의 넓이는 " + figure.area() + "입니다.";
+        return figure.toString();
     }
 }

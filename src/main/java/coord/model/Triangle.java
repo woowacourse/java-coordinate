@@ -11,10 +11,10 @@ public class Triangle extends Figure {
     @Override
     public double area() {
         return areaOfTriangle(points);
-     }
+    }
 
     @Override
-    public String getName() {
-        return NAME;
+    public String toString() {
+        return NAME + " 넓이는 " + area();
     }
 }

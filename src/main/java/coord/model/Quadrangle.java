@@ -18,7 +18,7 @@ public class Quadrangle extends Figure {
     }
 
     @Override
-    public String getName() {
-        return NAME;
+    public String toString() {
+        return NAME + " 넓이는 " + area();
     }
 }
