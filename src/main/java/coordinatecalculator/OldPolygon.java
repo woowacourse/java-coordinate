@@ -1,4 +1,4 @@
-package coordinatecalculator;
+//package coordinatecalculator;
 
 /* 예전 코드. 새로운 추상 클래스를 만들기 위하여 이름을 바꿨다. 현재 사용 중지. */
 //class OldPolygon implements Figure {

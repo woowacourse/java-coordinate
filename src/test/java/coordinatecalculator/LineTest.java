@@ -6,17 +6,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class LineTest {
 
-    //    @Test
-    //    void getLength() {
-    //    }
-    //
-    //    @Test
-    //    void compareTo() {
-    //    }
-
     @Test
     void toString1() {
-        String expected = "Line: {start: Point: {x: 1, y: 1}, end: Point: {x: 10, y: 10}, length: 12.727922061357855}";
+        String expected = "두 점 사이의 거리는 12.728입니다.";
         Point p1 = new Point(1, 1);
         Point p2 = new Point(10, 10);
         Line line = Line.of(p1, p2);

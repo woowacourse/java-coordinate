@@ -1,4 +1,4 @@
-package coordinatecalculator;
+//package coordinatecalculator;
 
 //class OldPolygonTest {
 //    Point a;
