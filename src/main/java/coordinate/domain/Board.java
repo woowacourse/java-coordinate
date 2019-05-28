@@ -6,7 +6,7 @@ import java.util.List;
 public class Board {
     final static int MIN_BOARD_SIZE = 0;
     final static int MAX_BOARD_SIZE = 25;
-    private final List<List<Boolean>> board;
+    private final List<Axis> board;
 
     public Board(Points points) {
         checkValidPoints(points);
@@ -29,29 +29,22 @@ public class Board {
         }
     }
 
-    private List<List<Boolean>> initBoard() {
-        List<List<Boolean>> board = new ArrayList<>();
-        for (int axisY = MIN_BOARD_SIZE; axisY < MAX_BOARD_SIZE; axisY++) {
-            board.add(new ArrayList<>());
-            initAxisX(board, axisY);
+    private List<Axis> initBoard() {
+        List<Axis> board = new ArrayList<>();
+        for (int positionNo = MIN_BOARD_SIZE; positionNo < MAX_BOARD_SIZE; positionNo++) {
+            board.add(Axis.of(MAX_BOARD_SIZE));
         }
         return board;
-    }
-
-    private void initAxisX(List<List<Boolean>> board, int axisY) {
-        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
-            board.get(axisY).add(false);
-        }
     }
 
     void setPoints(Points points) {
         for (int pointIndex = 0; pointIndex < points.size(); pointIndex++) {
             Point point = points.get(pointIndex);
-            board.get(point.getY().getNo()).set(point.getX().getNo(), true);
+            board.get(point.getY().getNo()).mark(point.getX().getNo());
         }
     }
 
-    public List<List<Boolean>> getBoard() {
+    public List<Axis> getBoard() {
         return this.board;
     }
 }

@@ -1,5 +1,6 @@
 package coordinate.view;
 
+import coordinate.domain.Axis;
 import coordinate.domain.Board;
 import coordinate.domain.Shape;
 
@@ -19,23 +20,23 @@ public class OutputView {
     }
 
     public static String buildBoard(Board boardVo) {
-        List<List<Boolean>> board = boardVo.getBoard();
+        List<Axis> board = boardVo.getBoard();
         StringBuilder sb = new StringBuilder();
         buildAxisY(board, sb);
         buildAxisX(board, sb);
         return sb.toString();
     }
 
-    private static void buildAxisX(List<List<Boolean>> board, StringBuilder sb) {
+    private static void buildAxisX(List<Axis> board, StringBuilder sb) {
         sb.append(String.format("%6.6s", ""));
-        if (board.get(0).get(0)) {
+        if (board.get(0).isMarked(0)) {
             sb.append(POINT);
         }
-        if (!board.get(0).get(0)) {
+        if (!board.get(0).isMarked(0)) {
             sb.append("+");
         }
         for (int axisX = MIN_BOARD_SIZE + 1; axisX < MAX_BOARD_SIZE; axisX++) {
-            boolean pointState = board.get(0).get(axisX);
+            boolean pointState = board.get(0).isMarked(axisX);
             if (pointState) {
                 sb.append(String.format("%5.5s%s", "-----", POINT));
                 continue;
@@ -49,10 +50,10 @@ public class OutputView {
         }
     }
 
-    private static void buildAxisY(List<List<Boolean>> board, StringBuilder sb) {
+    private static void buildAxisY(List<Axis> board, StringBuilder sb) {
         for (int axisY = MAX_BOARD_SIZE - 1; axisY > MIN_BOARD_SIZE; axisY--) {
             for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
-                boolean pointState = board.get(axisY).get(axisX);
+                boolean pointState = board.get(axisY).isMarked(axisX);
                 if (axisX == MIN_BOARD_SIZE && !pointState) {
                     sb.append(String.format("%6.6s|", axisY));
                     continue;

@@ -13,11 +13,11 @@ public class Points {
         this.points = points;
     }
 
-    public int size() {
+    int size() {
         return points.size();
     }
 
-    public Point get(int index) {
+    Point get(int index) {
         return points.get(index);
     }
 
