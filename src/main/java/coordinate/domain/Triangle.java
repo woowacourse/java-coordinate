@@ -10,13 +10,13 @@ public class Triangle extends Figure implements AvailableArea {
     }
 
     private void validateTrianglePoints() {
-        if (vertices.vector(0,1).crossProduct(vertices.vector(1,2)) == 0)
+        if (getVertices().vector(0,1).crossProduct(getVertices().vector(1,2)) == 0)
             throw new IllegalArgumentException(THREE_POINT_IN_LINE_MESSAGE);
     }
 
     @Override
     public double area() {
-        return vertices.integrateArea();
+        return getVertices().integrateArea();
     }
 
     @Override

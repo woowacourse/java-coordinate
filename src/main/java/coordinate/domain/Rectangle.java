@@ -18,7 +18,7 @@ public class Rectangle extends Figure implements AvailableArea {
 
     private void validateRectanglePoints() {
         List<Vector> vectorsFrom0 = IntStream.range(1, 4)
-                .mapToObj(i -> vertices.vector(0, i))
+                .mapToObj(i -> getVertices().vector(0, i))
                 .sorted(Vector::compareTo)
                 .collect(Collectors.toCollection(ArrayList::new));
         Vector side1 = vectorsFrom0.get(0);

@@ -8,7 +8,7 @@ public class Line extends Figure {
     }
 
     public double length() {
-        return vertices.vector(0, 1).length();
+        return getVertices().vector(0, 1).length();
     }
 
     @Override

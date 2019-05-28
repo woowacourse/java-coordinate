@@ -1,11 +1,15 @@
 package coordinate.domain;
 
 public class Figure {
-    protected final Vertices vertices;
+    private final Vertices vertices;
 
     Figure(Vertices vertices, int validLengthOfPoints) {
         validateLengthOfPoints(vertices, validLengthOfPoints);
         this.vertices = vertices;
+    }
+
+    protected Vertices getVertices() {
+        return vertices;
     }
 
     private void validateLengthOfPoints(Vertices vertices, int validLengthOfPoints) {
