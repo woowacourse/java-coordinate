@@ -28,12 +28,10 @@ public class Coordinate implements Comparable<Coordinate> {
         static {
             IntStream.range(low, high)
                     .boxed()
-                    .forEach(x -> cache.add(new Coordinate(x)));
+                    .forEach(number -> cache.add(new Coordinate(number)));
         }
 
-        private CoordinateCache() {
-        }
-
+        private CoordinateCache() {}
     }
 
     public static Coordinate valueOf(int i) {
@@ -44,8 +42,8 @@ public class Coordinate implements Comparable<Coordinate> {
     }
 
     @Override
-    public int compareTo(Coordinate o) {
-        if (this.coordinate > o.coordinate) {
+    public int compareTo(Coordinate otherCoordinate) {
+        if (this.coordinate > otherCoordinate.coordinate) {
             return 1;
         }
         return -1;
