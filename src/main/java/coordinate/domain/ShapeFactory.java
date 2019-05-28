@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class ShapeFactory implements ShapeCreator {
+public class ShapeFactory{
     private static final Map<Integer, Function<List<Point>, Shape>> FUNCTION_MAP = new HashMap<>();
 
     static {
@@ -14,8 +14,7 @@ public class ShapeFactory implements ShapeCreator {
         FUNCTION_MAP.put(4, Rectangle::new);
     }
 
-    @Override
-    public Shape create(final List<Point> points) {
+    public static Shape create(final List<Point> points) {
         Shape shape;
         try {
             shape = FUNCTION_MAP.get(points.size()).apply(points);

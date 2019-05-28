@@ -9,8 +9,6 @@ import coordinate.view.OutputView;
 import java.util.List;
 
 public class CoordinateApp {
-    private static ShapeFactory shapeFactory = new ShapeFactory();
-
     public static void main(String[] args) {
         try {
             start();
@@ -22,7 +20,7 @@ public class CoordinateApp {
 
     private static void start() {
         List<Point> points = InputView.inputCoordinate();
-        Shape shape = shapeFactory.create(points);
+        Shape shape = ShapeFactory.create(points);
         OutputView.printCoordinate(points);
         OutputView.printArea(shape);
     }
