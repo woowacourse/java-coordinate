@@ -2,7 +2,7 @@ package location.domain;
 
 import java.util.Arrays;
 
-public enum ShapeEnum {
+public enum FigureEnum {
     LINE(2) {
         public Figure create(Points points) {
             return new Line(points);
@@ -20,14 +20,18 @@ public enum ShapeEnum {
     private final static String NOT_CREATE_SHAPE_MSG = "도형을 만들수 없습니다.";
     private final int pointLength;
 
-    ShapeEnum(int pointLength) {
+    FigureEnum(int pointLength) {
         this.pointLength = pointLength;
     }
 
-    public static ShapeEnum valueOf(int pointLength) {
+    public static FigureEnum valueOf(int pointLength) {
         return Arrays.stream(values())
-                .filter(shape -> shape.pointLength == pointLength).findFirst()
+                .filter(figure -> figure.isSameLength(pointLength)).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(NOT_CREATE_SHAPE_MSG));
+    }
+
+    public boolean isSameLength(int pointLength){
+        return this.pointLength == pointLength;
     }
 
     public Figure create(Points points) {

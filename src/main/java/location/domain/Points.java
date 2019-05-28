@@ -1,15 +1,17 @@
 package location.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Points {
-    private final static String POINT_NULL_OR_BLANK_MSG = "포인트가 비어있습니다.";
+    private final String POINT_NULL_OR_BLANK_MSG = "포인트가 비어있습니다.";
     private static List<Point> points;
 
     public Points(final List<Point> points) {
         checkValid(points);
         compare(points);
-        Points.points = points;
+        this.points = Collections.unmodifiableList(points);
+
     }
 
     private void checkValid(final List<Point> points) {
@@ -24,10 +26,10 @@ public class Points {
 
     private void compare(final List<Point> points) {
         points.sort((p1, p2) -> {
-            if (p1.getX() == p2.getX()) {
-                return p1.getY() - p2.getY();
+            if (p1.getXCoordinate() == p2.getXCoordinate()) {
+                return p1.getyCoordinate() - p2.getyCoordinate();
             }
-            return p1.getX() - p2.getX();
+            return p1.getXCoordinate() - p2.getXCoordinate();
         });
     }
 

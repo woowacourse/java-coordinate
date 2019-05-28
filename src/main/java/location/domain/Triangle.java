@@ -1,9 +1,8 @@
 package location.domain;
 
 public class Triangle extends Figure {
-    private static final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
-    private static final int SQUARE = 2;
-    private final Points points;
+    private final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
+    private final int SQUARE = 2;
 
     public Triangle(Points points) {
         super(points);
@@ -27,8 +26,8 @@ public class Triangle extends Figure {
     }
 
     private double calculateLine(final Point point1, final Point point2) {
-        return Math.sqrt(Math.pow((point1.getX() - point2.getX()), 2)
-                + Math.pow((point1.getY() - point2.getY()), 2));
+        return Math.sqrt(Math.pow((point1.getXCoordinate() - point2.getXCoordinate()), 2)
+                + Math.pow((point1.getyCoordinate() - point2.getyCoordinate()), 2));
     }
 
     @Override
