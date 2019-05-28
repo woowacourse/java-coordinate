@@ -1,6 +1,7 @@
 package calculator.domain;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * @author heebg
@@ -8,7 +9,7 @@ import java.util.*;
  */
 public class GraphMapLine implements Iterable<Boolean> {
 
-    private static final int MAX_SIZE = 25;
+    private static final int MAX_SIZE = (int) IntStream.rangeClosed(0, 24).count();
     private List<Boolean> graphMapLine;
 
     public GraphMapLine() {
