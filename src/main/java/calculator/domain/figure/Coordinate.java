@@ -1,4 +1,4 @@
-package calculator.domain;
+package calculator.domain.figure;
 
 import java.util.Objects;
 

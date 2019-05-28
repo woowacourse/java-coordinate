@@ -1,6 +1,7 @@
 package calculator.view;
 
-import calculator.domain.*;
+import calculator.domain.figure.Coordinate;
+import calculator.domain.figure.Coordinates;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

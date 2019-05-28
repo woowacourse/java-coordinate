@@ -1,4 +1,4 @@
-package calculator.domain;
+package calculator.domain.figure;
 
 /**
  * @author soojinroh
@@ -14,6 +14,11 @@ public abstract class Figure implements Calculate{
         this.calculateTarget = calculateTarget;
     }
 
+    @Override
+    public double straight(Coordinate a, Coordinate b) {
+        return Math.sqrt(Math.pow(a.getXCoordinate()-b.getXCoordinate(),2) + Math.pow(a.getYCoordinate() - b.getYCoordinate(),2));
+    }
+
     public String getName() {
         return this.name;
     }
@@ -22,13 +27,4 @@ public abstract class Figure implements Calculate{
         return calculateTarget;
     }
 
-    @Override
-    public double area() {
-        return 0;
-    }
-
-    @Override
-    public double straight(Coordinate a, Coordinate b) {
-        return Math.sqrt(Math.pow(a.getXCoordinate()-b.getXCoordinate(),2) + Math.pow(a.getYCoordinate() - b.getYCoordinate(),2));
-    }
 }

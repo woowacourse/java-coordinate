@@ -1,5 +1,7 @@
-package calculator.domain;
+package calculator.domain.figure;
 
+import calculator.domain.figure.Coordinate;
+import calculator.domain.figure.Coordinates;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

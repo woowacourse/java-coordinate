@@ -1,6 +1,7 @@
 package calculator.domain;
 
 
+import calculator.domain.map.MapLine;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

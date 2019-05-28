@@ -1,5 +1,6 @@
-package calculator.domain;
+package calculator.domain.figure;
 
+import calculator.domain.figure.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

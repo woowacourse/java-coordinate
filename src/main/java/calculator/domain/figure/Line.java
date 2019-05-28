@@ -1,4 +1,4 @@
-package calculator.domain;
+package calculator.domain.figure;
 
 /**
  * @author soojinroh
@@ -13,7 +13,7 @@ public class Line extends Figure {
     }
 
     @Override
-    public double straight(Coordinate firstCoordinate, Coordinate secondCoordinate) {
-        return super.straight(firstCoordinate, secondCoordinate);
+    public double area() {
+        return super.straight(coordinates.get(0), coordinates.get(1));
     }
 }

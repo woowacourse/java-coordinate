@@ -1,4 +1,7 @@
-package calculator.domain;
+package calculator.domain.map;
+
+import calculator.domain.figure.Coordinate;
+import calculator.domain.figure.Coordinates;
 
 import java.util.*;
 

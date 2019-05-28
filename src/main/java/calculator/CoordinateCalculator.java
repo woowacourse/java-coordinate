@@ -1,9 +1,9 @@
 package calculator;
 
-import calculator.domain.Coordinates;
-import calculator.domain.Figure;
-import calculator.domain.FigureFactory;
-import calculator.domain.ResultMap;
+import calculator.domain.figure.Coordinates;
+import calculator.domain.figure.Figure;
+import calculator.domain.figure.FigureFactory;
+import calculator.domain.map.ResultMap;
 import calculator.view.UserInputView;
 import calculator.view.UserOutputView;
 

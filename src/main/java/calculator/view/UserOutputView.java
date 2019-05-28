@@ -1,6 +1,8 @@
 package calculator.view;
 
-import calculator.domain.*;
+import calculator.domain.figure.Figure;
+import calculator.domain.map.MapLine;
+import calculator.domain.map.ResultMap;
 
 /**
  * @author soojinroh
@@ -75,4 +77,5 @@ public class UserOutputView {
 
         System.out.println(calculatedResult.toString());
     }
+
 }
