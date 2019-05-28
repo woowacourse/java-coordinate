@@ -46,7 +46,7 @@ class ShapeFactoryTest {
     }
 
     @Test
-    void Points가_범위_예외_테스트1() {
+    void Points가_범위_미만_예외_테스트() {
         Points points = new Points(Arrays.asList(
                 new Point(new Scalar(1), new Scalar(3))
         ));
@@ -56,7 +56,7 @@ class ShapeFactoryTest {
     }
 
     @Test
-    void Points가_범위_예외_테스트2() {
+    void Points가_범위_초과_예외_테스트() {
         Points points = new Points(Arrays.asList(
                 new Point(new Scalar(1), new Scalar(3)),
                 new Point(new Scalar(2), new Scalar(3)),
