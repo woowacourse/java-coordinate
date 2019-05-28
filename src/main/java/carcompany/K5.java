@@ -7,8 +7,4 @@ public class K5 extends Car {
         super(CAR_DISTANCE_PER_LITER, tripDistance);
     }
 
-    @Override
-    String getName() {
-        return getClass().getSimpleName();
-    }
 }

@@ -1,7 +1,9 @@
 package carcompany2;
 
 public interface Car {
-    String getName();
+    default String getName() {
+        return getClass().getSimpleName();
+    }
 
     double getDistancePerLiter();
 

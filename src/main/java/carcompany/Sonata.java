@@ -6,9 +6,4 @@ public class Sonata extends Car {
     public Sonata(int tripDistance) {
         super(CAR_DISTANCE_PER_LITER, tripDistance);
     }
-
-    @Override
-    String getName() {
-        return getClass().getSimpleName();
-    }
 }

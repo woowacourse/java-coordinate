@@ -6,9 +6,4 @@ public class Avante extends Car {
     public Avante(final double tripDistance) {
         super(CAR_DISTANCE_PER_LITER, tripDistance);
     }
-
-    @Override
-    String getName() {
-        return getClass().getSimpleName();
-    }
 }
