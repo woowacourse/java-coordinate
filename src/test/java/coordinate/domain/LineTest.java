@@ -10,8 +10,8 @@ public class LineTest {
     @Test
     void 선길이_구하기_테스트() {
         Line line = new Line(new Points(Arrays.asList(
-                new Point(new Scalar(1), new Scalar(2)),
-                new Point(new Scalar(1), new Scalar(5))
+                new Point(Scalar.of(1), Scalar.of(2)),
+                new Point(Scalar.of(1), Scalar.of(5))
         )));
         assertThat(line.calculateFigure()).isEqualTo(3);
     }

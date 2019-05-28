@@ -20,27 +20,24 @@ public class Point implements Comparable<Point> {
     }
 
     public double sub(Point point) {
-        return Math.sqrt(Math.pow(x.sub(point.x).getNo(), 2) +
-                Math.pow(y.sub(point.y).getNo(), 2));
+        return Math.sqrt(Math.pow(x.sub(point.x), 2) + Math.pow(y.sub(point.y), 2));
     }
 
     public Point calVector(Point point) {
-        return new Point(new Scalar(point.x.getNo() - x.getNo()), new Scalar(point.y.getNo() - y.getNo()));
+        return new Point(Scalar.of(point.x.getNo() - x.getNo()), Scalar.of(point.y.getNo() - y.getNo()));
     }
 
     public Scalar calDotProduct(Point vector) {
-        return x.multiply(vector.getX())
-                .add((y.multiply(vector.getY())))
-                ;
+        return Scalar.of(x.multiply(vector.getX()) + y.multiply(vector.getY()));
     }
 
     private Point sumOfVector(Point vector) {
-        return new Point(x.add(vector.x), y.add(vector.y));
+        return new Point(Scalar.of(x.add(vector.x)), Scalar.of(y.add(vector.y)));
     }
 
     public Point calCrossPoint(Point firstVector, Point secondVector) {
         Point addedVector = firstVector.sumOfVector(secondVector);
-        return new Point(x.add(addedVector.x), y.add(addedVector.y));
+        return new Point(Scalar.of(x.add(addedVector.x)), Scalar.of(y.add(addedVector.y)));
     }
 
     Scalar getX() {
@@ -68,9 +65,9 @@ public class Point implements Comparable<Point> {
     @Override
     public int compareTo(Point o) {
         if (y == o.y) {
-            return x.sub(o.x).getNo();
+            return x.sub(o.x);
         }
-        return y.sub(o.y).getNo();
+        return y.sub(o.y);
     }
 
     @Override

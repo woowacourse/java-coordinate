@@ -1,12 +1,22 @@
 package coordinate.domain;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Scalar {
+    private static final Map<Integer, Scalar> scalarHashMap = new HashMap<>();
     private final int no;
 
-    public Scalar(int no) {
+    private Scalar(int no) {
         this.no = no;
+    }
+
+    static Scalar of(int no) {
+        if (!scalarHashMap.containsKey(no)) {
+            scalarHashMap.put(no, new Scalar(no));
+        }
+        return scalarHashMap.get(no);
     }
 
     boolean isMoreThan(int no) {
@@ -17,16 +27,16 @@ public class Scalar {
         return this.no < no;
     }
 
-    Scalar sub(Scalar scalar) {
-        return new Scalar(no - scalar.getNo());
+    int sub(Scalar scalar) {
+        return no - scalar.no;
     }
 
-    Scalar add(Scalar scalar) {
-        return new Scalar((no + scalar.getNo()));
+    int add(Scalar scalar) {
+        return no + scalar.no;
     }
 
-    Scalar multiply(Scalar scalar) {
-        return new Scalar(no * scalar.getNo());
+    int multiply(Scalar scalar) {
+        return no * scalar.no;
     }
 
     int getNo() {

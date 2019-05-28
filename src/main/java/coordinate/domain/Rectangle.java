@@ -1,6 +1,7 @@
 package coordinate.domain;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Rectangle extends Figure {
     private static final int ORTHOGONAL = 0;
@@ -30,7 +31,7 @@ public class Rectangle extends Figure {
         Point rightVector = points.get(FIRST_POINT).calVector(points.get(SECOND_POINT));
         Point leftVector = points.get(FIRST_POINT).calVector(points.get(THIRD_POINT));
 
-        return rightVector.calDotProduct(leftVector).equals(new Scalar(ORTHOGONAL));
+        return rightVector.calDotProduct(leftVector).equals(Scalar.of(ORTHOGONAL));
     }
 
     boolean isEqualCrossPoint(Points points) {

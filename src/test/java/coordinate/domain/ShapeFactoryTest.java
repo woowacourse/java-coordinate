@@ -11,8 +11,8 @@ class ShapeFactoryTest {
     @Test
     void 선이_제대로_반환되는지_테스트() {
         Points points = new Points(Arrays.asList(
-                new Point(new Scalar(1), new Scalar(3)),
-                new Point(new Scalar(2), new Scalar(3)))
+                new Point(Scalar.of(1), Scalar.of(3)),
+                new Point(Scalar.of(2), Scalar.of(3)))
         );
         assertThat(ShapeFactory.create(points) instanceof Line).isEqualTo(true);
     }
@@ -20,9 +20,9 @@ class ShapeFactoryTest {
     @Test
     void 삼각형이_제대로_반환되는지_테스트() {
         Points points = new Points(Arrays.asList(
-                new Point(new Scalar(1), new Scalar(1)),
-                new Point(new Scalar(2), new Scalar(1)),
-                new Point(new Scalar(2), new Scalar(2))
+                new Point(Scalar.of(1), Scalar.of(1)),
+                new Point(Scalar.of(2), Scalar.of(1)),
+                new Point(Scalar.of(2), Scalar.of(2))
         ));
         assertThat(ShapeFactory.create(points) instanceof Triangle).isEqualTo(true);
     }
@@ -30,10 +30,10 @@ class ShapeFactoryTest {
     @Test
     void 사각형이_제대로_반환되는지_테스트() {
         Points points = new Points(Arrays.asList(
-                new Point(new Scalar(1), new Scalar(3)),
-                new Point(new Scalar(2), new Scalar(3)),
-                new Point(new Scalar(1), new Scalar(2)),
-                new Point(new Scalar(2), new Scalar(2))
+                new Point(Scalar.of(1), Scalar.of(3)),
+                new Point(Scalar.of(2), Scalar.of(3)),
+                new Point(Scalar.of(1), Scalar.of(2)),
+                new Point(Scalar.of(2), Scalar.of(2))
         ));
         assertThat(ShapeFactory.create(points) instanceof Rectangle).isEqualTo(true);
     }
@@ -48,7 +48,7 @@ class ShapeFactoryTest {
     @Test
     void Points가_범위_미만_예외_테스트() {
         Points points = new Points(Arrays.asList(
-                new Point(new Scalar(1), new Scalar(3))
+                new Point(Scalar.of(1), Scalar.of(3))
         ));
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
             ShapeFactory.create(points);
@@ -58,11 +58,11 @@ class ShapeFactoryTest {
     @Test
     void Points가_범위_초과_예외_테스트() {
         Points points = new Points(Arrays.asList(
-                new Point(new Scalar(1), new Scalar(3)),
-                new Point(new Scalar(2), new Scalar(3)),
-                new Point(new Scalar(1), new Scalar(2)),
-                new Point(new Scalar(2), new Scalar(2)),
-                new Point(new Scalar(3), new Scalar(5))
+                new Point(Scalar.of(1), Scalar.of(3)),
+                new Point(Scalar.of(2), Scalar.of(3)),
+                new Point(Scalar.of(1), Scalar.of(2)),
+                new Point(Scalar.of(2), Scalar.of(2)),
+                new Point(Scalar.of(3), Scalar.of(5))
         ));
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
             ShapeFactory.create(points);

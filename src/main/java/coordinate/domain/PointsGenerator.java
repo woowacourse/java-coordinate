@@ -42,6 +42,6 @@ public class PointsGenerator {
         List<Integer> point = Arrays.stream(input.split(","))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
-        return new Point(new Scalar(point.get(FIRST_POINT)), new Scalar(point.get(SECOND_POINT)));
+        return new Point(Scalar.of(point.get(FIRST_POINT)), Scalar.of(point.get(SECOND_POINT)));
     }
 }
