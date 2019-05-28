@@ -16,21 +16,25 @@ public abstract class Shape {
 
     public List<Double> getSides() {
         List<Double> sides = new ArrayList<>();
-        for (Integer sideSquare : getSideSquares()) {
+        for (Integer sideSquare : getAllSideSquares()) {
             sides.add(Math.sqrt(sideSquare));
         }
         return sides;
     }
 
-    public List<Integer> getSideSquares() {
+    public List<Integer> getAllSideSquares() {
         List<Integer> sides = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
-            Point firstPoint = points.get(i);
-            for (int j = i + 1; j < points.size(); j++) {
-                Point secondPoint = points.get(j);
-                sides.add(firstPoint.distanceSquare(secondPoint));
-            }
+            getSideSquares(sides, i);
         }
         return sides;
+    }
+
+    private void getSideSquares(List<Integer> sides, int i) {
+        Point point = points.get(i);
+        for (int j = i + 1; j < points.size(); j++) {
+            Point otherPoint = points.get(j);
+            sides.add(point.distanceSquare(otherPoint));
+        }
     }
 }

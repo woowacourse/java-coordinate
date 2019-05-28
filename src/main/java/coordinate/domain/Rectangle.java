@@ -12,7 +12,7 @@ public class Rectangle extends Shape implements Figure {
 
     private void validateRectangle() {
         Map<Integer, Integer> map = new HashMap<>();
-        List<Integer> sides = getSideSquares();
+        List<Integer> sides = getAllSideSquares();
         groupSides(map, sides);
         countSidePairs(map);
     }
