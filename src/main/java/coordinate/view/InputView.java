@@ -1,6 +1,5 @@
 package coordinate.view;
 
-import coordinate.domain.Coordinates;
 import coordinate.domain.Point;
 
 import java.util.ArrayList;
@@ -12,33 +11,34 @@ import java.util.regex.Pattern;
 
 public class InputView {
 	private static final String DELIMITER = "-";
+	private static final String BLANK = "";
 	private static final Pattern PATTERN = Pattern.compile("\\((.+),(.+)\\)");
 	private static final Scanner SCANNER = new Scanner(System.in);
 
 	private InputView() {
 	}
 
-	public static Coordinates inputCoordinate() {
+	public static List<Point> inputPoints() {
 		System.out.println("좌표를 입력하세요.");
-		return inputCoordinate(SCANNER.nextLine());
+		return inputPoints(SCANNER.nextLine());
 	}
 
-	public static Coordinates inputCoordinate(final String input) {
+	public static List<Point> inputPoints(final String input) {
 		Optional<String> optInput = Optional.ofNullable(input);
 		try {
-			return assignCoordinate(optInput.orElse(""));
+			return assignPoints(optInput.orElse(BLANK));
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			return inputCoordinate();
+			return inputPoints();
 		}
 	}
 
-	private static Coordinates assignCoordinate(final String input) {
+	private static List<Point> assignPoints(final String input) {
 		List<Point> points = new ArrayList<>();
 		for (String coordinate : input.split(DELIMITER)) {
 			points.add(makePoint(coordinate));
 		}
-		return new Coordinates(points);
+		return points;
 	}
 
 	private static Point makePoint(final String coordinate) {
