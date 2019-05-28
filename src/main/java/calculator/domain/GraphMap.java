@@ -28,7 +28,7 @@ public class GraphMap implements Iterable<GraphMapLine> {
 
     public GraphMap plotCoordinate(Figure figure) {
         for (Coordinate coordinate : figure.getCoordinates()) {
-            graphMap.get(coordinate.getY()).plotX(coordinate.getX());
+            plotCoordinate(coordinate);
         }
         return new GraphMap(graphMap);
     }

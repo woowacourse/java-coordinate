@@ -39,4 +39,12 @@ public class GraphMapTest {
         graphMap.plotCoordinate(coordinate);
         assertTrue(graphMap.isPlottedCoordinate(coordinate));
     }
+
+    @Test
+    void plotCoordinate_figure_확인() {
+        coordinates.add(coordinate);
+        coordinates.add(new Coordinate(21,5));
+        graphMap.plotCoordinate(new FigureFactory().create(coordinates));
+        assertTrue(graphMap.isPlottedCoordinate(coordinate) && graphMap.isPlottedCoordinate(new Coordinate(21,5)));
+    }
 }
