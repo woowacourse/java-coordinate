@@ -23,9 +23,11 @@ class FigureFactoryTest {
     }
 
     @Test
-    void create_예외_0개() {
+    void create_예외_1개() {
+        Coordinates exCoordinates = new Coordinates();
+        exCoordinates.add(new Coordinate(1,1));
         assertThrows(IllegalArgumentException.class, () -> {
-            new FigureFactory().create(new Coordinates());
+            new FigureFactory().create(exCoordinates);
         });
     }
 

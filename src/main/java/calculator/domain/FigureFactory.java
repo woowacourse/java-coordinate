@@ -13,7 +13,6 @@ public class FigureFactory {
 
     static {
         figureCreate = new HashMap<>();
-        figureCreate.put(FigureType.POINT, Point::new);
         figureCreate.put(FigureType.LINE, Line::new);
         figureCreate.put(FigureType.TRIANGLE, Triangle::new);
         figureCreate.put(FigureType.RECTANGLE, Rectangle::new);
