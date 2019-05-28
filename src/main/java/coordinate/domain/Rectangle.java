@@ -1,7 +1,6 @@
 package coordinate.domain;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class Rectangle extends Figure {
     private static final int ORTHOGONAL = 0;
