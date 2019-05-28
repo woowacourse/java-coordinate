@@ -20,9 +20,6 @@ public class InputView {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return inputCoordinate();
-        } catch (IllegalStateException e) {
-            System.out.println("좌표를 제대로 입력해 주세요");
-            return inputCoordinate();
         }
 
         return points;

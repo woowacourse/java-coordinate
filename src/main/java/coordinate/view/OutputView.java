@@ -1,12 +1,10 @@
 package coordinate.view;
 
-import coordinate.domain.Figure;
 import coordinate.domain.Point;
 import coordinate.domain.Shape;
 
 import java.util.List;
 
-//(10,10)-(22,10)-(22,18)-(10,18)
 public class OutputView {
     private static final int MAX_X = 25;
     private static final int MAX_Y = 25;
