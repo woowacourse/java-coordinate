@@ -55,7 +55,7 @@ public class UserInputView {
 
     private static AbstractFigure generateFigure(String inputText) {
         Coordinates coordinates = generateCoordinates(inputText);
-        AbstractFigure abstractFigure = new FigureFactory().create(coordinates);
+        AbstractFigure abstractFigure = new FigureFactory().create(FigureType.valueOf(coordinates));
         return abstractFigure;
     }
 

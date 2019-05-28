@@ -44,7 +44,7 @@ public class CanvasTest {
     void plotCoordinate_figure_확인() {
         coordinates.add(coordinate);
         coordinates.add(new Coordinate(21,5));
-        canvas.plotCoordinate(new FigureFactory().create(coordinates));
+        canvas.plotCoordinate(new FigureFactory().create(FigureType.valueOf(coordinates)));
         assertTrue(canvas.isPlottedCoordinate(coordinate) && canvas.isPlottedCoordinate(new Coordinate(21,5)));
     }
 }

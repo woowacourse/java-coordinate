@@ -15,6 +15,7 @@ public class RectangleTest {
 
     AbstractFigure rectangle;
     Coordinates coordinates;
+    FigureType figureType;
 
     @BeforeEach
     void setUp() {
@@ -23,12 +24,13 @@ public class RectangleTest {
         coordinates.add(new Coordinate(10, 0));
         coordinates.add(new Coordinate(0, 10));
         coordinates.add(new Coordinate(10, 10));
-        rectangle = new FigureFactory().create(coordinates);
+        figureType = FigureType.valueOf(coordinates);
+        rectangle = new FigureFactory().create(figureType);
     }
 
     @Test
     void create_생성_확인() {
-        assertThat(rectangle).isEqualTo(new FigureFactory().create(coordinates));
+        assertThat(rectangle).isEqualTo(new FigureFactory().create(figureType));
     }
 
     @Test
@@ -40,7 +42,7 @@ public class RectangleTest {
         coordinatesException.add(new Coordinate(1,10));
 
         assertThrows(Exception.class, () -> {
-            new FigureFactory().create(coordinatesException);
+            new FigureFactory().create(FigureType.valueOf(coordinatesException));
         });
     }
 

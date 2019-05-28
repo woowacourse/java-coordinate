@@ -14,13 +14,15 @@ class LineTest {
 
     AbstractFigure abstractFigure;
     Coordinates coordinates;
+    FigureType figureType;
 
     @BeforeEach
     void setUp() {
         coordinates = new Coordinates();
         coordinates.add(new Coordinate(8, 21));
         coordinates.add(new Coordinate(16, 3));
-        abstractFigure = new FigureFactory().create(coordinates);
+        figureType = FigureType.valueOf(coordinates);
+        abstractFigure = new FigureFactory().create(figureType);
     }
 
     @Test

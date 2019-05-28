@@ -18,7 +18,7 @@ public class FigureFactory {
         figureCreate.put(FigureType.RECTANGLE, Rectangle::new);
     }
 
-    public AbstractFigure create(Coordinates coordinates) {
-        return figureCreate.get(FigureType.valueOf(coordinates.size())).apply(coordinates);
+    public AbstractFigure create(FigureType figureType) {
+        return figureCreate.get(figureType).apply(figureType.getCoordinates());
     }
 }

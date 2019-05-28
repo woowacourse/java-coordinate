@@ -15,6 +15,7 @@ public class TriangleTest {
 
     AbstractFigure triangle;
     Coordinates coordinates;
+    FigureType figureType;
 
     @BeforeEach
     void setUp() {
@@ -22,12 +23,14 @@ public class TriangleTest {
         coordinates.add(new Coordinate(0, 0));
         coordinates.add(new Coordinate(10, 0));
         coordinates.add(new Coordinate(5, 10));
-        triangle = new FigureFactory().create(coordinates);
+        figureType = FigureType.valueOf(coordinates);
+        triangle = new FigureFactory().create(figureType);
+
     }
 
     @Test
     void create_생성_확인() {
-        assertThat(triangle).isEqualTo(new FigureFactory().create(coordinates));
+        assertThat(triangle).isEqualTo(new FigureFactory().create(figureType));
     }
 
     @Test
@@ -37,7 +40,7 @@ public class TriangleTest {
         exCoordinates.add(new Coordinate(1,1));
         exCoordinates.add(new Coordinate(2,2));
         assertThrows(Exception.class, () -> {
-            new FigureFactory().create(exCoordinates);
+            new FigureFactory().create(FigureType.valueOf(exCoordinates));
         });
     }
 

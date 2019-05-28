@@ -27,7 +27,7 @@ class FigureFactoryTest {
         Coordinates exCoordinates = new Coordinates();
         exCoordinates.add(new Coordinate(1,1));
         assertThrows(IllegalArgumentException.class, () -> {
-            new FigureFactory().create(exCoordinates);
+            new FigureFactory().create(FigureType.valueOf(exCoordinates));
         });
     }
 
@@ -36,7 +36,7 @@ class FigureFactoryTest {
         coordinates.add(new Coordinate(20,10));
         coordinates.add(new Coordinate(2,1));
         assertThrows(Exception.class, () -> {
-            new FigureFactory().create(coordinates);
+            new FigureFactory().create(FigureType.valueOf(coordinates));
         });
     }
 }
