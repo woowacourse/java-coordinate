@@ -48,18 +48,26 @@ public class OutputView {
     }
 
     private static String getPointX(int x, List<Point> points, int y) {
-        if (checkPoints(x, points, y)) {
+        if (checkAllPoints(x, points, y)) {
             return EXIST_POINT;
         }
         return EMPTY_POINT;
     }
 
-    private static boolean checkPoints(int x, List<Point> points, int y) {
-        for (Point point : points) {
-            if (point.getX() == x && point.getY() == y) {
-                removePoint(points, point);
-                return true;
-            }
+    private static boolean checkAllPoints(int x, List<Point> points, int y) {
+        boolean hasPoint = false;
+        for (int i = 0; i < points.size(); i++) {
+            Point checkingPoint = points.get(i);
+            hasPoint |= checkPoint(x, points, y, checkingPoint);
+        }
+        return hasPoint;
+    }
+
+
+    private static boolean checkPoint(int x, List<Point> points, int y, Point point) {
+        if (point.getX() == x && point.getY() == y) {
+            removePoint(points, point);
+            return true;
         }
         return false;
     }

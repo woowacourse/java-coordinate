@@ -19,7 +19,7 @@ public class ShapeFactory implements ShapeCreator {
         Shape shape;
         try {
             shape = FUNCTION_MAP.get(points.size()).apply(points);
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             throw new IllegalArgumentException("올바른 점의 갯수를 입력해 주세요");
         }
         return shape;
