@@ -15,9 +15,9 @@ public class CoordinateView {
     public CoordinateView(Points points) {
         coordinates = new ArrayList<>();
         IntStream.range(0, MAX + 1).forEach(i -> {
-            String[] blanks = new String[MAX + 1];
-            IntStream.range(0, MAX + 1).forEach(j -> blanks[j] = "   ");
-            coordinates.add(Arrays.asList(blanks));
+            List<String> blanks = new ArrayList<>(Arrays.asList(new String[MAX + 1]));
+            IntStream.range(0, MAX + 1).forEach(j -> blanks.set(j, "   "));
+            coordinates.add(blanks);
         });
         draw();
         mark(points);
