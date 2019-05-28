@@ -8,12 +8,12 @@ public class Point {
     private final PointElement x;
     private final PointElement y;
 
-    private Point(final Integer x, final Integer y) {
+    private Point(final int x, final int y) {
         this.x = PointElement.of(x);
         this.y = PointElement.of(y);
     }
 
-    public static Point of(final Integer x, final Integer y) {
+    public static Point of(final int x, final int y) {
         return new Point(x, y);
     }
 

@@ -37,7 +37,7 @@ public abstract class AbstractFigure implements Figure {
 		Point sameXPoint = points.subList(SECOND, points.size()).stream()
 				.filter(point -> from.isSameVerticalLine(point))
 				.findFirst()
-				.orElseThrow(IllegalArgumentException::new);
+				.orElseThrow(() -> new IllegalArgumentException("직사각형이 아닙니다"));
 		return from.getDistance(sameXPoint);
 	}
 
@@ -47,7 +47,7 @@ public abstract class AbstractFigure implements Figure {
 		Point sameYPoint = points.subList(SECOND, points.size()).stream()
 				.filter(point -> from.isSameHorizontalLine(point))
 				.findFirst()
-				.orElseThrow(IllegalArgumentException::new);
+				.orElseThrow(() -> new IllegalArgumentException("직사각형이 아닙니다"));
 		return from.getDistance(sameYPoint);
 	}
 

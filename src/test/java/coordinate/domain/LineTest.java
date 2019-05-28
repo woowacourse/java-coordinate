@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.offset;
 public class LineTest {
 
 	@Test
-	public void Line이_길이를_제대로_계산하는지_검증() {
+	public void Line이_길이를_제대로_계산하는지() {
 		List<Point> points = Arrays.asList(
 				Point.of(1, 1),
 				Point.of(4, 1)
