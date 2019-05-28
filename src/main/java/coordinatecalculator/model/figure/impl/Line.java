@@ -1,45 +1,45 @@
 package coordinatecalculator.model.figure.impl;
 
 import coordinatecalculator.model.coordinate.Coordinate;
+import coordinatecalculator.model.coordinate.CoordinateCalculator;
 import coordinatecalculator.model.figure.PlaneFigure;
 
 import java.util.List;
 
 public class Line extends PlaneFigure implements Comparable<Line> {
+    private static final double PARALLEL_X_AXIS_GRADIENT = 0.0;
+
     public Line(List<Coordinate> coordinates) {
         super(coordinates);
     }
 
     public double calculateGradient() {
-        Coordinate coordinateA = coordinates.get(0);
-        Coordinate coordinateB = coordinates.get(1);
+        Coordinate a = coordinates.get(0);
+        Coordinate b = coordinates.get(1);
 
         try {
-            double gradient = (double) (coordinateA.getY() - coordinateB.getY())
-                    / (coordinateA.getX() - coordinateB.getX());
-            return (Math.abs(gradient) == 0.0)? 0.0 : gradient;
+            double gradient = CoordinateCalculator.gradient(a, b);
+            return (Math.abs(gradient) == PARALLEL_X_AXIS_GRADIENT)? PARALLEL_X_AXIS_GRADIENT : gradient;
         } catch (ArithmeticException e) {
             return Double.POSITIVE_INFINITY;
         }
     }
 
     @Override
-    public int compareTo(Line o) {
-        return Double.compare(this.calculateArea(), o.calculateArea());
-    }
-
-    @Override
     public double calculateArea() {
-        Coordinate coordinateA = coordinates.get(0);
-        Coordinate coordinateB = coordinates.get(1);
+        Coordinate a = coordinates.get(0);
+        Coordinate b = coordinates.get(1);
 
-        int dx = Math.abs(coordinateA.getX() - coordinateB.getX());
-        int dy = Math.abs(coordinateA.getY() - coordinateB.getY());
-        return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        return CoordinateCalculator.lineLength(a, b);
     }
 
     @Override
     public String resultMessage() {
         return "두 점 사이의 거리는 : ";
+    }
+
+    @Override
+    public int compareTo(Line o) {
+        return Double.compare(this.calculateArea(), o.calculateArea());
     }
 }

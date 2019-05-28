@@ -11,6 +11,14 @@ public class Coordinate {
         this.y = new Value(y);
     }
 
+    public int getX() {
+        return x.getValue();
+    }
+
+    public int getY() {
+        return y.getValue();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

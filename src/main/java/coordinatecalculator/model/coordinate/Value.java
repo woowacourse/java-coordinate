@@ -16,4 +16,8 @@ public class Value {
             throw new IllegalArgumentException(MIN_VALUE + "에서 " + MAX_VALUE + "사이 값을 입력해주세요.");
         }
     }
+
+    public int getValue() {
+        return value;
+    }
 }

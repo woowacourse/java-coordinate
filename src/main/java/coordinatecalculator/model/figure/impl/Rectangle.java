@@ -32,9 +32,9 @@ public class Rectangle extends PlaneFigure {
 
     @Override
     public double calculateArea() {
-        double side1 = lines.get(0).calculateArea();
-        double side2 = lines.get(2).calculateArea();
-        return side1 * side2;
+        Line a = lines.get(0);
+        Line b = lines.get(2);
+        return LineCalculator.multipleLength(a, b);
     }
 
     @Override
