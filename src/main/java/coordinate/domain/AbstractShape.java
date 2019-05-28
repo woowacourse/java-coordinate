@@ -7,10 +7,14 @@ import java.util.List;
 public abstract class AbstractShape implements Shape {
     private static final int START_POINT = 0;
 
-    List<Double> lines = new ArrayList<>();
+    private List<Double> lines = new ArrayList<>();
 
     AbstractShape(List<Point> points) {
         extractLinesFromPolygon(points);
+    }
+
+    List<Double> getLines(){
+        return this.lines;
     }
 
     private void extractLinesFromPolygon(List<Point> points) {

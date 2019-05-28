@@ -18,7 +18,7 @@ public class Rectangle extends AbstractShape {
     }
 
     private void initializeRectangleLines() {
-        for (Double lineLength : lines) {
+        for (Double lineLength : getLines()) {
             addLine(lineLength);
         }
     }

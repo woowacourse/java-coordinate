@@ -8,9 +8,12 @@ public class Triangle extends AbstractShape {
     private static final int MAX_LINE_INDEX = 2;
     private static final int HERON_FORMULA_NUMBER = 2;
 
+    private List<Double> lines;
+
     public Triangle(List<Point> points) {
         super(points);
         validateShape();
+        lines = getLines();
     }
 
     @Override
