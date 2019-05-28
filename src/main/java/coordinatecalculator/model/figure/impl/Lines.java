@@ -1,5 +1,6 @@
 package coordinatecalculator.model.figure.impl;
 
+import coordinatecalculator.model.coordinate.Coordinate;
 import coordinatecalculator.model.coordinate.Coordinates;
 
 import java.util.*;
@@ -30,17 +31,24 @@ public class Lines {
 
     private List<Line> generateLines(Coordinates coordinates) {
         List<Line> lines = new ArrayList<>();
+        List<Coordinate> coordinateList = new ArrayList<>(coordinates.getCoordinates());
 
-        for (int i = 0; i < coordinates.size() - 1; i++) {
-            matchUnmetCoordinates(lines, coordinates, i);
-        }
+        do {
+            Coordinate a = coordinateList.get(0);
+            coordinateList.remove(a);
+            lines.addAll(matchCoordinates(a, coordinateList));
+        } while (coordinateList.size() != 0);
+
         return lines;
     }
 
-    private void matchUnmetCoordinates(List<Line> lines, Coordinates coordinates, int coordinateIndex) {
-        for (int j = coordinateIndex + 1; j < coordinates.size(); j++) {
-            lines.add(new Line(Arrays.asList(coordinates.get(coordinateIndex), coordinates.get(j))));
+    private List<Line> matchCoordinates(Coordinate a, List<Coordinate> coordinateList) {
+        List<Line> lines = new ArrayList<>();
+
+        for (Coordinate b : coordinateList) {
+            lines.add(new Line(Arrays.asList(a, b)));
         }
+        return lines;
     }
 
     public List<Line> getLines() {

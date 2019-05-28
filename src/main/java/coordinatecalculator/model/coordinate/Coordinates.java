@@ -23,10 +23,6 @@ public class Coordinates {
         return coordinates.get(index);
     }
 
-    public int size() {
-        return coordinates.size();
-    }
-
     public List<Coordinate> getCoordinates() {
         return unmodifiableList(coordinates);
     }
