@@ -34,9 +34,7 @@ class Vector implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        Vector objVector = (Vector) o;
-        double gab = length() - objVector.length();
-        return (gab > 0) ? 1 : ((gab == 0) ? 0 : -1);
+        return Double.compare(length() - ((Vector) o).length(),0);
     }
 
     @Override
