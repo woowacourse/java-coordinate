@@ -23,12 +23,12 @@ public class RectangleTest {
         coordinates.add(new Coordinate(10 ,0));
         coordinates.add(new Coordinate(0 ,10));
         coordinates.add(new Coordinate(10 ,10));
-        rectangle = FigureFactory.getInstance().create(coordinates);
+        rectangle = FigureFactory.create(coordinates);
     }
 
     @Test
     void create_생성_확인() {
-        assertThat(rectangle).isEqualTo(FigureFactory.getInstance().create(coordinates));
+        assertThat(rectangle).isEqualTo(FigureFactory.create(coordinates));
     }
 
     @Test

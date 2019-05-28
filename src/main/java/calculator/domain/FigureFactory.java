@@ -14,20 +14,18 @@ public class FigureFactory {
     private static final int LINE = 2;
     private static final int TRIANGLE = 3;
     private static final int RECTANGLE = 4;
-    private static final FigureFactory instance = new FigureFactory();
-    private final Map<Integer, Function<Coordinates, Figure>> figures = new HashMap<>();
 
-    public static FigureFactory getInstance() {
-        return instance;
-    }
+    private static final Map<Integer, Function<Coordinates, Figure>> figures = new HashMap<>();
 
-    private FigureFactory() { }
-
-    public Figure create(Coordinates coordinates) {
+    static {
         figures.put(POINT, Point::new);
         figures.put(LINE, Line::new);
         figures.put(TRIANGLE, Triangle::new);
         figures.put(RECTANGLE, Rectangle::new);
+
+    }
+
+    public static Figure create(Coordinates coordinates) {
 
         if (figures.get(coordinates.size()) == null) {
             throw new IllegalArgumentException(EX_NO_SUCH_FIGURE_MESSAGE);

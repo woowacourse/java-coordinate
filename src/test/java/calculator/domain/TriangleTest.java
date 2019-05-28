@@ -22,12 +22,12 @@ public class TriangleTest {
         coordinates.add(new Coordinate(0 ,0));
         coordinates.add(new Coordinate(10 ,0));
         coordinates.add(new Coordinate(5 ,10));
-        triangle = FigureFactory.getInstance().create(coordinates);
+        triangle = FigureFactory.create(coordinates);
     }
 
     @Test
     void create_생성_확인() {
-        assertThat(triangle).isEqualTo(FigureFactory.getInstance().create(coordinates));
+        assertThat(triangle).isEqualTo(FigureFactory.create(coordinates));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class TriangleTest {
         coordinates.add(new Coordinate(0 ,5));
         coordinates.add(new Coordinate(0,10));
         assertThrows(IllegalArgumentException.class, () -> {
-            FigureFactory.getInstance().create(coordinates);
+            FigureFactory.create(coordinates);
         });
     }
 }

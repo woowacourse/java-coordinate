@@ -16,7 +16,7 @@ public class CoordinateCalculator {
     public void excuteCoordinateCalculator() {
         try {
             coordinates = UserInputView.generaValidatedCoordinates();
-            figure = FigureFactory.getInstance().create(coordinates);
+            figure = FigureFactory.create(coordinates);
             map = new Map(coordinates);
         } catch(Exception e) {
              excuteCoordinateCalculator();

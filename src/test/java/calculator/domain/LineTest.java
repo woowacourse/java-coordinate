@@ -20,7 +20,7 @@ class LineTest {
         coordinates = new Coordinates();
         coordinates.add(new Coordinate(8,21));
         coordinates.add(new Coordinate(16,3));
-        line = FigureFactory.getInstance().create(coordinates);
+        line = FigureFactory.create(coordinates);
     }
 
     @Test
