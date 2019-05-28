@@ -1,7 +1,6 @@
 package coordinate.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public abstract class Shape {
     private List<Point> points;
