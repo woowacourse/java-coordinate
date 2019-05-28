@@ -17,7 +17,7 @@ public class Points {
 
         Collections.sort(clonedPoints);
 
-        return clonedPoints;
+        return Collections.unmodifiableList(clonedPoints);
     }
 
     public int size() {

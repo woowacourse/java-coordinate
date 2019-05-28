@@ -23,7 +23,7 @@ public class Rectangle implements Figure {
     }
 
     private void checkValidRectangle() {
-        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
+        List<Point> points = this.points.getSortedPoints();
 
         if (matchesPoint(points)) {
             throw new IllegalArgumentException(INVALID_CHECK_MESSAGE);

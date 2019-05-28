@@ -19,7 +19,7 @@ public class Line implements Figure {
 
     @Override
     public double calculateResult() {
-        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
+        List<Point> points = this.points.getSortedPoints();
         Point p1 = points.get(0);
         Point p2 = points.get(1);
 

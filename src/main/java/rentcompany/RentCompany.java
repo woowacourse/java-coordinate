@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class RentCompany {
-    private final List<Car> cars = new ArrayList<Car>();
+    private final List<Car> cars = new ArrayList<>();
+
+    public static RentCompany newInstance() {
+        return new RentCompany();
+    }
 
     List<Car> getCars() {
         return cars;

@@ -24,10 +24,10 @@ public class Triangle implements Figure {
     }
 
     private void checkValidTriangle() {
-        List<Point> points1 = Collections.unmodifiableList(this.points.getSortedPoints());
-        Point point1 = points1.get(0);
-        Point point2 = points1.get(1);
-        Point point3 = points1.get(2);
+        List<Point> points = this.points.getSortedPoints();
+        Point point1 = points.get(0);
+        Point point2 = points.get(1);
+        Point point3 = points.get(2);
 
         checkOnSameXAxis(point1, point2, point3);
         checkOnSameExtension(point1, point2, point3);
