@@ -15,13 +15,15 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public Double getArea() {
-        Line a = Line.of(Arrays.asList(this.points.get(0), this.points.get(1)));
-        Line b = Line.of(Arrays.asList(this.points.get(1), this.points.get(2)));
-        Line c = Line.of(Arrays.asList(this.points.get(2), this.points.get(0)));
+        Line lineA = Line.of(Arrays.asList(this.points.get(0), this.points.get(1)));
+        Line lineB = Line.of(Arrays.asList(this.points.get(1), this.points.get(2)));
+        Line lineC = Line.of(Arrays.asList(this.points.get(2), this.points.get(0)));
 
-        Double s = (a.getArea() + b.getArea() + c.getArea()) / Double.valueOf(2.0);
+        Double semiParameter = (lineA.getArea() + lineB.getArea() + lineC.getArea()) / Double.valueOf(2.0);
 
-        return Math.sqrt(s * (s - a.getArea()) * (s - b.getArea()) * (s - c.getArea()));
+        return Math.sqrt(semiParameter
+                * (semiParameter - lineA.getArea())
+                * (semiParameter - lineB.getArea()) * (semiParameter - lineC.getArea()));
     }
 
     @Override
