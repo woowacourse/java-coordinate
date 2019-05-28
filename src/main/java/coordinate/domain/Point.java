@@ -47,4 +47,8 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    double linearlyIntegrateWithYto(Point p2) {
+        return (x + p2.getX()) * (y - p2.getY()) / 2;
+    }
 }

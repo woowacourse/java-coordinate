@@ -42,7 +42,7 @@ public class Vertices {
             Point p1 = points.get(i);
             Point p2 = points.get(i + 1);
 
-            area += (double) ((p1.getX() + p2.getX()) * (p1.getY() - p2.getY())) / 2;
+            area += p1.linearlyIntegrateWithYto(p2);
         }
         points.remove(points.size() - 1);
 
