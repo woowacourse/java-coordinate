@@ -17,7 +17,7 @@ public abstract class AbstractFigure implements Figure {
     private void validate(final List<Point> points) {
         Set checkSet = new HashSet<>(points);
         if (checkSet.size() != points.size()) {
-            throw new IllegalArgumentException("도형을 만들 수 없습니다");
+            throw new IllegalArgumentException("위치가 같은 점이 존재합니다");
         }
     }
 
@@ -25,10 +25,4 @@ public abstract class AbstractFigure implements Figure {
     public Boolean hasPoint(final Point point) {
         return points.contains(point);
     }
-
-    @Override
-    public abstract Double getArea();
-
-    @Override
-    public abstract String getName();
 }

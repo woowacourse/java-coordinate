@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import coordinate.Figure;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -7,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-class CoordinatesTest {
+class FigureFactoryTest {
 
 	@Test
 	public void Coordinates클래스가가_직사각형을_제대로_생성하는지() {
@@ -16,8 +17,8 @@ class CoordinatesTest {
 				Point.of(2, 2),
 				Point.of(1, 2),
 				Point.of(2, 1));
-		Coordinates cb = new Coordinates(points);
-		assertThat(cb.getAreaElement()).isEqualTo(1.0, offset(0.00099));
+		Figure figure = FigureFactory.getInstance().create(points);
+		assertThat(figure.getArea()).isEqualTo(1.0, offset(0.00099));
 	}
 
 	@Test
@@ -25,9 +26,9 @@ class CoordinatesTest {
 		List<Point> points = Arrays.asList(
 				Point.of(1, 1)
 		);
-		Coordinates cb = new Coordinates(points);
+		Figure figure = FigureFactory.getInstance().create(points);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			cb.getAreaElement();
+			figure.getArea();
 		});
 	}
 
@@ -41,7 +42,7 @@ class CoordinatesTest {
 				Point.of(3, 3)
 		);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			new Coordinates(points);
+			FigureFactory.getInstance().create(points);
 		});
 	}
 
@@ -53,7 +54,7 @@ class CoordinatesTest {
 				Point.of(1, 1)
 		);
 		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			new Coordinates(points);
+			FigureFactory.getInstance().create(points);
 		});
 	}
 }

@@ -21,7 +21,7 @@ public class FigureFactory implements Factory {
     private FigureFactory() {
     }
 
-    static FigureFactory getInstance() {
+    public static FigureFactory getInstance() {
         return SingleTon.SINGLETON_INSTANCE;
     }
 
