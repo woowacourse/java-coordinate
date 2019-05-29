@@ -19,7 +19,7 @@ public class UserInterface {
         }
     }
 
-    public Board getBoard() {
+    Board getBoard() {
         return board;
     }
 }

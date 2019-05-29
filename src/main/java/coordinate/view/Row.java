@@ -21,7 +21,7 @@ public class Row {
         coordinate.set(index, true);
     }
 
-    public boolean getCoordinate(int x) {
+    boolean getCoordinate(int x) {
         return coordinate.get(x);
     }
 }
