@@ -19,4 +19,8 @@ public enum ShapeType {
         }
         return null;
     }
+
+    public int getPointSize() {
+        return pointSize;
+    }
 }

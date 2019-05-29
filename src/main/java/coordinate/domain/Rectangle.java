@@ -2,12 +2,21 @@ package coordinate.domain;
 
 import java.util.*;
 
+import static coordinate.domain.ShapeType.RECTANGLE;
+
 public class Rectangle extends Shape implements Figure {
     private static final int EVEN = 2;
 
     public Rectangle(final List<Point> points) {
         super(points);
         validate();
+        validateShape(points.size());
+    }
+
+    private void validateShape(int size) {
+        if (size != RECTANGLE.getPointSize()) {
+            throw new IllegalArgumentException("사각형이 아닙니다.");
+        }
     }
 
     private void validate() {

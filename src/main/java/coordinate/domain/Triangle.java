@@ -3,10 +3,19 @@ package coordinate.domain;
 import java.util.Collections;
 import java.util.List;
 
+import static coordinate.domain.ShapeType.TRIANGLE;
+
 public class Triangle extends Shape implements Figure {
     public Triangle(final List<Point> points) {
         super(points);
+        validateShape(points.size());
         validate();
+    }
+
+    private void validateShape(int size) {
+        if (size != TRIANGLE.getPointSize()) {
+            throw new IllegalArgumentException("삼각형이 아닙니다.");
+        }
     }
 
     private void validate() {

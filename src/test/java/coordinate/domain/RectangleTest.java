@@ -34,4 +34,15 @@ public class RectangleTest {
         Rectangle rectangle = new Rectangle(points);
         assertThat(rectangle.area()).isEqualTo(96, Offset.offset(0.0099));
     }
+
+    @Test
+    void 잘못된_점_입력() {
+        List<Point> points = Arrays.asList(
+                new Point(10, 10),
+                new Point(11, 10)
+        );
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Rectangle(points);
+        });
+    }
 }

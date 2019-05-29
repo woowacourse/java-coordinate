@@ -32,4 +32,15 @@ class TriangleTest {
             new Triangle(points);
         });
     }
+
+    @Test
+    void 잘못된_점_입력() {
+        List<Point> points = Arrays.asList(
+                new Point(10, 10),
+                new Point(11, 10)
+        );
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Triangle(points);
+        });
+    }
 }
