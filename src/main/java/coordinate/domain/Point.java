@@ -7,8 +7,8 @@ public class Point {
     private final Value valueY;
 
     public Point(final int x, final int y) {
-        this.valueX = new Value(x);
-        this.valueY = new Value(y);
+        this.valueX = Value.valueOf(x);
+        this.valueY = Value.valueOf(y);
     }
 
     public double getDistance(final Point point) {
