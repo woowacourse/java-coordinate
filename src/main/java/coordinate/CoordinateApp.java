@@ -1,7 +1,6 @@
 package coordinate;
 
 import coordinate.domain.Figure;
-import coordinate.domain.Line;
 import coordinate.domain.Points;
 import coordinate.domain.generator.FigureFactory;
 import coordinate.domain.generator.PointsGenerator;
@@ -12,7 +11,7 @@ public class CoordinateApp {
     public static void main(String[] args) {
         Points points = generatePoints();
         Figure figure = FigureFactory.generate(points);
-        printResult(figure);
+        OutputView.printResult(figure);
     }
 
     private static Points generatePoints() {
@@ -22,13 +21,5 @@ public class CoordinateApp {
             System.err.println(e.getMessage());
             return generatePoints();
         }
-    }
-
-    private static void printResult(final Figure figure) {
-        if (figure.getPoints().size() == 2) {
-            OutputView.printResult((Line) figure);
-            return;
-        }
-        OutputView.printResult(figure);
     }
 }
