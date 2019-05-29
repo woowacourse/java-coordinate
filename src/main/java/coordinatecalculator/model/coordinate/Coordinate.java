@@ -7,8 +7,8 @@ public class Coordinate {
     private final Value y;
 
     public Coordinate(int x, int y) {
-        this.x = new Value(x);
-        this.y = new Value(y);
+        this.x = Value.assignValue(x);
+        this.y = Value.assignValue(y);
     }
 
     public int getX() {
