@@ -36,7 +36,7 @@ public class FigureFactoryTest {
     }
 
     @Test
-    public void rectrangle() {
+    public void rectangle() {
         List<Coordinate> points = Arrays.asList(
                 new Coordinate(1, 2),
                 new Coordinate(2, 2),
