@@ -13,7 +13,7 @@ public class Triangle extends AbstractFigure {
 
     public Triangle(FigureType figureType) {
         super(figureType, FigureType.TRIANGLE);
-        this.points = getCoordinates();
+        this.points = getPoints();
         this.lines = generateLines();
         checkFigureCondition();
     }

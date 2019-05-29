@@ -28,7 +28,7 @@ public class Canvas implements Iterable<CanvasLine> {
     }
 
     public Canvas plotCoordinate(AbstractFigure abstractFigure) {
-        for (Point point : abstractFigure.getCoordinates()) {
+        for (Point point : abstractFigure.getPoints()) {
             plotCoordinate(point);
         }
         return new Canvas(canvas);

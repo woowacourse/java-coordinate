@@ -9,7 +9,7 @@ public class Line extends AbstractFigure implements Comparable<Line> {
 
     public Line(FigureType figureType) {
         super(figureType, FigureType.LINE);
-        this.points = getCoordinates();
+        this.points = getPoints();
     }
 
     public Line(Point startPoint, Point endPoint) {
