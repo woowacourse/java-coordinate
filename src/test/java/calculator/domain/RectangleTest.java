@@ -50,4 +50,9 @@ public class RectangleTest {
     void area_사각형_넓이_확인() {
         assertThat(rectangle.area()).isEqualTo(100.000, offset(0.00099));
     }
+
+    @Test
+    void perimeter_사각형_둘레_확인() {
+        assertThat(rectangle.perimeter()).isEqualTo(40, offset(0.00099));
+    }
 }

@@ -27,6 +27,10 @@ public class Coordinate {
         return this.coordinate;
     }
 
+    public int difference(Coordinate operand) {
+        return Math.abs(this.coordinate - operand.value());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

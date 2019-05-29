@@ -1,12 +1,13 @@
 package calculator.domain;
 
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author heebg
  * @version 1.0 2019-05-21
  */
-public class Point implements Comparable<Point> {
+public class Point {
     private final Coordinate xCoordinate;
     private final Coordinate yCoordinate;
 
@@ -25,16 +26,34 @@ public class Point implements Comparable<Point> {
         this(new Coordinate(xCoordinate), new Coordinate(yCoordinate));
     }
 
-    public int getX() {
+    public Set<Coordinate> duplicateXCoordinates(Set<Coordinate> coordinates) {
+        coordinates.add(this.xCoordinate);
+        return coordinates;
+    }
+
+    public Set<Coordinate> duplicateYCoordinates(Set<Coordinate> coordinates) {
+        coordinates.add(this.yCoordinate);
+        return coordinates;
+    }
+
+    public int getXCoordinateValue() {
         return xCoordinate.value();
     }
 
-    public int getY() {
+    public int getYCoordinateValue() {
         return yCoordinate.value();
     }
 
     public double straight(Point operand) {
-        return Math.sqrt(Math.pow(this.getX() - operand.getX(), 2) + Math.pow(this.getY() - operand.getY(), 2));
+        return Math.sqrt(Math.pow(operand.differenceX(this.xCoordinate), 2) + Math.pow(operand.differenceY(this.yCoordinate), 2));
+    }
+
+    private double differenceX(Coordinate coordinate) {
+        return this.xCoordinate.difference(coordinate);
+    }
+
+    private double differenceY(Coordinate coordinate) {
+        return this.yCoordinate.difference(coordinate);
     }
 
     @Override
@@ -49,16 +68,5 @@ public class Point implements Comparable<Point> {
     @Override
     public int hashCode() {
         return Objects.hash(xCoordinate, yCoordinate);
-    }
-
-    @Override
-    public int compareTo(Point o) {
-        if (this.getX() < o.getX()) {
-            return 1;
-        }
-        if (this.getX() == o.getX() && this.getY() < o.getY() ) {
-            return 1;
-        }
-        return -1;
     }
 }

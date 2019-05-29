@@ -24,7 +24,7 @@ public class Canvas implements Iterable<CanvasLine> {
     }
 
     public void plotCoordinate(Point point) {
-        canvas.get(point.getY()).plotX(point.getX());
+        canvas.get(point.getYCoordinateValue()).plotX(point.getXCoordinateValue());
     }
 
     public Canvas plotCoordinate(AbstractFigure abstractFigure) {
@@ -35,7 +35,7 @@ public class Canvas implements Iterable<CanvasLine> {
     }
 
     public boolean isPlottedCoordinate(Point point) {
-        return canvas.get(point.getY()).get(point.getX());
+        return canvas.get(point.getYCoordinateValue()).get(point.getXCoordinateValue());
     }
 
     public int size() {

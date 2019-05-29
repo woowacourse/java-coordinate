@@ -9,52 +9,42 @@ import java.util.*;
 public class Rectangle extends AbstractFigure {
     private static final String EX_NOT_RECTANGLE_MESSAGE = "x축, y축과 평행한 직사각형이 아닙니다.";
     private final Points points;
+    private final List<Line> lines;
 
     public Rectangle(FigureType figureType) {
         super(figureType, FigureType.RECTANGLE);
         this.points = getPoints();
+        this.lines = generateLines();
         checkFigureCondition();
     }
 
-    public double straight(Set<Integer> axisCoordinates) {
-        Iterator<Integer> iterator = axisCoordinates.iterator();
-        List<Integer> coordinates = new ArrayList<>();
-        while (iterator.hasNext()) {
-            coordinates.add(iterator.next());
-        }
-
-        return Math.abs(coordinates.get(0) - coordinates.get(1));
+    private List<Line> generateLines() {
+        List<Line> lines = new ArrayList<>();
+        lines.add(new Line(points.get(0), points.get(1)));
+        lines.add(new Line(points.get(0), points.get(2)));
+        lines.add(new Line(points.get(0), points.get(3)));
+        Collections.sort(lines);
+        lines.remove(2);
+        return lines;
     }
 
     @Override
     void checkFigureCondition() {
-        Set<Integer> xCoordinates = new HashSet<>();
-        Set<Integer> yCoordinates = new HashSet<>();
-
-        for (Point point : points) {
-            xCoordinates.add(point.getX());
-            yCoordinates.add(point.getY());
-        }
-
-        checkNotFigure(!(xCoordinates.size() == 2 && yCoordinates.size() == 2), EX_NOT_RECTANGLE_MESSAGE);
+        checkNotFigure(!(points.duplicateXCoordinateSize() == 2 && points.duplicateYCoordinateSize() == 2), EX_NOT_RECTANGLE_MESSAGE);
     }
 
     @Override
     public double perimeter() {
-        return 0;
+        double result = 0;
+        for (Line line : lines) {
+            result += line.perimeter();
+        }
+        return result * 2;
     }
 
     @Override
     public double area() {
-        Set<Integer> xCoordinates = new HashSet<>();
-        Set<Integer> yCoordinates = new HashSet<>();
-
-        for (int i = 0; i < points.size(); i++) {
-            xCoordinates.add(points.get(i).getX());
-            yCoordinates.add(points.get(i).getY());
-        }
-
-        return straight(xCoordinates) * straight(yCoordinates);
+        return lines.get(0).perimeter() * lines.get(1).perimeter();
     }
 
     @Override

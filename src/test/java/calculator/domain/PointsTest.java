@@ -33,19 +33,4 @@ public class PointsTest {
             points.add(new Point(new Coordinate(10),new Coordinate(10)));
         });
     }
-
-    @Test
-    void comparable_테스트_1() {
-        assertThat(points.get(0)).isEqualTo(new Point(new Coordinate(10),new Coordinate(20)));
-    }
-
-    @Test
-    void comparable_테스트_2() {
-        assertThat(points.get(1)).isEqualTo(new Point(new Coordinate(10),new Coordinate(10)));
-    }
-
-    @Test
-    void comparable_테스트_3() {
-        assertThat(points.get(2)).isEqualTo(new Point(new Coordinate(5),new Coordinate(4)));
-    }
 }

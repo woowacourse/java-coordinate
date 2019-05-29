@@ -34,7 +34,6 @@ public class Points implements Iterable<Point> {
     public Points add(Point point) {
         checkDuplication(point);
         points.add(point);
-        Collections.sort(points);
         return new Points(points);
     }
 
@@ -55,6 +54,24 @@ public class Points implements Iterable<Point> {
 
     public Point get(int index) {
         return points.get(index);
+    }
+
+    public int duplicateXCoordinateSize() {
+        Set<Coordinate> xCoordinates = new HashSet<>();
+
+        for (Point point : points) {
+            xCoordinates = point.duplicateXCoordinates(xCoordinates);
+        }
+        return xCoordinates.size();
+    }
+
+    public int duplicateYCoordinateSize() {
+        Set<Coordinate> yCoordinates = new HashSet<>();
+
+        for (Point point : points) {
+            yCoordinates = point.duplicateYCoordinates(yCoordinates);
+        }
+        return yCoordinates.size();
     }
 
     @Override
