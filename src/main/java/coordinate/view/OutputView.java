@@ -1,13 +1,17 @@
 package coordinate.view;
 
-import coordinate.UserInterface;
 import coordinate.domain.Figure;
 import coordinate.domain.Line;
 import coordinate.domain.Points;
 
+import static coordinate.view.UserInterface.MAX_INDEX;
+import static coordinate.view.UserInterface.MIN_INDEX;
+
 public class OutputView {
     private static final String POLE_HEIGHT = "|";
     private static final String NEW_LINE = "\n";
+    private static final String X_AXIS = "-----------------------------------------------------------------------------";
+    private static final String X_NUMBERS = "0     2     4     6     8     10    12    14    16    18    20    22";
 
     public static void printResult(final Figure figure) {
         printCoordinates(figure.getPoints());
@@ -23,17 +27,25 @@ public class OutputView {
         UserInterface userInterface = new UserInterface();
         userInterface.drawPoints(points);
         StringBuilder sb = new StringBuilder();
-        boolean[][] coordinates = userInterface.getCoordinates();
+        Board board = userInterface.getBoard();
+        drawBoard(sb, board);
+        System.out.println(sb.toString());
+    }
 
-        for (int i = coordinates.length - 1; i >= 0; i--) {
-            sb.append(i).append(POLE_HEIGHT);
-            for (int j = 0; j < coordinates.length; j++) {
-                sb.append(coordinates[j][i] ? "*  " : "   ");
-            }
+    private static void drawBoard(final StringBuilder sb, final Board board) {
+        for (int y = MAX_INDEX - 1; y >= MIN_INDEX; y--) {
+            Row row = board.getRow(y);
+            sb.append(y).append(POLE_HEIGHT);
+            drawRow(sb, row);
             sb.append(NEW_LINE);
         }
-        System.out.println(sb.toString());
-        System.out.println("------------------------------------------------------------------------------");
-        System.out.println("0     2      4     6      8     10    12    14    16    18    20    22");
+        sb.append(X_AXIS).append(NEW_LINE);
+        sb.append(X_NUMBERS);
+    }
+
+    private static void drawRow(final StringBuilder sb, final Row row) {
+        for (int x = MIN_INDEX; x < MAX_INDEX; x++) {
+            sb.append(row.getCoordinate(x) ? "*  " : "   ");
+        }
     }
 }
