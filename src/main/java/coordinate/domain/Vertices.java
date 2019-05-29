@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Vertices {
-    private static final String DUPLICATION_EXCEPTION_MESSAGE = "중복된 좌표가 입력되었습니다.";
-
     private List<Point> points;
 
     Vertices(List<Point> points) {
@@ -18,7 +16,7 @@ public class Vertices {
     private static void validateDuplication(List<Point> points) {
         Set<Point> nonDuplicatedPoints = new HashSet<>(points);
         if (nonDuplicatedPoints.size() != points.size()) {
-            throw new IllegalArgumentException(DUPLICATION_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException("중복된 좌표가 입력되었습니다.");
         }
     }
 
@@ -42,17 +40,22 @@ public class Vertices {
             Point p1 = points.get(i);
             Point p2 = points.get(i + 1);
 
-            area += p1.linearlyIntegrateWithYto(p2);
+            area += linearlyIntegrateWithY(p1, p2);
         }
         points.remove(points.size() - 1);
 
         return Math.abs(area);
     }
 
+    private double linearlyIntegrateWithY(Point p1, Point p2) {
+        return (p1.getX() + p2.getX()) * (p1.getY() - p2.getY()) / 2;
+    }
+
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < points.size() ; i++) {
+        for (int i = 0; i < points.size(); i++) {
             stringBuilder.append("[")
                     .append(i)
                     .append("] (")

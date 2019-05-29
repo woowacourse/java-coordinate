@@ -17,7 +17,11 @@ class Vector implements Comparable {
     }
 
     int dotProduct(Vector objVector) {
-        return deltaX * objVector.deltaX + deltaY * objVector.deltaY;
+        return objVector.dotProduct(deltaX, deltaY);
+    }
+
+    private int dotProduct(int deltaX, int deltaY) {
+        return this.deltaX * deltaX + this.deltaY * deltaY;
     }
 
     int crossProduct(Vector objVector) {
@@ -34,7 +38,7 @@ class Vector implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        return Double.compare(length() - ((Vector) o).length(),0);
+        return Double.compare(length() - ((Vector) o).length(), 0);
     }
 
     @Override
