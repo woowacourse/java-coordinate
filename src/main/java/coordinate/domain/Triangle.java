@@ -37,9 +37,4 @@ public final class Triangle extends Figure {
                 .mapToDouble(triangleLength -> halfOfTotalTriangleLength - triangleLength)
                 .reduce(DEFAULT_MULTIPLY_NUMBER, (former, latter) -> former * latter);
     }
-
-    @Override
-    public String toString() {
-        return "삼각형";
-    }
 }
