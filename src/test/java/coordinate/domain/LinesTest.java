@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.offset;
 class LinesTest {
     @Test
     void 길이_테스트() {
-        List<Line> lineList = Arrays.asList(new Line(new PointsGenerator("(10,10)-(14,15)").generate()));
+        List<Line> lineList = Arrays.asList(new Line(PointsGenerator.generatePoints("(10,10)-(14,15)")));
         Lines lines = new Lines(lineList);
 
         assertThat(lines.lengths().get(0)).isEqualTo(6.403124, offset(0.00009));

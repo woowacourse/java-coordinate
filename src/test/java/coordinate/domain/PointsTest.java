@@ -8,15 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class PointsTest {
     @Test
     void 중복_테스트() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            Points points = new PointsGenerator("(10,10)-(22,10)-(22,18)-(10,10)").generate();
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+            PointsGenerator.generatePoints("(10,10)-(22,10)-(22,18)-(10,10)"));
     }
 
     @Test
     void 점이_없을때_테스트() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            Points points = new PointsGenerator("").generate();
-        });
+        assertThrows(IllegalArgumentException.class, () -> PointsGenerator.generatePoints(""));
     }
 }

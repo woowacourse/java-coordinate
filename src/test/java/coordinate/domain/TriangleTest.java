@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TriangleTest {
     @Test
     void 사이즈_테스트() {
-        assertThrows(IllegalArgumentException.class, () -> new Triangle(new PointsGenerator("(10,10)-(14,15)").generate()));
+        assertThrows(IllegalArgumentException.class, () -> new Triangle(PointsGenerator.generatePoints("(10,10)-(14,15)")));
     }
 
     @Test
     void 면적_테스트() {
-        Triangle triangle = new Triangle(new PointsGenerator("(10,10)-(14,15)-(20,8)").generate());
+        Triangle triangle = new Triangle(PointsGenerator.generatePoints("(10,10)-(14,15)-(20,8)"));
         assertThat(triangle.area()).isEqualTo(29.0, Offset.offset(0.00009));
     }
 }

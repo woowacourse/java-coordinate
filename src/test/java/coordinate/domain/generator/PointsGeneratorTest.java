@@ -13,19 +13,19 @@ class PointsGeneratorTest {
 
     @Test
     void 대쉬_없는_경우_테스트() {
-        assertThrows(IllegalArgumentException.class, () -> new PointsGenerator("(1,2)(3,4)"));
+        assertThrows(IllegalArgumentException.class, () ->PointsGenerator.generatePoints("(1,2)(3,4)"));
     }
 
     @Test
     void generate_테스트() {
-        assertThat(new PointsGenerator("(1,2)-(3,4)").generate())
+        assertThat(PointsGenerator.generatePoints("(1,2)-(3,4)"))
                 .isEqualTo(Points.of(Arrays.asList(new Point(1, 2), new Point(3, 4))));
     }
 
     @Test
     void 사이즈_테스트() {
-        assertThat(new PointsGenerator("(1,2)-(3,4)").generate().size()).isEqualTo(2);
-        assertThat(new PointsGenerator("(1,2)-(3,4)-(5,6)").generate().size()).isEqualTo(3);
-        assertThat(new PointsGenerator("(1,2)-(3,4)-(5,6)-(5,9)").generate().size()).isEqualTo(4);
+        assertThat(PointsGenerator.generatePoints("(1,2)-(3,4)").size()).isEqualTo(2);
+        assertThat(PointsGenerator.generatePoints("(1,2)-(3,4)-(5,6)").size()).isEqualTo(3);
+        assertThat(PointsGenerator.generatePoints("(1,2)-(3,4)-(5,6)-(5,9)").size()).isEqualTo(4);
     }
 }

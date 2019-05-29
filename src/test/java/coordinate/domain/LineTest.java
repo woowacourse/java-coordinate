@@ -14,12 +14,12 @@ public class LineTest {
     @Test
     void 거리_테스트() {
         double expect = Math.sqrt(8);
-        assertThat(new Line(new PointsGenerator("(0,0)-(2,2)").generate()).length())
+        assertThat(new Line(PointsGenerator.generatePoints("(0,0)-(2,2)")).length())
                 .isEqualTo(expect, offset(0.00099));
     }
 
     @Test
     void 사이즈_테스트() {
-        assertThrows(IllegalArgumentException.class, () -> new Line(new PointsGenerator("(0,0)").generate()));
+        assertThrows(IllegalArgumentException.class, () -> new Line(PointsGenerator.generatePoints("(0,0)")));
     }
 }
