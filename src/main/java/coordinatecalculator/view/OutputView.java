@@ -21,7 +21,7 @@ public class OutputView {
     private static void printCoordinate(Points points) {
         boolean[][] coordinate = new boolean[COORDINATE_HEIGHT][COORDINATE_WIDTH];
         for (Point point : points.getPoints()) {
-            coordinate[point.getXPoint().getValue()][point.getYPoint().getValue()] = true;
+            coordinate[point.getYPoint().getValue()][point.getXPoint().getValue()] = true;
         }
         printCoordinateAllLines(coordinate);
     }

@@ -1,6 +1,7 @@
 package coordinatecalculator.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -24,7 +25,9 @@ public class Triangle extends Figure {
     private void validateTrianglePoints() {
         Set<Double> checkSlops = new HashSet<>();
         for (int i = START; i < TRIANGLE_SIZE; i++) {
-            checkSlops.add(points.getPoint(i).getSlope(points.getPoint((i + NEXT) % TRIANGLE_SIZE)));
+            Point checkPoint = points.getPoint(i);
+            Point checkNextPoint = points.getPoint((i + NEXT) % TRIANGLE_SIZE);
+            checkSlops.add(checkPoint.getSlope(checkNextPoint));
         }
         if (checkSlops.size() != TRIANGLE_SIZE) {
             throw new IllegalArgumentException("잘못된 삼각형 입니다.");
@@ -44,9 +47,9 @@ public class Triangle extends Figure {
 
     @Override
     public double calculateResult() {
-        double firstLine = points.generateDistances().get(FIRST_DISTANCE).getDistance();
-        double secondLine = points.generateDistances().get(SECOND_DISTANCE).getDistance();
-        double thirdLine = points.generateDistances().get(THIRD_DISTANCE).getDistance();
+        double firstLine = points.getGenerateDistance(FIRST_DISTANCE);
+        double secondLine = points.getGenerateDistance(SECOND_DISTANCE);
+        double thirdLine = points.getGenerateDistance(THIRD_DISTANCE);
 
         return getTriangleArea(firstLine, secondLine, thirdLine);
     }

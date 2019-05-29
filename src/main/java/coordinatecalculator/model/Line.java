@@ -19,7 +19,7 @@ public class Line extends Figure {
 
     @Override
     public double calculateResult() {
-        return points.generateDistances().get(DISTANCES_FIRST_INDEX).getDistance();
+        return points.getGenerateDistance(DISTANCES_FIRST_INDEX);
     }
 
     @Override
