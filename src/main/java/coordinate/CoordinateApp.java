@@ -24,7 +24,7 @@ public class CoordinateApp {
 
     private static Points generatePoints() {
         try {
-            return new PointsGenerator(InputView.inputCoordinate()).generate();
+            return PointsGenerator.generatePoints(InputView.inputCoordinate());
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
             return generatePoints();
