@@ -9,17 +9,13 @@ import java.util.List;
 public abstract class AbstractShape implements Shape {
     private static final int START_POINT = 0;
 
-    private List<Double> lines = new ArrayList<>();
+    List<Double> lines = new ArrayList<>();
 
     AbstractShape(List<Point> points) {
-        extractLinesFromPolygon(points);
+        extractLinesInPolygon(points);
     }
 
-    List<Double> getLines() {
-        return this.lines;
-    }
-
-    private void extractLinesFromPolygon(List<Point> points) {
+    private void extractLinesInPolygon(List<Point> points) {
         while (!points.isEmpty()) {
             extractLinesFromOnePoint(points.remove(START_POINT), points);
         }

@@ -20,7 +20,7 @@ public class Rectangle extends AbstractShape {
     }
 
     private void initializeRectangleLines() {
-        for (Double lineLength : getLines()) {
+        for (Double lineLength : lines) {
             addLine(lineLength);
         }
     }

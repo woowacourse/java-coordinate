@@ -10,11 +10,8 @@ public class Triangle extends AbstractShape {
     private static final int MAX_LINE_INDEX = 2;
     private static final int HERON_FORMULA_NUMBER = 2;
 
-    private List<Double> lines;
-
     public Triangle(List<Point> points) {
         super(points);
-        lines = getLines();
         validateShape();
     }
 
@@ -23,7 +20,7 @@ public class Triangle extends AbstractShape {
         Collections.sort(lines);
         double longestLine = lines.get(MAX_LINE_INDEX);
         double sumWithoutLongestLine = lines.stream()
-                .filter(length -> !length.equals(lines.get(MAX_LINE_INDEX)))
+                .filter(length -> !length.equals(longestLine))
                 .mapToDouble(Double::doubleValue)
                 .sum();
         if (longestLine >= sumWithoutLongestLine) {
