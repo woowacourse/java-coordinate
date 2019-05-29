@@ -6,73 +6,63 @@ import coordinate.domain.Shape;
 import java.util.List;
 
 public class OutputView {
+    private static final String CENTER = String.format("%2s", "+");
+    private static final String AXIS_X_LINE = String.format("%2s", "---");
+    private static final String AXIS_Y_LINE = String.format("%2s", "|");
+    private static final String POINT = String.format("%2s", "●");
+    private static final String BLANK = String.format("%2s", "  ");
+    private static final String NEW_LINE = "\n";
     private final static int MAX_BOARD_SIZE = 25;
     private final static int MIN_BOARD_SIZE = 0;
-    private final static String POINT = "●";
 
     public static void printResult(Shape shape) {
         System.out.println(shape.toString() + shape.calculateFigure());
     }
 
-    public static void printBoard(Board boardVo) {
-        List<List<Boolean>> board = boardVo.getBoard();
+    public static void printBoard(Board board) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int axisY = MAX_BOARD_SIZE - 1; axisY > MIN_BOARD_SIZE; axisY--) {
-            stringBuilder.append(drawAxisXOfAxisY(board, axisY));
+            List<Boolean> boardLine = board.getBoardSingleLine(axisY).getLine();
+            stringBuilder.append(drawAxisXOfAxisY(boardLine, axisY));
         }
         stringBuilder.append(drawOnlyAxisX(board));
-        stringBuilder.append(numberOfAxisX());
         System.out.println(stringBuilder);
     }
 
-    private static String drawAxisXOfAxisY(List<List<Boolean>> board, int axisY) {
+    private static String drawAxisXOfAxisY(List<Boolean> line, int index) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
-            boolean pointState = board.get(axisY).get(axisX);
-            stringBuilder.append(pointCoordinate(axisX, axisY, pointState));
+        stringBuilder.append(isEvenIndex(index) ? String.format("%2s", index) : BLANK);
+        stringBuilder.append(line.get(0) ? POINT : AXIS_Y_LINE);
+        for (int i = 1; i < line.size(); i++) {
+            boolean boardState = line.get(i);
+            stringBuilder.append(boardState ? POINT : BLANK);
         }
-        stringBuilder.append(String.format("\n%5.5s|\n", ""));
+        stringBuilder.append(NEW_LINE);
         return stringBuilder.toString();
     }
 
-    private static String pointCoordinate(int axisX, int axisY, boolean pointState) {
-        if (axisX == MIN_BOARD_SIZE && !pointState) {
-            return String.format("%5.5s|", axisY);
-        }
-        if (axisX == MIN_BOARD_SIZE && pointState) {
-            return String.format("%5.5s", axisY + POINT);
-        }
-        if (pointState) {
-            return String.format("%5.5s", POINT);
-        }
-        return String.format("%5.5s", "");
+    private static boolean isEvenIndex(int index) {
+        return index % 2 == 0;
     }
 
-    private static String drawOnlyAxisX(List<List<Boolean>> board) {
+    private static String drawOnlyAxisX(Board board) {
+        List<Boolean> line = board.getBoardSingleLine(0).getLine();
         StringBuilder stringBuilder = new StringBuilder();
-        for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX++) {
-            boolean pointState = board.get(0).get(axisX);
-            stringBuilder.append(pointOnlyCoordinateX(axisX, pointState));
+        stringBuilder.append(line.get(0) ? BLANK + POINT : BLANK + CENTER);
+        for (int i = 1; i < line.size(); i++) {
+            boolean boardState = line.get(i);
+            stringBuilder.append(boardState ? POINT : AXIS_X_LINE);
         }
+        stringBuilder.append(numberOfAxisX());
         return stringBuilder.toString();
-    }
-
-    private static String pointOnlyCoordinateX(int axisX, boolean pointState) {
-        if (axisX == MIN_BOARD_SIZE && !pointState) {
-            return String.format("%5.5s+", "");
-        }
-        if (pointState) {
-            return String.format("%5.5s", "---" + POINT + "-");
-        }
-        return String.format("%5.5s", "-----");
     }
 
     private static String numberOfAxisX() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\n ");
+        stringBuilder.append(NEW_LINE);
         for (int axisX = MIN_BOARD_SIZE; axisX < MAX_BOARD_SIZE; axisX += 2) {
-            stringBuilder.append(String.format("%5.5s", axisX));
-            stringBuilder.append(String.format("%5.5s", ""));
+            stringBuilder.append(String.format("%3s", axisX));
+            stringBuilder.append(String.format("%3s", ""));
         }
         return stringBuilder.toString();
     }

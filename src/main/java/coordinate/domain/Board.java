@@ -1,38 +1,35 @@
 package coordinate.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
-    private final static int MAX_BOARD_SIZE = 25;
+    public final static int MAX_BOARD_SIZE = 25;
     private final static int MIN_BOARD_SIZE = 0;
 
-    private final List<List<Boolean>> board;
+    private final List<BoardSingleLine> board;
 
     public Board(Points points) {
         this.board = initBoard();
         setPoints(points);
     }
 
-    private static List<List<Boolean>> initBoard() {
-        List<List<Boolean>> board = new ArrayList<>();
+    private static List<BoardSingleLine> initBoard() {
+        List<BoardSingleLine> board = new ArrayList<>();
         for (int i = MIN_BOARD_SIZE; i < MAX_BOARD_SIZE; i++) {
-            board.add(initBoardOfSingleLine());
+            board.add(new BoardSingleLine());
         }
         return board;
-    }
-
-    private static List<Boolean> initBoardOfSingleLine() {
-        return new ArrayList<>(Collections.nCopies(MAX_BOARD_SIZE, Boolean.FALSE));
     }
 
     private void setPoints(Points points) {
         for (int pointIndex = 0; pointIndex < points.size(); pointIndex++) {
             Point point = points.get(pointIndex);
-            board.get(point.getY()).set(point.getX(), true);
+            board.get(point.getY()).pointing(point.getX());
         }
     }
 
-    public List<List<Boolean>> getBoard() {
-        return this.board;
+    public BoardSingleLine getBoardSingleLine(int indexY) {
+        return this.board.get(indexY);
     }
 }

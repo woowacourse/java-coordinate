@@ -9,8 +9,6 @@ public abstract class Figure implements Shape {
         this.points = points;
     }
 
-    public abstract double calculateFigure();
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

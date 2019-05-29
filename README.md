@@ -47,6 +47,7 @@
 * Points 테스트 추가하기
 * OutputView 메서드 분리하기
 * CoordinateApplication 로직 구현하기
+* Board 일급 콜렉션 적용하기
 
 ## 우아한테크코스 코드리뷰
 * [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
