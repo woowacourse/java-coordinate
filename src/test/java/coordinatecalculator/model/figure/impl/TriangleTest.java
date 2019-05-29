@@ -45,4 +45,13 @@ public class TriangleTest {
         List<Coordinate> coordinates = Arrays.asList(c1, c2, c3);
         assertThat(new Triangle(coordinates).calculateArea()).isEqualTo(24);
     }
+
+    @Test
+    void 모든_변이_좌표축과_평행하지_않은_경우() {
+        Coordinate c1 = new Coordinate(10, 10);
+        Coordinate c2 = new Coordinate(13, 6);
+        Coordinate c3 = new Coordinate(17, 9);
+        List<Coordinate> coordinates = Arrays.asList(c1, c2, c3);
+        assertThat(new Triangle(coordinates).calculateArea()).isEqualTo(12.5);
+    }
 }
