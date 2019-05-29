@@ -3,36 +3,25 @@ package coordinate.domain;
 import java.util.Objects;
 
 public class Point {
-    private static final int MIN_X = 0;
+    static final int MIN_X = 0;
     static final int MAX_X = 24;
-    private static final int MIN_Y = 0;
+    static final int MIN_Y = 0;
     static final int MAX_Y = 24;
-    private static final String OUT_OF_RANGE_EXCEPTION_MESSAGE = "값이 범위를 벗어났습니다. 좌표 : (%d, %d)";
 
-    private final int x;
-    private final int y;
+    private final NumberForPoint x;
+    private final NumberForPoint y;
 
     public Point(int x, int y) {
-        validateRange(x, y);
-        this.x = x;
-        this.y = y;
-    }
-
-    private void validateRange(int x, int y) {
-        if (x < MIN_X || x > MAX_X) {
-            throw new IllegalArgumentException(String.format(OUT_OF_RANGE_EXCEPTION_MESSAGE, x, y));
-        }
-        if (y < MIN_Y || y > MAX_Y) {
-            throw new IllegalArgumentException(String.format(OUT_OF_RANGE_EXCEPTION_MESSAGE, x, y));
-        }
+        this.x = NumberForPoint.valueOf(x);
+        this.y = NumberForPoint.valueOf(y);
     }
 
     int getX() {
-        return x;
+        return x.getValue();
     }
 
     int getY() {
-        return y;
+        return y.getValue();
     }
 
     @Override
