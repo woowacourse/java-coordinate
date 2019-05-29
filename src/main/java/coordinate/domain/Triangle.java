@@ -4,6 +4,7 @@ import coordinate.domain.generator.LinesTriangleGenerator;
 
 public final class Triangle extends Figure {
     private static final int NUMBER_OF_POINTS = 3;
+    private static final double HERON_DIVIDE_NUMBER = 2.0;
 
     public Triangle(final Points points) {
         super(points, new LinesTriangleGenerator(points));
@@ -25,7 +26,10 @@ public final class Triangle extends Figure {
     }
 
     private double calculateS(final Lines lines) {
-        return lines.lengths().stream().mapToDouble(Double::doubleValue).sum() / 2.0;
+        return lines.lengths()
+                .stream()
+                .mapToDouble(Double::doubleValue)
+                .sum() / HERON_DIVIDE_NUMBER;
     }
 
     private double calculateX(final Lines lines, final double s) {
