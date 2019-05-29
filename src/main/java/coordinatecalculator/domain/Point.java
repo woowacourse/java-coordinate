@@ -3,25 +3,25 @@ package coordinatecalculator.domain;
 import java.util.Objects;
 
 public class Point implements Comparable<Point> {
-    private final X x;
-    private final Y y;
+    private final AxisValue x;
+    private final AxisValue y;
 
     public Point(String x, String y) {
-        this.x = new X(x);
-        this.y = new Y(y);
+        this.x = new AxisValue(x);
+        this.y = new AxisValue(y);
     }
 
-    public int getX() {
-        return x.getX();
+    public int getAxisValue() {
+        return x.getValue();
     }
 
     public int getY() {
-        return y.getY();
+        return y.getValue();
     }
 
     @Override
     public int compareTo(Point point) {
-        return (this.getX() < point.getX()) ? -1 : ((this.getX() == point.getX()) ? Integer.compare(this.getY(), point.getY()) : 1);
+        return (this.getAxisValue() < point.getAxisValue()) ? -1 : ((this.getAxisValue() == point.getAxisValue()) ? Integer.compare(this.getY(), point.getY()) : 1);
     }
 
     @Override

@@ -36,7 +36,7 @@ public class Drawer {
 
         for (Point point : sortedPoints) {
             board.get(Y_TOP_POSITION - point.getY())
-                    .replace((point.getX() * X_DOUBLE_POSITION) + X_PARALLEL_TRANSLATION, (point.getX() * X_DOUBLE_POSITION) + X_PARALLEL_TRANSLATION + 1, "*");
+                    .replace((point.getAxisValue() * X_DOUBLE_POSITION) + X_PARALLEL_TRANSLATION, (point.getAxisValue() * X_DOUBLE_POSITION) + X_PARALLEL_TRANSLATION + 1, "*");
         }
     }
 

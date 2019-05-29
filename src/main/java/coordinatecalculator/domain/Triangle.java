@@ -34,15 +34,15 @@ public class Triangle implements Figure {
     }
 
     private void checkOnSameXAxis(Point p1, Point p2, Point p3) {
-        if (p1.getX() == p2.getX() && p2.getX() == p3.getX()) {
+        if (p1.getAxisValue() == p2.getAxisValue() && p2.getAxisValue() == p3.getAxisValue()) {
             throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
         }
     }
 
     private void checkOnSameExtension(Point p1, Point p2, Point p3) {
-        int x1 = p1.getX() - p2.getX();
+        int x1 = p1.getAxisValue() - p2.getAxisValue();
         int y1 = p1.getY() - p2.getY();
-        int x2 = p3.getX() - p2.getX();
+        int x2 = p3.getAxisValue() - p2.getAxisValue();
         int y2 = p3.getY() - p2.getY();
 
         if ((double) y1 / x1 == (double) y2 / x2) {
@@ -72,7 +72,7 @@ public class Triangle implements Figure {
     }
 
     private double calculateLength(Point p1, Point p2) {
-        int x = Math.abs(p2.getX() - p1.getX());
+        int x = Math.abs(p2.getAxisValue() - p1.getAxisValue());
         int y = Math.abs(p2.getY() - p1.getY());
 
         return Math.sqrt(x * x + y * y);

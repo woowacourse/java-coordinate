@@ -40,7 +40,7 @@ public class Rectangle implements Figure {
     }
 
     private boolean matchesX(Point firstPoint, Point secondPoint) {
-        return firstPoint.getX() == secondPoint.getX();
+        return firstPoint.getAxisValue() == secondPoint.getAxisValue();
     }
 
     private boolean matchesY(Point firstPoint, Point secondPoint) {
@@ -50,7 +50,7 @@ public class Rectangle implements Figure {
     @Override
     public double calculateResult() {
         List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
-        return Math.abs((points.get(0).getY() - points.get(1).getY()) * (points.get(2).getX() - points.get(0).getX()));
+        return Math.abs((points.get(0).getY() - points.get(1).getY()) * (points.get(2).getAxisValue() - points.get(0).getAxisValue()));
     }
 
     @Override
