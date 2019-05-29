@@ -7,11 +7,8 @@ import java.util.Objects;
  * @version 1.0 2019-05-21
  */
 public class Point implements Comparable<Point> {
-    private static final String EX_COORDINATE_RANGE_MESSAGE = "좌표 범위는 0~24 사이입니다.";
-    private static final int MIN_COORDINATE = 0;
-    private static final int MAX_COORDINATE = 24;
-    private final int xCoordinate;
-    private final int yCoordinate;
+    private final Coordinate xCoordinate;
+    private final Coordinate yCoordinate;
 
     /**
      * 생성자
@@ -19,31 +16,17 @@ public class Point implements Comparable<Point> {
      * @param xCoordinate x좌표
      * @param yCoordinate y좌표
      */
-    public Point(int xCoordinate, int yCoordinate) {
-        checkXCoordinateRange(xCoordinate);
-        checkYCoordinateRange(yCoordinate);
+    public Point(Coordinate xCoordinate, Coordinate yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
 
-    private void checkXCoordinateRange(int xCoordinate) {
-        if (xCoordinate < MIN_COORDINATE || xCoordinate > MAX_COORDINATE) {
-            throw new IllegalArgumentException(EX_COORDINATE_RANGE_MESSAGE);
-        }
-    }
-
-    private void checkYCoordinateRange(int yCoordinate) {
-        if (yCoordinate < MIN_COORDINATE || yCoordinate > MAX_COORDINATE) {
-            throw new IllegalArgumentException(EX_COORDINATE_RANGE_MESSAGE);
-        }
-    }
-
     public int getX() {
-        return xCoordinate;
+        return xCoordinate.value();
     }
 
     public int getY() {
-        return yCoordinate;
+        return yCoordinate.value();
     }
 
     public double straight(Point operand) {

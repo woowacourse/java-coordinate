@@ -65,8 +65,8 @@ public class UserInputView {
         Matcher pointMatcher = pointPattern.matcher(inputText);
 
         while (pointMatcher.find()) {
-            int xCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[0]);
-            int yCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[1]);
+            Coordinate xCoordinate = new Coordinate(Integer.parseInt(pointMatcher.group(0).split(COMMA)[0]));
+            Coordinate yCoordinate = new Coordinate(Integer.parseInt(pointMatcher.group(0).split(COMMA)[1]));
             points.add(new Point(xCoordinate, yCoordinate));
         }
         return points;
