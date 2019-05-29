@@ -8,12 +8,12 @@ public class Point {
     static final int MIN_Y = 0;
     static final int MAX_Y = 24;
 
-    private final NumberForPoint x;
-    private final NumberForPoint y;
+    private final PointNumber x;
+    private final PointNumber y;
 
     public Point(int x, int y) {
-        this.x = NumberForPoint.valueOf(x);
-        this.y = NumberForPoint.valueOf(y);
+        this.x = PointNumber.valueOf(x);
+        this.y = PointNumber.valueOf(y);
     }
 
     int getX() {
