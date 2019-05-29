@@ -5,7 +5,7 @@ import java.util.Objects;
 public class PointValue extends PointProperties {
     private final int pointValue;
 
-    public PointValue(final String pointValue) {
+    public PointValue(final int pointValue) {
         this.pointValue = validNumber(pointValue);
     }
 

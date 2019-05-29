@@ -20,7 +20,6 @@ public class Points {
             addPoint(new Point(onePoint));
         }
     }
-
     private void validateNumberOfPoint(String[] inputPoint) {
         if (inputPoint.length < INPUT_MIN_SIZE || inputPoint.length > INPUT_MAX_SIZE) {
             throw new IllegalArgumentException("입력 형식이 옳바르지 않습니다.");

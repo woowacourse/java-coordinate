@@ -5,22 +5,22 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Point {
-    private static final String PATTERN = "([0-9]*),([0-9]*)";
+    private static final String INPUT_PATTERN = "\\(([0-9]*),([0-9]*)\\)";
     private static final int FIRST_GROUP = 1;
     private static final int SECOND_GROUP = 2;
     private static final int SQUARE_NUMBER = 2;
     private static final int ZERO = 0;
 
-    private final PointValue pointXValue;
-    private final PointValue pointYValue;
+    private PointValue pointXValue;
+    private PointValue pointYValue;
 
     public Point(String inputPoint) {
-        Matcher matcher = Pattern.compile(PATTERN).matcher(inputPoint);
+        Matcher matcher = Pattern.compile(INPUT_PATTERN).matcher(inputPoint);
         if (!matcher.find()) {
             throw new IllegalArgumentException("잘못된 입력 형식입니다.");
         }
-        this.pointXValue = new PointFactory().create("x", matcher.group(FIRST_GROUP));
-        this.pointYValue = new PointFactory().create("y", matcher.group(SECOND_GROUP));
+        this.pointXValue = new PointFactory().create(matcher.group(FIRST_GROUP));
+        this.pointYValue = new PointFactory().create(matcher.group(SECOND_GROUP));
     }
 
     public PointValue getXPoint() {
