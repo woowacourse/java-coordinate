@@ -9,6 +9,8 @@ import coord.view.InputView;
 import coord.view.OutputView;
 
 public class App {
+    private static final int LINE = 2;
+
     public static void main(String[] argc) {
         try {
             loop();
@@ -22,7 +24,7 @@ public class App {
         Points points = InputView.inputCoordinates();
         CoordinateView coordinateView = new CoordinateView(points);
         coordinateView.print();
-        if (points.size() == 2) {
+        if (points.size() == LINE) {
             OutputView.printLengthOfLine(new Line(points));
             return;
         }

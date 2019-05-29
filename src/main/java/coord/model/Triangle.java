@@ -1,6 +1,8 @@
 package coord.model;
 
 
+import coord.view.ConsoleMessages;
+
 public class Triangle extends Figure {
     private static final String NAME = "삼각형";
 
@@ -15,7 +17,7 @@ public class Triangle extends Figure {
         Point C = points.get(2);
 
         if ((A.y - B.y) / (A.x - B.x) == (B.y - C.y) / (B.x - C.x)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ConsoleMessages.ERR_FIGURE.message());
         }
 
     }
