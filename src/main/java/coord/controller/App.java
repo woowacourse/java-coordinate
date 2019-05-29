@@ -1,6 +1,7 @@
 package coord.controller;
 
 import coord.model.Figure;
+import coord.model.FigureFactory;
 import coord.model.Line;
 import coord.model.Points;
 import coord.view.CoordinateView;
@@ -17,7 +18,7 @@ public class App {
         }
     }
 
-    private static void loop () {
+    private static void loop() {
         Points points = InputView.inputCoordinates();
         CoordinateView coordinateView = new CoordinateView(points);
         coordinateView.print();
@@ -25,7 +26,7 @@ public class App {
             OutputView.printLengthOfLine(new Line(points));
             return;
         }
-        OutputView.printAreaOfFigure(Figure.getInstance(points));
+        OutputView.printAreaOfFigure(FigureFactory.getInstance(points));
 
 
     }
