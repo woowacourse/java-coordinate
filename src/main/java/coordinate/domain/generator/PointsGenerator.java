@@ -13,6 +13,7 @@ public class PointsGenerator {
     private static final Pattern POINTS_INPUT_PATTERN = Pattern.compile(POINTS_INPUT_REGEX);
     private static final String COORDINATE_DELIMITER = "-";
     private static final String X_Y_DELIMITER = ",";
+    private static final int COORDINATE_BRACE_INDEX = 1;
 
     public static Points generatePoints(String inputCoordinates) {
         if (!POINTS_INPUT_PATTERN.matcher(inputCoordinates).matches()) {
@@ -24,7 +25,8 @@ public class PointsGenerator {
 
     private static String[] splitInputCoordinates(String inputCoordinates) {
         return Arrays.stream(inputCoordinates.split(COORDINATE_DELIMITER))
-                .map(coordinate -> coordinate.substring(1, coordinate.length() - 1))
+                .map(coordinate -> coordinate.substring(COORDINATE_BRACE_INDEX,
+                        coordinate.length() - COORDINATE_BRACE_INDEX))
                 .toArray(String[]::new);
     }
 
