@@ -8,15 +8,15 @@ class PointTest {
 
     @Test
     void 점이_24를넘는지_테스트() {
-        assertThatIllegalArgumentException().isThrownBy(() ->{
-            new Point(25,1);
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+            new Point(25, 1);
         });
     }
 
     @Test
     void 점이_음수인지_테스트() {
-        assertThatIllegalArgumentException().isThrownBy(() ->{
-            new Point(-1,20);
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+            new Point(-1, 20);
         });
     }
 

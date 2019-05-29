@@ -8,12 +8,12 @@ public class Point {
     private Coordinate y;
 
     public Point(int x, int y) {
-        this.x = new Coordinate(x);
-        this.y = new Coordinate(y);
+        this.x = Coordinate.of(x);
+        this.y = Coordinate.of(y);
     }
 
     double calculateLength(Point point) {
-        return Math.sqrt(Math.pow(x.subCoordinate(point.x),SQUARE) +  Math.pow(y.subCoordinate(point.y),SQUARE));
+        return Math.sqrt(Math.pow(x.subCoordinate(point.x), SQUARE) + Math.pow(y.subCoordinate(point.y), SQUARE));
     }
 
     @Override

@@ -22,7 +22,7 @@ public enum FigureFactory {
     }
 
     public static Figure generateFigure(Points points) {
-        FigureFactory result =  Arrays.stream(values())
+        FigureFactory result = Arrays.stream(values())
                 .filter(figure -> figure.countOfPoint == points.getSize())
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("만들 수 있는 도형이 없습니다."));

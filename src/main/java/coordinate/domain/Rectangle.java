@@ -30,6 +30,7 @@ public class Rectangle extends AbstractFigure {
         double depth = getPoint(FIRST_POINT).calculateLength(getPoint(THIRD_POINT));
         return width * depth;
     }
+
     @Override
     public String getResult() {
         return "사각형의 넓이는 %.2f 입니다.";

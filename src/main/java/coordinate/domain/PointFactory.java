@@ -17,7 +17,7 @@ public class PointFactory {
 
     private static Point convertPoint(String inputPoints) {
         inputPoints = inputPoints.substring(1, inputPoints.length() - 1);
-        List<String> splitPoint = InputSplitter.getSplit(inputPoints,",");
+        List<String> splitPoint = InputSplitter.getSplit(inputPoints, ",");
         return new Point(Integer.parseInt(splitPoint.get(0)), Integer.parseInt(splitPoint.get(1)));
     }
 
