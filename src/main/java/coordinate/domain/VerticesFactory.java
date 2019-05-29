@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 public class VerticesFactory {
     private static final String COORDINATE_PATTERN = "^\\((\\d*),(\\d*)\\)$";
-    private static final String INPUT_FORMAT_EXCEPTION_MESSAGE = "올바른 형식으로 입력해 주세요.";
 
     public static Vertices makeVertices(String userInput) {
         List<Point> points = new ArrayList<>();
@@ -19,7 +18,7 @@ public class VerticesFactory {
 
     private static Point makePoint(String coordinate) {
         Matcher matcher = Pattern.compile(COORDINATE_PATTERN).matcher(coordinate);
-        if (!matcher.find()) throw new IllegalArgumentException(INPUT_FORMAT_EXCEPTION_MESSAGE);
+        if (!matcher.find()) throw new IllegalArgumentException("올바른 형식으로 입력해 주세요.");
 
         return new Point(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2)));
     }
