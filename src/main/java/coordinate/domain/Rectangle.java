@@ -11,13 +11,22 @@ public class Rectangle extends Figure implements AvailableArea {
     private static final int SIDE_2_VECTOR_INDEX = 1;
     private static final int OPPOSITE_VECTOR_INDEX = 2;
 
+    private final List<Vector> vectors;
+
     public Rectangle(Vertices vertices) {
         super(vertices, VALID_LENGTH_OF_POINTS);
+        vectors = sortVectors();
         validateRectanglePoints();
     }
 
+    private List<Vector> sortVectors() {
+        return IntStream.range(1, 4)
+                .mapToObj(i -> getVertices().vector(0, i))
+                .sorted(Vector::compareTo)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
     private void validateRectanglePoints() {
-        List<Vector> vectors = getVectors();
         Vector side1 = vectors.get(SIDE_1_VECTOR_INDEX);
         Vector side2 = vectors.get(SIDE_2_VECTOR_INDEX);
         Vector opposite = vectors.get(OPPOSITE_VECTOR_INDEX);
@@ -27,16 +36,8 @@ public class Rectangle extends Figure implements AvailableArea {
         }
     }
 
-    private List<Vector> getVectors() {
-        return IntStream.range(1, 4)
-                    .mapToObj(i -> getVertices().vector(0, i))
-                    .sorted(Vector::compareTo)
-                    .collect(Collectors.toCollection(ArrayList::new));
-    }
-
     @Override
     public double area() {
-        List<Vector> vectors = getVectors();
         return (double) Math.abs(vectors.get(SIDE_1_VECTOR_INDEX).crossProduct(vectors.get(SIDE_2_VECTOR_INDEX)));
     }
 
