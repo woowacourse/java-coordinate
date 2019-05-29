@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class PointsGenerator {
-    private static final Pattern POINTS_INPUT_REGEX = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\)-)+\\([0-9]{1,2},[0-9]{1,2}\\)");
+    private static final String POINTS_INPUT_REGEX = "(\\([0-9]{1,2},[0-9]{1,2}\\)-)+\\([0-9]{1,2},[0-9]{1,2}\\)";
+    private static final Pattern POINTS_INPUT_PATTERN = Pattern.compile(POINTS_INPUT_REGEX);
     private static final String COORDINATE_DELIMITER = "-";
     private static final String X_Y_DELIMITER = ",";
 
     public static Points generatePoints(String inputCoordinates) {
-        if (!POINTS_INPUT_REGEX.matcher(inputCoordinates).matches()) {
+        if (!POINTS_INPUT_PATTERN.matcher(inputCoordinates).matches()) {
             throw new IllegalArgumentException("유효한 입력이 아닙니다. ex) (10,10)-(10,10)-(20,8)");
         }
 
