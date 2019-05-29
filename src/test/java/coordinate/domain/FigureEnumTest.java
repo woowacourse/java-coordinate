@@ -35,7 +35,7 @@ class FigureEnumTest {
     @Test
     public void Point_5개_입력됐을_때_예외를_던지는지_확인() {
         Vertices vertices = new Vertices(new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(4, 5), new Point(6, 7),
-        new Point(23, 21))));
+                new Point(23, 21))));
 
         assertThatThrownBy(() -> {
             figureOf(vertices);

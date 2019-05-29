@@ -24,6 +24,14 @@ public class Point {
         return y.getValue();
     }
 
+    int minusX(Point point) {
+        return x.minus(point.x);
+    }
+
+    int minusY(Point point) {
+        return y.minus(point.y);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,4 +44,5 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
 }

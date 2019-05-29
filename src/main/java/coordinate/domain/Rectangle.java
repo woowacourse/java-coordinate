@@ -1,5 +1,8 @@
 package coordinate.domain;
 
+import coordinate.domain.exceptions.FigureShapeMismatchException;
+import coordinate.util.Vector;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,7 +35,7 @@ public class Rectangle extends Figure implements AvailableArea {
         Vector opposite = vectors.get(OPPOSITE_VECTOR_INDEX);
 
         if ((side1.dotProduct(side2) != 0) || !side1.add(side2).equals(opposite)) {
-            throw new IllegalArgumentException("직사각형이 아닙니다.");
+            throw new FigureShapeMismatchException("직사각형이 아닙니다.");
         }
     }
 

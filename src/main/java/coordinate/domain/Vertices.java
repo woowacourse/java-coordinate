@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.util.Vector;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +23,10 @@ public class Vertices {
     }
 
     Vector vector(int startPointIndex, int endPointIndex) {
-        return new Vector(points.get(startPointIndex), points.get(endPointIndex));
+        int deltaX = points.get(endPointIndex).minusX(points.get(startPointIndex));
+        int deltaY = points.get(endPointIndex).minusY(points.get(startPointIndex));
+
+        return new Vector(deltaX, deltaY);
     }
 
     int size() {

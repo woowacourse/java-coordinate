@@ -8,8 +8,6 @@ public enum FigureEnum {
     TRIANGLE(3, Triangle::new),
     RECTANGLE(4, Rectangle::new);
 
-    private static final String OUT_OF_COORDINANE_COUNT_EXCEPTION_MASSAGE = "좌표의 개수는 2~4개만 가능합니다.";
-
     private int numOfPoint;
     private Function<Vertices, Figure> verticesFigureFunction;
 
@@ -22,7 +20,7 @@ public enum FigureEnum {
         return Arrays.stream(values())
                 .filter(value -> vertices.size() == value.numOfPoint)
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException(OUT_OF_COORDINANE_COUNT_EXCEPTION_MASSAGE))
+                .orElseThrow(() -> new IllegalArgumentException("좌표의 개수는 2~4개만 가능합니다."))
                 .verticesFigureFunction.apply(vertices);
     }
 }

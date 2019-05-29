@@ -1,9 +1,5 @@
 package coordinate.view;
 
-import coordinate.domain.Figure;
-import coordinate.domain.FigureEnum;
-import coordinate.domain.VerticesFactory;
-
 import java.util.Scanner;
 
 public class InputView {

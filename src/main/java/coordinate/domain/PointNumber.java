@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.domain.exceptions.OutOfRangeException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +35,7 @@ class PointNumber {
         return value;
     }
 
-    PointNumber minus(PointNumber obj) {
-        return valueOf(value - obj.getValue());
+    int minus(PointNumber obj) {
+        return value - obj.getValue();
     }
 }

@@ -1,44 +1,48 @@
-package coordinate.domain;
+package coordinate.util;
 
 import java.util.Objects;
 
-class Vector implements Comparable {
+public class Vector implements Comparable {
     private int deltaX;
     private int deltaY;
 
-    private Vector(int deltaX, int deltaY) {
+    public Vector(int deltaX, int deltaY) {
         this.deltaX = deltaX;
         this.deltaY = deltaY;
     }
 
-    Vector(Point start, Point end) {
-        deltaX = end.getX() - start.getX();
-        deltaY = end.getY() - start.getY();
-    }
-
-    int dotProduct(Vector objVector) {
+    public int dotProduct(Vector objVector) {
         return objVector.multiplyToDeltaX(this.deltaX) + objVector.multiplyToDeltaY(this.deltaY);
-    }
-
-    private int multiplyToDeltaY(int scale) {
-        return scale * deltaY;
     }
 
     private int multiplyToDeltaX(int scale) {
         return scale * deltaX;
     }
 
-    int crossProduct(Vector objVector) {
+    private int multiplyToDeltaY(int scale) {
+        return scale * deltaY;
+    }
+
+    public int crossProduct(Vector objVector) {
         return objVector.multiplyToDeltaY(this.deltaX) - objVector.multiplyToDeltaX(this.deltaY);
     }
 
-    double length() {
+    public double length() {
         return Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
     }
 
-    Vector add(Vector objVector) {
-        return new Vector(deltaX + objVector.deltaX, deltaY + objVector.deltaY);
+    public Vector add(Vector objVector) {
+        return new Vector(objVector.addToDeltaX(deltaX), objVector.addToDeltaY(deltaY));
     }
+
+    private int addToDeltaX(int scale) {
+        return scale + deltaX;
+    }
+
+    private int addToDeltaY(int scale) {
+        return scale + deltaY;
+    }
+
 
     @Override
     public int compareTo(Object o) {

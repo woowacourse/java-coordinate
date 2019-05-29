@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.domain.exceptions.FigureShapeMismatchException;
+
 public class Triangle extends Figure implements AvailableArea {
     private static final int VALID_LENGTH_OF_POINTS = 3;
 
@@ -9,8 +11,8 @@ public class Triangle extends Figure implements AvailableArea {
     }
 
     private void validateTrianglePoints() {
-        if (getVertices().vector(0,1).crossProduct(getVertices().vector(1,2)) == 0)
-            throw new IllegalArgumentException("세점이 직선 위에 있습니다.");
+        if (getVertices().vector(0, 1).crossProduct(getVertices().vector(1, 2)) == 0)
+            throw new FigureShapeMismatchException("세점이 직선 위에 있습니다.");
     }
 
     @Override

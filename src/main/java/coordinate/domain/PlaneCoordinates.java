@@ -48,7 +48,6 @@ public class PlaneCoordinates {
         return xAxis;
     }
 
-
     private StringBuilder makeXScale(int maxX) {
         StringBuilder xScale = new StringBuilder(String.format("%" + spaceForYAxis + "s", "0 "));
         for (int i = 2; i <= maxX; i += 2) {

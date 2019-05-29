@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.domain.exceptions.FigureShapeMismatchException;
+
 public class Figure {
     private final Vertices vertices;
 
@@ -14,7 +16,7 @@ public class Figure {
 
     private void validateLengthOfPoints(Vertices vertices, int validLengthOfPoints) {
         if (vertices.size() != validLengthOfPoints) {
-            throw new IllegalArgumentException(this.getClass().getName() + "의 점의 개수가 올바르지 않습니다.");
+            throw new FigureShapeMismatchException(this.getClass().getName() + "의 점의 개수가 올바르지 않습니다.");
         }
     }
 
