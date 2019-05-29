@@ -9,37 +9,48 @@ import java.util.*;
 public class Triangle extends AbstractFigure {
     private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
     private final Points points;
+    private final List<Line> lines;
 
     public Triangle(FigureType figureType) {
         super(figureType, FigureType.TRIANGLE);
         this.points = getCoordinates();
+        this.lines = generateLines();
         checkFigureCondition();
+    }
+
+    private List<Line> generateLines() {
+        List<Line> lines = new ArrayList<>();
+        lines.add(new Line(points.get(0), points.get(1)));
+        lines.add(new Line(points.get(1), points.get(2)));
+        lines.add(new Line(points.get(0), points.get(2)));
+        Collections.sort(lines);
+        return lines;
     }
 
     @Override
     void checkFigureCondition() {
-        int TRI_LONGEST_SIDE = 2;
-        int TRI_OTHER_SIDE = 1;
-        int TRI_ANOTHER_SIDE = 0;
+        double TRI_LONGEST_SIDE = lines.get(2).perimeter();
+        double TRI_OTHER_SIDE = lines.get(1).perimeter();
+        double TRI_ANOTHER_SIDE = lines.get(0).perimeter();
 
-        List<Double> lengths = Arrays.asList(points.get(0).straight(points.get(1)),
-                points.get(1).straight(points.get(2)),
-                points.get(0).straight(points.get(2)));
-        Collections.sort(lengths);
-        checkNotFigure(lengths.get(TRI_LONGEST_SIDE) >= lengths.get(TRI_OTHER_SIDE) + lengths.get(TRI_ANOTHER_SIDE), EX_NOT_TRIANGLE_MESSAGE);
+        checkNotFigure(TRI_LONGEST_SIDE >= TRI_OTHER_SIDE + TRI_ANOTHER_SIDE, EX_NOT_TRIANGLE_MESSAGE);
     }
 
     @Override
     public double perimeter() {
-        return points.get(0).straight(points.get(1)) + points.get(1).straight(points.get(2)) + points.get(0).straight(points.get(2));
+        double result = 0;
+        for (Line line : lines) {
+            result += line.perimeter();
+        }
+        return result;
     }
 
     @Override
     public double area() {
-        double powerLengthA = Math.pow(points.get(0).straight(points.get(1)), 2);
-        double powerLengthB = Math.pow(points.get(1).straight(points.get(2)), 2);
-        double powerLengthC = Math.pow(points.get(0).straight(points.get(2)), 2);
-        return Math.sqrt(4 * powerLengthA * powerLengthB - Math.pow(powerLengthA + powerLengthB - powerLengthC, 2)) / 4;
+        double powerLongestSide = Math.pow(lines.get(2).perimeter(), 2);
+        double powerOtherSide = Math.pow(lines.get(0).perimeter(), 2);
+        double powerAnotherSide = Math.pow(lines.get(1).perimeter(), 2);
+        return Math.sqrt(4 * powerOtherSide * powerAnotherSide - Math.pow(powerOtherSide + powerAnotherSide - powerLongestSide, 2)) / 4;
     }
 
     @Override
