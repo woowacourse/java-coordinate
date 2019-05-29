@@ -9,17 +9,10 @@ import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
 public class CoordinateApp {
-    private static final int LINE = 2;
-
     public static void main(String[] args) {
         Points points = generatePoints();
-        if (points.size() == LINE) {
-            Line line = new Line(points);
-            OutputView.printResult(line);
-        } else {
-            Figure figure = FigureFactory.generate(points);
-            OutputView.printResult(figure);
-        }
+        Figure figure = FigureFactory.generate(points);
+        printResult(figure);
     }
 
     private static Points generatePoints() {
@@ -29,5 +22,13 @@ public class CoordinateApp {
             System.err.println(e.getMessage());
             return generatePoints();
         }
+    }
+
+    private static void printResult(final Figure figure) {
+        if (figure.getPoints().size() == 2) {
+            OutputView.printResult((Line) figure);
+            return;
+        }
+        OutputView.printResult(figure);
     }
 }
