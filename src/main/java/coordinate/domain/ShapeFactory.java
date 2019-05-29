@@ -5,22 +5,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+import static coordinate.domain.ShapeType.*;
+
 public class ShapeFactory{
-    private static final Map<Integer, Function<List<Point>, Shape>> FUNCTION_MAP = new HashMap<>();
+    private static final Map<ShapeType, ShapeCreator> FUNCTION_MAP = new HashMap<>();
 
     static {
-        FUNCTION_MAP.put(2, Line::new);
-        FUNCTION_MAP.put(3, Triangle::new);
-        FUNCTION_MAP.put(4, Rectangle::new);
+        FUNCTION_MAP.put(LINE, Line::new);
+        FUNCTION_MAP.put(TRIANGLE, Triangle::new);
+        FUNCTION_MAP.put(RECTANGLE, Rectangle::new);
     }
 
     public static Shape create(final List<Point> points) {
-        Shape shape;
-        try {
-            shape = FUNCTION_MAP.get(points.size()).apply(points);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("올바른 점의 갯수를 입력해 주세요");
+        ShapeType shapeType = ShapeType.vauleOf(points.size());
+        if (shapeType == null) {
+            throw new IllegalArgumentException("올바름 점의 개수를 입력하세요");
         }
-        return shape;
+        return FUNCTION_MAP.get(shapeType).create(points);
     }
 }
