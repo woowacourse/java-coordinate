@@ -1,7 +1,13 @@
 package coordinatecalculator.model;
 
-public interface Figure {
-    double getResult();
+public abstract class Figure {
+    protected final Points points;
 
-    double calculateResult();
+    Figure(Points points) {
+        this.points = points;
+    }
+
+    abstract double getResult();
+
+    abstract double calculateResult();
 }

@@ -19,7 +19,6 @@ public class Point {
         if (!matcher.find()) {
             throw new IllegalArgumentException("잘못된 입력 형식입니다.");
         }
-        System.out.println(matcher.group(FIRST_GROUP) + "," + matcher.group(SECOND_GROUP));
         this.pointXValue = new PointFactory().create("x", matcher.group(FIRST_GROUP));
         this.pointYValue = new PointFactory().create("y", matcher.group(SECOND_GROUP));
     }

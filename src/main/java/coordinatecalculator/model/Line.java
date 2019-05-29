@@ -2,7 +2,7 @@ package coordinatecalculator.model;
 
 import java.util.Objects;
 
-public class Line extends AbstractFigure {
+public class Line extends Figure {
     private static final int DISTANCES_FIRST_INDEX = 0;
 
     private double distance;

@@ -4,13 +4,14 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Triangle extends AbstractFigure {
+public class Triangle extends Figure {
     private static final int TRIANGLE_SIZE = 3;
     private static final int START = 0;
     private static final int NEXT = 1;
     private static final int FIRST_DISTANCE = 0;
     private static final int SECOND_DISTANCE = 1;
     private static final int THIRD_DISTANCE = 2;
+    private static final int HERON_NUMBER = 4;
 
     private double area;
 
@@ -33,7 +34,7 @@ public class Triangle extends AbstractFigure {
 
     private double getTriangleArea(double firstLine, double secondLine, double thirdLine) {
         final double pythagorean = firstLine * firstLine + secondLine * secondLine - thirdLine * thirdLine;
-        return Math.sqrt(4 * firstLine * firstLine * secondLine * secondLine - pythagorean * pythagorean) / 4;
+        return Math.sqrt(HERON_NUMBER * firstLine * firstLine * secondLine * secondLine - pythagorean * pythagorean) / HERON_NUMBER;
     }
 
     @Override

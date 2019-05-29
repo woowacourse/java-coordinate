@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Rectangle extends AbstractFigure {
+public class Rectangle extends Figure {
     private static final int FIRST_POINT = 0;
     private static final int SECOND_POINT = 1;
     private static final int GET_TWO_POINTS_SIZE = 2;
