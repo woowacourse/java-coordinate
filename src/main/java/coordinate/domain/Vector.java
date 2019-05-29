@@ -17,15 +17,19 @@ class Vector implements Comparable {
     }
 
     int dotProduct(Vector objVector) {
-        return objVector.dotProduct(deltaX, deltaY);
+        return objVector.multiplyToDeltaX(this.deltaX) + objVector.multiplyToDeltaY(this.deltaY);
     }
 
-    private int dotProduct(int deltaX, int deltaY) {
-        return this.deltaX * deltaX + this.deltaY * deltaY;
+    private int multiplyToDeltaY(int scale) {
+        return scale * deltaY;
+    }
+
+    private int multiplyToDeltaX(int scale) {
+        return scale * deltaX;
     }
 
     int crossProduct(Vector objVector) {
-        return deltaX * objVector.deltaY - deltaY * objVector.deltaX;
+        return objVector.multiplyToDeltaY(this.deltaX) - objVector.multiplyToDeltaX(this.deltaY);
     }
 
     double length() {
