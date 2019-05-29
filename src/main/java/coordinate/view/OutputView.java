@@ -2,6 +2,7 @@ package coordinate.view;
 
 import coordinate.domain.Point;
 import coordinate.domain.Shape;
+import coordinate.domain.Value;
 
 import java.util.List;
 
@@ -35,7 +36,9 @@ public class OutputView {
 
     private static void drawPoints(List<Point> points, boolean[][] coordinates) {
         for (Point point : points) {
-            coordinates[point.getY()][point.getX()] = true;
+            Value valueY = point.getValueY();
+            Value valueX = point.getValueX();
+            coordinates[valueY.getNum()][valueX.getNum()] = true;
         }
     }
 
