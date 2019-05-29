@@ -7,8 +7,15 @@ package calculator.domain;
 public abstract class AbstractFigure implements Calculate {
     private final FigureType figureType;
 
-    public AbstractFigure(FigureType figureType) {
+    public AbstractFigure(FigureType figureType, FigureType defaultType) {
         this.figureType = figureType;
+        checkFigureType(defaultType);
+    }
+
+    private void checkFigureType(FigureType defaultType) {
+        if (!figureType.equals(defaultType)) {
+            throw new IllegalArgumentException("잘못 입력하였습니다.");
+        }
     }
 
     public void checkNotFigure(boolean state, String message) {

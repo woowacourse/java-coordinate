@@ -11,7 +11,7 @@ public class Rectangle extends AbstractFigure {
     private final Points points;
 
     public Rectangle(FigureType figureType) {
-        super(figureType);
+        super(figureType, FigureType.RECTANGLE);
         this.points = getCoordinates();
         checkFigureCondition();
     }

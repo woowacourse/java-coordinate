@@ -8,7 +8,7 @@ public class Line extends AbstractFigure {
     private final Points points;
 
     public Line(FigureType figureType) {
-        super(figureType);
+        super(figureType, FigureType.LINE);
         this.points = getCoordinates();
     }
 

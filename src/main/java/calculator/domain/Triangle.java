@@ -11,7 +11,7 @@ public class Triangle extends AbstractFigure {
     private final Points points;
 
     public Triangle(FigureType figureType) {
-        super(figureType);
+        super(figureType, FigureType.TRIANGLE);
         this.points = getCoordinates();
         checkFigureCondition();
     }
