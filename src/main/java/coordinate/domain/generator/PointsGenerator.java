@@ -27,7 +27,7 @@ public class PointsGenerator {
         for (String coordinate : coordinates) {
             int index = coordinate.indexOf(",");
             int x = Integer.parseInt(coordinate.substring(0, index));
-            int y = Integer.parseInt(coordinate.substring(index+1));
+            int y = Integer.parseInt(coordinate.substring(index + 1));
             points.add(new Point(x, y));
         }
         return Points.of(points);

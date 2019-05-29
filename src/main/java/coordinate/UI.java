@@ -9,7 +9,7 @@ public class UI {
         this.coordinates = new boolean[25][25];
     }
 
-    public void drawPoints(Points points){
+    public void drawPoints(Points points) {
         for (int i = 0; i < points.size(); i++) {
             coordinates[points.get(i).getX()][points.get(i).getY()] = true;
         }
