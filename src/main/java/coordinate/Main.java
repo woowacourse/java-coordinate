@@ -15,6 +15,7 @@ public class Main {
     private static final PointFactory POINT_FACTORY = PointFactory.of(xBegin, xEnd, yBegin, yEnd);
 
     public static void main(String[] args) {
+
         Figure figure = InputView.readFigure(POINT_FACTORY);
 
         OutputView.printFigurePoints(figure);

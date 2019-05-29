@@ -3,6 +3,7 @@ package coordinate.domain;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 public class PointTest {
 
@@ -15,4 +16,11 @@ public class PointTest {
     }
 
 
+    @Test
+    void distance() {
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(1, 1);
+
+        assertThat(p1.distance(p2)).isEqualTo(1.414, offset(0.00099));
+    }
 }

@@ -4,11 +4,8 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 public class Triangle extends AbstractFigure {
-    private final Points points;
-
     private Triangle(Points points) {
         super(points);
-        this.points = points;
     }
 
     public static Triangle from(Points points) {
@@ -28,13 +25,7 @@ public class Triangle extends AbstractFigure {
     private DoubleStream lengths() {
         int pointCnt = points.size();
 
-        return IntStream.range(0, pointCnt).mapToDouble(i -> {
-            Point p1 = points.get(i);
-            Point p2 = points.get((i + 1) % pointCnt);
-            Vector2 v = p1.subtract(p2);
-
-            return v.length();
-        });
+        return IntStream.range(0, pointCnt).mapToDouble(i -> points.distance(i, (i + 1) % pointCnt));
     }
 
     @Override

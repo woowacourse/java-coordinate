@@ -1,11 +1,14 @@
 package coordinate.domain;
 
 public abstract class AbstractFigure implements Figure {
-    public AbstractFigure(Points points) {
+    final Points points;
+
+    AbstractFigure(Points points) {
         validateNotDuplicatedPoints(points);
+        this.points = points;
     }
 
-    protected void validateNotDuplicatedPoints(Points points){
+    protected void validateNotDuplicatedPoints(Points points) {
         if (DuplicationChecker.hasDuplication(points.toList())) {
             throw new IllegalArgumentException(String.format("%d개의 점중에서 중복된 점이 존재합니다.", points.size()));
         }

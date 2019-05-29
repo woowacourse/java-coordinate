@@ -30,4 +30,12 @@ public class Points {
     public int size() {
         return points.size();
     }
+
+    public double distance(int from, int to) {
+        Point p1 = points.get(from);
+        Point p2 = points.get(to);
+        Vector2 v = p1.subtract(p2);
+
+        return v.length();
+    }
 }

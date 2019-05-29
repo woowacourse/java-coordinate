@@ -22,6 +22,10 @@ public class Point {
         return y;
     }
 
+    public double distance(Point to) {
+        return subtract(to).length();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

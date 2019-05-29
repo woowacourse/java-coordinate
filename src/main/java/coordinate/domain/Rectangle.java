@@ -3,13 +3,10 @@ package coordinate.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Rectangle extends AbstractFigure{
-    private final Points points;
-
+public class Rectangle extends AbstractFigure {
     private Rectangle(Points points) {
         super(points);
-        validateRectangle(points);
-        this.points = points;
+        validateRectangle(this.points);
     }
 
     private void validateRectangle(Points points) {
@@ -43,8 +40,8 @@ public class Rectangle extends AbstractFigure{
         Point pNextX = points.find(point -> !point.equals(p) && point.getX() == p.getX());
         Point pNextY = points.find(point -> !point.equals(p) && point.getY() == p.getY());
 
-        double w = p.subtract(pNextX).length();
-        double h = p.subtract(pNextY).length();
+        double w = p.distance(pNextX);
+        double h = p.distance(pNextY);
 
         return w * h;
     }
