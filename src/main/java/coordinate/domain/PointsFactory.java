@@ -4,12 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PointsFactory {
+    private final PointGenerator generator;
 
-    public static Points of(PointFactory pointFactory, List<Integer> numbers) {
+    public PointsFactory(PointGenerator generator) {
+        this.generator = generator;
+    }
+
+    public static PointsFactory from(PointGenerator generator) {
+        return new PointsFactory(generator);
+    }
+
+    public Points createFromNumbers(List<Integer> numbers) {
         List<Point> points = new ArrayList<>();
 
         for (int i = 0; i < numbers.size(); i += 2) {
-            points.add(pointFactory.createPoint(numbers.get(i), numbers.get(i + 1)));
+            points.add(generator.of(numbers.get(i), numbers.get(i + 1)));
         }
 
         return Points.from(points);

@@ -2,10 +2,11 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-public class Point {
+public abstract class Point {
     private final int x, y;
 
-    public Point(int x, int y) {
+    Point(int x, int y) {
+        validate(x, y);
         this.x = x;
         this.y = y;
     }
@@ -26,6 +27,8 @@ public class Point {
         return subtract(to).length();
     }
 
+    abstract void validate(int x, int y);
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,3 +43,4 @@ public class Point {
         return Objects.hash(x, y);
     }
 }
+

@@ -25,7 +25,9 @@ public class Triangle extends AbstractFigure {
     private DoubleStream lengths() {
         int pointCnt = points.size();
 
-        return IntStream.range(0, pointCnt).mapToDouble(i -> points.distance(i, (i + 1) % pointCnt));
+        return IntStream
+                .range(0, pointCnt)
+                .mapToDouble(i -> points.distance(i, (i + 1) % pointCnt));
     }
 
     @Override

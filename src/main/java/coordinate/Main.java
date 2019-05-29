@@ -1,24 +1,33 @@
 package coordinate;
 
-import coordinate.domain.Figure;
-import coordinate.domain.PointFactory;
+import coordinate.domain.*;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
 
 
 public class Main {
-    private static final int xBegin = 0;
-    private static final int xEnd = 25;
-    private static final int yBegin = 0;
-    private static final int yEnd = 25;
-
-    private static final PointFactory POINT_FACTORY = PointFactory.of(xBegin, xEnd, yBegin, yEnd);
+    private static final String EMPTY = "";
+    private static final String CAN_NOT_FIND_FIGURE = "해당하는 도형을 찾을 수 없습니다.";
+    private static final PointsFactory pointsFactory = PointsFactory.from(SmallCoordinatePoint::of);
 
     public static void main(String[] args) {
+        Points points = readPoints(EMPTY);
+        OutputView.printPoints(points);
 
-        Figure figure = InputView.readFigure(POINT_FACTORY);
+        try {
+            Figure figure = FigureFactory.createFigure(points);
+            OutputView.printMessage(figure);
+        } catch (FigureFactory.NotSupportedFigureException e){
+            OutputView.printMessage(() -> CAN_NOT_FIND_FIGURE);
+        }
+    }
 
-        OutputView.printFigurePoints(figure);
-        OutputView.printMessage(figure);
+    private static Points readPoints(String notifyingMessage) {
+        String input = InputView.readPoints(notifyingMessage);
+        try {
+            return PointParser.parse(input, pointsFactory);
+        } catch (OutOfCoordinateException e) {
+            return readPoints(e.getMessage());
+        }
     }
 }

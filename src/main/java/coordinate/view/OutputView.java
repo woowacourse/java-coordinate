@@ -5,8 +5,8 @@ import coordinate.domain.Message;
 import coordinate.domain.Points;
 
 public class OutputView {
-    public static void printFigurePoints(Figure figure) {
-        printCoordinatesBoard(figure.getPoints());
+    public static void printPoints(Points points) {
+        printCoordinatesBoard(points);
     }
 
     private static void printCoordinatesBoard(Points points) {

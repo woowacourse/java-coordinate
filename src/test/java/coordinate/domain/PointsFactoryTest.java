@@ -11,11 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class PointsFactoryTest {
     @Test
     void of_() {
-        PointFactory pointFactory = PointFactory.of(0, 10, 0, 10);
+        PointsFactory pointsFactory = PointsFactory.from(DefaultPoint::new);
         List<Integer> numbers = Arrays.asList(0, 2, 4, 6);
-        Points points = Points.from(Arrays.asList(new Point(0, 2), new Point(4, 6)));
+        Points points = Points.from(Arrays.asList(new DefaultPoint(0, 2), new DefaultPoint(4, 6)));
 
-        assertThat(PointsFactory.of(pointFactory, numbers));
+        assertThat(pointsFactory.createFromNumbers(numbers)).isEqualTo(points);
     }
-
 }

@@ -22,7 +22,13 @@ public class FigureFactory {
             return creators.get(points.size()).create(points);
         }
 
-        throw new IllegalArgumentException("현재는 지원하지 않는 입력입니다.");
+        throw new NotSupportedFigureException("현재는 지원하지 않는 입력입니다.");
+    }
+
+    public static class NotSupportedFigureException extends RuntimeException {
+        public NotSupportedFigureException(String message) {
+            super(message);
+        }
     }
 }
 
