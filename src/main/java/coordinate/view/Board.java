@@ -1,5 +1,6 @@
 package coordinate.view;
 
+import coordinate.domain.AbstractPoint;
 import coordinate.domain.Point;
 import coordinate.domain.Points;
 
@@ -83,7 +84,7 @@ public class Board {
     public void drawPoints(Points points, char ch) {
         for (int i = 0; i < points.size(); i++) {
             Point p = points.get(i);
-            set(board, VERTICAL_START + p.getY(), HORIZON_START + (LEN_DIGITS * p.getX()), ch);
+            set(board, VERTICAL_START + p.getY().toInt(), HORIZON_START + (LEN_DIGITS * p.getX().toInt()), ch);
         }
     }
 

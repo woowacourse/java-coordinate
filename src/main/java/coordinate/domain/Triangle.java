@@ -31,11 +31,6 @@ public class Triangle extends AbstractFigure {
     }
 
     @Override
-    public Points getPoints() {
-        return points;
-    }
-
-    @Override
     String getFigureName() {
         return "삼각형";
     }

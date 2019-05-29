@@ -2,5 +2,5 @@ package coordinate.domain;
 
 @FunctionalInterface
 public interface PointGenerator {
-    Point of(int x, int y);
+    AbstractPoint of(CoordinateNumber x, CoordinateNumber y);
 }

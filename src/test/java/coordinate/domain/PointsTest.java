@@ -10,7 +10,9 @@ import static org.assertj.core.api.Assertions.offset;
 
 
 public class PointsTest {
-    private final List<Point> pointList = Arrays.asList(new DefaultPoint(0, 0), new DefaultPoint(1, 1));
+    private final List<Point> pointList = Arrays.asList(
+            new DefaultPoint(CoordinateNumber.valueOf(0), CoordinateNumber.valueOf(0)),
+            new DefaultPoint(CoordinateNumber.valueOf(1), CoordinateNumber.valueOf(1)));
     private final Points points = Points.from(pointList);
 
     @Test

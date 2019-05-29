@@ -10,12 +10,12 @@ public class Rectangle extends AbstractFigure {
     }
 
     private void validateRectangle(Points points) {
-        List<Integer> xValues = points.toList().stream().mapToInt(point -> point.getX()).boxed().collect(Collectors.toList());
+        List<Integer> xValues = points.toList().stream().mapToInt(point -> point.getX().toInt()).boxed().collect(Collectors.toList());
         if (!has2Values2Cnt(xValues)) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
 
-        List<Integer> yValues = points.toList().stream().mapToInt(point -> point.getY()).boxed().collect(Collectors.toList());
+        List<Integer> yValues = points.toList().stream().mapToInt(point -> point.getY().toInt()).boxed().collect(Collectors.toList());
         if (!has2Values2Cnt(yValues)) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
@@ -27,7 +27,9 @@ public class Rectangle extends AbstractFigure {
 
     private boolean isAllEqual(List<Integer> numbers) {
         int firstNumber = numbers.get(0);
-        return numbers.stream().filter(number -> firstNumber == number).count() == numbers.size();
+        long firstEqualCount = numbers.stream().filter(number -> firstNumber == number).count();
+
+        return firstEqualCount == numbers.size();
     }
 
     public static Rectangle from(Points points) {
@@ -37,18 +39,13 @@ public class Rectangle extends AbstractFigure {
     public double area() {
         Point p = points.get(0);
 
-        Point pNextX = points.find(point -> !point.equals(p) && point.getX() == p.getX());
-        Point pNextY = points.find(point -> !point.equals(p) && point.getY() == p.getY());
+        Point pNextX = points.find(point -> !point.equals(p) && point.hasEqualX(p));
+        Point pNextY = points.find(point -> !point.equals(p) && point.hasEqualY(p));
 
         double w = p.distance(pNextX);
         double h = p.distance(pNextY);
 
         return w * h;
-    }
-
-    @Override
-    public Points getPoints() {
-        return points;
     }
 
     @Override

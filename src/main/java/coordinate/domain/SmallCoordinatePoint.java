@@ -1,13 +1,13 @@
 package coordinate.domain;
 
-public class SmallCoordinatePoint extends Point {
+public class SmallCoordinatePoint extends AbstractPoint {
     public static final int X_BEGIN = 0, X_END = 25, Y_BEGIN = 0, Y_END = 25;
 
-    private SmallCoordinatePoint(int x, int y) {
+    private SmallCoordinatePoint(CoordinateNumber x, CoordinateNumber y) {
         super(x, y);
     }
 
-    public static SmallCoordinatePoint of(int x, int y) {
+    public static SmallCoordinatePoint of(CoordinateNumber x, CoordinateNumber y) {
         return new SmallCoordinatePoint(x, y);
     }
 

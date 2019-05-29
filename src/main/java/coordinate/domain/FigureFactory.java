@@ -5,16 +5,14 @@ import java.util.Map;
 
 public class FigureFactory {
 
-    private static Map<Integer, FigureCreator> creators = initCreators();
+    private static Map<Integer, FigureCreator> creators;
 
-    private static Map<Integer, FigureCreator> initCreators() {
-        Map<Integer, FigureCreator> creators = new HashMap<>();
+    static {
+        creators = new HashMap<>();
 
         creators.put(2, Line::from);
         creators.put(3, Triangle::from);
         creators.put(4, Rectangle::from);
-
-        return creators;
     }
 
     public static Figure createFigure(Points points) {

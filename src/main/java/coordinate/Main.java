@@ -19,6 +19,8 @@ public class Main {
             OutputView.printMessage(figure);
         } catch (FigureFactory.NotSupportedFigureException e){
             OutputView.printMessage(() -> CAN_NOT_FIND_FIGURE);
+        } catch (IllegalArgumentException e) {
+            OutputView.printMessage(() -> e.getMessage());
         }
     }
 

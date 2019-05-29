@@ -18,7 +18,9 @@ public class PointsFactory {
         List<Point> points = new ArrayList<>();
 
         for (int i = 0; i < numbers.size(); i += 2) {
-            points.add(generator.of(numbers.get(i), numbers.get(i + 1)));
+            points.add(generator.of(
+                    CoordinateNumber.valueOf(numbers.get(i)),
+                    CoordinateNumber.valueOf(numbers.get(i + 1))));
         }
 
         return Points.from(points);

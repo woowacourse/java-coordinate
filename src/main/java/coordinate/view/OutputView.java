@@ -1,6 +1,5 @@
 package coordinate.view;
 
-import coordinate.domain.Figure;
 import coordinate.domain.Message;
 import coordinate.domain.Points;
 
