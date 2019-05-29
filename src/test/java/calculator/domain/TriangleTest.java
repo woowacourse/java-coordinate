@@ -14,16 +14,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TriangleTest {
 
     AbstractFigure triangle;
-    Coordinates coordinates;
+    Points points;
     FigureType figureType;
 
     @BeforeEach
     void setUp() {
-        coordinates = new Coordinates();
-        coordinates.add(new Coordinate(0, 0));
-        coordinates.add(new Coordinate(10, 0));
-        coordinates.add(new Coordinate(5, 10));
-        figureType = FigureType.valueOf(coordinates);
+        points = new Points();
+        points.add(new Point(0, 0));
+        points.add(new Point(10, 0));
+        points.add(new Point(5, 10));
+        figureType = FigureType.valueOf(points);
         triangle = new FigureFactory().create(figureType);
 
     }
@@ -35,12 +35,12 @@ public class TriangleTest {
 
     @Test
     void create_일직선_예외_확인() {
-        Coordinates exCoordinates = new Coordinates();
-        exCoordinates.add(new Coordinate(0,0));
-        exCoordinates.add(new Coordinate(1,1));
-        exCoordinates.add(new Coordinate(2,2));
+        Points exPoints = new Points();
+        exPoints.add(new Point(0,0));
+        exPoints.add(new Point(1,1));
+        exPoints.add(new Point(2,2));
         assertThrows(Exception.class, () -> {
-            new FigureFactory().create(FigureType.valueOf(exCoordinates));
+            new FigureFactory().create(FigureType.valueOf(exPoints));
         });
     }
 

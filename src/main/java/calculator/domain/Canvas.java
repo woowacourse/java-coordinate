@@ -23,19 +23,19 @@ public class Canvas implements Iterable<CanvasLine> {
         this.canvas = canvas;
     }
 
-    public void plotCoordinate(Coordinate coordinate) {
-        canvas.get(coordinate.getY()).plotX(coordinate.getX());
+    public void plotCoordinate(Point point) {
+        canvas.get(point.getY()).plotX(point.getX());
     }
 
     public Canvas plotCoordinate(AbstractFigure abstractFigure) {
-        for (Coordinate coordinate : abstractFigure.getCoordinates()) {
-            plotCoordinate(coordinate);
+        for (Point point : abstractFigure.getCoordinates()) {
+            plotCoordinate(point);
         }
         return new Canvas(canvas);
     }
 
-    public boolean isPlottedCoordinate(Coordinate coordinate) {
-        return canvas.get(coordinate.getY()).get(coordinate.getX());
+    public boolean isPlottedCoordinate(Point point) {
+        return canvas.get(point.getY()).get(point.getX());
     }
 
     public int size() {

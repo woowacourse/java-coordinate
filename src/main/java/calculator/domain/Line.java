@@ -5,25 +5,24 @@ package calculator.domain;
  * @version 1.0 2019-05-22
  */
 public class Line extends AbstractFigure {
-    private final Coordinates coordinates;
+    private final Points points;
 
     public Line(FigureType figureType) {
         super(figureType);
-        this.coordinates = getCoordinates();
+        this.points = getCoordinates();
     }
 
     @Override
     public double perimeter() {
-        return coordinates.get(0).straight(coordinates.get(1));
+        return points.get(0).straight(points.get(1));
     }
 
     @Override
     public double area() {
-        return perimeter();
+        return 0;
     }
 
     @Override
     void checkFigureCondition() {
-        // 값이 같을 경우
     }
 }

@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CanvasTest {
 
     Canvas canvas;
-    Coordinate coordinate;
-    Coordinates coordinates;
+    Point point;
+    Points points;
 
     @BeforeEach
     void setUp() {
         canvas = new Canvas();
-        coordinate = new Coordinate(10,2);
-        coordinates = new Coordinates();
+        point = new Point(10,2);
+        points = new Points();
     }
 
     @Test
@@ -35,16 +35,16 @@ public class CanvasTest {
 
     @Test
     void plotCoordinate_확인() {
-        coordinates.add((coordinate));
-        canvas.plotCoordinate(coordinate);
-        assertTrue(canvas.isPlottedCoordinate(coordinate));
+        points.add((point));
+        canvas.plotCoordinate(point);
+        assertTrue(canvas.isPlottedCoordinate(point));
     }
 
     @Test
     void plotCoordinate_figure_확인() {
-        coordinates.add(coordinate);
-        coordinates.add(new Coordinate(21,5));
-        canvas.plotCoordinate(new FigureFactory().create(FigureType.valueOf(coordinates)));
-        assertTrue(canvas.isPlottedCoordinate(coordinate) && canvas.isPlottedCoordinate(new Coordinate(21,5)));
+        points.add(point);
+        points.add(new Point(21,5));
+        canvas.plotCoordinate(new FigureFactory().create(FigureType.valueOf(points)));
+        assertTrue(canvas.isPlottedCoordinate(point) && canvas.isPlottedCoordinate(new Point(21,5)));
     }
 }

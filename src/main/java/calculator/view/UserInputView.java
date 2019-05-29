@@ -54,22 +54,22 @@ public class UserInputView {
     }
 
     private static AbstractFigure generateFigure(String inputText) {
-        Coordinates coordinates = generateCoordinates(inputText);
-        AbstractFigure abstractFigure = new FigureFactory().create(FigureType.valueOf(coordinates));
+        Points points = generatePoints(inputText);
+        AbstractFigure abstractFigure = new FigureFactory().create(FigureType.valueOf(points));
         return abstractFigure;
     }
 
-    private static Coordinates generateCoordinates(String inputText) {
-        Coordinates coordinates = new Coordinates();
-        Pattern coordinatePattern = Pattern.compile(COORDINATE_PATTERN);
-        Matcher coordinateMatcher = coordinatePattern.matcher(inputText);
+    private static Points generatePoints(String inputText) {
+        Points points = new Points();
+        Pattern pointPattern = Pattern.compile(COORDINATE_PATTERN);
+        Matcher pointMatcher = pointPattern.matcher(inputText);
 
-        while (coordinateMatcher.find()) {
-            int xCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[0]);
-            int yCoordinate = Integer.parseInt(coordinateMatcher.group(0).split(COMMA)[1]);
-            coordinates.add(new Coordinate(xCoordinate, yCoordinate));
+        while (pointMatcher.find()) {
+            int xCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[0]);
+            int yCoordinate = Integer.parseInt(pointMatcher.group(0).split(COMMA)[1]);
+            points.add(new Point(xCoordinate, yCoordinate));
         }
-        return coordinates;
+        return points;
     }
 
 }

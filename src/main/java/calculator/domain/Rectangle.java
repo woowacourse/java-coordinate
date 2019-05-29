@@ -8,11 +8,11 @@ import java.util.*;
  */
 public class Rectangle extends AbstractFigure {
     private static final String EX_NOT_RECTANGLE_MESSAGE = "x축, y축과 평행한 직사각형이 아닙니다.";
-    private final Coordinates coordinates;
+    private final Points points;
 
     public Rectangle(FigureType figureType) {
         super(figureType);
-        this.coordinates = getCoordinates();
+        this.points = getCoordinates();
         checkFigureCondition();
     }
 
@@ -31,9 +31,9 @@ public class Rectangle extends AbstractFigure {
         Set<Integer> xCoordinates = new HashSet<>();
         Set<Integer> yCoordinates = new HashSet<>();
 
-        for (Coordinate coordinate : coordinates) {
-            xCoordinates.add(coordinate.getX());
-            yCoordinates.add(coordinate.getY());
+        for (Point point : points) {
+            xCoordinates.add(point.getX());
+            yCoordinates.add(point.getY());
         }
 
         checkNotFigure(!(xCoordinates.size() == 2 && yCoordinates.size() == 2), EX_NOT_RECTANGLE_MESSAGE);
@@ -49,9 +49,9 @@ public class Rectangle extends AbstractFigure {
         Set<Integer> xCoordinates = new HashSet<>();
         Set<Integer> yCoordinates = new HashSet<>();
 
-        for (int i = 0; i < coordinates.size(); i++) {
-            xCoordinates.add(coordinates.get(i).getX());
-            yCoordinates.add(coordinates.get(i).getY());
+        for (int i = 0; i < points.size(); i++) {
+            xCoordinates.add(points.get(i).getX());
+            yCoordinates.add(points.get(i).getY());
         }
 
         return straight(xCoordinates) * straight(yCoordinates);
@@ -62,11 +62,11 @@ public class Rectangle extends AbstractFigure {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Rectangle rectangle = (Rectangle) o;
-        return Objects.equals(coordinates, rectangle.coordinates);
+        return Objects.equals(points, rectangle.points);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coordinates);
+        return Objects.hash(points);
     }
 }

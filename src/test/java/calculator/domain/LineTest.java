@@ -13,25 +13,25 @@ import static org.assertj.core.api.Assertions.offset;
 class LineTest {
 
     AbstractFigure abstractFigure;
-    Coordinates coordinates;
+    Points points;
     FigureType figureType;
 
     @BeforeEach
     void setUp() {
-        coordinates = new Coordinates();
-        coordinates.add(new Coordinate(8, 21));
-        coordinates.add(new Coordinate(16, 3));
-        figureType = FigureType.valueOf(coordinates);
+        points = new Points();
+        points.add(new Point(8, 21));
+        points.add(new Point(16, 3));
+        figureType = FigureType.valueOf(points);
         abstractFigure = new FigureFactory().create(figureType);
     }
 
     @Test
     void create_계산_정답() {
-        assertThat(abstractFigure.area()).isEqualTo(19.697, offset(0.00099));
+        assertThat(abstractFigure.perimeter()).isEqualTo(19.697, offset(0.00099));
     }
 
     @Test
     void line_계산_반올림_확인() {
-        assertThat(abstractFigure.area()).isEqualTo(19.698, offset(0.00099));
+        assertThat(abstractFigure.perimeter()).isEqualTo(19.698, offset(0.00099));
     }
 }

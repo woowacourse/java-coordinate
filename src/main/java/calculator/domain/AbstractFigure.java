@@ -21,8 +21,8 @@ public abstract class AbstractFigure implements Calculate {
         return figureType.getType();
     }
 
-    Coordinates getCoordinates() {
-        return figureType.getCoordinates();
+    Points getCoordinates() {
+        return figureType.getPoints();
     }
 
     public double calculateResult() {

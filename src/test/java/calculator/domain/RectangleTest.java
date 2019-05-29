@@ -14,17 +14,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class RectangleTest {
 
     AbstractFigure rectangle;
-    Coordinates coordinates;
+    Points points;
     FigureType figureType;
 
     @BeforeEach
     void setUp() {
-        coordinates = new Coordinates();
-        coordinates.add(new Coordinate(0, 0));
-        coordinates.add(new Coordinate(10, 0));
-        coordinates.add(new Coordinate(0, 10));
-        coordinates.add(new Coordinate(10, 10));
-        figureType = FigureType.valueOf(coordinates);
+        points = new Points();
+        points.add(new Point(0, 0));
+        points.add(new Point(10, 0));
+        points.add(new Point(0, 10));
+        points.add(new Point(10, 10));
+        figureType = FigureType.valueOf(points);
         rectangle = new FigureFactory().create(figureType);
     }
 
@@ -35,14 +35,14 @@ public class RectangleTest {
 
     @Test
     void create_직사각형_예외_확인() {
-        Coordinates coordinatesException = new Coordinates();
-        coordinatesException.add(new Coordinate(10,20));
-        coordinatesException.add(new Coordinate(10,10));
-        coordinatesException.add(new Coordinate(0,10));
-        coordinatesException.add(new Coordinate(1,10));
+        Points pointsException = new Points();
+        pointsException.add(new Point(10,20));
+        pointsException.add(new Point(10,10));
+        pointsException.add(new Point(0,10));
+        pointsException.add(new Point(1,10));
 
         assertThrows(Exception.class, () -> {
-            new FigureFactory().create(FigureType.valueOf(coordinatesException));
+            new FigureFactory().create(FigureType.valueOf(pointsException));
         });
     }
 
