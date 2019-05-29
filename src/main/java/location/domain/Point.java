@@ -7,13 +7,13 @@ public class Point {
     private static final String OVER_24_MSG = "24를 넘습니다.";
     private static final int MAX_NUMBER = 24;
     private static final int MIN_NUMBER = 0;
-    private final int xCoordinate;
-    private final int yCoordinate;
+    private final XPoint xPoint;
+    private final YPoint yPoint;
 
     public Point(final int xCoordinate, final int yCoordinate) {
         isValid(xCoordinate, yCoordinate);
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+        this.xPoint = new XPoint(xCoordinate);
+        this.yPoint = new YPoint(yCoordinate);
     }
 
     private void isValid(final int xCoordinate, final int yCoordinate) {
@@ -34,24 +34,24 @@ public class Point {
     }
 
     public int getXCoordinate() {
-        return xCoordinate;
+        return xPoint.getValue();
     }
 
     public int getyCoordinate() {
-        return yCoordinate;
+        return yPoint.getValue();
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Point point = (Point) o;
-        return xCoordinate == point.xCoordinate &&
-                yCoordinate == point.yCoordinate;
+        final Point point = (Point) o;
+        return Objects.equals(xPoint, point.xPoint) &&
+                Objects.equals(yPoint, point.yPoint);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(xCoordinate, yCoordinate);
+        return Objects.hash(xPoint, yPoint);
     }
 }

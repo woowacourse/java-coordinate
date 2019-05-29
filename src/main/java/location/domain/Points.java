@@ -4,14 +4,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Points {
-    private final String POINT_NULL_OR_BLANK_MSG = "포인트가 비어있습니다.";
+    private static final int SQUARE = 2;
     private static List<Point> points;
+    private final double MAX = Double.MAX_VALUE;
+    private final String POINT_NULL_OR_BLANK_MSG = "포인트가 비어있습니다.";
 
     public Points(final List<Point> points) {
         checkValid(points);
         compare(points);
-        this.points = Collections.unmodifiableList(points);
-
+        Points.points = Collections.unmodifiableList(points);
     }
 
     private void checkValid(final List<Point> points) {
@@ -33,6 +34,20 @@ public class Points {
         });
     }
 
+    public double getTwoPointsDistance(int index1, int index2) {
+        return Math.sqrt(Math.pow((points.get(index1).getXCoordinate() - points.get(index2).getXCoordinate()), SQUARE)
+                + Math.pow((points.get(index1).getyCoordinate() - points.get(index2).getyCoordinate()), SQUARE));
+    }
+
+    public double getTwoPointsTilt(int index1, int index2) {
+        double denominator = (double) (points.get(index1).getXCoordinate() - points.get(index2).getXCoordinate());
+        double molecule = (double) (points.get(index1).getyCoordinate() - points.get(index2).getyCoordinate());
+        if (denominator == 0) {
+            denominator = MAX;
+        }
+        return molecule / denominator;
+    }
+
     public Point get(final int index) {
         return points.get(index);
     }
@@ -42,6 +57,6 @@ public class Points {
     }
 
     public List<Point> getPoints() {
-        return points;
+        return Collections.unmodifiableList(points);
     }
 }

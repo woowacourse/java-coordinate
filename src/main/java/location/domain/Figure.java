@@ -8,6 +8,7 @@ public abstract class Figure implements Calculator {
     private final String DUPLICATE_MSG = "위치가 같은 점(point)이 존재합니다.";
     private final double MAX = Double.MAX_VALUE;
     Points points;
+
     public Figure(Points points) {
         checkValid(points.getPoints());
         this.points = points;
@@ -25,15 +26,6 @@ public abstract class Figure implements Calculator {
         if (notDuplicatePoints.size() != points.size()) {
             throw new IllegalArgumentException(DUPLICATE_MSG);
         }
-    }
-
-    double calculateTilt(final Point point, final Point point1) {
-        double denominator = (double) (point.getXCoordinate() - point1.getXCoordinate());
-        double molecule = (double) (point.getyCoordinate() - point1.getyCoordinate());
-        if (denominator == 0) {
-            denominator = MAX;
-        }
-        return molecule / denominator;
     }
 
     public abstract Points getPoints();

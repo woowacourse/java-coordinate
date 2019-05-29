@@ -42,7 +42,7 @@ class CoordinateDrawer {
         if (currentY == 0) {
             drawLastVerticalHead(currentXGroup);
             drawLastVertical(currentXGroup);
-        }else{
+        } else {
             drawVerticalHead(numOrBlank, currentXGroup);
             drawDotX(currentXGroup);
         }
@@ -87,14 +87,14 @@ class CoordinateDrawer {
     private void drawLastVertical(List<Integer> currentXGroup) {
         StringBuilder sb = new StringBuilder();
 //
-        for(int i=1; i <MAX_HEIGHT_WIDTH*HORIZONTAL_CORRECTION_VALUE/2; i ++){
-            sb.append(dashOrPoint(i,currentXGroup.stream().map(x->x*HORIZONTAL_CORRECTION_VALUE/2).collect(Collectors.toList())));
+        for (int i = 1; i < MAX_HEIGHT_WIDTH * HORIZONTAL_CORRECTION_VALUE / 2; i++) {
+            sb.append(dashOrPoint(i, currentXGroup.stream().map(x -> x * HORIZONTAL_CORRECTION_VALUE / 2).collect(Collectors.toList())));
         }
         System.out.print(sb.toString());
     }
 
-    private String dashOrPoint(int currentX,List<Integer> currentXGroup ){
-        if(currentXGroup.contains(currentX)){
+    private String dashOrPoint(int currentX, List<Integer> currentXGroup) {
+        if (currentXGroup.contains(currentX)) {
             return POINT;
         }
         return EM_DASH;

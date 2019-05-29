@@ -3,7 +3,6 @@ package location.domain;
 public class Rectangle extends Figure {
     private final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private final String NOT_RECTANGLE_MSG = "직사각형이 아닙니다.";
-    private final int SQUARE = 2;
 
     public Rectangle(final Points points) {
         super(points);
@@ -36,8 +35,7 @@ public class Rectangle extends Figure {
     }
 
     private boolean isSameDiagonal(final Points points) {
-        return calculateLine(points.get(1), points.get(2))
-                == calculateLine(points.get(0), points.get(3));
+        return points.getTwoPointsDistance(1, 2) == points.getTwoPointsDistance(0, 3);
     }
 
     private void checkBruteForceSameLine(Points points) {
@@ -51,24 +49,19 @@ public class Rectangle extends Figure {
     }
 
     private boolean isSameLine(Points points) {
-        return calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(1), points.get(2))
-                && calculateTilt(points.get(1), points.get(2)) == calculateTilt(points.get(2), points.get(3))
-                && calculateTilt(points.get(0), points.get(1)) == calculateTilt(points.get(2), points.get(3));
-    }
-
-    public double calculateLine(final Point point1, final Point point2) {
-        return Math.sqrt(Math.pow((point1.getXCoordinate() - point2.getXCoordinate()), SQUARE)
-                + Math.pow((point1.getyCoordinate() - point2.getyCoordinate()), SQUARE));
+        return points.getTwoPointsTilt(0, 1) == points.getTwoPointsTilt(1, 2)
+                && points.getTwoPointsTilt(1, 2) == points.getTwoPointsTilt(2, 3)
+                && points.getTwoPointsTilt(0, 1) == points.getTwoPointsTilt(2, 3);
     }
 
     @Override
     public double calculate() {
-        return calculateLine(points.get(0), points.get(1))
-                * calculateLine(points.get(0), points.get(2));
+        return points.getTwoPointsDistance(0, 1) * points.getTwoPointsDistance(0, 2);
     }
 
     @Override
     public Points getPoints() {
         return this.points;
     }
+
 }
