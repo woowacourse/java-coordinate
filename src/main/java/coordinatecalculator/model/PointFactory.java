@@ -11,8 +11,8 @@ public class PointFactory {
 
     public PointValue create(String pointValue) {
         int value = Integer.parseInt(pointValue);
-        if(pointFactory.get(value) == null){
-            pointFactory.put(value,new PointValue(value));
+        if (pointFactory.get(value) == null) {
+            pointFactory.put(value, new PointValue(value));
         }
         return pointFactory.get(value);
     }

@@ -20,6 +20,7 @@ public class Points {
             addPoint(new Point(onePoint));
         }
     }
+
     private void validateNumberOfPoint(String[] inputPoint) {
         if (inputPoint.length < INPUT_MIN_SIZE || inputPoint.length > INPUT_MAX_SIZE) {
             throw new IllegalArgumentException("입력 형식이 옳바르지 않습니다.");
@@ -45,7 +46,7 @@ public class Points {
         return points.size();
     }
 
-    public double getGenerateDistance(int index){
+    public double getGenerateDistance(int index) {
         Distance getDistance = generateDistances().get(index);
 
         return getDistance.getDistance();
