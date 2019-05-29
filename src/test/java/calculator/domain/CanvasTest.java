@@ -19,7 +19,7 @@ public class CanvasTest {
     @BeforeEach
     void setUp() {
         canvas = new Canvas();
-        point = new Point(10,2);
+        point = new Point(new Coordinate(10),new Coordinate(2));
         points = new Points();
     }
 
@@ -43,8 +43,8 @@ public class CanvasTest {
     @Test
     void plotCoordinate_figure_확인() {
         points.add(point);
-        points.add(new Point(21,5));
+        points.add(new Point(new Coordinate(21),new Coordinate(5)));
         canvas.plotCoordinate(new FigureFactory().create(FigureType.valueOf(points)));
-        assertTrue(canvas.isPlottedCoordinate(point) && canvas.isPlottedCoordinate(new Point(21,5)));
+        assertTrue(canvas.isPlottedCoordinate(point) && canvas.isPlottedCoordinate(new Point(new Coordinate(21),new Coordinate(5))));
     }
 }

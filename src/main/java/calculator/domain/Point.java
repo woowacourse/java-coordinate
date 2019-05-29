@@ -21,6 +21,10 @@ public class Point implements Comparable<Point> {
         this.yCoordinate = yCoordinate;
     }
 
+    public Point(int xCoordinate, int yCoordinate) {
+        this(new Coordinate(xCoordinate), new Coordinate(yCoordinate));
+    }
+
     public int getX() {
         return xCoordinate.value();
     }
@@ -38,8 +42,8 @@ public class Point implements Comparable<Point> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point point = (Point) o;
-        return xCoordinate == point.xCoordinate &&
-                yCoordinate == point.yCoordinate;
+        return Objects.equals(xCoordinate, point.xCoordinate) &&
+                Objects.equals(yCoordinate, point.yCoordinate);
     }
 
     @Override

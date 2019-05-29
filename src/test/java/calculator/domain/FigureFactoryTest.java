@@ -15,8 +15,8 @@ class FigureFactoryTest {
     @BeforeEach
     void setUp() {
         points = new Points();
-        points.add(new Point(0,0));
-        points.add(new Point(1,0));
+        points.add(new Point(new Coordinate(0),new Coordinate(0)));
+        points.add(new Point(new Coordinate(1),new Coordinate(0)));
         points.add(new Point(1,10));
     }
 
