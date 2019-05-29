@@ -1,14 +1,12 @@
 package coordinate.domain;
 
-import coordinate.domain.generator.LinesTriangleGenerator;
-
 public final class Triangle extends Figure {
-    private static final int NUMBER_OF_POINTS = 3;
+    public static final int NUMBER_OF_POINTS = 3;
     private static final double HERON_DIVIDE_NUMBER = 2.0;
     private static final int DEFAULT_MULTIPLY_NUMBER = 1;
 
     public Triangle(final Points points) {
-        super(points, new LinesTriangleGenerator(points));
+        super(points);
     }
 
     @Override
@@ -22,7 +20,7 @@ public final class Triangle extends Figure {
 
     @Override
     public double area() {
-        Lines lines = super.getLines();
+        Lines lines = makeLines();
         return Math.sqrt(calculateTriangleArea(lines, halfOfTotalTriangleLength(lines)));
     }
 

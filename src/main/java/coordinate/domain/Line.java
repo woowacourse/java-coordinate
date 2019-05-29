@@ -1,29 +1,24 @@
 package coordinate.domain;
 
-
-public class Line {
-    private static final int NUMBER_OF_POINTS = 2;
-
-    private final Points points;
+public class Line extends Figure {
+    public static final int NUMBER_OF_POINTS = 2;
 
     public Line(Points points) {
-        this.points = points;
-        validateSize(points);
+        super(points);
     }
 
-    private void validateSize(final Points points) {
-        if (points.size() != NUMBER_OF_POINTS) {
-            throw new IllegalArgumentException("선은 점이 두개 필요합니다.");
-        }
+    @Override
+    protected void validate() {
+        validateSize();
+    }
+
+    protected void validateSize() {
+        super.validateSize(NUMBER_OF_POINTS);
     }
 
     public double length() {
-        Point a = points.get(0);
-        Point b = points.get(1);
+        Point a = getPoint(0);
+        Point b = getPoint(1);
         return a.length(b);
-    }
-
-    public Points getPoints() {
-        return points;
     }
 }
