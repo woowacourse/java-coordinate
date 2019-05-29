@@ -17,9 +17,9 @@ public final class Square extends Figure {
     }
 
     private void validateRectangle() {
-        double diagonal1 = getDiagonal(getPoint(0), getPoint(2));
-        double diagonal2 = getDiagonal(getPoint(1), getPoint(3));
-        if (diagonal1 != diagonal2) {
+        double diagonal = getDiagonal(getPoint(0), getPoint(2));
+        double otherDiagonal = getDiagonal(getPoint(1), getPoint(3));
+        if (diagonal != otherDiagonal) {
             throw new IllegalArgumentException("직사각형이 아닙니다");
         }
     }

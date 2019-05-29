@@ -5,7 +5,9 @@ import coordinate.domain.Lines;
 import coordinate.domain.Point;
 import coordinate.domain.Points;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LinesGenerator {
     public static Lines generateLines(Points points) {
