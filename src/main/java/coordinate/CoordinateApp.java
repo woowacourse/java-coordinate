@@ -10,18 +10,18 @@ import java.util.List;
 
 public class CoordinateApp {
     public static void main(String[] args) {
-        try {
-            start();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            start();
-        }
+        Shape shape = createShape();
+        OutputView.printCoordinate(shape.getPoints());
+        OutputView.printArea(shape);
     }
 
-    private static void start() {
-        List<Point> points = InputView.inputCoordinate();
-        Shape shape = ShapeFactory.create(points);
-        OutputView.printCoordinate(points);
-        OutputView.printArea(shape);
+    private static Shape createShape() {
+        try {
+            List<Point> points = InputView.inputCoordinate();
+            return ShapeFactory.create(points);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return createShape();
+        }
     }
 }
