@@ -7,7 +7,6 @@ import java.util.stream.IntStream;
 
 public class Rectangle extends Figure implements AvailableArea {
     private static final int VALID_LENGTH_OF_POINTS = 4;
-    private static final String INVALID_RECTANGLE_POINTS_MESSAGE = "직사각형의 좌표를 입력해 주세요.";
 
     private Double area;
 
@@ -28,7 +27,7 @@ public class Rectangle extends Figure implements AvailableArea {
         area = (double) Math.abs(side1.crossProduct(side2));
 
         if ((side1.dotProduct(side2) != 0) || !side1.add(side2).equals(opposite)) {
-            throw new IllegalArgumentException(INVALID_RECTANGLE_POINTS_MESSAGE);
+            throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
     }
 
@@ -37,8 +36,4 @@ public class Rectangle extends Figure implements AvailableArea {
         return area;
     }
 
-    @Override
-    public String toString() {
-        return "사각형의 넓이는 " + area();
-    }
 }

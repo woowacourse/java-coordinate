@@ -10,9 +10,4 @@ public class Line extends Figure {
     public double length() {
         return getVertices().vector(0, 1).length();
     }
-
-    @Override
-    public String toString() {
-        return "두 점 사이의 거리는 " + length();
-    }
 }
