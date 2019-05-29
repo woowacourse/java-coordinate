@@ -12,7 +12,12 @@ public class CoordinateTest {
     }
 
     @Test
-    void 숫자_범위_테스트() {
+    void 숫자가_0이하인_경우_예외처리_테스트() {
+        assertThrows(IllegalArgumentException.class, () -> Coordinate.of(-1));
+    }
+
+    @Test
+    void 숫자가_25이상인_경우_예외처리_테스트() {
         assertThrows(IllegalArgumentException.class, () -> Coordinate.of(25));
     }
 }
