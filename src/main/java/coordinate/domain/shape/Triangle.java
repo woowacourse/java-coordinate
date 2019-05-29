@@ -19,10 +19,8 @@ public class Triangle extends AbstractShape {
     public void validateShape() {
         Collections.sort(lines);
         double longestLine = lines.get(MAX_LINE_INDEX);
-        double sumWithoutLongestLine = lines.stream()
-                .filter(length -> !length.equals(longestLine))
-                .mapToDouble(Double::doubleValue)
-                .sum();
+        double sumWithoutLongestLine = sum() - longestLine;
+
         if (longestLine >= sumWithoutLongestLine) {
             throw new IllegalArgumentException("올바른 삼각형을 입력해 주세요.");
         }
@@ -30,15 +28,19 @@ public class Triangle extends AbstractShape {
 
     @Override
     public double area() {
-        double heron = lines.stream()
-                .mapToDouble(Double::doubleValue)
-                .sum() / HERON_FORMULA_NUMBER;
+        double heron = sum() / HERON_FORMULA_NUMBER;
         double area = heron;
 
         for (Double triangleLine : lines) {
             area *= (heron - triangleLine);
         }
         return Math.sqrt(area);
+    }
+
+    private double sum() {
+        return lines.stream()
+                .mapToDouble(Double::doubleValue)
+                .sum();
     }
 
     @Override
