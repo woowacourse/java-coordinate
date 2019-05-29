@@ -8,29 +8,10 @@ import java.util.function.Function;
 
 public abstract class Figure implements Areable {
     private static final int TRIANGLE = 3;
-    private static final int QUADRANGLE = 4;
-    private static Map<Integer, Function<Points, Figure>> figureMap;
     protected final Points points;
 
     protected Figure(Points points) {
         this.points = points;
-    }
-
-    public static Figure getInstance(Points points) {
-        if (figureMap == null) {
-            setFigureMap();
-        }
-        try {
-            return figureMap.get(points.size()).apply(points);
-        } catch (NullPointerException e) {
-            throw new IllegalArgumentException(ConsoleMessages.ERR_FIGURE.message());
-        }
-    }
-
-    private static void setFigureMap() {
-        figureMap = new HashMap<>();
-        figureMap.put(TRIANGLE, point -> new Triangle(point));
-        figureMap.put(QUADRANGLE, point -> new Quadrangle(point));
     }
 
     protected double areaOfTriangle(Point X, Point Y, Point Z) {
