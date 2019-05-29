@@ -17,13 +17,14 @@ public abstract class AbstractShape implements Shape {
 
     private void extractLinesInPolygon(List<Point> points) {
         while (!points.isEmpty()) {
-            extractLinesFromOnePoint(points.remove(START_POINT), points);
+            Point startPoint = points.remove(START_POINT);
+            extractLinesFromOnePoint(startPoint, points);
         }
     }
 
-    private void extractLinesFromOnePoint(Point startPoint, List<Point> endPoints) {
-        for (Point endPoint : endPoints) {
-            double lineLength = new Line(Arrays.asList(startPoint, endPoint)).area();
+    private void extractLinesFromOnePoint(Point startPoint, List<Point> otherPoints) {
+        for (Point otherPoint : otherPoints) {
+            double lineLength = new Line(Arrays.asList(startPoint, otherPoint)).area();
             lines.add(lineLength);
         }
     }
