@@ -4,11 +4,9 @@ import coordinate.domain.generator.LinesGenerator;
 
 public abstract class Figure implements AreaCalculator {
     private Points points;
-    private Lines lines;
 
-    protected Figure(final Points points, final LinesGenerator linesGenerator) {
+    protected Figure(final Points points) {
         this.points = points;
-        this.lines = linesGenerator.generate();
         validate();
     }
 
@@ -16,8 +14,16 @@ public abstract class Figure implements AreaCalculator {
 
     protected void validateSize(int size) {
         if (size != points.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("해당 도형에 필요한 점 갯수가 아닙니다.");
         }
+    }
+
+    Point getPoint(int index) {
+        return points.get(index);
+    }
+
+    public Points getPoints() {
+        return points;
     }
 
     @Override
@@ -25,11 +31,8 @@ public abstract class Figure implements AreaCalculator {
         throw new UnsupportedOperationException();
     }
 
-    public Points getPoints() {
-        return points;
-    }
-
-    public Lines getLines() {
-        return lines;
+    @Override
+    public Lines makeLines() {
+        return LinesGenerator.generateLines(getPoints());
     }
 }

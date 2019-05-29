@@ -1,13 +1,11 @@
 package coordinate.domain.generator;
 
-import coordinate.domain.Figure;
-import coordinate.domain.Points;
-import coordinate.domain.Square;
-import coordinate.domain.Triangle;
+import coordinate.domain.*;
 
 public enum FigureFactory {
-    TRIANGLE(3, Triangle::new),
-    SQUARE(4, Square::new);
+    LINE(Line.NUMBER_OF_POINTS, Line::new),
+    TRIANGLE(Triangle.NUMBER_OF_POINTS, Triangle::new),
+    SQUARE(Square.NUMBER_OF_POINTS, Square::new);
 
     private final int numberOfPoints;
     private final FigureGenerator figureGenerator;
@@ -23,6 +21,6 @@ public enum FigureFactory {
                 return type.figureGenerator.create(points);
             }
         }
-        throw new IllegalArgumentException("삼각형 또는 사각형만");
+        throw new IllegalArgumentException("선, 삼각형, 사각형에 해당하는 점이 아닙니다.");
     }
 }
