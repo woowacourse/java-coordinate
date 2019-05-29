@@ -1,6 +1,6 @@
 package coordinate.view;
 
-import coordinate.UI;
+import coordinate.UserInterface;
 import coordinate.domain.Figure;
 import coordinate.domain.Line;
 import coordinate.domain.Points;
@@ -20,10 +20,10 @@ public class OutputView {
     }
 
     private static void printCoordinates(final Points points) {
-        UI ui = new UI();
-        ui.drawPoints(points);
+        UserInterface userInterface = new UserInterface();
+        userInterface.drawPoints(points);
         StringBuilder sb = new StringBuilder();
-        boolean[][] coordinates = ui.getCoordinates();
+        boolean[][] coordinates = userInterface.getCoordinates();
 
         for (int i = coordinates.length - 1; i >= 0; i--) {
             sb.append(i).append(POLE_HEIGHT);

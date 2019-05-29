@@ -2,10 +2,10 @@ package coordinate;
 
 import coordinate.domain.Points;
 
-public class UI {
+public class UserInterface {
     private boolean[][] coordinates;
 
-    public UI() {
+    public UserInterface() {
         this.coordinates = new boolean[25][25];
     }
 
