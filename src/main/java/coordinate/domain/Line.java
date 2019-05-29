@@ -16,6 +16,7 @@ public class Line extends Figure {
         super.validateSize(NUMBER_OF_POINTS);
     }
 
+    @Override
     public double length() {
         Point a = getPoint(0);
         Point b = getPoint(1);

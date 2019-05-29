@@ -26,6 +26,10 @@ public abstract class Figure implements AreaCalculator {
         return points;
     }
 
+    public double length() {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public double area() {
         throw new UnsupportedOperationException();
