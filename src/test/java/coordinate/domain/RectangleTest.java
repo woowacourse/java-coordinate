@@ -13,4 +13,10 @@ class RectangleTest {
         Rectangle rectangle = new Rectangle(PointGenerator.trans(Arrays.asList(1, 1, 10, 1, 10, 10, 1, 10)));
         assertEquals(81.0, rectangle.area(), 0.1);
     }
+
+    @Test
+    void 팩토리() {
+        Figure rectangle = FigureFactory.figure(PointGenerator.trans(Arrays.asList(1, 10, 10, 1, 10, 10, 1, 1)));
+        assertEquals(81.0, rectangle.area(), 0.1);
+    }
 }
