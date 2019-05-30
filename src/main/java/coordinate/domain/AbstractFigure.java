@@ -2,13 +2,19 @@ package coordinate.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 public abstract class AbstractFigure implements Figure {
     private List<Point> points;
 
     AbstractFigure(List<Point> points) {
-        this.points = Collections.unmodifiableList(sort(points));
+        this.points = Collections.unmodifiableList(valid(points));
+    }
+
+    private List<Point> valid(List<Point> points) {
+        duplicate(points);
+        return sort(points);
     }
 
     private List<Point> sort(List<Point> points) {
@@ -19,6 +25,12 @@ public abstract class AbstractFigure implements Figure {
             return a.y - b.y;
         });
         return points;
+    }
+
+    private void duplicate(List<Point> points) {
+        if (new HashSet<Point>(points).size() != points.size()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     Point point(int index) {
