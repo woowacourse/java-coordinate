@@ -18,7 +18,7 @@ public class Line extends AbstractFigure {
         Point A = point(0);
         Point B = point(1);
 
-        return Math.sqrt(Math.pow(A.x - B.x, 2) + Math.pow(A.y - B.y, 2));
+        return Math.sqrt(Math.pow(A.x() - B.x(), 2) + Math.pow(A.y() - B.y(), 2));
     }
 
     @Override
@@ -29,6 +29,11 @@ public class Line extends AbstractFigure {
     @Override
     public double area() {
         return length();
+    }
+
+    @Override
+    void valid() {
+
     }
 
     @Override

@@ -19,10 +19,10 @@ public abstract class AbstractFigure implements Figure {
 
     private List<Point> sort(List<Point> points) {
         points.sort((a, b) -> {
-            if (a.y == b.y) {
-                return a.x - b.x;
+            if (a.y() == b.y()) {
+                return a.x() - b.x();
             }
-            return a.y - b.y;
+            return a.y() - b.y();
         });
         return points;
     }
@@ -36,6 +36,8 @@ public abstract class AbstractFigure implements Figure {
     Point point(int index) {
         return points.get(index);
     }
+
+    abstract void valid();
 
     @Override
     public List<Point> points() {

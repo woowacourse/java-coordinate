@@ -18,6 +18,11 @@ public class Rectangle extends AbstractFigure {
         return new Line(A, B).length() * new Line(A, C).length();
     }
 
+    @Override
+    void valid() {
+
+    }
+
     protected String name() {
         return name;
     }
