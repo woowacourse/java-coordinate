@@ -5,6 +5,7 @@ import coordinate.Figure;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public abstract class AbstractFigure implements Figure {
 	protected static final int FIRST = 0;
@@ -34,21 +35,21 @@ public abstract class AbstractFigure implements Figure {
 
 	protected double getMinVerticalDistance(final int origin) {
 		Point from = points.get(origin);
-		Point sameXPoint = points.subList(SECOND, points.size()).stream()
-				.filter(point -> from.isSameVerticalLine(point))
-				.findFirst()
-				.orElseThrow(() -> new IllegalArgumentException("직사각형이 아닙니다"));
-		return from.getDistance(sameXPoint);
+		return gongtong(from, from::isSameVerticalLine);
 	}
 
 	protected double getMinHorizontalDistance(final int origin) {
 		Point from = points.get(origin);
+		return gongtong(from, from::isSameHorizontalLine);
+	}
 
-		Point sameYPoint = points.subList(SECOND, points.size()).stream()
-				.filter(point -> from.isSameHorizontalLine(point))
+	private double gongtong(final Point from, Predicate<Point> predicate) {
+		Point temp = points.subList(SECOND, points.size()).stream()
+				.filter(predicate)
 				.findFirst()
 				.orElseThrow(() -> new IllegalArgumentException("직사각형이 아닙니다"));
-		return from.getDistance(sameYPoint);
+
+		return from.getDistance(temp);
 	}
 
 	@Override
