@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,6 +23,11 @@ public abstract class AbstractFigure implements Figure {
 
     Point point(int index) {
         return points.get(index);
+    }
+
+    @Override
+    public List<Point> points() {
+        return new ArrayList<>(points);
     }
 
     @Override
