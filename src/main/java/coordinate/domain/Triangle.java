@@ -20,8 +20,8 @@ public class Triangle extends AbstractFigure {
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
-    @Override
-    void valid() {
+
+    private void valid() {
         Point A = point(0);
         Point B = point(1);
         Point C = point(2);

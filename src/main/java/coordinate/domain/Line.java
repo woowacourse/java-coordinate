@@ -32,11 +32,6 @@ public class Line extends AbstractFigure {
     }
 
     @Override
-    void valid() {
-
-    }
-
-    @Override
     public String toString() {
         return name() + "의 길이는 " + area() + "입니다.";
     }

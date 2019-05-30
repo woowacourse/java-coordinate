@@ -7,6 +7,7 @@ public class Rectangle extends AbstractFigure {
 
     public Rectangle(List<Point> points) {
         super(points);
+        valid();
     }
 
     @Override
@@ -18,9 +19,14 @@ public class Rectangle extends AbstractFigure {
         return new Line(A, B).length() * new Line(A, C).length();
     }
 
-    @Override
-    void valid() {
+    private void valid() {
+        if (point(0).y() != point(1).y() || point(2).y() != point(3).y()) {
+            throw new IllegalArgumentException();
+        }
 
+        if (point(0).x() != point(2).x() || point(1).x() != point(3).x()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     protected String name() {

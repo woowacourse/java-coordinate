@@ -37,8 +37,6 @@ public abstract class AbstractFigure implements Figure {
         return points.get(index);
     }
 
-    abstract void valid();
-
     @Override
     public List<Point> points() {
         return new ArrayList<>(points);
