@@ -54,7 +54,7 @@ public abstract class AbstractFigure implements Figure {
 		Point temp = points.subList(SECOND, points.size()).stream()
 				.filter(predicate)
 				.findFirst()
-				.orElseThrow(() -> new IllegalArgumentException("직사각형이 아닙니다"));
+				.orElseThrow(IllegalArgumentException::new);
 
 		return from.getDistance(temp);
 	}

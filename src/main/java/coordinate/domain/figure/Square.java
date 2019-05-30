@@ -17,7 +17,11 @@ public class Square extends AbstractFigure {
 
 	@Override
 	public double getArea() {
-		return (super.getMinVerticalDistance(FIRST) * super.getMinHorizontalDistance(FIRST));
+		try {
+			return (super.getMinVerticalDistance(FIRST) * super.getMinHorizontalDistance(FIRST));
+		} catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException("직사각형이 아닙니다. 넓이를 구하지 못합니다");
+		}
 	}
 
 	@Override
