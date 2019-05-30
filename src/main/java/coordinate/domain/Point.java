@@ -18,16 +18,16 @@ public class Point {
     }
 
     double getDistance(final Point other) {
-        int lengthOfX = this.minusX(other);
-        int lengthOfY = this.minusY(other);
+        int lengthOfX = this.getHorizontalLine(other);
+        int lengthOfY = this.getVerticalLine(other);
         return Math.sqrt(Math.pow(lengthOfX, POW_NUM) + Math.pow(lengthOfY, POW_NUM));
     }
 
-    private int minusX(Point other) {
+    private int getHorizontalLine(Point other) {
         return this.x.minus(other.x);
     }
 
-    private int minusY(Point other) {
+    private int getVerticalLine(Point other) {
         return this.y.minus(other.y);
     }
 
@@ -37,6 +37,17 @@ public class Point {
 
     boolean isSameHorizontalLine(final Point other) {
         return this.y.equals(other.y);
+    }
+
+    public double calculateAngle(Point other) {
+        final int horizontalLine = Math.abs(getHorizontalLine(other));
+        final int verticalLine = Math.abs(getVerticalLine(other));
+
+        try {
+            return (verticalLine / horizontalLine);
+        } catch (ArithmeticException e) {
+            return Double.POSITIVE_INFINITY;
+        }
     }
 
     @Override

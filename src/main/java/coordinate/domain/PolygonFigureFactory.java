@@ -32,8 +32,8 @@ public class PolygonFigureFactory implements coordinate.FigureFactory {
     public Figure create(final List<Point> points) {
         try {
             return FIGURE_CREATORS.get(points.size()).create(points);
-        } catch (RuntimeException e) {
-            throw new IllegalArgumentException("5개 미만의 좌표를 입력하세요");
+        } catch(NullPointerException e) {
+            throw new IllegalArgumentException("올바른 개수의 좌표를 입력하세요");
         }
     }
 }

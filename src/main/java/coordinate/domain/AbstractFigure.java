@@ -33,6 +33,13 @@ public abstract class AbstractFigure implements Figure {
 		return from.getDistance(to);
 	}
 
+	protected double angle(final int fromIndex, final int toIndex) {
+		Point from = points.get(fromIndex);
+		Point to = points.get(toIndex);
+
+		return from.calculateAngle(to);
+	}
+
 	protected double getMinVerticalDistance(final int origin) {
 		Point from = points.get(origin);
 		return getVerticalOrHorizontalDistance(from, from::isSameVerticalLine);

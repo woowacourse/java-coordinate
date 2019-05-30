@@ -99,6 +99,17 @@ class FigureFactoryTest {
 	}
 
 	@Test
+	public void 세개의_점이_일직선일때_예외발생하는지_검사() {
+		points = Arrays.asList(
+				Point.of(0, 0),
+				Point.of(1, 1),
+				Point.of(2, 2));
+		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
+			figureFactory.create(points);
+		});
+	}
+
+	@Test
 	public void NotFigure를_제대로_생성하고_넓이를_반환할때_예외가_발생하는지() {
 		points = Arrays.asList(
 				Point.of(1, 1)

@@ -8,10 +8,20 @@ import java.util.List;
 public class Triangle extends AbstractFigure {
     private Triangle(final List<Point> points) {
         super(points);
+        if (isLine()) {
+            throw new IllegalArgumentException("일직선입니다");
+        }
     }
 
     public static Triangle of(List<Point> points) {
         return new Triangle(points);
+    }
+
+    private boolean isLine() {
+        Double angleA = Double.valueOf(angle(FIRST, SECOND));
+        Double angleB = Double.valueOf(angle(SECOND, THIRD));
+
+        return (angleA.compareTo(angleB) == 0);
     }
 
     @Override
