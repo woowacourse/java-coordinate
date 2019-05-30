@@ -10,21 +10,11 @@ public class Points {
     private static final String NEW_LINE = "\n";
     private final List<Point> points;
 
-    public Points(String[] scannedPoints) {
-        if (scannedPoints.length < LINE_SIZE || scannedPoints.length > RECTANGLE_SIZE) {
-            throw new IllegalArgumentException("잘못된 점 개수 입니다.");
+    public Points(List<Point> scannedPoints) {
+        if (scannedPoints.size() < LINE_SIZE || scannedPoints.size() > RECTANGLE_SIZE) {
+            throw new IllegalArgumentException("잘못된 점 개수입니다.");
         }
-        this.points = new ArrayList<>();
-        for (String scannedPoint : scannedPoints) {
-            this.addPoint(new Point(scannedPoint));
-        }
-    }
-
-    private void addPoint(Point point) {
-        if (this.points.contains(point)) {
-            throw new IllegalArgumentException("중복된 점이 있습니다.");
-        }
-        this.points.add(point);
+        this.points = scannedPoints;
         Collections.sort(points);
     }
 

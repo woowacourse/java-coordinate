@@ -1,24 +1,16 @@
 package coordinatecalculator.model;
 
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Point implements Comparable<Point> {
 
-    private static final Pattern PATTERN = Pattern.compile("\\(([0-9]*),([0-9]*)\\)");
     private static final int ZERO = 0;
     private static final int SQUARE = 2;
     private final Coordinate xPoint;
     private final Coordinate yPoint;
 
-    public Point(String inputPoint) {
-        Matcher matcher = PATTERN.matcher(inputPoint);
-        if (!matcher.find()) {
-            throw new IllegalArgumentException("잘못된 입력 형식입니다.");
-        }
-        this.xPoint = new Coordinate(matcher.group(1));
-        this.yPoint = new Coordinate(matcher.group(2));
+    public Point(Coordinate xPoint, Coordinate yPoint) {
+        this.xPoint = xPoint;
+        this.yPoint = yPoint;
     }
 
     public Coordinate getXPoint() {
@@ -62,7 +54,6 @@ public class Point implements Comparable<Point> {
         Point point = (Point) o;
         if (!xPoint.equals(point.xPoint)) return false;
         return yPoint.equals(point.yPoint);
-
     }
 
     @Override
