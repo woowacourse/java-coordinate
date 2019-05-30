@@ -3,6 +3,7 @@ package coordinate.domain;
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
+    private static final String name = "삼각형";
 
     public Triangle(List<Point> points) {
         super(points);
@@ -16,5 +17,10 @@ public class Triangle extends AbstractFigure {
         double s = (a + b + c) / 2.0;
 
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    @Override
+    protected String name() {
+        return name;
     }
 }

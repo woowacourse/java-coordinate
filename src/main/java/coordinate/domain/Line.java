@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Line extends AbstractFigure {
+    private static final String name = "직선";
 
     public Line(List<Point> points) {
         super(points);
@@ -21,7 +22,17 @@ public class Line extends AbstractFigure {
     }
 
     @Override
+    protected String name() {
+        return name;
+    }
+
+    @Override
     public double area() {
-        throw new IllegalArgumentException();
+        return length();
+    }
+
+    @Override
+    public String toString() {
+        return name() + "의 길이는 " + area() + "입니다.";
     }
 }

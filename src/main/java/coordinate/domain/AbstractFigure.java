@@ -20,7 +20,6 @@ public abstract class AbstractFigure implements Figure {
         return points;
     }
 
-
     Point point(int index) {
         return points.get(index);
     }
@@ -28,4 +27,10 @@ public abstract class AbstractFigure implements Figure {
     @Override
     public abstract double area();
 
+    protected abstract String name();
+
+    @Override
+    public String toString() {
+        return name() + "의 넓이는 " + area() + "입니다.";
+    }
 }
