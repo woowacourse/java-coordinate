@@ -14,10 +14,6 @@ public class StraightLine extends Figure {
         this.points = points;
     }
 
-    public static StraightLine create(List<Point> points) {
-        return new StraightLine(points);
-    }
-
     private void validateSizeOf(List<Point> points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 두개여야 합니다.");

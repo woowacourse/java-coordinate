@@ -1,5 +1,6 @@
 package coordinate;
 
+import coordinate.domain.AttributeType;
 import coordinate.domain.Figure;
 import coordinate.domain.Point;
 import coordinate.domain.PointParser;
@@ -22,7 +23,7 @@ public class CoordinateCalculator {
 
     private static Figure getFigure() {
         try {
-            return FigureFactory.getFigureOf(getPoints());
+            return AttributeType.getFigureOf(getPoints());
         } catch (IllegalArgumentException e) {
             OutputView.printErrorMsg(e);
             return getFigure();

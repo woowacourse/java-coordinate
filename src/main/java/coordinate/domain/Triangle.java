@@ -14,10 +14,6 @@ public class Triangle extends Figure implements Polygon {
         this.points = points;
     }
 
-    public static Triangle create(List<Point> points) {
-        return new Triangle(points);
-    }
-
     private void validateSizeOf(List<Point> points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");

@@ -15,10 +15,6 @@ public class Rectangle extends Figure implements Polygon {
         this.points = points;
     }
 
-    public static Rectangle create(List<Point> points) {
-        return new Rectangle(points);
-    }
-
     @Override
     public double calculateAttribute() {
         return calculateArea();
