@@ -35,15 +35,15 @@ public abstract class AbstractFigure implements Figure {
 
 	protected double getMinVerticalDistance(final int origin) {
 		Point from = points.get(origin);
-		return gongtong(from, from::isSameVerticalLine);
+		return getVerticalOrHorizontalDistance(from, from::isSameVerticalLine);
 	}
 
 	protected double getMinHorizontalDistance(final int origin) {
 		Point from = points.get(origin);
-		return gongtong(from, from::isSameHorizontalLine);
+		return getVerticalOrHorizontalDistance(from, from::isSameHorizontalLine);
 	}
 
-	private double gongtong(final Point from, Predicate<Point> predicate) {
+	private double getVerticalOrHorizontalDistance(final Point from, Predicate<Point> predicate) {
 		Point temp = points.subList(SECOND, points.size()).stream()
 				.filter(predicate)
 				.findFirst()
