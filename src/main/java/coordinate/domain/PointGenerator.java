@@ -22,10 +22,10 @@ public class PointGenerator {
 
     private static void validate(List<Integer> numbers) {
         if (numbers.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessages.INVALID_COORDI.message());
         }
         if (numbers.size() % 2 != 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessages.INVALID_COORDI.message());
         }
     }
 }

@@ -12,7 +12,6 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public double area() {
-
         double a = new Line(point(0), point(1)).length();
         double b = new Line(point(1), point(2)).length();
         double c = new Line(point(2), point(0)).length();

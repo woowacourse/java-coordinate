@@ -5,20 +5,29 @@ import java.util.List;
 import java.util.Map;
 
 public class FigureFactory {
+    private static final int LINE = 2;
+    private static final int TRIANGLE = 3;
+    private static final int RECTANGLE = 4;
+
     private static Map<Integer, FigureCreatable> creators = new HashMap<>();
 
     static {
-        creators.put(2, new LineCreator());
-        creators.put(3, new TriangleCreator());
-        creators.put(4, new RectangleCreator());
+        creators.put(LINE, new LineCreator());
+        creators.put(TRIANGLE, new TriangleCreator());
+        creators.put(RECTANGLE, new RectangleCreator());
     }
 
     public static Figure figure(List<Point> points) {
         FigureCreatable figureCreator = creators.get(points.size());
         if (figureCreator == null) {
-            throw new IllegalArgumentException("유효하지 않은 도형입니다.");
+            throw new IllegalArgumentException(ExceptionMessages.INVALID_COORDI.message());
         }
-        return figureCreator.create(points);
+
+        try {
+            return figureCreator.create(points);
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException(ExceptionMessages.INVALID_COORDI.message());
+        }
     }
 }
 

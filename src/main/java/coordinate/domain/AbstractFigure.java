@@ -29,7 +29,7 @@ public abstract class AbstractFigure implements Figure {
 
     private void duplicate(List<Point> points) {
         if (new HashSet<Point>(points).size() != points.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessages.INVALID_COORDI.message());
         }
     }
 
