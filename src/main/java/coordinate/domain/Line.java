@@ -1,11 +1,16 @@
 package coordinate.domain;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Line extends AbstractFigure {
 
     public Line(List<Point> points) {
         super(points);
+    }
+
+    public Line(Point A, Point B) {
+        super(Arrays.asList(A, B));
     }
 
     public double length() {
