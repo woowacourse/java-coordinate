@@ -1,4 +1,4 @@
-package coordinate;
+package coordinate.domain;
 
 import coordinate.view.InputView;
 import org.junit.jupiter.api.Test;
