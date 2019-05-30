@@ -1,7 +1,9 @@
 package coordinate.view;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,11 +13,13 @@ class InputViewTest {
 
     @Test
     void 좌표_분리() {
-        assertEquals(Arrays.asList("(1,2)", "(3,4)", "(5,6)"), InputView.split(input));
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        assertEquals(Arrays.asList(1, 2, 3, 4, 5, 6), InputView.inputCoordinate());
     }
 
-    @Test
-    void 좌표_숫자로_변환() {
-        assertEquals(Arrays.asList(1, 2, 3, 4, 5, 6), InputView.parse(input));
+    @AfterEach
+    void tearDown() {
+        System.setIn(System.in);
     }
 }
