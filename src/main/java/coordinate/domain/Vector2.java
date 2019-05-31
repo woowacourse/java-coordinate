@@ -14,8 +14,12 @@ public class Vector2 {
         return new Vector2(x, y);
     }
 
-    public int doProduct(Vector2 b) {
-        return (this.x * b.x) + (this.y * b.y);
+    public int doProduct(Vector2 v) {
+        return (this.x * v.x) + (this.y * v.y);
+    }
+
+    public Vector2 minus(Vector2 v) {
+        return of(this.x - v.x, this.y - v.y);
     }
 
     public double length() {

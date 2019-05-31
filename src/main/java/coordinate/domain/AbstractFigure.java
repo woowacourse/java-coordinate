@@ -1,7 +1,7 @@
 package coordinate.domain;
 
 public abstract class AbstractFigure implements Figure {
-    protected final Points points;
+    private final Points points;
 
     AbstractFigure(Points points) {
         validateNotDuplicatedPoints(points);

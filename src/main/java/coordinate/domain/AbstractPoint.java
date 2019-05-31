@@ -13,7 +13,10 @@ public abstract class AbstractPoint implements Point {
 
     @Override
     public Vector2 subtract(Point p) {
-        return Vector2.of(x.subtract(p.getX()), y.subtract(p.getY()));
+        Vector2 v1 = toVector2();
+        Vector2 v2 = p.toVector2();
+
+        return v1.minus(v2);
     }
 
     @Override
@@ -24,6 +27,21 @@ public abstract class AbstractPoint implements Point {
     @Override
     public CoordinateNumber getY() {
         return y;
+    }
+
+    @Override
+    public int getXInt() {
+        return x.toInt();
+    }
+
+    @Override
+    public int getYInt() {
+        return y.toInt();
+    }
+
+    @Override
+    public Vector2 toVector2() {
+        return Vector2.of(x.toInt(), y.toInt());
     }
 
     @Override

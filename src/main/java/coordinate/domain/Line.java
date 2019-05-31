@@ -10,7 +10,7 @@ public class Line extends AbstractFigure {
     }
 
     public double length() {
-        Vector2 v = points.get(0).subtract(points.get(1));
+        Vector2 v = getPoints().subtract(0, 1);
 
         return Math.sqrt(v.doProduct(v));
     }

@@ -32,4 +32,20 @@ public class Vector2Test {
     void length_() {
         assertThat(Vector2.of(1, 1).length()).isEqualTo(1.414, offset(0.00099));
     }
+
+    @Test
+    void minus_Zero벡터빼기() {
+        Vector2 a = Vector2.of(10, 10);
+        Vector2 b = Vector2.of(0, 0);
+
+        assertThat(a.minus(b)).isEqualTo(a);
+    }
+
+    @Test
+    void minus_() {
+        Vector2 a = Vector2.of(10, 10);
+        Vector2 b = Vector2.of(5, 3);
+
+        assertThat(a.minus(b)).isEqualTo(Vector2.of(5, 7));
+    }
 }

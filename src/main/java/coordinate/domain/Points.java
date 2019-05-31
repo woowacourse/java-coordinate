@@ -40,6 +40,13 @@ public class Points {
         return v.length();
     }
 
+    public Vector2 subtract(int from, int to) {
+        Point p1 = points.get(from);
+        Point p2 = points.get(to);
+
+        return p1.subtract(p2);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

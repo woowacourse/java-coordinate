@@ -36,4 +36,9 @@ public class PointsTest {
     void distance() {
         assertThat(points.distance(0, 1)).isEqualTo(1.414, offset(0.00099));
     }
+
+    @Test
+    void subtract() {
+        assertThat(points.subtract(0, 1)).isEqualTo(Vector2.of(-1, -1));
+    }
 }

@@ -1,24 +1,32 @@
 package coordinate.domain;
 
 import java.util.List;
+import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
 public class Rectangle extends AbstractFigure {
     private Rectangle(Points points) {
         super(points);
-        validateRectangle(this.points);
+        validateRectangle(points);
     }
 
     private void validateRectangle(Points points) {
-        List<Integer> xValues = points.toList().stream().mapToInt(point -> point.getX().toInt()).boxed().collect(Collectors.toList());
+        List<Integer> xValues = pointsToIntList(points, Point::getXInt);
         if (!has2Values2Cnt(xValues)) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
 
-        List<Integer> yValues = points.toList().stream().mapToInt(point -> point.getY().toInt()).boxed().collect(Collectors.toList());
+        List<Integer> yValues = pointsToIntList(points, Point::getYInt);
         if (!has2Values2Cnt(yValues)) {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
+    }
+
+    private List<Integer> pointsToIntList(Points points, ToIntFunction<Point> mapper) {
+        return points.toList().stream()
+                .mapToInt(mapper)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     private boolean has2Values2Cnt(List<Integer> numbers) {
@@ -37,10 +45,10 @@ public class Rectangle extends AbstractFigure {
     }
 
     public double area() {
-        Point p = points.get(0);
+        Point p = getPoints().get(0);
 
-        Point pNextX = points.find(point -> !point.equals(p) && point.hasEqualX(p));
-        Point pNextY = points.find(point -> !point.equals(p) && point.hasEqualY(p));
+        Point pNextX = getPoints().find(point -> !point.equals(p) && point.hasEqualX(p));
+        Point pNextY = getPoints().find(point -> !point.equals(p) && point.hasEqualY(p));
 
         double w = p.distance(pNextX);
         double h = p.distance(pNextY);

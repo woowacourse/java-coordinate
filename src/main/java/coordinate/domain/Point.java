@@ -7,6 +7,12 @@ public interface Point {
 
     CoordinateNumber getY();
 
+    int getXInt();
+
+    int getYInt();
+
+    Vector2 toVector2();
+
     boolean hasEqualX(Point p);
 
     boolean hasEqualY(Point p);
