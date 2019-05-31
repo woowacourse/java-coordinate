@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class CoordinateNumber {
@@ -9,7 +11,7 @@ public class CoordinateNumber {
 
     private final int number;
 
-    public CoordinateNumber(int number) {
+    private CoordinateNumber(int number) {
         this.number = number;
     }
 
@@ -31,24 +33,21 @@ public class CoordinateNumber {
     private static class CoordinateNumberCache {
         static final int begin = NUM_CACHE_BEGIN;
         static final int end = NUM_CACHE_END;
-        static final CoordinateNumber[] cache;
+        static final Map<Integer, CoordinateNumber> cache;
 
         static {
-            cache = new CoordinateNumber[end - begin];
+            cache = new HashMap<>();
             for (int i = begin; i < end; i++) {
-                cache[i - begin] = new CoordinateNumber(i);
+                cache.put(i, new CoordinateNumber(i));
             }
         }
 
         static boolean isCached(int i) {
-            if (begin <= i && i < end) {
-                return true;
-            }
-            return false;
+            return cache.containsKey(i);
         }
 
         static CoordinateNumber getFromCache(int i) {
-            return cache[i - begin];
+            return cache.get(i);
         }
     }
 
