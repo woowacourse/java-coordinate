@@ -11,7 +11,7 @@ public class Row {
 
     private List<Tile> tiles;
 
-    public Row() {
+    Row() {
         tiles = new ArrayList<>();
         tiles.add(new Tile(String.valueOf(0)));
         tiles.add(new Tile(EMPTY));
@@ -20,7 +20,7 @@ public class Row {
         }
     }
 
-    public Row(int yCoordinate) {
+    Row(int yCoordinate) {
         tiles = new ArrayList<>();
         addAxisTile(yCoordinate);
         for (int i = 1; i <= X_RANGE; i++) {

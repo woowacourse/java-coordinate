@@ -4,12 +4,14 @@ import coordinate.domain.Figure;
 import coordinate.domain.Point;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class CartesianPlane {
     private static final int Y_RANGE = 24;
+    private static final int X_BASE = 0;
 
-    List<Row> rows;
+    private List<Row> rows;
 
     public CartesianPlane() {
         rows = new ArrayList<>();
@@ -24,8 +26,10 @@ public class CartesianPlane {
     }
 
     public void drawPoints(Figure figure) {
-        for (Point point : figure.getPoints()) {
-            rows.get(Y_RANGE - point.getY()).drawTile(point.getX());
+        Iterator<Point> iterator = figure.iterator();
+        while (iterator.hasNext()) {
+            Point nextPoint = iterator.next();
+            rows.get(nextPoint.getYDifference(Y_RANGE)).drawTile(nextPoint.getXDifference(X_BASE));
         }
     }
 

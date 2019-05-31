@@ -32,6 +32,38 @@ public class Point {
         validateMinRange(x, y);
     }
 
+    int getDeltaXTo(Point point) {
+        return point.getXDifference(x);
+    }
+
+    int getDeltaYTo(Point point) {
+        return point.getYDifference(y);
+    }
+
+    public int getXDifference(int xCoordinate) {
+        return Math.abs(x - xCoordinate);
+    }
+
+    public int getYDifference(int yCoordinate) {
+        return Math.abs(y - yCoordinate);
+    }
+
+    boolean matchX(Point point) {
+        return point.matchX(x);
+    }
+
+    private boolean matchX(int xCoordinate) {
+        return xCoordinate == x;
+    }
+
+    boolean matchY(Point point) {
+        return point.matchY(y);
+    }
+
+    private boolean matchY(int yCoordinate) {
+        return yCoordinate == y;
+    }
+
     private void validateMaxRange(int x, int y) {
         if (x > MAX_VALUE || y > MAX_VALUE) {
             throw new IllegalArgumentException("좌표 값은 " + MAX_VALUE + "보다 작거나 같아야 합니다 ");
@@ -42,30 +74,6 @@ public class Point {
         if (x < MIN_VALUE || y < MIN_VALUE) {
             throw new IllegalArgumentException("좌표 값은 " + MIN_VALUE + "보다 크거나 같아야 합니다.");
         }
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    int getDeltaXTo(Point point) {
-        return Math.abs(this.x - point.x);
-    }
-
-    int getDeltaYTo(Point point) {
-        return Math.abs(this.y - point.y);
-    }
-
-    boolean matchX(Point point) {
-        return x == point.x;
-    }
-
-    boolean matchY(Point point) {
-        return y == point.y;
     }
 
     @Override

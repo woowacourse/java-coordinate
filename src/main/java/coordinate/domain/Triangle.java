@@ -8,24 +8,15 @@ public class Triangle extends Figure implements Polygon {
     private static final int UNIQUE_SIZE = 1;
 
     Triangle(List<Point> points) {
-        super(points);
-        validateSizeOf(points);
+        super(points, NUM_OF_POINT);
         validateTriangle(points);
-        this.points = points;
-    }
-
-    private void validateSizeOf(List<Point> points) {
-        if (points.size() != NUM_OF_POINT) {
-            throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
-        }
     }
 
     private void validateTriangle(List<Point> points) {
         Set<Double> slopes = new HashSet<>();
-        Point basePoint = points.get(BASE);
 
         for (int i = 1; i < points.size(); i++) {
-            slopes.add((new StraightLine(Arrays.asList(basePoint, points.get(i)))).calculateSlope());
+            slopes.add(calculateSlope(BASE, i));
         }
 
         if (slopes.size() == UNIQUE_SIZE) {
@@ -45,14 +36,11 @@ public class Triangle extends Figure implements Polygon {
     }
 
     private List<Double> getLengthOfSideLines() {
-        List<Double> lineLength = new ArrayList<>();
-
-        for (Point point : points) {
-            List<Point> points = new ArrayList<>(this.points);
-            points.remove(point);
-            lineLength.add(new StraightLine(points).calculateLength());
-        }
-        return lineLength;
+        List<Double> lengths = new ArrayList<>();
+        lengths.add(calculateLength(0, 1));
+        lengths.add(calculateLength(1, 2));
+        lengths.add(calculateLength(2, 0));
+        return lengths;
     }
 
     private double applyHeronFormula(double a, double b, double c) {
