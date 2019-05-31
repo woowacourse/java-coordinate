@@ -11,9 +11,8 @@ public class Vector {
         validateNotNull(line);
         Point p1 = line.getStartPoint();
         Point p2 = line.getEndPoint();
-
-        this.x = p2.getX() - p1.getX();
-        this.y = p2.getY() - p1.getY();
+        this.x = p2.minusX(p1);
+        this.y = p2.minusY(p1);
     }
 
     private Vector(int x, int y) {
