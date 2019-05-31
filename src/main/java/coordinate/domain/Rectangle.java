@@ -7,7 +7,6 @@ public class Rectangle extends Polygon {
         super(lines);
         validateNumOf(lines);
         validateRectangle(lines);
-        this.lines = lines;
     }
 
     private void validateNumOf(Lines lines) {

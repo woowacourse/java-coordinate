@@ -5,9 +5,10 @@ import java.util.Set;
 import static coordinate.util.NotNullValidator.validateNotNull;
 
 public abstract class Polygon extends Figure implements AreaCalculable {
-    Lines lines;
+    private Lines lines;
 
-    protected Polygon(Lines lines) {
+    Polygon(Lines lines) {
+        this.lines = lines;
         validateNotNull(lines);
     }
 

@@ -28,11 +28,11 @@ public class Line extends Figure {
     }
 
     private int calculateXDifference() {
-        return p2.getX() - p1.getX();
+        return p2.minusX(p1);
     }
 
     private int calculateYDifference() {
-        return p2.getY() - p1.getY();
+        return p2.minusY(p1);
     }
 
     public Point getStartPoint() {

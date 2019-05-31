@@ -6,7 +6,6 @@ public class Triangle extends Polygon {
     public Triangle(Lines lines) {
         super(lines);
         validateNumOf(lines);
-        this.lines = lines;
         validateTriangle(lines);
     }
 
