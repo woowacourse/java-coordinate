@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 public class Rectangle extends AbstractShape {
     private static final int ONE_LINE = 1;
-    private static final int PAIR_LINE_COUNT = 2;
+    private static final double PAIR_LINE_COUNT = 2.0;
     private static final int DEFAULT_AREA = 1;
 
     private TreeMap<Double, Integer> rectangleLines = new TreeMap<>();
@@ -20,7 +20,7 @@ public class Rectangle extends AbstractShape {
     }
 
     private void initializeRectangleLines() {
-        for (Double lineLength : lines) {
+        for (Double lineLength : getLines()) {
             addLine(lineLength);
         }
     }

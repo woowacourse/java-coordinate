@@ -2,10 +2,6 @@ package coordinate.domain.shape;
 
 import coordinate.domain.point.Point;
 import coordinate.domain.point.PointsGenerator;
-import coordinate.domain.shape.Line;
-import coordinate.domain.shape.Rectangle;
-import coordinate.domain.shape.ShapeGenerator;
-import coordinate.domain.shape.Triangle;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -23,8 +19,8 @@ public class ShapeGeneratorTest {
                 new Point(14, 15)
         );
 
-        assertThat(ShapeGenerator.create(PointsGenerator.generatePoints("(10,10)-(14,15)")))
-                .isEqualTo(new Line(points));
+        assertThat(ShapeGenerator.create(PointsGenerator.generatePoints("(10,10)-(14,15)")).area())
+                .isEqualTo(new Line(points).area());
     }
 
     @Test
@@ -35,8 +31,8 @@ public class ShapeGeneratorTest {
                 new Point(20, 8)
         ));
 
-        assertThat(ShapeGenerator.create(PointsGenerator.generatePoints("(10,10)-(14,15)-(20,8)")))
-                .isEqualTo(new Triangle(points));
+        assertThat(ShapeGenerator.create(PointsGenerator.generatePoints("(10,10)-(14,15)-(20,8)")).area())
+                .isEqualTo(new Triangle(points).area());
     }
 
     @Test
@@ -48,7 +44,7 @@ public class ShapeGeneratorTest {
                 new Point(10, 18)
         ));
 
-        assertThat(ShapeGenerator.create(PointsGenerator.generatePoints("(10,10)-(22,10)-(22,18)-(10,18)")))
-                .isEqualTo(new Rectangle(points));
+        assertThat(ShapeGenerator.create(PointsGenerator.generatePoints("(10,10)-(22,10)-(22,18)-(10,18)")).area())
+                .isEqualTo(new Rectangle(points).area());
     }
 }
