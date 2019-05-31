@@ -12,14 +12,10 @@ public enum FigureType {
     }
 
     public static FigureType valueOf(int numOfPoints) {
-        if (numOfPoints == 2) {
-            return LINE;
-        }
-        if (numOfPoints == 3) {
-            return TRIANGLE;
-        }
-        if (numOfPoints == 4) {
-            return RECTANGLE;
+        for (FigureType type : values()) {
+            if (type.numOfPoints == numOfPoints) {
+                return type;
+            }
         }
         throw new IllegalArgumentException("지원하지 않는 도형입니다.");
     }
