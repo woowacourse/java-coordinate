@@ -10,6 +10,9 @@ public class PointParser {
     private static final String COORDINATE_SEPARATOR = ",";
     private static final String FRONT_COORDINATE_WRAPPER = "(";
     private static final String BACK_COORDINATE_WRAPPER = ")";
+    private static final int X_INDEX = 0;
+    private static final int Y_INDEX = 1;
+    private static final int NUM_OF_2D_COORDINATES = 2;
 
     public static List<Point> parse(String rawInput) {
         List<Point> points = new ArrayList<>();
@@ -17,7 +20,8 @@ public class PointParser {
         for (String tuple : tuples) {
             validateBetweenBrackets(tuple);
             List<Integer> coordinates = new ArrayList<>(splitToCoordinates(tuple));
-            points.add(new Point(coordinates));
+            validateSizeOf(coordinates);
+            points.add(new Point(coordinates.get(X_INDEX), coordinates.get(Y_INDEX)));
         }
         return points;
     }
@@ -34,6 +38,12 @@ public class PointParser {
     private static void validateBetweenBrackets(String tuple) {
         if (!tuple.startsWith(FRONT_COORDINATE_WRAPPER) || !tuple.endsWith(BACK_COORDINATE_WRAPPER)) {
             throw new IllegalArgumentException("좌표들은 소괄호로 둘러 쌓여 있어야 합니다.");
+        }
+    }
+
+    private static void validateSizeOf(List<Integer> coordinates) {
+        if (coordinates.size() != NUM_OF_2D_COORDINATES) {
+            throw new IllegalArgumentException("좌표점을 두개 입력해야 합니다");
         }
     }
 }

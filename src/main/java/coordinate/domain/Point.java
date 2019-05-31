@@ -1,35 +1,14 @@
 package coordinate.domain;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Point {
-    private static final int NUM_OF_COORDINATES = 2;
-    private static final int X_INDEX = 0;
-    private static final int Y_INDEX = 1;
-    private static final int MIN_VALUE = 1;
-    private static final int MAX_VALUE = 24;
+    private final XCoordinate x;
+    private final YCoordinate y;
 
-    private final int x;
-    private final int y;
-
-    public Point(List<Integer> coordinates) {
-        validateSizeOf(coordinates);
-        validateNumberRange(coordinates.get(X_INDEX), coordinates.get(Y_INDEX));
-        this.x = coordinates.get(X_INDEX);
-        this.y = coordinates.get(Y_INDEX);
-    }
-
-
-    private void validateSizeOf(List<Integer> coordinates) {
-        if (coordinates.size() != NUM_OF_COORDINATES) {
-            throw new IllegalArgumentException("좌표점을 두개 입력해야 합니다");
-        }
-    }
-
-    private void validateNumberRange(int x, int y) {
-        validateMaxRange(x, y);
-        validateMinRange(x, y);
+    Point(int x, int y) {
+        this.x = XCoordinate.of(x);
+        this.y = YCoordinate.of(y);
     }
 
     int getDeltaXTo(Point point) {
@@ -40,40 +19,36 @@ public class Point {
         return point.getYDifference(y);
     }
 
+    private int getXDifference(XCoordinate x) {
+        return x.getDifference(this.x);
+    }
+
     public int getXDifference(int xCoordinate) {
-        return Math.abs(x - xCoordinate);
+        return x.getDifference(xCoordinate);
+    }
+
+    private int getYDifference(YCoordinate y) {
+        return y.getDifference(this.y);
     }
 
     public int getYDifference(int yCoordinate) {
-        return Math.abs(y - yCoordinate);
+        return y.getDifference(yCoordinate);
     }
 
     boolean matchX(Point point) {
         return point.matchX(x);
     }
 
-    private boolean matchX(int xCoordinate) {
-        return xCoordinate == x;
+    private boolean matchX(Coordinate x) {
+        return x.equals(this.x);
     }
 
     boolean matchY(Point point) {
         return point.matchY(y);
     }
 
-    private boolean matchY(int yCoordinate) {
-        return yCoordinate == y;
-    }
-
-    private void validateMaxRange(int x, int y) {
-        if (x > MAX_VALUE || y > MAX_VALUE) {
-            throw new IllegalArgumentException("좌표 값은 " + MAX_VALUE + "보다 작거나 같아야 합니다 ");
-        }
-    }
-
-    private void validateMinRange(int x, int y) {
-        if (x < MIN_VALUE || y < MIN_VALUE) {
-            throw new IllegalArgumentException("좌표 값은 " + MIN_VALUE + "보다 크거나 같아야 합니다.");
-        }
+    private boolean matchY(Coordinate y) {
+        return y.equals(this.y);
     }
 
     @Override

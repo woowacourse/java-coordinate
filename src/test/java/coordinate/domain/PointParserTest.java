@@ -7,10 +7,11 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PointParserTest {
+class PointParserTest {
     @Test
     void 포인트_리스트를_제대로_반환하는지_테스트() {
-        assertThat(PointParser.parse("(1,2)-(3,4)")).isEqualTo(Arrays.asList(new Point(Arrays.asList(1, 2)), new Point(Arrays.asList(3, 4))));
+        assertThat(PointParser.parse("(1,2)-(3,4)"))
+                .isEqualTo(Arrays.asList(new Point(1, 2), new Point(3, 4)));
     }
 
     @Test
