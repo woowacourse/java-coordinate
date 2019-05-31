@@ -15,7 +15,7 @@ public class CoordinateCalculator {
 
     public static void main(String[] args) {
         List<Point> points = createPoints();
-        Shape shape = createShape(new ArrayList<>(points));
+        Shape shape = createShape(points);
         Graph graph = new Graph();
         graph.drawPoints(points);
         OutputView.printGraph(graph);

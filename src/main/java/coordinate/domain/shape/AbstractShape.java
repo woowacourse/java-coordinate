@@ -12,7 +12,8 @@ public abstract class AbstractShape implements Shape {
     List<Double> lines = new ArrayList<>();
 
     AbstractShape(List<Point> points) {
-        extractLinesInPolygon(points);
+        List<Point> copiedPoints = new ArrayList<>(points);
+        extractLinesInPolygon(copiedPoints);
     }
 
     private void extractLinesInPolygon(List<Point> points) {
