@@ -21,11 +21,10 @@ public class RentCompany {
     }
 
     public String generateReport() {
-        StringBuilder stringBuilder = new StringBuilder();
+        String report = "";
         for (Car car : cars) {
-            stringBuilder.append(car.getName()).append(" : ").append((int) car.getChargeQuantity()).append("리터").append(NEWLINE);
+            report += car.getName() + " : " + (int) car.getChargeQuantity() + "리터" + NEWLINE;
         }
-
-        return stringBuilder.toString();
+        return report;
     }
 }
