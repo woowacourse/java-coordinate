@@ -4,7 +4,7 @@ import coordinate.domain.Figure;
 
 public class OutputView {
     public static void printFigure(Figure figure) {
-        System.out.println(figure.getPlaneCoordinates().toString());
-        System.out.println(figure.toString());
+        System.out.println(figure.getPlaneCoordinates());
+        System.out.println(figure);
     }
 }
