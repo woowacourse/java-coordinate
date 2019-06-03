@@ -11,11 +11,12 @@ import java.util.regex.Pattern;
 public class InputView {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final String COORDINATE_PATTERN = "^\\((\\d*),(\\d*)\\)$";
+    private static final String DELIMITER = "-";
 
     public static Figure getFigure() {
         try {
             String userInput = getUserInput();
-            List<String> coordinates = new ArrayList<>(Arrays.asList(userInput.split("-")));
+            List<String> coordinates = makeCoordinates(userInput);
             List<Point> points = makePoints(coordinates);
             return FigureGenerator.generate(points);
         } catch (IllegalArgumentException e) {
@@ -27,6 +28,10 @@ public class InputView {
     private static String getUserInput() {
         System.out.println("좌표를 입력하세요.");
         return SCANNER.nextLine();
+    }
+
+    private static ArrayList<String> makeCoordinates(String userInput) {
+        return new ArrayList<>(Arrays.asList(userInput.split(DELIMITER)));
     }
 
     static List<Point> makePoints(List<String> coordinates) {
