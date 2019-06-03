@@ -1,7 +1,6 @@
 package coordinate.domain;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class FigureFactory {
     private static final int NUMBER_OF_POINTS_IN_LINE = 2;

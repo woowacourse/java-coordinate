@@ -1,6 +1,6 @@
 package coordinate.domain;
 
-public class StraightLine extends Figure implements CalculableFigure{
+public class StraightLine extends Figure implements CalculableFigure {
     private static final int START_POINT = 0;
     private static final int END_POINT = 1;
     private static final int NUM_OF_POINT = 2;
@@ -15,7 +15,7 @@ public class StraightLine extends Figure implements CalculableFigure{
         validateSizeOf(points);
     }
 
-    void validateSizeOf(Points points) {
+    private void validateSizeOf(Points points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 두개여야 합니다.");
         }

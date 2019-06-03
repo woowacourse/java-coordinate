@@ -17,7 +17,7 @@ public class Triangle extends Figure implements CalculableFigure {
         validateTriangle(points);
     }
 
-    void validateSizeOf(Points points) {
+    private void validateSizeOf(Points points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
         }

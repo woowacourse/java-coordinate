@@ -2,7 +2,6 @@ package coordinate.view;
 
 import coordinate.domain.AreaType;
 import coordinate.domain.CalculableFigure;
-import coordinate.domain.Figure;
 import coordinate.ui.CartesianPlane;
 import coordinate.ui.Row;
 import coordinate.ui.Tile;

@@ -1,6 +1,6 @@
 package coordinate.domain;
 
-public class Rectangle extends Figure implements CalculableFigure{
+public class Rectangle extends Figure implements CalculableFigure {
     private static final int NUM_OF_POINT = 4;
 
     Rectangle(Points points) {
@@ -13,7 +13,7 @@ public class Rectangle extends Figure implements CalculableFigure{
         validateRectangle(points);
     }
 
-    void validateSizeOf(Points points) {
+    private void validateSizeOf(Points points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
         }

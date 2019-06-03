@@ -1,11 +1,11 @@
 package coordinate;
 
-import coordinate.domain.*;
+import coordinate.domain.CalculableFigure;
+import coordinate.domain.FigureFactory;
+import coordinate.domain.Points;
 import coordinate.ui.CartesianPlane;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
-
-import java.util.List;
 
 public class CoordinateCalculator {
     public static void main(String[] args) {

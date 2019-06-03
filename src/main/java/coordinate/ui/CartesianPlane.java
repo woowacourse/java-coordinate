@@ -1,7 +1,6 @@
 package coordinate.ui;
 
 import coordinate.domain.CalculableFigure;
-import coordinate.domain.Figure;
 import coordinate.domain.Point;
 
 import java.util.ArrayList;

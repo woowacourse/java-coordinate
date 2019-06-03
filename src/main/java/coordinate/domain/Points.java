@@ -24,7 +24,7 @@ public class Points {
         }
     }
 
-    public static Points of(List<Point> points) {
+    static Points of(List<Point> points) {
         return new Points(points);
     }
 
