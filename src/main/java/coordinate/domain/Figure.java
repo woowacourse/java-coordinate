@@ -3,11 +3,13 @@ package coordinate.domain;
 import java.util.HashSet;
 import java.util.List;
 
-public class Figure {
+public abstract class Figure {
     List<Point> points;
 
     Figure(List<Point> points) {
         validateDuplicate(points);
+        validateConfigurable(points);
+        this.points = points;
     }
 
     private void validateDuplicate(List<Point> points) {
@@ -15,6 +17,8 @@ public class Figure {
             throw new IllegalArgumentException("같은 점은 입력할 수 없습니다.");
         }
     }
+
+    abstract void validateConfigurable(List<Point> points);
 
     public List<Point> getPoints() {
         return points;

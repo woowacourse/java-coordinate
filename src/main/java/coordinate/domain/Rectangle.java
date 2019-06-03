@@ -10,16 +10,15 @@ public class Rectangle extends Figure implements CalculableFigure{
 
     Rectangle(List<Point> points) {
         super(points);
+    }
+
+    @Override
+    void validateConfigurable(List<Point> points) {
         validateSizeOf(points);
         validateRectangle(points);
-        this.points = points;
     }
 
-    public static Rectangle create(List<Point> points) {
-        return new Rectangle(points);
-    }
-
-    private void validateSizeOf(List<Point> points) {
+    void validateSizeOf(List<Point> points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
         }
