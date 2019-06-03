@@ -11,9 +11,9 @@ public class FigureFactory {
     private static final HashMap<Integer, FigureCreator> figureCreators = new HashMap<>();
 
     static {
-        figureCreators.put(NUMBER_OF_POINTS_IN_LINE, new FigureCreator(StraightLine::create));
-        figureCreators.put(NUMBER_OF_POINTS_TRIANGLE, new FigureCreator(Triangle::create));
-        figureCreators.put(NUMBER_OF_POINTS_IN_RECTANGLE, new FigureCreator(Rectangle::create));
+        figureCreators.put(NUMBER_OF_POINTS_IN_LINE, StraightLine::new);
+        figureCreators.put(NUMBER_OF_POINTS_TRIANGLE, Triangle::new);
+        figureCreators.put(NUMBER_OF_POINTS_IN_RECTANGLE, Rectangle::new);
     }
 
     public static CalculableFigure getFigureOf(List<Point> points) {
