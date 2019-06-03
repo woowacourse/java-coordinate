@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.List;
 
-public class StraightLine extends Figure {
+public class StraightLine extends Figure implements CalculableFigure{
     private static final int START_INDEX = 0;
     private static final int END_INDEX = 1;
     private static final int NUM_OF_POINT = 2;

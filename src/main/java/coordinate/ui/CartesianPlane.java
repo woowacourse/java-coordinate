@@ -1,5 +1,6 @@
 package coordinate.ui;
 
+import coordinate.domain.CalculableFigure;
 import coordinate.domain.Figure;
 import coordinate.domain.Point;
 
@@ -23,7 +24,7 @@ public class CartesianPlane {
         rows.add(new Row());
     }
 
-    public void drawPoints(Figure figure) {
+    public void drawPoints(CalculableFigure figure) {
         for (Point point : figure.getPoints()) {
             rows.get(Y_RANGE - point.getY()).drawTile(point.getX());
         }

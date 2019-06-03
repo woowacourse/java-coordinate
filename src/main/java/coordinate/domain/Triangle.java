@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Triangle extends Figure {
+public class Triangle extends Figure implements CalculableFigure {
     private static final int BASE = 0;
     private static final int NUM_OF_POINT = 3;
     private static final int UNIQUE_SIZE = 1;

@@ -1,9 +1,6 @@
 package coordinate;
 
-import coordinate.domain.Figure;
-import coordinate.domain.FigureFactory;
-import coordinate.domain.Point;
-import coordinate.domain.PointParser;
+import coordinate.domain.*;
 import coordinate.ui.CartesianPlane;
 import coordinate.view.InputView;
 import coordinate.view.OutputView;
@@ -12,7 +9,7 @@ import java.util.List;
 
 public class CoordinateCalculator {
     public static void main(String[] args) {
-        Figure figure = getFigure();
+        CalculableFigure figure = getFigure();
 
         CartesianPlane plane = new CartesianPlane();
         plane.drawPoints(figure);
@@ -21,7 +18,7 @@ public class CoordinateCalculator {
         OutputView.printAreaOf(figure);
     }
 
-    private static Figure getFigure() {
+    private static CalculableFigure getFigure() {
         try {
             return FigureFactory.getFigureOf(getPoints());
         } catch (IllegalArgumentException e) {

@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Rectangle extends Figure {
+public class Rectangle extends Figure implements CalculableFigure{
     private static final int BASE = 0;
     private static final int PAIR = 2;
     private static final int NUM_OF_POINT = 4;

@@ -1,6 +1,7 @@
 package coordinate.view;
 
 import coordinate.domain.AreaType;
+import coordinate.domain.CalculableFigure;
 import coordinate.domain.Figure;
 import coordinate.ui.CartesianPlane;
 import coordinate.ui.Row;
@@ -13,7 +14,7 @@ public class OutputView {
         System.out.println(e.getMessage());
     }
 
-    public static void printAreaOf(Figure figure) {
+    public static void printAreaOf(CalculableFigure figure) {
         System.out.println(NEWLINE + AreaType.getAreaTypeMessage(figure.getNumOfPoints()) + figure.calculateArea());
     }
 

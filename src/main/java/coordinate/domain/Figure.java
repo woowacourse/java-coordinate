@@ -3,7 +3,7 @@ package coordinate.domain;
 import java.util.HashSet;
 import java.util.List;
 
-public abstract class Figure {
+public class Figure {
     List<Point> points;
 
     Figure(List<Point> points) {
@@ -23,6 +23,4 @@ public abstract class Figure {
     public int getNumOfPoints() {
         return points.size();
     }
-
-    public abstract double calculateArea();
 }
