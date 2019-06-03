@@ -16,7 +16,7 @@ public class FigureFactory {
         figureCreators.put(NUMBER_OF_POINTS_IN_RECTANGLE, Rectangle::new);
     }
 
-    public static CalculableFigure getFigureOf(List<Point> points) {
+    public static CalculableFigure getFigureOf(Points points) {
         if (figureCreators.containsKey(points.size())) {
             return figureCreators.get(points.size()).createFigureBy(points);
         }

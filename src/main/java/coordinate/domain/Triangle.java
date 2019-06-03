@@ -7,28 +7,29 @@ public class Triangle extends Figure implements CalculableFigure {
     private static final int NUM_OF_POINT = 3;
     private static final int UNIQUE_SIZE = 1;
 
-    Triangle(List<Point> points) {
+    Triangle(Points points) {
         super(points);
     }
 
     @Override
-    void validateConfigurable(List<Point> points) {
+    void validateConfigurableBy(Points points) {
         validateSizeOf(points);
         validateTriangle(points);
     }
 
-    void validateSizeOf(List<Point> points) {
+    void validateSizeOf(Points points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
         }
     }
 
-    private void validateTriangle(List<Point> points) {
+    private void validateTriangle(Points points) {
         Set<Double> slopes = new HashSet<>();
         Point basePoint = points.get(BASE);
 
         for (int i = 1; i < points.size(); i++) {
-            slopes.add((new StraightLine(Arrays.asList(basePoint, points.get(i)))).calculateSlope());
+            Points twoPoints = Points.of(Arrays.asList(basePoint, points.get(i)));
+            slopes.add(new StraightLine(twoPoints).calculateSlope());
         }
 
         if (slopes.size() == UNIQUE_SIZE) {
@@ -46,10 +47,10 @@ public class Triangle extends Figure implements CalculableFigure {
     private List<Double> getLengthOfSideLines() {
         List<Double> lineLength = new ArrayList<>();
 
-        for (Point point : points) {
-            List<Point> points = new ArrayList<>(this.points);
+        for (Point point : points.getAllPoints()) {
+            List<Point> points = new ArrayList<>(this.points.getAllPoints());
             points.remove(point);
-            lineLength.add(new StraightLine(points).calculateArea());
+            lineLength.add(new StraightLine(Points.of(points)).calculateArea());
         }
         return lineLength;
     }

@@ -27,8 +27,8 @@ public class CoordinateCalculator {
         }
     }
 
-    private static List<Point> getPoints() {
+    private static Points getPoints() {
         String rawInput = InputView.inputPoints();
-        return PointParser.parse(rawInput);
+        return Points.of(rawInput);
     }
 }

@@ -1,58 +1,45 @@
 package coordinate.domain;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class Rectangle extends Figure implements CalculableFigure{
-    private static final int BASE = 0;
-    private static final int PAIR = 2;
     private static final int NUM_OF_POINT = 4;
 
-    Rectangle(List<Point> points) {
+    Rectangle(Points points) {
         super(points);
     }
 
     @Override
-    void validateConfigurable(List<Point> points) {
+    void validateConfigurableBy(Points points) {
         validateSizeOf(points);
         validateRectangle(points);
     }
 
-    void validateSizeOf(List<Point> points) {
+    void validateSizeOf(Points points) {
         if (points.size() != NUM_OF_POINT) {
             throw new IllegalArgumentException("점의 갯수가 " + NUM_OF_POINT + " 개여야 합니다.");
         }
     }
 
-    private void validateRectangle(List<Point> points) {
-        for (Point point : points) {
+    private void validateRectangle(Points points) {
+        for (Point point : points.getAllPoints()) {
             validateXPair(points, point);
             validateYPair(points, point);
         }
     }
 
-    private void validateXPair(List<Point> points, Point point) {
-        if (findXPair(points, point).size() != PAIR)
+    private void validateXPair(Points points, Point point) {
+        if (!points.hasXPairOf(point))
             throw new IllegalArgumentException("직사각형이 아닙니다.");
     }
 
-    private List<Point> findXPair(List<Point> points, Point point) {
-        return points.stream().filter(p -> p.matchX(point)).collect(Collectors.toList());
-    }
-
-    private void validateYPair(List<Point> points, Point point) {
-        if (findYPair(points, point).size() != PAIR)
+    private void validateYPair(Points points, Point point) {
+        if (!points.hasYPairOf(point))
             throw new IllegalArgumentException("직사각형이 아닙니다.");
-    }
-
-    private List<Point> findYPair(List<Point> points, Point point) {
-        return points.stream().filter(p -> p.matchY(point)).collect(Collectors.toList());
     }
 
     @Override
     public double calculateArea() {
-        StraightLine horizontalLine = new StraightLine(findYPair(points, points.get(BASE)));
-        StraightLine verticalLine = new StraightLine(findXPair(points, points.get(BASE)));
+        StraightLine horizontalLine = new StraightLine(points.findXPairOf(points.getBasePoint()));
+        StraightLine verticalLine = new StraightLine(points.findYPairOf(points.getBasePoint()));
         return horizontalLine.calculateArea() * verticalLine.calculateArea();
     }
 }
