@@ -1,22 +1,20 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public class FigureGenerator {
     private static final int NUMBER_OF_POINTS_FOR_LINE = 2;
     private static final int NUMBER_OF_POINTS_FOR_TRIANGLE = 3;
     private static final int NUMBER_OF_POINTS_FOR_RECTANGLE = 4;
 
-    public static Figure generate(List<Point> points) {
-        if (points.size() == NUMBER_OF_POINTS_FOR_LINE) {
+    public static Figure generate(Points points) {
+        if (points.hasSameSizeWith(NUMBER_OF_POINTS_FOR_LINE)) {
             return new Line(points);
         }
 
-        if  (points.size() == NUMBER_OF_POINTS_FOR_TRIANGLE) {
+        if (points.hasSameSizeWith(NUMBER_OF_POINTS_FOR_TRIANGLE)) {
             return new Triangle(points);
         }
 
-        if (points.size() == NUMBER_OF_POINTS_FOR_RECTANGLE) {
+        if (points.hasSameSizeWith(NUMBER_OF_POINTS_FOR_RECTANGLE)) {
             return new Rectangle(points);
         }
 

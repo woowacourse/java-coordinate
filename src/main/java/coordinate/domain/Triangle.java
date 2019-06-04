@@ -1,11 +1,9 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public class Triangle extends Figure implements AvailableArea {
     private static final int VALID_LENGTH_OF_POINTS = 3;
 
-    public Triangle(List<Point> points) {
+    Triangle(Points points) {
         super(points, VALID_LENGTH_OF_POINTS);
         validateTrianglePoints();
     }
@@ -18,16 +16,9 @@ public class Triangle extends Figure implements AvailableArea {
 
     @Override
     public double area() {
-        double area = 0;
-        points.add(points.get(0));
-        for (int i = 0; i < points.size() - 1; i++) {
-            Point p1 = points.get(i);
-            Point p2 = points.get(i + 1);
-            area += (double) ((p1.getX() + p2.getX()) * (p1.getY() - p2.getY())) / 2;
-        }
-        points.remove(points.size() - 1);
-
-        return Math.abs(area);
+        double s = points.getSForTriangle();
+        return Math.pow(s * (s - points.length(0 ,1)) * (s - points.length(0 ,2)) * (s - points.length(1 ,2))
+                , 0.5);
     }
 
     @Override

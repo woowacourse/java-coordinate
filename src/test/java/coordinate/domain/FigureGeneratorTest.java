@@ -14,21 +14,21 @@ public class FigureGeneratorTest {
     public void Point_2개_입력됐을_때_Line을_만드는지_확인() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2)));
 
-        assertThat(new FigureGenerator().generate(points)).isExactlyInstanceOf(Line.class);
+        assertThat(new FigureGenerator().generate(new Points(points))).isExactlyInstanceOf(Line.class);
     }
 
     @Test
     public void Point_3개_입력됐을_때_Triangle을_만드는지_확인() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(4, 3)));
 
-        assertThat(new FigureGenerator().generate(points)).isExactlyInstanceOf(Triangle.class);
+        assertThat(new FigureGenerator().generate(new Points(points))).isExactlyInstanceOf(Triangle.class);
     }
 
     @Test
     public void Point_4개_입력됐을_때_Rectangle을_만드는지_확인() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(1, 2), new Point(2, 1), new Point(2, 2)));
 
-        assertThat(new FigureGenerator().generate(points)).isExactlyInstanceOf(Rectangle.class);
+        assertThat(new FigureGenerator().generate(new Points(points))).isExactlyInstanceOf(Rectangle.class);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class FigureGeneratorTest {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(1, 2), new Point(2, 1), new Point(2, 2), new Point(5, 5)));
 
         assertThatThrownBy(() -> {
-            new FigureGenerator().generate(points);
+            new FigureGenerator().generate(new Points(points));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -45,7 +45,7 @@ public class FigureGeneratorTest {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3)));
 
         assertThatThrownBy(() -> {
-            new FigureGenerator().generate(points);
+            new FigureGenerator().generate(new Points(points));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }

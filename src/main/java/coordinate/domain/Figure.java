@@ -1,17 +1,15 @@
 package coordinate.domain;
 
-import java.util.List;
-
 public class Figure {
-    protected final List<Point> points;
+    protected final Points points;
 
-    public Figure(List<Point> points, int validLengthOfPoints) {
+    Figure(Points points, int validLengthOfPoints) {
         validateLengthOfPoints(points, validLengthOfPoints);
         this.points = points;
     }
 
-    private void validateLengthOfPoints(List<Point> points, int validLengthOfPoints) {
-        if (points.size() != validLengthOfPoints) {
+    private void validateLengthOfPoints(Points points, int validLengthOfPoints) {
+        if (!points.hasSameSizeWith(validLengthOfPoints)) {
             throw new IllegalArgumentException("점의 개수가 올바르지 않습니다.");
         }
     }

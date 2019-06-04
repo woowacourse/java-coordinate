@@ -14,7 +14,7 @@ public class LineTest {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1)));
 
         assertThatThrownBy(() -> {
-            new Line(points);
+            new Line(new Points(points));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -23,14 +23,14 @@ public class LineTest {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3)));
 
         assertThatThrownBy(() -> {
-            new Line(points);
+            new Line(new Points(points));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void lengthTest() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2)));
-        Line line = new Line(points);
+        Line line = new Line(new Points(points));
 
         assertThat(line.length()).isEqualTo(1.414, offset(0.00099));
     }

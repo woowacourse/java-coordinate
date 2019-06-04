@@ -1,6 +1,7 @@
 package coordinate.view;
 
 import coordinate.domain.Point;
+import coordinate.domain.Points;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class InputViewTest {
         List<String> coordinates = new ArrayList<>(Arrays.asList("(1,2)", "(1,3)"));
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 2), new Point(1, 3)));
 
-        assertThat(InputView.makePoints(coordinates)).isEqualTo(points);
+        assertThat(InputView.makePoints(coordinates)).isEqualTo(new Points(points));
     }
 
     @Test

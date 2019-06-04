@@ -14,7 +14,7 @@ public class TriangleTest {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2)));
 
         assertThatThrownBy(() -> {
-            new Triangle(points);
+            new Triangle(new Points(points));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -23,14 +23,14 @@ public class TriangleTest {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(4, 4)));
 
         assertThatThrownBy(() -> {
-            new Triangle(points);
+            new Triangle(new Points(points));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void 넓이를_잘_구하는지_확인() {
         List<Point> points = new ArrayList<>(Arrays.asList(new Point(1, 1), new Point(6, 1), new Point(3, 16)));
-        Triangle triangle = new Triangle(points);
+        Triangle triangle = new Triangle(new Points(points));
 
         assertThat(triangle.area()).isEqualTo(37.5, offset(0.00099));
     }

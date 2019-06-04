@@ -23,10 +23,11 @@ public class PlaneCoordinates {
 
     }
 
-    public PlaneCoordinates(List<Point> points) {
+    PlaneCoordinates(Points points) {
         this();
-        for (Point point : points) {
-            plane.get(point.getY()).replace(SPACE_FOR_Y_AXIS + (SPACE_PER_X * point.getX()) - 1, SPACE_FOR_Y_AXIS + (SPACE_PER_X * point.getX()), "*");
+        for (int i = 0; i < points.getPointsSize(); i++) {
+            plane.get(points.getY(i)).replace(SPACE_FOR_Y_AXIS + (SPACE_PER_X * points.getX(i)) - 1,
+                    SPACE_FOR_Y_AXIS + (SPACE_PER_X * points.getX(i)), "*");
         }
     }
 

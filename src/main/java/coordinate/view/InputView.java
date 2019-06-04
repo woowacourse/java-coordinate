@@ -3,6 +3,7 @@ package coordinate.view;
 import coordinate.domain.Figure;
 import coordinate.domain.FigureGenerator;
 import coordinate.domain.Point;
+import coordinate.domain.Points;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -17,7 +18,7 @@ public class InputView {
         try {
             String userInput = getUserInput();
             List<String> coordinates = makeCoordinates(userInput);
-            List<Point> points = makePoints(coordinates);
+            Points points = makePoints(coordinates);
             return FigureGenerator.generate(points);
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
@@ -34,22 +35,14 @@ public class InputView {
         return new ArrayList<>(Arrays.asList(userInput.split(DELIMITER)));
     }
 
-    static List<Point> makePoints(List<String> coordinates) {
+    static Points makePoints(List<String> coordinates) {
         List<Point> points = new ArrayList<>();
 
         for (String coordinate : coordinates) {
             points.add(makePoint(coordinate));
         }
-        validateDuplication(points);
 
-        return points;
-    }
-
-    private static void validateDuplication(List<Point> points) {
-        Set<Point> nonDuplicatedPoints = new HashSet<>(points);
-        if (nonDuplicatedPoints.size() != points.size()) {
-            throw new IllegalArgumentException("중복된 좌표가 입력되었습니다.");
-        }
+        return new Points(points);
     }
 
     private static Point makePoint(String coordinate) {
