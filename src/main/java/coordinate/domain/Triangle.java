@@ -6,6 +6,8 @@ import java.util.List;
 public class Triangle implements Figure, ResultPrintable {
     private static final String RESULT_FORMAT = "삼각형 넓이는 %.1f";
     private static final int DIVISION_STANDARD = 2;
+    private static final int ONE_INDEX = 1;
+    private static final int MOVE_NONE = 0;
 
     private final Points points;
 
@@ -37,13 +39,13 @@ public class Triangle implements Figure, ResultPrintable {
     }
 
     private int getNextIndex(int i) {
-        return (i == points.getSize() - 1) ? 0 : i + 1;
+        return (i == points.getSize() - ONE_INDEX) ? MOVE_NONE : i + ONE_INDEX;
     }
 
     @Override
     public double getArea() {
         List<Double> distances = new ArrayList<>();
-        double subtractionLine = 1;
+        double subtractionLine = ONE_INDEX;
         double divisionLineSum;
 
         addDistances(distances);

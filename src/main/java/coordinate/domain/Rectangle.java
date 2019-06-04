@@ -12,6 +12,7 @@ public class Rectangle implements Figure, ResultPrintable {
     private static final String X = "x";
     private static final String Y = "y";
     private static final int POINT_SIZE = 4;
+    private static final int STANDARD_POINT = 0;
 
     private Points points;
 
@@ -39,7 +40,7 @@ public class Rectangle implements Figure, ResultPrintable {
         List<Double> distance = new ArrayList<>();
 
         for (int i = 1; i < POINT_SIZE; i++) {
-            distance.add(points.getPoints(0).getDistance(points.getPoints(i)));
+            distance.add(points.getPoints(STANDARD_POINT).getDistance(points.getPoints(i)));
         }
 
         distance.remove(Collections.max(distance));
