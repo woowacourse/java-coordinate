@@ -1,6 +1,6 @@
 package coordinate.view;
 
-import coordinate.MessageConstants.MessageConstant;
+import coordinate.Message.InputMessage;
 import coordinate.domain.Point;
 import coordinate.domain.Points;
 
@@ -11,7 +11,7 @@ public class InputView {
     private static final Scanner SCAN = new Scanner(System.in);
 
     public Points inputCoordinates() {
-        System.out.println(MessageConstant.INPUT_COORDINATES);
+        System.out.println(InputMessage.INPUT_COORDINATES);
         String input = SCAN.nextLine();
 
         try {
@@ -34,11 +34,11 @@ public class InputView {
     }
 
     private List<Integer> extractCoordinates(String input) {
-        String result = input.replace(MessageConstant.DASH, MessageConstant.SPLIT_COMMA)
-                .replace(MessageConstant.START_POINT, MessageConstant.EMPTY)
-                .replace(MessageConstant.END_POINT, MessageConstant.EMPTY);
+        String result = input.replace(InputMessage.DASH, InputMessage.SPLIT_COMMA)
+                .replace(InputMessage.START_POINT, InputMessage.EMPTY)
+                .replace(InputMessage.END_POINT, InputMessage.EMPTY);
 
-        return Arrays.stream(result.split(MessageConstant.SPLIT_COMMA))
+        return Arrays.stream(result.split(InputMessage.SPLIT_COMMA))
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
     }

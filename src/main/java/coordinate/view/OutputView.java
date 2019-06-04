@@ -81,8 +81,8 @@ public class OutputView {
 
     private void drawPoints(List<List<Character>> board, Points points, char ch) {
         for (int i = 0; i < points.getSize(); i++) {
-            set(board, VERTICAL_START + points.pointsByIndex(i).getY().getNumber(),
-                    HORIZON_START + (LEN_DIGITS * points.pointsByIndex(i).getX().getNumber()), ch);
+            set(board, VERTICAL_START + points.getPoints(i).getY().getNumber(),
+                    HORIZON_START + (LEN_DIGITS * points.getPoints(i).getX().getNumber()), ch);
         }
     }
 

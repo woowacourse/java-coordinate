@@ -6,6 +6,7 @@ public class Rectangle implements Figure, ResultPrintable {
     private static final String ERROR_SQUARE = "사각형이 아닙니다.";
     private static final String ERROR_POINT_SIZE = "4개의 점이 입력되지 않았습니다.";
     private static final String RESULT_FORMAT = "사각형 넓이는 %.0f";
+    private static final int POINT_SIZE = 4;
 
     private Points points;
 
@@ -22,11 +23,11 @@ public class Rectangle implements Figure, ResultPrintable {
     }
 
     private boolean isNotRectangles(Points points) {
-        if (points.getSize() != 4) {
+        if (points.getSize() != POINT_SIZE) {
             throw new IllegalArgumentException(ERROR_POINT_SIZE);
         }
 
-        return !points.checkX() && points.checkY();
+        return !(points.checkX() && points.checkY());
     }
 
     @Override

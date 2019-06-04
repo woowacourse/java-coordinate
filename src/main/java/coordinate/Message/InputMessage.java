@@ -1,6 +1,6 @@
-package coordinate.MessageConstants;
+package coordinate.Message;
 
-public class MessageConstant {
+public class InputMessage {
     public static final String INPUT_COORDINATES = "좌표를 입력하세요.";
 
     public static final String DASH = "-";

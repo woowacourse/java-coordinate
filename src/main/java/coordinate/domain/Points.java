@@ -4,10 +4,16 @@ import java.util.*;
 
 public class Points {
     private static final String ERROR_DUPLICATE = "중복된 점이 있습니다.";
+    private static final String ERROR_NULL = "null은 허용하지 않습니다.";
+    private static final int POINT_SIZE = 2;
 
     private List<Point> points;
 
     private Points(List<Point> points) {
+        if (points == null) {
+            throw new IllegalArgumentException(ERROR_NULL);
+        }
+
         this.points = points;
     }
 
@@ -23,7 +29,7 @@ public class Points {
         points.add(point);
     }
 
-    public Point pointsByIndex(int index) {
+    public Point getPoints(int index) {
         return points.get(index);
     }
 
@@ -66,7 +72,7 @@ public class Points {
             checkers.add(checker.getX().getNumber());
         }
 
-        return checkers.size() == 2;
+        return checkers.size() == POINT_SIZE;
     }
 
     boolean checkY() {
@@ -76,7 +82,7 @@ public class Points {
             checkers.add(checker.getY().getNumber());
         }
 
-        return checkers.size() == 2;
+        return checkers.size() == POINT_SIZE;
     }
 
     @Override
