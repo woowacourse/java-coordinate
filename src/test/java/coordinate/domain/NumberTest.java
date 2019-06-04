@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class NumberTest {
+class NumberTest {
     @Test
     void 하나의_숫자_생성지() {
         Number number = Number.create(10);

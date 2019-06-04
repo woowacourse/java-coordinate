@@ -9,9 +9,9 @@ public class Points {
 
     private List<Point> points;
 
-    private Points(List<Point> points) {
-        if (points == null) {
-            throw new IllegalArgumentException(ERROR_NULL);
+    Points(List<Point> points) {
+        if (Objects.isNull(points)) {
+            throw new NullPointerException(ERROR_NULL);
         }
 
         this.points = points;
@@ -37,49 +37,11 @@ public class Points {
         return points.size();
     }
 
-    public double getFirstDistance() {
-        int index = 1;
-
-        while (isNotEqualX(index)) {
-            index++;
-        }
-
-        return points.get(0).getDistance(points.get(index));
-    }
-
-    public double getSecondDistance() {
-        int index = 1;
-
-        while (isNotEqualY(index)) {
-            index++;
-        }
-
-        return points.get(0).getDistance(points.get(index));
-    }
-
-    boolean isNotEqualX(int index) {
-        return !points.get(0).isEqualX(points.get(index));
-    }
-
-    boolean isNotEqualY(int index) {
-        return !points.get(0).isEqualY(points.get(index));
-    }
-
-    boolean checkX() {
+    boolean check(String x) {
         Set<Integer> checkers = new HashSet<>();
 
         for (Point checker : points) {
-            checkers.add(checker.getX().getNumber());
-        }
-
-        return checkers.size() == POINT_SIZE;
-    }
-
-    boolean checkY() {
-        Set<Integer> checkers = new HashSet<>();
-
-        for (Point checker : points) {
-            checkers.add(checker.getY().getNumber());
+            checkers.add(checker.get(x).getNumber());
         }
 
         return checkers.size() == POINT_SIZE;

@@ -4,14 +4,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PointsTest {
+class PointsTest {
 
-    Points points;
+    private Points points;
 
     @BeforeEach
     void setUp() {
-        Points points = Points.create();
+        points = Points.create();
         points.addPoint(Point.create(10, 10));
         points.addPoint(Point.create(22, 10));
         points.addPoint(Point.create(22, 18));
@@ -19,27 +20,33 @@ public class PointsTest {
     }
 
     @Test
-    void 첫번째_변의_거리() {
-        assertThat(points.getFirstDistance()).isEqualTo(8);
+    void 포인트가_널일때() {
+        assertThrows(NullPointerException.class, () -> {
+            new Points(null);
+        });
     }
 
     @Test
-    void 두번째_변의_거리() {
-        assertThat(points.getSecondDistance()).isEqualTo(12);
+    void 좌표가_중복될때() {
+        Point point = Point.create(10, 10);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            points.addPoint(point);
+        });
     }
 
     @Test
-    void x가_같은지_확인() {
-        assertThat(points.isNotEqualX(3)).isFalse();
+    void 좌표의_갯수() {
+        assertThat(points.getSize()).isEqualTo(4);
     }
 
     @Test
-    void y가_같은지_확인() {
-        assertThat(points.isNotEqualY(1)).isFalse();
+    void x좌표의_같은_값이_두개일때() {
+        assertThat(points.check("x")).isTrue();
     }
 
     @Test
-    void x좌표가_2개이상_위치에_있는지() {
-        assertThat(points.checkX()).isTrue();
+    void y좌표의_같은_값이_두개일때() {
+        assertThat(points.check("y")).isTrue();
     }
 }

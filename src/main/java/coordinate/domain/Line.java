@@ -20,18 +20,19 @@ public class Line implements ResultPrintable {
         this.points = points;
     }
 
+    public static Line create(Points points) {
+        return new Line(points);
+    }
+
     double calculateDistance() {
         Point point1 = points.getPoints(STANDARD_INDEX);
 
         if (Objects.isNull(point1)) {
             throw new NullPointerException(ERROR_NULL);
         }
+
         return points.getPoints(STANDARD_INDEX)
                 .getDistance(points.getPoints(LAST_INDEX));
-    }
-
-    public static Line create(Points points) {
-        return new Line(points);
     }
 
     @Override

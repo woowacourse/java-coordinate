@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 
-public class TriangleTest {
+class TriangleTest {
     @Test
     void 삼각형_넓이_구하기() {
         Points points = Points.create();

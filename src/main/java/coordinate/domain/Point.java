@@ -5,6 +5,8 @@ import java.util.Objects;
 public class Point {
     private static final String ERROR_EMPTY = "아무것도 입력되지 않았습니다.";
     private static final int SQUARE_ROOT = 2;
+    private static final String X = "x";
+    private static final String Y = "y";
 
     private final Number x;
     private final Number y;
@@ -22,27 +24,23 @@ public class Point {
         return new Point(Number.create(x), Number.create(y));
     }
 
-    public boolean isEqualX(Point point) {
-        return x.equals(point.getX());
+    public Number get(String x) {
+        if (X.equals(x)) {
+            return this.x;
+        }
+
+        return this.y;
     }
 
-    public boolean isEqualY(Point point) {
-        return y.equals(point.getY());
+    boolean isEqual(Number firstPoint, Number secondPoint) {
+        return firstPoint.equals(secondPoint);
     }
 
-    public double getDistance(Point point) {
-        double calculationX = Math.pow(x.subtract(point.getX()), SQUARE_ROOT);
-        double calculationY = Math.pow(y.subtract(point.getY()), SQUARE_ROOT);
+    double getDistance(Point point) {
+        double calculationX = Math.pow(x.subtract(point.get(X)), SQUARE_ROOT);
+        double calculationY = Math.pow(y.subtract(point.get(Y)), SQUARE_ROOT);
 
         return Math.sqrt(calculationX + calculationY);
-    }
-
-    public Number getX() {
-        return x;
-    }
-
-    public Number getY() {
-        return y;
     }
 
     @Override

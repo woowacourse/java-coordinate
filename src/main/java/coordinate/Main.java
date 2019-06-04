@@ -3,7 +3,6 @@ package coordinate;
 import coordinate.controller.FigureController;
 import coordinate.controller.InputViewController;
 import coordinate.controller.OutputViewController;
-import coordinate.domain.Figure;
 import coordinate.domain.Points;
 import coordinate.domain.ResultPrintable;
 import coordinate.view.InputView;
@@ -21,5 +20,4 @@ public class Main {
         outputViewController.printCoordinatesBoard(points);
         outputViewController.printFigureInfo();
     }
-
 }
