@@ -11,13 +11,13 @@ public enum ShapeType {
         this.pointSize = pointSize;
     }
 
-    public static ShapeType vauleOf(int pointSize) {
+    public static ShapeType valueOf(int pointSize) {
         for (ShapeType shapeType : ShapeType.values()) {
             if (pointSize == shapeType.pointSize) {
                 return shapeType;
             }
         }
-        return null;
+        throw new IllegalArgumentException("포인트 개수의 모양이 없습니다.");
     }
 
     public int getPointSize() {

@@ -17,10 +17,7 @@ public class ShapeFactory{
     }
 
     public static Shape create(final List<Point> points) {
-        ShapeType shapeType = ShapeType.vauleOf(points.size());
-        if (shapeType == null) {
-            throw new IllegalArgumentException("올바름 점의 개수를 입력하세요");
-        }
+        ShapeType shapeType = ShapeType.valueOf(points.size());
         return FUNCTION_MAP.get(shapeType).create(points);
     }
 }
