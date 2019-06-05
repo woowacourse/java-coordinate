@@ -76,14 +76,18 @@ public class OutputView {
 
     private static void printXAxis() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 24; i++) {
-            if (i == 0) {
-                sb.append(String.format("%3s", ORIGIN_POINT));
-            }
+        for (int i = 0; i < MAX_X - 1; i++) {
+            printZeroPoint(sb, i);
             sb.append(X_AXIS_LINE);
         }
         sb.append(EMPTY_LINE + X_AXIS_NUMBER);
         System.out.println(sb.toString());
+    }
+
+    private static void printZeroPoint(StringBuilder sb, int i) {
+        if (i == 0) {
+            sb.append(String.format("%3s", ORIGIN_POINT));
+        }
     }
 
     public static void printArea(Shape shape) {
