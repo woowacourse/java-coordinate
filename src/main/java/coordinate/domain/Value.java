@@ -17,10 +17,9 @@ public class Value {
     }
 
     public static Value valueOf(int num) {
-        if (valueMap.containsKey(num)) {
-            return valueMap.get(num);
+        if (!valueMap.containsKey(num)) {
+            valueMap.put(num, new Value(num));
         }
-        valueMap.put(num, new Value(num));
         return valueMap.get(num);
     }
 
@@ -28,10 +27,11 @@ public class Value {
         if (num > MAX_VALUE || num < MIN_VALUE) {
             throw new IllegalArgumentException("x의 좌표값은 " + MIN_VALUE + "이상 " + MAX_VALUE + "이하 입니다.");
         }
+
     }
 
     public int getAbs(final Value value) {
-        return num - value.getNum();
+        return Math.abs(num - value.getNum());
     }
 
     public int getNum() {
