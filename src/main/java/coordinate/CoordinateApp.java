@@ -1,6 +1,7 @@
 package coordinate;
 
 import coordinate.domain.Point;
+import coordinate.domain.PointsCreator;
 import coordinate.domain.Shape;
 import coordinate.domain.ShapeFactory;
 import coordinate.view.InputView;
@@ -17,7 +18,7 @@ public class CoordinateApp {
 
     private static Shape createShape() {
         try {
-            List<Point> points = InputView.inputCoordinate();
+            List<Point> points = PointsCreator.create(InputView.inputCoordinate());
             return ShapeFactory.create(points);
         } catch (Exception e) {
             System.out.println(e.getMessage());
