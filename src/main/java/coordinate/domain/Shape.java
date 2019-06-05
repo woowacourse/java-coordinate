@@ -3,10 +3,10 @@ package coordinate.domain;
 import java.util.*;
 
 public abstract class Shape {
-    private List<Point> points;
+    private final List<Point> points;
 
     public Shape(final List<Point> points) {
-        this.points = points;
+        this.points = Collections.unmodifiableList(points);
     }
 
     public List<Point> getPoints() {
