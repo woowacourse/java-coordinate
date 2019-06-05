@@ -23,7 +23,10 @@ public class RentCompany {
     public String generateReport() {
         StringBuffer buffer = new StringBuffer();
         for (Car car : cars) {
-            buffer.append(car.getName()).append(" : ").append((int) car.getChargeQuantity() + "리터").append(NEWLINE);
+            buffer.append(car.getName())
+                    .append(" : ")
+                    .append((int) car.getChargeQuantity() + "리터")
+                    .append(NEWLINE);
         }
 
         return buffer.toString();
