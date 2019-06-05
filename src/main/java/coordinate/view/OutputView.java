@@ -13,7 +13,7 @@ public class OutputView {
     private static final String EXIST_POINT = " · ";
     private static final String EMPTY_POINT = "   ";
     private static final String EMPTY_LINE = "\n";
-    private static final String X_AXIS_NUMBER = "0     2      4     6      8     10    12    14    16    18    20    22    24";
+    private static final String X_AXIS_BOUND = "    ";
     private static final String Y_AXIS_LINE = "|";
     private static final String ORIGIN_POINT = "+";
     private static final String X_AXIS_LINE = "---";
@@ -80,7 +80,12 @@ public class OutputView {
             printZeroPoint(sb, i);
             sb.append(X_AXIS_LINE);
         }
-        sb.append(EMPTY_LINE + X_AXIS_NUMBER);
+
+        sb.append(EMPTY_LINE + String.format("%3s", 0));
+
+        for (int i = 2; i < MAX_X; i = i + 2) {
+            sb.append(String.format("%6s", i));
+        }
         System.out.println(sb.toString());
     }
 
