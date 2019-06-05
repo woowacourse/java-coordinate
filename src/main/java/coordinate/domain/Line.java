@@ -18,7 +18,7 @@ public class Line extends Shape {
 
     @Override
     public String toString() {
-        return "두점 사이의 거리는 " + getDistance();
+        return String.valueOf(getDistance());
     }
 
     public double getDistance() {

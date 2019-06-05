@@ -2,6 +2,7 @@ package coordinate.view;
 
 import coordinate.domain.Point;
 import coordinate.domain.Shape;
+import coordinate.domain.ShapeType;
 import coordinate.domain.Value;
 
 import java.util.List;
@@ -28,9 +29,13 @@ public class OutputView {
 
     private static void initCoordinates(boolean[][] coordinates) {
         for (int i = 0; i < MAX_Y; i++) {
-            for (int j = 0; j < MAX_X; j++) {
-                coordinates[i][j] = false;
-            }
+            initCoordinateX(coordinates, i);
+        }
+    }
+
+    private static void initCoordinateX(boolean[][] coordinates, int i) {
+        for (int j = 0; j < MAX_X; j++) {
+            coordinates[i][j] = false;
         }
     }
 
@@ -45,14 +50,18 @@ public class OutputView {
     private static void printPoints(boolean[][] coordinates) {
         for (int i = MAX_Y - 1; i >= 1; i--) {
             StringBuilder sb = initStringBuilder(i);
-            for (int j = 0; j < MAX_X; j++) {
-                if (coordinates[i][j]) {
-                    sb.append(EXIST_POINT);
-                    continue;
-                }
-                sb.append(EMPTY_POINT);
-            }
+            printPointsX(coordinates[i], sb);
             System.out.println(sb.toString());
+        }
+    }
+
+    private static void printPointsX(boolean[] coordinate, StringBuilder sb) {
+        for (int j = 0; j < MAX_X; j++) {
+            if (coordinate[j]) {
+                sb.append(EXIST_POINT);
+                continue;
+            }
+            sb.append(EMPTY_POINT);
         }
     }
 
@@ -78,6 +87,14 @@ public class OutputView {
     }
 
     public static void printArea(Shape shape) {
-        System.out.println(shape);
+        if (ShapeType.LINE == ShapeType.valueOf(shape.getPointSize())) {
+            System.out.println("두점 사이의 거리는 " + shape);
+        }
+        if (ShapeType.TRIANGLE == ShapeType.valueOf(shape.getPointSize())) {
+            System.out.println("삼각형의 넓이는 " + shape);
+        }
+        if (ShapeType.RECTANGLE == ShapeType.valueOf(shape.getPointSize())) {
+            System.out.println("사각형의 넓이는 " + shape);
+        }
     }
 }

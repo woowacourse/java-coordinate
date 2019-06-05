@@ -13,6 +13,10 @@ public abstract class Shape {
         return new ArrayList<>(points);
     }
 
+    public int getPointSize() {
+        return points.size();
+    }
+
     public List<Double> getSides() {
         List<Double> sides = new ArrayList<>();
         for (Integer sideSquare : getSideSquares()) {

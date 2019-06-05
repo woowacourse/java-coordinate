@@ -38,7 +38,7 @@ public class Rectangle extends Shape implements Figure {
 
     @Override
     public String toString() {
-        return "사각형 넓이는 " + area();
+        return String.valueOf(area());
     }
 
     @Override
