@@ -9,7 +9,7 @@ public class Rectangle extends Shape implements Figure {
 
     public Rectangle(final List<Point> points) {
         super(points);
-        validate();
+        validateLine();
         validateShape(points.size());
     }
 
@@ -19,18 +19,18 @@ public class Rectangle extends Shape implements Figure {
         }
     }
 
-    private void validate() {
+    private void validateLine() {
         List<Integer> sides = getSideSquares();
         Map<Integer, Integer> map = new HashMap<>();
         for (Integer side : sides) {
             map.put(side, map.getOrDefault(side, 0) + 1);
         }
         for (Integer value : map.values()) {
-            isEven(value);
+            validateEven(value);
         }
     }
 
-    private void isEven(final Integer value) {
+    private void validateEven(final Integer value) {
         if (value % EVEN != 0) {
             throw new IllegalArgumentException("직 사각형이 아닙니다.");
         }
