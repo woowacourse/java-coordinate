@@ -34,7 +34,7 @@ public class CoordinateCalculator {
     public void printResultMap() {
         UserOutputView.outputMap(map);
         if (coordinates.size() != 1) {
-            UserOutputView.outputCalculatedResult(figure);
+            UserOutputView.outputCalculatedResult(coordinates.size(), figure);
         }
     }
 

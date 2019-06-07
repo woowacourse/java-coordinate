@@ -12,7 +12,6 @@ public class Rectangle extends Figure {
     private final Coordinates coordinates;
 
     public Rectangle(Coordinates coordinates) {
-        super("사각형", "넓이");
         this.coordinates = coordinates;
         checkRectangle();
     }

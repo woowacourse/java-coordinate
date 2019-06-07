@@ -8,7 +8,6 @@ public class Line extends Figure {
     private final Coordinates coordinates;
 
     public Line(Coordinates coordinates) {
-        super("직선", "거리");
         this.coordinates = coordinates;
     }
 

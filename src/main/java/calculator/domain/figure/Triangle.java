@@ -13,8 +13,8 @@ public class Triangle extends Figure {
 
     private static final String EX_NOT_TRIANGLE_MESSAGE = "삼각형이 될 수 없는 조건입니다.";
     private static final int LONGEST_SIDE_OF_TRIANGLE = 2;
-    private static final int TRI_OTHER_SIDE = 1;
-    private static final int TRI_ANOTHER_SIDE = 0;
+    private static final int OTHER_SIDE_OF_TRIANGLE = 1;
+    private static final int ANOTHER_SIDE_OF_TRIANGLE = 0;
     private final double ASideOfTriangle;
     private final double BSideOfTriangle;
     private final double CSideOfTriangle;
@@ -22,7 +22,6 @@ public class Triangle extends Figure {
     private final Coordinates coordinates;
 
     public Triangle(Coordinates coordinates) {
-        super("삼각형", "넓이");
         this.coordinates = coordinates;
 
         ASideOfTriangle = straight(coordinates.get(0), coordinates.get(1));
@@ -39,7 +38,7 @@ public class Triangle extends Figure {
     }
 
     private void checkNotTriangle(List<Double> lengths) {
-        if (lengths.get(LONGEST_SIDE_OF_TRIANGLE) >= lengths.get(TRI_OTHER_SIDE) + lengths.get(TRI_ANOTHER_SIDE)) {
+        if (lengths.get(LONGEST_SIDE_OF_TRIANGLE) >= lengths.get(OTHER_SIDE_OF_TRIANGLE) + lengths.get(ANOTHER_SIDE_OF_TRIANGLE)) {
             throw new IllegalArgumentException(EX_NOT_TRIANGLE_MESSAGE);
         }
     }
@@ -64,5 +63,4 @@ public class Triangle extends Figure {
     public int hashCode() {
         return Objects.hash(coordinates);
     }
-
 }
