@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Rectangle implements Figure {
     private static final String INVALID_CHECK_MESSAGE = "직사각형이 아닙니다. 다시 입력해 주세요";
     private static final String TRIANGLE_RESULT_MESSAGE = "사각형 넓이는 ";
+    private static final int SAME_POSITION = 0;
 
     private final Points points;
 
@@ -36,21 +37,14 @@ public class Rectangle implements Figure {
         Point p3 = points.get(2);
         Point p4 = points.get(3);
 
-        return !(matchesX(p1, p2) && matchesX(p3, p4) && matchesY(p1, p3) && matchesY(p2, p4));
-    }
-
-    private boolean matchesX(Point firstPoint, Point secondPoint) {
-        return firstPoint.getAxisValue() == secondPoint.getAxisValue();
-    }
-
-    private boolean matchesY(Point firstPoint, Point secondPoint) {
-        return firstPoint.getY() == secondPoint.getY();
+        return !(p1.differenceByX(p2) == SAME_POSITION && p3.differenceByX(p4) == SAME_POSITION
+                && p1.differenceByY(p3) == SAME_POSITION && p2.differenceByY(p4) == SAME_POSITION);
     }
 
     @Override
     public double calculateResult() {
         List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
-        return Math.abs((points.get(0).getY() - points.get(1).getY()) * (points.get(2).getAxisValue() - points.get(0).getAxisValue()));
+        return points.get(0).differenceByY(points.get(1)) * points.get(2).differenceByX(points.get(0));
     }
 
     @Override

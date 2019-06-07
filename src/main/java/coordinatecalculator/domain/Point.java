@@ -11,7 +11,7 @@ public class Point implements Comparable<Point> {
         this.y = new AxisValue(y);
     }
 
-    public int getAxisValue() {
+    public int getX() {
         return x.getValue();
     }
 
@@ -19,9 +19,17 @@ public class Point implements Comparable<Point> {
         return y.getValue();
     }
 
+    public int differenceByX(Point point) {
+        return Math.abs(this.x.getValue() - point.x.getValue());
+    }
+
+    public int differenceByY(Point point) {
+        return Math.abs(this.y.getValue() - point.y.getValue());
+    }
+
     @Override
     public int compareTo(Point point) {
-        return (this.getAxisValue() < point.getAxisValue()) ? -1 : ((this.getAxisValue() == point.getAxisValue()) ? Integer.compare(this.getY(), point.getY()) : 1);
+        return (this.getX() < point.getX()) ? -1 : ((this.getX() == point.getX()) ? Integer.compare(this.getY(), point.getY()) : 1);
     }
 
     @Override

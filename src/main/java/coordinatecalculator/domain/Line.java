@@ -22,10 +22,10 @@ public class Line implements Figure {
         Point p1 = points.get(0);
         Point p2 = points.get(1);
 
-        int x = Math.abs(p2.getAxisValue() - p1.getAxisValue());
-        int y = Math.abs(p2.getY() - p1.getY());
+        int dx = p1.differenceByX(p2);
+        int dy = p1.differenceByY(p2);
 
-        return Math.sqrt(x * x + y * y);
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Triangle implements Figure {
     private static final String INVALID_TRIANGLE_MESSAGE = "세 점이 일직선 상에 위치할 수는 없습니다. 다시 입력해주세요.";
     private static final String RECTANGLE_RESULT_MESSAGE = "삼각형 넓이는 ";
+    private static final int SAME_POSITION = 0;
     private static final int HERON_NUMBER = 2;
 
     private final Points points;
@@ -34,16 +35,16 @@ public class Triangle implements Figure {
     }
 
     private void checkOnSameXAxis(Point p1, Point p2, Point p3) {
-        if (p1.getAxisValue() == p2.getAxisValue() && p2.getAxisValue() == p3.getAxisValue()) {
+        if (p1.differenceByX(p2) == SAME_POSITION && p2.differenceByX(p3) == SAME_POSITION) {
             throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
         }
     }
 
     private void checkOnSameExtension(Point p1, Point p2, Point p3) {
-        int x1 = p1.getAxisValue() - p2.getAxisValue();
-        int y1 = p1.getY() - p2.getY();
-        int x2 = p3.getAxisValue() - p2.getAxisValue();
-        int y2 = p3.getY() - p2.getY();
+        int x1 = p1.differenceByX(p2);
+        int y1 = p1.differenceByY(p2);
+        int x2 = p3.differenceByX(p2);
+        int y2 = p3.differenceByY(p2);
 
         if ((double) y1 / x1 == (double) y2 / x2) {
             throw new IllegalArgumentException(INVALID_TRIANGLE_MESSAGE);
@@ -72,10 +73,10 @@ public class Triangle implements Figure {
     }
 
     private double calculateLength(Point p1, Point p2) {
-        int x = Math.abs(p2.getAxisValue() - p1.getAxisValue());
-        int y = Math.abs(p2.getY() - p1.getY());
+        int dx = p1.differenceByX(p2);
+        int dy = p1.differenceByY(p2);
 
-        return Math.sqrt(x * x + y * y);
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
     @Override
