@@ -7,8 +7,8 @@ public class Point implements Comparable<Point> {
     private final AxisValue y;
 
     public Point(String x, String y) {
-        this.x = new AxisValue(x);
-        this.y = new AxisValue(y);
+        this.x = AxisValue.getAxisValue(x);
+        this.y = AxisValue.getAxisValue(y);
     }
 
     public int getX() {

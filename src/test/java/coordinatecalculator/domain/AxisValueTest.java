@@ -2,21 +2,29 @@ package coordinatecalculator.domain;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AxisValueTest {
     @Test
+    void AxisValue객체가_재사용되는지_확인() {
+        for (int i = 1; i <= 24; i++) {
+            assertThat(AxisValue.getAxisValue(i + "") == AxisValue.getAxisValue(i + "")).isTrue();
+        }
+    }
+
+    @Test
     void 좌표값_문자_예외처리() {
-        assertThrows(IllegalArgumentException.class, () -> new AxisValue("a"));
+        assertThrows(IllegalArgumentException.class, () -> AxisValue.getAxisValue("a"));
     }
 
     @Test
     void 좌표값_범위_초과() {
-        assertThrows(IllegalArgumentException.class, () -> new AxisValue("25"));
+        assertThrows(IllegalArgumentException.class, () -> AxisValue.getAxisValue("25"));
     }
 
     @Test
     void 좌표값_범위_미만() {
-        assertThrows(IllegalArgumentException.class, () -> new AxisValue("-1"));
+        assertThrows(IllegalArgumentException.class, () -> AxisValue.getAxisValue("0"));
     }
 }
