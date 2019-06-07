@@ -15,7 +15,7 @@ public class CoordinateCalculator {
 
     public void makeResultMap() {
         try {
-            coordinates = UserInputView.generaValidatedCoordinates();
+            coordinates = UserInputView.generateValidatedCoordinates();
             map = new ResultMap(coordinates);
         } catch(Exception e) {
              makeResultMap();

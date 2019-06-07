@@ -21,7 +21,7 @@ public class UserInputView {
     private static final String EMPTY = "";
     private static final String COMMA = ",";
 
-    public static Coordinates generaValidatedCoordinates() {
+    public static Coordinates generateValidatedCoordinates() {
         try {
             System.out.println(INPUT_MESSAGE);
             String inputText = UserInputView.inputByUser();
@@ -29,7 +29,7 @@ public class UserInputView {
             return generateCoordinates(inputText);
         } catch(Exception e) {
             System.out.println(e.getMessage());
-            return generaValidatedCoordinates();
+            return generateValidatedCoordinates();
         }
     }
 
