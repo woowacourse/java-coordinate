@@ -35,27 +35,14 @@ public class Rectangle extends Figure {
         }
     }
 
-    public double straight(Set<Integer> axisCoordinates) {
-        Iterator<Integer> iterator = axisCoordinates.iterator();
-        List<Integer> coordinates = new ArrayList<>();
-        while (iterator.hasNext()) {
-            coordinates.add(iterator.next());
-        }
-
-        return Math.abs(coordinates.get(0) - coordinates.get(1));
-    }
-
     @Override
     public double area() {
-        Set<Integer> xCoordinates = new HashSet<>();
-        Set<Integer> yCoordinates = new HashSet<>();
-
-        for (int i = 0; i < coordinates.size(); i++) {
-            xCoordinates.add(coordinates.get(i).getXCoordinate());
-            yCoordinates.add(coordinates.get(i).getYCoordinate());
-        }
-
-        return straight(xCoordinates) * straight(yCoordinates);
+        List<Double> sides = new ArrayList<>();
+        sides.add(straight(coordinates.get(0), coordinates.get(1)));
+        sides.add(straight(coordinates.get(0), coordinates.get(2)));
+        sides.add(straight(coordinates.get(0), coordinates.get(3)));
+        Collections.sort(sides);
+        return sides.get(0) * sides.get(1);
     }
 
     @Override
