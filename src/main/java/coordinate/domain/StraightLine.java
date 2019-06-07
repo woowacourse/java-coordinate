@@ -11,16 +11,12 @@ public class StraightLine extends Figure {
         super(points, NUM_OF_POINT);
     }
 
-    double calculateLength() {
-        return calculateLength(START_INDEX, END_INDEX);
-    }
-
-    double calculateSlope() {
-        return calculateSlope(START_INDEX, END_INDEX);
-    }
-
     @Override
     public double calculateAttribute() {
         return calculateLength();
+    }
+
+    double calculateLength() {
+        return calculateLength(START_INDEX, END_INDEX);
     }
 }

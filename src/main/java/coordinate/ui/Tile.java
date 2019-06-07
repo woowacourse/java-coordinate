@@ -3,11 +3,11 @@ package coordinate.ui;
 public class Tile {
     private String tileContent;
 
-    public Tile(String tileContent) {
+    Tile(String tileContent) {
         this.tileContent = tileContent;
     }
 
-    public void draw() {
+    void draw() {
         tileContent = "ｘ";
     }
 

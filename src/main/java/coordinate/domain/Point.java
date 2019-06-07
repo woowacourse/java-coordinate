@@ -12,27 +12,19 @@ public class Point {
     }
 
     int getDeltaXTo(Point point) {
-        return point.getXDifference(x);
+        return x.calculateDifference(point.x);
     }
 
     int getDeltaYTo(Point point) {
-        return point.getYDifference(y);
-    }
-
-    private int getXDifference(XCoordinate x) {
-        return x.getDifference(this.x);
+        return y.calculateDifference(point.y);
     }
 
     public int getXDifference(int xCoordinate) {
-        return x.getDifference(xCoordinate);
-    }
-
-    private int getYDifference(YCoordinate y) {
-        return y.getDifference(this.y);
+        return x.calculateDifference(xCoordinate);
     }
 
     public int getYDifference(int yCoordinate) {
-        return y.getDifference(yCoordinate);
+        return y.calculateDifference(yCoordinate);
     }
 
     boolean matchX(Point point) {
@@ -49,6 +41,13 @@ public class Point {
 
     private boolean matchY(Coordinate y) {
         return y.equals(this.y);
+    }
+
+    Double calculateSlope(Point endPoint) {
+        if (matchX(endPoint)) {
+            return Double.POSITIVE_INFINITY;
+        }
+        return (double) getDeltaYTo(endPoint) / getDeltaXTo(endPoint);
     }
 
     @Override

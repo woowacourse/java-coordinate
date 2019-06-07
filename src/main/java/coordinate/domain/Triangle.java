@@ -3,7 +3,6 @@ package coordinate.domain;
 import java.util.*;
 
 public class Triangle extends Figure implements Polygon {
-    private static final int BASE = 0;
     private static final int NUM_OF_POINT = 3;
     private static final int UNIQUE_SIZE = 1;
 
@@ -13,15 +12,24 @@ public class Triangle extends Figure implements Polygon {
     }
 
     private void validateTriangle(List<Point> points) {
-        Set<Double> slopes = new HashSet<>();
-
-        for (int i = 1; i < points.size(); i++) {
-            slopes.add(calculateSlope(BASE, i));
-        }
+        Set<Double> slopes = calculateSlopes(points);
 
         if (slopes.size() == UNIQUE_SIZE) {
             throw new IllegalArgumentException("한 직선에 세 개의 점이 있을 수 없습니다.");
         }
+    }
+
+    private Set<Double> calculateSlopes(List<Point> points) {
+        Set<Double> slopes = new HashSet<>();
+
+        Stack<Point> pointsStack = new Stack<>();
+        pointsStack.addAll(points);
+        pointsStack.addAll(points);
+        while (!pointsStack.empty()) {
+            slopes.add(pointsStack.pop().calculateSlope(pointsStack.pop()));
+        }
+
+        return slopes;
     }
 
     @Override
@@ -30,12 +38,12 @@ public class Triangle extends Figure implements Polygon {
     }
 
     public double calculateArea() {
-        List<Double> lengths = getLengthOfSideLines();
+        List<Double> lengths = calculateLengthOfSideLines();
         Iterator<Double> lengthIterator = lengths.iterator();
         return applyHeronFormula(lengthIterator.next(), lengthIterator.next(), lengthIterator.next());
     }
 
-    private List<Double> getLengthOfSideLines() {
+    private List<Double> calculateLengthOfSideLines() {
         List<Double> lengths = new ArrayList<>();
         lengths.add(calculateLength(0, 1));
         lengths.add(calculateLength(1, 2));

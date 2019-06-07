@@ -46,15 +46,6 @@ public abstract class Figure {
                 + Math.pow(calculateDeltaY(startIndex, endIndex), SQUARE));
     }
 
-    double calculateSlope(int startIndex, int endIndex) {
-        Point startPoint = points.get(startIndex);
-        Point endPoint = points.get(endIndex);
-        if (startPoint.matchX(endPoint)) {
-            return Double.POSITIVE_INFINITY;
-        }
-        return (double) startPoint.getDeltaYTo(endPoint) / startPoint.getDeltaXTo(endPoint);
-    }
-
     private int calculateDeltaX(int startIndex, int endIndex) {
         return points.get(startIndex).getDeltaXTo(points.get(endIndex));
     }

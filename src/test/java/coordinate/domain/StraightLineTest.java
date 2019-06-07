@@ -26,10 +26,4 @@ class StraightLineTest {
         StraightLine straightLine = new StraightLine(Arrays.asList(new Point(3, 3), new Point(4, 4)));
         assertThat(straightLine.calculateLength()).isEqualTo(1.414, offset(0.00099));
     }
-
-    @Test
-    void 두_좌표의_기울기를_구하는지_테스트() {
-        StraightLine straightLine = new StraightLine(Arrays.asList(new Point(3, 3), new Point(4, 4)));
-        assertThat(straightLine.calculateSlope()).isEqualTo(1, offset(0.00099));
-    }
 }

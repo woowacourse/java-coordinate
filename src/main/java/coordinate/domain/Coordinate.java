@@ -9,12 +9,12 @@ public abstract class Coordinate {
         this.coordinate = coordinate;
     }
 
-    int getDifference(Coordinate coordinate) {
-        return coordinate.getDifference(this.coordinate);
+    int calculateDifference(Coordinate coordinate) {
+        return Math.abs(this.coordinate - coordinate.coordinate);
     }
 
-    int getDifference(int coordinate) {
-        return Math.abs(coordinate - this.coordinate);
+    int calculateDifference(int coordinate) {
+        return Math.abs(this.coordinate - coordinate);
     }
 
     @Override
