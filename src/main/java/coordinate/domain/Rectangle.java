@@ -21,12 +21,12 @@ public class Rectangle extends Figure implements Polygon {
 
     private void validateXPair(int index) {
         if (findXPairs(index).size() != PAIR)
-            throw new IllegalArgumentException("직사각형이 아닙니다.");
+            throw new IllegalArgumentException("사각형이 모든 변이 X, Y축에 평행해야합니다.");
     }
 
     private void validateYPair(int index) {
         if (findYPairs(index).size() != PAIR)
-            throw new IllegalArgumentException("직사각형이 아닙니다.");
+            throw new IllegalArgumentException("사각형이 모든 변이 X, Y축에 평행해야합니다.");
     }
 
     public double calculateArea() {
