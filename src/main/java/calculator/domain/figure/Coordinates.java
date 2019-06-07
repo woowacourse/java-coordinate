@@ -7,8 +7,6 @@ import java.util.*;
  * @version 1.0 2019-05-22
  */
 public class Coordinates implements Iterable<Coordinate>{
-    private static final String EX_DUPLICATED_COORDINATES_MESSAGE = "위치가 같은 점(point)이 존재합니다.";
-    private static final String EX_MAX_COORDINATES_COUNT_MESSAGE = "4개 이하의 좌표를 입력해주세요.";
     private static final int MAX_COORDINATE = 4;
     private final List<Coordinate> coordinates;
 
@@ -23,12 +21,16 @@ public class Coordinates implements Iterable<Coordinate>{
     }
 
     private void checkDuplication(Coordinate coordinate) {
+        String EX_DUPLICATED_COORDINATES_MESSAGE = "위치가 같은 점(point)이 존재합니다.";
+
         if (coordinates.contains(coordinate)) {
             throw new IllegalArgumentException(EX_DUPLICATED_COORDINATES_MESSAGE);
         }
     }
 
     private void checkMaxCoordinates() {
+        String EX_MAX_COORDINATES_COUNT_MESSAGE = "4개 이하의 좌표를 입력해주세요.";
+
         if (coordinates.size() > MAX_COORDINATE) {
             throw new IllegalArgumentException(EX_MAX_COORDINATES_COUNT_MESSAGE);
         }
