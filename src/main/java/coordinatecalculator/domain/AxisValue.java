@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class AxisValue {
     private static final String INVALID_INPUT_FORMAT_MESSAGE = "좌표 값은 자연수여야 합니다.";
-    private static final String INVALID_INPUT_BOUND_MESSAGE = "좌표 값은 0이상 24이하여야 합니다.";
+    private static final String INVALID_INPUT_BOUND_MESSAGE = "좌표 값은 1이상 24이하여야 합니다.";
     private static final int AXIS_LOWER_BOUND = 1;
     private static final int AXIS_UPPER_BOUND = 24;
     private static final Map<Integer, AxisValue> AXIS_VALUES = new HashMap<>();
