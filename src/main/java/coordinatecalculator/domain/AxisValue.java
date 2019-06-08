@@ -23,7 +23,7 @@ public class AxisValue {
         this.value = value;
     }
 
-    public static AxisValue getAxisValue(String key) {
+    public static AxisValue getInstance(String key) {
         checkNumeric(key);
         checkBoundary(Integer.parseInt(key));
 
