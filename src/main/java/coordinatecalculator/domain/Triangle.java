@@ -1,21 +1,19 @@
 package coordinatecalculator.domain;
 
-import coordinatecalculator.domain.parent.Figure;
+import coordinatecalculator.domain.parent.AbstractFigure;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-public class Triangle implements Figure {
+public class Triangle extends AbstractFigure {
     private static final String INVALID_TRIANGLE_MESSAGE = "세 점이 일직선 상에 위치할 수는 없습니다. 다시 입력해주세요.";
-    private static final String RECTANGLE_RESULT_MESSAGE = "삼각형 넓이는 ";
+    private static final String NAME = "삼각형";
+    private static final String RESULT_TYPE = "넓이";
     private static final int SAME_POSITION = 0;
     private static final int HERON_NUMBER = 2;
 
-    private final Points points;
-
     private Triangle(Points points) {
-        this.points = points;
+        super(points);
 
         checkValidTriangle();
     }
@@ -63,13 +61,13 @@ public class Triangle implements Figure {
     }
 
     @Override
-    public String makeResult() {
-        return RECTANGLE_RESULT_MESSAGE + calculateResult();
+    public String getName() {
+        return NAME;
     }
 
     @Override
-    public Points getPoints() {
-        return this.points;
+    public String getResultType() {
+        return RESULT_TYPE;
     }
 
     private double calculateLength(Point p1, Point p2) {
@@ -77,18 +75,5 @@ public class Triangle implements Figure {
         int dy = p1.differenceByY(p2);
 
         return Math.sqrt(dx * dx + dy * dy);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Triangle triangle = (Triangle) o;
-        return Objects.equals(points, triangle.points);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(points);
     }
 }

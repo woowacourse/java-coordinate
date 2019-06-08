@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class LineTest {
     @Test
     void 길이계산_테스트() {
-        Points points = new Points(Arrays.asList(new Point("0", "0"), new Point("2", "2")));
+        Points points = new Points(Arrays.asList(new Point("1", "1"), new Point("3", "3")));
         Line line = Line.newInstance(points);
 
         assertThat(line.calculateResult()).isEqualTo(Math.sqrt(8));

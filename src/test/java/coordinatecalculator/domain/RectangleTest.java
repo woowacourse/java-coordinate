@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class RectangleTest {
     @Test
     void create() {
-        Points points = new Points(Arrays.asList(new Point("0", "0"), new Point("1", "0"), new Point("0", "1"), new Point("1", "1")));
+        Points points = new Points(Arrays.asList(new Point("1", "1"), new Point("2", "1"), new Point("1", "2"), new Point("2", "2")));
         assertThat(Rectangle.newInstance(points)).isEqualTo(Rectangle.newInstance(points));
     }
 
@@ -24,7 +24,7 @@ public class RectangleTest {
 
     @Test
     void 이웃한_변이_서로_수직이_아닌_경우() {
-        Points points = new Points(Arrays.asList(new Point("0", "0"), new Point("1", "0"), new Point("1", "1"), new Point("2", "1")));
+        Points points = new Points(Arrays.asList(new Point("1", "1"), new Point("2", "1"), new Point("2", "2"), new Point("3", "1")));
         assertThrows(IllegalArgumentException.class, () -> Rectangle.newInstance(points));
     }
 

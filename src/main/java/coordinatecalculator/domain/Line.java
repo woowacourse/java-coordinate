@@ -1,15 +1,15 @@
 package coordinatecalculator.domain;
 
-import coordinatecalculator.domain.parent.Figure;
+import coordinatecalculator.domain.parent.AbstractFigure;
 
 import java.util.List;
 
-public class Line implements Figure {
-    private static final String LINE_RESULT_MESSAGE = "두 점 사이 거리는 ";
-    private final Points points;
+public class Line extends AbstractFigure {
+    private static final String NAME = "선";
+    private static final String RESULT_TYPE = "길이";
 
     private Line(final Points points) {
-        this.points = points;
+        super(points);
     }
 
     public static Line newInstance(final Points points) {
@@ -29,12 +29,12 @@ public class Line implements Figure {
     }
 
     @Override
-    public String makeResult() {
-        return LINE_RESULT_MESSAGE + calculateResult();
+    public String getName() {
+        return NAME;
     }
 
     @Override
-    public Points getPoints() {
-        return this.points;
+    public String getResultType() {
+        return RESULT_TYPE;
     }
 }
