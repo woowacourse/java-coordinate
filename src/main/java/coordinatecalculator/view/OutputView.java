@@ -7,6 +7,7 @@ import java.util.List;
 
 public class OutputView {
     public static void printResult(Figure figure) {
+        System.out.println(figure.getClass());
         List<StringBuilder> board = Drawer.newInstance(figure.getPoints()).getBoard();
 
         for (StringBuilder resultLine : board) {
