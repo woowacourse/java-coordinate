@@ -11,36 +11,40 @@ public class Point implements Comparable<Point> {
     private static final int COMPARE_SAME_POINT = 0;
     private static final int COMPARE_SMALL_POINT = -1;
 
-    private final int xValue;
-    private final int yValue;
+    private final int x;
+    private final int y;
 
     public Point(int x, int y) {
         validateX(x);
         validateY(y);
-        this.xValue = x;
-        this.yValue = y;
+        this.x = x;
+        this.y = y;
     }
 
     private void validateY(int y) {
         if (y < MIN_Y_VALUE || y > MAX_Y_VALUE) {
-            throw new IllegalArgumentException("yValue 의 범위는 " + MIN_Y_VALUE + "이상 "
+            throw new InvalidPointException("y 의 범위는 " + MIN_Y_VALUE + "이상 "
                     + MAX_Y_VALUE + "이하여야 합니다.");
         }
     }
 
     private void validateX(int x) {
         if (x < MIN_X_VALUE || x > MAX_X_VALUE) {
-            throw new IllegalArgumentException("xValue 의 범위는 " + MIN_X_VALUE + "이상 "
+            throw new InvalidPointException("x 의 범위는 " + MIN_X_VALUE + "이상 "
                     + MAX_X_VALUE + "이하여야 합니다.");
         }
     }
 
-    public int getXValue() {
-        return this.xValue;
+    public double calculateDistance(Point point) {
+        return Math.sqrt(calculateXDistance(point) + calculateYDistance(point));
     }
 
-    public int getYValue() {
-        return this.yValue;
+    private double calculateXDistance(Point point) {
+        return Math.pow(this.x - point.x, 2);
+    }
+
+    private double calculateYDistance(Point point) {
+        return Math.pow(this.y - point.y, 2);
     }
 
     @Override
@@ -48,41 +52,33 @@ public class Point implements Comparable<Point> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point point = (Point) o;
-        return xValue == point.xValue &&
-                yValue == point.yValue;
+        return x == point.x &&
+                y == point.y;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(xValue, yValue);
+        return Objects.hash(x, y);
     }
 
     @Override
-    public int compareTo(Point another) {
-        if (xValue > another.getXValue()) {
+    public int compareTo(Point point) {
+        if (x > point.x) {
             return COMPARE_BIG_POINT;
         }
 
-        if (xValue < another.getXValue()) {
+        if (x < point.x) {
             return COMPARE_SMALL_POINT;
         }
 
-        if (yValue > another.getYValue()) {
+        if (y > point.y) {
             return COMPARE_BIG_POINT;
         }
 
-        if (yValue < another.getYValue()) {
+        if (y < point.y) {
             return COMPARE_SMALL_POINT;
         }
 
         return COMPARE_SAME_POINT;
-    }
-
-    @Override
-    public String toString() {
-        return "Point{" +
-                "xValue=" + xValue +
-                ", yValue=" + yValue +
-                '}';
     }
 }

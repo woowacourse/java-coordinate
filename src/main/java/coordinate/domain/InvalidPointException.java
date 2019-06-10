@@ -1,6 +1,7 @@
 package coordinate.domain;
 
-public class InvalidPointException extends Throwable {
-    public InvalidPointException(String s) {
+public class InvalidPointException extends RuntimeException {
+    public InvalidPointException(String msg) {
+        super(msg);
     }
 }
