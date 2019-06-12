@@ -27,7 +27,7 @@ public class VectorTest {
     void 법선_벡터_확인() {
         Vector vector = new Vector(new Point(0, 1), new Point(0,2));
         Vector anotherVector = new Vector(new Point(0, 1), new Point(2,1));
-        assertThat(vector.isNormalVector(anotherVector)).isTrue();
+        assertThat(vector.isGeneralVector(anotherVector)).isFalse();
     }
 
     @Test

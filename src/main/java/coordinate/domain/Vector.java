@@ -17,8 +17,8 @@ public class Vector {
         this.y = endPoint.calculateYDistance(startPoint);
     }
 
-    public boolean isNormalVector(Vector vector) {
-        return calculateInnerProduct(vector) == ORTHOGONAL;
+    public boolean isGeneralVector(Vector vector) {
+        return calculateInnerProduct(vector) != ORTHOGONAL;
     }
 
     public int calculateInnerProduct(Vector vector) {
