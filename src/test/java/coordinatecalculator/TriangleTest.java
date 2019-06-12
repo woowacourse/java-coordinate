@@ -18,7 +18,6 @@ class TriangleTest {
         p1 = new Point(1, 1);
         p2 = new Point(15, 15);
         p3 = new Point(4, 8);
-        //        triangle = new Triangle(Arrays.asList(p1, p2, p3));
         triangle = Triangle.of(p1, p2, p3);
         assertThat(triangle.area()).isEqualTo(28, epsilon);
     }

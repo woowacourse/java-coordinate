@@ -81,14 +81,6 @@ class Point implements Figure, Comparable<Point> {
                 .compare(this, another);
     }
 
-    public int compareToReverse(Point another) {
-        return Comparator
-                .comparingInt(Point::getX)
-                .thenComparingInt(Point::getY)
-                .reversed()
-                .compare(this, another);
-    }
-
     @Override
     public String toString() {
         return this.getName() + ": {x: " + this.x + ", y: " + this.y + "}";

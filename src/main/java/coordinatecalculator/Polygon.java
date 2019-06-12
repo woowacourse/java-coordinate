@@ -10,7 +10,6 @@ abstract class Polygon implements Figure {
         if (points.size() != getPointsCount()) {
             throw new IllegalArgumentException(getName() + "의 길이는 " + getPointsCount() + "이어야 합니다.");
         }
-
         this.points = points;
     }
 
@@ -21,7 +20,7 @@ abstract class Polygon implements Figure {
     private void checkDuplicate(List<Point> points) throws IllegalArgumentException {
         Set<Point> set = new HashSet<>();
         for (Point p : points) {
-            if (!set.add(p)) { // Set은 중복된 객체를 넣으면 false를 반환한다.
+            if (!set.add(p)) {
                 throw new IllegalArgumentException(ERROR_POINTS_DUPLICATE);
             }
         }
@@ -35,13 +34,6 @@ abstract class Polygon implements Figure {
             lines.add(new Line(Arrays.asList(points.get(i), points.get(nextNumber))));
         }
         return lines;
-    }
-
-    /* 헤론의 공식. 삼각형의 세 변의 길이를 통해 넓이를 구한다.
-     * 참고: https://ko.wikipedia.org/wiki/%ED%97%A4%EB%A1%A0%EC%9D%98_%EA%B3%B5%EC%8B%9D */
-    protected double heronFormula(double a, double b, double c) {
-        double s = (a + b + c) / 2;
-        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
     @Override
@@ -64,16 +56,16 @@ abstract class Polygon implements Figure {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getName());
-        sb.append(": {");
+        StringBuilder result = new StringBuilder();
+        result.append(getName());
+        result.append(": {");
         for (Point p : points) {
-            sb.append(p.toString());
-            sb.append(", ");
+            result.append(p.toString());
+            result.append(", ");
         }
-        sb.append("area: ");
-        sb.append(this.area());
-        sb.append("}");
-        return sb.toString();
+        result.append("area: ");
+        result.append(this.area());
+        result.append("}");
+        return result.toString();
     }
 }

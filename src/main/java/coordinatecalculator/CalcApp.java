@@ -15,7 +15,7 @@ public class CalcApp {
         try {
             figure = FigureFactory.of(Input.points());
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             return tryInput();
         }
         return figure;

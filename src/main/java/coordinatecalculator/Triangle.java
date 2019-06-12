@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 class Triangle extends Polygon {
+    private static final DecimalFormat FORMAT = new DecimalFormat("0.###");
+
     Triangle(List<Point> points) {
         super(points);
         lines = makeSegment(this.points);
@@ -19,12 +21,9 @@ class Triangle extends Polygon {
         return "Triangle";
     }
 
-    @Override
-    public String toString() {
-        DecimalFormat format = new DecimalFormat("0.###");
-        return "삼각형의 넓이는 "
-                + format.format(area())
-                + "입니다.";
+    private static double heronFormula(double a, double b, double c) {
+        double s = (a + b + c) / 2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
     @Override
@@ -38,5 +37,12 @@ class Triangle extends Polygon {
         double b = lines.get(1).getLength();
         double c = lines.get(2).getLength();
         return heronFormula(a, b, c);
+    }
+
+    @Override
+    public String toString() {
+        return "삼각형의 넓이는 "
+                + FORMAT.format(area())
+                + "입니다.";
     }
 }

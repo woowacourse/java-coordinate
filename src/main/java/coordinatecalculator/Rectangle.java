@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 class Rectangle extends Polygon {
+    private static final DecimalFormat FORMAT = new DecimalFormat("0.###");
+
     private List<Triangle> triangles = new ArrayList<>();
 
     Rectangle(List<Point> points) {
@@ -30,9 +32,8 @@ class Rectangle extends Polygon {
 
     @Override
     public String toString() {
-        DecimalFormat format = new DecimalFormat("0.###");
         return "사각형의 넓이는 "
-                + format.format(area())
+                + FORMAT.format(area())
                 + "입니다.";
     }
 

@@ -16,8 +16,9 @@ class Board {
     private static final String SPACE = " ";
     private static final String ZERO_POINT = "0";
     private static final String NEW_LINE = "\n";
+    private static final String EMPTY = "";
 
-    final List<SingleLine> lines = new ArrayList<>();
+    private final List<SingleLine> lines = new ArrayList<>();
 
     Board(Figure figure) {
         boolean flip = false;
@@ -41,42 +42,43 @@ class Board {
     }
 
     private static String makeHorizontalLine() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(padLeft(SPACE, Integer.toString(BOARD_Y_MAX).length()));
-        sb.append(CROSS_POINT);
-        sb.append(HORIZONTAL_BAR.repeat(BOARD_Y_MAX * 2));
-        sb.append(NEW_LINE);
-        return sb.toString();
+        StringBuilder result = new StringBuilder();
+        int numberStringLength = Integer.toString(BOARD_Y_MAX).length();
+        result.append(padLeft(SPACE, numberStringLength));
+        result.append(CROSS_POINT);
+        result.append(HORIZONTAL_BAR.repeat(BOARD_Y_MAX * 2));
+        result.append(NEW_LINE);
+        return result.toString();
     }
 
     private static String makeXlegend() {
         int emptyLength = Integer.toString(BOARD_X_MAX).length();
-        String empty = padLeft("", emptyLength);
+        String empty = padLeft(EMPTY, emptyLength);
         String temp;
         boolean flip = false;
-        StringBuilder sb = new StringBuilder();
-        sb.append(padLeft(ZERO_POINT, emptyLength));
-        sb.append(SPACE);
+        StringBuilder result = new StringBuilder();
+        result.append(padLeft(ZERO_POINT, emptyLength));
+        result.append(SPACE);
         for (int i = BOARD_X_MIN; i <= BOARD_X_MAX; i++) {
             temp = flip ? padLeft(Integer.toString(i), emptyLength) : empty;
-            sb.append(temp);
+            result.append(temp);
             flip = !flip;
         }
-        return sb.toString();
+        return result.toString();
     }
 
     String getString() {
         SingleLine line;
-        StringBuilder sb = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         ListIterator iterator = lines.listIterator(lines.size());
         while (iterator.hasPrevious()) {
             line = (SingleLine) iterator.previous();
-            sb.append(line.makeString());
-            sb.append(NEW_LINE);
+            result.append(line.makeString());
+            result.append(NEW_LINE);
         }
-        sb.append(makeHorizontalLine());
-        sb.append(makeXlegend());
-        return sb.toString();
+        result.append(makeHorizontalLine());
+        result.append(makeXlegend());
+        return result.toString();
     }
 
     // 클래스 안의 클래스. 실습을 위해 적용.
@@ -101,15 +103,15 @@ class Board {
         }
 
         String makeString() {
-            final StringBuilder sb = new StringBuilder();
-            final String temp = displayNumber ? Integer.toString(yAxis) : "";
+            final StringBuilder result = new StringBuilder();
+            final String temp = displayNumber ? Integer.toString(yAxis) : EMPTY;
             final String start = Board.padLeft(temp, yAxisLength);
-            sb.append(start);
-            sb.append(Board.VERTICAL_BAR);
+            result.append(start);
+            result.append(Board.VERTICAL_BAR);
             for (String i : xAxis) {
-                sb.append(i);
+                result.append(i);
             }
-            return sb.toString();
+            return result.toString();
         }
     }
 }
