@@ -1,11 +1,15 @@
 package coordinate.domain.figure;
 
+import coordinate.domain.figure.line.Line;
+import coordinate.domain.figure.rectangle.Rectangle;
+import coordinate.domain.figure.triangle.Triangle;
+
 import java.util.Arrays;
 
 public enum FigureType {
-    LINE(2),
-    TRIANGLE(3),
-    RECTANGLE(4);
+    LINE(Line.LINE_SIZE),
+    TRIANGLE(Triangle.TRIANGLE_SIZE),
+    RECTANGLE(Rectangle.RECTANGLE_SIZE);
 
     private final int numOfPoints;
 
