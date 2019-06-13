@@ -13,7 +13,7 @@ public class PointTest {
     @Test
     void 포인트_생성() {
         Point point = new Point(1, 2);
-        assertThat(point).isEqualTo(new Point(1,2));
+        assertThat(point).isEqualTo(new Point(1, 2));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class PointTest {
         Matcher matcher = Pattern.compile("(\\d{1,2},\\d{1,2})").matcher("(1,21)");
         if (matcher.find()) {
             String value = matcher.group();
-            assertThat(Point.of(value)).isEqualTo(new Point(1,21));
+            assertThat(Point.of(value)).isEqualTo(new Point(1, 21));
         }
     }
 
