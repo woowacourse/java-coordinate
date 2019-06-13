@@ -1,34 +1,25 @@
 package coordinate.domain.figure;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FigureTypeTest {
-    @Test
-    void 라인() {
-        assertThat(FigureType.valueOf(2)).isEqualTo(FigureType.LINE);
+
+    @ParameterizedTest
+    @CsvSource(value = {"2:LINE", "3:TRIANGLE", "4:RECTANGLE"}, delimiter = ':')
+    void 도형_형성(int size, FigureType figureType) {
+        assertThat(FigureType.valueOf((size))).isEqualTo(figureType);
     }
 
-    @Test
-    void 삼각형() {
-        assertThat(FigureType.valueOf(3)).isEqualTo(FigureType.TRIANGLE);
-    }
-
-    @Test
-    void 사각형() {
-        assertThat(FigureType.valueOf(4)).isEqualTo(FigureType.RECTANGLE);
-    }
-
-    @Test
-    void 유효하지_않은_도형() {
+    @ParameterizedTest
+    @ValueSource(ints = {1, 5})
+    void 유효하지_않은_도형(int size) {
         assertThrows(InvalidFigureException.class, () -> {
-            FigureType.valueOf(5);
-        });
-
-        assertThrows(InvalidFigureException.class, () -> {
-            FigureType.valueOf(1);
+            FigureType.valueOf(size);
         });
     }
 }
