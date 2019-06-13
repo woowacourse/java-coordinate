@@ -1,6 +1,6 @@
 package coordinate.domain.figure.rectangle;
 
-import coordinate.domain.figure.InvalidAbstractFigureException;
+import coordinate.domain.figure.InvalidFigureException;
 import coordinate.domain.point.Point;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +23,7 @@ public class RectangleTest {
 
     @Test
     void 직사각형_생성_시_중복된_점_존재() {
-        assertThrows(InvalidAbstractFigureException.class, () -> new Rectangle(Arrays.asList(
+        assertThrows(InvalidFigureException.class, () -> new Rectangle(Arrays.asList(
                 new Point(0, 0),
                 new Point(0, 1),
                 new Point(1, 1),
@@ -33,7 +33,7 @@ public class RectangleTest {
 
     @Test
     void 직사각형이_아닌_경우() {
-        assertThrows(InvalidRectangleException.class, () -> new Rectangle(Arrays.asList(
+        assertThrows(InvalidFigureException.class, () -> new Rectangle(Arrays.asList(
                 new Point(0, 0),
                 new Point(0, 1),
                 new Point(1, 1),

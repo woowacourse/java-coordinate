@@ -23,11 +23,11 @@ public class FigureTypeTest {
 
     @Test
     void 유효하지_않은_도형() {
-        assertThrows(InvalidFigureTypeException.class, () -> {
+        assertThrows(InvalidFigureException.class, () -> {
             FigureType.valueOf(5);
         });
 
-        assertThrows(InvalidFigureTypeException.class, () -> {
+        assertThrows(InvalidFigureException.class, () -> {
             FigureType.valueOf(1);
         });
     }

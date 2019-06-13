@@ -1,6 +1,8 @@
 package coordinate.domain.figure.rectangle;
 
-public class InvalidRectangleException extends RuntimeException {
+import coordinate.domain.figure.InvalidFigureException;
+
+public class InvalidRectangleException extends InvalidFigureException {
     public InvalidRectangleException(String msg) {
         super(msg);
     }

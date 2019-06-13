@@ -55,7 +55,7 @@ public class FigureFactoryTest {
                 new Point(0,1),
                 new Point(0,2)
         );
-        assertThrows(InvalidFigureTypeException.class, () -> {
+        assertThrows(InvalidFigureException.class, () -> {
             FigureFactory.getFigure(points);
         });
     }

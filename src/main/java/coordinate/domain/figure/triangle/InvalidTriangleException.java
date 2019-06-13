@@ -1,6 +1,8 @@
 package coordinate.domain.figure.triangle;
 
-public class InvalidTriangleException extends RuntimeException{
+import coordinate.domain.figure.InvalidFigureException;
+
+public class InvalidTriangleException extends InvalidFigureException {
     InvalidTriangleException(String msg) {
         super(msg);
     }
