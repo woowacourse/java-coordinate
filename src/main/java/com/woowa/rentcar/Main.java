@@ -11,7 +11,7 @@ import com.woowa.rentcar.view.OutputView;
 public class Main {
     public static void main(String[] args){
         RentCompany rentCompany = RentCompany.create();
-        InputView.title();
+        OutputView.title();
         while (true) {
             CarName carName  = InputView.car();
             if (carName.equals(new CarName("end"))) {
@@ -21,6 +21,6 @@ public class Main {
             Car car = CarFactory.newInstance(carName, distance);
             rentCompany.addCar(car);
         }
-        OutputView.print(rentCompany.generateReport());
+        OutputView.result(rentCompany);
     }
 }
