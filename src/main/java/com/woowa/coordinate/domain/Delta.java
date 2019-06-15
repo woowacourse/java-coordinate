@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Delta {
     private final int delta;
 
-    public Delta(int i) {
-        this.delta = i;
+    public Delta(int delta) {
+        this.delta = delta;
     }
 
     public Delta sum(Delta delta) {
@@ -19,6 +19,10 @@ public class Delta {
 
     public int multiply(Delta delta) {
         return this.delta * delta.delta;
+    }
+
+    public double square() {
+        return Math.pow(delta, 2);
     }
 
     @Override

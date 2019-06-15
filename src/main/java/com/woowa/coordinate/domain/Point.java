@@ -11,6 +11,15 @@ public class Point {
         this.y = new Coordinate(y);
     }
 
+    public Point(String x, String y) {
+        this(Integer.parseInt(x), Integer.parseInt(y));
+    }
+
+    public static Point of(String commaSeparated) {
+        String[] separated = commaSeparated.split(",");
+        return new Point(separated[0], separated[1]);
+    }
+
     public int subtractX(Point point) {
         return x.subtract(point.x);
     }

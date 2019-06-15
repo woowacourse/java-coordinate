@@ -8,7 +8,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class SquareTest {
+public class RectangleTest {
     @Test
     void invalid_generate_square_empty_point() {
         List<Point> points = Arrays.asList(
@@ -17,7 +17,7 @@ public class SquareTest {
                 new Point(5, 2)
         );
         assertThrows(IllegalArgumentException.class, () -> {
-            new Square(new Points(points));
+            new Rectangle(new Points(points));
         });
     }
 
@@ -30,7 +30,7 @@ public class SquareTest {
                 new Point(0, 2)
         );
         assertThrows(IllegalArgumentException.class, () -> {
-            new Square(new Points(points));
+            new Rectangle(new Points(points));
         });
     }
 
@@ -41,6 +41,6 @@ public class SquareTest {
         Point leftUp = new Point(4, 3);
         Point rightUp = new Point(1, 3);
         List<Point> points = Arrays.asList(leftDown, rightDown, leftUp, rightUp);
-        assertThat(new Square(new Points(points)).area()).isEqualTo(6);
+        assertThat(new Rectangle(new Points(points)).area()).isEqualTo(6);
     }
 }

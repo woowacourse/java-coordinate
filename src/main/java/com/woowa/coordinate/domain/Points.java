@@ -7,6 +7,8 @@ import java.util.Objects;
 public class Points {
     private List<Point> points;
 
+    public Points() {  }
+
     public Points(List<Point> input) {
         points = new ArrayList<>(input);
         Point criteria = points.get(0);
@@ -19,6 +21,10 @@ public class Points {
             double distance2 = criteria.distance(o2);
             return ((Comparable)distance1).compareTo(distance2);
         });
+    }
+
+    public void add(Point point) {
+        points.add(point);
     }
 
     public Point get(int index) {

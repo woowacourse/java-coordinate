@@ -8,18 +8,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class InputStyleTest {
     @Test
     void valid_input_a_point() {
-        assertThat(InputStyle.coordinateChecker("(1,2)")).isEqualTo(true);
+        assertThat(InputParser.point("(1,2)")).isEqualTo(true);
     }
 
     @Test
     void valid_input_two_points() {
-        assertThat(InputStyle.coordinateChecker("(1,2)-(3,4)")).isEqualTo(true);
+        assertThat(InputParser.point("(1,2)-(3,4)")).isEqualTo(true);
     }
 
     @Test
     void invalid_input() {
         assertThrows(IllegalArgumentException.class, () -> {
-            InputStyle.coordinateChecker("-(1,2)");
+            InputParser.point("-(1,2)");
         });
     }
 }

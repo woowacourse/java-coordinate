@@ -5,14 +5,14 @@ import java.util.Objects;
 public class Coordinate {
     private final int coordinate;
 
-    public Coordinate(int i) {
-        if (i < 0) {
+    public Coordinate(int coordinate) {
+        if (coordinate < 0) {
             throw new IllegalArgumentException("좌표값은 0미만이 될 수 없습니다.");
         }
-        if (i > 24) {
+        if (coordinate > 24) {
             throw new IllegalArgumentException("좌표값은 24를 초과할 수 없습니다.");
         }
-        this.coordinate = i;
+        this.coordinate = coordinate;
     }
 
     public int subtract(Coordinate coordinate) {

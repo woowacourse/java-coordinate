@@ -1,9 +1,9 @@
 package com.woowa.coordinate.domain;
 
-public class Square {
+public class Rectangle {
     private final Points points;
 
-    public Square(Points points) {
+    public Rectangle(Points points) {
         if(points.size() != 4) {
             throw new IllegalArgumentException("사각형은 점 4개로 생성 가능 합니다.");
         }
