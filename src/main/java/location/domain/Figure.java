@@ -6,15 +6,11 @@ import java.util.Set;
 
 public abstract class Figure implements Calculator {
     private final String DUPLICATE_MSG = "위치가 같은 점(point)이 존재합니다.";
-    private final double MAX = Double.MAX_VALUE;
-    Points points;
-
-    public Figure(Points points) {
-        checkValid(points.getPoints());
-        this.points = points;
+    private Points points;
+    public Figure() {
     }
 
-    private void checkValid(final List<Point> points) {
+    public void checkSamePointValid(final List<Point> points) {
         isSamePoint(points);
     }
 
@@ -27,6 +23,5 @@ public abstract class Figure implements Calculator {
             throw new IllegalArgumentException(DUPLICATE_MSG);
         }
     }
-
     public abstract Points getPoints();
 }

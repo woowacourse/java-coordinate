@@ -3,9 +3,9 @@ package location.domain;
 public class Triangle extends Figure {
     private final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private final int SQUARE = 2;
-
+    private Points points;
     public Triangle(Points points) {
-        super(points);
+        checkSamePointValid(points.getPoints());
         checkValid(points);
         this.points = points;
     }

@@ -1,8 +1,9 @@
 package location.domain;
 
 public class Line extends Figure {
+    private Points points;
     public Line(final Points points) {
-        super(points);
+        checkSamePointValid(points.getPoints());
         this.points = points;
     }
 

@@ -3,10 +3,10 @@ package location.domain;
 public class Rectangle extends Figure {
     private final String SAME_LINE_MSG = "세점 이상이 한 선상에 있습니다.";
     private final String NOT_RECTANGLE_MSG = "직사각형이 아닙니다.";
-
+    private Points points;
     public Rectangle(final Points points) {
-        super(points);
         checkValid(points);
+        checkSamePointValid(points.getPoints());
         this.points = points;
     }
 
