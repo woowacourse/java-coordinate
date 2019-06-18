@@ -11,21 +11,25 @@ public class Coordinate {
     private final int coordinate;
 
     public Coordinate(int coordinate) {
-        if (coordinate < LOWER_BOUND) {
-            throw new IllegalArgumentException(LOWER_BOUND_ERROR);
-        }
+        validLowerBound(coordinate);
+        validUpperBound(coordinate);
+        this.coordinate = coordinate;
+    }
+
+    private void validUpperBound(int coordinate) {
         if (coordinate > UPPER_BOUND) {
             throw new IllegalArgumentException(UPPER_BOUND_ERROR);
         }
-        this.coordinate = coordinate;
+    }
+
+    private void validLowerBound(int coordinate) {
+        if (coordinate < LOWER_BOUND) {
+            throw new IllegalArgumentException(LOWER_BOUND_ERROR);
+        }
     }
 
     public int subtract(Coordinate coordinate) {
         return this.coordinate - coordinate.coordinate;
-    }
-
-    public Delta toDelta() {
-        return new Delta(coordinate);
     }
 
     @Override

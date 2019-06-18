@@ -3,8 +3,6 @@ package com.woowa.coordinate.domain;
 import java.util.Objects;
 
 public class Delta {
-    private static final int SQUARE_POW_PARAMETER = 2;
-
     private final int delta;
 
     public Delta(int delta) {
@@ -17,10 +15,6 @@ public class Delta {
 
     public int multiply(Delta delta) {
         return this.delta * delta.delta;
-    }
-
-    public double square() {
-        return Math.pow(delta, SQUARE_POW_PARAMETER);
     }
 
     @Override
