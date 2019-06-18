@@ -40,3 +40,9 @@
     - Square
         - contains four Point instance
         - {EXCEPTION} input *must be* **RECTANGLE**
+
+### Step 3. Area of Triangle
+#### Function Requirements
+1. Domain
+    - Triangle
+        - contains three Point instance
