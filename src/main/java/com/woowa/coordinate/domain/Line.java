@@ -1,16 +1,22 @@
 package com.woowa.coordinate.domain;
 
-public class Line {
-    private final Points points;
-
+public class Line extends AbstractFigure {
     public Line(Points points) {
-        if (points.size() != 2) {
-            throw new IllegalArgumentException("Point 수가 부족합니다.");
-        }
-        this.points = points;
+        super(points);
     }
 
-    public double distance() {
-        return points.get(0).distance(points.get(1));
+    @Override
+    public int size() {
+        return 2;
+    }
+
+    @Override
+    public String name() {
+        return "선";
+    }
+
+    @Override
+    public double area() {
+        return super.getPoints().get(0).distance(super.getPoints().get(1));
     }
 }

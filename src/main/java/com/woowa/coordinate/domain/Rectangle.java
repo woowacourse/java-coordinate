@@ -1,16 +1,15 @@
 package com.woowa.coordinate.domain;
 
-public class Rectangle {
-    private final Points points;
-
+public class Rectangle extends AbstractFigure {
     public Rectangle(Points points) {
-        if (points.size() != 4) {
-            throw new IllegalArgumentException("Point 수가 부족합니다.");
-        }
+        super(points);
+        validRectangle(points);
+    }
+
+    private void validRectangle(Points points) {
         if(isDotProductZero(points) || !hasRightAngle(points))  {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
-        this.points = points;
     }
 
     private boolean hasRightAngle(Points points) {
@@ -23,7 +22,18 @@ public class Rectangle {
         return Vector.get(points, 0, 1).dotProduct(Vector.get(points, 0, 2)) != 0;
     }
 
+    @Override
+    public int size() {
+        return 4;
+    }
+
+    @Override
+    public String name() {
+        return "사각형";
+    }
+
+    @Override
     public double area() {
-        return Math.abs(Vector.get(points, 0, 1).crossProduct(Vector.get(points, 0, 2)));
+        return Math.abs(Vector.get(super.getPoints(), 0, 1).crossProduct(Vector.get(super.getPoints(), 0, 2)));
     }
 }

@@ -16,7 +16,7 @@ public class LineTest {
         Point point2 = new Point(2, 2);
         List<Point> points = Arrays.asList(point1, point2);
         Line line = new Line(new Points(points));
-        assertThat(line.distance()).isEqualTo(1.414, offset(0.00099));
+        assertThat(line.area()).isEqualTo(1.414, offset(0.00099));
     }
 
     @Test

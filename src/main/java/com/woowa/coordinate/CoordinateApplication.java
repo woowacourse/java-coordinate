@@ -1,23 +1,18 @@
 package com.woowa.coordinate;
 
 import com.woowa.coordinate.domain.Line;
-import com.woowa.coordinate.domain.Point;
 import com.woowa.coordinate.domain.Points;
 import com.woowa.coordinate.domain.Rectangle;
 import com.woowa.coordinate.domain.Triangle;
-import com.woowa.coordinate.utils.InputParser;
 import com.woowa.coordinate.view.InputView;
 import com.woowa.coordinate.view.OutputView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CoordinateApplication {
     public static void main(String[] args){
         Points points = InputView.getRequest();
         if (points.size() == 2) {
-            double distance = new Line(points).distance();
-            OutputView.lineDistance(distance);
+            double area = new Line(points).area();
+            OutputView.lineDistance(area);
         }
         if (points.size() == 3) {
             double area = new Triangle(points).area();
