@@ -34,10 +34,6 @@ public class Point {
         return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
     }
 
-    public Vector toVector() {
-        return new Vector(x.toDelta(), y.toDelta());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,13 +46,5 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
-    }
-
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
     }
 }

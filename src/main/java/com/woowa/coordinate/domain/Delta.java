@@ -3,22 +3,16 @@ package com.woowa.coordinate.domain;
 import java.util.Objects;
 
 public class Delta {
+    private static final int SQUARE_POW_PARAMETER = 2;
+
     private final int delta;
 
     public Delta(int delta) {
         this.delta = delta;
     }
 
-//    public Delta sum(Delta delta) {
-//        return new Delta(this.delta + delta.delta);
-//    }
-
     public int sum(Delta delta) {
         return this.delta + delta.delta;
-    }
-
-    public int subtract(Delta delta) {
-        return this.delta - delta.delta;
     }
 
     public int multiply(Delta delta) {
@@ -26,7 +20,7 @@ public class Delta {
     }
 
     public double square() {
-        return Math.pow(delta, 2);
+        return Math.pow(delta, SQUARE_POW_PARAMETER);
     }
 
     @Override

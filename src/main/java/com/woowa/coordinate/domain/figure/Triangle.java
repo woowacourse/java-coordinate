@@ -4,29 +4,35 @@ import com.woowa.coordinate.domain.Points;
 import com.woowa.coordinate.domain.Vector;
 
 public class Triangle extends AbstractFigure {
+    private static final int TRIANGLE_SIZE = 3;
+    private static final String TRIANGLE_NAME = "삼각형";
+    private static final String TRIANGLE_ERROR = "삼각형이 아닙니다.";
+
     public Triangle(Points points) {
         super(points);
         validTriangle(points);
     }
 
     private void validTriangle(Points points) {
-        if (Vector.get(points, 0, 1).crossProduct(Vector.get(points, 1, 2)) == 0) {
-            throw new IllegalArgumentException("삼각형이 아닙니다.");
+        if (Vector.get(points, 0, 1)
+                .absCrossProduct(Vector.get(points, 1, 2)) == 0) {
+            throw new IllegalArgumentException(TRIANGLE_ERROR);
         }
     }
 
     @Override
     public int size() {
-        return 3;
+        return TRIANGLE_SIZE;
     }
 
     @Override
     public String name() {
-        return "삼각형";
+        return TRIANGLE_NAME;
     }
 
     @Override
     public double area() {
-        return Math.abs(Vector.get(super.getPoints(), 0, 1).crossProduct(Vector.get(super.getPoints(), 1, 2)) / 2);
+        return Vector.get(super.getPoints(), 0, 1)
+                .absCrossProduct(Vector.get(super.getPoints(), 1, 2)) / 2;
     }
 }

@@ -2,19 +2,17 @@ package com.woowa.coordinate.domain;
 
 import com.woowa.coordinate.utils.DuplicateChecker;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Points {
+    private static final int CRITERIA_INDEX = 0;
+
     private List<Point> points;
 
     public Points(List<Point> input) {
         points = DuplicateChecker.check(input);
-        Point criteria = points.get(0);
+        Point criteria = points.get(CRITERIA_INDEX);
         sortPoints(criteria);
     }
 
@@ -26,20 +24,12 @@ public class Points {
         });
     }
 
-    public void add(Point point) {
-        points.add(point);
-    }
-
     public Point get(int index) {
         return points.get(index);
     }
 
     public int size() {
         return points.size();
-    }
-
-    public List<Point> restoration() {
-        return points;
     }
 
     @Override

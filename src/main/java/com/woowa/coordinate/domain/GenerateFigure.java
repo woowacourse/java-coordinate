@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GenerateFigure {
+    private static final String INVALID_FIGURE_ERROR = "유효하지 않은 도형입니다.";
+
     private static Map<Integer, FigureMaker> generators = new HashMap<>();
 
     static {
@@ -20,7 +22,7 @@ public class GenerateFigure {
     public static Figure getFigure(Points points) {
         FigureMaker figureMaker = generators.get(points.size());
         if (figureMaker == null) {
-            throw new IllegalArgumentException("유효하지 않은 도형입니다.");
+            throw new IllegalArgumentException(INVALID_FIGURE_ERROR);
         }
         return figureMaker.make(points);
     }

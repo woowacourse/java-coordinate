@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {
     @Test
-    void not_enought_points_to_generate_rectangle() {
+    void not_enough_points_to_generate_rectangle() {
         List<Point> points = Arrays.asList(
                 new Point(1, 1),
                 new Point(9, 1),
