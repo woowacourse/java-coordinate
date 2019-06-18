@@ -1,5 +1,7 @@
 package com.woowa.coordinate.domain;
 
+import com.woowa.coordinate.domain.figure.Rectangle;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

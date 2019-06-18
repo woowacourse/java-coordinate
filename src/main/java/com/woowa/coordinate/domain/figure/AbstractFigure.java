@@ -1,4 +1,6 @@
-package com.woowa.coordinate.domain;
+package com.woowa.coordinate.domain.figure;
+
+import com.woowa.coordinate.domain.Points;
 
 public abstract class AbstractFigure implements Figure {
     private final Points points;

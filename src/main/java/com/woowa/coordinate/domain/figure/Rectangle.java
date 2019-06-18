@@ -1,4 +1,7 @@
-package com.woowa.coordinate.domain;
+package com.woowa.coordinate.domain.figure;
+
+import com.woowa.coordinate.domain.Points;
+import com.woowa.coordinate.domain.Vector;
 
 public class Rectangle extends AbstractFigure {
     public Rectangle(Points points) {

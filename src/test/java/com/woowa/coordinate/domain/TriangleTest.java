@@ -1,5 +1,7 @@
 package com.woowa.coordinate.domain;
 
+import com.woowa.coordinate.domain.figure.Triangle;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

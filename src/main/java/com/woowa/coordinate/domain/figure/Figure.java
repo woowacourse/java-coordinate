@@ -1,4 +1,6 @@
-package com.woowa.coordinate.domain;
+package com.woowa.coordinate.domain.figure;
+
+import com.woowa.coordinate.domain.Points;
 
 public interface Figure {
     Points getPoints();
