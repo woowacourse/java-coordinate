@@ -1,16 +1,19 @@
 package com.woowa.coordinate.domain;
 
+import com.woowa.coordinate.utils.DuplicateChecker;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Points {
     private List<Point> points;
 
-    public Points() {  }
-
     public Points(List<Point> input) {
-        points = new ArrayList<>(input);
+        points = DuplicateChecker.check(input);
         Point criteria = points.get(0);
         sortPoints(criteria);
     }

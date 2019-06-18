@@ -21,11 +21,11 @@ public class Point {
     }
 
     public int subtractX(Point point) {
-        return x.subtract(point.x);
+        return (point.x).subtract(this.x);
     }
 
     public int subtractY(Point point) {
-        return x.subtract(point.x);
+        return (point.y).subtract(this.y);
     }
 
     public double distance(Point point) {
@@ -50,5 +50,13 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

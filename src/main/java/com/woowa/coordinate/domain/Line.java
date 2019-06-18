@@ -6,9 +6,6 @@ public class Line {
     private final Points points;
 
     public Line(List<Point> points) {
-        if (points.size() != 2) {
-            throw new IllegalArgumentException("Line 은 점 2개로 생성이 가능합니다.");
-        }
         this.points = new Points(points);
     }
 

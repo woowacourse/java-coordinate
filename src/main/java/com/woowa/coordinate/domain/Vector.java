@@ -2,7 +2,7 @@ package com.woowa.coordinate.domain;
 
 import java.util.Objects;
 
-public class Vector {
+public class Vector implements Comparable {
     private final Delta deltaX;
     private final Delta deltaY;
 
@@ -17,23 +17,29 @@ public class Vector {
     }
 
     public static Vector get(Points points, int i1, int i2) {
-        return new Vector(points.get(i1), points.get(i2));
+        Vector vector = new Vector(points.get(i1), points.get(i2));
+        return vector;
     }
 
     public Vector sum(Vector vector) {
-        return new Vector(this.deltaX.sum(vector.deltaX), this.deltaY.sum(vector.deltaY));
+        return new Vector(new Delta(this.deltaX.sum(vector.deltaX)), new Delta(this.deltaY.sum(vector.deltaY)));
     }
 
     public int dotProduct(Vector vector) {
-        return this.deltaX.multiply(vector.deltaX) + this.deltaY.multiply(vector.deltaY);
+        return vector.deltaX.multiply(this.deltaX) + vector.deltaY.multiply(this.deltaY);
     }
 
     public int crossProduct(Vector vector) {
-        return this.deltaX.multiply(vector.deltaX) - this.deltaY.multiply(vector.deltaY);
+        return this.deltaX.multiply(vector.deltaY) - this.deltaY.multiply(vector.deltaX);
     }
 
     public double length() {
         return Math.sqrt(deltaX.square() + deltaY.square());
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return Double.compare(this.length() - ((Vector) o).length(), 0);
     }
 
     @Override

@@ -39,4 +39,9 @@ public class Coordinate {
     public int hashCode() {
         return Objects.hash(coordinate);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(coordinate);
+    }
 }

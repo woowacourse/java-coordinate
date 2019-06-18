@@ -9,13 +9,17 @@ import java.util.Scanner;
 public class InputView {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static List<Point> request() {
+    public static List<Point> getRequest() {
         try {
-            System.out.println("좌표를 입력하세요");
-            return InputParser.point(scanner.next());
+            OutputView.request();
+            return InputParser.point(request());
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return request();
+            return getRequest();
         }
+    }
+
+    private static String request() {
+        return scanner.nextLine();
     }
 }

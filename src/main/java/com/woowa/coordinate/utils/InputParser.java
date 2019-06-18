@@ -1,6 +1,7 @@
 package com.woowa.coordinate.utils;
 
 import com.woowa.coordinate.domain.Point;
+import com.woowa.coordinate.domain.Points;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,13 @@ public class InputParser {
         }
         return points;
     }
+
     private static String removeBraces(String point) {
         return point.replace("(", "")
                 .replace(")", "");
+    }
+
+    public static Points parsePoint(List<Point> points) {
+        return new Points(points);
     }
 }

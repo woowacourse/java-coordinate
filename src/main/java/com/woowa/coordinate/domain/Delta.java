@@ -9,8 +9,12 @@ public class Delta {
         this.delta = delta;
     }
 
-    public Delta sum(Delta delta) {
-        return new Delta(this.delta + delta.delta);
+//    public Delta sum(Delta delta) {
+//        return new Delta(this.delta + delta.delta);
+//    }
+
+    public int sum(Delta delta) {
+        return this.delta + delta.delta;
     }
 
     public int subtract(Delta delta) {
