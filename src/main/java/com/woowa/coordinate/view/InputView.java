@@ -1,15 +1,14 @@
 package com.woowa.coordinate.view;
 
-import com.woowa.coordinate.domain.Point;
+import com.woowa.coordinate.domain.Points;
 import com.woowa.coordinate.utils.InputParser;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static List<Point> getRequest() {
+    public static Points getRequest() {
         try {
             OutputView.request();
             return InputParser.point(request());

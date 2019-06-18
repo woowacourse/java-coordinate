@@ -22,7 +22,7 @@ public class Points {
         points.sort((o1, o2) -> {
             double distance1 = criteria.distance(o1);
             double distance2 = criteria.distance(o2);
-            return ((Comparable)distance1).compareTo(distance2);
+            return ((Comparable) distance1).compareTo(distance2);
         });
     }
 
@@ -36,6 +36,10 @@ public class Points {
 
     public int size() {
         return points.size();
+    }
+
+    public List<Point> restoration() {
+        return points;
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputParser {
-    public static List<Point> point(String input) {
+    public static Points point(String input) {
         validStyle(input);
         return getPoints(input);
     }
@@ -18,21 +18,17 @@ public class InputParser {
         }
     }
 
-    private static List<Point> getPoints(String input) {
+    private static Points getPoints(String input) {
         String[] splitInput = input.split("-");
         List<Point> points = new ArrayList<>();
         for (String point : splitInput) {
             points.add(Point.of(removeBraces(point)));
         }
-        return points;
+        return new Points(points);
     }
 
     private static String removeBraces(String point) {
         return point.replace("(", "")
                 .replace(")", "");
-    }
-
-    public static Points parsePoint(List<Point> points) {
-        return new Points(points);
     }
 }

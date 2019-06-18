@@ -1,12 +1,13 @@
 package com.woowa.coordinate.domain;
 
-import java.util.List;
-
 public class Line {
     private final Points points;
 
-    public Line(List<Point> points) {
-        this.points = new Points(points);
+    public Line(Points points) {
+        if (points.size() != 2) {
+            throw new IllegalArgumentException("Point 수가 부족합니다.");
+        }
+        this.points = points;
     }
 
     public double distance() {

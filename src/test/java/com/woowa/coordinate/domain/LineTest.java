@@ -15,7 +15,7 @@ public class LineTest {
         Point point1 = new Point(1, 1);
         Point point2 = new Point(2, 2);
         List<Point> points = Arrays.asList(point1, point2);
-        Line line = new Line(points);
+        Line line = new Line(new Points(points));
         assertThat(line.distance()).isEqualTo(1.414, offset(0.00099));
     }
 
@@ -26,7 +26,7 @@ public class LineTest {
         Point point3 = new Point(3, 3);
         List<Point> points = Arrays.asList(point1, point2, point3);
         assertThrows(IllegalArgumentException.class, () -> {
-            new Line(points);
+            new Line(new Points(points));
         });
     }
 }

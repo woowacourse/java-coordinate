@@ -12,4 +12,8 @@ public class OutputView {
     public static void squareArea(double area) {
         System.out.print("사각형 넓이는  " + area);
     }
+
+    public static void triangleArea(double area) {
+        System.out.print("삼각형 넓이는  " + area);
+    }
 }

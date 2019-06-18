@@ -4,6 +4,9 @@ public class Rectangle {
     private final Points points;
 
     public Rectangle(Points points) {
+        if (points.size() != 4) {
+            throw new IllegalArgumentException("Point 수가 부족합니다.");
+        }
         if(isDotProductZero(points) || !hasRightAngle(points))  {
             throw new IllegalArgumentException("직사각형이 아닙니다.");
         }
