@@ -1,5 +1,7 @@
 package coordinatecalculator;
 
+import coordinatecalculator.model.Point;
+import coordinatecalculator.model.Rectangle;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 

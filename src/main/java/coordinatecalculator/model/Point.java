@@ -1,11 +1,11 @@
-package coordinatecalculator;
+package coordinatecalculator.model;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-class Point implements Figure, Comparable<Point> {
+public class Point implements Figure, Comparable<Point> {
     private static final int UNDER_LIMIT = 1;
     private static final int UPPER_LIMIT = 24;
     private static final String ERROR_LIMIT_OVER = "좌표 범위를 초과하였습니다.";
@@ -13,7 +13,7 @@ class Point implements Figure, Comparable<Point> {
     private int x;
     private int y;
 
-    Point(int x, int y) {
+    public Point(int x, int y) {
         if (isLimitOver(x) || isLimitOver(y)) {
             throw new IllegalArgumentException(ERROR_LIMIT_OVER);
         }

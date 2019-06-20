@@ -1,4 +1,4 @@
-package coordinatecalculator;
+package coordinatecalculator.model;
 
 import java.util.*;
 

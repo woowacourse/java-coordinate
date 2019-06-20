@@ -1,9 +1,9 @@
-package coordinatecalculator;
+package coordinatecalculator.model;
 
 import java.util.Arrays;
 import java.util.List;
 
-interface Figure {
+public interface Figure {
     String ERROR_POINTS_DUPLICATE
             = "위치가 같은 점(point)이 존재합니다. 각 점의 위치는 달라야 합니다.";
 

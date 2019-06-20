@@ -1,10 +1,13 @@
-package coordinatecalculator;
+package coordinatecalculator.view;
+
+import coordinatecalculator.model.Figure;
+import coordinatecalculator.model.Point;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-class Board {
+public class Board {
     private static final int BOARD_X_MIN = 1;
     private static final int BOARD_Y_MIN = 1;
     private static final int BOARD_X_MAX = 24;
@@ -20,7 +23,7 @@ class Board {
 
     private final List<SingleLine> lines = new ArrayList<>();
 
-    Board(Figure figure) {
+    public Board(Figure figure) {
         boolean flip = false;
         for (int i = BOARD_Y_MIN; i <= BOARD_Y_MAX; i++) {
             lines.add(new SingleLine(i, BOARD_X_MAX, BOARD_Y_MAX, flip));
@@ -67,7 +70,7 @@ class Board {
         return result.toString();
     }
 
-    String getString() {
+    public String getString() {
         SingleLine line;
         StringBuilder result = new StringBuilder();
         ListIterator iterator = lines.listIterator(lines.size());

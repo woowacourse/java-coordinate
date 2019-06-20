@@ -1,13 +1,13 @@
-package coordinatecalculator;
+package coordinatecalculator.model;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
-class Triangle extends Polygon {
+public class Triangle extends Polygon {
     private static final DecimalFormat FORMAT = new DecimalFormat("0.###");
 
-    Triangle(List<Point> points) {
+    public Triangle(List<Point> points) {
         super(points);
         lines = makeSegment(this.points);
     }

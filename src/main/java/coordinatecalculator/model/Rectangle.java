@@ -1,4 +1,4 @@
-package coordinatecalculator;
+package coordinatecalculator.model;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -6,12 +6,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-class Rectangle extends Polygon {
+public class Rectangle extends Polygon {
     private static final DecimalFormat FORMAT = new DecimalFormat("0.###");
 
     private List<Triangle> triangles = new ArrayList<>();
 
-    Rectangle(List<Point> points) {
+    public Rectangle(List<Point> points) {
         super(points);
 
         // 순서 재배열 및 삼각형 2개로 나누기
