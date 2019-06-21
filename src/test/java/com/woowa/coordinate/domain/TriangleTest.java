@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TriangleTest {
     @Test
-    void not_enough_points_to_generate_triangle() {
+    void 부족한_수의_Point로_삼각형_생성시_예외처리() {
         Point point1 = new Point(1, 5);
         Point point2 = new Point(1, 2);
         List<Point> points = Arrays.asList(point1, point2);
@@ -22,7 +22,7 @@ class TriangleTest {
     }
 
     @Test
-    void not_triangle_but_three_points_on_a_line() {
+    void 세_점이_선분_위에_있는_경우_예외처리() {
         Point point1 = new Point(1, 5);
         Point point2 = new Point(1, 2);
         Point point3 = new Point(1, 8);
@@ -33,7 +33,7 @@ class TriangleTest {
     }
 
     @Test
-    void area() {
+    void 삼각형_넓이_확인() {
         Point top = new Point(3, 5);
         Point leftBottom = new Point(1, 2);
         Point rightBottom = new Point(1, 8);

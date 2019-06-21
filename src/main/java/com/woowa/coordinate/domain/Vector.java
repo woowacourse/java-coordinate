@@ -16,7 +16,7 @@ public class Vector {
         this.deltaY = deltaY;
     }
 
-    public static Vector get(Points points, int startPoint, int endPoint) {
+    public static Vector getVector(Points points, int startPoint, int endPoint) {
         return new Vector(points.get(startPoint), points.get(endPoint));
     }
 

@@ -7,30 +7,30 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CoordinateTest {
     @Test
-    void value_lower_bound_zero() {
+    void 최소값_0_초과시_예외처리_테스트() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Coordinate(-1);
         });
     }
 
     @Test
-    void value_upper_bound_24() {
+    void 최댓값_24_초과시_예외처리_테스트() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Coordinate(25);
         });
     }
 
     @Test
-    void subtract() {
+    void 객체_뺄셈_메서드_테스트() {
         Coordinate coordinate1 = new Coordinate(10);
         Coordinate coordinate2 = new Coordinate(1);
         assertThat(coordinate1.subtract(coordinate2)).isEqualTo(9);
     }
 
     @Test
-    void subtract_reverse() {
+    void 객체_뺄셈_메서드_반대로_계산해보기() {
         Coordinate coordinate1 = new Coordinate(1);
         Coordinate coordinate2 = new Coordinate(10);
-        assertThat(coordinate1.subtract(coordinate2)).isEqualTo(9);
+        assertThat(coordinate1.subtract(coordinate2)).isEqualTo(-9);
     }
 }

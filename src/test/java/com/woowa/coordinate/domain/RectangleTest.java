@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {
     @Test
-    void not_enough_points_to_generate_rectangle() {
+    void 부족한_수의_Point로_생성시_예외_확인() {
         List<Point> points = Arrays.asList(
                 new Point(1, 1),
                 new Point(9, 1),
@@ -24,7 +24,7 @@ public class RectangleTest {
     }
 
     @Test
-    void invalid_generate_diamond_not_rectangle() {
+    void 마름모인_경우_예외_처리() {
         List<Point> points = Arrays.asList(
                 new Point(1, 1),
                 new Point(9, 1),
@@ -37,7 +37,7 @@ public class RectangleTest {
     }
 
     @Test
-    void invalid_generate_trapezoid_not_rectangle() {
+    void 사다리꼴인_경우_예외_처리() {
         List<Point> points = Arrays.asList(
                 new Point(4, 2),
                 new Point(4, 3),
@@ -50,7 +50,7 @@ public class RectangleTest {
     }
 
     @Test
-    void area() {
+    void 직사각형_넓이_확인() {
         Point leftDown = new Point(1, 1);
         Point rightDown = new Point(4, 1);
         Point leftUp = new Point(4, 3);
@@ -60,7 +60,7 @@ public class RectangleTest {
     }
 
     @Test
-    void area2() {
+    void 정사각형_넓이_확인() {
         Point leftDown = new Point(3, 4);
         Point rightDown = new Point(4, 3);
         Point leftUp = new Point(3, 3);

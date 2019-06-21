@@ -21,13 +21,13 @@ public class Rectangle extends AbstractFigure {
     }
 
     private boolean hasRightAngle(Points points) {
-        return Vector.get(points, START_POINT, 1)
-                .sum(Vector.get(points, START_POINT, 2))
-                .equals(Vector.get(points, START_POINT, 3));
+        Vector criteriaToNeighbor = Vector.getVector(points, START_POINT, 1);
+        Vector summationTwoNeighborVector = criteriaToNeighbor.sum(Vector.getVector(points, START_POINT, 2));
+        return summationTwoNeighborVector.equals(Vector.getVector(points, START_POINT, 3));
     }
 
     private boolean isDotProductZero(Points points) {
-        return Vector.get(points, START_POINT, 1).dotProduct(Vector.get(points, START_POINT, 2)) != 0;
+        return Vector.getVector(points, START_POINT, 1).dotProduct(Vector.getVector(points, START_POINT, 2)) != 0;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double area() {
-        return Vector.get(super.getPoints(), START_POINT, 1)
-                .absCrossProduct(Vector.get(super.getPoints(), START_POINT, 2));
+        return Vector.getVector(super.getPoints(), START_POINT, 1)
+                .absCrossProduct(Vector.getVector(super.getPoints(), START_POINT, 2));
     }
 }

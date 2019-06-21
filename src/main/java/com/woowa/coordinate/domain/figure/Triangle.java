@@ -15,10 +15,13 @@ public class Triangle extends AbstractFigure {
     }
 
     private void validTriangle(Points points) {
-        if (Vector.get(points, 0, 1)
-                .absCrossProduct(Vector.get(points, 1, 2)) == 0) {
+        if (isCrossProductZero(points, Vector.getVector(points, 0, 1))) {
             throw new IllegalArgumentException(TRIANGLE_ERROR);
         }
+    }
+
+    private boolean isCrossProductZero(Points points, Vector criteriaToNeighbor) {
+        return criteriaToNeighbor.absCrossProduct(Vector.getVector(points, 1, 2)) == 0;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public double area() {
-        return Vector.get(super.getPoints(), 0, 1)
-                .absCrossProduct(Vector.get(super.getPoints(), 1, 2)) / AREA_DIVIDE_FACTOR;
+        return Vector.getVector(super.getPoints(), 0, 1)
+                .absCrossProduct(Vector.getVector(super.getPoints(), 1, 2)) / AREA_DIVIDE_FACTOR;
     }
 }
