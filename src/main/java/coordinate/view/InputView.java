@@ -9,15 +9,18 @@ import java.util.stream.Collectors;
 
 public class InputView {
     private static Scanner SCANNER = new Scanner(System.in);
+    private static Pattern INPUT_PATTERN = Pattern.compile("\\(\\d(\\d)?,\\d(\\d)?\\)(-\\(\\d(\\d)?,\\d(\\d)?\\))*");
 
     public static List<String> inputPoints() {
         System.out.println("좌표를 입력하세요.");
         String input = SCANNER.nextLine();
-        Matcher matcher = Pattern.compile("\\(\\d(\\d)?,\\d(\\d)?\\)(-\\(\\d(\\d)?,\\d(\\d)?\\))*").matcher(input);
+        Matcher matcher = INPUT_PATTERN.matcher(input);
 
         if (matcher.find()) {
             List<String> points = Arrays.asList(input.split("-"));
-            return points.stream().map(s -> s.substring(1, s.length() - 1)).collect(Collectors.toList());
+            return points.stream()
+                    .map(s -> s.substring(1, s.length() - 1))
+                    .collect(Collectors.toList());
         }
         throw new IllegalArgumentException("올바른 입력 형식이 아닙니다.");
     }

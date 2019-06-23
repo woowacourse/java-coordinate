@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FigureController {
+    private static final int X_INDEX = 0;
+    private static final int Y_INDEX = 1;
     private final Figure figure;
 
     public FigureController() {
@@ -30,7 +32,7 @@ public class FigureController {
         List<Point> points = new ArrayList<>();
         for (String s : InputView.inputPoints()) {
             String[] xy = s.split(",");
-            points.add(new Point(Integer.parseInt(xy[0]), Integer.parseInt(xy[1])));
+            points.add(new Point(Integer.parseInt(xy[X_INDEX]), Integer.parseInt(xy[Y_INDEX])));
         }
         return points;
     }
