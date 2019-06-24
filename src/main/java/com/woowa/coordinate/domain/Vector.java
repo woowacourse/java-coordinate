@@ -7,8 +7,8 @@ public class Vector {
     private final Delta deltaY;
 
     public Vector(Point start, Point end) {
-        this.deltaX = new Delta(start.subtractX(end));
-        this.deltaY = new Delta(start.subtractY(end));
+        this.deltaX = new Delta(end.subtractX(start));
+        this.deltaY = new Delta(end.subtractY(start));
     }
 
     public Vector(Delta deltaX, Delta deltaY) {

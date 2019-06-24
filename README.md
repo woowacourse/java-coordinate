@@ -47,12 +47,12 @@
     - Triangle
         - contains three Point instance
 
-### TODO LIST
+### 피드백 반영 TODO LIST
 
-[ ] Delta 테스트
+- [x] Delta 테스트
 
-[ ] GenerateFigure 테스트
+- [x] GenerateFigure 테스트
 
-[ ] DuplicateChecker 테스트
+- [x] DuplicateChecker 테스트
 
-[x] InputParser 테스트
+- [x] InputParser 테스트

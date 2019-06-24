@@ -20,12 +20,12 @@ public class Point {
         return new Point(separated[0], separated[1]);
     }
 
-    public int subtractX(Point point) {
-        return (point.x).subtract(this.x);
+    int subtractX(Point point) {
+        return x.subtract(point.x);
     }
 
-    public int subtractY(Point point) {
-        return (point.y).subtract(this.y);
+    int subtractY(Point point) {
+        return y.subtract(point.y);
     }
 
     public double distance(Point point) {
