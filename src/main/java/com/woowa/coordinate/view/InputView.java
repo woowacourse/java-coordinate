@@ -20,7 +20,7 @@ public class InputView {
         }
     }
 
-    public static Points getRequest() {
+    private static Points getRequest() {
         OutputView.request();
         return InputParser.point(request());
     }

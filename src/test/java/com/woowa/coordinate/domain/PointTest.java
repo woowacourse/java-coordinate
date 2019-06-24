@@ -20,9 +20,7 @@ public class PointTest {
 
     @Test
     void 유효하지_않은_point_예외_처리() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Point(-1, 1);
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Point(-1, 1));
     }
 
     @Test

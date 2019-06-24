@@ -18,7 +18,7 @@ public class InputParser {
     }
 
     private static void validStyle(String input) {
-        if(!input.matches("(\\([0-9]+,[0-9]+\\))+(\\-\\([0-9]+,[0-9]+\\)+)*")) {
+        if (!input.matches("(\\([0-9]+,[0-9]+\\))+(\\-\\([0-9]+,[0-9]+\\)+)*")) {
             throw new IllegalArgumentException(FORMAT_ERROR);
         }
     }

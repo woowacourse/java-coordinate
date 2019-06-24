@@ -15,7 +15,7 @@ public class Rectangle extends AbstractFigure {
     }
 
     private void validRectangle(Points points) {
-        if(isDotProductZero(points) || !hasRightAngle(points))  {
+        if (isDotProductZero(points) || !hasRightAngle(points)) {
             throw new IllegalArgumentException(RECTANGLE_ERROR);
         }
     }
