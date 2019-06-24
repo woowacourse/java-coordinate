@@ -46,3 +46,13 @@
 1. Domain
     - Triangle
         - contains three Point instance
+
+### TODO LIST
+
+[ ] Delta 테스트
+
+[ ] GenerateFigure 테스트
+
+[ ] DuplicateChecker 테스트
+
+[x] InputParser 테스트
