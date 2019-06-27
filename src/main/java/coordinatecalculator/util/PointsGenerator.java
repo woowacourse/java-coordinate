@@ -7,9 +7,10 @@ import java.util.*;
 
 public class PointsGenerator {
     private static final String DUPLICATED_POINT_MESSAGE = "중복되는 점이 존재합니다. 다시 입력해주세요.";
+    private static final String DELIMITER = "-";
 
     public static Points create(String input) {
-        String[] inputs = input.split("-");
+        String[] inputs = input.split(DELIMITER);
         List<Point> points = new ArrayList<>();
 
         for (String s : inputs) {

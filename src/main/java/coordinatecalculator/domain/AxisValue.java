@@ -3,6 +3,8 @@ package coordinatecalculator.domain;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AxisValue {
     private static final String INVALID_INPUT_FORMAT_MESSAGE = "좌표 값은 자연수여야 합니다.";
@@ -10,6 +12,7 @@ public class AxisValue {
     private static final int AXIS_LOWER_BOUND = 1;
     private static final int AXIS_UPPER_BOUND = 24;
     private static final Map<Integer, AxisValue> AXIS_VALUES = new HashMap<>();
+    private static final String NUMERIC_CHECKER = "(\\d+)?";
 
     static {
         for (int i = AXIS_LOWER_BOUND; i <= AXIS_UPPER_BOUND; i++) {
@@ -35,7 +38,10 @@ public class AxisValue {
     }
 
     private static void checkNumeric(String input) {
-        if (!input.matches("(\\d+)?")) {
+        Pattern numericChecker = Pattern.compile(NUMERIC_CHECKER);
+        Matcher matcher = numericChecker.matcher(input);
+
+        if (!matcher.find()) {
             throw new IllegalArgumentException(INVALID_INPUT_FORMAT_MESSAGE);
         }
     }
