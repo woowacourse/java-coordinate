@@ -2,7 +2,6 @@ package coordinatecalculator.view;
 
 import coordinatecalculator.domain.Point;
 import coordinatecalculator.domain.Points;
-import coordinatecalculator.view.Drawer;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -13,10 +12,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DrawerTest {
     @Test
     void 포인트가_좌표에_정상적으로_찍히는지_테스트() {
-        Points points = new Points(Arrays.asList(new Point("1", "1"),new Point("1", "3"), new Point("3", "1"),new Point("3", "3")));
+        Points points = new Points(Arrays.asList(new Point("1", "1"), new Point("1", "3"), new Point("3", "1"), new Point("3", "3")));
         Drawer drawer = Drawer.newInstance(points);
         String expectedResult =
-                        "24|                                                " +
+                "24|                                                " +
                         "  |                                                " +
                         "22|                                                " +
                         "  |                                                " +

@@ -4,7 +4,6 @@ import coordinatecalculator.domain.Point;
 import coordinatecalculator.domain.Points;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
