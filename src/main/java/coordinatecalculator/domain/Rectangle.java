@@ -35,8 +35,12 @@ public class Rectangle extends AbstractFigure {
         Point p3 = points.get(2);
         Point p4 = points.get(3);
 
-        return !(p1.differenceByX(p2) == SAME_POSITION && p3.differenceByX(p4) == SAME_POSITION
-                && p1.differenceByY(p3) == SAME_POSITION && p2.differenceByY(p4) == SAME_POSITION);
+        return !checkDuplicatedPoint(p1, p2, p3, p4);
+    }
+
+    private boolean checkDuplicatedPoint(Point p1, Point p2, Point p3, Point p4) {
+        return p1.differenceByX(p2) == SAME_POSITION && p3.differenceByX(p4) == SAME_POSITION
+                && p1.differenceByY(p3) == SAME_POSITION && p2.differenceByY(p4) == SAME_POSITION;
     }
 
     @Override
