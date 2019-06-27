@@ -34,7 +34,7 @@ public class RentCompany {
 
     String generateReport() {
         StringBuilder sb = new StringBuilder();
-        for (Car car : cars) {
+        for (Vehicle car : cars) {
             sb.append(car.generateReport());
         }
         return sb.toString();
