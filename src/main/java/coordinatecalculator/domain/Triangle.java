@@ -2,6 +2,7 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.domain.parent.AbstractFigure;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
@@ -9,7 +10,7 @@ public class Triangle extends AbstractFigure {
     private static final String NAME = "삼각형";
     private static final String RESULT_TYPE = "넓이";
     private static final int SAME_POSITION = 0;
-    private static final int HERON_NUMBER = 2;
+    private static final BigDecimal HERON_NUMBER = BigDecimal.valueOf(2);
 
     private Triangle(Points points) {
         super(points);
@@ -50,12 +51,13 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public double calculateResult() {
-        double side1 = points.differenceBy(0, 1);
-        double side2 = points.differenceBy(1, 2);
-        double side3 = points.differenceBy(2, 0);
-        double s = (side1 + side2 + side3) / HERON_NUMBER;
+        BigDecimal side1 = BigDecimal.valueOf(points.differenceBy(0, 1));
+        BigDecimal side2 = BigDecimal.valueOf(points.differenceBy(1, 2));
+        BigDecimal side3 = BigDecimal.valueOf(points.differenceBy(2, 0));
 
-        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+        BigDecimal s = side1.add(side2).add(side3).divide(HERON_NUMBER);
+
+        return Math.sqrt(s.multiply(s.subtract(side1)).multiply(s.subtract(side2)).multiply(s.subtract(side3)).doubleValue());
     }
 
     @Override

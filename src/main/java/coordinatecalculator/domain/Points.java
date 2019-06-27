@@ -12,7 +12,7 @@ public class Points {
         this.points = points;
     }
 
-    public double differenceBy(int pointIndex1, int pointIndex2) {
+    double differenceBy(int pointIndex1, int pointIndex2) {
         return points.get(pointIndex1).differenceBetween(points.get(pointIndex2));
     }
 
@@ -24,7 +24,7 @@ public class Points {
         return Collections.unmodifiableList(clonedPoints);
     }
 
-    public int size() {
+    int size() {
         return points.size();
     }
 

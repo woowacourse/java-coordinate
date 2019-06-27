@@ -2,6 +2,7 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.domain.parent.AbstractFigure;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Rectangle extends AbstractFigure {
@@ -44,7 +45,8 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double calculateResult() {
-        return points.differenceBy(0, 1) * points.differenceBy(2, 0);
+        return BigDecimal.valueOf(points.differenceBy(0, 1))
+                .multiply(BigDecimal.valueOf(points.differenceBy(2, 0))).doubleValue();
     }
 
     @Override
