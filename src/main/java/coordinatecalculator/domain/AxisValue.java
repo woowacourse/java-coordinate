@@ -33,8 +33,12 @@ public class AxisValue {
         return AXIS_VALUES.get(Integer.parseInt(key));
     }
 
-    public int getValue() {
+    int getValue() {
         return this.value;
+    }
+
+    int differenceBy(AxisValue axisValue) {
+        return Math.abs(this.value - axisValue.value);
     }
 
     private static void checkNumeric(String input) {
