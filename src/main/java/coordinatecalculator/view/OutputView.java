@@ -1,6 +1,5 @@
 package coordinatecalculator.view;
 
-import coordinatecalculator.domain.Drawer;
 import coordinatecalculator.domain.parent.Figure;
 
 import java.util.List;
