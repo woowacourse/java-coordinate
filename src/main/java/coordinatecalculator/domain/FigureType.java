@@ -26,7 +26,7 @@ public enum FigureType {
 
     private static Figure selectFigure(Points points) {
         return Arrays.stream(values())
-                .filter(p -> p.countOfPoints == points.getSortedPoints().size())
+                .filter(p -> p.countOfPoints == points.size())
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(INVALID_FIGURE_MESSAGE))
                 .figureFunction.apply(points);

@@ -12,6 +12,10 @@ public class Points {
         this.points = points;
     }
 
+    public double differenceBy(int pointIndex1, int pointIndex2) {
+        return points.get(pointIndex1).differenceBetween(points.get(pointIndex2));
+    }
+
     public List<Point> getSortedPoints() {
         List<Point> clonedPoints = new ArrayList<>(points);
 

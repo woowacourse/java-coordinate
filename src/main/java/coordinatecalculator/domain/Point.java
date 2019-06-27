@@ -19,12 +19,19 @@ public class Point implements Comparable<Point> {
         return y.getValue();
     }
 
-    public int differenceByX(Point point) {
-        return Math.abs(this.x.getValue() - point.x.getValue());
+    double differenceBetween(Point point) {
+        int dx = this.differenceByX(point);
+        int dy = this.differenceByY(point);
+
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
-    public int differenceByY(Point point) {
-        return Math.abs(this.y.getValue() - point.y.getValue());
+    int differenceByX(Point point) {
+        return this.x.differenceBy(point.x);
+    }
+
+    int differenceByY(Point point) {
+        return this.y.differenceBy(point.y);
     }
 
     @Override

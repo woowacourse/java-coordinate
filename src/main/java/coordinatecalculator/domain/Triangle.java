@@ -2,7 +2,6 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.domain.parent.AbstractFigure;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Triangle extends AbstractFigure {
@@ -51,10 +50,9 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public double calculateResult() {
-        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
-        double side1 = calculateLength(points.get(0), points.get(1));
-        double side2 = calculateLength(points.get(1), points.get(2));
-        double side3 = calculateLength(points.get(2), points.get(0));
+        double side1 = points.differenceBy(0, 1);
+        double side2 = points.differenceBy(1, 2);
+        double side3 = points.differenceBy(2, 0);
         double s = (side1 + side2 + side3) / HERON_NUMBER;
 
         return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
@@ -68,12 +66,5 @@ public class Triangle extends AbstractFigure {
     @Override
     public String getResultType() {
         return RESULT_TYPE;
-    }
-
-    private double calculateLength(Point p1, Point p2) {
-        int dx = p1.differenceByX(p2);
-        int dy = p1.differenceByY(p2);
-
-        return Math.sqrt(dx * dx + dy * dy);
     }
 }

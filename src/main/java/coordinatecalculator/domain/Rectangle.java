@@ -2,7 +2,6 @@ package coordinatecalculator.domain;
 
 import coordinatecalculator.domain.parent.AbstractFigure;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Rectangle extends AbstractFigure {
@@ -45,8 +44,7 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double calculateResult() {
-        List<Point> points = Collections.unmodifiableList(this.points.getSortedPoints());
-        return points.get(0).differenceByY(points.get(1)) * points.get(2).differenceByX(points.get(0));
+        return points.differenceBy(0, 1) * points.differenceBy(2, 0);
     }
 
     @Override
